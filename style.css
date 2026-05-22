@@ -181,19 +181,29 @@ body>nav.scrolled{border-bottom-color:var(--border2);box-shadow:0 1px 0 var(--bo
 .sec-desc{color:var(--muted);font-size:14px;margin-bottom:2rem;max-width:600px}
 .tabs{display:flex;gap:3px;border-bottom:1px solid var(--border);margin-bottom:1.5rem}
 .tab-btn{padding:8px 16px;font-size:13px;font-weight:500;color:var(--muted);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;font-family:var(--sans)}
-.tab-btn.active{color:var(--text);border-bottom-color:var(--phys)}
+.tab-btn.active{color:var(--text);border-bottom-color:var(--phys)}.tabs[data-tab="chim"] .tab-btn.active{border-bottom-color:var(--chim)}
 .tab-pane{display:none}.tab-pane.active{display:block}
 .chap-card{display:block;text-decoration:none;color:inherit;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem;transition:all .2s;position:relative;overflow:hidden;box-shadow:var(--shadow-sm)}
 .chap-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px}
 .chap-card.cp::after{background:var(--phys)}.chap-card.cc::after{background:var(--chim)}
 .chap-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:var(--shadow-md)}
-.chap-card .cn{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px}
-.chap-card .ct{font-size:13.5px;font-weight:600;margin-bottom:3px}
+.chap-card .cn{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:6px;margin-top:1.75rem}
+.chap-card .ct{font-size:15px;font-weight:600;margin-bottom:5px}
 .chap-card .cs{font-size:12px;color:var(--muted);line-height:1.5}
-.chap-card .badge{position:absolute;top:12px;right:12px}
-.oral-chip{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:12.5px;display:flex;align-items:center;gap:8px;transition:border-color .15s}
-.oral-chip:hover{border-color:var(--border2)}
-.oral-chip .on{font-family:var(--mono);font-size:10.5px;color:var(--muted);min-width:28px}
+.chap-card .badge{position:absolute;top:12px;left:12px}
+.oral-chip{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:12.5px;display:flex;align-items:center;gap:8px;transition:all .15s}
+.oral-chip:hover{border-color:var(--border2);box-shadow:var(--shadow-sm)}
+.oral-chip .on{font-family:var(--mono);font-size:10.5px;color:var(--muted);min-width:28px;font-weight:500}
+#tab-phys .oral-chip{border-left:3px solid var(--phys-b)}
+#tab-phys .oral-chip .on{color:var(--phys)}
+#tab-phys .oral-chip:hover{border-left-color:var(--phys)}
+#tab-chim .oral-chip{border-left:3px solid var(--chim-b)}
+#tab-chim .oral-chip .on{color:var(--chim)}
+#tab-chim .oral-chip:hover{border-left-color:var(--chim)}
+#tab-phys .oral-chip.oral-new{background:var(--phys-d);border-left-color:var(--phys)}
+#tab-phys .oral-chip.oral-new .on{font-weight:700}
+#tab-chim .oral-chip.oral-new{background:var(--chim-d);border-left-color:var(--chim)}
+#tab-chim .oral-chip.oral-new .on{font-weight:700}
 .g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
 .g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
 .g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}

@@ -79,7 +79,7 @@
   <h2>Chapitres à maîtriser</h2>
   <p class="desc">Clique sur un chapitre pour accéder à la fiche complète (13 sections : cours rigoureux, démonstrations clés, exercices résolus type concours, propositions de leçons pour l'oral, montages expérimentaux, pièges du jury, quiz).</p>
 
-  <div class="tabs">
+  <div class="tabs" data-tab="phys">
     <button class="tab-btn active" onclick="switchTab(event,'phys')">Physique (26 sujets oraux)</button>
     <button class="tab-btn" onclick="switchTab(event,'chim')">Chimie (28 sujets oraux)</button>
   </div>
@@ -159,11 +159,11 @@
       <div class="oral-chip"><span class="on">19</span> Frottements</div>
       <div class="oral-chip"><span class="on">20</span> Transmission de l'information</div>
       <div class="oral-chip"><span class="on">21</span> Ondes stationnaires</div>
-      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">22e</span> Cohésion du noyau</div>
-      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">23e</span> Gravitation & Kepler</div>
-      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">24e</span> Machines thermiques</div>
-      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">25e</span> Rayonnement thermique</div>
-      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">26e</span> Relativité du mouvement</div>
+      <div class="oral-chip oral-new"><span class="on">22e</span> Cohésion du noyau</div>
+      <div class="oral-chip oral-new"><span class="on">23e</span> Gravitation & Kepler</div>
+      <div class="oral-chip oral-new"><span class="on">24e</span> Machines thermiques</div>
+      <div class="oral-chip oral-new"><span class="on">25e</span> Rayonnement thermique</div>
+      <div class="oral-chip oral-new"><span class="on">26e</span> Relativité du mouvement</div>
     </div>
   </div>
 
@@ -247,8 +247,8 @@
       <div class="oral-chip"><span class="on">24</span> Couleur</div>
       <div class="oral-chip"><span class="on">25</span> Modification de fonctions</div>
       <div class="oral-chip"><span class="on">26</span> Modification de chaîne</div>
-      <div class="oral-chip" style="border-color:var(--chim-b)"><span class="on" style="color:var(--chim)">27e</span> Modélisation des solides</div>
-      <div class="oral-chip" style="border-color:var(--chim-b)"><span class="on" style="color:var(--chim)">28e</span> Classification périodique</div>
+      <div class="oral-chip oral-new"><span class="on">27e</span> Modélisation des solides</div>
+      <div class="oral-chip oral-new"><span class="on">28e</span> Classification périodique</div>
     </div>
   </div>
 </section>
@@ -537,6 +537,7 @@ function switchTab(ev, t){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('tab-'+t).classList.add('active');
   ev.currentTarget.classList.add('active');
+  document.querySelector('.tabs').dataset.tab = t;
 }
 
 // TRACKER (persistance localStorage)
