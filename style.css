@@ -27,11 +27,17 @@
   --shadow-lg: 0 10px 30px rgba(15,23,42,.08);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.68;-webkit-font-smoothing:antialiased}
 
-/* NAV */
-nav{position:sticky;top:0;z-index:200;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(244,245,247,.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+/* NAV — opaque pour éviter que les titres scrollent en transparence derrière */
+/* IMPORTANT : on cible UNIQUEMENT la nav top-level (enfant direct de body),
+   pas le <nav class="sidebar-nav"> qui vit dans la sidebar. */
+body>nav{position:sticky;top:0;z-index:300;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:var(--bg);border-bottom:1px solid var(--border);transition:box-shadow .2s ease,border-color .2s ease}
+body>nav.scrolled{border-bottom-color:var(--border2);box-shadow:0 1px 0 var(--border),0 4px 18px rgba(15,23,42,.045)}
+@supports (backdrop-filter:blur(1px)){
+  body>nav{background:rgba(244,245,247,.94);backdrop-filter:saturate(150%) blur(14px);-webkit-backdrop-filter:saturate(150%) blur(14px)}
+}
 .nav-logo{font-family:var(--serif);font-size:1.1rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .nav-badge{font-family:var(--mono);font-size:9px;color:var(--gold);background:var(--gold-d);border:1px solid rgba(245,166,35,.25);border-radius:4px;padding:2px 7px;text-transform:uppercase;letter-spacing:.06em}
 .nav-links{display:flex;gap:2px;list-style:none}
@@ -45,7 +51,7 @@ nav{position:sticky;top:0;z-index:200;height:56px;display:flex;align-items:cente
 .page-grid{display:grid;grid-template-columns:230px 1fr;gap:2.5rem;align-items:start;padding-bottom:5rem}
 
 /* SIDEBAR */
-.sidebar{position:sticky;top:72px;display:flex;flex-direction:column;gap:0;padding-top:2.5rem;align-self:start;max-height:calc(100vh - 80px);overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.sidebar{position:sticky;top:76px;z-index:50;display:flex;flex-direction:column;gap:0;padding-top:2.5rem;align-self:start;max-height:calc(100vh - 92px);overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .sidebar::-webkit-scrollbar{width:6px}
 .sidebar::-webkit-scrollbar-track{background:transparent}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
@@ -334,7 +340,8 @@ mjx-container .mjx-mfenced .mjx-char{}
 .sidebar-nav a::before{content:none}
 
 /* Scroll-behaviour pour les ancres : compense la sticky-nav */
-:target{scroll-margin-top:80px}
+:target{scroll-margin-top:96px}
+.sblock,.sblock h2,.sblock h3,.sblock[id]{scroll-margin-top:96px}
 
 /* Selection text */
 ::selection{background:rgba(37,99,235,.22);color:var(--text)}
@@ -365,3 +372,168 @@ blockquote{margin:1.2rem 0;padding:.5rem 1.1rem;border-left:2px solid var(--bord
   .demo-block,.key-box,.exo-body,.lecon-card,.jury-item{font-size:13px;padding:.85rem .95rem}
   .ascii-schema{font-size:10.5px;padding:.8rem .9rem}
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   REFINEMENTS v2 — raffinements visuels additifs
+   (chargés en fin de feuille pour surcharger proprement)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* — Tokens additionnels — */
+:root{
+  --r-sm:6px; --r-md:10px; --r-lg:14px;
+  --shadow-xs:0 1px 0 rgba(15,23,42,.04);
+  --ring-phys:0 0 0 3px rgba(37,99,235,.14);
+  --ring-chim:0 0 0 3px rgba(124,58,237,.14);
+}
+
+/* — Indicateur de progression de lecture en haut de viewport — */
+body::before{
+  content:'';position:fixed;top:0;left:0;height:2px;width:var(--scroll,0%);
+  background:linear-gradient(90deg,var(--phys),var(--chim));
+  z-index:400;pointer-events:none;transition:width .08s linear;
+  border-radius:0 2px 2px 0;
+}
+body.chim-page::before{background:linear-gradient(90deg,var(--chim),var(--gold))}
+
+/* — Nav : logo plus présent, badge plus net — */
+body>nav{padding:0 2.25rem}
+.nav-logo{font-size:1.15rem;letter-spacing:-.005em;gap:11px}
+.nav-logo::before{content:'';width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,var(--phys) 0%,var(--chim) 100%);display:inline-block;flex-shrink:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.nav-badge{font-size:9.5px;padding:3px 8px;letter-spacing:.08em;background:transparent;border-color:rgba(180,83,9,.32);color:var(--gold)}
+.nav-links{gap:1px}
+.nav-links a{font-size:13px;padding:6px 11px;font-weight:500;letter-spacing:-.002em}
+.nav-links a.active{box-shadow:inset 0 -2px 0 currentColor;border-radius:6px 6px 0 0;color:var(--text);background:transparent}
+
+/* — Hero chapitre : plus de respiration, gradient affiné — */
+.chap-hero{padding:3.25rem 0 2.5rem}
+.chap-hero::before{background:radial-gradient(ellipse 60% 140% at 92% 50%,rgba(37,99,235,.075) 0%,transparent 65%),radial-gradient(circle at 15% 10%,rgba(180,83,9,.04) 0%,transparent 50%)}
+.chap-hero.c::before{background:radial-gradient(ellipse 60% 140% at 92% 50%,rgba(124,58,237,.085) 0%,transparent 65%),radial-gradient(circle at 15% 10%,rgba(180,83,9,.04) 0%,transparent 50%)}
+.chap-hero h1{font-size:clamp(2rem,3.8vw,3rem);letter-spacing:-.018em;line-height:1.08}
+.chap-hero .lead{font-size:14.5px;line-height:1.78;max-width:660px;color:var(--muted2)}
+.chap-eyebrow{font-size:10.5px;letter-spacing:.13em}
+
+/* — Sidebar : présence renforcée, scrollspy plus élégant — */
+.sidebar{padding-top:2.65rem}
+.sidebar-head,.sidebar-chapters-head{font-size:9.5px;letter-spacing:.14em;color:var(--muted);position:relative}
+.sidebar-head::after{content:'';display:block;width:18px;height:1px;background:var(--border2);margin-top:6px;margin-left:10px}
+.sidebar-nav{gap:0}
+.sidebar-nav a{font-size:12.5px;padding:7px 10px 7px 16px;border-left-width:2px;border-radius:0 6px 6px 0;margin:1px 0;position:relative;letter-spacing:-.003em}
+.sidebar-nav a:hover{background:rgba(15,23,42,.04);transform:translateX(1px)}
+.sidebar-nav a.active,.sidebar-nav a.current{color:var(--text);font-weight:600;background:var(--phys-d);border-left-color:var(--phys)}
+body.chim-page .sidebar-nav a.active,body.chim-page .sidebar-nav a.current{background:var(--chim-d);border-left-color:var(--chim)}
+.sidebar-chapters a.cur{background:linear-gradient(90deg,rgba(124,58,237,.08),transparent);padding-left:11px;border-left:2px solid var(--chim);border-radius:0 6px 6px 0;color:var(--text)}
+.sidebar-chapters a.cur .dot{box-shadow:0 0 0 3px var(--chim-d)}
+
+/* — Sections : numérotation plus présente — */
+.sblock{padding:2.75rem 0;border-bottom:1px solid var(--border);position:relative}
+.sblock-num{font-size:9.5px;letter-spacing:.14em;color:var(--muted);margin-bottom:.6rem;display:inline-flex;align-items:center;gap:8px}
+.sblock-num::before{content:'';width:14px;height:1px;background:var(--phys);opacity:.7}
+body.chim-page .sblock-num::before{background:var(--chim)}
+.sblock h2{font-family:var(--serif);font-size:1.65rem;line-height:1.18;letter-spacing:-.012em;margin-bottom:.45rem}
+.sblock h3{font-size:1.18rem;color:var(--text);margin:1.75rem 0 .6rem;letter-spacing:-.005em;position:relative;padding-left:0}
+.sblock h3::before{content:'';position:absolute;left:-14px;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:.6;transform:translateY(-50%)}
+.sblock .intro{font-size:14.5px;line-height:1.8;color:var(--muted2);max-width:680px;margin-bottom:1.6rem}
+
+/* — fbox : encadré formule plus poli — */
+.fbox{background:linear-gradient(180deg,var(--bg3) 0%,#f6f6f9 100%);border-radius:var(--r-md);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1.2rem 1.4rem;box-shadow:var(--shadow-xs)}
+.fbox .fl{font-size:9.5px;letter-spacing:.12em;color:var(--gold);font-weight:600}
+.fbox hr{border-top-color:rgba(15,23,42,.06)}
+
+/* — notion : carte plus tactile — */
+.notion{border-radius:var(--r-lg);padding:1.3rem 1.45rem;background:var(--bg2);border:1px solid var(--border);transition:transform .18s ease,box-shadow .2s ease,border-color .2s ease}
+.notion:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(15,23,42,.07);border-color:var(--border2)}
+.notion-title{font-size:13.5px;letter-spacing:-.005em}
+.nt-bar{height:18px}
+
+/* — alert / key-box / demo : coins arrondis cohérents — */
+.alert,.demo-block,.jury-item,.key-box{border-radius:0 var(--r-md) var(--r-md) 0}
+.key-box{background:linear-gradient(135deg,var(--phys-d),rgba(37,99,235,.02));padding:1.05rem 1.25rem}
+.key-box.c{background:linear-gradient(135deg,var(--chim-d),rgba(124,58,237,.02))}
+
+/* — Tableaux : tête plus discrète, lignes plus respirantes — */
+table.compact{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--border)}
+table.compact th{background:#eef0f4;font-size:10.5px;letter-spacing:.1em;font-weight:600;padding:.7rem .85rem}
+table.compact td{padding:.7rem .85rem;font-size:13px}
+table.compact tr:last-child td{border-bottom:none}
+table.compact tr:hover td{background:rgba(15,23,42,.03)}
+
+/* — Exercices : summary + body plus net — */
+.exo-block{border-radius:var(--r-lg)}
+.exo-block summary{padding:.95rem 1.25rem;font-size:13px;letter-spacing:-.003em}
+.exo-block summary:hover{background:rgba(37,99,235,.045)}
+.exo-block[open] summary{background:linear-gradient(180deg,rgba(37,99,235,.06),transparent)}
+body.chim-page .exo-block summary{color:var(--chim)}
+body.chim-page .exo-block summary:hover{background:rgba(124,58,237,.05)}
+body.chim-page .exo-block[open] summary{background:linear-gradient(180deg,rgba(124,58,237,.06),transparent)}
+
+/* — Leçon / Montage : ruban gauche pour ancrer la carte — */
+.lecon-card{border-radius:var(--r-lg);position:relative;overflow:hidden;padding-left:1.4rem}
+.lecon-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--phys),var(--chim));opacity:.55}
+body.chim-page .lecon-card::before{background:linear-gradient(180deg,var(--chim),var(--gold))}
+.lecon-card h4{font-size:1.18rem;letter-spacing:-.008em}
+
+/* — Badges hero : plus de finesse — */
+.badge{font-size:10px;padding:3.5px 9px;border-radius:6px;letter-spacing:.04em;font-weight:500}
+
+/* — Page-nav prev/next : carte plus aérée — */
+.page-nav{margin-top:3.5rem;padding-top:2rem}
+.pnav-link{padding:1.1rem 1.3rem;border-radius:var(--r-lg)}
+.pnav-label{font-size:10px;letter-spacing:.1em;margin-bottom:.2rem}
+.pnav-title{font-size:14px}
+.pnav-link:hover{border-color:var(--phys-b)}
+body.chim-page .pnav-link:hover{border-color:var(--chim-b)}
+
+/* — Strip de tous les chapitres en pied de page — */
+.chap-strip{gap:8px;margin-top:2.5rem;padding:1.5rem 0 0;border-color:var(--border)}
+.cs-link{padding:9px 12px;border-radius:8px;font-size:12px;transition:all .18s ease}
+.cs-link:hover{background:var(--bg2);transform:translateY(-1px)}
+
+/* — Focus visible accessibilité — */
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:none;box-shadow:var(--ring-phys);border-radius:6px}
+body.chim-page a:focus-visible,body.chim-page button:focus-visible,body.chim-page summary:focus-visible{box-shadow:var(--ring-chim)}
+
+/* — Sélection texte : couleur de la matière — */
+::selection{background:rgba(37,99,235,.18)}
+body.chim-page ::selection{background:rgba(124,58,237,.2)}
+
+/* — MathJax : éviter les débordements latéraux dans les colonnes étroites — */
+mjx-container[display="true"]{font-size:1em !important;max-width:100%}
+.fbox mjx-container[display="true"]{font-size:1.02em !important}
+
+/* — Index : home-hero plus immersif — */
+.home-hero h1{letter-spacing:-.025em;line-height:1.06}
+.home-hero .lead{font-size:15.5px;line-height:1.78}
+.chap-card{transition:transform .2s ease,box-shadow .25s ease,border-color .2s ease}
+.chap-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(15,23,42,.08)}
+.chap-card .ct{font-size:14px;letter-spacing:-.005em}
+.chap-card .cs{font-size:12.5px;line-height:1.55}
+.stat-pill .sv{letter-spacing:-.02em}
+.stat-pill{padding:.95rem 1.5rem;border-radius:var(--r-lg)}
+
+/* — Print : nav et sidebar masquées, contenu pleine page — */
+@media print{
+  nav,.sidebar,.page-nav,.chap-strip,body::before,.chap-eyebrow::before{display:none !important}
+  .page-grid{display:block !important;padding:0}
+  .content-wrap{padding-top:0}
+  .chap-hero{padding:1rem 0;border:none}
+  .chap-hero h1{font-size:1.8rem}
+  .sblock{break-inside:avoid;padding:1rem 0}
+  .fbox,.notion,.demo-block,.key-box,.exo-block,.lecon-card,.jury-item{break-inside:avoid;page-break-inside:avoid;box-shadow:none}
+  body{font-size:11.5pt;line-height:1.55}
+  a{color:inherit;text-decoration:none}
+}
+
+/* — Responsive : ajustements du chapitre — */
+@media(max-width:1024px){
+  .chap-hero{padding:2.5rem 0 2rem}
+  .sblock{padding:2.25rem 0}
+  .sblock h2{font-size:1.45rem}
+}
+@media(max-width:820px){
+  body::before{height:2px}
+  .nav-logo::before{width:16px;height:16px}
+  .chap-hero{padding:1.75rem 0 1.5rem}
+  .chap-hero h1{font-size:1.55rem}
+  .sblock h3::before{display:none}
+}
+
