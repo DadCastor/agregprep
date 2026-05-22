@@ -547,3 +547,8 @@ mjx-container[display="true"]{font-size:1em !important;max-width:100%}
   .sblock h3::before{display:none}
 }
 
+/* ── CARD INDEX FIX — doit rester en dernière position pour surcharger REFINEMENTS v2 ── */
+.chap-card .badge{position:static !important;display:inline-flex;margin-bottom:.5rem;margin-top:.2rem}
+.chap-card .cn{margin-top:0}
+.chap-card .ct{font-size:15px !important;letter-spacing:-.005em;margin-bottom:5px}
+
