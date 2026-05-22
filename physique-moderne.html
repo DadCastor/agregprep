@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physique moderne & Astrophysique — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero r">
+    <div class="chap-eyebrow">Physique · Sujets oraux 22e, 23e, 25e, 26e</div>
+    <h1>Physique moderne <em>& Astrophysique</em></h1>
+    <p class="lead">Sujets oraux n°22e (Cohésion du noyau), n°23e (Gravitation képlérienne), n°25e (Rayonnement), n°26e (Relativité). Mécanique quantique, physique nucléaire, relativité restreinte, gravitation et mouvements képlériens.</p>
+    <div class="chap-badges"><span class="badge bp">Sujets oraux 22e, 23e, 25e, 26e</span> <span class="badge br">Niveau avancé</span> <span class="badge bg">Exposés spécifiques</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#photons">01 · Photons & dualité</a>
+        <a href="#quantique">02 · Mécanique quantique</a>
+        <a href="#applications-q">03 · Puits, tunnel, oscillateur</a>
+        <a href="#noyau">04 · Cohésion du noyau</a>
+        <a href="#radioactivite">05 · Radioactivité</a>
+        <a href="#energie-nuc">06 · Énergie nucléaire</a>
+        <a href="#relativite">07 · Relativité restreinte</a>
+        <a href="#gravitation">08 · Gravitation & Kepler</a>
+        <a href="#pedagogie">09 · Pédagogie</a>
+        <a href="#demos">10 · Démonstrations clés</a>
+        <a href="#exercices">11 · Exercices résolus</a>
+        <a href="#lecons-montages">12 · Leçons & Montages</a>
+        <a href="#jury">13 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="cur" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 PHOTONS ═══════════════════ -->
+<div class="sblock r" id="photons">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Photons et dualité onde-corpuscule</h2>
+  <p class="intro">Les anomalies expérimentales (1900-1925) ont imposé une révolution conceptuelle : la lumière est à la fois onde et corpuscule, et il en va de même pour les particules massives.</p>
+
+  <h3>1.1 Effet photoélectrique (Einstein 1905)</h3>
+  <div class="fbox r">
+    <span class="fl">Quantification de l'énergie de la lumière</span>
+    <span class="fc">L'éjection d'électrons par un métal éclairé suit la loi :</span>
+    <span class="fm">\[ E_{c,\text{max}} \;=\; h\nu - W_s \]</span>
+    <span class="fc">avec \(h = 6{,}626\times 10^{-34}\,\mathrm{J\cdot s}\) (constante de Planck), \(\nu\) fréquence du photon, \(W_s\) travail de sortie du métal (~ eV).</span>
+    <hr>
+    <span class="fc">Conséquences :</span>
+    <span class="fc">— Existence d'une fréquence seuil \(\nu_0 = W_s/h\) en dessous de laquelle aucun électron n'est éjecté, indépendamment de l'intensité.</span>
+    <span class="fc">— \(E_c\) dépend de \(\nu\), pas de l'intensité (qui contrôle seulement le nombre d'électrons éjectés).</span>
+    <hr>
+    <span class="fc">Le photon est introduit comme « grain » d'énergie \(E = h\nu = \hbar\omega\), confirmant la quantification de l'énergie EM.</span>
+  </div>
+
+  <h3>1.2 Effet Compton (1923)</h3>
+  <div class="fbox r">
+    <span class="fl">Diffusion d'un photon X par un électron libre</span>
+    <span class="fc">Décalage en longueur d'onde après diffusion d'angle \(\theta\) :</span>
+    <span class="fm">\[ \lambda' - \lambda \;=\; \dfrac{h}{m_e\,c}\,(1 - \cos\theta) \;=\; \lambda_C\,(1 - \cos\theta) \]</span>
+    <span class="fc">avec \(\lambda_C = h/(m_e c) \approx 2{,}43\,\mathrm{pm}\) longueur d'onde de Compton.</span>
+    <hr>
+    <span class="fc">Démonstration : conservation de l'énergie-impulsion relativiste sur le système photon + électron. Le photon possède une <strong>impulsion</strong> \(p = h/\lambda = E/c\), comme une particule.</span>
+  </div>
+
+  <h3>1.3 Onde de de Broglie (1924)</h3>
+  <div class="fbox r">
+    <span class="fl">Dualité onde-corpuscule pour particules massives</span>
+    <span class="fc">Toute particule massive est associée à une onde de longueur :</span>
+    <span class="fm">\[ \boxed{\;\lambda_{\text{dB}} \;=\; \dfrac{h}{p} \;=\; \dfrac{h}{m\,v}\;} \]</span>
+    <hr>
+    <span class="fc">Vérification expérimentale : diffraction d'électrons par un cristal (Davisson-Germer, 1927) — onde diffractée comme des rayons X.</span>
+    <hr>
+    <span class="fc">Ordres de grandeur :</span>
+    <span class="fm">\[ \text{Électron à 100 eV :}\ \lambda \approx 0{,}12\,\mathrm{nm}\ (\sim\text{distance interatomique}) \]</span>
+    <span class="fm">\[ \text{Balle de tennis (60 g, 30 m/s) :}\ \lambda \approx 4\times 10^{-34}\,\mathrm{m}\ (\text{indétectable}) \]</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 QUANTIQUE ═══════════════════ -->
+<div class="sblock r" id="quantique">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Mécanique quantique — postulats et Schrödinger</h2>
+  <p class="intro">Cadre conceptuel et mathématique de la physique quantique. La fonction d'onde \(\psi\) décrit l'état du système.</p>
+
+  <div class="fbox r">
+    <span class="fl">Postulats principaux</span>
+    <span class="fc"><strong>P1 (état)</strong> : L'état d'un système quantique est entièrement décrit par une fonction d'onde \(\psi(\vec{r},t)\), complexe, normalisée :</span>
+    <span class="fm">\[ \int |\psi(\vec{r},t)|^{2}\,\mathrm{d}^{3}r \;=\; 1 \]</span>
+    <hr>
+    <span class="fc"><strong>P2 (interprétation, Born)</strong> : \(|\psi(\vec{r},t)|^{2}\,\mathrm{d}^{3}r\) est la probabilité de trouver la particule dans \(\mathrm{d}^{3}r\) autour de \(\vec{r}\) à \(t\).</span>
+    <hr>
+    <span class="fc"><strong>P3 (observables)</strong> : Toute grandeur physique est représentée par un opérateur hermitien \(\hat{A}\). Mesure \(\Rightarrow\) valeur propre de \(\hat{A}\).</span>
+    <hr>
+    <span class="fc"><strong>P4 (évolution, Schrödinger)</strong> :</span>
+    <span class="fm">\[ \boxed{\;\mathrm{i}\hbar\,\dfrac{\partial\psi}{\partial t} \;=\; \hat{H}\,\psi\;} \]</span>
+    <span class="fc">avec \(\hat{H} = \hat{T} + \hat{V} = -\dfrac{\hbar^{2}}{2m}\vec{\Delta} + V(\vec{r})\) hamiltonien.</span>
+  </div>
+
+  <h3>2.1 États stationnaires</h3>
+  <div class="fbox r">
+    <span class="fl">Équation de Schrödinger indépendante du temps</span>
+    <span class="fc">Pour un potentiel statique \(V(\vec{r})\), recherche de solutions \(\psi(\vec{r},t) = \phi(\vec{r})\,\mathrm{e}^{-\mathrm{i}E t/\hbar}\). L'équation devient :</span>
+    <span class="fm">\[ \left[-\,\dfrac{\hbar^{2}}{2m}\vec{\Delta} + V(\vec{r})\right]\phi(\vec{r}) \;=\; E\,\phi(\vec{r}) \]</span>
+    <span class="fc">Problème aux valeurs propres : \(E\) et \(\phi\) sont déterminés par les conditions aux limites. Spectres discrets ou continus selon \(V\).</span>
+  </div>
+
+  <h3>2.2 Inégalité de Heisenberg</h3>
+  <div class="key-box">
+    \[ \Delta x \cdot \Delta p_x \;\geq\; \dfrac{\hbar}{2} \qquad \Delta E \cdot \Delta t \;\geq\; \dfrac{\hbar}{2} \]
+    <p>Conséquences : on ne peut pas connaître simultanément position et impulsion avec précision arbitraire. Application directe à la stabilité des atomes (impossible que l'électron tombe sur le proton — confinement énergétique).</p>
+    <p>Application chiffrée : un électron confiné dans un atome (\(\Delta x \sim 10^{-10}\,\mathrm{m}\)) a \(\Delta p \gtrsim \hbar/(2\Delta x) \sim 5\times 10^{-25}\,\mathrm{kg\cdot m\cdot s^{-1}}\), donc une énergie cinétique de l'ordre de \((\Delta p)^{2}/(2m_e) \sim 1\,\mathrm{eV}\) — cohérent avec les énergies atomiques observées.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 APPLICATIONS QUANTIQUES ═══════════════════ -->
+<div class="sblock r" id="applications-q">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Puits quantique, oscillateur harmonique, effet tunnel</h2>
+  <p class="intro">Trois problèmes-modèles fondamentaux : à connaître par cœur pour l'agrégation.</p>
+
+  <h3>3.1 Puits infini 1D (boîte de longueur \(L\))</h3>
+  <div class="fbox r">
+    <span class="fl">Quantification des niveaux d'énergie</span>
+    <span class="fc">Particule dans un puits infini, équation de Schrödinger \(-\hbar^{2}/(2m)\,\phi'' = E\phi\) avec conditions \(\phi(0) = \phi(L) = 0\). Solutions :</span>
+    <span class="fm">\[ \phi_n(x) \;=\; \sqrt{\dfrac{2}{L}}\,\sin\!\left(\dfrac{n\pi x}{L}\right) \qquad E_n \;=\; \dfrac{n^{2}\pi^{2}\hbar^{2}}{2m\,L^{2}} \]</span>
+    <span class="fc">avec \(n = 1, 2, 3, \ldots\) (entier naturel non nul).</span>
+    <hr>
+    <span class="fc">Conséquences pédagogiques : (a) énergies quantifiées, (b) énergie minimale \(E_1 \neq 0\) (énergie de point zéro), (c) nœuds dans la fonction d'onde.</span>
+    <hr>
+    <span class="fc">Application : couleur des points quantiques (CdSe, etc.) — l'énergie de gap dépend de la taille \(L\) selon \(\propto 1/L^{2}\).</span>
+  </div>
+
+  <h3>3.2 Oscillateur harmonique 1D</h3>
+  <div class="fbox r">
+    <span class="fl">Niveaux équidistants</span>
+    <span class="fc">Hamiltonien \(\hat{H} = \hat{p}^{2}/(2m) + \tfrac{1}{2}m\omega^{2}\hat{x}^{2}\). Niveaux d'énergie :</span>
+    <span class="fm">\[ E_n \;=\; \left(n + \dfrac{1}{2}\right)\hbar\omega \qquad n = 0, 1, 2, \ldots \]</span>
+    <hr>
+    <span class="fc">Caractéristiques :</span>
+    <span class="fc">— Espacement constant \(\Delta E = \hbar\omega\) entre niveaux successifs.</span>
+    <span class="fc">— Énergie de point zéro \(E_0 = \tfrac{1}{2}\hbar\omega\) (non nulle, accord avec Heisenberg).</span>
+    <hr>
+    <span class="fc">Application : vibrations moléculaires (IR), spectre du corps noir.</span>
+  </div>
+
+  <h3>3.3 Effet tunnel</h3>
+  <div class="fbox r">
+    <span class="fl">Traversée d'une barrière classiquement interdite</span>
+    <span class="fc">Pour une barrière de hauteur \(V_0\) et largeur \(a\), avec une particule d'énergie \(E &lt; V_0\), le coefficient de transmission s'écrit approximativement (régime \(\kappa a \gg 1\)) :</span>
+    <span class="fm">\[ T \;\approx\; \mathrm{e}^{-2\,\kappa\,a} \qquad \kappa \;=\; \dfrac{\sqrt{2m(V_0 - E)}}{\hbar} \]</span>
+    <hr>
+    <span class="fc">Le coefficient \(T\) décroît <em>exponentiellement</em> avec la largeur et la hauteur — signature de l'effet tunnel.</span>
+    <hr>
+    <span class="fc">Applications majeures :</span>
+    <span class="fc">— <strong>Radioactivité α</strong> : la particule α traverse la barrière coulombienne du noyau (Gamow, 1928).</span>
+    <span class="fc">— <strong>Diode tunnel</strong>, <strong>microscope STM</strong> (résolution atomique par effet tunnel électronique).</span>
+    <span class="fc">— <strong>Fusion solaire</strong> : la fusion p-p au cœur du Soleil est possible par effet tunnel (sinon T trop basse).</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 04 COHESION NOYAU ═══════════════════ -->
+<div class="sblock r" id="noyau">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Cohésion du noyau</h2>
+  <p class="intro">Sujet oral n°22e. Le noyau est un système lié par l'interaction nucléaire forte. Énergie de liaison, courbe d'Aston, modèle de la goutte liquide.</p>
+
+  <h3>4.1 Défaut de masse et énergie de liaison</h3>
+  <div class="fbox r">
+    <span class="fl">Définition fondamentale</span>
+    <span class="fc">Pour un noyau \({}^A_Z X\) (\(Z\) protons, \(A-Z\) neutrons) :</span>
+    <span class="fm">\[ \Delta m \;=\; Z\,m_p + (A - Z)\,m_n - m_{\text{noyau}}\ &gt;\ 0 \]</span>
+    <span class="fc">Le noyau a une masse plus faible que la somme des masses des nucléons isolés — le système est <em>lié</em>.</span>
+    <hr>
+    <span class="fc">Énergie de liaison du noyau (\(E = mc^{2}\)) :</span>
+    <span class="fm">\[ \boxed{\;E_{\text{liaison}} \;=\; \Delta m\cdot c^{2}\;} \]</span>
+    <hr>
+    <span class="fc">Unités : \(1\,\mathrm{u} = 931{,}5\,\mathrm{MeV}/c^{2}\) (conversion pratique).</span>
+    <hr>
+    <span class="fc">Énergie de liaison par nucléon \(E_\ell/A\) : grandeur clé pour comparer la stabilité des noyaux.</span>
+  </div>
+
+  <h3>4.2 Courbe d'Aston</h3>
+  <div class="key-box">
+    <p>Tracé de \(E_\ell/A\) en fonction de \(A\). Caractéristiques majeures :</p>
+    <ul>
+      <li>Croissance rapide aux faibles \(A\) (effet de surface dominant).</li>
+      <li>Maximum autour de \(A = 56\) (fer \(\ce{^{56}Fe}\) et nickel \(\ce{^{62}Ni}\)) à \(\sim 8{,}8\,\mathrm{MeV/nucléon}\).</li>
+      <li>Décroissance lente pour les noyaux lourds (\(\sim 7{,}5\,\mathrm{MeV/nucléon}\) pour l'uranium).</li>
+    </ul>
+    <p>Conséquence énergétique majeure :</p>
+    <ul>
+      <li><strong>Fusion</strong> de noyaux légers (H + H → He) : énergie libérée car \(E_\ell/A\) augmente.</li>
+      <li><strong>Fission</strong> de noyaux lourds (U → fragments + n) : énergie libérée car \(E_\ell/A\) augmente aussi (en moyenne).</li>
+      <li>Aucune réaction nucléaire au-delà du fer ne libère d'énergie nette — les éléments lourds (Au, U) sont produits par capture explosive lors de supernovae ou fusion d'étoiles à neutrons.</li>
+    </ul>
+  </div>
+
+  <h3>4.3 Modèle de la goutte liquide (Weizsäcker)</h3>
+  <div class="fbox r">
+    <span class="fl">Formule semi-empirique de Bethe-Weizsäcker</span>
+    <span class="fm">\[ E_\ell \;=\; a_V\,A - a_S\,A^{2/3} - a_C\,\dfrac{Z^{2}}{A^{1/3}} - a_A\,\dfrac{(A - 2Z)^{2}}{A} + \delta(A,Z) \]</span>
+    <span class="fc">Termes :</span>
+    <span class="fc">— Volume : \(a_V \approx 15{,}5\,\mathrm{MeV}\) (cohésion forte de courte portée).</span>
+    <span class="fc">— Surface : \(a_S \approx 16{,}8\,\mathrm{MeV}\) (déficit aux nucléons de surface).</span>
+    <span class="fc">— Coulomb : \(a_C \approx 0{,}72\,\mathrm{MeV}\) (répulsion protons).</span>
+    <span class="fc">— Asymétrie : \(a_A \approx 23\,\mathrm{MeV}\) (préférence \(N \approx Z\), Pauli).</span>
+    <span class="fc">— Appariement \(\delta\) : noyaux pairs-pairs stables, impairs-impairs instables.</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 05 RADIOACTIVITE ═══════════════════ -->
+<div class="sblock r" id="radioactivite">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Radioactivité et applications</h2>
+  <p class="intro">Sujet oral n°25e (Rayonnement). Désintégration spontanée des noyaux instables — lois, types, applications.</p>
+
+  <h3>5.1 Loi de désintégration</h3>
+  <div class="fbox r">
+    <span class="fl">Loi exponentielle</span>
+    <span class="fc">Pour une population de \(N\) noyaux radioactifs identiques, la probabilité de désintégration par unité de temps est \(\lambda\) (constante radioactive) :</span>
+    <span class="fm">\[ \dfrac{\mathrm{d}N}{\mathrm{d}t} \;=\; -\,\lambda\,N \quad\Longrightarrow\quad N(t) \;=\; N_0\,\mathrm{e}^{-\lambda t} \]</span>
+    <hr>
+    <span class="fc">Activité (nombre de désintégrations par seconde) :</span>
+    <span class="fm">\[ A(t) \;=\; \lambda\,N(t) \;=\; A_0\,\mathrm{e}^{-\lambda t} \qquad [\mathrm{Bq}] \]</span>
+    <hr>
+    <span class="fc">Demi-vie (période radioactive) :</span>
+    <span class="fm">\[ \boxed{\;t_{1/2} \;=\; \dfrac{\ln 2}{\lambda}\;} \]</span>
+  </div>
+
+  <h3>5.2 Types de désintégration</h3>
+  <table class="compact">
+    <thead><tr><th>Type</th><th>Mécanisme</th><th>Équation</th><th>Application</th></tr></thead>
+    <tbody>
+      <tr><td>\(\alpha\)</td><td>Émission \({}^{4}_{2}\mathrm{He}\)</td><td>\({}^{A}_{Z}X \to {}^{A-4}_{Z-2}Y + {}^{4}_{2}\mathrm{He}\)</td><td>Noyaux lourds (U, Ra) — alarme incendie</td></tr>
+      <tr><td>\(\beta^-\)</td><td>\(n \to p + e^- + \bar{\nu}_e\)</td><td>\({}^{A}_{Z}X \to {}^{A}_{Z+1}Y + e^- + \bar{\nu}_e\)</td><td>Noyaux riches en n (\({}^{14}C, {}^{40}K\)) — datation</td></tr>
+      <tr><td>\(\beta^+\)</td><td>\(p \to n + e^+ + \nu_e\)</td><td>\({}^{A}_{Z}X \to {}^{A}_{Z-1}Y + e^+ + \nu_e\)</td><td>Noyaux déficients en n — imagerie médicale TEP</td></tr>
+      <tr><td>\(\gamma\)</td><td>Désexcitation</td><td>\({}^{A}_{Z}X^{*} \to {}^{A}_{Z}X + \gamma\)</td><td>Suit souvent \(\alpha\) ou \(\beta\) — radiothérapie</td></tr>
+      <tr><td>Capture e\(^-\)</td><td>\(p + e^- \to n + \nu_e\)</td><td>\({}^{A}_{Z}X + e^- \to {}^{A}_{Z-1}Y + \nu_e\)</td><td>Concurrence avec \(\beta^+\)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.3 Datation radioactive</h3>
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Méthodes de datation</div>
+    <div class="notion-body"><ul>
+      <li><strong>Datation au carbone-14</strong> (\(t_{1/2} = 5730\,\mathrm{ans}\)) : matière organique, jusqu'à \(\sim 50\,000\) ans. Hypothèse de \(\,{}^{14}C/{}^{12}C\) atmosphérique constant (à corriger via la dendrochronologie).</li>
+      <li><strong>Potassium-Argon</strong> (\(t_{1/2}({}^{40}K) = 1{,}25\,\mathrm{Ga}\)) : datation de roches volcaniques.</li>
+      <li><strong>Rubidium-Strontium</strong> (\(t_{1/2} = 48{,}8\,\mathrm{Ga}\)) : roches très anciennes (météorites, granitoïdes). Datation âge de la Terre (\(\sim 4{,}55\,\mathrm{Ga}\)).</li>
+      <li><strong>Uranium-Plomb</strong> : datation extrêmement précise des zircons (\(t_{1/2}({}^{238}U) = 4{,}5\,\mathrm{Ga}\)).</li>
+    </ul></div>
+  </div>
+
+  <h3>5.4 Effets biologiques et doses</h3>
+  <div class="fbox r">
+    <span class="fl">Unités et grandeurs</span>
+    <span class="fc">— Activité : becquerel (Bq) — 1 désintégration/seconde.</span>
+    <span class="fc">— Dose absorbée : gray (Gy) = 1 J/kg (énergie absorbée par unité de masse).</span>
+    <span class="fc">— Dose équivalente : sievert (Sv) = Gy × facteur de qualité (1 pour β, γ ; 20 pour α).</span>
+    <hr>
+    <span class="fc">Doses typiques :</span>
+    <span class="fc">— Bruit de fond annuel : 2-3 mSv (radon, rayons cosmiques, K).</span>
+    <span class="fc">— Radiothérapie locale : 60-80 Gy concentrés sur la tumeur.</span>
+    <span class="fc">— Dose létale (50 % sur 30 j) : \(\sim 4\,\mathrm{Gy}\) en corps entier.</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 06 ENERGIE NUCLEAIRE ═══════════════════ -->
+<div class="sblock r" id="energie-nuc">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Énergie nucléaire — fission et fusion</h2>
+  <p class="intro">Application industrielle et stellaire de l'énergie de liaison nucléaire.</p>
+
+  <h3>6.1 Fission nucléaire</h3>
+  <div class="fbox r">
+    <span class="fl">Mécanisme et énergie libérée</span>
+    <span class="fc">Capture d'un neutron thermique par \({}^{235}\)U → noyau composé \({}^{236}\)U* → scission en deux fragments + 2-3 neutrons :</span>
+    <span class="fm">\[ {}^{235}_{92}\mathrm{U} + n \to {}^{144}_{56}\mathrm{Ba} + {}^{89}_{36}\mathrm{Kr} + 3n + \sim 200\,\mathrm{MeV} \]</span>
+    <span class="fc">L'énergie libérée correspond à l'augmentation de \(E_\ell/A\) (de \(\sim 7{,}5\) à \(\sim 8{,}5\) MeV/nucléon).</span>
+    <hr>
+    <span class="fc">Réaction en chaîne : les neutrons libérés peuvent déclencher de nouvelles fissions. Critère de criticité \(k = 1\) en réacteur (entretenue, contrôlée), \(k &gt; 1\) en bombe.</span>
+    <hr>
+    <span class="fc">Ordre de grandeur : 1 kg d'\(\ce{^{235}U}\) fissionné \(\to 8{,}2\times 10^{13}\,\mathrm{J}\) (~ 1 million de fois plus dense que la combustion d'1 kg de pétrole).</span>
+  </div>
+
+  <h3>6.2 Fusion thermonucléaire</h3>
+  <div class="fbox r">
+    <span class="fl">Réactions principales</span>
+    <span class="fc">Fusion deutérium-tritium (la plus accessible) :</span>
+    <span class="fm">\[ {}^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \to {}^{4}_{2}\mathrm{He} + n + 17{,}6\,\mathrm{MeV} \]</span>
+    <hr>
+    <span class="fc">Conditions requises : critère de Lawson \(n\cdot T\cdot \tau \geq 10^{21}\,\mathrm{m^{-3}\cdot keV\cdot s}\) (produit densité × température × temps de confinement).</span>
+    <span class="fc">Température nécessaire : \(T &gt; 10^{8}\,\mathrm{K}\) (plasma).</span>
+    <hr>
+    <span class="fc">Voies de confinement :</span>
+    <span class="fc">— <strong>Magnétique</strong> (tokamak ITER, en construction à Cadarache).</span>
+    <span class="fc">— <strong>Inertiel</strong> (Laser Mégajoule, NIF) — compression rapide par lasers de haute énergie.</span>
+    <hr>
+    <span class="fc">Étape franchie en 2022 (NIF) : ignition (énergie produite &gt; énergie laser absorbée). Pas encore de réacteur commercial.</span>
+  </div>
+
+  <h3>6.3 Source d'énergie des étoiles</h3>
+  <p>Les étoiles produisent leur énergie par fusion thermonucléaire au cœur. Pour le Soleil (chaîne p-p) :</p>
+  \[ 4\,{}^{1}_{1}\mathrm{H} \to {}^{4}_{2}\mathrm{He} + 2\,e^{+} + 2\,\nu_e + 26{,}7\,\mathrm{MeV}. \]
+  <p>La fusion est rendue possible malgré la basse \(T_{\text{cœur,Sol}} = 1{,}5\times 10^{7}\,\mathrm{K}\) (insuffisante en mécanique classique) par <strong>effet tunnel quantique</strong> à travers la barrière coulombienne — découverte fondamentale de Gamow (1928).</p>
+</div>
+
+<!-- ═══════════════════ 07 RELATIVITE ═══════════════════ -->
+<div class="sblock r" id="relativite">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Relativité restreinte</h2>
+  <p class="intro">Sujet oral n°26e. Théorie d'Einstein (1905) — refonte conceptuelle des notions d'espace, temps et énergie pour les hautes vitesses.</p>
+
+  <h3>7.1 Postulats d'Einstein</h3>
+  <div class="key-box">
+    <p><strong>P1.</strong> Toutes les lois physiques sont les mêmes dans tout référentiel galiléen (principe de relativité).</p>
+    <p><strong>P2.</strong> La vitesse de la lumière dans le vide \(c\) est la même dans tous les référentiels galiléens, indépendamment du mouvement de la source ou de l'observateur.</p>
+    <p>Conséquence inévitable : l'espace et le temps ne sont plus séparés, mais constituent l'<em>espace-temps de Minkowski</em>. Les notions de simultanéité, durée, longueur dépendent du référentiel.</p>
+  </div>
+
+  <h3>7.2 Facteur de Lorentz et dilatation/contraction</h3>
+  <div class="fbox r">
+    <span class="fl">Effets cinématiques relativistes</span>
+    <span class="fc">Facteur de Lorentz pour une vitesse \(v\) :</span>
+    <span class="fm">\[ \gamma \;=\; \dfrac{1}{\sqrt{1 - v^{2}/c^{2}}} \;\geq\; 1 \qquad \beta = v/c \]</span>
+    <hr>
+    <span class="fc">Dilatation du temps : un intervalle propre \(\Delta t_0\) (mesuré dans le référentiel de l'horloge) apparaît dilaté à \(\Delta t\) dans tout référentiel en mouvement :</span>
+    <span class="fm">\[ \boxed{\;\Delta t \;=\; \gamma\,\Delta t_0\;} \]</span>
+    <hr>
+    <span class="fc">Contraction des longueurs : une longueur propre \(L_0\) (au repos dans le référentiel) est mesurée \(L\) plus courte dans tout référentiel en mouvement :</span>
+    <span class="fm">\[ \boxed{\;L \;=\; L_0/\gamma\;} \]</span>
+    <hr>
+    <span class="fc">Composition des vitesses colinéaires :</span>
+    <span class="fm">\[ w \;=\; \dfrac{u + v}{1 + u v/c^{2}} \]</span>
+    <span class="fc">Cette formule ne dépasse jamais \(c\) : la vitesse de la lumière est une <strong>limite absolue</strong>.</span>
+  </div>
+
+  <h3>7.3 Énergie et impulsion relativistes</h3>
+  <div class="fbox r">
+    <span class="fl">Relations énergie-impulsion</span>
+    <span class="fm">\[ E \;=\; \gamma\,m\,c^{2} \qquad p \;=\; \gamma\,m\,v \qquad E_0 = m\,c^{2}\ (\text{énergie au repos}) \]</span>
+    <hr>
+    <span class="fc">Relation fondamentale (invariant relativiste) :</span>
+    <span class="fm">\[ \boxed{\;E^{2} \;=\; (m\,c^{2})^{2} + (p\,c)^{2}\;} \]</span>
+    <hr>
+    <span class="fc">Limites :</span>
+    <span class="fc">— Faible vitesse (\(v \ll c\)) : \(E \approx m c^{2} + \tfrac{1}{2}m v^{2}\) (énergie de repos + cinétique classique).</span>
+    <span class="fc">— Photon (\(m = 0\)) : \(E = p\,c\), avec \(p = h/\lambda = h\nu/c\).</span>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Vérifications expérimentales emblématiques</div>
+    <div class="notion-body"><ul>
+      <li><strong>Muons cosmiques</strong> : observés en abondance au niveau de la mer alors que leur durée de vie propre (\(\tau_0 = 2{,}2\,\mu\mathrm{s}\)) leur permettrait de parcourir seulement 660 m à \(v \sim c\) — mais la dilatation du temps (\(\gamma \sim 10\)) explique leur parcours dans l'atmosphère.</li>
+      <li><strong>GPS</strong> : nécessite des corrections relativistes pour la précision (\(\sim 38\,\mu\mathrm{s/jour}\) entre satellites et sol — sans correction, dérive de plusieurs km/jour).</li>
+      <li><strong>Énergie de masse</strong> : confirmée chaque jour dans les accélérateurs (LHC : énergies de 7 TeV, soit \(\gamma \sim 7000\) pour les protons).</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 GRAVITATION ═══════════════════ -->
+<div class="sblock r" id="gravitation">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Gravitation et mouvements képlériens</h2>
+  <p class="intro">Sujet oral n°23e. Loi de Newton, lois de Kepler, satellites et énergie mécanique.</p>
+
+  <h3>8.1 Loi de gravitation universelle</h3>
+  <div class="fbox r">
+    <span class="fl">Force entre deux masses ponctuelles</span>
+    <span class="fm">\[ \vec{F}_{1\to 2} \;=\; -\,\dfrac{G\,m_1\,m_2}{r^{2}}\,\vec{u}_{1\to 2} \qquad G = 6{,}674\times 10^{-11}\,\mathrm{N\cdot m^{2}\cdot kg^{-2}} \]</span>
+    <hr>
+    <span class="fc">Énergie potentielle de gravitation (avec \(E_p(\infty) = 0\)) :</span>
+    <span class="fm">\[ E_p(r) \;=\; -\,\dfrac{G\,m_1\,m_2}{r} \]</span>
+    <span class="fc">Toujours négative — système lié.</span>
+  </div>
+
+  <h3>8.2 Lois de Kepler</h3>
+  <div class="fbox r">
+    <span class="fl">Trois lois empiriques (déduites de Newton)</span>
+    <span class="fc"><strong>1<sup>re</sup> loi (orbites)</strong> : les planètes décrivent des orbites elliptiques dont le Soleil occupe l'un des foyers.</span>
+    <hr>
+    <span class="fc"><strong>2<sup>e</sup> loi (aires)</strong> : le rayon vecteur Soleil-planète balaie des aires égales en des temps égaux (conservation du moment cinétique).</span>
+    <span class="fm">\[ \dfrac{\mathrm{d}\mathcal{A}}{\mathrm{d}t} \;=\; \dfrac{L}{2m} \;=\; \text{cste} \]</span>
+    <hr>
+    <span class="fc"><strong>3<sup>e</sup> loi (périodes)</strong> : pour une orbite elliptique de demi-grand axe \(a\) :</span>
+    <span class="fm">\[ \boxed{\;\dfrac{T^{2}}{a^{3}} \;=\; \dfrac{4\pi^{2}}{G\,M_{\odot}}\;} \]</span>
+    <span class="fc">Constante pour toutes les planètes du système solaire (à \(M_{\odot}\) près).</span>
+  </div>
+
+  <h3>8.3 Orbite circulaire et énergétique</h3>
+  <div class="fbox r">
+    <span class="fl">Vitesses caractéristiques</span>
+    <span class="fc">Vitesse orbitale circulaire (rayon \(r\)) :</span>
+    <span class="fm">\[ v_{\text{orb}} \;=\; \sqrt{\dfrac{G\,M}{r}} \]</span>
+    <hr>
+    <span class="fc">Énergie mécanique sur une orbite elliptique :</span>
+    <span class="fm">\[ E_m \;=\; -\,\dfrac{G\,M\,m}{2a} \]</span>
+    <hr>
+    <span class="fc">Vitesse de libération (énergie cinétique = énergie potentielle attractive à \(r\)) :</span>
+    <span class="fm">\[ v_{\text{lib}} \;=\; \sqrt{\dfrac{2\,G\,M}{r}} \;=\; \sqrt{2}\,v_{\text{orb}} \]</span>
+    <span class="fc">Pour la Terre (surface, \(r = R_T\)) : \(v_{\text{lib}} = 11{,}2\,\mathrm{km/s}\), \(v_{\text{orb,LEO}} \approx 7{,}9\,\mathrm{km/s}\).</span>
+  </div>
+
+  <h3>8.4 Satellites et applications</h3>
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Types d'orbites</div>
+    <div class="notion-body"><ul>
+      <li><strong>LEO</strong> (Low Earth Orbit, 400-2000 km) : ISS, Starlink. Vitesse \(\sim 7{,}9\,\mathrm{km/s}\), période \(\sim 90\,\mathrm{min}\).</li>
+      <li><strong>MEO</strong> (Medium, 2000-35000 km) : satellites GPS (\(r = 26600\,\mathrm{km}\), T = 12 h).</li>
+      <li><strong>GEO</strong> (Géostationnaire, \(r = 42164\,\mathrm{km}\), T = 24 h) : télécommunications, météo. La 3<sup>e</sup> loi de Kepler donne la distance précise.</li>
+      <li><strong>HEO</strong> (Highly Elliptical) : Molniya (orbites pour communications haute latitude).</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Au lycée — Terminale spécialité</div>
+    <div class="notion-body"><ul>
+      <li><strong>Radioactivité</strong> : loi de décroissance, demi-vie, datation au carbone-14.</li>
+      <li><strong>Noyau</strong> : énergie de liaison, défaut de masse, équation bilan, fission/fusion.</li>
+      <li><strong>Relativité restreinte</strong> : dilatation du temps (muons cosmiques au programme), énergie de masse \(E = mc^2\).</li>
+      <li><strong>Gravitation</strong> : lois de Kepler, satellites géostationnaires, vitesses cosmiques.</li>
+      <li><strong>Mécanique quantique</strong> : niveaux d'énergie quantifiés des atomes, transitions et raies spectrales.</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confondre demi-vie et durée de vie moyenne (\(\tau = 1/\lambda = t_{1/2}/\ln 2\)).</li>
+        <li>Convertir entre MeV, J et kg via \(E = mc^2\) — choix des unités selon le contexte.</li>
+        <li>Croire que la relativité s'applique aux référentiels accélérés (faux, c'est la RG qu'il faut alors).</li>
+        <li>Penser que \(E = mc^2\) signifie la conversion intégrale de la masse en énergie (en fait elle quantifie l'énergie au repos).</li>
+        <li>Penser que les forces gravitationnelles disparaissent en orbite (en fait : référentiel en chute libre — pesanteur apparente nulle).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 10 DEMOS ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Démonstrations attendues à l'écrit et à l'oral.</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>10.1 — Niveaux d'énergie du puits infini 1D</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Équation de Schrödinger 1D pour \(0 &lt; x &lt; L\), \(V = 0\) (intérieur), \(V = +\infty\) (extérieur, d'où \(\phi = 0\) hors du puits) :</p>
+        \[ -\,\dfrac{\hbar^{2}}{2m}\,\phi''(x) \;=\; E\,\phi(x) \]
+        <p>Solution générale : \(\phi(x) = A\sin(kx) + B\cos(kx)\) avec \(k = \sqrt{2mE}/\hbar\). Condition \(\phi(0) = 0 \Rightarrow B = 0\). Condition \(\phi(L) = 0 \Rightarrow \sin(kL) = 0 \Rightarrow kL = n\pi\) (\(n = 1, 2, \ldots\)).</p>
+        <p>D'où la <strong>quantification</strong> :</p>
+        \[ k_n = \dfrac{n\pi}{L}\,,\qquad E_n = \dfrac{\hbar^{2}k_n^{2}}{2m} = \dfrac{n^{2}\pi^{2}\hbar^{2}}{2m L^{2}} \]
+        <p>Normalisation \(\int_0^L |\phi_n|^{2}\,\mathrm{d}x = 1 \Rightarrow A = \sqrt{2/L}\).</p>
+        <p>Énergie minimale (\(n = 1\)) non nulle : \(E_1 = \pi^{2}\hbar^{2}/(2mL^{2})\) — cohérent avec Heisenberg (\(\Delta x \sim L \Rightarrow \Delta p \gtrsim \hbar/L\) → \(\Delta E \gtrsim \hbar^{2}/(2mL^{2})\)).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>10.2 — Effet tunnel : coefficient de transmission</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Barrière rectangulaire de hauteur \(V_0\) et largeur \(a\). Pour une particule d'énergie \(E &lt; V_0\), la solution dans la barrière est \(\phi(x) = C\,\mathrm{e}^{-\kappa x} + D\,\mathrm{e}^{+\kappa x}\) avec \(\kappa = \sqrt{2m(V_0-E)}/\hbar\). Les conditions de raccord à \(x = 0\) et \(x = a\) imposent la continuité de \(\phi\) et \(\phi'\).</p>
+        <p>Calcul (lourd mais standard) : on obtient le coefficient de transmission</p>
+        \[ T \;=\; \dfrac{|C_{\text{trans}}|^{2}}{|A_{\text{inc}}|^{2}} \;=\; \dfrac{1}{1 + \dfrac{V_0^{2}\sinh^{2}(\kappa a)}{4E(V_0-E)}} \]
+        <p>Dans la limite épaisse \(\kappa a \gg 1\) (\(\sinh(\kappa a) \approx \tfrac{1}{2}\mathrm{e}^{\kappa a}\)) :</p>
+        \[ \boxed{\;T \;\approx\; \dfrac{16\,E(V_0-E)}{V_0^{2}}\,\mathrm{e}^{-2\kappa a}\;} \]
+        <p>Décroissance exponentielle avec la largeur et la hauteur — signature universelle de l'effet tunnel.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>10.3 — Dilatation du temps des muons cosmiques</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Les muons cosmiques (produits dans la haute atmosphère à 10-15 km d'altitude) ont une durée de vie propre \(\tau_0 = 2{,}2\,\mu\mathrm{s}\). Sans relativité, à vitesse \(v \approx 0{,}998\,c\), ils parcourraient :</p>
+        \[ d_{\text{classique}} = v\,\tau_0 \approx 0{,}998 \times 3\times 10^{8} \times 2{,}2\times 10^{-6} \approx 660\,\mathrm{m}. \]
+        <p>Ils ne devraient donc jamais atteindre le sol (où on les observe pourtant).</p>
+        <p><strong>Vue de l'observateur au sol</strong> : la durée de vie du muon est dilatée :</p>
+        \[ \tau = \gamma\,\tau_0 \quad\text{avec}\quad \gamma = 1/\sqrt{1 - 0{,}998^{2}} \approx 16. \]
+        <p>Donc le muon vit \(\tau \approx 35\,\mu\mathrm{s}\) dans le référentiel du sol et parcourt \(d = v\,\tau \approx 10{,}5\,\mathrm{km}\) — il atteint donc le sol.</p>
+        <p><strong>Vue du muon</strong> (référentiel propre) : la distance à parcourir est contractée :</p>
+        \[ L = L_0/\gamma \approx 10000/16 \approx 625\,\mathrm{m}. \]
+        <p>Il vit \(\tau_0 = 2{,}2\,\mu\mathrm{s}\) mais n'a que 625 m à parcourir. Compatible avec sa vitesse. Les deux descriptions sont cohérentes — c'est la <strong>complémentarité</strong> des points de vue relativistes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>10.4 — 3<sup>e</sup> loi de Kepler à partir de Newton</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour une orbite circulaire de rayon \(r\) autour d'une masse \(M\), la force centripète est fournie par la gravitation :</p>
+        \[ \dfrac{m\,v^{2}}{r} \;=\; \dfrac{G\,M\,m}{r^{2}} \quad\Longrightarrow\quad v^{2} = \dfrac{G\,M}{r}. \]
+        <p>La période \(T\) est reliée à \(v\) par \(v = 2\pi r/T\), donc :</p>
+        \[ \dfrac{4\pi^{2}r^{2}}{T^{2}} = \dfrac{G\,M}{r} \quad\Longrightarrow\quad \boxed{\;\dfrac{T^{2}}{r^{3}} = \dfrac{4\pi^{2}}{G\,M}\;} \]
+        <p>Pour des orbites elliptiques, le résultat se généralise en remplaçant \(r\) par le demi-grand axe \(a\) (démonstration par le théorème du moment cinétique et l'équation du mouvement).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>10.5 — Loi de désintégration exponentielle</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Hypothèse fondamentale : la probabilité de désintégration d'un noyau pendant un intervalle \(\mathrm{d}t\) est \(\lambda\,\mathrm{d}t\), indépendamment de l'âge du noyau et des autres noyaux (processus poissonien sans mémoire).</p>
+        <p>Pour une population de \(N(t)\) noyaux non encore désintégrés :</p>
+        \[ \mathrm{d}N = -\,N(t)\cdot \lambda\,\mathrm{d}t \quad\Longrightarrow\quad \dfrac{\mathrm{d}N}{N} = -\lambda\,\mathrm{d}t \]
+        <p>Intégration :</p>
+        \[ \ln(N/N_0) = -\lambda\,t \quad\Longrightarrow\quad N(t) = N_0\,\mathrm{e}^{-\lambda t}. \]
+        <p>Demi-vie : temps pour que \(N\) soit divisé par 2 :</p>
+        \[ N_0/2 = N_0\,\mathrm{e}^{-\lambda\,t_{1/2}} \Rightarrow \boxed{\;t_{1/2} = \dfrac{\ln 2}{\lambda}\;} \]
+        <p>Durée de vie moyenne : \(\langle t\rangle = \int_0^{\infty} t\,\lambda\,\mathrm{e}^{-\lambda t}\,\mathrm{d}t = 1/\lambda = t_{1/2}/\ln 2 \approx 1{,}44\,t_{1/2}\).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 11 EXOS ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Exercices résolus — type concours</h2>
+  <p class="intro">Trois exercices calibrés agrégation interne.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — Datation par le carbone-14 (★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Un échantillon de bois ancien contient \(\,{}^{14}\)C avec une activité spécifique \(A = 6{,}5\,\mathrm{désintégrations}/\mathrm{min/g\ C}\), alors qu'un échantillon contemporain mesure \(A_0 = 13{,}6\,\mathrm{désintégrations}/\mathrm{min/g\ C}\). \(t_{1/2}({}^{14}\mathrm{C}) = 5730\,\mathrm{ans}\).</p>
+      <ol>
+        <li>Calculer la constante radioactive \(\lambda\) du \(\,{}^{14}\)C.</li>
+        <li>Déterminer l'âge de l'échantillon.</li>
+        <li>Quelle est la limite de cette méthode ? Quel autre matériau dater pour des âges plus anciens ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> \(\lambda = \ln 2 / t_{1/2} = 0{,}693/5730 \approx 1{,}21\times 10^{-4}\,\mathrm{ans^{-1}}\).</p>
+      <p><strong>2.</strong> \(A/A_0 = \mathrm{e}^{-\lambda t} \Rightarrow t = -\ln(A/A_0)/\lambda\). Calcul :</p>
+      \[ t = -\ln(6{,}5/13{,}6) / 1{,}21\times 10^{-4} = -\ln(0{,}478)/1{,}21\times 10^{-4} \approx 6100\,\mathrm{ans}. \]
+      <p>Âge environ 6000 ans (Néolithique).</p>
+      <p><strong>3.</strong> Limites : précision \(\pm 50-100\,\mathrm{ans}\) pour échantillons jeunes (\(\sim 1000\) ans), \(\pm 1000\,\mathrm{ans}\) pour vieux (\(\sim 30000\) ans). Au-delà de \(\sim 50000\) ans, l'activité résiduelle est trop faible (moins de \(2^{-9} \approx 0{,}2\,\%\) de l'activité initiale). Pour des âges supérieurs : K/Ar (volcanique), Rb/Sr (roches anciennes), U/Pb (zircons, méteorites).</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — Énergie libérée par la fission de l'uranium (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>La fission \(\ce{^{235}U + n -> ^{144}Ba + ^{89}Kr + 3 n}\) libère une énergie de 200 MeV par fission. Données : \(M_{\ce{U}} = 235\,\mathrm{g\cdot mol^{-1}}\), \(N_A = 6{,}022\times 10^{23}\,\mathrm{mol^{-1}}\).</p>
+      <ol>
+        <li>Convertir 200 MeV en joules.</li>
+        <li>Calculer l'énergie libérée par la fission de 1 kg d'\(\ce{^{235}U}\) pur.</li>
+        <li>Comparer avec l'énergie de combustion de 1 kg de pétrole (\(\sim 42\,\mathrm{MJ}\)).</li>
+        <li>Combien de tonnes de pétrole faut-il pour égaler 1 kg de \(\ce{^{235}U}\) ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> \(E_1 = 200\,\mathrm{MeV} = 200\times 10^{6}\times 1{,}602\times 10^{-19}\,\mathrm{J} = 3{,}2\times 10^{-11}\,\mathrm{J}\) par fission.</p>
+      <p><strong>2.</strong> 1 kg d'\(\ce{^{235}U}\) contient \(N = 1000/235 \times N_A = 2{,}56\times 10^{24}\) atomes. Énergie totale :</p>
+      \[ E_{\text{tot}} = N \times E_1 = 2{,}56\times 10^{24} \times 3{,}2\times 10^{-11} = 8{,}2\times 10^{13}\,\mathrm{J} \approx 82\,\mathrm{TJ}. \]
+      <p><strong>3.</strong> Rapport : \(E_{\text{nuc}}/E_{\text{combustion}} = 8{,}2\times 10^{13}/4{,}2\times 10^{7} \approx 2\times 10^{6}\). 1 kg d'\(\ce{^{235}U}\) équivaut à environ 2 millions de fois plus que 1 kg de pétrole.</p>
+      <p><strong>4.</strong> 2 millions de kg = <strong>2000 tonnes</strong> de pétrole. Soit environ 15 000 barils. C'est ce qui rend le nucléaire si compact : un cœur de réacteur EPR (~ 100 t de combustible) peut produire en quelques années l'énergie de millions de tonnes de pétrole.</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Satellite géostationnaire (★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Un satellite géostationnaire a une période orbitale de 24 heures. Données : \(G = 6{,}674\times 10^{-11}\,\mathrm{N\cdot m^{2}\cdot kg^{-2}}\), \(M_T = 5{,}97\times 10^{24}\,\mathrm{kg}\), \(R_T = 6378\,\mathrm{km}\).</p>
+      <ol>
+        <li>Calculer l'altitude orbitale du satellite.</li>
+        <li>Calculer sa vitesse orbitale.</li>
+        <li>Pourquoi reste-t-il fixe par rapport à la Terre ? Quelle est la contrainte géographique pour le lancement ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> 3<sup>e</sup> loi de Kepler : \(T^2 = (4\pi^{2}/(GM_T))\,r^3\). Calcul de \(r\) :</p>
+      \[ r = \left(\dfrac{G M_T T^{2}}{4\pi^{2}}\right)^{1/3} = \left(\dfrac{6{,}674\times 10^{-11}\times 5{,}97\times 10^{24}\times (86400)^{2}}{4\pi^{2}}\right)^{1/3} \]
+      \[ = (7{,}53\times 10^{22})^{1/3} \approx 4{,}22\times 10^{7}\,\mathrm{m} = 42200\,\mathrm{km}. \]
+      <p>Altitude : \(h = r - R_T = 42200 - 6378 \approx 35\,800\,\mathrm{km}\).</p>
+      <p><strong>2.</strong> Vitesse : \(v = 2\pi r/T = 2\pi \times 4{,}22\times 10^{7}/86400 \approx 3070\,\mathrm{m/s} = 3{,}07\,\mathrm{km/s}\). Beaucoup plus lent qu'un satellite LEO (~ 7,9 km/s).</p>
+      <p><strong>3.</strong> Le satellite a la même période que la Terre (24 h) ET tourne dans le même sens (W → E) sur l'<em>équateur</em>. Vu d'un point de la Terre, il reste donc fixe au-dessus. Conséquence : la base de lancement doit être proche de l'équateur (Kourou, Cap Canaveral) pour bénéficier de la vitesse de rotation terrestre et atteindre cette orbite avec un minimum de carburant.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 12 LECONS ET MONTAGES ═══════════════════ -->
+<div class="sblock r" id="lecons-montages">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Leçons pour l'oral & montages expérimentaux</h2>
+  <p class="intro">Deux propositions de leçons + deux montages exploitables.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon — Radioactivité : du noyau au scanner médical</h4>
+    <div class="lecon-meta">Niveau · Terminale spé / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Comment un médecin peut-il « voir » l'intérieur du corps grâce à des noyaux instables ? Comment date-t-on les peintures des grottes de Lascaux à 17 000 ans ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Mise en évidence expérimentale : compteur Geiger sur sources scellées (laboratoire ou tube tritium). Bruit de fond, sources naturelles.</li>
+      <li>Loi statistique de désintégration — démonstration de \(N(t) = N_0\,\mathrm{e}^{-\lambda t}\). Demi-vie.</li>
+      <li>Trois types de rayonnement : α (papier l'arrête), β (aluminium), γ (plomb). Charge, masse, énergie.</li>
+      <li>Cohésion du noyau et énergie de liaison \(E_\ell = \Delta m\,c^{2}\). Courbe d'Aston, conséquences (fission/fusion).</li>
+      <li>Applications : datation au C-14 (Lascaux, suaire de Turin), médecine nucléaire (TEP, iode-131 thyroïde, scintigraphies), centrales nucléaires (modèle de la réaction en chaîne).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Terminale spé : radioactivité explicite, demi-vie, datation. Liens avec énergie de masse \(E = mc^{2}\).</p>
+    <p><strong>Activité élève proposée.</strong> Simulation par lancers de dés : 100 dés, chaque dé qui tombe sur 6 « se désintègre ». Compter à chaque tour, tracer \(N(t)\), vérifier la décroissance exponentielle et la demi-vie (\(t_{1/2} = \ln 2/(\ln(6/5)) \approx 3{,}8\) tours).</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage — Compteur Geiger-Müller et bruit de fond</h4>
+    <p><strong>Objectif.</strong> Mesurer la décroissance d'une source radioactive courte demi-vie (radon-220 obtenu par filtration du thoron, ou tube école) et déterminer \(t_{1/2}\).</p>
+    <p><strong>Matériel.</strong> Compteur Geiger-Müller, source radioactive courte (école), chronomètre, ordinateur d'acquisition.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Mesurer le bruit de fond \(N_b\) sur 5-10 minutes (sans source).</li>
+      <li>Placer la source à distance fixe du détecteur. Mesurer le taux de comptage par tranches de 30 s pendant 10-20 minutes.</li>
+      <li>Soustraire le bruit de fond. Tracer \(\ln(N(t) - N_b)\) en fonction de \(t\). Régression linéaire → pente = \(-\lambda\).</li>
+      <li>En déduire \(t_{1/2} = \ln 2/\lambda\) et comparer à la valeur tabulée.</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Statistique de comptage (\(\sigma = \sqrt{N}\)), stabilité de la géométrie source-détecteur, bruit de fond.</p>
+    <p><strong>Exploitation.</strong> Discussion sur la nature statistique (loi de Poisson) de la désintégration. Comparaison à un modèle déterministe (impossible). <strong>Sécurité radiologique</strong> : protocole strict, dose mesurée &lt; 0,1 µSv pendant l'expérience.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Leçon — Relativité restreinte : voyager dans le temps ?</h4>
+    <div class="lecon-meta">Niveau · 2<sup>e</sup> année CPGE / oral agrégation</div>
+    <p><strong>Accroche.</strong> Pourquoi les muons cosmiques nous parviennent-ils, alors qu'ils devraient se désintégrer avant ? Comment le GPS corrige-t-il son horloge pour fonctionner à la nanoseconde près ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Mise en lumière des paradoxes de la mécanique classique aux hautes vitesses (expérience de Michelson-Morley, mécanique vs Maxwell).</li>
+      <li>Postulats d'Einstein : invariance des lois physiques, constance de \(c\).</li>
+      <li>Conséquences cinématiques : dilatation du temps (\(\Delta t = \gamma \Delta t_0\)), contraction des longueurs (\(L = L_0/\gamma\)), composition relativiste des vitesses.</li>
+      <li>Vérifications expérimentales : muons cosmiques, GPS, horloges atomiques en vol (Hafele-Keating, 1971).</li>
+      <li>Équivalence masse-énergie \(E = \gamma mc^2\). Conséquences : énergie de masse au repos, énergie cinétique relativiste, défaut de masse nucléaire.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Terminale spé : dilatation du temps (muons explicite), \(E = mc^2\) au programme.</p>
+    <p><strong>Erreur fréquente d'élève.</strong> Croire que \(\gamma m\) est une « masse qui augmente avec la vitesse ». En relativité moderne, on considère que la masse \(m\) est invariante (masse au repos) ; c'est l'énergie \(E = \gamma mc^2\) et l'impulsion \(p = \gamma mv\) qui dépendent du facteur \(\gamma\).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 13 JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 13</div>
+  <h2>13. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Demi-vie vs durée de vie moyenne.</strong> Ce ne sont pas la même chose : \(t_{1/2} = \ln 2 \cdot \tau \approx 0{,}69\,\tau\) avec \(\tau = 1/\lambda\). À l'écrit, bien lire l'énoncé et ne pas mélanger les deux.</div>
+    <div class="jury-item"><strong>Relativité et référentiels accélérés.</strong> La relativité <em>restreinte</em> traite uniquement des référentiels galiléens (en translation rectiligne uniforme). Pour des référentiels accélérés ou des champs gravitationnels, il faut la relativité <em>générale</em> (Einstein 1915). Ne pas appliquer dilatation du temps en référentiel accéléré sans précaution.</div>
+    <div class="jury-item"><strong>Énergie de masse.</strong> \(E_0 = mc^{2}\) est l'énergie au <em>repos</em> de la particule. L'énergie cinétique relativiste est \(E_c = (\gamma - 1)mc^{2}\), pas \(\tfrac{1}{2}mv^{2}\). À basse vitesse, le développement limité redonne le terme classique.</div>
+    <div class="jury-item"><strong>Cohérence du puits infini.</strong> L'énergie de point zéro \(E_1 &gt; 0\) est cohérente avec Heisenberg. Erreur classique : penser que la particule pourrait être au repos (\(E = 0\)). Impossible : confinement \(\Delta x \sim L\) impose \(\Delta p \gtrsim \hbar/L\), donc une énergie cinétique non nulle.</div>
+    <div class="jury-item"><strong>Effet tunnel et expériences.</strong> L'effet tunnel ne « transporte » pas d'information plus rapidement que \(c\). La transmission est exponentiellement faible mais le « temps tunnel » est compatible avec la causalité relativiste. Ne pas évoquer de transmission instantanée — sujet sensible.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">Le carbone-14 a \(t_{1/2} = 5730\,\mathrm{ans}\). Un échantillon contient 1/8 de la quantité initiale. Quel est son âge ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. 1/8 = (1/2)³ → 3 demi-vies → t = 3 × 5730 = 17 190 ans.')">3 demi-vies = 17 190 ans</button><button class="q-opt" onclick="quiz(this,false,'Non. La décroissance est exponentielle. 1/8 = (1/2)³, donc 3 demi-vies, pas 8.')">8 × 5730 = 45 840 ans</button><button class="q-opt" onclick="quiz(this,false,'Non. La décroissance n\'est pas linéaire.')">5730 / 8 ≈ 716 ans</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Selon la 3<sup>e</sup> loi de Kepler, si la période orbitale d'une planète est multipliée par 8, son demi-grand axe est multiplié par :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. T² ∝ a³ donc T ∝ a^(3/2), soit a ∝ T^(2/3). Pas linéaire.')">8 (même facteur)</button><button class="q-opt" onclick="quiz(this,true,'Correct. T² ∝ a³ → a ∝ T^(2/3). Si T → 8T : a → 8^(2/3)·a = 4a.')">4 (car \(8^{2/3} = 4\))</button><button class="q-opt" onclick="quiz(this,false,'Non. Ce serait T ∝ a^(1/2), or la 3ᵉ loi donne T² ∝ a³.')">64 (car \(8^2 = 64\))</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Un voyageur fait l'aller-retour vers une étoile à \(v = 0{,}8\,c\). L'aller-retour dure 10 ans dans le référentiel terrestre. Pour le voyageur :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Le temps propre est plus court que le temps mesuré dans un référentiel en mouvement (dilatation du temps).')">Plus de 10 ans s'écoulent</button><button class="q-opt" onclick="quiz(this,true,'Correct. γ = 1/√(1−0,64) = 1/√0,36 = 5/3. Le temps propre du voyageur est Δt₀ = Δt/γ = 10 × 3/5 = 6 ans. Paradoxe des jumeaux : seul le voyageur subit l\'accélération, c\'est lui qui « gagne du temps ».')">Environ 6 ans s'écoulent</button><button class="q-opt" onclick="quiz(this,false,'Non. Le temps n\'est pas absolu en relativité. Les deux jumeaux mesurent des durées différentes.')">Exactement 10 ans (temps absolu)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Niveaux d'énergie dans un puits infini 1D :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — l\'énergie de point zéro (n=1) n\'est pas nulle. C\'est précisément ce qui distingue la mécanique quantique de la classique.')">\(E_n = n h\nu\) (proportionnel à \(n\))</button><button class="q-opt" onclick="quiz(this,true,'Correct. E_n = n²π²ℏ²/(2mL²). L\'énergie augmente comme n² (et non n). E₁ ≠ 0 : énergie de point zéro non nulle (Heisenberg).')">\(E_n = \dfrac{n^2 \pi^2 \hbar^2}{2 m L^2}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Cette formule est pour l\'oscillateur harmonique, pas pour le puits infini.')">\(E_n = (n + 1/2) \hbar \omega\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Fission d'1 kg d'\(\ce{^{235}U}\) libère ~\(8\times 10^{13}\,\mathrm{J}\). Combien de tonnes de pétrole pour la même énergie (1 kg pétrole = 42 MJ) ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — vérifier le calcul. 8×10¹³ / 4,2×10⁷ ≈ 2×10⁶ kg.')">200 tonnes</button><button class="q-opt" onclick="quiz(this,true,'Correct. m_pétrole = E/(42×10⁶) = 8×10¹³/(4,2×10⁷) ≈ 1,9×10⁶ kg ≈ 2000 tonnes. Soit ~ 15 000 barils de pétrole pour égaler 1 kg d\'uranium fissionné.')">2000 tonnes</button><button class="q-opt" onclick="quiz(this,false,'Non — trop élevé. Vérifier les unités.')">200 000 tonnes</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pour un proton dans le LHC à 7 TeV, le facteur \(\gamma\) (énergie de repos = 938 MeV) vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — vérifier. γ = E/E₀ = 7×10⁶/938 ≈ 7500.')">\(\gamma \approx 70\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. E = γ·m·c² → γ = E/(mc²) = 7×10⁶ MeV / 938 MeV ≈ 7500. À cette vitesse, v/c ≈ 1 − 9×10⁻⁹ : très proche de c mais inférieure.')">\(\gamma \approx 7500\)</button><button class="q-opt" onclick="quiz(this,false,'Non — γ est fini et 7 TeV est une énergie élevée mais pas excessive.')">\(\gamma \approx \infty\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Vitesse de libération à la surface de la Terre (\(M_T = 6\times 10^{24}\,\mathrm{kg}\), \(R_T = 6378\,\mathrm{km}\)) :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — c\'est la vitesse orbitale circulaire (~7,9 km/s), pas la vitesse de libération.')">\(\sim 7{,}9\,\mathrm{km/s}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. v_lib = √(2GM/R) = √(2·6,67×10⁻¹¹·6×10²⁴/6,378×10⁶) ≈ 11 200 m/s = 11,2 km/s. C\'est √2 fois la vitesse orbitale circulaire à la surface.')">\(\sim 11{,}2\,\mathrm{km/s}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — beaucoup trop élevé. Cette vitesse est sub-lumique mais largement (3 ordres de grandeur).')">\(\sim 100\,\mathrm{km/s}\)</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets et corrigés des sessions précédentes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://phet.colorado.edu/fr/" target="_blank">
+      <span class="ri">🔬</span><div><div class="rt">PhET Simulations</div><div class="rd">Simulations interactives autorisées aux oraux</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="electricite.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Électricité</span></a>
+  <a class="pnav-link next" href="chimie-solutions.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Chimie des solutions</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link cur" href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

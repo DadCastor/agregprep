@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Électrochimie & Corrosion — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero c r">
+    <div class="chap-eyebrow c">Chimie · Sujets oraux 14, 15, 16</div>
+    <h1>Électrochimie <em class="c">& Corrosion</em></h1>
+    <p class="lead">Sujets oraux n°14 (Oxydo-réduction), n°15 (Dispositifs électrochimiques) et n°16 (Métaux et environnement). Piles, électrolyse, diagrammes E-pH, cinétique électrochimique, corrosion et protection des métaux.</p>
+    <div class="chap-badges"><span class="badge bc">Sujets oraux 14, 15, 16</span> <span class="badge bg">Fréquent à l'écrit</span> <span class="badge br">Diagrammes E-pH</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#redox">01 · Couples redox & n.o.</a>
+        <a href="#nernst">02 · Équation de Nernst</a>
+        <a href="#piles">03 · Piles électrochimiques</a>
+        <a href="#electrolyse">04 · Électrolyse</a>
+        <a href="#pourbaix">05 · Diagrammes E-pH</a>
+        <a href="#cinetique">06 · Cinétique électrochimique</a>
+        <a href="#corrosion">07 · Corrosion & protection</a>
+        <a href="#pedagogie">08 · Pédagogie</a>
+        <a href="#demos">09 · Démonstrations clés</a>
+        <a href="#exercices">10 · Exercices résolus</a>
+        <a href="#lecons">11 · Leçons pour l'oral</a>
+        <a href="#montages">12 · Montages</a>
+        <a href="#jury">13 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="cur" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 REDOX & N.O. ═══════════════════ -->
+<div class="sblock r" id="redox">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Couples redox et nombre d'oxydation</h2>
+  <p class="intro">Sujet oral n°14. Notions de base de l'oxydo-réduction : transfert d'électrons, nombre d'oxydation, équilibrage des demi-équations.</p>
+
+  <h3>1.1 Définitions et conventions</h3>
+  <div class="fbox c">
+    <span class="fl">Couple oxydant-réducteur</span>
+    <span class="fc">Demi-équation redox standard (forme générale) :</span>
+    <span class="fm">\[ \ce{Ox + n e- &lt;=&gt; Red} \]</span>
+    <span class="fc">L'<strong>oxydant</strong> capte des électrons (se réduit), le <strong>réducteur</strong> cède des électrons (s'oxyde).</span>
+    <hr>
+    <span class="fc">Couples classiques :</span>
+    <span class="fm">\[ \ce{Cu^{2+}/Cu}\,,\ \ce{Zn^{2+}/Zn}\,,\ \ce{H+/H2}\,,\ \ce{Fe^{3+}/Fe^{2+}}\,,\ \ce{MnO4-/Mn^{2+}} \]</span>
+    <hr>
+    <span class="fc">Réaction redox globale : combinaison de deux demi-équations en équilibrant les électrons (échange total).</span>
+  </div>
+
+  <h3>1.2 Nombre d'oxydation</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Règles d'attribution du nombre d'oxydation (n.o.)</div>
+    <div class="notion-body">
+      <ol>
+        <li>Corps simple : n.o. = 0 (ex. \(\ce{O2}\), \(\ce{Cu}\), \(\ce{Fe}\)).</li>
+        <li>Ion monoatomique : n.o. = charge (\(\ce{Na+}\) : +I, \(\ce{Cl-}\) : −I).</li>
+        <li>Dans les composés : H = +I (sauf hydrures métalliques où −I), O = −II (sauf peroxydes où −I, et \(\ce{OF2}\) où +II).</li>
+        <li>Halogènes en composés : généralement −I.</li>
+        <li>La somme des n.o. = charge totale de la molécule/ion (0 pour molécule neutre).</li>
+      </ol>
+      <p><strong>Variation du n.o.</strong> Augmente lors d'une oxydation, diminue lors d'une réduction. Le nombre d'électrons échangés est donné par la variation du n.o.</p>
+    </div>
+  </div>
+
+  <h3>1.3 Équilibrage d'une demi-équation</h3>
+  <div class="fbox c">
+    <span class="fl">Méthode systématique en milieu aqueux acide</span>
+    <span class="fc">Exemple : \(\ce{MnO4-/Mn^{2+}}\) en milieu acide :</span>
+    <span class="fm">\[ \ce{MnO4- + 8 H+ + 5 e- &lt;=&gt; Mn^{2+} + 4 H2O} \]</span>
+    <hr>
+    <span class="fc">Étapes : 1) équilibrer atome principal — 2) équilibrer O avec \(\ce{H2O}\) — 3) équilibrer H avec \(\ce{H+}\) — 4) équilibrer les charges avec \(\ce{e-}\).</span>
+    <span class="fc">Milieu basique : remplacer \(\ce{H+}\) par \(\ce{H2O}\) et compenser avec \(\ce{OH-}\).</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 NERNST ═══════════════════ -->
+<div class="sblock r" id="nernst">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Équation de Nernst et potentiel d'électrode</h2>
+  <p class="intro">Quantification du pouvoir oxydant/réducteur d'un couple en solution. Lien thermodynamique avec la fem.</p>
+
+  <div class="fbox c">
+    <span class="fl">Équation de Nernst — forme générale</span>
+    <span class="fc">Pour une demi-équation \(\ce{aOx + n e- &lt;=&gt; bRed}\) :</span>
+    <span class="fm">\[ E \;=\; E^{\circ} + \dfrac{R\,T}{n\,F}\,\ln\!\dfrac{a_{\text{Ox}}^{a}}{a_{\text{Red}}^{b}} \]</span>
+    <hr>
+    <span class="fc">À \(T = 298\,\mathrm{K}\) (25 °C), avec \(R T/F \cdot \ln 10 \approx 0{,}0592\,\mathrm{V}\) :</span>
+    <span class="fm">\[ \boxed{\;E \;=\; E^{\circ} + \dfrac{0{,}0592}{n}\,\log\!\dfrac{[\text{Ox}]^{a}}{[\text{Red}]^{b}}\;} \]</span>
+    <hr>
+    <span class="fc">Constantes : \(R = 8{,}314\,\mathrm{J\cdot K^{-1}\cdot mol^{-1}}\), \(F = 96\,485\,\mathrm{C\cdot mol^{-1}}\) (Faraday).</span>
+  </div>
+
+  <div class="alert alert-chim r">
+    <span class="ico">⚠️</span>
+    <div><strong>Activités vs concentrations.</strong> Rigoureusement, Nernst fait intervenir des <em>activités</em> \(a_i = \gamma_i\,[i]/c^\circ\). Pour les solutions diluées idéales, \(a_i \approx [i]/c^\circ\) avec \(c^\circ = 1\,\mathrm{mol\cdot L^{-1}}\). Pour les <strong>solides purs et solvants</strong> : \(a = 1\) (ne pas faire apparaître dans le quotient). Pour les <strong>gaz parfaits</strong> : \(a = P/P^\circ\) avec \(P^\circ = 1\,\mathrm{bar}\).</div>
+  </div>
+
+  <div class="fbox c">
+    <span class="fl">Liens thermodynamiques</span>
+    <span class="fc">Énergie libre d'une réaction redox \(\Delta_r G\) :</span>
+    <span class="fm">\[ \Delta_r G \;=\; -\,n\,F\,E_{\text{cellule}} \qquad \Delta_r G^{\circ} \;=\; -\,n\,F\,E^{\circ}_{\text{cellule}} \]</span>
+    <hr>
+    <span class="fc">Constante d'équilibre d'une réaction redox (en combinant deux couples) :</span>
+    <span class="fm">\[ \log K^{\circ} \;=\; \dfrac{n\,(E^{\circ}_1 - E^{\circ}_2)}{0{,}0592} \qquad (T = 298\,\mathrm{K}) \]</span>
+    <span class="fc">\(K^{\circ}\) grand → réaction très déplacée dans le sens direct.</span>
+  </div>
+
+  <h3>2.1 Règle du gamma</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Prévision qualitative de la réaction spontanée</div>
+    <div class="notion-body">
+      <p>L'oxydant du couple à potentiel <strong>le plus élevé</strong> réagit avec le réducteur du couple à potentiel <strong>le plus faible</strong>. Visualisé sur un axe vertical des \(E^\circ\) croissants, le « gamma » descend en haut à droite et remonte en bas à gauche.</p>
+      <p><strong>Exemple :</strong> \(\ce{Cu^{2+}/Cu}\) (\(E^\circ = +0{,}34\,\mathrm{V}\)) au-dessus de \(\ce{Zn^{2+}/Zn}\) (\(E^\circ = -0{,}76\,\mathrm{V}\)). L'oxydant \(\ce{Cu^{2+}}\) oxyde le réducteur \(\ce{Zn}\) :</p>
+      \[ \ce{Cu^{2+} + Zn -> Cu + Zn^{2+}} \qquad E^{\circ}_{\text{réac}} = 0{,}34 - (-0{,}76) = 1{,}10\,\mathrm{V}. \]
+      <p>Constante \(\log K^\circ = 2\times 1{,}10/0{,}0592 \approx 37\) : réaction totale.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 PILES ═══════════════════ -->
+<div class="sblock r" id="piles">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Piles électrochimiques</h2>
+  <p class="intro">Sujet oral n°15 (Dispositifs électrochimiques). Conversion énergie chimique → énergie électrique. Daniell, accumulateurs, piles à combustible.</p>
+
+  <h3>3.1 Pile Daniell — modèle de référence</h3>
+  <div class="fbox c">
+    <span class="fl">Pile Daniell — schéma et fonctionnement</span>
+    <span class="fc">Notation conventionnelle (de gauche à droite : anode → électrolytes → cathode) :</span>
+    <span class="fm">\[ \ce{Zn} \,|\, \ce{Zn^{2+}} \,||\, \ce{Cu^{2+}} \,|\, \ce{Cu} \]</span>
+    <hr>
+    <span class="fc">Demi-équations :</span>
+    <span class="fm">\[ \text{Anode (oxydation, pôle }-\text{)} :\quad \ce{Zn -> Zn^{2+} + 2 e-} \]</span>
+    <span class="fm">\[ \text{Cathode (réduction, pôle }+\text{)} :\quad \ce{Cu^{2+} + 2 e- -> Cu} \]</span>
+    <span class="fm">\[ \text{Bilan} :\quad \ce{Zn + Cu^{2+} -> Zn^{2+} + Cu} \qquad E^{\circ} = +1{,}10\,\mathrm{V} \]</span>
+    <hr>
+    <span class="fc">Pont salin (ou paroi poreuse) : assure la neutralité ionique en permettant la migration des ions.</span>
+  </div>
+
+  <h3>3.2 Fem d'une pile</h3>
+  <div class="key-box c">
+    \[ \text{f.é.m.} \;=\; E_{\text{cathode}} - E_{\text{anode}} \quad &gt; 0 \quad (\text{réaction spontanée}) \]
+    <p>En régime stationnaire, la fem mesurée à courant nul (ou très faible) est donnée par Nernst pour chaque demi-couple, puis par soustraction. À l'état standard : \(E^\circ_{\text{pile}} = E^\circ_+ - E^\circ_-\).</p>
+  </div>
+
+  <h3>3.3 Accumulateurs et piles à combustible</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Dispositifs réels</div>
+    <div class="notion-body"><ul>
+      <li><strong>Pile saline (Leclanché)</strong> : \(\ce{Zn / NH4Cl / MnO2}\). Tension \(\sim 1{,}5\,\mathrm{V}\), non rechargeable.</li>
+      <li><strong>Pile alcaline</strong> : \(\ce{Zn / KOH / MnO2}\). Meilleur rendement, longue durée.</li>
+      <li><strong>Accumulateur plomb-acide</strong> : \(\ce{Pb / H2SO4 / PbO2}\). Rechargeable, \(\sim 2\,\mathrm{V}\) par élément. Batterie de voiture 12 V = 6 éléments.</li>
+      <li><strong>Lithium-ion</strong> : \(\ce{LiC6 / Li2SO4 / LiCoO2}\). \(\sim 3{,}7\,\mathrm{V}\), haute densité d'énergie. Cœur des téléphones, ordinateurs, véhicules électriques.</li>
+      <li><strong>Pile à combustible \(\ce{H2}/\ce{O2}\)</strong> : \(\ce{H2 + \tfrac{1}{2}O2 -> H2O}\), \(E^\circ = 1{,}23\,\mathrm{V}\). Émission : eau seule. Utilisée en aérospatial (Apollo), véhicules à hydrogène.</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 04 ELECTROLYSE ═══════════════════ -->
+<div class="sblock r" id="electrolyse">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Électrolyse et lois de Faraday</h2>
+  <p class="intro">Imposer une réaction redox <em>non spontanée</em> par apport d'énergie électrique. Applications industrielles majeures (chlore-soude, aluminium, galvanisation).</p>
+
+  <h3>4.1 Lois de Faraday</h3>
+  <div class="fbox c">
+    <span class="fl">Lois de Faraday — quantité de matière déposée</span>
+    <span class="fc">Quantité d'électricité Q écoulée pour produire \(n\) moles d'une espèce, échangeant \(z\) électrons :</span>
+    <span class="fm">\[ Q \;=\; I\,t \;=\; n\,z\,F \qquad\Longrightarrow\qquad n \;=\; \dfrac{I\,t}{z\,F} \]</span>
+    <hr>
+    <span class="fc">Masse déposée à la cathode (réduction) :</span>
+    <span class="fm">\[ \boxed{\;m \;=\; \dfrac{M\,I\,t}{z\,F}\;} \quad [\mathrm{g}] \]</span>
+    <span class="fc">avec \(M\) masse molaire, \(I\) intensité (A), \(t\) durée (s), \(F = 96\,485\,\mathrm{C\cdot mol^{-1}}\).</span>
+  </div>
+
+  <h3>4.2 Conventions pile vs électrolyse</h3>
+  <table class="compact">
+    <thead><tr><th></th><th>Pile (spontanée)</th><th>Électrolyseur (forcée)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cathode</strong> (réduction)</td><td>Pôle \(+\)</td><td>Pôle \(-\) (lié au \(-\) du générateur)</td></tr>
+      <tr><td><strong>Anode</strong> (oxydation)</td><td>Pôle \(-\)</td><td>Pôle \(+\) (lié au \(+\) du générateur)</td></tr>
+      <tr><td><strong>Sens de \(I\)</strong></td><td>Spontané (sortie au pôle \(+\))</td><td>Imposé (entrée par le \(+\) du générateur)</td></tr>
+      <tr><td><strong>Énergie</strong></td><td>Chimique → électrique</td><td>Électrique → chimique</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-chim r">
+    <span class="ico">⚠️</span>
+    <div><strong>Cathode = réduction, toujours.</strong> Ce qui change entre pile et électrolyse, c'est seulement la <em>polarité</em> du pôle. Mémo : « <strong>R</strong>éduction à la c<strong>a</strong>thode » dans tous les cas — c'est la définition.</div>
+  </div>
+
+  <h3>4.3 Surtensions et rendement</h3>
+  <div class="fbox c">
+    <span class="fl">Tension d'électrolyse réelle</span>
+    <span class="fc">Tension à appliquer pour qu'un courant \(I\) circule :</span>
+    <span class="fm">\[ U_{\text{appliquée}} \;=\; U_{\text{th}} + |\eta_{\text{a}}| + |\eta_{\text{c}}| + R_{\text{cellule}}\,I \]</span>
+    <span class="fc">\(U_{\text{th}}\) : tension thermodynamique (Nernst). \(\eta\) : surtensions cinétiques aux électrodes. \(R_{\text{cellule}} I\) : chute ohmique dans la solution.</span>
+    <hr>
+    <span class="fc">Rendement faradique : \(\eta_F = n_{\text{exp}}/n_{\text{théo}} = m_{\text{réelle}}/m_{\text{Faraday}}\). Diminué par les réactions parasites (notamment dégagement \(\ce{H2}\) ou \(\ce{O2}\) sur les électrodes).</span>
+  </div>
+
+  <h3>4.4 Applications industrielles</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Quelques procédés majeurs</div>
+    <div class="notion-body"><ul>
+      <li><strong>Chlore-soude</strong> : électrolyse de \(\ce{NaCl}\) aqueux. Cathode : \(\ce{H2}\), anode : \(\ce{Cl2}\), produit secondaire : \(\ce{NaOH}\). Plus de 70 millions de tonnes/an.</li>
+      <li><strong>Aluminium (procédé Hall-Héroult)</strong> : électrolyse d'\(\ce{Al2O3}\) fondu dans la cryolite (\(\ce{Na3AlF6}\)) à 950 °C. Très gros consommateur d'énergie.</li>
+      <li><strong>Galvanoplastie</strong> : dépôt de \(\ce{Cu}\), \(\ce{Zn}\), \(\ce{Cr}\), \(\ce{Ni}\) sur pièces métalliques par électrolyse.</li>
+      <li><strong>Production d'\(\ce{H2}\) propre</strong> : électrolyse de l'eau via énergies renouvelables — enjeu de la transition énergétique.</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 05 POURBAIX ═══════════════════ -->
+<div class="sblock r" id="pourbaix">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Diagrammes potentiel-pH (Pourbaix)</h2>
+  <p class="intro">Représentation graphique des domaines de prédominance des espèces redox en fonction de \(E\) et \(\mathrm{pH}\). Outil incontournable de la corrosion.</p>
+
+  <div class="fbox c">
+    <span class="fl">Frontières du diagramme E-pH</span>
+    <span class="fc">Trois types de frontières dans un diagramme E-pH :</span>
+    <span class="fc">— Verticales : équilibres acide-base (pas de redox, indépendant de \(E\))</span>
+    <span class="fc">— Horizontales : équilibres redox sans \(\ce{H+}\) (Nernst indépendant du pH)</span>
+    <span class="fc">— Obliques : équilibres redox impliquant \(\ce{H+}\) (Nernst dépend du pH)</span>
+    <hr>
+    <span class="fc">Frontière oblique d'une demi-équation \(\ce{Ox + mH+ + ne- &lt;=&gt; Red}\) :</span>
+    <span class="fm">\[ E \;=\; E^{\circ} - \dfrac{0{,}0592\,m}{n}\,\mathrm{pH} + \dfrac{0{,}0592}{n}\,\log\!\dfrac{[\text{Ox}]}{[\text{Red}]} \]</span>
+    <span class="fc">Pente \(-0{,}0592\,m/n\) V par unité de pH.</span>
+  </div>
+
+  <h3>5.1 Conventions de tracé</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Choix de la concentration de tracé</div>
+    <div class="notion-body">
+      <p>La position des frontières dépend de la concentration totale en élément métallique. Conventions usuelles :</p>
+      <ul>
+        <li><strong>Convention de tracé</strong> : \([M_{\text{soluble}}] = c_{\text{trace}}\) (ex. \(10^{-6}\,\mathrm{mol\cdot L^{-1}}\) pour la corrosion).</li>
+        <li><strong>Espèces séparées par frontières</strong> : équiprobabilité, soit \([\text{Ox}] = [\text{Red}]\).</li>
+        <li><strong>Limites de l'eau</strong> : à reporter sur le diagramme (lignes \(E_{\ce{O2}/\ce{H2O}} = 1{,}23 - 0{,}059\,\mathrm{pH}\) et \(E_{\ce{H+}/\ce{H2}} = -0{,}059\,\mathrm{pH}\) à 1 bar).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>5.2 Lecture des diagrammes</h3>
+  <p>Trois domaines clés pour les métaux :</p>
+  <ul>
+    <li><strong>Immunité</strong> — métal stable (zone inférieure, \(E\) faible).</li>
+    <li><strong>Corrosion</strong> — métal dissout en ion soluble.</li>
+    <li><strong>Passivation</strong> — métal recouvert d'un oxyde protecteur insoluble (zone supérieure).</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════ 06 CINETIQUE ═══════════════════ -->
+<div class="sblock r" id="cinetique">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Cinétique électrochimique — courbes i-E</h2>
+  <p class="intro">La thermodynamique prédit ce qui <em>peut</em> se produire ; la cinétique dit ce qui <em>se produit effectivement</em>. Surtensions, vagues caractéristiques.</p>
+
+  <div class="fbox c">
+    <span class="fl">Courbe intensité-potentiel</span>
+    <span class="fc">Pour un couple redox à l'électrode, on trace \(i(E)\) (densité de courant en fonction du potentiel imposé). Cas typique d'un couple rapide :</span>
+    <span class="fm">\[ i \;=\; i_a + i_c \qquad i_a &gt; 0\ \text{(oxydation)},\ i_c &lt; 0\ \text{(réduction)} \]</span>
+    <hr>
+    <span class="fc">Trois zones :</span>
+    <span class="fc">— \(E = E_{\text{eq}}\) (potentiel d'abandon) : \(i = 0\) (équilibre)</span>
+    <span class="fc">— \(E &gt; E_{\text{eq}}\) : oxydation à l'électrode</span>
+    <span class="fc">— \(E &lt; E_{\text{eq}}\) : réduction à l'électrode</span>
+    <hr>
+    <span class="fc">Loi de Butler-Volmer (couple rapide, contrôle cinétique) :</span>
+    <span class="fm">\[ i \;=\; i_0\!\left[\mathrm{e}^{\alpha n F \eta / RT} - \mathrm{e}^{-(1-\alpha) n F \eta/RT}\right] \quad \eta = E - E_{\text{eq}} \]</span>
+    <span class="fc">\(i_0\) : densité de courant d'échange (à \(\eta = 0\)). \(\alpha\) : coefficient de transfert (\(\sim 0{,}5\)).</span>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Surtensions et systèmes lents</div>
+    <div class="notion-body">
+      <p>Pour un couple <strong>lent</strong>, la courbe i-E est aplatie autour de \(E_{\text{eq}}\) : il faut imposer une <strong>surtension</strong> \(|\eta| &gt; 0\) pour faire passer un courant significatif.</p>
+      <p>Cas particuliers :</p>
+      <ul>
+        <li><strong>Couple \(\ce{H+/H2}\) sur \(\ce{Pt}\)</strong> : couple rapide, \(\eta\) faible.</li>
+        <li><strong>Couple \(\ce{H+/H2}\) sur \(\ce{Hg}\)</strong> : couple lent, \(\eta_{\ce{H2}}\) très négative — permet la réduction de cations alcalins qui sinon seraient masqués par \(\ce{H2}\).</li>
+        <li><strong>Couple \(\ce{O2/H2O}\)</strong> : très lent sur la plupart des électrodes — \(\eta_{\ce{O2}}\) souvent &gt; 0,5 V.</li>
+      </ul>
+      <p>Conséquence : les surtensions expliquent que des réactions thermodynamiquement défavorables soient cinétiquement possibles (et inversement). Par exemple, la corrosion du fer en milieu acide aérée se fait lentement à cause de \(\eta_{\ce{O2}}\).</p>
+    </div>
+  </div>
+
+  <div class="fbox c">
+    <span class="fl">Plateau de diffusion (palier limite)</span>
+    <span class="fc">À \(|E - E_{\text{eq}}|\) grand, la cinétique de transfert est rapide mais la concentration à l'électrode tend vers 0. Le courant est limité par la diffusion (loi de Fick) :</span>
+    <span class="fm">\[ |i_{\text{lim}}| \;=\; \dfrac{n\,F\,D\,[X]_{\infty}}{\delta} \]</span>
+    <span class="fc">\(D\) : coefficient de diffusion, \(\delta\) : épaisseur de la couche de diffusion (~mm en convection naturelle, ~µm avec agitation).</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 07 CORROSION ═══════════════════ -->
+<div class="sblock r" id="corrosion">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Corrosion et protection des métaux</h2>
+  <p class="intro">Sujet oral n°16 (Métaux et environnement). Mécanismes de corrosion électrochimique et stratégies de protection. Enjeu économique majeur (~3 % du PIB mondial).</p>
+
+  <h3>7.1 Mécanismes de corrosion</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Corrosion humide — pile locale</div>
+    <div class="notion-body">
+      <p>Le fer plongé dans un milieu humide aéré subit une réaction électrochimique spontanée :</p>
+      <ul>
+        <li><strong>Anode (oxydation)</strong> : \(\ce{Fe -> Fe^{2+} + 2 e-}\)</li>
+        <li><strong>Cathode (réduction)</strong> : \(\ce{O2 + 2 H2O + 4 e- -> 4 OH-}\) (en milieu aéré neutre/basique)</li>
+        <li>ou \(\ce{2 H+ + 2 e- -> H2}\) (en milieu acide)</li>
+      </ul>
+      <p>Le \(\ce{Fe^{2+}}\) produit s'oxyde ensuite en \(\ce{Fe^{3+}}\) par \(\ce{O2}\), formant la rouille \(\ce{Fe2O3 \cdot n H2O}\).</p>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Corrosion galvanique</div>
+    <div class="notion-body">
+      <p>Deux métaux différents en contact électrique dans un électrolyte forment une pile : le métal le <strong>moins noble</strong> (\(E^\circ\) plus faible) joue le rôle d'anode et se corrode préférentiellement.</p>
+      <p><strong>Exemples :</strong></p>
+      <ul>
+        <li>\(\ce{Fe/Cu}\) en milieu humide → \(\ce{Fe}\) se corrode (\(E^\circ_{\ce{Fe^{2+}/Fe}} = -0{,}44\,\mathrm{V} &lt; E^\circ_{\ce{Cu^{2+}/Cu}} = +0{,}34\,\mathrm{V}\)).</li>
+        <li>\(\ce{Zn/Fe}\) (acier galvanisé) → \(\ce{Zn}\) se corrode <em>volontairement</em> à la place du \(\ce{Fe}\). C'est la <strong>protection par anode sacrificielle</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>7.2 Stratégies de protection</h3>
+  <div class="fbox c">
+    <span class="fl">Quatre familles de méthodes</span>
+    <span class="fc">1. <strong>Protection par revêtement</strong> :</span>
+    <span class="fc">— Peinture, vernis (barrière physique).</span>
+    <span class="fc">— Métal plus noble (étamage par \(\ce{Sn}\), nickelage) — risque de corrosion accélérée si rayure.</span>
+    <span class="fc">— Métal moins noble (galvanisation par \(\ce{Zn}\)) — protection même si rayé.</span>
+    <hr>
+    <span class="fc">2. <strong>Protection cathodique par anode sacrificielle</strong> : connecter électriquement la structure à protéger avec une masse de \(\ce{Zn}\) ou \(\ce{Mg}\). Le \(\ce{Zn}/\ce{Mg}\) s'oxyde, fournit les électrons qui empêchent l'oxydation du fer.</span>
+    <hr>
+    <span class="fc">3. <strong>Protection cathodique par courant imposé</strong> : générateur extérieur abaisse le potentiel du métal sous \(E_{\text{corrosion}}\) (utilisé pour pipelines enterrés, coques de bateaux).</span>
+    <hr>
+    <span class="fc">4. <strong>Passivation</strong> : formation d'une couche d'oxyde stable et protectrice :</span>
+    <span class="fc">— Aluminium : \(\ce{Al2O3}\) (anodisation peut épaissir la couche).</span>
+    <span class="fc">— Acier inoxydable : \(\geq 12\,\%\) \(\ce{Cr}\) → couche \(\ce{Cr2O3}\) passive.</span>
+    <span class="fc">— Cuivre : \(\ce{Cu2O}\) puis carbonate de cuivre (« vert-de-gris » de la statue de la Liberté).</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
+    <div class="notion-body"><ul>
+      <li><strong>Cycle 4</strong> : conservation des éléments, transformation chimique avec changement d'état d'oxydation introduit qualitativement.</li>
+      <li><strong>1<sup>re</sup> spé</strong> : réactions d'oxydoréduction, demi-équations, exemples de l'industrie (piles, batteries).</li>
+      <li><strong>Terminale spé</strong> : piles, électrolyse, applications (accumulateurs, production de \(\ce{H2}\), galvanisation). Notion de fem qualitative.</li>
+      <li><strong>Terminale STL</strong> : titrages potentiométriques, courbes i-E qualitatives, électrolyses industrielles.</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confondre cathode et pôle \(+\) (ça dépend du contexte pile/électrolyse).</li>
+        <li>Oublier les coefficients stœchiométriques dans Nernst (puissance \(a\) ou \(b\)).</li>
+        <li>Inclure les solides ou le solvant dans le quotient (\(a = 1\), donc \(\log 1 = 0\), ils n'apparaissent pas).</li>
+        <li>Mémoriser les valeurs de \(E^\circ\) plutôt que la règle du gamma.</li>
+        <li>Penser que la corrosion est purement chimique (en réalité électrochimique, avec courants locaux).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 DEMOS ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Démonstrations attendues à l'écrit et systématiquement demandées à l'oral.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.1 — Équation de Nernst à partir de la thermodynamique</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour la demi-réaction \(\ce{aOx + ne- &lt;=&gt; bRed}\), l'enthalpie libre de réaction s'écrit :</p>
+        \[ \Delta_r G \;=\; \Delta_r G^{\circ} + R\,T\,\ln Q \qquad Q = \dfrac{a_{\text{Red}}^{b}}{a_{\text{Ox}}^{a}}. \]
+        <p>Par ailleurs, la relation thermodynamique \(\Delta_r G = -n F E\) donne :</p>
+        \[ -nFE \;=\; -nFE^{\circ} + RT\ln Q \]
+        \[ \quad\Longrightarrow\quad E \;=\; E^{\circ} - \dfrac{R T}{n F}\ln\!\dfrac{a_{\text{Red}}^{b}}{a_{\text{Ox}}^{a}} \;=\; E^{\circ} + \dfrac{R T}{n F}\ln\!\dfrac{a_{\text{Ox}}^{a}}{a_{\text{Red}}^{b}}. \]
+        <p>À 298 K : \(RT/F \cdot \ln 10 = (8{,}314\times 298/96485)\times 2{,}303 \approx 0{,}0592\,\mathrm{V}\), d'où</p>
+        \[ \boxed{\;E \;=\; E^{\circ} + \dfrac{0{,}0592}{n}\log\!\dfrac{[\text{Ox}]^{a}}{[\text{Red}]^{b}}\;} \]
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.2 — Constante d'équilibre d'une réaction redox</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Soient deux couples \(\ce{Ox1/Red1}\) (\(E^\circ_1\)) et \(\ce{Ox2/Red2}\) (\(E^\circ_2\)) avec \(E^\circ_1 &gt; E^\circ_2\). Réaction spontanée : \(\ce{Ox1} + \ce{Red2} \to \ce{Red1} + \ce{Ox2}\), \(n\) électrons échangés.</p>
+        <p>À l'équilibre, \(E_1 = E_2\) (égalité des potentiels). En soustrayant les deux Nernst :</p>
+        \[ E^{\circ}_1 - E^{\circ}_2 \;=\; -\,\dfrac{0{,}0592}{n}\log\!\left(\dfrac{[\text{Red}_1][\text{Ox}_2]}{[\text{Ox}_1][\text{Red}_2]}\right) \]
+        <p>Le terme entre parenthèses est le quotient de réaction \(Q_{\text{eq}} = K^\circ\). D'où :</p>
+        \[ \boxed{\;\log K^{\circ} \;=\; \dfrac{n\,(E^{\circ}_1 - E^{\circ}_2)}{0{,}0592}\;} \quad (T = 298\,\mathrm{K}) \]
+        <p>Si \(E^\circ_1 - E^\circ_2 \geq 0{,}3\,\mathrm{V}\) (avec \(n = 1\)), \(K^\circ \geq 10^{5}\) — réaction <em>quasi totale</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.3 — Pente d'une frontière oblique E-pH</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Demi-équation impliquant \(\ce{H+}\) : \(\ce{Ox + mH+ + ne- &lt;=&gt; Red}\). Équation de Nernst :</p>
+        \[ E = E^{\circ} + \dfrac{0{,}0592}{n}\log\!\dfrac{[\text{Ox}][H^{+}]^{m}}{[\text{Red}]} \]
+        \[ = E^{\circ} + \dfrac{0{,}0592}{n}\log\!\dfrac{[\text{Ox}]}{[\text{Red}]} - \dfrac{0{,}0592\,m}{n}\,\mathrm{pH}. \]
+        <p>Pour des concentrations fixées (\([\text{Ox}] = [\text{Red}]\) à la frontière), on a une <strong>droite oblique</strong> de pente :</p>
+        \[ \boxed{\;\dfrac{\mathrm{d}E}{\mathrm{d}\,\mathrm{pH}} \;=\; -\,\dfrac{0{,}0592\,m}{n}\,\mathrm{V}\,\mathrm{par\,unit\acute{e}\,de\,pH}\;} \]
+        <p>Exemples : \(\ce{H2O/H2}\) (\(m = 1, n = 1\)) → pente \(-0{,}0592\,\mathrm{V/pH}\). \(\ce{O2/H2O}\) (\(m = 4, n = 4\)) → pente \(-0{,}0592\,\mathrm{V/pH}\). Toutes deux parallèles.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.4 — Loi de Tafel (approximation de Butler-Volmer)</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour une surtension \(|\eta| \gg RT/F \approx 25\,\mathrm{mV}\), un des deux termes exponentiels de Butler-Volmer devient négligeable :</p>
+        \[ i \;\approx\; i_0\,\mathrm{e}^{\alpha n F \eta / RT} \quad (\eta &gt; 0\text{, oxydation}). \]
+        <p>En passant au logarithme décimal :</p>
+        \[ \log i \;=\; \log i_0 + \dfrac{\alpha n F}{RT\ln 10}\,\eta \]
+        \[ \quad\Longrightarrow\quad \eta \;=\; \dfrac{RT\ln 10}{\alpha n F}\,(\log i - \log i_0) \;=\; a + b\log i. \]
+        <p>C'est la <strong>loi de Tafel</strong> : tracé linéaire de \(\log|i|\) en fonction de \(\eta\). Permet de mesurer \(i_0\) (intercept) et \(\alpha n\) (pente, dite « pente de Tafel », \(\sim 60-120\,\mathrm{mV/décade}\) selon les couples).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.5 — Loi de Faraday (analyse dimensionnelle)</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Une espèce X échangeant \(z\) électrons est déposée à raison de \(n\) moles. La quantité d'électricité totale écoulée :</p>
+        \[ Q \;=\; z\,n\,N_A\,e \;=\; z\,n\,F \qquad (F = N_A\,e = 96485\,\mathrm{C\cdot mol^{-1}}). \]
+        <p>Si l'électrolyse est faite à courant constant \(I\) pendant \(t\) :</p>
+        \[ Q = I\,t \quad\Longrightarrow\quad n = \dfrac{I\,t}{z\,F} \quad\Longrightarrow\quad m = n\,M = \dfrac{M\,I\,t}{z\,F}. \]
+        <p>Cette relation est exacte pour une électrolyse à <strong>rendement faradique 100 %</strong> (toute la charge va à la réaction d'intérêt). En pratique, on définit \(\eta_F = m_{\text{réelle}}/m_{\text{Faraday}}\) typiquement 70–99 %.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 10 EXOS ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Exercices résolus — type concours</h2>
+  <p class="intro">Trois exercices calibrés agrégation interne.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — Pile Daniell hors conditions standard (★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Pile Daniell avec \([\ce{Zn^{2+}}] = 0{,}01\,\mathrm{mol\cdot L^{-1}}\) côté Zn et \([\ce{Cu^{2+}}] = 1{,}0\,\mathrm{mol\cdot L^{-1}}\) côté Cu. Données : \(E^\circ_{\ce{Zn^{2+}/Zn}} = -0{,}76\,\mathrm{V}\), \(E^\circ_{\ce{Cu^{2+}/Cu}} = +0{,}34\,\mathrm{V}\).</p>
+      <ol>
+        <li>Calculer les potentiels d'électrode \(E_{\ce{Cu}}\) et \(E_{\ce{Zn}}\).</li>
+        <li>En déduire la fem de la pile.</li>
+        <li>Calculer \(\Delta_r G\) de la réaction \(\ce{Zn + Cu^{2+} -> Zn^{2+} + Cu}\).</li>
+        <li>Calculer la constante d'équilibre \(K^\circ\).</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Nernst pour Cu (n = 2, activité de Cu solide = 1) :</p>
+      \[ E_{\ce{Cu}} = E^\circ_{\ce{Cu^{2+}/Cu}} + \dfrac{0{,}0592}{2}\log[\ce{Cu^{2+}}] = 0{,}34 + 0 = 0{,}34\,\mathrm{V}. \]
+      <p>Pour Zn :</p>
+      \[ E_{\ce{Zn}} = E^\circ_{\ce{Zn^{2+}/Zn}} + \dfrac{0{,}0592}{2}\log[\ce{Zn^{2+}}] = -0{,}76 + \dfrac{0{,}0592}{2}\log(10^{-2}) = -0{,}76 - 0{,}0592 = -0{,}82\,\mathrm{V}. \]
+      <p><strong>2.</strong> Fem : \(\text{f.é.m.} = E_{\ce{Cu}} - E_{\ce{Zn}} = 0{,}34 - (-0{,}82) = 1{,}16\,\mathrm{V}\).</p>
+      <p><strong>3.</strong> Énergie libre : \(\Delta_r G = -n F \cdot \text{f.é.m.} = -2 \times 96485 \times 1{,}16 \approx -224\,\mathrm{kJ\cdot mol^{-1}}\). Très négative → réaction spontanée et très favorable.</p>
+      <p><strong>4.</strong> Constante d'équilibre :</p>
+      \[ \log K^\circ \;=\; \dfrac{n\,(E^\circ_1 - E^\circ_2)}{0{,}0592} \;=\; \dfrac{2\times 1{,}10}{0{,}0592} \approx 37{,}2 \quad\Longrightarrow\quad K^\circ \approx 10^{37}. \]
+      <p>Réaction totalement déplacée vers les produits.</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — Électrolyse de \(\ce{CuSO4}\) (★ application Faraday)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>On électrolyse une solution de \(\ce{CuSO4}\) avec \(I = 2\,\mathrm{A}\) pendant \(t = 1\,\mathrm{h}\). \(M(\ce{Cu}) = 63{,}5\,\mathrm{g\cdot mol^{-1}}\), \(F = 96\,485\,\mathrm{C\cdot mol^{-1}}\).</p>
+      <ol>
+        <li>Écrire les demi-équations aux deux électrodes.</li>
+        <li>Calculer la masse de cuivre déposée à la cathode.</li>
+        <li>Calculer le volume de \(\ce{O2}\) dégagé à l'anode (CNTP).</li>
+        <li>Si le rendement faradique est de 95 %, recalculer la masse réelle déposée.</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Cathode (réduction) : \(\ce{Cu^{2+} + 2 e- -> Cu}\). Anode (oxydation de l'eau, en l'absence de \(\ce{Cl-}\)) : \(\ce{2 H2O -> O2 + 4 H+ + 4 e-}\).</p>
+      <p><strong>2.</strong> Charge totale : \(Q = It = 2 \times 3600 = 7200\,\mathrm{C}\). Avec \(z = 2\) :</p>
+      \[ m_{\ce{Cu}} \;=\; \dfrac{M\,I\,t}{z\,F} \;=\; \dfrac{63{,}5\times 7200}{2\times 96485} \;\approx\; 2{,}37\,\mathrm{g}. \]
+      <p><strong>3.</strong> Pour l'\(\ce{O2}\) : \(z = 4\), donc \(n_{\ce{O2}} = It/(4F) = 7200/(4\times 96485) \approx 1{,}87\times 10^{-2}\,\mathrm{mol}\). Volume CNTP (\(V_m = 22{,}4\,\mathrm{L\cdot mol^{-1}}\)) :</p>
+      \[ V_{\ce{O2}} = 1{,}87\times 10^{-2} \times 22{,}4 \approx 0{,}42\,\mathrm{L}. \]
+      <p><strong>4.</strong> Avec rendement 95 % : \(m_{\text{réelle}} = 0{,}95 \times 2{,}37 = 2{,}25\,\mathrm{g}\). Les 5 % manquants correspondent à des réactions parasites (dégagement \(\ce{H2}\) cathodique, oxydation \(\ce{O2}\) annexes).</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Protection cathodique d'un pipeline en acier (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Un pipeline en acier de surface \(S = 100\,\mathrm{m^{2}}\) est protégé par anode sacrificielle de \(\ce{Mg}\). Sans protection, la vitesse de corrosion est \(v_{\text{cor}} = 50\,\mu\mathrm{m\cdot an^{-1}}\). Densité acier : \(\rho_{\ce{Fe}} = 7{,}87\,\mathrm{g\cdot cm^{-3}}\). \(M_{\ce{Fe}} = 56\,\mathrm{g\cdot mol^{-1}}\), \(M_{\ce{Mg}} = 24{,}3\,\mathrm{g\cdot mol^{-1}}\). On souhaite remplacer l'anode tous les 5 ans.</p>
+      <ol>
+        <li>Calculer le courant de corrosion équivalent (sans protection).</li>
+        <li>Quelle masse de \(\ce{Mg}\) faut-il prévoir pour 5 ans de protection ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Masse de fer corrodée par an :</p>
+      \[ m_{\ce{Fe}/\text{an}} = \rho_{\ce{Fe}}\times S \times v_{\text{cor}} = 7{,}87\times 100\times 50\times 10^{-6}\,\mathrm{kg/an} \approx 39{,}4\,\mathrm{kg/an}. \]
+      <p>Nombre de moles : \(n_{\ce{Fe}}/\text{an} = 39400/56 \approx 703\,\mathrm{mol/an}\). Charge correspondante (\(\ce{Fe -> Fe^{2+} + 2e-}\), z = 2) :</p>
+      \[ Q_{\text{an}} = z\,n_{\ce{Fe}}\,F = 2\times 703\times 96485 \approx 1{,}36\times 10^{8}\,\mathrm{C/an}. \]
+      \[ I_{\text{cor}} = Q/T = 1{,}36\times 10^{8}/(365\times 24\times 3600) \approx 4{,}3\,\mathrm{A}. \]
+      <p><strong>2.</strong> L'anode \(\ce{Mg}\) (\(\ce{Mg -> Mg^{2+} + 2e-}\), z = 2) doit fournir le même nombre d'électrons sur 5 ans :</p>
+      \[ n_{\ce{Mg}} = n_{\ce{Fe}}\times 5 = 703\times 5 = 3515\,\mathrm{mol} \quad\Longrightarrow\quad m_{\ce{Mg}} = 3515\times 24{,}3 \approx 85\,\mathrm{kg}. \]
+      <p>En tenant compte d'un rendement réel de l'anode \(\sim 60\,\%\) (corrosion non utile en oxyde superficiel), prévoir plutôt \(\sim 140\,\mathrm{kg}\).</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 11 LECONS ═══════════════════ -->
+<div class="sblock r" id="lecons">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Développements pédagogiques pour l'oral</h2>
+  <p class="intro">Deux propositions de leçons calibrées agrégation interne.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon 1 — Piles : de la chimie à l'électricité</h4>
+    <div class="lecon-meta">Niveau · Terminale spé / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Comment une simple plaque de zinc plongée dans une solution de sulfate de cuivre peut-elle faire briller une LED ? Cette expérience contient toute la thermodynamique électrochimique.</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Expérience qualitative : pile Daniell rudimentaire (Zn/Cu en solution, ampèremètre, multimètre).</li>
+      <li>Demi-équations aux électrodes — règle du gamma sur les potentiels standards.</li>
+      <li>Équation de Nernst : démonstration à partir de \(\Delta_r G = -nFE\) (rappel thermo). Application au calcul de f.é.m.</li>
+      <li>Variation de la fem avec les concentrations — vérification expérimentale en diluant un compartiment.</li>
+      <li>Constantes d'équilibre redox : prédiction de l'équilibre final, calcul de \(K^\circ\).</li>
+      <li>Ouverture : accumulateurs réels, piles à combustible, défis de la transition énergétique.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> 1<sup>re</sup> spé : oxydoréduction. Terminale spé : piles, accumulateurs, applications. STL : titrages électrochimiques.</p>
+    <p><strong>Activité élève proposée.</strong> Construire une pile « patate » (Zn + Cu plantés dans une pomme de terre) et faire fonctionner une LED ou une horloge LCD basse consommation. Discussion sur la limitation en intensité (résistance interne énorme).</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Leçon 2 — Corrosion : enjeu environnemental et industriel</h4>
+    <div class="lecon-meta">Niveau · 2<sup>e</sup> année CPGE PC / oral agrégation</div>
+    <p><strong>Accroche.</strong> Pourquoi la statue de la Liberté est-elle verte ? Pourquoi un clou rouille mais pas une vis en inox ? Le coût mondial de la corrosion représente 3 % du PIB.</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Mise en évidence expérimentale : clou dans gel aérée + indicateur (rouge phénolphtaléine, bleu hexacyanoferrate). Visualisation des zones anodiques et cathodiques.</li>
+      <li>Mécanisme électrochimique — corrosion humide aérée du fer. Demi-équations.</li>
+      <li>Diagramme E-pH du fer — domaines d'immunité, corrosion, passivation. Démonstration de la pente d'une frontière oblique.</li>
+      <li>Stratégies de protection : revêtement, anode sacrificielle, courant imposé, passivation (cas de l'inox, anodisation de l'aluminium).</li>
+      <li>Cinétique : surtension du dégagement de \(\ce{O2}\) (très lente) — explique que la corrosion est limitée en l'absence d'humidité.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> 1<sup>re</sup> spé : réactions d'oxydoréduction (cas du fer). Terminale spé : applications industrielles (galvanisation, protection cathodique).</p>
+    <p><strong>Erreur fréquente d'élève.</strong> Penser que la rouille est de l'oxyde de fer (II) (\(\ce{FeO}\)) plutôt que de l'oxyde de fer (III) hydraté (\(\ce{Fe2O3 \cdot n H2O}\)). Le \(\ce{Fe^{2+}}\) initialement formé s'oxyde rapidement par \(\ce{O2}\) atmosphérique.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 12 MONTAGES ═══════════════════ -->
+<div class="sblock r" id="montages">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Montages expérimentaux</h2>
+  <p class="intro">Deux montages exploitables à l'oral d'agrégation.</p>
+
+  <div class="lecon-card">
+    <h4>Montage 1 — Tracé d'une courbe intensité-potentiel</h4>
+    <p><strong>Objectif.</strong> Caractériser un couple redox (rapide ou lent) par sa courbe i-E.</p>
+    <p><strong>Matériel.</strong> Potentiostat (ou montage 3 électrodes avec générateur réglable), électrode de travail (Pt ou C vitreux), électrode de référence (ECS), contre-électrode (Pt), solution électrochimique (ex. \(\ce{Fe^{3+}/Fe^{2+}}\) en milieu \(\ce{H2SO4}\)), agitateur.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Préparer la solution (concentrations équimolaires \(\ce{Fe^{3+}}\) et \(\ce{Fe^{2+}}\), milieu acide).</li>
+      <li>Plonger les 3 électrodes dans la cellule, agitation modérée.</li>
+      <li>Imposer une rampe de potentiel \(E\) (par exemple de \(-0{,}5\,\mathrm{V}\) à \(+0{,}5\,\mathrm{V}\) par rapport à l'ECS), mesurer \(i(E)\).</li>
+      <li>Tracer la courbe \(i(E)\). Identifier le potentiel d'abandon (\(i = 0\)) et le comparer au \(E^\circ_{\ce{Fe^{3+}/Fe^{2+}}}\) tabulé.</li>
+      <li>Repérer les surtensions et plateau de diffusion éventuel.</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Calibration de l'ECS (\(\pm 5\,\mathrm{mV}\)), conditions hydrodynamiques (effet de l'agitation), température (\(\pm 1\,\mathrm{K}\)).</p>
+    <p><strong>Exploitation.</strong> Comparaison à \(E^\circ\) tabulé via la correction de Nernst : \(E_{\text{exp}} - E^\circ = (0{,}0592/n)\log([\text{Ox}]/[\text{Red}])\). Discussion du caractère rapide/lent du couple. Application des points (\(i_0\)) par méthode de Tafel sur les portions linéaires \(\log i\) vs \(\eta\).</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage 2 — Étude de la pile Daniell — fem et constante d'équilibre</h4>
+    <p><strong>Objectif.</strong> Mesurer la fem de la pile Daniell en fonction des concentrations, en déduire \(E^\circ\) et \(K^\circ\).</p>
+    <p><strong>Matériel.</strong> Deux béchers, électrodes Zn et Cu, solutions \(\ce{ZnSO4}\) et \(\ce{CuSO4}\) à différentes concentrations, pont salin (\(\ce{KNO3}\) ou \(\ce{KCl}\) saturé), voltmètre à haute impédance (\(&gt; 10\,\mathrm{M}\Omega\)).</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Préparer 5 couples de concentrations (\(\ce{ZnSO4}\), \(\ce{CuSO4}\)) avec rapports variés (ex. \(10^{-3}\) à \(1\,\mathrm{mol\cdot L^{-1}}\)).</li>
+      <li>Connecter la cellule au voltmètre (très haute impédance pour ne pas tirer de courant). Mesurer la fem à équilibre.</li>
+      <li>Tracer \(\text{f.é.m.}\) en fonction de \(\log([\ce{Cu^{2+}}]/[\ce{Zn^{2+}}])\).</li>
+      <li>Régression linéaire : intercept donne \(E^\circ\), pente \(0{,}0592/n = 0{,}0296\,\mathrm{V}\) (vérification de Nernst à \(n = 2\)).</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Pesées et dilutions (\(\pm 1\,\%\) sur concentrations), résistance interne du voltmètre (\(\pm 10\,\mathrm{mV}\) si insuffisante), température (\(\pm 1\,\mathrm{K}\) affecte le coefficient 0,0592).</p>
+    <p><strong>Exploitation.</strong> Vérification quantitative de Nernst, calcul de \(E^\circ_{\text{pile}}\) (théorique : 1,10 V), puis \(K^\circ\). Discussion sur l'écart au modèle : activités vs concentrations en solution non diluée.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 13 JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 13</div>
+  <h2>13. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Cathode vs pôle.</strong> La <em>cathode</em> est toujours le siège de la réduction. Mais son signe (\(+\) ou \(-\)) dépend du contexte : pôle \(+\) en pile (spontanée), pôle \(-\) en électrolyse (forcée). Erreur très fréquente — donner systématiquement la définition fonctionnelle (réduction) puis déduire le signe.</div>
+    <div class="jury-item"><strong>Solides et solvants dans Nernst.</strong> Les solides purs et le solvant (eau) ont une activité de 1 : ils ne doivent <em>pas</em> apparaître dans le quotient \(Q\). Pour \(\ce{Cu^{2+}/Cu}\) : \(E = E^\circ + (0{,}0592/2)\log[\ce{Cu^{2+}}]\), <em>pas</em> \(\log([\ce{Cu^{2+}}]/[\ce{Cu}])\).</div>
+    <div class="jury-item"><strong>Coefficients stœchiométriques.</strong> Les puissances dans Nernst sont les coefficients <em>stœchiométriques</em> de la demi-équation équilibrée. Pour \(\ce{MnO4- + 8 H+ + 5 e- &lt;=&gt; Mn^{2+} + 4 H2O}\) : \(E = E^\circ + (0{,}0592/5)\log([\ce{MnO4-}][\ce{H+}]^{8}/[\ce{Mn^{2+}}])\). Ne pas oublier \(8\) sur \([\ce{H+}]\).</div>
+    <div class="jury-item"><strong>Sens du courant.</strong> Dans une pile, à l'extérieur, le courant sort par le pôle \(+\) (cathode) et entre par le pôle \(-\) (anode). À l'intérieur, c'est l'inverse — les anions migrent vers l'anode, les cations vers la cathode. Le pont salin assure la fermeture du circuit ionique.</div>
+    <div class="jury-item"><strong>Validité de Nernst.</strong> Nernst suppose l'<em>équilibre thermodynamique</em> aux électrodes. Hors équilibre (courant traverse), il faut ajouter les surtensions cinétiques. À l'oral, savoir distinguer mesure à courant nul (Nernst valide) et fonctionnement réel (cinétique + résistances internes).</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">Pour la pile Daniell (\(\ce{Zn/Zn^{2+} || Cu^{2+}/Cu}\)), avec \(E^\circ_{\ce{Zn^{2+}/Zn}} = -0{,}76\,\mathrm{V}\) et \(E^\circ_{\ce{Cu^{2+}/Cu}} = +0{,}34\,\mathrm{V}\), la f.é.m. standard vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. f.é.m. = E_cathode − E_anode = 0,34 − (−0,76) = +1,10 V. L\'anode est le Zn (s\'oxyde, E° le plus faible).')">\(0{,}34 - 0{,}76 = -0{,}42\,\mathrm{V}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. f.é.m. = E_cathode − E_anode = 0,34 − (−0,76) = +1,10 V > 0 → réaction spontanée. Zn s\'oxyde à l\'anode (pôle −), Cu²⁺ se réduit à la cathode (pôle +). ΔG° = −nFE° = −2 × 96485 × 1,10 ≈ −212 kJ/mol.')">\(0{,}34 - (-0{,}76) = +1{,}10\,\mathrm{V}\)</button><button class="q-opt" onclick="quiz(this,false,'Même erreur de signe que la première proposition.')">\(-0{,}76 + 0{,}34 = -0{,}42\,\mathrm{V}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">On électrolyse \(\ce{CuSO4}\) avec \(I = 2\,\mathrm{A}\) pendant \(t = 1\,\mathrm{h}\). Masse de \(\ce{Cu}\) déposée à la cathode ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. m = MIt/(zF) = 63,5 × 2 × 3600 / (2 × 96485) ≈ 2,37 g. Conversion essentielle : 1 h = 3600 s.')">\(m = M I t/(z F) \approx 2{,}37\,\mathrm{g}\)</button><button class="q-opt" onclick="quiz(this,false,'Erreur : il manque le temps. m = MIt/(zF), avec t en secondes (3600).')">\(m = M I/(z F) \approx 6{,}6\times 10^{-4}\,\mathrm{g}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — il manque le courant et le temps. La loi de Faraday est m = MIt/(zF).')">\(m = M/z \approx 32\,\mathrm{g}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Dans Nernst pour le couple \(\ce{MnO4-/Mn^{2+}}\) en milieu acide, quel est le quotient correct ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — il manque le terme [H⁺]⁸ qui apparaît dans la demi-équation équilibrée.')">\([\ce{MnO4-}]/[\ce{Mn^{2+}}]\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. La demi-équation MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O, et l\'eau a une activité de 1, donc elle n\'apparaît pas. Le quotient est [MnO₄⁻][H⁺]⁸/[Mn²⁺]. À pH 0, [H⁺]⁸ = 1, mais à pH ≠ 0, le terme est crucial.')">\([\ce{MnO4-}][\ce{H+}]^{8}/[\ce{Mn^{2+}}]\)</button><button class="q-opt" onclick="quiz(this,false,'Erreur : H₂O a une activité de 1 (solvant), elle ne doit pas apparaître dans le quotient.')">\([\ce{MnO4-}][\ce{H+}]^{8}/([\ce{Mn^{2+}}][\ce{H2O}]^{4})\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Constante d'équilibre de \(\ce{Zn + Cu^{2+} -> Zn^{2+} + Cu}\) avec \(E^\circ_{\text{pile}} = 1{,}10\,\mathrm{V}\), \(n = 2\) :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — il faut multiplier par n (nombre d\'électrons échangés).')">\(K^\circ = 10^{18}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. log K° = n(E°₁ − E°₂)/0,0592 = 2 × 1,10/0,0592 ≈ 37,2 → K° ≈ 1,6 × 10³⁷. Réaction quasi-totale.')">\(K^\circ \approx 10^{37}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — vérifier la formule. log K° = n(E°₁ − E°₂)/0,0592.')">\(K^\circ \approx 10^{2{,}2}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pour le couple \(\ce{O2/H2O}\) (\(E^\circ = 1{,}23\,\mathrm{V}\)), la frontière du diagramme E-pH a pour pente :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. La demi-équation O₂ + 4H⁺ + 4e⁻ → 2H₂O donne m = 4, n = 4 → pente = −0,0592 × 4/4 = −0,0592 V/pH. Toutes les frontières impliquant H⁺ avec m/n = 1 ont cette pente (par exemple aussi H₂O/H₂).')">\(-0{,}0592\,\mathrm{V/pH}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — la pente d\'une frontière redox impliquant m H⁺ et n e⁻ est −0,0592·m/n. Ici m = n = 4, donc pente = −0,0592 V/pH.')">\(+0{,}0592\,\mathrm{V/pH}\)</button><button class="q-opt" onclick="quiz(this,false,'Le coefficient 4 n\'apparaît pas seul — c\'est le rapport m/n = 4/4 = 1, donc la pente est −0,0592 V/pH.')">\(-0{,}0592\times 4\,\mathrm{V/pH}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Dans une pile, le pôle \(+\) (cathode) correspond à :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — dans une pile, le pôle + est la cathode, siège de la réduction. C\'est l\'inverse en électrolyse !')">L'électrode où se passe l'oxydation</button><button class="q-opt" onclick="quiz(this,true,'Correct (en pile). Le pôle + est la cathode, siège de la réduction. Attention : en électrolyse, la cathode (toujours la réduction) est le pôle − (relié au − du générateur).')">L'électrode où se passe la réduction</button><button class="q-opt" onclick="quiz(this,false,'L\'anode est le siège de l\'oxydation, mais en pile elle est le pôle −, pas +.')">L'anode</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Une anode sacrificielle de Zn protège un acier contre la corrosion parce que :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — le Zn est moins noble que Fe (E°(Zn²⁺/Zn) = −0,76 V < E°(Fe²⁺/Fe) = −0,44 V). C\'est lui qui s\'oxyde préférentiellement.')">Le Zn est plus noble que le Fe</button><button class="q-opt" onclick="quiz(this,true,'Correct. E°(Zn²⁺/Zn) = −0,76 V < E°(Fe²⁺/Fe) = −0,44 V : le Zn est moins noble, donc plus oxydable. Il s\'oxyde à la place du fer, qui devient cathode (zone de réduction de O₂) et reste intact. C\'est le principe de la galvanisation.')">Le Zn est moins noble (plus oxydable) que le Fe et s'oxyde à sa place</button><button class="q-opt" onclick="quiz(this,false,'Non — le Zn est consommé (oxydé) au cours du processus, c\'est même indispensable. D\'où le nom « anode sacrificielle ».')">Le Zn forme une couche imperméable à l'air</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets et corrigés des sessions précédentes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.chemtube3d.com/" target="_blank">
+      <span class="ri">⚛</span><div><div class="rt">Chemtube3D</div><div class="rd">Animations 3D de réactions et structures</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="thermodynamique-chimique.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Thermodynamique chimique</span></a>
+  <a class="pnav-link next" href="cinetique-catalyse.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Cinétique & Catalyse</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link cur" href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

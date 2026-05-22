@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinétique chimique & Catalyse — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero c r">
+    <div class="chap-eyebrow c">Chimie · Sujets oraux 20, 21</div>
+    <h1>Cinétique chimique <em class="c">& Catalyse</em></h1>
+    <p class="lead">Sujets oraux n°20 (Cinétique chimique) et n°21 (Catalyse). Vitesses de réaction, lois d'ordre, Arrhenius, mécanismes, catalyse homogène/hétérogène/enzymatique (Michaelis-Menten).</p>
+    <div class="chap-badges"><span class="badge bc">Sujets oraux 20, 21</span> <span class="badge bg">Important</span> <span class="badge br">Arrhenius & MM</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#vitesse">01 · Vitesse & loi d'ordre</a>
+        <a href="#integration">02 · Ordres simples (intégration)</a>
+        <a href="#methodes">03 · Méthodes expérimentales</a>
+        <a href="#mecanismes">04 · Mécanismes réactionnels</a>
+        <a href="#arrhenius">05 · Arrhenius & Eyring</a>
+        <a href="#catalyse">06 · Catalyse — généralités</a>
+        <a href="#enzymes">07 · Catalyse enzymatique</a>
+        <a href="#pedagogie">08 · Pédagogie</a>
+        <a href="#demos">09 · Démonstrations clés</a>
+        <a href="#exercices">10 · Exercices résolus</a>
+        <a href="#lecons">11 · Leçons pour l'oral</a>
+        <a href="#montages">12 · Montages</a>
+        <a href="#jury">13 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="cur" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 VITESSE ═══════════════════ -->
+<div class="sblock r" id="vitesse">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Vitesse de réaction et loi d'ordre</h2>
+  <p class="intro">Sujet oral n°20. Définition cinétique fondamentale, distinction avec la thermodynamique (qui dit si, mais pas combien de temps).</p>
+
+  <h3>1.1 Vitesse de réaction</h3>
+  <div class="fbox c">
+    <span class="fl">Définition générale</span>
+    <span class="fc">Pour une réaction \(\sum_i \nu_i\,A_i \to 0\) (\(\nu_i &gt; 0\) pour produits, \(&lt; 0\) pour réactifs) dans un réacteur fermé de volume \(V\) constant :</span>
+    <span class="fm">\[ v \;=\; \dfrac{1}{V}\,\dfrac{\mathrm{d}\xi}{\mathrm{d}t} \;=\; \dfrac{1}{\nu_i}\,\dfrac{\mathrm{d}[A_i]}{\mathrm{d}t} \]</span>
+    <span class="fc">\(\xi\) : avancement de la réaction. \(v &gt; 0\) par convention (signe correctement géré par les \(\nu_i\)).</span>
+    <hr>
+    <span class="fc">Pour \(\ce{aA + bB -> cC + dD}\) :</span>
+    <span class="fm">\[ v \;=\; -\dfrac{1}{a}\dfrac{\mathrm{d}[A]}{\mathrm{d}t} \;=\; -\dfrac{1}{b}\dfrac{\mathrm{d}[B]}{\mathrm{d}t} \;=\; +\dfrac{1}{c}\dfrac{\mathrm{d}[C]}{\mathrm{d}t} \;=\; +\dfrac{1}{d}\dfrac{\mathrm{d}[D]}{\mathrm{d}t} \]</span>
+    <hr>
+    <span class="fc">Unité : \(\mathrm{mol\cdot L^{-1}\cdot s^{-1}}\). Pour les réactions en phase gazeuse, on peut aussi utiliser les pressions partielles.</span>
+  </div>
+
+  <h3>1.2 Loi de vitesse empirique</h3>
+  <div class="fbox c">
+    <span class="fl">Formulation générale</span>
+    <span class="fm">\[ v \;=\; k\,[A]^{\,p}\,[B]^{\,q}\ldots \]</span>
+    <span class="fc">\(k\) : constante de vitesse (dépend de T, du solvant, du catalyseur — pas des concentrations).</span>
+    <span class="fc">\(p, q\) : ordres partiels par rapport à A, B. Ordre global : \(p + q + \ldots\)</span>
+    <hr>
+    <span class="fc">Les ordres sont <strong>empiriques</strong> et déterminés expérimentalement. Ils peuvent être :</span>
+    <span class="fc">— Entiers (1, 2, 3) — typique pour des réactions élémentaires.</span>
+    <span class="fc">— Nuls (réactif en grand excès, ou cinétique d'ordre 0 spécifique).</span>
+    <span class="fc">— Fractionnaires (1/2, 3/2) — réactions complexes avec étapes en chaîne.</span>
+    <span class="fc">— Négatifs (rare, indique une inhibition par le réactif).</span>
+  </div>
+
+  <div class="alert alert-chim r">
+    <span class="ico">⚠️</span>
+    <div><strong>Loi de vitesse ≠ stœchiométrie.</strong> Sauf pour les <em>réactions élémentaires</em> (qui correspondent à un acte microscopique unique), les ordres NE peuvent PAS être déduits des coefficients stœchiométriques. Ils doivent être <strong>mesurés expérimentalement</strong>. Exemple : \(\ce{H2 + Br2 -> 2 HBr}\) a une loi \(v = k[\ce{H2}][\ce{Br2}]^{1/2}/(1 + k'[\ce{HBr}]/[\ce{Br2}])\) — rien à voir avec la stœchiométrie.</div>
+  </div>
+
+  <h3>1.3 Unités de \(k\) selon l'ordre</h3>
+  <table class="compact">
+    <thead><tr><th>Ordre global</th><th>Unité de \(k\)</th><th>Dimension</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>\(\mathrm{mol\cdot L^{-1}\cdot s^{-1}}\)</td><td>vitesse</td></tr>
+      <tr><td>1</td><td>\(\mathrm{s^{-1}}\)</td><td>inverse temps</td></tr>
+      <tr><td>2</td><td>\(\mathrm{L\cdot mol^{-1}\cdot s^{-1}}\)</td><td>—</td></tr>
+      <tr><td>3</td><td>\(\mathrm{L^{2}\cdot mol^{-2}\cdot s^{-1}}\)</td><td>—</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ 02 INTEGRATION ═══════════════════ -->
+<div class="sblock r" id="integration">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Intégration des ordres simples</h2>
+  <p class="intro">Résolution des équations différentielles pour les ordres 0, 1, 2 — détermination de l'ordre par méthode graphique.</p>
+
+  <h3>2.1 Ordre 0 par rapport à A</h3>
+  <div class="fbox c">
+    <span class="fl">\(v = k\), indépendant de \([A]\)</span>
+    <span class="fm">\[ -\dfrac{\mathrm{d}[A]}{\mathrm{d}t} = k \quad\Longrightarrow\quad [A](t) = [A]_0 - k\,t \]</span>
+    <span class="fc">Décroissance linéaire. Demi-vie :</span>
+    <span class="fm">\[ t_{1/2} \;=\; \dfrac{[A]_0}{2k} \quad \text{(dépend de }[A]_0\text{)} \]</span>
+    <span class="fc">Test graphique : \([A]\) en fonction de \(t\) → droite de pente \(-k\).</span>
+  </div>
+
+  <h3>2.2 Ordre 1 par rapport à A</h3>
+  <div class="fbox c">
+    <span class="fl">\(v = k[A]\)</span>
+    <span class="fm">\[ -\dfrac{\mathrm{d}[A]}{[A]} = k\,\mathrm{d}t \quad\Longrightarrow\quad [A](t) = [A]_0\,\mathrm{e}^{-k t} \]</span>
+    <span class="fc">Décroissance exponentielle. Demi-vie :</span>
+    <span class="fm">\[ \boxed{\;t_{1/2} \;=\; \dfrac{\ln 2}{k} \quad \text{(indépendante de }[A]_0\text{)}\;} \]</span>
+    <span class="fc">Signature de l'ordre 1 : \(t_{1/2}\) <em>indépendante</em> de la concentration initiale. Identique à la désintégration radioactive.</span>
+    <hr>
+    <span class="fc">Test graphique : \(\ln[A]\) en fonction de \(t\) → droite de pente \(-k\).</span>
+  </div>
+
+  <h3>2.3 Ordre 2 par rapport à A</h3>
+  <div class="fbox c">
+    <span class="fl">\(v = k[A]^{2}\)</span>
+    <span class="fm">\[ -\dfrac{\mathrm{d}[A]}{[A]^{2}} = k\,\mathrm{d}t \quad\Longrightarrow\quad \dfrac{1}{[A]} = \dfrac{1}{[A]_0} + k\,t \]</span>
+    <span class="fc">Demi-vie :</span>
+    <span class="fm">\[ t_{1/2} \;=\; \dfrac{1}{k\,[A]_0} \quad \text{(inversement proportionnelle à }[A]_0\text{)} \]</span>
+    <span class="fc">Test graphique : \(1/[A]\) en fonction de \(t\) → droite de pente \(k\).</span>
+  </div>
+
+  <h3>2.4 Méthode de détermination de l'ordre</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Stratégies expérimentales</div>
+    <div class="notion-body">
+      <ol>
+        <li><strong>Méthode intégrale</strong> : tester chaque ordre (0, 1, 2) en traçant \([A]\), \(\ln[A]\), \(1/[A]\) en fonction de \(t\). L'ordre correct donne une droite.</li>
+        <li><strong>Méthode différentielle</strong> : tracer \(\ln v\) en fonction de \(\ln[A]\) → pente = ordre.</li>
+        <li><strong>Méthode de la demi-vie</strong> : varier \([A]_0\) et observer comment \(t_{1/2}\) varie. Indépendante de \([A]_0\) → ordre 1, proportionnelle à \([A]_0\) → ordre 0, en \(1/[A]_0\) → ordre 2.</li>
+        <li><strong>Méthode de la dégénérescence d'ordre</strong> (« isolation ») : un réactif en grand excès rend son ordre apparent nul, isolant l'autre ordre.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 METHODES EXP ═══════════════════ -->
+<div class="sblock r" id="methodes">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Méthodes expérimentales de suivi cinétique</h2>
+  <p class="intro">Suivre l'évolution d'une concentration au cours du temps — techniques physiques et chimiques.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Techniques physiques (non destructives)</div>
+    <div class="notion-body"><ul>
+      <li><strong>Spectrophotométrie UV-Vis</strong> : suivi de l'absorbance \(A(t)\) → \([X](t)\) via Beer-Lambert. Méthode reine pour les composés colorés (permanganate, complexe \(\ce{Fe^{3+}-SCN^-}\)).</li>
+      <li><strong>Conductimétrie</strong> : suivi de la conductivité \(\sigma(t)\) lorsque la réaction modifie le nombre/la nature des ions (ex. hydrolyse de l'iodure de tertiobutyle).</li>
+      <li><strong>pHmétrie</strong> : pour les réactions consommant ou produisant \(\ce{H+}\) ou \(\ce{OH-}\).</li>
+      <li><strong>Manométrie</strong> : suivi de pression pour réactions en phase gazeuse avec \(\Delta n &neq; 0\).</li>
+      <li><strong>Polarimétrie</strong> : pour les réactions avec changement de pouvoir rotatoire (inversion du saccharose).</li>
+    </ul></div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Techniques chimiques (prélèvements)</div>
+    <div class="notion-body"><ul>
+      <li><strong>Trempe</strong> chimique (acide, base, refroidissement brutal) puis dosage. Ex : ester saponifié → titrage de \(\ce{OH-}\).</li>
+      <li><strong>Chromatographie</strong> (GC, HPLC) sur prélèvements : permet le suivi simultané de plusieurs espèces, mais lourd.</li>
+    </ul></div>
+  </div>
+
+  <h3>3.1 Méthode des vitesses initiales</h3>
+  <p>Pour s'affranchir des produits intermédiaires et des réactions inverses : mesurer la vitesse \(v_0\) au tout début de la réaction (\(t \approx 0\)). En faisant varier \([A]_0\) à \([B]_0\) constant (et inversement), on extrait directement les ordres partiels :</p>
+  \[ \dfrac{v_{0,1}}{v_{0,2}} \;=\; \left(\dfrac{[A]_{0,1}}{[A]_{0,2}}\right)^{p} \]
+</div>
+
+<!-- ═══════════════════ 04 MECANISMES ═══════════════════ -->
+<div class="sblock r" id="mecanismes">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Mécanismes réactionnels</h2>
+  <p class="intro">La réaction observée est souvent la somme de plusieurs étapes élémentaires. Outils d'analyse : AEQS, étape cinétiquement déterminante.</p>
+
+  <h3>4.1 Réactions élémentaires vs complexes</h3>
+  <div class="fbox c">
+    <span class="fl">Acte élémentaire</span>
+    <span class="fc">Une réaction <strong>élémentaire</strong> correspond à un acte microscopique unique (collision, dissociation). Pour celles-ci, la <em>molécularité</em> (nombre d'entités impliquées) coïncide avec l'ordre. Monomoléculaire : ordre 1 ; bimoléculaire : ordre 2 ; termoléculaire : ordre 3 (rare).</span>
+    <hr>
+    <span class="fc">Une réaction <strong>complexe</strong> est la somme d'étapes élémentaires. Les ordres globaux n'ont pas de lien direct avec la stœchiométrie. Les ordres apparaissent souvent comme conséquence d'une étape limitante.</span>
+  </div>
+
+  <h3>4.2 Approximation de l'état quasi-stationnaire (AEQS)</h3>
+  <div class="fbox c">
+    <span class="fl">Hypothèse pour les intermédiaires réactionnels</span>
+    <span class="fc">Pour un intermédiaire \(I\) très réactif (peu accumulé) et de durée de vie courte :</span>
+    <span class="fm">\[ \dfrac{\mathrm{d}[I]}{\mathrm{d}t} \;\approx\; 0 \]</span>
+    <hr>
+    <span class="fc">L'AEQS est valable après un régime transitoire bref. Permet d'éliminer \([I]\) des équations et d'obtenir la loi de vitesse globale.</span>
+    <hr>
+    <span class="fc">Exemple — mécanisme à deux étapes :</span>
+    <span class="fm">\[ \ce{A &lt;=&gt;[k_1][k_{-1}] I -&gt;[k_2] P} \]</span>
+    <span class="fc">AEQS sur \(I\) : \(k_1 [A] = (k_{-1} + k_2)[I]\) → \([I] = k_1[A]/(k_{-1}+k_2)\) → \(v = k_2[I] = \dfrac{k_1 k_2}{k_{-1}+k_2}[A]\).</span>
+    <hr>
+    <span class="fc">Cas particuliers :</span>
+    <span class="fc">— Étape 2 lente (\(k_2 \ll k_{-1}\)) : pré-équilibre, \(v \approx (k_1 k_2/k_{-1})[A]\), ordre 1.</span>
+    <span class="fc">— Étape 1 limitante (\(k_2 \gg k_{-1}\)) : \(v \approx k_1[A]\), ordre 1.</span>
+  </div>
+
+  <h3>4.3 Étape cinétiquement déterminante</h3>
+  <p>Dans un mécanisme séquentiel, l'étape la plus lente impose la vitesse globale. Cet acte limitant détermine la loi de vitesse observée et l'énergie d'activation apparente.</p>
+</div>
+
+<!-- ═══════════════════ 05 ARRHENIUS ═══════════════════ -->
+<div class="sblock r" id="arrhenius">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Influence de la température — Arrhenius et Eyring</h2>
+  <p class="intro">L'énergie d'activation gouverne la dépendance de \(k\) en T. C'est le pont entre cinétique et profil énergétique microscopique.</p>
+
+  <h3>5.1 Loi d'Arrhenius</h3>
+  <div class="fbox c">
+    <span class="fl">Forme empirique (Arrhenius, 1889)</span>
+    <span class="fm">\[ \boxed{\;k \;=\; A\,\exp\!\left(-\dfrac{E_a}{R\,T}\right)\;} \]</span>
+    <hr>
+    <span class="fc">\(E_a\) : énergie d'activation (J/mol). Représente la barrière énergétique à franchir.</span>
+    <span class="fc">\(A\) : facteur préexponentiel (même unité que \(k\)). Lié à la fréquence des collisions efficaces.</span>
+    <hr>
+    <span class="fc">Forme logarithmique exploitable :</span>
+    <span class="fm">\[ \ln k \;=\; \ln A - \dfrac{E_a}{R\,T} \]</span>
+    <span class="fc">Tracé \(\ln k\) vs \(1/T\) → droite. Pente = \(-E_a/R\). Ordonnée à l'origine = \(\ln A\).</span>
+  </div>
+
+  <h3>5.2 Règle de van't Hoff (approximation pratique)</h3>
+  <div class="key-box c">
+    <p>Pour \(E_a \sim 50\)–\(100\,\mathrm{kJ\cdot mol^{-1}}\) (typique des réactions chimiques) et autour de \(T = 300\,\mathrm{K}\) :</p>
+    \[ \Delta T \;=\; +10\,\mathrm{K} \quad\Longrightarrow\quad k\ \text{multipliée par 2 à 3} \]
+    <p>Origine : \(\dfrac{k(T+10)}{k(T)} = \exp\!\left(\dfrac{E_a}{R}\,\dfrac{10}{T(T+10)}\right) \approx \exp(0{,}11)\) à \(\exp(0{,}13)\) pour \(E_a = 80\)–\(95\,\mathrm{kJ\cdot mol^{-1}}\) → facteur 2–4.</p>
+  </div>
+
+  <h3>5.3 Théorie de l'état de transition (Eyring)</h3>
+  <div class="fbox c">
+    <span class="fl">Formule d'Eyring</span>
+    <span class="fm">\[ k \;=\; \dfrac{k_B\,T}{h}\,\exp\!\left(-\dfrac{\Delta G^{\ddagger}}{RT}\right) \]</span>
+    <span class="fc">\(\Delta G^{\ddagger}\) : enthalpie libre d'activation, énergie libre du complexe activé moins celle des réactifs.</span>
+    <hr>
+    <span class="fc">Décomposition : \(\Delta G^{\ddagger} = \Delta H^{\ddagger} - T\,\Delta S^{\ddagger}\). \(\Delta S^{\ddagger}\) renseigne sur le degré d'organisation du complexe activé (généralement \(&lt; 0\) pour bimoléculaire).</span>
+    <hr>
+    <span class="fc">Lien Eyring-Arrhenius :</span>
+    <span class="fm">\[ E_a \;=\; \Delta H^{\ddagger} + R\,T \qquad A \;=\; \dfrac{k_B\,T}{h}\,\mathrm{e}^{1+\Delta S^{\ddagger}/R} \]</span>
+  </div>
+
+  <h3>5.4 Profil énergétique et lien thermodynamique</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Diagramme énergétique</div>
+    <div class="notion-body">
+      <p>Le profil énergétique le long de la coordonnée réactionnelle présente un maximum au niveau du <strong>complexe activé</strong> (état de transition). L'énergie d'activation \(E_a\) est la hauteur de cette barrière.</p>
+      <p>Lien direct entre cinétique et thermodynamique :</p>
+      \[ \Delta_r H \;=\; E_a(\text{directe}) - E_a(\text{inverse}) \]
+      <p>Un catalyseur abaisse \(E_a\) sans changer \(\Delta_r H\) — il accélère la cinétique des deux sens dans le même rapport, l'équilibre est inchangé.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 06 CATALYSE ═══════════════════ -->
+<div class="sblock r" id="catalyse">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Catalyse — généralités</h2>
+  <p class="intro">Sujet oral n°21. Une substance accélère une réaction sans être consommée globalement, en proposant un chemin réactionnel à plus faible \(E_a\).</p>
+
+  <h3>6.1 Définition et propriétés</h3>
+  <div class="fbox c">
+    <span class="fl">Caractéristiques d'un catalyseur</span>
+    <span class="fc">Substance qui modifie la vitesse d'une réaction sans figurer dans son bilan global. Il est régénéré à chaque cycle catalytique.</span>
+    <hr>
+    <span class="fc">Propriétés essentielles :</span>
+    <span class="fc">— Accélère <strong>les deux sens</strong> de la réaction dans le même rapport.</span>
+    <span class="fc">— Ne modifie ni \(\Delta_r G\), ni \(K^\circ\), ni la position d'équilibre.</span>
+    <span class="fc">— Abaisse \(E_a\) en proposant un mécanisme alternatif.</span>
+    <span class="fc">— Quantité catalytique : faible quantité, jamais consommé (théoriquement).</span>
+  </div>
+
+  <h3>6.2 Catalyse homogène</h3>
+  <div class="fbox c">
+    <span class="fl">Catalyseur dans la même phase que les réactifs</span>
+    <span class="fc">Avantages : grande sélectivité, conditions douces, mécanisme bien caractérisé.</span>
+    <span class="fc">Inconvénients : difficile à séparer en fin de réaction.</span>
+    <hr>
+    <span class="fc">Exemples :</span>
+    <span class="fc">— <strong>Catalyse acide</strong> : \(\ce{H+}\) pour estérification (Fischer), hydratation des alcènes, hydrolyse des acétals.</span>
+    <span class="fc">— <strong>Catalyse basique</strong> : \(\ce{HO-}\) pour aldolisation, saponification.</span>
+    <span class="fc">— <strong>Complexes métalliques</strong> : Wilkinson (\(\ce{[RhCl(PPh3)3]}\)) pour hydrogénation, Grubbs pour métathèse.</span>
+    <span class="fc">— <strong>Ions de transition</strong> : \(\ce{Ce^{4+}}\) pour oxydations, \(\ce{Mn^{2+}}\) pour décomposition de \(\ce{H2O2}\).</span>
+  </div>
+
+  <h3>6.3 Catalyse hétérogène</h3>
+  <div class="fbox c">
+    <span class="fl">Catalyseur dans une phase différente (typiquement solide)</span>
+    <span class="fc">Mécanisme typique en 5 étapes :</span>
+    <ol>
+      <li>Diffusion externe des réactifs vers la surface catalytique.</li>
+      <li>Adsorption (physisorption ou chimisorption) sur la surface.</li>
+      <li>Réaction de surface (Langmuir-Hinshelwood ou Eley-Rideal).</li>
+      <li>Désorption des produits.</li>
+      <li>Diffusion externe loin de la surface.</li>
+    </ol>
+    <hr>
+    <span class="fc">Exemples industriels majeurs :</span>
+    <span class="fc">— \(\ce{Fe}\) (Haber-Bosch) : \(\ce{N2 + 3 H2 -> 2 NH3}\) (\(\sim 200\,\mathrm{Mt/an}\)).</span>
+    <span class="fc">— \(\ce{V2O5}\) (procédé de contact) : \(\ce{2 SO2 + O2 -> 2 SO3}\) puis \(\ce{H2SO4}\).</span>
+    <span class="fc">— \(\ce{Pt/Rh/Pd}\) (pots catalytiques 3 voies) : oxydation \(\ce{CO}\) et HC + réduction \(\ce{NO_x}\).</span>
+    <span class="fc">— \(\ce{Ni/Pd/Pt}\) : hydrogénations dans l'industrie pharmaceutique et alimentaire (margarine).</span>
+    <span class="fc">— Zéolithes (aluminosilicates poreux) : craquage du pétrole, sélectivité de forme.</span>
+  </div>
+
+  <div class="alert alert-chim r">
+    <span class="ico">💡</span>
+    <div><strong>Empoisonnement.</strong> Certaines impuretés (notamment \(\ce{CO}\), \(\ce{S}\), \(\ce{Hg}\), \(\ce{As}\)) se chimisorbent fortement et bloquent irréversiblement les sites catalytiques. C'est pourquoi l'essence est désulfurée avant le pot catalytique (sinon \(\ce{H2S}\) empoisonne le platine). Empoisonnement &lt;&gt; désactivation thermique réversible.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 07 ENZYMES ═══════════════════ -->
+<div class="sblock r" id="enzymes">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Catalyse enzymatique — Michaelis-Menten</h2>
+  <p class="intro">Les enzymes sont les catalyseurs naturels : protéines très sélectives, accélérations colossales (\(\times 10^{6}\) à \(\times 10^{17}\)).</p>
+
+  <h3>7.1 Modèle de Michaelis-Menten (1913)</h3>
+  <div class="fbox c">
+    <span class="fl">Mécanisme à deux étapes</span>
+    <span class="fm">\[ \ce{E + S &lt;=&gt;[k_1][k_{-1}] ES -&gt;[k_2] E + P} \]</span>
+    <hr>
+    <span class="fc">Hypothèses : substrat \([S] \gg [E]\), AEQS sur l'intermédiaire \(\ce{ES}\).</span>
+    <hr>
+    <span class="fc">Loi de vitesse (démonstration en section 9.5) :</span>
+    <span class="fm">\[ \boxed{\;v \;=\; \dfrac{V_{\max}\,[S]}{K_M + [S]}\;} \]</span>
+    <span class="fc">avec \(V_{\max} = k_2\,[E]_0\) (vitesse maximale, à saturation en S) et \(K_M = (k_{-1} + k_2)/k_1\) (constante de Michaelis, en mol/L).</span>
+    <hr>
+    <span class="fc">Cas limites :</span>
+    <span class="fc">— \([S] \ll K_M\) : \(v \approx (V_{\max}/K_M)\,[S]\) — pseudo-ordre 1 en S.</span>
+    <span class="fc">— \([S] \gg K_M\) : \(v \approx V_{\max}\) — ordre 0 en S (saturation enzymatique).</span>
+    <hr>
+    <span class="fc">À \([S] = K_M\) : \(v = V_{\max}/2\). \(K_M\) caractérise l'<strong>affinité</strong> enzyme-substrat (plus \(K_M\) petit, plus l'affinité est élevée).</span>
+  </div>
+
+  <h3>7.2 Linéarisation de Lineweaver-Burk</h3>
+  <div class="fbox c">
+    <span class="fl">Représentation graphique linéaire</span>
+    <span class="fm">\[ \dfrac{1}{v} \;=\; \dfrac{K_M}{V_{\max}}\,\dfrac{1}{[S]} + \dfrac{1}{V_{\max}} \]</span>
+    <span class="fc">Tracé \(1/v\) en fonction de \(1/[S]\) : droite. Ordonnée à l'origine = \(1/V_{\max}\). Pente = \(K_M/V_{\max}\). Intersection avec l'axe \(1/[S]\) = \(-1/K_M\).</span>
+    <span class="fc">Permet d'extraire \(V_{\max}\) et \(K_M\) à partir de mesures expérimentales.</span>
+  </div>
+
+  <h3>7.3 Inhibition enzymatique</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Types d'inhibiteurs</div>
+    <div class="notion-body">
+      <ul>
+        <li><strong>Compétitive</strong> : l'inhibiteur se fixe au site actif de l'enzyme (concurrent du substrat). \(K_M\) apparent augmente, \(V_{\max}\) inchangée. Exemple : malonate inhibe la succinate déshydrogénase.</li>
+        <li><strong>Non compétitive</strong> : l'inhibiteur se fixe à un autre site (allostérique). \(V_{\max}\) apparente diminue, \(K_M\) inchangée.</li>
+        <li><strong>Incompétitive</strong> : l'inhibiteur ne se fixe qu'au complexe \(\ce{ES}\). \(V_{\max}\) et \(K_M\) diminuent du même facteur.</li>
+        <li><strong>Allostérique</strong> : régulation par fixation à un site distinct, courbe sigmoïde (coopérativité, ex. hémoglobine).</li>
+      </ul>
+      <p>Beaucoup de médicaments sont des inhibiteurs enzymatiques : aspirine (COX-1/COX-2), statines (HMG-CoA réductase), antibiotiques β-lactamines (transpeptidase bactérienne).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
+    <div class="notion-body"><ul>
+      <li><strong>1<sup>re</sup> spé</strong> : vitesse de réaction (apparition, disparition), facteurs cinétiques (concentration, température, catalyseur).</li>
+      <li><strong>Terminale spé</strong> : vitesse volumique de réaction, loi de vitesse pour les réactions d'ordre 1 (intégration), influence de la température, catalyse (homogène, hétérogène, enzymatique). Loi d'Arrhenius hors programme stricto sensu mais discutée qualitativement.</li>
+      <li><strong>Terminale STL</strong> : cinétique appliquée à l'industrie chimique et alimentaire.</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confondre ordre et stœchiométrie (l'ordre est expérimental, pas dérivable de la réaction).</li>
+        <li>Confondre cinétique et thermodynamique (un catalyseur n'agit que sur la vitesse).</li>
+        <li>Vitesse signe : oublier que par convention \(v &gt; 0\) (signes pris en compte par les \(\nu_i\)).</li>
+        <li>Penser qu'un catalyseur déplace l'équilibre (faux : il accélère les deux sens).</li>
+        <li>Confondre demi-vie indépendante de \([A]_0\) (ordre 1) vs proportionnelle (ordre 0).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 DEMOS ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Démonstrations attendues à l'écrit et à l'oral.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.1 — Intégration de l'ordre 1 et propriété de la demi-vie</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour une réaction d'ordre 1 par rapport à \(A\), \(v = -\mathrm{d}[A]/\mathrm{d}t = k[A]\) :</p>
+        \[ \dfrac{\mathrm{d}[A]}{[A]} = -k\,\mathrm{d}t \]
+        <p>Intégration entre \(t = 0\) et \(t\) :</p>
+        \[ \ln([A]/[A]_0) = -k\,t \quad\Longrightarrow\quad [A](t) = [A]_0\,\mathrm{e}^{-k t}. \]
+        <p>Demi-vie : temps tel que \([A] = [A]_0/2\) :</p>
+        \[ \dfrac{[A]_0}{2} = [A]_0\,\mathrm{e}^{-k\,t_{1/2}} \quad\Longrightarrow\quad t_{1/2} = \dfrac{\ln 2}{k}. \]
+        <p>Indépendance par rapport à \([A]_0\) : c'est la <strong>signature</strong> de l'ordre 1. Permet une méthode expérimentale de détermination de l'ordre.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.2 — Loi d'Arrhenius par exploitation graphique</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Mesure de \(k\) à plusieurs températures \(T_1, T_2, \ldots, T_n\). En passant au logarithme :</p>
+        \[ \ln k \;=\; \ln A - \dfrac{E_a}{R}\cdot \dfrac{1}{T} \]
+        <p>Tracé de \(\ln k\) en fonction de \(1/T\) (transformation linéarisante d'Arrhenius) donne une droite :</p>
+        <ul>
+          <li>Pente \(= -E_a/R \Rightarrow E_a = -\mathrm{pente}\times R\).</li>
+          <li>Ordonnée à l'origine \(= \ln A \Rightarrow A = \mathrm{e}^{\text{ord. à l'orig.}}\).</li>
+        </ul>
+        <p>Exemple expérimental : si pente \(= -8000\,\mathrm{K}\), alors \(E_a = 8000 \times 8{,}314 = 66{,}5\,\mathrm{kJ\cdot mol^{-1}}\) — ordre de grandeur typique des réactions chimiques en solution.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.3 — AEQS sur un mécanisme à deux étapes</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Considérons le mécanisme :</p>
+        \[ \ce{A &lt;=&gt;[k_1][k_{-1}] I -&gt;[k_2] P} \]
+        <p>Bilan sur l'intermédiaire \(I\) (réactif et produit dans des étapes successives) :</p>
+        \[ \dfrac{\mathrm{d}[I]}{\mathrm{d}t} = k_1[A] - k_{-1}[I] - k_2[I]. \]
+        <p>Hypothèse AEQS : \(\mathrm{d}[I]/\mathrm{d}t \approx 0\), donc</p>
+        \[ [I]_{\text{AEQS}} \;=\; \dfrac{k_1[A]}{k_{-1} + k_2}. \]
+        <p>Vitesse de formation du produit :</p>
+        \[ v_P = k_2[I]_{\text{AEQS}} = \dfrac{k_1\,k_2}{k_{-1} + k_2}\cdot [A]. \]
+        <p>Donc la réaction globale présente un <strong>ordre 1</strong> apparent en \(A\) avec une constante effective \(k_{\text{app}} = k_1 k_2/(k_{-1} + k_2)\).</p>
+        <p>Cas limites :</p>
+        <ul>
+          <li>\(k_2 \gg k_{-1}\) : \(k_{\text{app}} \approx k_1\) — étape 1 limitante.</li>
+          <li>\(k_2 \ll k_{-1}\) : pré-équilibre, \(k_{\text{app}} \approx k_1 k_2/k_{-1}\) — étape 2 limitante (avec équilibre rapide).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.4 — Mécanisme de Michaelis-Menten</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Mécanisme \(\ce{E + S &lt;=&gt;[k_1][k_{-1}] ES -&gt;[k_2] E + P}\) avec bilan de matière sur l'enzyme :</p>
+        \[ [E]_0 = [E] + [\ce{ES}] \quad\text{(enzyme libre + complexe)}. \]
+        <p>AEQS sur le complexe \(\ce{ES}\) :</p>
+        \[ \dfrac{\mathrm{d}[\ce{ES}]}{\mathrm{d}t} = k_1\,[E]\,[S] - (k_{-1} + k_2)\,[\ce{ES}] \approx 0. \]
+        <p>On exprime \([E] = [E]_0 - [\ce{ES}]\) :</p>
+        \[ k_1\,([E]_0 - [\ce{ES}])\,[S] = (k_{-1} + k_2)\,[\ce{ES}]. \]
+        <p>D'où :</p>
+        \[ [\ce{ES}] = \dfrac{k_1\,[E]_0\,[S]}{k_{-1} + k_2 + k_1\,[S]} = \dfrac{[E]_0\,[S]}{K_M + [S]} \quad \text{avec}\quad K_M = \dfrac{k_{-1}+k_2}{k_1}. \]
+        <p>Vitesse de formation du produit :</p>
+        \[ v = k_2\,[\ce{ES}] = \dfrac{k_2\,[E]_0\,[S]}{K_M + [S]} = \dfrac{V_{\max}\,[S]}{K_M + [S]} \]
+        <p>avec \(V_{\max} = k_2\,[E]_0\). C'est l'équation de Michaelis-Menten.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.5 — Lien Arrhenius-Eyring</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Équation d'Eyring : \(k = (k_B T/h)\,\exp(-\Delta G^{\ddagger}/RT)\). Décomposition de \(\Delta G^{\ddagger} = \Delta H^{\ddagger} - T\Delta S^{\ddagger}\) :</p>
+        \[ k = \dfrac{k_B T}{h}\,\exp\!\left(\dfrac{\Delta S^{\ddagger}}{R}\right)\,\exp\!\left(-\dfrac{\Delta H^{\ddagger}}{RT}\right). \]
+        <p>Comparaison à Arrhenius \(k = A\,\exp(-E_a/RT)\). Dérivons par rapport à \(T\) :</p>
+        \[ \dfrac{\mathrm{d}\ln k}{\mathrm{d}T} = \dfrac{1}{T} + \dfrac{\Delta H^{\ddagger}}{RT^{2}}. \]
+        <p>D'autre part, dérivée d'Arrhenius : \(\mathrm{d}\ln k/\mathrm{d}T = E_a/(RT^{2})\). En identifiant :</p>
+        \[ E_a = \Delta H^{\ddagger} + RT. \]
+        <p>À T ambiante, \(RT \approx 2{,}5\,\mathrm{kJ\cdot mol^{-1}}\) est petit devant \(E_a\) typique (\(\sim 50\)–\(100\,\mathrm{kJ}\)), donc \(E_a \approx \Delta H^{\ddagger}\).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 10 EXOS ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Exercices résolus — type concours</h2>
+  <p class="intro">Trois exercices calibrés agrégation interne.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — Détermination d'un ordre par la méthode des demi-vies (★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>On suit la décomposition du peroxyde de dihydrogène \(\ce{H2O2}\) à 25 °C. Les demi-vies mesurées pour différentes concentrations initiales sont :</p>
+      <table class="compact"><thead><tr><th>\([\ce{H2O2}]_0\) (mol/L)</th><th>\(t_{1/2}\) (min)</th></tr></thead><tbody>
+        <tr><td>0,5</td><td>13,9</td></tr>
+        <tr><td>1,0</td><td>13,8</td></tr>
+        <tr><td>2,0</td><td>14,0</td></tr>
+      </tbody></table>
+      <ol>
+        <li>Déterminer l'ordre de la réaction.</li>
+        <li>Calculer la constante de vitesse \(k\).</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> \(t_{1/2}\) est <em>indépendante</em> de \([A]_0\) (variation \(&lt; 1\,\%\)) → réaction d'<strong>ordre 1</strong>. Pour rappel : ordre 0 → \(t_{1/2}\) proportionnelle à \([A]_0\), ordre 2 → \(t_{1/2} \propto 1/[A]_0\).</p>
+      <p><strong>2.</strong> Pour l'ordre 1 : \(t_{1/2} = \ln 2/k\), donc</p>
+      \[ k = \dfrac{\ln 2}{t_{1/2}} = \dfrac{0{,}693}{13{,}9} \approx 0{,}050\,\mathrm{min^{-1}} \approx 8{,}3\times 10^{-4}\,\mathrm{s^{-1}}. \]
+      <p>Cohérent avec une cinétique typique de décomposition catalysée (la décomposition spontanée à 25 °C serait plus lente).</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — Détermination d'\(E_a\) par Arrhenius (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Une réaction \(\ce{A -> B}\) a une constante de vitesse :</p>
+      <table class="compact"><thead><tr><th>T (K)</th><th>\(k\) (s\(^{-1}\))</th></tr></thead><tbody>
+        <tr><td>298</td><td>\(1{,}0\times 10^{-4}\)</td></tr>
+        <tr><td>308</td><td>\(2{,}4\times 10^{-4}\)</td></tr>
+        <tr><td>318</td><td>\(5{,}5\times 10^{-4}\)</td></tr>
+      </tbody></table>
+      <ol>
+        <li>Vérifier que la loi d'Arrhenius est vérifiée. Calculer \(E_a\) (kJ/mol).</li>
+        <li>Estimer \(A\) (facteur préexponentiel).</li>
+        <li>Quelle serait la valeur de \(k\) à \(T = 350\,\mathrm{K}\) ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Calcul de \(\ln k\) et \(1/T\) :</p>
+      <table class="compact"><thead><tr><th>\(1/T\) (K\(^{-1}\))</th><th>\(\ln k\)</th></tr></thead><tbody>
+        <tr><td>\(3{,}356\times 10^{-3}\)</td><td>−9,21</td></tr>
+        <tr><td>\(3{,}247\times 10^{-3}\)</td><td>−8,33</td></tr>
+        <tr><td>\(3{,}145\times 10^{-3}\)</td><td>−7,51</td></tr>
+      </tbody></table>
+      <p>Régression linéaire \(\ln k = a/T + b\) : pente \(\approx -8060\,\mathrm{K}\). D'où</p>
+      \[ E_a = -\mathrm{pente}\times R = 8060\times 8{,}314 \approx 67{,}0\,\mathrm{kJ\cdot mol^{-1}}. \]
+      <p><strong>2.</strong> Ordonnée à l'origine \(\approx 17{,}8\) → \(A = \mathrm{e}^{17{,}8} \approx 5{,}4\times 10^{7}\,\mathrm{s^{-1}}\).</p>
+      <p><strong>3.</strong> Extrapolation à 350 K :</p>
+      \[ k(350) = A\,\exp(-E_a/(R\cdot 350)) = 5{,}4\times 10^{7}\,\exp(-67000/(8{,}314\times 350)) \approx 5{,}4\times 10^{7}\times \mathrm{e}^{-23{,}0} \approx 5{,}4\times 10^{-3}\,\mathrm{s^{-1}}. \]
+      <p>Soit ~50× plus rapide qu'à 298 K. Cohérent avec la règle de van't Hoff (50 K → facteur \(\sim 50\)).</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Catalyse enzymatique : détermination de \(K_M\) et \(V_{\max}\) (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Pour une enzyme E, on mesure \(v\) (en µmol/min) à différentes \([S]\) (en mmol/L) :</p>
+      <table class="compact"><thead><tr><th>\([S]\) (mM)</th><th>\(v\) (µmol/min)</th></tr></thead><tbody>
+        <tr><td>0,5</td><td>2,2</td></tr>
+        <tr><td>1,0</td><td>3,3</td></tr>
+        <tr><td>2,0</td><td>4,4</td></tr>
+        <tr><td>5,0</td><td>5,2</td></tr>
+        <tr><td>10,0</td><td>5,6</td></tr>
+      </tbody></table>
+      <ol>
+        <li>Par représentation de Lineweaver-Burk (\(1/v\) vs \(1/[S]\)), déterminer \(V_{\max}\) et \(K_M\).</li>
+        <li>À quelle concentration de S la vitesse vaut-elle 90 % de \(V_{\max}\) ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Calculs (en mM\(^{-1}\) pour \(1/[S]\) et min/µmol pour \(1/v\)) :</p>
+      <table class="compact"><thead><tr><th>\(1/[S]\) (mM\(^{-1}\))</th><th>\(1/v\) (min/µmol)</th></tr></thead><tbody>
+        <tr><td>2,00</td><td>0,455</td></tr>
+        <tr><td>1,00</td><td>0,303</td></tr>
+        <tr><td>0,50</td><td>0,227</td></tr>
+        <tr><td>0,20</td><td>0,192</td></tr>
+        <tr><td>0,10</td><td>0,179</td></tr>
+      </tbody></table>
+      <p>Régression linéaire : pente \(\approx 0{,}144\), ordonnée à l'origine \(\approx 0{,}166\). Donc :</p>
+      \[ V_{\max} = 1/0{,}166 \approx 6{,}0\,\mathrm{\mu mol\cdot min^{-1}} \]
+      \[ K_M = \mathrm{pente}\times V_{\max} = 0{,}144 \times 6{,}0 \approx 0{,}86\,\mathrm{mM}. \]
+      <p><strong>2.</strong> \(v = 0{,}9\,V_{\max} = V_{\max}[S]/(K_M+[S])\) → \(0{,}9(K_M + [S]) = [S]\) → \([S] = 9\,K_M = 9 \times 0{,}86 = 7{,}7\,\mathrm{mM}\).</p>
+      <p>Conséquence pratique : il faut une concentration de S \(\sim 10\times K_M\) pour saturer l'enzyme. Au-delà, l'enzyme est limitante.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 11 LECONS ═══════════════════ -->
+<div class="sblock r" id="lecons">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Développements pédagogiques pour l'oral</h2>
+  <p class="intro">Deux propositions de leçons calibrées agrégation interne.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon 1 — Cinétique chimique : déterminer la vitesse d'une réaction</h4>
+    <div class="lecon-meta">Niveau · Terminale spé / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Pourquoi un fer rouille-t-il lentement à l'air libre mais brûle violemment dans le dioxygène pur ? Pourquoi un soda perd-il son gaz plus vite quand on le secoue ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Notion de vitesse de réaction : suivi expérimental d'une concentration. Exemple : décoloration de \(\ce{KMnO4}\) par \(\ce{H2C2O4}\).</li>
+      <li>Définition rigoureuse : \(v = \dfrac{1}{\nu_i}\dfrac{\mathrm{d}[A_i]}{\mathrm{d}t}\). Vitesses d'apparition/disparition.</li>
+      <li>Loi de vitesse et ordres : \(v = k[A]^p[B]^q\). Détermination expérimentale. Cas d'ordre 0, 1, 2 avec intégrations.</li>
+      <li>Méthodes expérimentales : suivi spectrophotométrique, conductimétrique, pHmétrique.</li>
+      <li>Facteurs cinétiques : concentration (loi de vitesse), température (Arrhenius), catalyseur, surface de contact.</li>
+      <li>Applications : pharmacologie (cinétique d'élimination des médicaments, demi-vie), industrie (chambres de réacteurs).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> 1<sup>re</sup> spé : facteurs cinétiques. Terminale spé : vitesse volumique, ordre 1, Arrhenius qualitatif.</p>
+    <p><strong>Activité élève proposée.</strong> Suivre par spectrophotométrie la décoloration de \(\ce{KMnO4}\) (absorbance à 540 nm) en présence d'acide oxalique. Tracer \([MnO_4^-](t)\), \(\ln[MnO_4^-]\), \(1/[MnO_4^-]\) → identifier l'ordre.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Leçon 2 — Catalyse : accélérer sans déplacer l'équilibre</h4>
+    <div class="lecon-meta">Niveau · 2<sup>e</sup> année CPGE PC / oral agrégation</div>
+    <p><strong>Accroche.</strong> Comment notre corps métabolise-t-il l'alcool en quelques heures alors que la même réaction en éprouvette prendrait des années ? Comment fabrique-t-on l'ammoniac industriellement à partir d'azote et d'hydrogène ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Définition du catalyseur : substance qui accélère sans être consommée et sans modifier la thermodynamique.</li>
+      <li>Mise en évidence expérimentale : décomposition de \(\ce{H2O2}\) avec/sans \(\ce{MnO2}\) (poudre). Comparaison qualitative.</li>
+      <li>Profil énergétique : abaissement de \(E_a\) par voie alternative. Schéma comparatif réaction non catalysée / catalysée.</li>
+      <li>Catalyse homogène : exemples (\(\ce{H+}\) pour estérification, \(\ce{Ce^{4+}}\) pour oxydations). Cycle catalytique.</li>
+      <li>Catalyse hétérogène : mécanisme (adsorption-réaction-désorption). Procédés industriels (Haber-Bosch, contact, pot catalytique).</li>
+      <li>Catalyse enzymatique : modèle Michaelis-Menten, démonstration. Inhibition compétitive et applications pharmacologiques.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> 1<sup>re</sup> spé : catalyse (notion qualitative). Terminale spé : trois types de catalyse, enzymes.</p>
+    <p><strong>Erreur fréquente d'élève.</strong> Penser qu'un catalyseur déplace l'équilibre vers les produits. En réalité, il accélère <em>les deux sens</em> dans le même rapport — l'équilibre est juste atteint plus vite, mais à la même position.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 12 MONTAGES ═══════════════════ -->
+<div class="sblock r" id="montages">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Montages expérimentaux</h2>
+  <p class="intro">Deux montages exploitables à l'oral d'agrégation.</p>
+
+  <div class="lecon-card">
+    <h4>Montage 1 — Suivi spectrophotométrique de l'oxydation des ions iodures</h4>
+    <p><strong>Objectif.</strong> Déterminer la loi de vitesse de la réaction \(\ce{H2O2 + 2 I- + 2 H+ -> I2 + 2 H2O}\) par méthode des vitesses initiales.</p>
+    <p><strong>Matériel.</strong> Spectrophotomètre (\(\lambda = 350\,\mathrm{nm}\) ou 470 nm pour \(\ce{I2}\) ou \(\ce{I3^-}\)), cuves, solutions de \(\ce{H2O2}\), \(\ce{KI}\), \(\ce{H2SO4}\) dilué, chronomètre, bain thermostaté.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Préparer une série de mélanges avec \([\ce{H2O2}]_0\) variable à \([\ce{I-}]_0\) fixé (5 valeurs).</li>
+      <li>Pour chaque mélange, suivre l'absorbance \(A(t)\) à 350 nm sur 1-2 min (vitesse initiale).</li>
+      <li>Étalonnage : préparer une gamme de \(\ce{I2}\) ou \(\ce{I3^-}\) → courbe Beer-Lambert.</li>
+      <li>Calculer la vitesse initiale \(v_0 = (1/2)\,\mathrm{d}[\ce{I2}]/\mathrm{d}t\) (pente initiale).</li>
+      <li>Refaire la série en variant \([\ce{I-}]_0\) à \([\ce{H2O2}]_0\) fixé.</li>
+      <li>Tracer \(\ln v_0\) vs \(\ln[\ce{H2O2}]_0\) et \(\ln v_0\) vs \(\ln[\ce{I-}]_0\) → ordres partiels (pentes).</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Précision spectrophotomètre, pureté des solutions, démarrage du chronomètre (\(\pm 1\) s), influence du pH (catalyse par \(\ce{H+}\)).</p>
+    <p><strong>Exploitation.</strong> Résultats typiques : ordre 1 par rapport à \(\ce{H2O2}\), ordre 1 par rapport à \(\ce{I-}\), ordre 1 par rapport à \(\ce{H+}\) (catalyse acide). Loi globale : \(v = k\,[\ce{H2O2}][\ce{I-}][\ce{H+}]\). Discuter le mécanisme proposé (formation d'\(\ce{HIO}\) intermédiaire).</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage 2 — Détermination de \(E_a\) pour la saponification d'un ester</h4>
+    <p><strong>Objectif.</strong> Mesurer \(E_a\) de la réaction \(\ce{R-COO-R' + OH- -> R-COO- + R'-OH}\) par suivi conductimétrique à plusieurs T.</p>
+    <p><strong>Matériel.</strong> Conductimètre, électrode de mesure, ester (acétate d'éthyle), soude diluée, bain thermostaté à T variable (15, 25, 35, 45 °C), chronomètre.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Préparer mélange équimolaire d'ester et de \(\ce{NaOH}\) à concentration \(c_0 = 0{,}01\,\mathrm{mol/L}\).</li>
+      <li>Mesurer la conductivité initiale \(\sigma_0\) et au cours du temps \(\sigma(t)\). Conduit du fait que \(\ce{OH-}\) a une conductivité ionique plus élevée que \(\ce{R-COO-}\) → \(\sigma\) diminue.</li>
+      <li>Avec mélange équimolaire (\(\ce{ester} + \ce{OH-}\) en quantités égales), on est en ordre 2 : \(\dfrac{1}{[OH^-]} = \dfrac{1}{c_0} + k\,t\). Trace : \(\dfrac{1}{\sigma - \sigma_{\infty}} \propto 1/[OH^-]\) → pente \(\propto k\).</li>
+      <li>Mesurer \(k\) à 4 températures, tracer \(\ln k\) vs \(1/T\).</li>
+      <li>Pente \(= -E_a/R\) → calcul de \(E_a\).</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Régulation thermique (\(\pm 0{,}5\,\mathrm{K}\)), pureté de l'ester (hydrolyse partielle au stockage), calibration du conductimètre.</p>
+    <p><strong>Exploitation.</strong> Valeur typique \(E_a \approx 45\)–\(50\,\mathrm{kJ\cdot mol^{-1}}\) pour la saponification de l'acétate d'éthyle. Comparer à \(E_a\) tabulée (à chercher dans la littérature). Discuter la qualité de la linéarité et les sources d'erreur.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 13 JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 13</div>
+  <h2>13. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Ordre vs molécularité.</strong> Pour une réaction <em>élémentaire</em>, ordre = molécularité (nombre d'entités impliquées). Pour une réaction <em>complexe</em>, l'ordre est expérimental et n'a aucun lien avec la stœchiométrie. Confusion classique : déduire la loi de vitesse de l'équation chimique.</div>
+    <div class="jury-item"><strong>Cinétique ≠ thermodynamique.</strong> Une réaction thermodynamiquement très favorable peut être cinétiquement très lente (ex. réaction \(\ce{2 H2 + O2 -> 2 H2O}\) — explosive mais à T ambiante, sans étincelle, n'évolue pas). Un catalyseur agit sur la cinétique, pas sur \(K^\circ\) ou \(\Delta_r G\).</div>
+    <div class="jury-item"><strong>Validité de l'AEQS.</strong> L'AEQS requiert que l'intermédiaire soit <em>très réactif</em> (consommé rapidement) et présent en <em>faible concentration</em>. Elle n'est pas valable au tout début (régime transitoire) ni si l'intermédiaire s'accumule. Toujours vérifier en oral.</div>
+    <div class="jury-item"><strong>Catalyseur et équilibre.</strong> Un catalyseur ne déplace JAMAIS l'équilibre. Il accélère les deux sens dans le même rapport, l'équilibre est atteint plus vite mais à la même position. Cette confusion est récurrente.</div>
+    <div class="jury-item"><strong>Linéarisation Lineweaver-Burk.</strong> La régression sur \(1/v\) vs \(1/[S]\) donne plus de poids aux faibles vitesses (forte amplification de l'erreur). Méthode pédagogique mais imparfaite — préférer la régression non linéaire directe sur Michaelis-Menten en pratique professionnelle.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">Pour une réaction d'ordre 1 avec \(k = 0{,}023\,\mathrm{min^{-1}}\), la demi-vie vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. La demi-vie d\'une réaction d\'ordre 1 est indépendante de [A]₀ : t₁/₂ = ln 2/k.')">\(t_{1/2} = 1/(k\,[A]_0)\) — dépend de \([A]_0\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. Pour l\'ordre 1 : t₁/₂ = ln 2/k = 0,693/0,023 ≈ 30,1 min. Indépendance de [A]₀ : signature de l\'ordre 1.')">\(t_{1/2} = \ln 2/k \approx 30{,}1\,\mathrm{min}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — c\'est la formule de l\'ordre 0.')">\(t_{1/2} = [A]_0/(2k)\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Un catalyseur enzymatique accélère une réaction \(\times 10^{12}\). Il modifie :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Un catalyseur n\'agit jamais sur la thermodynamique. K°, ΔG, ΔH sont inchangés.')">La constante d'équilibre \(K^\circ\)</button><button class="q-opt" onclick="quiz(this,true,'Exact. Le catalyseur abaisse Ea en proposant un chemin via le complexe enzyme-substrat. K°, ΔH, ΔG inchangés. Accélère les deux sens dans le même rapport.')">L'énergie d'activation \(E_a\) (cinétique seulement)</button><button class="q-opt" onclick="quiz(this,false,'Non. ΔH est thermodynamique, indépendant du chemin.')">L'enthalpie de réaction \(\Delta_r H\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Si \(T\) augmente de 10 K et que \(E_a = 80\,\mathrm{kJ\cdot mol^{-1}}\), par quel facteur \(k\) est-elle multipliée environ ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. La règle de van\'t Hoff donne x 2-3 pour 10 K, pas x 1,1.')">\(\times 1{,}1\)</button><button class="q-opt" onclick="quiz(this,true,'Correct (règle de van\'t Hoff). k(T+10)/k(T) = exp((Ea/R)·10/(T(T+10))). À T = 298 K et Ea = 80 kJ : exp(0,108) ≈ 3. Heuristique : ΔT = +10 K → ×2-3.')">\(\times 3\) (règle de van't Hoff)</button><button class="q-opt" onclick="quiz(this,false,'Trop élevé pour 10 K. Il faudrait ~30-40 K pour ×100.')">\(\times 100\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pour la cinétique enzymatique avec \(K_M = 0{,}5\,\mathrm{mM}\), à \([S] = 0{,}5\,\mathrm{mM}\) la vitesse est :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. À [S] = K_M, v = V_max·K_M/(K_M + K_M) = V_max/2, pas V_max.')">\(v = V_{\max}\) (saturation)</button><button class="q-opt" onclick="quiz(this,true,'Correct. La définition de K_M est la concentration où v = V_max/2. C\'est l\'une des propriétés clés de Michaelis-Menten.')">\(v = V_{\max}/2\) (par définition de \(K_M\))</button><button class="q-opt" onclick="quiz(this,false,'Non. La cinétique enzymatique sature mais n\'est jamais nulle pour [S] > 0.')">\(v = 0\) (inhibition)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Loi de vitesse d'une réaction d'ordre 0 par rapport à \(A\) :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. Ordre 0 → v = k constante, donc [A] décroît linéairement : [A](t) = [A]₀ − kt. Cas typique : enzyme saturée ou réaction catalysée hétérogène à saturation de surface.')">\([A](t) = [A]_0 - k\,t\) (linéaire)</button><button class="q-opt" onclick="quiz(this,false,'Non — c\'est la loi pour l\'ordre 1.')">\([A](t) = [A]_0\,\mathrm{e}^{-kt}\) (exponentielle)</button><button class="q-opt" onclick="quiz(this,false,'Non — c\'est la loi pour l\'ordre 2.')">\(1/[A] = 1/[A]_0 + kt\) (hyperbolique)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Sur une régression d'Arrhenius (\(\ln k\) vs \(1/T\)), on trouve une pente de \(-6000\,\mathrm{K}\). \(E_a\) vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — Ea = pente × (−R), pas × R direct. Plus la pente est négative, plus Ea est grande.')">\(E_a = 6000/R \approx 720\,\mathrm{J/mol}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. Pente = −Ea/R donc Ea = −pente × R = 6000 × 8,314 ≈ 50 kJ/mol. Valeur typique des réactions chimiques.')">\(E_a = 6000 \times R \approx 50\,\mathrm{kJ/mol}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — Ea est positif, pas négatif.')">\(E_a = -50\,\mathrm{kJ/mol}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">L'AEQS sur un intermédiaire \(I\) signifie :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Si [I] = 0, il n\'y aurait pas de réaction. L\'AEQS dit que [I] est faible et quasi-constante (sa dérivée temporelle est négligeable).')">\([I] = 0\) tout le temps</button><button class="q-opt" onclick="quiz(this,true,'Exact. L\'AEQS : d[I]/dt ≈ 0 (vitesse de formation = vitesse de consommation). [I] reste donc quasi-constante (et faible), pas nulle. Approximation valable après régime transitoire bref.')">\(\mathrm{d}[I]/\mathrm{d}t \approx 0\) (formation = consommation)</button><button class="q-opt" onclick="quiz(this,false,'Non. La concentration peut varier en début de réaction (transitoire), mais l\'AEQS s\'applique en régime stationnaire.')">\([I]\) est constante depuis le début de la réaction</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets et corrigés des sessions précédentes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.chemtube3d.com/" target="_blank">
+      <span class="ri">⚛</span><div><div class="rt">Chemtube3D</div><div class="rd">Animations 3D de mécanismes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="electrochimie.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Électrochimie</span></a>
+  <a class="pnav-link next" href="chimie-organique.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Chimie organique</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link cur" href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

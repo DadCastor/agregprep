@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgrégPrep — Physique-Chimie Interne 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Index — quelques surcouches très ciblées (le reste vient de style.css) */
+  .home-hero{padding:4rem 0 3rem;text-align:center;border-bottom:1px solid var(--border);margin-bottom:3rem;position:relative;overflow:hidden}
+  .home-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 50% 0%,var(--phys-d) 0%,transparent 70%);pointer-events:none}
+  .home-hero .hero-eyebrow{justify-content:center}
+  .home-hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:.5rem auto 1rem;max-width:780px}
+  .home-hero h1 em{font-style:italic;color:var(--phys)}
+  .home-hero .lead{font-size:15px;color:var(--muted2);max-width:600px;margin:0 auto 1.5rem;line-height:1.7}
+
+  /* Section title-bar */
+  .home-section{padding:3.5rem 0 1rem}
+  .home-section:first-of-type{padding-top:1rem}
+  .home-section h2{font-family:var(--serif);font-size:1.85rem;margin:.3rem 0 .6rem;line-height:1.2}
+  .home-section .desc{font-size:14px;color:var(--muted2);max-width:660px;margin-bottom:1.75rem;line-height:1.75}
+
+  /* Stats home */
+  .hstats{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem}
+  .hstats .stat-pill{flex:1;min-width:135px;max-width:200px;text-align:center}
+  .stat-pill .sl{display:block;margin-top:.15rem}
+
+  /* Progression badge sur chapitre traité */
+  .chap-card .done-badge{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:var(--green);color:#fff;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+
+  /* Liste critères du rapport de jury */
+  .jury-list-card ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin:0;padding:0}
+  .jury-list-card li{font-size:13px;color:var(--muted2);display:flex;gap:8px;line-height:1.55}
+  .jury-list-card li .mk{flex-shrink:0;font-weight:700;width:18px;text-align:center}
+  .jury-list-card li .ok{color:var(--green)}
+  .jury-list-card li .ko{color:var(--red)}
+  .jury-list-card li .nb{color:var(--gold)}
+  .jury-list-card h4{font-size:14px;margin-bottom:.7rem;font-weight:600;color:var(--text)}
+
+  /* Footer */
+  footer{border-top:1px solid var(--border);padding:1.8rem 2rem;text-align:center;color:var(--muted);font-size:12px;margin-top:3rem}
+  footer a{color:var(--muted2);text-decoration:none;border-bottom:1px solid var(--border2)}
+  footer a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links">
+    <li><a href="#programme" class="active">Programme</a></li>
+    <li><a href="#jury">Jury</a></li>
+    <li><a href="#planning">Planning</a></li>
+    <li><a href="#methodes">Méthodes</a></li>
+    <li><a href="#ressources">Ressources</a></li>
+    <li><a href="#tracker">Progression</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="home-hero r">
+  <div class="hero-eyebrow">Agrégation interne · Physique-Chimie · Session 2027</div>
+  <h1>Prépare l'agrég avec <em>méthode</em> et clarté.</h1>
+  <p class="lead">Programme officiel 2025 intégré — 12 chapitres détaillés avec démonstrations rigoureuses, exercices type concours, propositions de leçons, montages expérimentaux et pièges du jury. Tout ce qu'il faut, rien de superflu.</p>
+  <div class="hstats">
+    <div class="stat-pill"><span class="sv">2</span><span class="sl">Épreuves écrites (5 h)</span></div>
+    <div class="stat-pill"><span class="sv">2</span><span class="sl">Épreuves orales (1 h 20)</span></div>
+    <div class="stat-pill"><span class="sv">54</span><span class="sl">Postes en 2025</span></div>
+    <div class="stat-pill"><span class="sv">8,5 %</span><span class="sl">Taux d'admis</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ PROGRAMME ═══════════════════ -->
+<section id="programme" class="home-section r">
+  <p class="sec-label">01 — Programme officiel</p>
+  <h2>Chapitres à maîtriser</h2>
+  <p class="desc">Clique sur un chapitre pour accéder à la fiche complète (13 sections : cours rigoureux, démonstrations clés, exercices résolus type concours, propositions de leçons pour l'oral, montages expérimentaux, pièges du jury, quiz).</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'phys')">Physique (26 sujets oraux)</button>
+    <button class="tab-btn" onclick="switchTab(event,'chim')">Chimie (28 sujets oraux)</button>
+  </div>
+
+  <!-- TAB PHYSIQUE -->
+  <div id="tab-phys" class="tab-pane active">
+    <div class="alert alert-phys r" style="margin-bottom:1.5rem">
+      <span class="ico">📖</span>
+      <div><strong>Programme officiel :</strong> Les épreuves portent sur les programmes du secondaire (collège → terminale, voies générale et technologique) ET sur ceux des CPGE scientifiques (MPSI, PCSI, MP2I, PTSI, MP, PC, PSI, PT, MPI, TSI, BCPST).</div>
+    </div>
+
+    <div class="g3">
+      <a class="chap-card cp" href="mecanique.html">
+        <span class="done-badge">complet</span>
+        <span class="badge bp">Fondamental</span>
+        <div class="cn">Physique 01–06</div>
+        <div class="ct">Mécanique & Dynamique</div>
+        <div class="cs">PFD, cinématique, oscillateurs, fluides, moment cinétique. Sujet oral 1, 8, 13, 14, 19.</div>
+      </a>
+      <a class="chap-card cp" href="electromagnetisme.html">
+        <span class="done-badge">complet</span>
+        <span class="badge br">Difficile</span>
+        <div class="cn">Physique 07–11</div>
+        <div class="ct">Électromagnétisme</div>
+        <div class="cs">Maxwell, induction, ondes EM, énergie. Sujet oral 5 & 18.</div>
+      </a>
+      <a class="chap-card cp" href="thermodynamique.html">
+        <span class="done-badge">complet</span>
+        <span class="badge bg">Important</span>
+        <div class="cn">Physique 12–14</div>
+        <div class="ct">Thermodynamique</div>
+        <div class="cs">Principes, machines thermiques, changements d'état. Sujet oral 11 & 24e.</div>
+      </a>
+      <a class="chap-card cp" href="optique-ondes.html">
+        <span class="done-badge">complet</span>
+        <span class="badge bg">Important</span>
+        <div class="cn">Physique 15–21</div>
+        <div class="ct">Optique, Ondes & Signal</div>
+        <div class="cs">Interférences, diffraction, ondes stationnaires, Fourier, acoustique. 6 sujets oraux (2, 6, 7, 15, 17, 21).</div>
+      </a>
+      <a class="chap-card cp" href="electricite.html">
+        <span class="done-badge">complet</span>
+        <span class="badge bg">Important</span>
+        <div class="cn">Physique 22–26</div>
+        <div class="ct">Électricité & Conversion</div>
+        <div class="cs">RLC, résonance, filtres, capteurs, conversion de puissance. 6 sujets oraux (8, 9, 12, 14, 15, 16).</div>
+      </a>
+      <a class="chap-card cp" href="physique-moderne.html">
+        <span class="done-badge">complet</span>
+        <span class="badge br">Avancé</span>
+        <div class="cn">Physique 27–31</div>
+        <div class="ct">Physique moderne</div>
+        <div class="cs">Quantique, nucléaire, relativité, gravitation. Sujet oral 22e, 23e, 25e, 26e.</div>
+      </a>
+    </div>
+
+    <h3 style="font-family:var(--mono);font-size:11px;color:var(--muted);margin:2.2rem 0 .9rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em">Sujets d'exposés oraux physique (programme 2025)</h3>
+    <div class="g3">
+      <div class="oral-chip"><span class="on">1</span> Dynamique newtonienne</div>
+      <div class="oral-chip"><span class="on">2</span> Ondes acoustiques</div>
+      <div class="oral-chip"><span class="on">3</span> Spectrométrie optique, couleur</div>
+      <div class="oral-chip"><span class="on">4</span> Vision et image</div>
+      <div class="oral-chip"><span class="on">5</span> Propagation libre et guidée</div>
+      <div class="oral-chip"><span class="on">6</span> Interférences</div>
+      <div class="oral-chip"><span class="on">7</span> Diffraction</div>
+      <div class="oral-chip"><span class="on">8</span> Oscillateurs</div>
+      <div class="oral-chip"><span class="on">9</span> Capteurs</div>
+      <div class="oral-chip"><span class="on">10</span> Phénomènes de transport</div>
+      <div class="oral-chip"><span class="on">11</span> États de la matière</div>
+      <div class="oral-chip"><span class="on">12</span> Dynamique d'un système électrique</div>
+      <div class="oral-chip"><span class="on">13</span> Fluides</div>
+      <div class="oral-chip"><span class="on">14</span> Résonance</div>
+      <div class="oral-chip"><span class="on">15</span> Signal analogique et numérique</div>
+      <div class="oral-chip"><span class="on">16</span> Conversion de puissance</div>
+      <div class="oral-chip"><span class="on">17</span> Temps – fréquence</div>
+      <div class="oral-chip"><span class="on">18</span> Interaction lumière-matière</div>
+      <div class="oral-chip"><span class="on">19</span> Frottements</div>
+      <div class="oral-chip"><span class="on">20</span> Transmission de l'information</div>
+      <div class="oral-chip"><span class="on">21</span> Ondes stationnaires</div>
+      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">22e</span> Cohésion du noyau</div>
+      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">23e</span> Gravitation & Kepler</div>
+      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">24e</span> Machines thermiques</div>
+      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">25e</span> Rayonnement thermique</div>
+      <div class="oral-chip" style="border-color:var(--phys-b)"><span class="on" style="color:var(--phys)">26e</span> Relativité du mouvement</div>
+    </div>
+  </div>
+
+  <!-- TAB CHIMIE -->
+  <div id="tab-chim" class="tab-pane">
+    <div class="alert alert-chim r" style="margin-bottom:1.5rem">
+      <span class="ico">🧪</span>
+      <div><strong>Programme chimie :</strong> Mêmes niveaux que la physique (secondaire + CPGE). La chimie est évaluée avec le même coefficient — à ne sous-estimer sous aucun prétexte.</div>
+    </div>
+
+    <div class="g3">
+      <a class="chap-card cc" href="chimie-solutions.html">
+        <span class="done-badge">complet</span>
+        <span class="badge bc">Fondamental</span>
+        <div class="cn">Chimie 01–08</div>
+        <div class="ct">Chimie des solutions</div>
+        <div class="cs">Acide-base, complexes, solubilité, dosages, conductivité, redox. 6 sujets oraux (6, 7, 8, 14, 17, 18).</div>
+      </a>
+      <a class="chap-card cc" href="thermodynamique-chimique.html">
+        <span class="done-badge">complet</span>
+        <span class="badge br">Difficile</span>
+        <div class="cn">Chimie 09–13</div>
+        <div class="ct">Thermodynamique chimique</div>
+        <div class="cs">G, K°, van't Hoff, Le Châtelier, diagrammes binaires. 5 sujets oraux (5, 9, 11, 12, 13).</div>
+      </a>
+      <a class="chap-card cc" href="electrochimie.html">
+        <span class="done-badge">complet</span>
+        <span class="badge br">Fréquent</span>
+        <div class="cn">Chimie 14–16</div>
+        <div class="ct">Électrochimie</div>
+        <div class="cs">Nernst, piles, électrolyse, diagrammes E-pH, corrosion. Sujets oraux 14, 15, 16.</div>
+      </a>
+      <a class="chap-card cc" href="cinetique-catalyse.html">
+        <span class="done-badge">complet</span>
+        <span class="badge bg">Important</span>
+        <div class="cn">Chimie 20–21</div>
+        <div class="ct">Cinétique & Catalyse</div>
+        <div class="cs">Ordres, Arrhenius, mécanismes, Michaelis-Menten. Sujets oraux 20, 21.</div>
+      </a>
+      <a class="chap-card cc" href="chimie-organique.html">
+        <span class="done-badge">complet</span>
+        <span class="badge br">Fréquent</span>
+        <div class="cn">Chimie 22–26</div>
+        <div class="ct">Chimie organique</div>
+        <div class="cs">Stéréochimie, SN/E, additions, carbonyles, rétrosynthèse. 6 sujets oraux (4, 22, 23, 25, 26, 27m).</div>
+      </a>
+      <a class="chap-card cc" href="structure-matiere.html">
+        <span class="done-badge">complet</span>
+        <span class="badge bg">Important</span>
+        <div class="cn">Chimie 27–28</div>
+        <div class="ct">Structure de la matière</div>
+        <div class="cs">Atomistique, VSEPR, OM, cristallographie, spectroscopies. Sujets oraux 2, 27e, 28e, 28m.</div>
+      </a>
+    </div>
+
+    <h3 style="font-family:var(--mono);font-size:11px;color:var(--muted);margin:2.2rem 0 .9rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em">Sujets d'exposés oraux chimie (programme 2025)</h3>
+    <div class="g3">
+      <div class="oral-chip"><span class="on">1</span> Séparation</div>
+      <div class="oral-chip"><span class="on">2</span> Liaisons et interactions</div>
+      <div class="oral-chip"><span class="on">3</span> Caractérisation & analyse</div>
+      <div class="oral-chip"><span class="on">4</span> Stéréoisomérie</div>
+      <div class="oral-chip"><span class="on">5</span> Solvants</div>
+      <div class="oral-chip"><span class="on">6</span> Dosages et titrages</div>
+      <div class="oral-chip"><span class="on">7</span> Solubilité</div>
+      <div class="oral-chip"><span class="on">8</span> Conductivité</div>
+      <div class="oral-chip"><span class="on">9</span> Mélanges binaires</div>
+      <div class="oral-chip"><span class="on">10</span> Proportions & stœchiométrie</div>
+      <div class="oral-chip"><span class="on">11</span> Équilibre chimique</div>
+      <div class="oral-chip"><span class="on">12</span> Évolution d'un système</div>
+      <div class="oral-chip"><span class="on">13</span> Conversion d'énergie</div>
+      <div class="oral-chip"><span class="on">14</span> Oxydo-réduction</div>
+      <div class="oral-chip"><span class="on">15</span> Dispositifs électrochimiques</div>
+      <div class="oral-chip"><span class="on">16</span> Métaux et environnement</div>
+      <div class="oral-chip"><span class="on">17</span> Acidité</div>
+      <div class="oral-chip"><span class="on">18</span> Complexes</div>
+      <div class="oral-chip"><span class="on">19</span> Polymères</div>
+      <div class="oral-chip"><span class="on">20</span> Cinétique chimique</div>
+      <div class="oral-chip"><span class="on">21</span> Catalyse</div>
+      <div class="oral-chip"><span class="on">22</span> Mécanismes réactionnels</div>
+      <div class="oral-chip"><span class="on">23</span> Électrophilie & nucléophilie</div>
+      <div class="oral-chip"><span class="on">24</span> Couleur</div>
+      <div class="oral-chip"><span class="on">25</span> Modification de fonctions</div>
+      <div class="oral-chip"><span class="on">26</span> Modification de chaîne</div>
+      <div class="oral-chip" style="border-color:var(--chim-b)"><span class="on" style="color:var(--chim)">27e</span> Modélisation des solides</div>
+      <div class="oral-chip" style="border-color:var(--chim-b)"><span class="on" style="color:var(--chim)">28e</span> Classification périodique</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ JURY ═══════════════════ -->
+<section id="jury" class="home-section r">
+  <p class="sec-label">02 — Rapport de jury 2025</p>
+  <h2>Ce que le jury attend</h2>
+  <p class="desc">Points clés extraits du rapport officiel de la session 2025. À lire avant tout autre document — c'est la boussole de la préparation.</p>
+
+  <div class="hstats" style="margin-bottom:1.5rem">
+    <div class="stat-pill"><span class="sv" style="color:var(--phys)">9,60</span><span class="sl">Moy. physique (présents)</span></div>
+    <div class="stat-pill"><span class="sv" style="color:var(--chim)">9,35</span><span class="sl">Moy. chimie (présents)</span></div>
+    <div class="stat-pill"><span class="sv" style="color:var(--gold)">14,06</span><span class="sl">Moy. physique (admissibles)</span></div>
+    <div class="stat-pill"><span class="sv" style="color:var(--green)">54</span><span class="sl">Postes 2025</span></div>
+  </div>
+
+  <div class="g2">
+    <div class="card jury-list-card">
+      <span class="badge bp" style="margin-bottom:.7rem">Écrit physique</span>
+      <h4>Ce que le jury attend</h4>
+      <ul>
+        <li><span class="mk ok">✓</span><span>Soigner rédaction et présentation : résultats encadrés, schémas clairs, applications numériques avec unités.</span></li>
+        <li><span class="mk ok">✓</span><span>Aborder les parties dans l'ordre… ou pas. Elles sont indépendantes : ne pas se bloquer.</span></li>
+        <li><span class="mk ok">✓</span><span>Toujours discuter le sens physique d'un résultat numérique.</span></li>
+        <li><span class="mk ko">✗</span><span>Confusion réflexion totale vs réfraction limite (erreur classique).</span></li>
+        <li><span class="mk ko">✗</span><span>Équation d'Euler (mécanique des fluides) insuffisamment maîtrisée.</span></li>
+        <li><span class="mk ko">✗</span><span>Pulsation en rad·s⁻¹ : oubli fréquent de l'unité.</span></li>
+      </ul>
+    </div>
+    <div class="card jury-list-card">
+      <span class="badge bc" style="margin-bottom:.7rem">Écrit chimie</span>
+      <h4>Ce que le jury attend</h4>
+      <ul>
+        <li><span class="mk ok">✓</span><span>Analyser le système soigneusement avant de calculer.</span></li>
+        <li><span class="mk ok">✓</span><span>Distinguer expérience, modèle et théorie.</span></li>
+        <li><span class="mk ok">✓</span><span>Réponses pédagogiques concises et argumentées, reliées aux programmes scolaires.</span></li>
+        <li><span class="mk ko">✗</span><span>Questions pédagogiques traitées trop vaguement.</span></li>
+        <li><span class="mk ko">✗</span><span>Acidité diacide et mélanges de bases insuffisamment maîtrisés.</span></li>
+        <li><span class="mk ko">✗</span><span>Confusion ΔG vs ΔG° très fréquente.</span></li>
+      </ul>
+    </div>
+    <div class="card jury-list-card">
+      <span class="badge bg" style="margin-bottom:.7rem">Oral · exposé</span>
+      <h4>Structure attendue</h4>
+      <ul>
+        <li><span class="mk nb">①</span><span>Partie 1 : concept scientifique + développement pédagogique/didactique (collège/lycée).</span></li>
+        <li><span class="mk nb">②</span><span>Partie 2 : approfondissement niveau post-bac (CPGE).</span></li>
+        <li><span class="mk nb">③</span><span>Illustration expérimentale dans chaque partie.</span></li>
+        <li><span class="mk nb">④</span><span>Entretien 30 min avec jury sur toutes les parties.</span></li>
+        <li><span class="mk ok">✓</span><span>S'appuyer sur sa pratique professionnelle quotidienne.</span></li>
+      </ul>
+    </div>
+    <div class="card jury-list-card">
+      <span class="badge bv" style="margin-bottom:.7rem">Oral · montage</span>
+      <h4>Structure attendue</h4>
+      <ul>
+        <li><span class="mk nb">①</span><span>Choix entre 2 sujets — bien choisir selon ses forces.</span></li>
+        <li><span class="mk nb">②</span><span>Expériences réalisées ET exploitées (qualitatif + quantitatif).</span></li>
+        <li><span class="mk nb">③</span><span>Niveau CPGE attendu, sources d'incertitudes discutées.</span></li>
+        <li><span class="mk nb">④</span><span>Traitement informatisé intégré (régression, FFT, modélisation).</span></li>
+        <li><span class="mk ko">!</span><span>17/54 admis étaient classés au-delà du rang 54 après écrit : l'oral renverse tout.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert alert-gold r" style="margin-top:1.5rem">
+    <span class="ico">📋</span>
+    <div><strong>Rapports de jury 2012–2025 :</strong> disponibles sur <a href="http://www.agregation-interne-physique-chimie.org/rapports-de-jury.html" target="_blank">agregation-interne-physique-chimie.org</a>. Lire au moins les 3 dernières sessions (2023, 2024, 2025) — chaque page de chapitre référence ce rapport dans sa section « Pièges du jury ».</div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PLANNING ═══════════════════ -->
+<section id="planning" class="home-section r">
+  <p class="sec-label">03 — Organisation</p>
+  <h2>Planning de préparation</h2>
+  <p class="desc">Pour partir de zéro et viser la session suivante, voici un parcours progressif en 5 phases. Adaptable selon ton point de départ et ton temps disponible.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-period">Mois 1–2</div>
+      <div class="tl-dot" style="background:var(--green)"></div>
+      <div class="tl-body">
+        <h4 style="color:var(--green)">Phase 0 — Diagnostic</h4>
+        <ul>
+          <li>Lire les rapports de jury des 3 dernières sessions.</li>
+          <li>Faire un sujet d'annales (physique + chimie) sans préparation pour évaluer son niveau.</li>
+          <li>Identifier ses domaines forts et faibles.</li>
+          <li>Télécharger et lire le programme officiel.</li>
+          <li>S'inscrire à une préparation académique si disponible.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Mois 3–6</div>
+      <div class="tl-dot" style="background:var(--phys)"></div>
+      <div class="tl-body">
+        <h4 style="color:var(--phys)">Phase 1 — Fondations</h4>
+        <ul>
+          <li>Réviser 1 chapitre par semaine (physique / chimie en alternance).</li>
+          <li>Utiliser les fiches de ce site (sections cours + démos clés) + manuels CPGE.</li>
+          <li>Démarrer Anki avec les formules et définitions clés.</li>
+          <li>Faire les exercices résolus à la fin de chaque chapitre.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Mois 7–9</div>
+      <div class="tl-dot" style="background:var(--chim)"></div>
+      <div class="tl-body">
+        <h4 style="color:var(--chim)">Phase 2 — Consolidation</h4>
+        <ul>
+          <li>Travailler les annales des 5 dernières sessions, écrit complet.</li>
+          <li>Corriger rigoureusement chaque erreur (tableau de suivi recommandé).</li>
+          <li>Construire des fiches de synthèse par thème (synthèse personnelle).</li>
+          <li>Premiers entraînements aux exposés oraux à voix haute.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Mois 10–11</div>
+      <div class="tl-dot" style="background:var(--gold)"></div>
+      <div class="tl-body">
+        <h4 style="color:var(--gold)">Phase 3 — Oraux & montages</h4>
+        <ul>
+          <li>Préparer 15–20 plans de leçons sur les sujets du programme.</li>
+          <li>Entraîner des montages expérimentaux complets (préparation matérielle + exploitation).</li>
+          <li>Oraux blancs avec un pair ou un préparateur.</li>
+          <li>Travailler la partie pédagogique/didactique des exposés.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">Mois 12 → concours</div>
+      <div class="tl-dot" style="background:var(--red)"></div>
+      <div class="tl-body">
+        <h4 style="color:var(--red)">Phase 4 — Intensif final</h4>
+        <ul>
+          <li>Concours blancs complets (5h + 5h) en conditions réelles.</li>
+          <li>Révision des fiches uniquement (plus de lecture intégrale du cours).</li>
+          <li>Maintenir Anki quotidiennement (formules, mécanismes).</li>
+          <li>Gestion du stress — prévoir du repos avant le concours.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ METHODES ═══════════════════ -->
+<section id="methodes" class="home-section r">
+  <p class="sec-label">04 — Apprendre efficacement</p>
+  <h2>Techniques d'apprentissage prouvées</h2>
+  <p class="desc">La science cognitive a identifié des méthodes nettement supérieures aux révisions passives. Adapter ces principes à ta préparation peut faire la différence entre admis et recalé.</p>
+
+  <div class="g3">
+    <div class="method-card">
+      <div class="method-icon">🔁</div>
+      <h4>Répétition espacée (SRS)</h4>
+      <p>Revoir un concept au moment précis où on commence à l'oublier. <strong>Anki</strong> calcule automatiquement les intervalles. 20 min/jour sur 12 mois = formules définitivement mémorisées.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">✏️</div>
+      <h4>Rappel actif</h4>
+      <p>Ne pas relire passivement : se forcer à reconstruire. Fermer le livre, écrire le chapitre de mémoire, vérifier. Les erreurs ainsi corrigées sont durablement retenues.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🗣️</div>
+      <h4>Méthode Feynman</h4>
+      <p>Expliquer à voix haute comme à un élève. Idéal pour la préparation des exposés oraux. Quand tu bloques, tu identifies ta vraie lacune.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🔀</div>
+      <h4>Pratique intercalée</h4>
+      <p>Mélanger physique et chimie dans la même journée. Ne pas rester sur un seul thème plus de 90 min. Plus inconfortable — mais plus efficace que le travail en blocs.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">⏱️</div>
+      <h4>Sessions structurées</h4>
+      <p>50 min de travail focalisé + 10 min de pause (sans écran). Jamais plus de 6h de révision par jour. La fatigue cognitive est l'ennemie d'une longue préparation.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">📝</div>
+      <h4>Faire des annales</h4>
+      <p>Composer en conditions réelles, corriger rigoureusement chaque erreur. Une copie corrigée vaut 10 chapitres relus. C'est la méthode la plus efficace.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<section id="ressources" class="home-section r">
+  <p class="sec-label">05 — Ressources sélectionnées</p>
+  <h2>Sites, outils & documents</h2>
+  <p class="desc">Sélection rigoureuse — accès libre, qualité testée, pertinente pour l'agrégation interne physique-chimie.</p>
+
+  <div class="g2">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/" target="_blank">
+      <span class="ri">🏛️</span>
+      <div><div class="rt">Site officiel de l'agrégation interne</div><div class="rd">Programmes, rapports de jury 2012-2025, annales, matériels — référence absolue.</div></div>
+      <span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span>
+      <div><div class="rt">Rapport de jury session 2025 (PDF)</div><div class="rd">À lire en premier. Attentes du jury, erreurs fréquentes, statistiques.</div></div>
+      <span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span>
+      <div><div class="rt">Annales des épreuves écrites</div><div class="rd">Tous les sujets des sessions précédentes avec corrigés détaillés.</div></div>
+      <span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://phet.colorado.edu/fr/" target="_blank">
+      <span class="ri">🔬</span>
+      <div><div class="rt">PhET Simulations (Colorado)</div><div class="rd">Simulations interactives physique/chimie — accès autorisé pendant les épreuves orales.</div></div>
+      <span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://apps.ankiweb.net/" target="_blank">
+      <span class="ri">🃏</span>
+      <div><div class="rt">Anki — Répétition espacée</div><div class="rd">L'outil le plus puissant pour mémoriser formules, définitions et mécanismes à long terme.</div></div>
+      <span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://ressources.agreg.phys.ens.fr/ressources/" target="_blank">
+      <span class="ri">🧪</span>
+      <div><div class="rt">Ressources ENS — agrég physique</div><div class="rd">Scripts Python pour montages, vidéos d'expériences, outils de tracé et de filtrage.</div></div>
+      <span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.chemtube3d.com/" target="_blank">
+      <span class="ri">⚛</span>
+      <div><div class="rt">ChemTube3D</div><div class="rd">Animations 3D de mécanismes réactionnels, structures, orbitales.</div></div>
+      <span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.youtube.com/channel/UCp5inxa18gLTGPu2WYEUyAA" target="_blank">
+      <span class="ri">▶️</span>
+      <div><div class="rt">Physique Chimie Prépa — YouTube</div><div class="rd">Vidéos de cours CPGE utilisées pour préparer l'agrégation interne.</div></div>
+      <span class="ra">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════ TRACKER ═══════════════════ -->
+<section id="tracker" class="home-section r">
+  <p class="sec-label">06 — Suivi personnel</p>
+  <h2>Ma progression</h2>
+  <p class="desc">Clique sur une ligne pour mettre à jour ton avancement (0 → 25 → 50 → 75 → 100 %). Sauvegardé dans ton navigateur, accessible à chaque visite.</p>
+
+  <div class="card">
+    <h4 style="font-family:var(--mono);font-size:10.5px;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem">Physique</h4>
+    <div id="tracker-phys" style="display:flex;flex-direction:column;gap:2px">
+      <div class="t-row" data-key="meca"><span class="t-name">Mécanique & Dynamique</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--phys);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="em"><span class="t-name">Électromagnétisme</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--phys);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="thermo"><span class="t-name">Thermodynamique</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--phys);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="optique"><span class="t-name">Optique, Ondes & Signal</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--phys);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="elec"><span class="t-name">Électricité & Conversion</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--phys);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="physmod"><span class="t-name">Physique moderne</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--phys);width:0%"></div></div><span class="t-pct">0 %</span></div>
+    </div>
+
+    <h4 style="font-family:var(--mono);font-size:10.5px;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.1em;margin:1.5rem 0 1rm">Chimie</h4>
+    <div id="tracker-chim" style="display:flex;flex-direction:column;gap:2px;margin-top:.5rem">
+      <div class="t-row" data-key="chimsol"><span class="t-name">Chimie des solutions</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--chim);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="thermochim"><span class="t-name">Thermodynamique chimique</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--chim);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="electrochim"><span class="t-name">Électrochimie</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--chim);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="cinet"><span class="t-name">Cinétique & Catalyse</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--chim);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="chimorg"><span class="t-name">Chimie organique</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--chim);width:0%"></div></div><span class="t-pct">0 %</span></div>
+      <div class="t-row" data-key="struct"><span class="t-name">Structure de la matière</span><div class="t-bar-wrap"><div class="t-bar" style="background:var(--chim);width:0%"></div></div><span class="t-pct">0 %</span></div>
+    </div>
+
+    <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap">
+      <button onclick="setAll(25)" style="font-family:var(--sans);font-size:12px;padding:6px 13px;border:1px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--muted2);cursor:pointer">Tout à 25 %</button>
+      <button onclick="setAll(50)" style="font-family:var(--sans);font-size:12px;padding:6px 13px;border:1px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--muted2);cursor:pointer">Tout à 50 %</button>
+      <button onclick="setAll(75)" style="font-family:var(--sans);font-size:12px;padding:6px 13px;border:1px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--muted2);cursor:pointer">Tout à 75 %</button>
+      <button onclick="setAll(0)" style="font-family:var(--sans);font-size:12px;padding:6px 13px;border:1px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--muted2);cursor:pointer">Réinitialiser</button>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.wrap -->
+
+<footer>
+  <p>AgrégPrep · Sources : <a href="http://www.agregation-interne-physique-chimie.org" target="_blank">agregation-interne-physique-chimie.org</a> · <a href="https://www.devenirenseignant.gouv.fr" target="_blank">devenirenseignant.gouv.fr</a></p>
+  <p style="margin-top:.4rem">12 chapitres traités · 13 sections par chapitre · MathJax pour la typographie mathématique rigoureuse</p>
+</footer>
+
+<script>
+// TAB SWITCHING
+function switchTab(ev, t){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  ev.currentTarget.classList.add('active');
+}
+
+// TRACKER (persistance localStorage)
+const KEYS=['meca','em','thermo','optique','elec','physmod','chimsol','thermochim','electrochim','cinet','chimorg','struct'];
+const STEPS=[0,25,50,75,100];
+
+function updateRow(k,pct){
+  const row=document.querySelector('[data-key="'+k+'"]');
+  if(!row)return;
+  row.querySelector('.t-bar').style.width=pct+'%';
+  row.querySelector('.t-pct').textContent=pct+' %';
+  try{ localStorage.setItem('agreg_'+k,pct); }catch(e){}
+}
+function loadTracker(){
+  KEYS.forEach(k=>{
+    let saved=0;
+    try{ saved=parseInt(localStorage.getItem('agreg_'+k)||'0'); }catch(e){}
+    updateRow(k,saved);
+  });
+}
+function setAll(pct){ KEYS.forEach(k=>updateRow(k,pct)); }
+document.querySelectorAll('.t-row').forEach(row=>{
+  row.style.cursor='pointer';
+  row.addEventListener('click',()=>{
+    const k=row.dataset.key;
+    let cur=0;
+    try{ cur=parseInt(localStorage.getItem('agreg_'+k)||'0'); }catch(e){}
+    const idx=STEPS.indexOf(cur);
+    const next=STEPS[(idx+1)%STEPS.length];
+    updateRow(k,next);
+  });
+});
+loadTracker();
+
+// SCROLL REVEAL (réutilise la classe .r de style.css)
+const ro=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('v');ro.unobserve(e.target);}
+}),{threshold:0.05});
+document.querySelectorAll('.r').forEach(el=>ro.observe(el));
+
+// SIDEBAR-LIKE ACTIVE STATE pour la nav
+const secs=document.querySelectorAll('.home-section[id], #programme');
+const lks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-100) cur=s.id; });
+  lks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur));
+},{passive:true});
+</script>
+</body>
+</html>

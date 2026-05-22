@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thermodynamique chimique & Équilibres — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="active">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero c r">
+    <div class="chap-eyebrow c">Chimie · Sujets oraux 5, 9, 11, 12, 13</div>
+    <h1>Thermodynamique chimique <em class="c">& Équilibres</em></h1>
+    <p class="lead">Sujets oraux n°5 (Solvants), n°9 (Mélanges binaires), n°11 (Équilibre chimique), n°12 (Évolution d'un système), n°13 (Conversion d'énergie). Fondations énergétiques de la chimie — premier et second principe appliqués aux réactions, équilibres et changements d'état.</p>
+    <div class="chap-badges"><span class="badge bc">Sujets oraux 5, 9, 11, 12, 13</span> <span class="badge br">Difficile</span> <span class="badge bg">Fondamental</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#premier">01 · Premier principe en chimie</a>
+        <a href="#second">02 · Second principe & entropie</a>
+        <a href="#gibbs">03 · Enthalpie libre G & K°</a>
+        <a href="#vanthoff">04 · Loi de van't Hoff</a>
+        <a href="#evolution">05 · Quotient Q & évolution</a>
+        <a href="#binaires">06 · Diagrammes binaires</a>
+        <a href="#colligatives">07 · Propriétés colligatives</a>
+        <a href="#pedagogie">08 · Pédagogie</a>
+        <a href="#demos">09 · Démonstrations clés</a>
+        <a href="#exercices">10 · Exercices résolus</a>
+        <a href="#lecons">11 · Leçons pour l'oral</a>
+        <a href="#montages">12 · Montages</a>
+        <a href="#jury">13 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="cur" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 PREMIER PRINCIPE ═══════════════════ -->
+<div class="sblock r" id="premier">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Premier principe appliqué à la chimie</h2>
+  <p class="intro">Enthalpie de réaction, loi de Hess, énergies de liaison. Fondations énergétiques des transformations chimiques.</p>
+
+  <h3>1.1 Enthalpie de réaction</h3>
+  <div class="fbox c">
+    <span class="fl">Enthalpie standard de réaction \(\Delta_r H^\circ\)</span>
+    <span class="fc">Pour une réaction écrite \(\nu_1 R_1 + \nu_2 R_2 \to \nu_3 P_3 + \nu_4 P_4\), l'enthalpie de réaction à \(T, P\) constantes vaut :</span>
+    <span class="fm">\[ \Delta_r H^\circ \;=\; \sum_{\text{prod}} \nu_i\,\Delta_f H^\circ_i \;-\; \sum_{\text{réac}} \nu_j\,\Delta_f H^\circ_j \]</span>
+    <hr>
+    <span class="fc">Convention : \(\Delta_f H^\circ\) (corps simple, état standard) = 0. Exemples : \(\Delta_f H^\circ(\ce{O2, g}) = 0\), \(\Delta_f H^\circ(\ce{H2O, l}) = -285{,}8\,\mathrm{kJ\cdot mol^{-1}}\).</span>
+    <hr>
+    <span class="fc">Convention de signe :</span>
+    <span class="fm">\[ \Delta_r H^\circ &lt; 0 :\ \text{réaction exothermique (libère de la chaleur)} \]</span>
+    <span class="fm">\[ \Delta_r H^\circ &gt; 0 :\ \text{réaction endothermique (absorbe de la chaleur)} \]</span>
+  </div>
+
+  <h3>1.2 Loi de Hess</h3>
+  <div class="key-box c">
+    <p>L'enthalpie est une <strong>fonction d'état</strong> : \(\Delta_r H^\circ\) ne dépend que des états initial et final, pas du chemin réactionnel.</p>
+    <p>Conséquence pratique : on peut combiner des équations chimiques par addition / soustraction / multiplication, les \(\Delta_r H^\circ\) suivent les mêmes opérations.</p>
+    \[ \text{Si}\ R \to P\ \text{donne}\ \Delta H_1\ \text{et}\ P \to Q\ \text{donne}\ \Delta H_2,\ \text{alors}\ R \to Q\ \text{donne}\ \Delta H_1 + \Delta H_2. \]
+  </div>
+
+  <h3>1.3 Énergies de liaison</h3>
+  <div class="fbox c">
+    <span class="fl">Estimation de \(\Delta_r H^\circ\) à partir des énergies de liaison</span>
+    <span class="fc">Énergie de liaison \(D_{X-Y}\) : énergie nécessaire pour rompre une mole de liaisons \(\ce{X-Y}\) en phase gazeuse.</span>
+    <span class="fm">\[ \Delta_r H^\circ \;\approx\; \sum_{\text{liaisons rompues}} D_{\text{réactifs}} \;-\; \sum_{\text{liaisons formées}} D_{\text{produits}} \]</span>
+    <hr>
+    <span class="fc">Valeurs typiques (kJ/mol) :</span>
+    <span class="fm">\[ \ce{H-H} : 436\,,\ \ce{O-H} : 463\,,\ \ce{O=O} : 498\,,\ \ce{C-C} : 348\,,\ \ce{C=C} : 614\,,\ \ce{C\equiv C} : 839 \]</span>
+    <hr>
+    <span class="fc">Méthode : compter liaisons rompues (chaleur fournie, positive) − liaisons formées (chaleur libérée, négative).</span>
+  </div>
+
+  <h3>1.4 Loi de Kirchhoff (dépendance en T)</h3>
+  <div class="fbox c">
+    <span class="fl">Variation de \(\Delta_r H^\circ\) avec la température</span>
+    <span class="fm">\[ \dfrac{\mathrm{d}\Delta_r H^\circ}{\mathrm{d}T} \;=\; \Delta_r C_p^\circ \;=\; \sum \nu_i\,C_{p,i}^\circ \]</span>
+    <hr>
+    <span class="fc">Intégration entre deux températures (à \(\Delta_r C_p^\circ\) constant) :</span>
+    <span class="fm">\[ \Delta_r H^\circ(T_2) \;=\; \Delta_r H^\circ(T_1) + \Delta_r C_p^\circ\,(T_2 - T_1) \]</span>
+    <span class="fc">Utile pour passer des valeurs tabulées (à 298 K) aux conditions opératoires industrielles.</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 SECOND PRINCIPE ═══════════════════ -->
+<div class="sblock r" id="second">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Second principe — entropie chimique</h2>
+  <p class="intro">L'entropie \(S\) caractérise le « désordre » (multiplicité microscopique) du système. Sa variation guide l'évolution spontanée.</p>
+
+  <h3>2.1 Troisième principe et entropies absolues</h3>
+  <div class="fbox c">
+    <span class="fl">Postulat de Nernst (3<sup>e</sup> principe)</span>
+    <span class="fm">\[ S(T=0\,\mathrm{K})\ \text{d'un cristal parfait}\ =\ 0 \]</span>
+    <hr>
+    <span class="fc">Conséquence : on peut tabuler des <strong>entropies absolues</strong> \(S^\circ(T)\) (pas seulement des variations), à T = 298,15 K en standard.</span>
+    <hr>
+    <span class="fc">Ordres de grandeur (J·K⁻¹·mol⁻¹) :</span>
+    <span class="fm">\[ S^\circ(\ce{C, s, diamant}) = 2{,}4\,,\quad S^\circ(\ce{H2O, l}) = 70\,,\quad S^\circ(\ce{H2O, g}) = 189\,,\quad S^\circ(\ce{N2, g}) = 192 \]</span>
+    <span class="fc">Les gaz ont des \(S^\circ\) bien supérieurs aux liquides et solides (plus de configurations microscopiques accessibles).</span>
+  </div>
+
+  <h3>2.2 Entropie de réaction</h3>
+  <div class="fbox c">
+    <span class="fl">Calcul de \(\Delta_r S^\circ\)</span>
+    <span class="fm">\[ \Delta_r S^\circ \;=\; \sum_{\text{prod}}\nu_i\,S^\circ_i \;-\; \sum_{\text{réac}}\nu_j\,S^\circ_j \]</span>
+    <hr>
+    <span class="fc">Règles qualitatives :</span>
+    <span class="fc">— \(\Delta_r S^\circ &gt; 0\) si augmentation du nombre de moles gazeuses (\(\Delta n_{\text{gaz}} &gt; 0\)) ou passage solide/liquide → gaz.</span>
+    <span class="fc">— \(\Delta_r S^\circ &lt; 0\) si diminution du nombre de moles gazeuses, ou condensation, solidification.</span>
+    <hr>
+    <span class="fc">Exemples :</span>
+    <span class="fm">\[ \ce{N2(g) + 3 H2(g) -> 2 NH3(g)}\ :\ \Delta n_{\text{gaz}} = -2 \Rightarrow \Delta_r S^\circ &lt; 0\ (\approx -198\,\mathrm{J\cdot K^{-1}\cdot mol^{-1}}) \]</span>
+    <span class="fm">\[ \ce{CaCO3(s) -> CaO(s) + CO2(g)}\ :\ \Delta n_{\text{gaz}} = +1 \Rightarrow \Delta_r S^\circ &gt; 0\ (\approx +160\,\mathrm{J\cdot K^{-1}\cdot mol^{-1}}) \]</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 ENTHALPIE LIBRE ═══════════════════ -->
+<div class="sblock r" id="gibbs">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Enthalpie libre G et constante d'équilibre</h2>
+  <p class="intro">Sujet oral n°11 (Équilibre chimique). L'enthalpie libre de Gibbs unifie premier et second principe pour le critère d'évolution à \(T, P\) constants.</p>
+
+  <h3>3.1 Définition et critère d'évolution</h3>
+  <div class="fbox c">
+    <span class="fl">Enthalpie libre de Gibbs</span>
+    <span class="fm">\[ \boxed{\;G \;=\; H - T\,S\;} \qquad [\mathrm{J\cdot mol^{-1}}] \]</span>
+    <hr>
+    <span class="fc">Pour une transformation à \(T\) et \(P\) constants :</span>
+    <span class="fm">\[ \Delta G \;=\; \Delta H - T\,\Delta S \]</span>
+    <hr>
+    <span class="fc">Critère d'évolution spontanée (système fermé, \(T, P\) imposés) :</span>
+    <span class="fm">\[ \mathrm{d}G \leq 0 \quad (= 0 \text{ à l'équilibre},\ &lt; 0 \text{ si évolution spontanée}) \]</span>
+  </div>
+
+  <h3>3.2 Tableau de prévision selon \(\Delta H\) et \(\Delta S\)</h3>
+  <table class="compact">
+    <thead><tr><th>\(\Delta H\)</th><th>\(\Delta S\)</th><th>Comportement</th><th>Exemple</th></tr></thead>
+    <tbody>
+      <tr><td>&lt; 0 (exo)</td><td>&gt; 0</td><td>Spontané à toute T</td><td>Combustions (\(\ce{CH4 + 2 O2 -> CO2 + 2 H2O}\))</td></tr>
+      <tr><td>&lt; 0 (exo)</td><td>&lt; 0</td><td>Spontané à T faible (\(T &lt; \Delta H/\Delta S\))</td><td>Cristallisation, polymérisations</td></tr>
+      <tr><td>&gt; 0 (endo)</td><td>&gt; 0</td><td>Spontané à T élevée (\(T &gt; \Delta H/\Delta S\))</td><td>Décompositions (\(\ce{CaCO3 -> CaO + CO2}\))</td></tr>
+      <tr><td>&gt; 0 (endo)</td><td>&lt; 0</td><td>Jamais spontané</td><td>Synthèse directe \(\ce{O2 -> O3}\)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.3 Lien thermodynamique-équilibre : \(\Delta G^\circ\) et \(K^\circ\)</h3>
+  <div class="fbox c">
+    <span class="fl">Relation fondamentale</span>
+    <span class="fm">\[ \boxed{\;\Delta_r G^\circ \;=\; -\,R\,T\,\ln K^\circ\;} \]</span>
+    <hr>
+    <span class="fc">À 298 K, avec \(RT \ln 10 \approx 5{,}71\,\mathrm{kJ\cdot mol^{-1}}\) :</span>
+    <span class="fm">\[ \Delta_r G^\circ \;\approx\; -5{,}71\,\log K^\circ \quad [\mathrm{kJ\cdot mol^{-1}}] \]</span>
+    <hr>
+    <span class="fc">Lectures rapides :</span>
+    <span class="fm">\[ \Delta_r G^\circ &lt; 0 \Leftrightarrow K^\circ &gt; 1 \quad\text{(produits favorisés à l'équilibre)} \]</span>
+    <span class="fm">\[ \Delta_r G^\circ &gt; 0 \Leftrightarrow K^\circ &lt; 1 \quad\text{(réactifs favorisés)} \]</span>
+    <span class="fm">\[ \Delta_r G^\circ = 0 \Leftrightarrow K^\circ = 1 \quad\text{(équilibre à mi-chemin)} \]</span>
+  </div>
+
+  <div class="alert alert-chim r">
+    <span class="ico">⚠️</span>
+    <div><strong>\(\boldsymbol{\Delta_r G}\) vs \(\boldsymbol{\Delta_r G^\circ}\).</strong> \(\Delta_r G^\circ\) est calculé à l'état standard et caractérise la réaction <em>intrinsèquement</em>. \(\Delta_r G\) est calculé pour les conditions réelles (en fonction de \(Q\)) et caractérise <em>l'état actuel</em> du système :
+    \[ \Delta_r G \;=\; \Delta_r G^\circ + R T \ln Q \]
+    À l'équilibre \(\Delta_r G = 0\) et \(Q = K^\circ\), d'où l'équation \(\Delta_r G^\circ = -RT\ln K^\circ\).</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 04 VAN'T HOFF ═══════════════════ -->
+<div class="sblock r" id="vanthoff">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Loi de van't Hoff — influence de la température</h2>
+  <p class="intro">Comment l'équilibre se déplace quand on change la température. Outil de prédiction quantitative.</p>
+
+  <div class="fbox c">
+    <span class="fl">Équation de van't Hoff</span>
+    <span class="fm">\[ \boxed{\;\dfrac{\mathrm{d}\ln K^\circ}{\mathrm{d}T} \;=\; \dfrac{\Delta_r H^\circ}{R\,T^{2}}\;} \]</span>
+    <hr>
+    <span class="fc">Forme intégrée (avec \(\Delta_r H^\circ\) supposée constante entre \(T_1\) et \(T_2\)) :</span>
+    <span class="fm">\[ \ln\!\dfrac{K^\circ(T_2)}{K^\circ(T_1)} \;=\; -\dfrac{\Delta_r H^\circ}{R}\,\left(\dfrac{1}{T_2} - \dfrac{1}{T_1}\right) \]</span>
+    <hr>
+    <span class="fc">Conséquence qualitative (en accord avec Le Châtelier) :</span>
+    <span class="fm">\[ \Delta_r H^\circ &gt; 0\ (\text{endo}) :\ K^\circ \nearrow\text{ avec }T \quad\Rightarrow\quad \text{équilibre déplacé vers produits si on chauffe} \]</span>
+    <span class="fm">\[ \Delta_r H^\circ &lt; 0\ (\text{exo}) :\ K^\circ \searrow\text{ avec }T \quad\Rightarrow\quad \text{équilibre déplacé vers réactifs si on chauffe} \]</span>
+  </div>
+
+  <h3>4.1 Démonstration</h3>
+  <div class="demo-block">
+    <p>À \(T\) variable mais à \(P\) constante, \(\Delta_r G^\circ = -RT\ln K^\circ\). On dérive par rapport à \(T\) :</p>
+    \[ \dfrac{\mathrm{d}(\Delta_r G^\circ / T)}{\mathrm{d}T} \;=\; -R\,\dfrac{\mathrm{d}\ln K^\circ}{\mathrm{d}T}. \]
+    <p>Or l'équation de Gibbs-Helmholtz donne :</p>
+    \[ \dfrac{\mathrm{d}(\Delta_r G^\circ / T)}{\mathrm{d}T} \;=\; -\dfrac{\Delta_r H^\circ}{T^{2}}. \]
+    <p>En combinant :</p>
+    \[ \dfrac{\mathrm{d}\ln K^\circ}{\mathrm{d}T} \;=\; \dfrac{\Delta_r H^\circ}{R\,T^{2}}. \]
+  </div>
+
+  <div class="key-box c">
+    <p>Forme logarithmique pratique pour exploitation expérimentale :</p>
+    \[ \ln K^\circ \;=\; -\dfrac{\Delta_r H^\circ}{R\,T} + \dfrac{\Delta_r S^\circ}{R} \]
+    <p>Tracé \(\ln K^\circ\) en fonction de \(1/T\) → droite de pente \(-\Delta_r H^\circ / R\) et d'ordonnée à l'origine \(\Delta_r S^\circ/R\). Méthode expérimentale classique pour déterminer \(\Delta_r H^\circ\) et \(\Delta_r S^\circ\).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 05 EVOLUTION ═══════════════════ -->
+<div class="sblock r" id="evolution">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Quotient de réaction et critère d'évolution</h2>
+  <p class="intro">Sujet oral n°12. Prédire le sens d'évolution spontanée d'un système hors équilibre.</p>
+
+  <h3>5.1 Quotient de réaction</h3>
+  <div class="fbox c">
+    <span class="fl">Définition et activités</span>
+    <span class="fc">Pour une réaction \(\sum \nu_i A_i = 0\) (\(\nu_i &gt; 0\) pour produits, \(&lt; 0\) pour réactifs) :</span>
+    <span class="fm">\[ Q \;=\; \prod_i a_i^{\nu_i} \]</span>
+    <hr>
+    <span class="fc">Activités selon la nature des espèces :</span>
+    <span class="fm">\[ \text{Soluté en solution :}\ a_i = c_i / c^\circ\ \text{avec}\ c^\circ = 1\,\mathrm{mol\cdot L^{-1}} \]</span>
+    <span class="fm">\[ \text{Gaz parfait :}\ a_i = P_i / P^\circ\ \text{avec}\ P^\circ = 1\,\mathrm{bar} \]</span>
+    <span class="fm">\[ \text{Solide ou liquide pur :}\ a_i = 1\ \text{(n'apparaît pas dans }Q\text{)} \]</span>
+    <span class="fm">\[ \text{Solvant en solution diluée :}\ a_i \approx 1 \]</span>
+  </div>
+
+  <h3>5.2 Critère d'évolution</h3>
+  <div class="key-box c">
+    \[ Q &lt; K^\circ \Rightarrow \text{évolution dans le sens direct} \qquad Q &gt; K^\circ \Rightarrow \text{sens inverse} \qquad Q = K^\circ \Rightarrow \text{équilibre} \]
+    <p>Cas \(K^\circ \gg 1\) : la réaction est <em>quantitative</em> dans le sens direct — assimilable à totale (équilibre négligé).</p>
+    <p>Cas \(K^\circ \ll 1\) : la réaction est <em>inverse spontanément</em>, équilibre quasi-uniquement côté réactifs.</p>
+  </div>
+
+  <h3>5.3 Affinité chimique</h3>
+  <div class="fbox c">
+    <span class="fl">Affinité chimique \(\mathcal{A}\)</span>
+    <span class="fm">\[ \mathcal{A} \;=\; -\Delta_r G \;=\; -\Delta_r G^\circ - R T \ln Q \;=\; R T \ln\!\left(\dfrac{K^\circ}{Q}\right) \]</span>
+    <hr>
+    <span class="fc">L'affinité chimique mesure « la force motrice » de la réaction :</span>
+    <span class="fm">\[ \mathcal{A} &gt; 0 \Leftrightarrow Q &lt; K^\circ \Leftrightarrow \text{sens direct spontané} \]</span>
+    <span class="fm">\[ \mathcal{A} = 0 \Leftrightarrow \text{équilibre} \]</span>
+  </div>
+
+  <h3>5.4 Principe de Le Châtelier</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Modération qualitative de l'équilibre</div>
+    <div class="notion-body">
+      <p>Toute modification d'un paramètre d'un système en équilibre provoque un déplacement de l'équilibre dans le sens qui s'oppose à cette modification.</p>
+      <p><strong>Effet de la température :</strong></p>
+      <ul>
+        <li>Chauffer un système → déplacement dans le sens endothermique (consomme la chaleur ajoutée).</li>
+        <li>Refroidir → déplacement dans le sens exothermique.</li>
+      </ul>
+      <p><strong>Effet de la pression (sur réactions gazeuses) :</strong></p>
+      <ul>
+        <li>Augmenter \(P\) → déplacement vers le côté à <em>moins</em> de moles gazeuses.</li>
+        <li>Diminuer \(P\) → déplacement vers le côté à <em>plus</em> de moles gazeuses.</li>
+      </ul>
+      <p><strong>Effet des concentrations :</strong> ajouter un réactif ou retirer un produit déplace l'équilibre vers les produits, et vice versa.</p>
+      <p><strong>Ajout d'un gaz inerte :</strong> à \(P\) totale constante, la dilution des gaz actifs déplace vers le côté à plus de moles. À \(V\) constant : aucun effet (pressions partielles inchangées).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 06 BINAIRES ═══════════════════ -->
+<div class="sblock r" id="binaires">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Diagrammes binaires liquide-vapeur</h2>
+  <p class="intro">Sujet oral n°9 (Mélanges binaires). Fondement théorique de la distillation industrielle.</p>
+
+  <h3>6.1 Loi de Raoult (solution idéale)</h3>
+  <div class="fbox c">
+    <span class="fl">Pression partielle d'un constituant</span>
+    <span class="fc">Solution idéale binaire A + B :</span>
+    <span class="fm">\[ P_A \;=\; x_A^{(\ell)}\,P_A^{\circ}(T) \qquad P_B \;=\; x_B^{(\ell)}\,P_B^{\circ}(T) \]</span>
+    <span class="fc">\(x_i^{(\ell)}\) : fraction molaire en phase liquide. \(P_i^\circ(T)\) : pression de vapeur saturante du composé pur à T.</span>
+    <hr>
+    <span class="fc">Pression totale :</span>
+    <span class="fm">\[ P_{\text{tot}} \;=\; P_A + P_B \;=\; x_A^{(\ell)}\,P_A^\circ + (1-x_A^{(\ell)})\,P_B^\circ \]</span>
+    <hr>
+    <span class="fc">Composition de la vapeur (loi de Dalton) :</span>
+    <span class="fm">\[ y_A^{(\text{v})} \;=\; \dfrac{P_A}{P_{\text{tot}}} \;=\; \dfrac{x_A^{(\ell)}\,P_A^\circ}{x_A^{(\ell)}\,P_A^\circ + (1-x_A^{(\ell)})\,P_B^\circ} \]</span>
+    <span class="fc">Si \(P_A^\circ &gt; P_B^\circ\) (A plus volatil) : la vapeur est <em>enrichie</em> en A par rapport au liquide.</span>
+  </div>
+
+  <h3>6.2 Loi de Henry (soluté dilué)</h3>
+  <div class="fbox c">
+    <span class="fl">Solution diluée non idéale</span>
+    <span class="fm">\[ P_{\text{soluté}} \;=\; K_H\,x_{\text{soluté}}^{(\ell)} \]</span>
+    <span class="fc">\(K_H\) : constante de Henry, dépend du couple soluté/solvant et de T. \(K_H \neq P^\circ\) en général.</span>
+    <hr>
+    <span class="fc">Solvant en milieu dilué : suit Raoult. Soluté dilué : suit Henry. Les deux lois sont les limites de la loi générale.</span>
+    <hr>
+    <span class="fc">Application : dissolution des gaz dans les liquides (\(\ce{O2}\) dans l'eau, \(\ce{CO2}\) dans une boisson gazeuse). À l'équilibre, \([gaz]_{\text{dissous}} \propto P_{\text{gaz}}\).</span>
+  </div>
+
+  <h3>6.3 Diagrammes isobares T-x</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Lecture d'un diagramme T-x à P constante</div>
+    <div class="notion-body">
+      <ul>
+        <li><strong>Courbe de bulle (liquidus)</strong> : T à laquelle la première bulle de vapeur apparaît dans le liquide à composition donnée. Limite haute du domaine liquide.</li>
+        <li><strong>Courbe de rosée (vaporus)</strong> : T à laquelle la dernière goutte de liquide disparaît. Limite basse du domaine vapeur.</li>
+        <li><strong>Entre les deux courbes</strong> : zone biphasée (liquide + vapeur coexistent).</li>
+      </ul>
+      <p><strong>Règle des moments (leviers) :</strong></p>
+      \[ \dfrac{n_{\text{liq}}}{n_{\text{vap}}} \;=\; \dfrac{z_B - y_B}{x_B - z_B} \]
+      <p>avec \(z_B\) : composition globale, \(x_B\) : composition en B du liquide, \(y_B\) : composition en B de la vapeur.</p>
+    </div>
+  </div>
+
+  <h3>6.4 Azéotropes</h3>
+  <div class="fbox c">
+    <span class="fl">Mélanges non-séparables par distillation simple</span>
+    <span class="fc"><strong>Azéotrope</strong> : point du diagramme où \(x_i^{(\ell)} = y_i^{(\text{v})}\) (composition liquide et vapeur identiques). La distillation s'arrête à la composition azéotropique.</span>
+    <hr>
+    <span class="fc"><strong>Azéotrope à minimum</strong> (écarts positifs à Raoult, interactions A-B défavorables) : ex. éthanol-eau (95,6 % EtOH en masse, T = 78,2 °C). On ne peut pas obtenir d'éthanol absolu par distillation simple.</span>
+    <hr>
+    <span class="fc"><strong>Azéotrope à maximum</strong> (écarts négatifs à Raoult, interactions A-B favorables) : ex. \(\ce{HCl}\)-eau (20,2 % \(\ce{HCl}\), T = 110 °C). On obtient l'acide chlorhydrique commercial à cette composition.</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 07 COLLIGATIVES ═══════════════════ -->
+<div class="sblock r" id="colligatives">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Propriétés colligatives</h2>
+  <p class="intro">Propriétés des solutions dépendant <em>uniquement</em> du nombre de particules dissoutes (pas de leur nature). Utilisées pour mesurer des masses molaires.</p>
+
+  <h3>7.1 Élévation ébullioscopique</h3>
+  <div class="fbox c">
+    <span class="fl">Loi d'ébullioscopie</span>
+    <span class="fm">\[ \Delta T_{\text{eb}} \;=\; K_{\text{eb}}\,b \qquad b\ \text{molalité (mol\(\cdot\)kg\(^{-1}\))} \]</span>
+    <span class="fc">Constante ébullioscopique : \(K_{\text{eb}}(\ce{H2O}) = 0{,}512\,\mathrm{K\cdot kg\cdot mol^{-1}}\).</span>
+  </div>
+
+  <h3>7.2 Abaissement cryoscopique</h3>
+  <div class="fbox c">
+    <span class="fl">Loi de cryoscopie</span>
+    <span class="fm">\[ \Delta T_{\text{f}} \;=\; K_{\text{f}}\,b \]</span>
+    <span class="fc">Constante cryoscopique : \(K_{\text{f}}(\ce{H2O}) = 1{,}86\,\mathrm{K\cdot kg\cdot mol^{-1}}\).</span>
+    <hr>
+    <span class="fc">Application pratique : sel pour le déneigement (\(\ce{NaCl}\) abaisse le point de fusion de l'eau jusqu'à \(-21\,^\circ\mathrm{C}\) à saturation).</span>
+  </div>
+
+  <h3>7.3 Pression osmotique (Van't Hoff)</h3>
+  <div class="fbox c">
+    <span class="fl">Loi de Van't Hoff</span>
+    <span class="fm">\[ \boxed{\;\Pi \;=\; c\,R\,T\;} \qquad [\mathrm{Pa}] \]</span>
+    <span class="fc">\(c\) : concentration molaire du soluté (mol\(\cdot\)m\(^{-3}\)).</span>
+    <hr>
+    <span class="fc">Analogie formelle avec la loi des gaz parfaits \(PV = nRT\) — Van't Hoff (1885). Sert à mesurer les masses molaires des macromolécules (polymères, protéines).</span>
+    <hr>
+    <span class="fc">Pour un soluté électrolyte (dissociation en \(\nu\) ions par formule) : multiplier par \(\nu\) (\(\ce{NaCl}\) → \(\nu = 2\), \(\ce{CaCl2}\) → \(\nu = 3\)). Coefficient \(i\) (de Van't Hoff) modulé en pratique par les interactions ioniques.</span>
+  </div>
+
+  <div class="alert alert-chim r">
+    <span class="ico">💡</span>
+    <div><strong>Pourquoi « colligatives » ?</strong> Du latin <em>colligere</em> (rassembler). Ces propriétés ne dépendent <em>que</em> du nombre de particules, pas de leur nature chimique. C'est pourquoi on peut déterminer une masse molaire d'un soluté inconnu en mesurant \(\Delta T\) ou \(\Pi\) — la nature chimique n'a pas d'importance, ce qui permet d'utiliser ces techniques même pour des macromolécules dont on ignore la structure.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
+    <div class="notion-body"><ul>
+      <li><strong>1<sup>re</sup> spé</strong> : énergie de réaction, premier principe qualitatif, sens de transfert thermique.</li>
+      <li><strong>Terminale spé</strong> : enthalpie de réaction \(\Delta_r H\) explicitée, énergies de liaison, calculs de chaleur dégagée/absorbée. Évolution d'un système chimique, quotient de réaction \(Q_r\), constante d'équilibre \(K\). Sens d'évolution \(Q_r &lt; K\) vs \(Q_r &gt; K\). Principe de Le Châtelier qualitatif.</li>
+      <li><strong>Terminale STL</strong> : approfondissement en thermodynamique (Hess, mesures calorimétriques).</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confondre \(\Delta_r G\) (dépend de \(Q\), composition) et \(\Delta_r G^\circ\) (intrinsèque, état standard).</li>
+        <li>Oublier les unités d'activité (\(c/c^\circ\), \(P/P^\circ\)).</li>
+        <li>Inclure les solides ou solvants dans \(Q\) (activité = 1, n'apparaissent pas).</li>
+        <li>Confondre Le Châtelier qualitatif et le calcul quantitatif via \(Q\) et \(K^\circ\).</li>
+        <li>Mauvais sens du déplacement quand on chauffe (oublier le signe de \(\Delta_r H^\circ\)).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 DEMOS ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Démonstrations attendues à l'écrit et à l'oral.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.1 — Relation \(\Delta_r G^\circ = -R T \ln K^\circ\)</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>À l'équilibre, l'enthalpie libre du système est minimale : \(\Delta_r G = 0\). Par ailleurs, on a la relation générale :</p>
+        \[ \Delta_r G \;=\; \Delta_r G^\circ + R T \ln Q. \]
+        <p>À l'équilibre, \(Q = K^\circ\), donc \(0 = \Delta_r G^\circ + R T \ln K^\circ\), d'où :</p>
+        \[ \boxed{\;\Delta_r G^\circ \;=\; -\,R\,T\,\ln K^\circ\;} \]
+        <p>Cette relation est fondamentale : elle relie la <em>thermodynamique statique</em> (\(\Delta_r G^\circ\)) à la <em>thermodynamique d'équilibre</em> (\(K^\circ\)), à \(T\) fixé.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.2 — Équation de van't Hoff</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>On part de \(\Delta_r G^\circ = -RT\ln K^\circ\). Différentiation par rapport à \(T\) :</p>
+        \[ \dfrac{\mathrm{d}\Delta_r G^\circ}{\mathrm{d}T} \;=\; -R\ln K^\circ - R T\,\dfrac{\mathrm{d}\ln K^\circ}{\mathrm{d}T}. \]
+        <p>Or l'équation de Gibbs-Helmholtz donne :</p>
+        \[ \dfrac{\mathrm{d}\Delta_r G^\circ}{\mathrm{d}T} \;=\; -\Delta_r S^\circ \;=\; \dfrac{\Delta_r G^\circ - \Delta_r H^\circ}{T}. \]
+        <p>En combinant :</p>
+        \[ \dfrac{\Delta_r G^\circ - \Delta_r H^\circ}{T} \;=\; -R\ln K^\circ - R T\,\dfrac{\mathrm{d}\ln K^\circ}{\mathrm{d}T}. \]
+        <p>En utilisant \(\Delta_r G^\circ = -RT\ln K^\circ\), le terme \(-R\ln K^\circ\) se simplifie avec \(\Delta_r G^\circ/T\), et il reste :</p>
+        \[ \boxed{\;\dfrac{\mathrm{d}\ln K^\circ}{\mathrm{d}T} \;=\; \dfrac{\Delta_r H^\circ}{R\,T^{2}}\;} \]
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.3 — Critère d'évolution via affinité chimique</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>L'affinité chimique est définie par \(\mathcal{A} = -\Delta_r G\). Pour une avancée \(\mathrm{d}\xi\) :</p>
+        \[ \mathrm{d}G \;=\; \Delta_r G\,\mathrm{d}\xi \;=\; -\mathcal{A}\,\mathrm{d}\xi. \]
+        <p>Le second principe impose \(\mathrm{d}G \leq 0\) à \(T, P\) constants, soit \(\mathcal{A}\,\mathrm{d}\xi \geq 0\) :</p>
+        <ul>
+          <li>Si \(\mathcal{A} &gt; 0\) : \(\mathrm{d}\xi &gt; 0\) (réaction dans le sens direct).</li>
+          <li>Si \(\mathcal{A} &lt; 0\) : \(\mathrm{d}\xi &lt; 0\) (réaction dans le sens inverse).</li>
+          <li>Si \(\mathcal{A} = 0\) : équilibre (la réaction ne progresse plus).</li>
+        </ul>
+        <p>Expression de l'affinité :</p>
+        \[ \mathcal{A} \;=\; -\Delta_r G \;=\; -\Delta_r G^\circ - RT\ln Q \;=\; RT\ln\!\dfrac{K^\circ}{Q}. \]
+        <p>Donc \(\mathcal{A} &gt; 0 \Leftrightarrow Q &lt; K^\circ\), confirmant le critère d'évolution.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.4 — Loi de Raoult à partir des potentiels chimiques</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>À l'équilibre liquide-vapeur, le potentiel chimique d'une espèce \(A\) est égal dans les deux phases :</p>
+        \[ \mu_A^{(\ell)} \;=\; \mu_A^{(\text{v})}. \]
+        <p>Pour une solution idéale en phase liquide :</p>
+        \[ \mu_A^{(\ell)} \;=\; \mu_A^{*(\ell)} + RT\ln x_A^{(\ell)} \]
+        <p>où \(\mu_A^{*(\ell)}\) est le potentiel chimique du liquide pur. Pour la vapeur (gaz parfait) :</p>
+        \[ \mu_A^{(\text{v})} \;=\; \mu_A^{\circ(\text{v})} + RT\ln(P_A/P^\circ). \]
+        <p>Pour le composé pur \(x_A^{(\ell)} = 1\), donc \(\mu_A^{*(\ell)} = \mu_A^{\circ(\text{v})} + RT\ln(P_A^\circ/P^\circ)\). En soustrayant :</p>
+        \[ \mu_A^{(\ell)} - \mu_A^{*(\ell)} \;=\; RT\ln x_A^{(\ell)} \;=\; \mu_A^{(\text{v})} - [\mu_A^{\circ(\text{v})} + RT\ln(P_A^\circ/P^\circ)] \;=\; RT\ln(P_A/P_A^\circ). \]
+        <p>D'où :</p>
+        \[ \boxed{\;P_A \;=\; x_A^{(\ell)}\,P_A^\circ\;} \quad\text{(loi de Raoult)} \]
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.5 — Pression osmotique de van't Hoff</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Deux compartiments séparés par une membrane semi-perméable au solvant (pas au soluté). Côté 1 : solvant pur, \(\mu_1^{*}\). Côté 2 : solution diluée, \(\mu_2 = \mu_1^{*} + RT\ln x_1^{(\ell)} \approx \mu_1^{*} - RT\,x_2\) (pour solution diluée, \(\ln(1-x_2) \approx -x_2\)).</p>
+        <p>Le solvant tendrait à passer du côté pur (potentiel élevé) vers la solution (potentiel plus bas). Pour empêcher ce flux, on applique une pression \(\Pi\) supplémentaire côté solution :</p>
+        \[ \mu_2(P + \Pi) \;=\; \mu_1^{*}(P). \]
+        <p>Dépendance de \(\mu\) avec la pression : \(\mathrm{d}\mu = V_m\,\mathrm{d}P\) (\(V_m\) volume molaire du solvant). En intégrant et en assimilant \(V_m \approx V_m^{*}\) :</p>
+        \[ \mu_2(P) + V_m^{*}\,\Pi \;=\; \mu_1^{*}(P) \quad\Rightarrow\quad V_m^{*}\,\Pi \;=\; \mu_1^{*} - \mu_2(P) \;=\; RT\,x_2. \]
+        <p>Avec \(x_2 \approx n_2/n_1\) pour solution diluée et \(V_{\text{tot}} \approx n_1 V_m^{*}\) :</p>
+        \[ \Pi \;=\; \dfrac{RT\,x_2}{V_m^{*}} \;=\; \dfrac{n_2\,RT}{n_1\,V_m^{*}} \;\approx\; \dfrac{n_2\,RT}{V} \;=\; c_2\,RT. \]
+        <p>D'où la loi de Van't Hoff :</p>
+        \[ \boxed{\;\Pi \;=\; c\,R\,T\;} \]
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 10 EXOS ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Exercices résolus — type concours</h2>
+  <p class="intro">Trois exercices calibrés agrégation interne.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — Calcul de K° et déplacement par chauffage (★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Pour la réaction de synthèse de l'ammoniac \(\ce{N2(g) + 3 H2(g) &lt;=&gt; 2 NH3(g)}\) à 298 K, on donne \(\Delta_r H^\circ = -92{,}4\,\mathrm{kJ\cdot mol^{-1}}\) et \(\Delta_r S^\circ = -198\,\mathrm{J\cdot K^{-1}\cdot mol^{-1}}\).</p>
+      <ol>
+        <li>Calculer \(\Delta_r G^\circ\) à 298 K. La réaction est-elle spontanée ?</li>
+        <li>En déduire \(K^\circ(298\,\mathrm{K})\).</li>
+        <li>Calculer \(K^\circ(700\,\mathrm{K})\) (avec van't Hoff, \(\Delta_r H^\circ\) supposée constante).</li>
+        <li>Interpréter le résultat industriel : pourquoi opère-t-on à 400-500 °C (pas plus bas) avec une haute pression ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> \(\Delta_r G^\circ = \Delta_r H^\circ - T\Delta_r S^\circ = -92400 - 298\times(-198) = -92400 + 59000 = -33{,}4\,\mathrm{kJ\cdot mol^{-1}}\). Négatif → réaction spontanée à 298 K, mais le terme \(-T\Delta_r S^\circ\) défavorise à T élevée.</p>
+      <p><strong>2.</strong> \(K^\circ = \exp(-\Delta_r G^\circ/RT) = \exp(33400/(8{,}314\times 298)) = \exp(13{,}5) \approx 7{,}3\times 10^{5}\). Équilibre largement déplacé vers \(\ce{NH3}\) à 298 K.</p>
+      <p><strong>3.</strong> Van't Hoff :</p>
+      \[ \ln K^\circ(700)/K^\circ(298) = -\dfrac{\Delta_r H^\circ}{R}\,\left(\dfrac{1}{700} - \dfrac{1}{298}\right) = \dfrac{92400}{8{,}314}\times\dfrac{402}{700\times 298} = 21{,}4 \times 1{,}93\times 10^{-3} \approx -21{,}4. \]
+      <p>Attention au signe : \(\Delta_r H^\circ &lt; 0\) (exo), augmenter T diminue \(K^\circ\). Donc \(K^\circ(700) \approx K^\circ(298)\times e^{-21{,}4} \approx 7{,}3\times 10^{5}\times 5\times 10^{-10} \approx 4\times 10^{-4}\). Effondrement de \(K^\circ\).</p>
+      <p><strong>4.</strong> À 700 K, l'équilibre thermodynamique est très défavorable. Pourquoi opère-t-on quand même chaud ? <strong>Cinétique</strong> : à 298 K, la barrière d'activation est trop élevée, la réaction est extrêmement lente. On compense la perte thermodynamique en haute pression (Le Châtelier : la réaction diminue le nombre de moles gazeuses, donc favorisée à haute P) et avec un catalyseur (fer poreux). Procédé Haber-Bosch (1909) : 400-500 °C, 200-300 bar, catalyseur Fe.</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — Diagramme binaire éthanol-eau (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Le mélange eau (\(P^\circ_{\ce{H2O}}\) à 78 °C = 0,44 bar) et éthanol (\(P^\circ_{\ce{EtOH}}\) à 78 °C = 1,01 bar) présente un azéotrope à minimum à \(x_{\ce{EtOH}} = 0{,}895\) (fraction molaire) et T = 78,2 °C sous 1 atm.</p>
+      <ol>
+        <li>Vérifier que sans azéotrope (mélange idéal), la pression totale à \(x_{\ce{EtOH}} = 0{,}895\) à 78 °C serait calculable. Le résultat colle-t-il avec un azéotrope ?</li>
+        <li>Pourquoi ne peut-on pas obtenir d'éthanol absolu (\(x = 1\)) par distillation simple ?</li>
+        <li>Citer deux procédés pour franchir l'azéotrope industriellement.</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Sans azéotrope (idéal), \(P_{\text{tot}} = 0{,}895 \times 1{,}01 + 0{,}105 \times 0{,}44 = 0{,}904 + 0{,}046 = 0{,}95\,\mathrm{bar}\). Or à l'azéotrope on a \(P_{\text{tot}} = 1\,\mathrm{atm} \approx 1{,}013\,\mathrm{bar}\), <em>supérieure</em> à la prédiction idéale. C'est précisément le signe d'<strong>écarts positifs à Raoult</strong> (interactions A-B moins favorables que A-A ou B-B), caractéristique des azéotropes à minimum d'ébullition.</p>
+      <p><strong>2.</strong> Au-dessus de \(x_{\ce{EtOH}} = 0{,}895\), le liquide est plus riche en EtOH que la vapeur. Donc une distillation appauvrit la phase liquide en EtOH, le ramène vers l'azéotrope. Symétriquement de l'autre côté. Donc la distillation simple ne peut <em>jamais</em> dépasser 95,6 % en masse (\(\approx 0{,}895\) en fraction molaire) d'éthanol.</p>
+      <p><strong>3.</strong> Deux procédés :</p>
+      <ul>
+        <li><strong>Distillation azéotropique</strong> : ajout d'un tiers-corps (benzène, cyclohexane) qui forme un nouvel azéotrope ternaire avec l'eau, distillé séparément. Procédé classique des distilleries industrielles.</li>
+        <li><strong>Séchage par tamis moléculaires</strong> (zéolites 3 Å) : adsorption sélective de l'eau (diamètre cinétique \(\sim 2{,}8\,\mathrm{\AA}\), inférieur à celui de l'éthanol \(\sim 4{,}4\,\mathrm{\AA}\)). Méthode moderne dominante.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Masse molaire d'un polymère par osmométrie (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>On dissout 0,500 g d'un polymère dans 50 mL de toluène. À 25 °C, on mesure une pression osmotique \(\Pi = 200\,\mathrm{Pa}\).</p>
+      <ol>
+        <li>Calculer la concentration molaire du polymère.</li>
+        <li>En déduire la masse molaire.</li>
+        <li>Pourquoi utilise-t-on l'osmométrie plutôt que d'autres méthodes (ébulliométrie, cryoscopie) pour un polymère ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Loi de Van't Hoff : \(c = \Pi/(RT) = 200/(8{,}314\times 298) = 0{,}0807\,\mathrm{mol\cdot m^{-3}} = 8{,}07\times 10^{-5}\,\mathrm{mol\cdot L^{-1}}\).</p>
+      <p><strong>2.</strong> Concentration massique : \(0{,}500\,\mathrm{g}/50\,\mathrm{mL} = 10\,\mathrm{g/L}\). Masse molaire :</p>
+      \[ M \;=\; \dfrac{c_m}{c_{\text{mol}}} \;=\; \dfrac{10}{8{,}07\times 10^{-5}} \;\approx\; 1{,}24\times 10^{5}\,\mathrm{g\cdot mol^{-1}}. \]
+      <p>Polymère de masse molaire ~120 000 g/mol — un polymère typique.</p>
+      <p><strong>3.</strong> Comparaison des méthodes pour \(M = 10^{5}\,\mathrm{g\cdot mol^{-1}}\) à \(c_m = 10\,\mathrm{g/L}\) :</p>
+      <ul>
+        <li><strong>Ébulliométrie</strong> : \(\Delta T = K_{\text{eb}}\times b = 0{,}512\times 10^{-4} = 5\times 10^{-5}\,\mathrm{K}\). Imperceptible.</li>
+        <li><strong>Cryoscopie</strong> : \(\Delta T = 1{,}86\times 10^{-4} \approx 2\times 10^{-4}\,\mathrm{K}\). Pratiquement imperceptible.</li>
+        <li><strong>Osmométrie</strong> : \(\Pi = 200\,\mathrm{Pa} = 2\,\mathrm{cm}\) d'eau. Mesurable au manomètre à colonne d'eau.</li>
+      </ul>
+      <p>L'osmométrie est environ \(10^{5}\) fois plus sensible que ébullio/cryoscopie pour les grandes masses molaires — d'où son rôle dominant pour les polymères et protéines.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 11 LECONS ═══════════════════ -->
+<div class="sblock r" id="lecons">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Développements pédagogiques pour l'oral</h2>
+  <p class="intro">Deux propositions de leçons calibrées agrégation interne.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon 1 — Équilibre chimique : du \(Q_r\) à la loi de Le Châtelier</h4>
+    <div class="lecon-meta">Niveau · Terminale spé / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Pourquoi une bouteille de soda perd-elle son gaz quand on l'ouvre ? Pourquoi chauffer une pâte la fait-elle gonfler grâce au gaz carbonique ? Tout se ramène à un équilibre chimique qui se déplace.</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Notion d'équilibre dynamique : à l'équilibre, la réaction directe et la réaction inverse ont la même vitesse.</li>
+      <li>Quotient de réaction \(Q\) et constante d'équilibre \(K^\circ\) : définitions, calcul des activités.</li>
+      <li>Critère d'évolution : si \(Q &lt; K^\circ\), évolution vers les produits ; si \(Q &gt; K^\circ\), vers les réactifs.</li>
+      <li>Lien thermodynamique : \(\Delta_r G^\circ = -RT\ln K^\circ\). Démonstration courte.</li>
+      <li>Principe de Le Châtelier qualitatif : effets de \(T, P\), concentrations, gaz inerte.</li>
+      <li>Loi de van't Hoff : variation quantitative de \(K^\circ\) avec \(T\).</li>
+      <li>Applications industrielles : synthèse de l'ammoniac (Haber-Bosch), production d'\(\ce{H2SO4}\), équilibre \(\ce{CO2}\)/atmosphère.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> 1<sup>re</sup> spé : sens d'évolution. Terminale spé : équilibre et \(K\), Le Châtelier (qualitatif).</p>
+    <p><strong>Activité élève proposée.</strong> Suivre l'évolution \(\ce{2 NO2 &lt;=&gt; N2O4}\) dans une seringue : compression bleutée (orange → marron), décompression verdâtre (marron → jaune). Mesure qualitative du déplacement.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Leçon 2 — Diagrammes binaires : du laboratoire à la distillerie</h4>
+    <div class="lecon-meta">Niveau · 2<sup>e</sup> année CPGE PC / oral agrégation</div>
+    <p><strong>Accroche.</strong> Comment fabrique-t-on de l'éthanol à 95° à partir d'une fermentation à 12° ? Pourquoi ne peut-on pas obtenir l'éthanol absolu (100°) par simple distillation ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Mise en évidence expérimentale : distillation d'un mélange eau-éthanol au laboratoire, mesure du \(\ce{T_{eb}}\) au cours du temps.</li>
+      <li>Loi de Raoult : démonstration à partir de l'égalité des potentiels chimiques. Validité (solutions idéales).</li>
+      <li>Loi de Henry : solutions diluées non idéales.</li>
+      <li>Diagrammes isobares T-x : courbes de bulle et de rosée. Lecture, règle des moments.</li>
+      <li>Distillation simple et fractionnée : interprétation graphique.</li>
+      <li>Azéotropes : impossibilité de séparer au-delà. Procédés industriels alternatifs.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Terminale spé : températures de changement d'état, miscibilité. Terminale STL : techniques de séparation (distillation, extraction, chromato).</p>
+    <p><strong>Erreur fréquente d'élève.</strong> Penser que la « température d'ébullition d'un mélange » est unique. En réalité, elle dépend de la composition et varie le long de la distillation au fur et à mesure que les fractions évoluent.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 12 MONTAGES ═══════════════════ -->
+<div class="sblock r" id="montages">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Montages expérimentaux</h2>
+  <p class="intro">Deux montages exploitables à l'oral d'agrégation.</p>
+
+  <div class="lecon-card">
+    <h4>Montage 1 — Distillation fractionnée d'un mélange eau-éthanol</h4>
+    <p><strong>Objectif.</strong> Réaliser une distillation fractionnée, tracer la courbe de distillation \(T = f(V)\), identifier les plateaux et la composition de l'azéotrope.</p>
+    <p><strong>Matériel.</strong> Ballon de distillation, colonne Vigreux ou à plateaux, thermomètre, condenseur réfrigérant, éprouvette graduée, chauffe-ballon, mélange eau-éthanol à \(\sim 25\,\%\) vol.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Introduire 100 mL de mélange dans le ballon. Insérer la colonne Vigreux et le thermomètre.</li>
+      <li>Chauffer doucement, recueillir les fractions par 5 mL en notant la température en tête de colonne.</li>
+      <li>Tracer la courbe \(T = f(V_{\text{recueilli}})\). Repérer un plateau autour de 78 °C (azéotrope eau-éthanol).</li>
+      <li>Pour chaque fraction principale, mesurer la masse volumique avec densimètre → composition en éthanol.</li>
+      <li>Comparer aux courbes de bulle/rosée tabulées.</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Lecture du thermomètre (\(\pm 0{,}5\,^\circ\mathrm{C}\)), volume des fractions (\(\pm 0{,}5\,\mathrm{mL}\)), efficacité de la colonne (nombre de plateaux théoriques).</p>
+    <p><strong>Exploitation.</strong> Vérification que le plateau correspond à l'azéotrope (78,2 °C, 95,6 % massique d'EtOH). Calcul du <strong>nombre de plateaux théoriques</strong> de la colonne (équation de Fenske). Discussion sur la limite de la séparation.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage 2 — Détermination de \(\Delta_r H^\circ\) par van't Hoff (équilibre \(\ce{Fe^{3+}/SCN^-}\))</h4>
+    <p><strong>Objectif.</strong> Mesurer \(K^\circ(T)\) à plusieurs températures pour l'équilibre \(\ce{Fe^{3+} + SCN- &lt;=&gt; [FeSCN]^{2+}}\), en déduire \(\Delta_r H^\circ\) par van't Hoff.</p>
+    <p><strong>Matériel.</strong> Solutions \(\ce{Fe(NO3)3}\) et \(\ce{KSCN}\) (\(10^{-3}\,\mathrm{mol/L}\)), spectrophotomètre (\(\lambda = 460\,\mathrm{nm}\), absorption du complexe rouge), bain thermostaté, cuves.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Préparer une série de solutions à composition connue, mesurer l'absorbance à 460 nm.</li>
+      <li>Établir une droite d'étalonnage \(A = f([\ce{[FeSCN]^{2+}}])\) (Beer-Lambert).</li>
+      <li>À 5 températures (15, 20, 25, 30, 35 °C), mélanger les solutions stoechiométriques et mesurer l'absorbance à l'équilibre. En déduire \([\ce{[FeSCN]^{2+}}]\), puis \([\ce{Fe^{3+}}]\) et \([\ce{SCN^-}]\) (par bilan), puis \(K^\circ\).</li>
+      <li>Tracer \(\ln K^\circ\) en fonction de \(1/T\). Régression linéaire.</li>
+      <li>Pente \(= -\Delta_r H^\circ/R\) → calcul de \(\Delta_r H^\circ\). Ordonnée à l'origine \(= \Delta_r S^\circ/R\) → calcul de \(\Delta_r S^\circ\).</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Précision spectrophotomètre (\(\pm 0{,}01\) en A), température (\(\pm 0{,}1\,\mathrm{K}\)), pureté des solutions, équilibre atteint (vérifier stabilité).</p>
+    <p><strong>Exploitation.</strong> Valeur tabulée : \(\Delta_r H^\circ \approx +5\,\mathrm{kJ\cdot mol^{-1}}\) (très faible). \(\Delta_r S^\circ\) positive (libération d'eau d'hydratation lors de la complexation). Discussion qualitative sur les sources d'incertitudes (effet ionique fort, activités vs concentrations).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 13 JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 13</div>
+  <h2>13. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Confusion \(\boldsymbol{\Delta_r G}\) vs \(\boldsymbol{\Delta_r G^\circ}\).</strong> \(\Delta_r G^\circ\) est une grandeur tabulée caractérisant la réaction dans l'état standard (toutes activités = 1). \(\Delta_r G\) caractérise l'état réel : \(\Delta_r G = \Delta_r G^\circ + RT\ln Q\). À l'équilibre, \(\Delta_r G = 0\) mais \(\Delta_r G^\circ \neq 0\) en général.</div>
+    <div class="jury-item"><strong>Activités et inclusion dans \(\boldsymbol{Q}\) / \(\boldsymbol{K^\circ}\).</strong> Les solides purs, le solvant en solution diluée, ont \(a = 1\) et n'apparaissent pas dans \(Q\). Erreur classique : inclure le solide \(\ce{CaCO3}\) ou l'eau dans le quotient.</div>
+    <div class="jury-item"><strong>Le Châtelier qualitatif.</strong> Le principe de Le Châtelier permet de prédire qualitativement le sens du déplacement, mais l'amplitude requiert un calcul quantitatif via \(\Delta G\) et \(K^\circ\). À l'oral, mentionner cette limite.</div>
+    <div class="jury-item"><strong>Effet du gaz inerte.</strong> À \(P\) totale constante (par exemple atmosphère ouverte), un gaz inerte dilue les gaz actifs et déplace l'équilibre vers le côté à plus de moles gazeuses. À \(V\) constant : aucun effet (les pressions partielles des gaz actifs ne changent pas). Cas confondus.</div>
+    <div class="jury-item"><strong>Validité de van't Hoff.</strong> La forme intégrée suppose \(\Delta_r H^\circ\) constante sur l'intervalle de T. Pour des écarts modérés (50–100 K) c'est OK, mais pour des intervalles plus grands il faut intégrer en tenant compte de la loi de Kirchhoff (\(\Delta_r C_p^\circ\)).</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">Pour une réaction avec \(\Delta_r G^\circ = -17{,}1\,\mathrm{kJ\cdot mol^{-1}}\) à 25 °C, la constante d'équilibre vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Attention au signe : Ka = exp(−ΔG°/RT). Avec ΔG° < 0, le quotient devient positif → Ka > 1.')">\(K^\circ \approx 10^{-3}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. Ka = exp(−ΔG°/RT) = exp(17100/(8,314×298)) = exp(6,9) ≈ 1000. ΔG° < 0 → Ka > 1 → produits favorisés.')">\(K^\circ \approx 10^{3}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Ka = exp(−ΔG°/RT), pas −ΔG°/RT lui-même (qui vaut ln(Ka) ≈ 6,9).')">\(K^\circ = -\Delta G^\circ/(RT) = 6{,}9\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Mélange binaire idéal A+B avec \(P_A^\circ = 120\,\mathrm{mbar}\) et \(P_B^\circ = 80\,\mathrm{mbar}\). À \(x_A^{(\ell)} = 0{,}4\), la pression totale vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — c\'est un produit, pas une somme pondérée. Loi de Raoult : P_tot = x_A·P°_A + x_B·P°_B.')">\(P_A^\circ \times P_B^\circ = 9600\,\mathrm{mbar}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. Loi de Raoult : P_tot = x_A·P°_A + x_B·P°_B = 0,4×120 + 0,6×80 = 48 + 48 = 96 mbar.')">\(x_A P_A^\circ + x_B P_B^\circ = 96\,\mathrm{mbar}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — la pression d\'un mélange n\'est pas la somme des pressions des composants purs. Il faut pondérer par les fractions molaires.')">\(P_A^\circ + P_B^\circ = 200\,\mathrm{mbar}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Réaction \(\ce{N2(g) + 3 H2(g) -> 2 NH3(g)}\) avec \(\Delta_r H^\circ &lt; 0\). Quand on chauffe le système :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. Réaction exothermique : chauffer déplace dans le sens endothermique (inverse). K° diminue, équilibre favorise NH₃ moins. C\'est confirmé par van\'t Hoff : ΔH° < 0 → ln K° diminue avec T.')">L'équilibre se déplace vers les réactifs (\(K^\circ\) diminue)</button><button class="q-opt" onclick="quiz(this,false,'Non. Réaction exo → chauffer va à l\'encontre, déplace vers les réactifs (sens endothermique), donc K° diminue.')">L'équilibre se déplace vers les produits (\(K^\circ\) augmente)</button><button class="q-opt" onclick="quiz(this,false,'Non. La température modifie K° (sauf cas particulier où ΔH° = 0, ce qui est rare).')">L'équilibre reste inchangé</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Une réaction avec \(\Delta H = -50\,\mathrm{kJ\cdot mol^{-1}}\) et \(\Delta S = -100\,\mathrm{J\cdot K^{-1}\cdot mol^{-1}}\) est spontanée :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Avec ΔH < 0 et ΔS < 0, ΔG = ΔH − TΔS = −50000 + 100T. ΔG < 0 si T < ΔH/ΔS = 50000/100 = 500 K.')">À toute température (ΔG toujours négatif)</button><button class="q-opt" onclick="quiz(this,true,'Correct. ΔG = ΔH − TΔS = −50000 + 100T. ΔG < 0 si T < 500 K. À T < 500 K, la réaction est spontanée ; au-delà, elle ne l\'est plus. Cas classique : cristallisations, polymérisations spontanées à basse T mais pas à haute T.')">À T &lt; 500 K (\(T &lt; \Delta H/\Delta S\))</button><button class="q-opt" onclick="quiz(this,false,'Non. ΔS < 0 défavorise à T élevée. ΔG = ΔH − TΔS = −50000 + 100T : positif pour T > 500 K, donc non spontané à T élevée.')">À T &gt; 500 K</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Quotient de réaction \(Q\) pour \(\ce{CaCO3(s) -> CaO(s) + CO2(g)}\) :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Les solides purs ont une activité de 1 et ne figurent pas dans Q.')">\(Q = \dfrac{[\ce{CaO}][\ce{CO2}]}{[\ce{CaCO3}]}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. CaCO₃ (solide) et CaO (solide) ont a = 1, donc ne figurent pas. Seul CO₂ gaz : Q = P(CO₂)/P°. C\'est l\'équilibre de la calcination industrielle.')">\(Q = P_{\ce{CO2}}/P^\circ\)</button><button class="q-opt" onclick="quiz(this,false,'Non. CO₂ apparaît comme produit (puissance +1), non pas inversé.')">\(Q = P^\circ/P_{\ce{CO2}}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pression osmotique d'une solution de glucose 0,01 mol/L à 25 °C :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Π = cRT. Avec c en mol·m⁻³ : Π = 10 × 8,314 × 298 ≈ 25 kPa, pas 25 Pa.')">\(\Pi = 25\,\mathrm{Pa}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. Π = cRT. c = 0,01 mol/L = 10 mol/m³. Π = 10 × 8,314 × 298 ≈ 24 800 Pa ≈ 25 kPa. Soit 2,5 m d\'eau ! Très significatif pour la biologie cellulaire.')">\(\Pi \approx 25\,\mathrm{kPa}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — c\'est trop élevé pour une solution diluée à 0,01 mol/L.')">\(\Pi \approx 2{,}5\,\mathrm{MPa}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pour la synthèse de l'ammoniac, le procédé Haber-Bosch fonctionne à 400–500 °C alors que la thermodynamique favoriserait des températures plus basses. Pourquoi ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — au contraire, la thermodynamique favorise les basses T (réaction exothermique). C\'est la cinétique qui impose le chauffage.')">Parce que la thermodynamique impose une T élevée</button><button class="q-opt" onclick="quiz(this,true,'Correct. À température basse, la cinétique est trop lente (barrière d\'activation élevée). On chauffe pour accélérer la réaction, en sacrifiant le K° (qui diminue). On compense la perte thermo par la haute pression (Le Châtelier : ΔnG < 0 → P élevée favorise) et un catalyseur (Fe poreux). Compromis thermo-cinétique central en chimie industrielle.')">Compromis cinétique-thermodynamique : la cinétique impose le chauffage, la P compense</button><button class="q-opt" onclick="quiz(this,false,'Non. On n\'a pas le choix de T en chimie industrielle si on n\'a pas d\'autre option. Ici, la P compense la perte de K° avec T.')">Pour permettre la formation du catalyseur</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets et corrigés des sessions précédentes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.chemtube3d.com/" target="_blank">
+      <span class="ri">⚛</span><div><div class="rt">Chemtube3D</div><div class="rd">Animations 3D de structures et mécanismes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="chimie-solutions.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Chimie des solutions</span></a>
+  <a class="pnav-link next" href="electrochimie.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Électrochimie</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link cur" href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

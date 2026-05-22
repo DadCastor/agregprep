@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structure de la matière & Spectroscopies — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero c r">
+    <div class="chap-eyebrow c">Chimie · Sujets oraux 2, 27e, 28e, 28m</div>
+    <h1>Structure de la matière <em class="c">& Spectroscopies</em></h1>
+    <p class="lead">Sujets oraux n°2 (Liaisons chimiques), n°27e (Modélisation des solides), n°28e (Classification périodique), n°28m (Spectroscopies). Atomistique, liaisons, cristallographie et caractérisation des structures.</p>
+    <div class="chap-badges"><span class="badge bc">Sujets oraux 2, 27e, 28e, 28m</span> <span class="badge bg">Fondamental</span> <span class="badge br">Cristallo & OM</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#atome">01 · Atomistique</a>
+        <a href="#periodique">02 · Classification périodique</a>
+        <a href="#lewis">03 · Liaison covalente — Lewis & VSEPR</a>
+        <a href="#om">04 · Orbitales moléculaires</a>
+        <a href="#intermol">05 · Liaisons intermoléculaires</a>
+        <a href="#cristallo-metaux">06 · Cristallographie métallique</a>
+        <a href="#cristaux-ioniques">07 · Cristaux ioniques & covalents</a>
+        <a href="#spectro">08 · Spectroscopies</a>
+        <a href="#pedagogie">09 · Pédagogie</a>
+        <a href="#demos">10 · Démonstrations clés</a>
+        <a href="#exercices">11 · Exercices résolus</a>
+        <a href="#lecons-montages">12 · Leçons & Montages</a>
+        <a href="#jury">13 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="cur" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 ATOMISTIQUE ═══════════════════ -->
+<div class="sblock r" id="atome">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Atomistique et structure électronique</h2>
+  <p class="intro">De Bohr au modèle quantique. Quantification de l'énergie, orbitales atomiques, configurations électroniques.</p>
+
+  <h3>1.1 Modèle de Bohr et niveaux d'énergie de l'hydrogène</h3>
+  <div class="fbox c">
+    <span class="fl">Quantification des orbites circulaires (modèle de Bohr, 1913)</span>
+    <span class="fc">Postulat : moment cinétique quantifié \(L = n\hbar\) (\(n \in \mathbb{N}^*\)). Énergies des niveaux pour l'hydrogène :</span>
+    <span class="fm">\[ E_n \;=\; -\,\dfrac{E_0}{n^{2}} \quad\text{avec}\quad E_0 \;=\; \dfrac{m_e\,e^{4}}{8\,\varepsilon_0^{2}\,h^{2}} \;\approx\; 13{,}6\,\mathrm{eV} \]</span>
+    <hr>
+    <span class="fc">Formule de Rydberg pour les longueurs d'onde émises :</span>
+    <span class="fm">\[ \dfrac{1}{\lambda} \;=\; R_H\left(\dfrac{1}{n_1^{2}} - \dfrac{1}{n_2^{2}}\right) \qquad R_H \approx 1{,}097\times 10^{7}\,\mathrm{m^{-1}} \]</span>
+    <span class="fc">Séries spectrales : Lyman (\(n_1 = 1\), UV), Balmer (\(n_1 = 2\), visible), Paschen (\(n_1 = 3\), IR).</span>
+  </div>
+
+  <h3>1.2 Du modèle quantique aux orbitales</h3>
+  <div class="fbox c">
+    <span class="fl">Nombres quantiques (équation de Schrödinger)</span>
+    <span class="fc">Une orbitale atomique est caractérisée par 3 nombres quantiques :</span>
+    <span class="fc"><strong>\(n\)</strong> (principal, énergie) : 1, 2, 3, …</span>
+    <span class="fc"><strong>\(\ell\)</strong> (azimutal, forme) : \(0\) à \(n-1\). Nom : \(s, p, d, f\) pour \(\ell = 0, 1, 2, 3\).</span>
+    <span class="fc"><strong>\(m_\ell\)</strong> (magnétique, orientation) : \(-\ell\) à \(+\ell\) (entier).</span>
+    <hr>
+    <span class="fc">Spin : \(m_s = \pm 1/2\) (électron est un fermion).</span>
+    <hr>
+    <span class="fc">Nombre d'orbitales par sous-couche : \(2\ell + 1\). Sous-couche \(s\) : 1 ; \(p\) : 3 ; \(d\) : 5 ; \(f\) : 7.</span>
+    <span class="fc">Nombre d'électrons par sous-couche : \(2(2\ell+1)\). \(s\) : 2 ; \(p\) : 6 ; \(d\) : 10 ; \(f\) : 14.</span>
+  </div>
+
+  <h3>1.3 Configuration électronique</h3>
+  <div class="fbox c">
+    <span class="fl">Trois règles de remplissage</span>
+    <span class="fc"><strong>1. Klechkowski (Aufbau)</strong> : énergies croissantes — \((n + \ell)\) croissant, puis \(n\) croissant en cas d'égalité.</span>
+    <span class="fm">\[ 1s\, 2s\, 2p\, 3s\, 3p\, 4s\, 3d\, 4p\, 5s\, 4d\, 5p\, 6s\, 4f\, 5d\, 6p\, 7s\, 5f\, 6d\, 7p\ldots \]</span>
+    <hr>
+    <span class="fc"><strong>2. Pauli</strong> : deux électrons d'un atome diffèrent par au moins un nombre quantique (\(\Rightarrow\) max 2 par orbitale, spins antiparallèles).</span>
+    <hr>
+    <span class="fc"><strong>3. Hund</strong> : dans une sous-couche dégénérée, les électrons occupent les orbitales individuellement (spins parallèles) avant de s'apparier.</span>
+    <hr>
+    <span class="fc">Exemple : \(\ce{C}\) (Z=6) → \(1s^{2}\,2s^{2}\,2p^{2}\). Les 2 électrons \(2p\) sont dans 2 orbitales différentes avec spins parallèles → carbone <strong>paramagnétique</strong>.</span>
+    <span class="fc">Exceptions Klechkowski : \(\ce{Cr}\) (\([\ce{Ar}]\,3d^{5}\,4s^{1}\)) et \(\ce{Cu}\) (\([\ce{Ar}]\,3d^{10}\,4s^{1}\)) — stabilité de la sous-couche d demi-pleine ou pleine.</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 CLASSIFICATION PERIODIQUE ═══════════════════ -->
+<div class="sblock r" id="periodique">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Classification périodique des éléments</h2>
+  <p class="intro">Sujet oral n°28e. Outil prédictif fondamental de la chimie — Mendeleïev 1869, reformulé sur la base de \(Z\) (Moseley, 1913).</p>
+
+  <h3>2.1 Structure du tableau</h3>
+  <div class="fbox c">
+    <span class="fl">Lignes et colonnes</span>
+    <span class="fc">Périodes (lignes) : valeur de \(n\) maximale de la configuration. 7 périodes connues.</span>
+    <span class="fc">Groupes (colonnes) : même configuration électronique externe \(\Rightarrow\) mêmes propriétés chimiques.</span>
+    <hr>
+    <span class="fc">Blocs selon la sous-couche en cours de remplissage :</span>
+    <span class="fc">— <strong>Bloc \(s\)</strong> (groupes 1-2) : alcalins, alcalino-terreux.</span>
+    <span class="fc">— <strong>Bloc \(p\)</strong> (groupes 13-18) : pictogènes, chalcogènes, halogènes, gaz nobles.</span>
+    <span class="fc">— <strong>Bloc \(d\)</strong> (groupes 3-12) : métaux de transition.</span>
+    <span class="fc">— <strong>Bloc \(f\)</strong> : lanthanides et actinides.</span>
+  </div>
+
+  <h3>2.2 Tendances périodiques</h3>
+  <table class="compact">
+    <thead><tr><th>Grandeur</th><th>Variation horizontale (→)</th><th>Variation verticale (↓)</th><th>Origine physique</th></tr></thead>
+    <tbody>
+      <tr><td>Rayon atomique</td><td>↓ diminue</td><td>↑ augmente</td><td>Z augmente (attraction noyau) puis nouvelle couche</td></tr>
+      <tr><td>Énergie d'ionisation \(E_i\)</td><td>↑ augmente</td><td>↓ diminue</td><td>Plus on s'éloigne, moins fort</td></tr>
+      <tr><td>Affinité électronique</td><td>↑ augmente</td><td>↓ diminue</td><td>Idem (capter un e⁻)</td></tr>
+      <tr><td>Électronégativité \(\chi\)</td><td>↑ augmente</td><td>↓ diminue</td><td>Combinaison \(E_i\) + AE</td></tr>
+      <tr><td>Caractère métallique</td><td>↓ diminue</td><td>↑ augmente</td><td>Inverse de \(\chi\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="key-box c">
+    <p>Records et extrêmes :</p>
+    \[ \chi_{\max} = 3{,}98\ (\ce{F}) \qquad \chi_{\min} = 0{,}7\ (\ce{Cs, Fr}) \qquad E_i\text{ max} = 24{,}59\,\mathrm{eV}\ (\ce{He}). \]
+    <p>Ces extrêmes traduisent : \(\ce{F}\) attire le plus les électrons (le plus oxydant), \(\ce{Cs}/\ce{Fr}\) les retient le moins (le plus réducteur), \(\ce{He}\) coûte le plus à ioniser (couche complète).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 LEWIS & VSEPR ═══════════════════ -->
+<div class="sblock r" id="lewis">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Liaison covalente — Lewis et VSEPR</h2>
+  <p class="intro">Sujet oral n°2. Modèles classiques de la liaison covalente : électrons de valence, doublets liants et non-liants, géométrie moléculaire.</p>
+
+  <h3>3.1 Représentation de Lewis</h3>
+  <div class="fbox c">
+    <span class="fl">Méthode de construction</span>
+    <span class="fc">1. Sommer les électrons de valence (en tenant compte de la charge).</span>
+    <span class="fc">2. Placer l'atome central (le moins électronégatif, hors \(\ce{H}\)).</span>
+    <span class="fc">3. Connecter les atomes périphériques par des liaisons simples.</span>
+    <span class="fc">4. Compléter les octets externes avec des doublets non liants (sauf \(\ce{H}\) : duet).</span>
+    <span class="fc">5. Si octet pas atteint sur l'atome central : former des liaisons multiples.</span>
+    <hr>
+    <span class="fc">Charge formelle : \(CF = N_v - N_{nl} - N_l/2\) avec \(N_v\) électrons de valence, \(N_{nl}\) non liants, \(N_l\) en liaisons.</span>
+    <hr>
+    <span class="fc">Hypervalence (\(n &gt; 2\)) : \(\ce{SF6}, \ce{PCl5}, \ce{XeF4}\) — atomes \(\geq\) 3<sup>e</sup> période, octet expansé grâce aux sous-couches \(d\) accessibles.</span>
+  </div>
+
+  <h3>3.2 Théorie VSEPR (Gillespie)</h3>
+  <div class="fbox c">
+    <span class="fl">Méthode AX<sub>n</sub>E<sub>m</sub></span>
+    <span class="fc">A : atome central. X : ligands (atomes ou groupes liés). E : doublets non liants.</span>
+    <span class="fc">Géométrie : minimisation des répulsions entre les <strong>doublets</strong> (liants ou non).</span>
+    <span class="fc">Hiérarchie : non liant–non liant &gt; non liant–liant &gt; liant–liant.</span>
+  </div>
+
+  <table class="compact">
+    <thead><tr><th>Type</th><th>Géométrie</th><th>Angle</th><th>Exemples</th></tr></thead>
+    <tbody>
+      <tr><td>AX₂</td><td>Linéaire</td><td>180°</td><td>\(\ce{BeCl2, CO2}\)</td></tr>
+      <tr><td>AX₃</td><td>Trigonal plan</td><td>120°</td><td>\(\ce{BF3, BCl3}\)</td></tr>
+      <tr><td>AX₂E</td><td>Coudée</td><td>~118°</td><td>\(\ce{SO2, O3}\)</td></tr>
+      <tr><td>AX₄</td><td>Tétraédrique</td><td>109,5°</td><td>\(\ce{CH4, NH4+, CCl4}\)</td></tr>
+      <tr><td>AX₃E</td><td>Pyramidal trigonal</td><td>~107°</td><td>\(\ce{NH3, PCl3}\)</td></tr>
+      <tr><td>AX₂E₂</td><td>Coudée</td><td>~104,5°</td><td>\(\ce{H2O, H2S}\)</td></tr>
+      <tr><td>AX₅</td><td>Bipyramide trigonale</td><td>120°/90°</td><td>\(\ce{PCl5, PF5}\)</td></tr>
+      <tr><td>AX₆</td><td>Octaédrique</td><td>90°</td><td>\(\ce{SF6, [Fe(CN)6]^{3-}}\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-gold r">
+    <span class="ico">💡</span>
+    <div><strong>Polarité moléculaire.</strong> Une molécule est polaire si elle a un moment dipolaire \(\vec{\mu}\) non nul = somme vectorielle des moments de liaisons individuels. \(\ce{CO2}\) (linéaire AX₂) : \(\vec{\mu} = \vec{0}\) (apolaire). \(\ce{H2O}\) (coudée AX₂E₂) : \(\vec{\mu} \neq \vec{0}\) (polaire). C'est ce qui distingue chimiquement deux molécules de même formule brute apparente.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 04 ORBITALES MOLECULAIRES ═══════════════════ -->
+<div class="sblock r" id="om">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Théorie des orbitales moléculaires (OM)</h2>
+  <p class="intro">Approche quantique de la liaison — explique le paramagnétisme de \(\ce{O2}\), inexpliqué par Lewis.</p>
+
+  <h3>4.1 Méthode LCAO</h3>
+  <div class="fbox c">
+    <span class="fl">Combinaison linéaire d'orbitales atomiques</span>
+    <span class="fc">Pour une diatomique \(\ce{AB}\), les OM sont combinaisons linéaires des OA :</span>
+    <span class="fm">\[ \psi_{\text{OM}} \;=\; c_A\,\phi_A + c_B\,\phi_B \]</span>
+    <hr>
+    <span class="fc">Pour 2 OA, on obtient 2 OM :</span>
+    <span class="fc">— <strong>Liante</strong> (\(\sigma\) ou \(\pi\)) : énergie plus basse que les OA, densité électronique entre les noyaux.</span>
+    <span class="fc">— <strong>Antiliante</strong> (\(\sigma^*\) ou \(\pi^*\)) : énergie plus haute, nœud entre les noyaux.</span>
+    <hr>
+    <span class="fc">Conditions pour interaction : (a) recouvrement non nul, (b) énergies des OA proches, (c) symétrie compatible.</span>
+  </div>
+
+  <h3>4.2 Diagramme des diatomiques homonucléaires</h3>
+  <div class="fbox c">
+    <span class="fl">Ordre énergétique des OM (deuxième période)</span>
+    <span class="fc">Pour \(\ce{Li2}\) à \(\ce{N2}\) (ordre « avec interaction \(s\)–\(p\) ») :</span>
+    <span class="fm">\[ \sigma_{2s} &lt; \sigma_{2s}^{*} &lt; \pi_{2p} &lt; \sigma_{2p} &lt; \pi_{2p}^{*} &lt; \sigma_{2p}^{*} \]</span>
+    <hr>
+    <span class="fc">Pour \(\ce{O2}\) à \(\ce{F2}\) (sans interaction \(s\)–\(p\), \(\sigma_{2p}\) plus bas) :</span>
+    <span class="fm">\[ \sigma_{2s} &lt; \sigma_{2s}^{*} &lt; \sigma_{2p} &lt; \pi_{2p} &lt; \pi_{2p}^{*} &lt; \sigma_{2p}^{*} \]</span>
+    <hr>
+    <span class="fc">Ordre de liaison :</span>
+    <span class="fm">\[ \boxed{\;OL \;=\; \dfrac{N_{\text{liants}} - N_{\text{antiliants}}}{2}\;} \]</span>
+  </div>
+
+  <table class="compact">
+    <thead><tr><th>Molécule</th><th>Configuration</th><th>OL</th><th>Magnétisme</th></tr></thead>
+    <tbody>
+      <tr><td>\(\ce{H2}\)</td><td>\(\sigma_{1s}^{2}\)</td><td>1</td><td>Diamagnétique</td></tr>
+      <tr><td>\(\ce{He2}\)</td><td>\(\sigma_{1s}^{2}\,\sigma_{1s}^{*2}\)</td><td>0</td><td>Inexistante</td></tr>
+      <tr><td>\(\ce{N2}\)</td><td>… \(\pi_{2p}^{4}\,\sigma_{2p}^{2}\)</td><td>3</td><td>Diamagnétique</td></tr>
+      <tr><td>\(\ce{O2}\)</td><td>… \(\sigma_{2p}^{2}\,\pi_{2p}^{4}\,\pi_{2p}^{*2}\)</td><td>2</td><td><strong>Paramagnétique</strong></td></tr>
+      <tr><td>\(\ce{F2}\)</td><td>… \(\sigma_{2p}^{2}\,\pi_{2p}^{4}\,\pi_{2p}^{*4}\)</td><td>1</td><td>Diamagnétique</td></tr>
+    </tbody>
+  </table>
+
+  <div class="key-box c">
+    <p><strong>Cas emblématique de \(\ce{O2}\).</strong> Lewis prédit une double liaison sans électron célibataire \(\Rightarrow\) diamagnétisme. <em>Expérimentalement : \(\ce{O2}\) est paramagnétique</em> (attiré par un aimant à l'état liquide). La théorie des OM explique : 2 électrons dans 2 OM \(\pi_{2p}^{*}\) dégénérées avec spins parallèles (Hund) \(\Rightarrow\) 2 électrons non appariés \(\Rightarrow\) paramagnétique. C'est le succès historique majeur de la théorie OM.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 05 INTERMOLECULAIRES ═══════════════════ -->
+<div class="sblock r" id="intermol">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Interactions intermoléculaires</h2>
+  <p class="intro">Interactions « faibles » qui contrôlent : températures de changement d'état, solubilité, structures secondaires (protéines, ADN), tensions superficielles.</p>
+
+  <h3>5.1 Forces de Van der Waals</h3>
+  <div class="fbox c">
+    <span class="fl">Trois composantes (variation en \(1/r^{6}\))</span>
+    <span class="fc"><strong>Keesom</strong> (dipôle permanent / dipôle permanent) : entre molécules polaires (\(\ce{HCl}, \ce{H2O}\)).</span>
+    <span class="fc"><strong>Debye</strong> (dipôle permanent / dipôle induit) : entre molécule polaire et apolaire polarisable.</span>
+    <span class="fc"><strong>London</strong> (dipôle instantané / dipôle induit) : entre toutes molécules — universelle. Dépend de la polarisabilité.</span>
+    <hr>
+    <span class="fc">Énergies typiques : 0,5 à 10 kJ/mol par liaison.</span>
+    <span class="fc">Décroît rapidement : \(U \propto 1/r^{6}\) (interaction attractive) + répulsion à courte distance (\(\propto 1/r^{12}\), Lennard-Jones).</span>
+  </div>
+
+  <h3>5.2 Liaison hydrogène</h3>
+  <div class="fbox c">
+    <span class="fl">Liaison H : interaction spécifique</span>
+    <span class="fc">Forme : \(\ce{X-H \cdots Y}\) avec \(\ce{X}, \ce{Y}\) très électronégatifs (\(\ce{F, O, N}\), parfois \(\ce{Cl}\)). \(\ce{H}\) est polarisé positivement, \(\ce{Y}\) porte un doublet libre.</span>
+    <hr>
+    <span class="fc">Énergie : 10 à 40 kJ/mol (intermédiaire entre VdW et covalente). Directionnelle (angle proche de 180°).</span>
+    <hr>
+    <span class="fc">Conséquences pour l'eau (\(\ce{H2O}\)) :</span>
+    <span class="fc">— Température d'ébullition anormalement élevée (\(100\,^\circ\mathrm{C}\) vs \(-60\,^\circ\mathrm{C}\) prédit par tendance).</span>
+    <span class="fc">— Glace moins dense que l'eau liquide (réseau ouvert).</span>
+    <span class="fc">— Solvant universel des solides ioniques et molécules polaires.</span>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Liaisons H en biologie</div>
+    <div class="notion-body"><ul>
+      <li><strong>Structure secondaire des protéines</strong> : hélices α, feuillets β maintenus par liaisons H entre \(\ce{C=O}\) et \(\ce{N-H}\) du squelette peptidique.</li>
+      <li><strong>Double hélice ADN</strong> : 2 ou 3 liaisons H entre paires de bases A=T (2H) et G≡C (3H). Stabilité \(\Rightarrow\) ouverture contrôlée.</li>
+      <li><strong>Reconnaissance moléculaire</strong> : enzyme-substrat, anticorps-antigène. Sélectivité basée sur géométrie des liaisons H.</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 06 CRISTALLO METAUX ═══════════════════ -->
+<div class="sblock r" id="cristallo-metaux">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Cristallographie — modèles métalliques</h2>
+  <p class="intro">Sujet oral n°27e (Modélisation des solides). Empilements compacts et non-compacts, mailles, compacité, coordinence.</p>
+
+  <h3>6.1 Mailles cubiques</h3>
+  <div class="fbox c">
+    <span class="fl">Trois mailles de référence</span>
+    <span class="fc"><strong>Cubique simple (CS)</strong> : atomes aux 8 sommets uniquement.</span>
+    <span class="fm">\[ z = 1 \quad\text{coord. } 6 \quad C_{\text{cs}} = \dfrac{\pi}{6} \approx 52\,\% \quad 2R = a \]</span>
+    <hr>
+    <span class="fc"><strong>Cubique centré (CC)</strong> : 8 sommets + 1 centre.</span>
+    <span class="fm">\[ z = 2 \quad\text{coord. } 8 \quad C_{\text{cc}} = \dfrac{\pi\sqrt{3}}{8} \approx 68\,\% \quad 4R = a\sqrt{3} \]</span>
+    <span class="fc">Contact selon la diagonale du cube. Exemples : \(\ce{Fe}_\alpha\), \(\ce{Na, K, Cr}\).</span>
+    <hr>
+    <span class="fc"><strong>Cubique faces centrées (CFC)</strong> : 8 sommets + 6 centres des faces.</span>
+    <span class="fm">\[ z = 4 \quad\text{coord. } 12 \quad C_{\text{cfc}} = \dfrac{\pi\sqrt{2}}{6} \approx 74\,\% \quad 4R = a\sqrt{2} \]</span>
+    <span class="fc">Contact selon la diagonale d'une face. Exemples : \(\ce{Cu, Al, Au, Ni, Fe}_\gamma\).</span>
+  </div>
+
+  <h3>6.2 Hexagonal compact (HC)</h3>
+  <div class="fbox c">
+    <span class="fl">Empilement compact ABABAB</span>
+    <span class="fc">Compacité \(C_{\text{HC}} = \pi\sqrt{2}/6 \approx 74\,\%\) (idéal). Coordinence 12. Empilement de plans triangulaires compacts, alternés.</span>
+    <span class="fc">Comparaison : CFC est l'empilement compact ABCABC. Les deux sont à 74 % de compacité — c'est la <strong>compacité maximale</strong> théorique.</span>
+    <hr>
+    <span class="fc">Métaux HC : \(\ce{Mg, Zn, Co, Ti}\). Rapport \(c/a\) idéal : \(\sqrt{8/3} \approx 1{,}633\) — souvent observé entre 1,57 et 1,89.</span>
+  </div>
+
+  <h3>6.3 Sites interstitiels</h3>
+  <div class="fbox c">
+    <span class="fl">Cavités dans une CFC compacte</span>
+    <span class="fc">Sites <strong>octaédriques</strong> (au centre du cube + au milieu des arêtes) :</span>
+    <span class="fm">\[ z_O = 4 \quad\text{par maille} \qquad r/R \leq \sqrt{2} - 1 \approx 0{,}414 \]</span>
+    <hr>
+    <span class="fc">Sites <strong>tétraédriques</strong> (un dans chaque octant) :</span>
+    <span class="fm">\[ z_T = 8 \quad\text{par maille} \qquad r/R \leq \dfrac{\sqrt{6}}{2} - 1 \approx 0{,}225 \]</span>
+    <span class="fc">Ces sites sont fondamentaux pour comprendre les structures ioniques et les insertions interstitielles (\(\ce{C}\) dans \(\ce{Fe}\) → acier).</span>
+  </div>
+
+  <h3>6.4 Masse volumique</h3>
+  <div class="key-box c">
+    \[ \rho \;=\; \dfrac{z\,M}{N_A\,a^{3}} \]
+    <p>Pour le cuivre (CFC, \(z = 4\), \(M = 63{,}5\,\mathrm{g\cdot mol^{-1}}\), \(a = 362\,\mathrm{pm}\)) :</p>
+    \[ \rho = \dfrac{4 \times 63{,}5}{6{,}022\times 10^{23}\times (362\times 10^{-10})^{3}} \approx 8{,}93\,\mathrm{g\cdot cm^{-3}}. \]
+    <p>En accord avec la valeur tabulée (\(8{,}96\,\mathrm{g\cdot cm^{-3}}\)). Cette mesure est un test direct du modèle cristallin.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 07 CRISTAUX IONIQUES ═══════════════════ -->
+<div class="sblock r" id="cristaux-ioniques">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Cristaux ioniques, covalents et moléculaires</h2>
+  <p class="intro">Au-delà des métaux : structures dominées par d'autres interactions.</p>
+
+  <h3>7.1 Cristaux ioniques</h3>
+  <table class="compact">
+    <thead><tr><th>Structure</th><th>Cations</th><th>Anions</th><th>Coordinence</th><th>Exemples</th></tr></thead>
+    <tbody>
+      <tr><td>\(\ce{NaCl}\) (rocksalt)</td><td>Sites octa. (4/maille)</td><td>CFC (4/maille)</td><td>6:6</td><td>\(\ce{NaCl, KCl, MgO}\)</td></tr>
+      <tr><td>\(\ce{CsCl}\)</td><td>Centre du cube</td><td>CS (1/maille)</td><td>8:8</td><td>\(\ce{CsCl, NH4Cl}\)</td></tr>
+      <tr><td>\(\ce{ZnS}\) (blende)</td><td>Demi-sites tétra.</td><td>CFC</td><td>4:4</td><td>\(\ce{ZnS, ZnTe, AgI}\)</td></tr>
+      <tr><td>\(\ce{CaF2}\) (fluorine)</td><td>CFC</td><td>Tous sites tétra.</td><td>8:4</td><td>\(\ce{CaF2, ZrO2}\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="fbox c">
+    <span class="fl">Énergie réticulaire et cycle de Born-Haber</span>
+    <span class="fc">Pour \(\ce{NaCl(s)}\) à partir des éléments :</span>
+    <span class="fm">\[ \ce{Na(s) + 1/2 Cl2(g) -> NaCl(s)} \quad \Delta_f H^\circ \]</span>
+    <hr>
+    <span class="fc">Décomposition (cycle de Born-Haber) :</span>
+    <span class="fm">\[ \Delta_f H^\circ \;=\; \Delta H_{\text{sub}} + \tfrac{1}{2}\Delta H_{\text{diss}} + E_i - \mathrm{AE} - U_{\text{rét}} \]</span>
+    <span class="fc">avec \(U_{\text{rét}}\) énergie réticulaire (formation du cristal à partir des ions gazeux), \(E_i\) énergie d'ionisation, AE affinité électronique. Mesure expérimentale possible par cycles thermodynamiques.</span>
+  </div>
+
+  <h3>7.2 Cristaux covalents et moléculaires</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Autres familles cristallines</div>
+    <div class="notion-body"><ul>
+      <li><strong>Covalent</strong> : réseau de liaisons covalentes en 3D. Très dur, T<sub>fus</sub> élevée. Exemples : diamant (\(\ce{C}\) tétraédrique, type blende avec un seul élément), \(\ce{Si}\), \(\ce{SiO2}\) (quartz), \(\ce{SiC}\) (carborundum).</li>
+      <li><strong>Moléculaire</strong> : molécules entières aux nœuds du réseau, cohésion par VdW + liaisons H. T<sub>fus</sub> faible. Exemples : \(\ce{H2O}\) (glace), \(\ce{I2}\), \(\ce{CO2}\) (carboglace), molécules organiques (naphtalène, sucre).</li>
+      <li><strong>Métallique</strong> : ions positifs immergés dans un « gaz » d'électrons délocalisés. Conduction électrique et thermique, malléabilité. Modèle de Drude/Sommerfeld pour la conduction.</li>
+      <li><strong>Comparaison T<sub>fus</sub></strong> : covalent (\(\ce{C}\) diamant : 3550 °C) ≫ métallique (\(\ce{Fe}\) : 1538 °C) ≫ ionique (\(\ce{NaCl}\) : 801 °C) ≫ moléculaire (\(\ce{H2O}\) : 0 °C).</li>
+    </ul></div>
+  </div>
+
+  <h3>7.3 Diffraction des rayons X</h3>
+  <div class="fbox c">
+    <span class="fl">Loi de Bragg (1913)</span>
+    <span class="fm">\[ 2\,d_{hkl}\,\sin\theta \;=\; n\,\lambda \]</span>
+    <span class="fc">\(d_{hkl}\) : distance interréticulaire, \(\theta\) : angle de diffraction, \(n\) : ordre, \(\lambda\) : longueur d'onde des rayons X (\(\sim 0{,}1\,\mathrm{nm}\), comparable aux distances atomiques).</span>
+    <hr>
+    <span class="fc">Pour un cristal cubique : \(d_{hkl} = a/\sqrt{h^{2}+k^{2}+\ell^{2}}\). Conditions d'extinction selon le réseau (CS, CC, CFC).</span>
+    <span class="fc">Application : détermination expérimentale de la structure (cristallographie), Watson-Crick pour l'ADN (Franklin, 1953).</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 SPECTROSCOPIES ═══════════════════ -->
+<div class="sblock r" id="spectro">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Spectroscopies — caractérisation moléculaire</h2>
+  <p class="intro">Sujet oral n°28m. Méthodes complémentaires : IR (groupes fonctionnels), RMN (squelette carboné), UV-Vis (chromophores conjugués), masse (formule brute).</p>
+
+  <h3>8.1 Spectroscopie infrarouge (IR)</h3>
+  <div class="fbox c">
+    <span class="fl">Vibrations moléculaires</span>
+    <span class="fc">Une molécule absorbe l'IR par excitation des vibrations (élongations \(\nu\), déformations \(\delta\)). Nombre d'onde \(\sigma = 1/\lambda\) en cm⁻¹. Modèle harmonique :</span>
+    <span class="fm">\[ \sigma \;=\; \dfrac{1}{2\pi c}\sqrt{\dfrac{k}{\mu}} \qquad \mu = \dfrac{m_1 m_2}{m_1 + m_2}\ (\text{masse réduite}) \]</span>
+    <span class="fc">Une vibration n'est IR-active que si elle module le moment dipolaire (règle de sélection).</span>
+  </div>
+
+  <table class="compact">
+    <thead><tr><th>Liaison</th><th>Nombre d'onde (cm⁻¹)</th><th>Remarque</th></tr></thead>
+    <tbody>
+      <tr><td>\(\ce{O-H}\) (libre)</td><td>3580 – 3650</td><td>Fine</td></tr>
+      <tr><td>\(\ce{O-H}\) (lié H)</td><td>3200 – 3550</td><td>Large</td></tr>
+      <tr><td>\(\ce{N-H}\)</td><td>3300 – 3500</td><td></td></tr>
+      <tr><td>\(\ce{C-H}\) (alkyle)</td><td>2850 – 3000</td><td></td></tr>
+      <tr><td>\(\ce{C-H}\) (aromatique)</td><td>3000 – 3100</td><td></td></tr>
+      <tr><td>\(\ce{C\equiv N}\)</td><td>2200 – 2260</td><td></td></tr>
+      <tr><td>\(\ce{C=O}\) acide</td><td>1700 – 1725</td><td></td></tr>
+      <tr><td>\(\ce{C=O}\) ester</td><td>1735 – 1750</td><td></td></tr>
+      <tr><td>\(\ce{C=O}\) cétone</td><td>1705 – 1725</td><td></td></tr>
+      <tr><td>\(\ce{C=O}\) amide</td><td>1630 – 1700</td><td></td></tr>
+      <tr><td>\(\ce{C=C}\)</td><td>1620 – 1680</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h3>8.2 Résonance magnétique nucléaire (RMN ¹H)</h3>
+  <div class="fbox c">
+    <span class="fl">Déplacements chimiques \(\delta\) (ppm) et couplages</span>
+    <span class="fc">Référence interne : TMS (\(\ce{Si(CH3)4}\)) à \(\delta = 0\) ppm.</span>
+    <span class="fm">\[ \delta \;=\; \dfrac{\nu - \nu_{\text{ref}}}{\nu_{\text{ref}}} \times 10^{6} \quad [\mathrm{ppm}] \]</span>
+    <hr>
+    <span class="fc">Plages caractéristiques :</span>
+    <span class="fc">— \(\ce{R-CH3}\) (alkyle) : 0,8–1,0</span>
+    <span class="fc">— \(\ce{R-CH2-R'}\) : 1,2–1,5</span>
+    <span class="fc">— Vinylique \(\ce{C=C-H}\) : 4,5–6,5</span>
+    <span class="fc">— Aromatique \(\ce{Ar-H}\) : 6,5–8,5</span>
+    <span class="fc">— \(\ce{R-CHO}\) (aldéhyde) : 9,4–10,0</span>
+    <span class="fc">— \(\ce{R-COOH}\) : 10–13</span>
+    <hr>
+    <span class="fc">Couplage spin-spin : \(n\) voisins inéquivalents \(\Rightarrow n+1\) raies (singulet, doublet, triplet…). Constante de couplage vicinale \({}^{3}J_{HH} \approx 6\)–8 Hz (rotation libre).</span>
+  </div>
+
+  <h3>8.3 UV-Visible et loi de Beer-Lambert</h3>
+  <div class="fbox c">
+    <span class="fl">Absorbance et coefficient molaire</span>
+    <span class="fm">\[ A \;=\; \log\!\dfrac{I_0}{I} \;=\; \varepsilon\,\ell\,c \]</span>
+    <span class="fc">\(A\) : absorbance, \(\varepsilon\) : coefficient d'extinction molaire (L·mol⁻¹·cm⁻¹), \(\ell\) : épaisseur (cm), \(c\) : concentration (mol·L⁻¹).</span>
+    <hr>
+    <span class="fc">Transitions UV-Vis :</span>
+    <span class="fc">— \(n\to\pi^*\) (faible, ~100–500 L·mol⁻¹·cm⁻¹) : groupes \(\ce{C=O, N=O}\) (env. 280 nm pour cétones).</span>
+    <span class="fc">— \(\pi\to\pi^*\) (forte, ~10⁴–10⁵) : chromophores conjugués. Plus la conjugaison s'étend, plus \(\lambda_{\max}\) se décale vers le rouge (effet bathochrome).</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
+    <div class="notion-body"><ul>
+      <li><strong>Cycle 4</strong> : atomes, molécules, ions. Symboles chimiques et tableau périodique (lecture).</li>
+      <li><strong>Seconde</strong> : modèle de Bohr, configuration électronique simple, électronégativité, polarité d'une liaison.</li>
+      <li><strong>1<sup>re</sup> spé</strong> : couches \(K, L, M\) (correspondance \(n=1,2,3\)), schéma de Lewis simple, géométrie qualitative.</li>
+      <li><strong>Terminale spé</strong> : représentation moléculaire (formules brute, semi-développée, topologique, Lewis), géométrie tétraédrique du carbone, stéréoisomérie.</li>
+      <li><strong>Terminale STL</strong> : spectroscopies IR, RMN, UV-Vis pour caractériser des produits de synthèse.</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confondre couche/sous-couche et orbitale (une couche \(n=3\) contient les sous-couches \(3s, 3p, 3d\)).</li>
+        <li>Penser que les orbitales \(p\) sont alignées sur les axes \(x, y, z\) physiques (en réalité orientation arbitraire).</li>
+        <li>Ignorer les doublets non liants en VSEPR (ex. \(\ce{H2O}\) traité comme linéaire car « 2 H »).</li>
+        <li>Mémoriser les configurations sans comprendre les exceptions (\(\ce{Cr, Cu}\)).</li>
+        <li>Croire que les rayons X traversent les atomes alors qu'ils sont diffractés par les électrons.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 10 DEMOS ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Démonstrations attendues à l'écrit et à l'oral.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.1 — Compacité d'une maille CFC</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Maille CFC : 8 atomes aux sommets (1/8 chacun dans la maille) + 6 atomes sur les faces (1/2 chacun).</p>
+        \[ z \;=\; 8\times\tfrac{1}{8} + 6\times\tfrac{1}{2} \;=\; 4\ \text{motifs/maille}. \]
+        <p>Contact selon la diagonale d'une face : atomes en coin se touchent à travers le centre de la face.</p>
+        \[ 4R \;=\; a\sqrt{2} \quad\Longrightarrow\quad R \;=\; \dfrac{a\sqrt{2}}{4}. \]
+        <p>Compacité = volume occupé / volume de la maille :</p>
+        \[ C \;=\; \dfrac{z\cdot \tfrac{4}{3}\pi R^{3}}{a^{3}} \;=\; \dfrac{4 \cdot \tfrac{4\pi}{3}(a\sqrt{2}/4)^{3}}{a^{3}} \;=\; \dfrac{\pi\sqrt{2}}{6} \;\approx\; 0{,}740. \]
+        <p>74 % : compacité maximale possible pour des sphères identiques (théorème de Kepler, démontré en 1998 par Hales).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.2 — Rayon des sites octaédriques en CFC</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Un site octaédrique d'une CFC est situé au centre du cube (ou au milieu d'une arête). Il est entouré de 6 atomes (4 dans le plan + 1 dessus + 1 dessous).</p>
+        <p>Pour qu'un ion s'y insère sans déformation, on impose le contact avec les voisins. Distance centre du cube → atome de sommet (dans une CFC) :</p>
+        \[ \text{Centre→sommet :}\ \dfrac{a\sqrt{3}}{2}\,,\quad \text{mais centre→atome de face :}\ \dfrac{a}{2}. \]
+        <p>Les 6 atomes les plus proches sont aux centres des faces, à distance \(a/2\). Si \(R\) est le rayon de l'atome et \(r\) le rayon du site :</p>
+        \[ R + r \;=\; \dfrac{a}{2}\,,\quad \text{et avec}\ 4R = a\sqrt{2}\ :\ r \;=\; \dfrac{a}{2} - R \;=\; \dfrac{a}{2} - \dfrac{a\sqrt{2}}{4} \;=\; a\left(\dfrac{2 - \sqrt{2}}{4}\right). \]
+        <p>Rapport :</p>
+        \[ \boxed{\;\dfrac{r}{R} \;=\; \dfrac{a(2-\sqrt{2})/4}{a\sqrt{2}/4} \;=\; \dfrac{2-\sqrt{2}}{\sqrt{2}} \;=\; \sqrt{2} - 1 \;\approx\; 0{,}414\;} \]
+        <p>Au-delà de ce rapport, l'ion déforme la structure (échange de coordinence).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.3 — Loi de Bragg et plans interréticulaires</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Faisceau X incident à l'angle \(\theta\) sur une famille de plans parallèles (distance \(d\) entre plans). Les rayons réfléchis par deux plans successifs interfèrent.</p>
+        <p>Différence de marche entre deux rayons : \(\delta = 2d\sin\theta\). Interférence constructive (loi de Bragg) :</p>
+        \[ 2\,d\,\sin\theta \;=\; n\,\lambda \qquad (n \in \mathbb{N}^*) \]
+        <p>Conséquence : pour une longueur d'onde fixée, seuls certains angles \(\theta\) donnent un pic de diffraction (pics de Bragg). La position des pics révèle les distances interréticulaires, donc la structure cristalline.</p>
+        <p>Cristal cubique : \(d_{hkl} = a/\sqrt{h^{2}+k^{2}+\ell^{2}}\). Conditions d'extinction selon le réseau :</p>
+        <ul>
+          <li>CC : \(h+k+\ell\) pair seulement.</li>
+          <li>CFC : \(h, k, \ell\) tous pairs ou tous impairs seulement.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.4 — Paramagnétisme de \(\ce{O2}\) par OM</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Configuration OM de \(\ce{O2}\) (16 électrons au total) :</p>
+        \[ (\sigma_{1s})^{2}(\sigma_{1s}^{*})^{2}(\sigma_{2s})^{2}(\sigma_{2s}^{*})^{2}(\sigma_{2p_z})^{2}(\pi_{2p_x})^{2}(\pi_{2p_y})^{2}(\pi_{2p_x}^{*})^{1}(\pi_{2p_y}^{*})^{1} \]
+        <p>Les 2 derniers électrons occupent les 2 OM \(\pi_{2p}^{*}\) <strong>dégénérées</strong>. Règle de Hund : ils se placent dans 2 OM différentes avec des spins parallèles \(\Rightarrow\) 2 électrons non appariés.</p>
+        <p>Ordre de liaison :</p>
+        \[ OL \;=\; \dfrac{N_{\text{liants}} - N_{\text{antiliants}}}{2} \;=\; \dfrac{(2+2+2+4) - (2+2+2)}{2} \;=\; \dfrac{10 - 6}{2} \;=\; 2. \]
+        <p>Liaison double, comme prédit par Lewis — mais avec 2 électrons non appariés que Lewis ignorait. C'est ce qui rend \(\ce{O2}\) paramagnétique (visible expérimentalement : \(\ce{O2}\) liquide attiré par un aimant entre les pôles).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.5 — Géométrie de \(\ce{H2O}\) par VSEPR</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Atome central \(\ce{O}\), 6 électrons de valence. Configuration de Lewis :</p>
+        \[ \ce{H-O-H} \quad\text{avec 2 doublets non liants sur }\ce{O}. \]
+        <p>Type VSEPR : \(\ce{AX2E2}\). Quatre doublets autour de \(\ce{O}\) → arrangement tétraédrique idéal (109,5°). Mais les doublets non liants sont plus volumineux (répulsion non liant–non liant la plus forte) et compriment les doublets liants.</p>
+        <p>Angle expérimental \(\ce{H-O-H} = 104{,}5\,^\circ\) (au lieu de 109,5°). La géométrie de \(\ce{H2O}\) est <strong>coudée</strong> (\(C_{2v}\)).</p>
+        <p>Conséquence : moment dipolaire \(\mu_{\ce{H2O}} = 1{,}85\,\mathrm{D}\) non nul → eau est polaire → liaisons hydrogène entre molécules → ébullition élevée, solvant des sels.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 11 EXOS ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Exercices résolus — type concours</h2>
+  <p class="intro">Trois exercices calibrés agrégation interne.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — Densité du fer α (CC) (★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Le fer α cristallise dans le système cubique centré avec paramètre de maille \(a = 287\,\mathrm{pm}\). \(M_{\ce{Fe}} = 55{,}85\,\mathrm{g\cdot mol^{-1}}\), \(N_A = 6{,}022\times 10^{23}\,\mathrm{mol^{-1}}\).</p>
+      <ol>
+        <li>Calculer le rayon métallique \(R_{\ce{Fe}}\).</li>
+        <li>Calculer la compacité de la maille (vérification).</li>
+        <li>Calculer la masse volumique \(\rho_{\ce{Fe}}\). Comparer à la valeur tabulée \(7{,}87\,\mathrm{g\cdot cm^{-3}}\).</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Contact selon la diagonale du cube : \(4R = a\sqrt{3}\) →</p>
+      \[ R = \dfrac{a\sqrt{3}}{4} = \dfrac{287\times 1{,}732}{4} \approx 124\,\mathrm{pm}. \]
+      <p><strong>2.</strong> CC : \(z = 2\). Compacité :</p>
+      \[ C = \dfrac{2 \times \tfrac{4}{3}\pi R^{3}}{a^{3}} = \dfrac{2 \cdot \tfrac{4\pi}{3}(a\sqrt{3}/4)^{3}}{a^{3}} = \dfrac{\pi\sqrt{3}}{8} \approx 0{,}680. \]
+      <p>68 % — conforme à la théorie pour CC.</p>
+      <p><strong>3.</strong> Masse volumique :</p>
+      \[ \rho = \dfrac{z M}{N_A a^{3}} = \dfrac{2 \times 55{,}85}{6{,}022\times 10^{23} \times (287\times 10^{-10})^{3}} = \dfrac{111{,}7}{6{,}022\times 10^{23} \times 2{,}36\times 10^{-23}} \approx 7{,}86\,\mathrm{g\cdot cm^{-3}}. \]
+      <p>Excellent accord avec la valeur tabulée (\(7{,}87\,\mathrm{g\cdot cm^{-3}}\), écart 0,1 %).</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — Structure NaCl et énergie réticulaire (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Le chlorure de sodium adopte la structure rocksalt : sous-réseau CFC des \(\ce{Cl^-}\) et \(\ce{Na+}\) dans tous les sites octaédriques. Données : \(R(\ce{Cl^-}) = 181\,\mathrm{pm}\), \(R(\ce{Na^+}) = 102\,\mathrm{pm}\), \(M(\ce{NaCl}) = 58{,}5\,\mathrm{g\cdot mol^{-1}}\).</p>
+      <ol>
+        <li>Calculer le paramètre de maille \(a\). Compatibilité avec le rapport \(r/R\) ?</li>
+        <li>Calculer la masse volumique théorique.</li>
+        <li>Estimer l'énergie réticulaire par le modèle de Madelung-Kapustinskii : \(U \approx -1{,}079\cdot M \cdot 10^{-7}/d_{0}\) (en kJ/mol, \(d_0\) en m, \(M\) = constante de Madelung = 1,7476 pour NaCl).</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Coordinence 6:6 → contact \(\ce{Na^+}\)–\(\ce{Cl^-}\) le long de l'arête de la maille (passage par le centre d'une face). En considérant \(\ce{Cl^-}\) en CFC et \(\ce{Na+}\) en site octaédrique central :</p>
+      \[ \text{distance}\ \ce{Na+ - Cl^-} = \dfrac{a}{2} = R(\ce{Cl^-}) + R(\ce{Na^+}) = 181 + 102 = 283\,\mathrm{pm}. \]
+      \[ \Rightarrow a = 566\,\mathrm{pm}. \]
+      <p>Rapport \(r/R = 102/181 \approx 0{,}564 &gt; 0{,}414\) : compatible avec coordinence octaédrique (le \(\ce{Na+}\) est suffisamment gros pour ne pas « tomber » entre les \(\ce{Cl^-}\)).</p>
+      <p><strong>2.</strong> Maille : \(z = 4\) (4 \(\ce{Cl^-}\) + 4 \(\ce{Na+}\) = 4 motifs NaCl). Masse volumique :</p>
+      \[ \rho = \dfrac{4 \times 58{,}5}{6{,}022\times 10^{23} \times (566\times 10^{-10})^{3}} \approx 2{,}14\,\mathrm{g\cdot cm^{-3}}. \]
+      <p>Valeur tabulée : \(2{,}17\,\mathrm{g\cdot cm^{-3}}\).</p>
+      <p><strong>3.</strong> \(d_0 = 283\,\mathrm{pm} = 2{,}83\times 10^{-10}\,\mathrm{m}\). Énergie de Madelung :</p>
+      \[ U \approx -\dfrac{1{,}079 \times 1{,}7476 \times 10^{-7}}{2{,}83\times 10^{-10}} \approx -666\,\mathrm{kJ\cdot mol^{-1}}. \]
+      <p>Tabulée : \(-786\,\mathrm{kJ\cdot mol^{-1}}\) (avec corrections de Born au lieu du Madelung pur). Écart < 20 % typique pour ce modèle simple.</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Analyse RMN ¹H d'un composé inconnu (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Un composé organique de formule brute \(\ce{C4H8O2}\) (degré d'insaturation = 1) donne un spectre RMN ¹H avec :</p>
+      <ul>
+        <li>Triplet à 1,2 ppm (3H)</li>
+        <li>Singulet à 2,0 ppm (3H)</li>
+        <li>Quadruplet à 4,1 ppm (2H)</li>
+      </ul>
+      <p>Spectre IR : bande forte à 1735 cm⁻¹. Identifier le composé.</p>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>Analyse IR :</strong> 1735 cm⁻¹ → C=O d'<strong>ester</strong>. Formule \(\ce{C4H8O2}\) + DI = 1 + un C=O : compatible avec un ester.</p>
+      <p><strong>Analyse RMN :</strong></p>
+      <ul>
+        <li><strong>Triplet à 1,2 ppm (3H)</strong> : 3 protons couplés avec 2 voisins → \(\ce{-CH3}\) à côté d'un \(\ce{CH2}\) → \(\ce{-CH2-CH3}\) (groupe éthyle).</li>
+        <li><strong>Singulet à 2,0 ppm (3H)</strong> : 3 protons sans voisin couplé → \(\ce{-CH3}\) isolé. À 2 ppm → \(\ce{CH3}\) en alpha d'un C=O → groupe acétyle \(\ce{CH3CO-}\).</li>
+        <li><strong>Quadruplet à 4,1 ppm (2H)</strong> : 2 protons couplés à 3 voisins → \(\ce{-CH2-}\) à côté d'un \(\ce{CH3}\). Déplacement à 4 ppm typique d'un \(\ce{-CH2-O-CO-}\) (proton en alpha d'un O d'ester).</li>
+      </ul>
+      <p><strong>Synthèse :</strong> \(\ce{CH3-CO-O-CH2-CH3}\) — acétate d'éthyle (éthanoate d'éthyle). Vérification : C₄H₈O₂ ✓, ester ✓, intégrations 3:3:2 ✓.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 12 LECONS & MONTAGES ═══════════════════ -->
+<div class="sblock r" id="lecons-montages">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Leçons pour l'oral & montages expérimentaux</h2>
+  <p class="intro">Deux propositions de leçons + deux montages.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon — Classification périodique : un outil prédictif (sujet oral n°28e)</h4>
+    <div class="lecon-meta">Niveau · Terminale spé / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Comment Mendeleïev a-t-il pu prédire l'existence du gallium et du germanium avant leur découverte ? Le tableau n'est pas une liste mais un outil prédictif.</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Historique : Döbereiner, Newlands, Mendeleïev (1869), Moseley (1913, classement par Z).</li>
+      <li>Structure du tableau actuel : périodes, groupes, blocs \(s, p, d, f\). Lien configuration électronique ↔ position.</li>
+      <li>Tendances périodiques : rayon, énergie d'ionisation, électronégativité — démonstration qualitative à partir de la structure électronique.</li>
+      <li>Applications : prédiction du caractère oxydant/réducteur, type de liaison (ionique vs covalent), réactivité comparée des halogènes/alcalins.</li>
+      <li>Limites et extensions : éléments synthétiques (oganesson 2002), tableau étendu (hypothétique 8<sup>e</sup> période).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Seconde : tableau périodique (lecture). 1<sup>re</sup> spé : structure électronique, lien avec position dans le tableau. Terminale spé : oxydoréduction, échelle d'électronégativité.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage — Diffraction des rayons X sur un cristal</h4>
+    <p><strong>Objectif.</strong> Vérifier expérimentalement la loi de Bragg sur un cristal de \(\ce{NaCl}\) et en déduire la distance interréticulaire.</p>
+    <p><strong>Matériel.</strong> Diffractomètre éducatif (tube X-ray, monochromateur, détecteur scintillateur ou compteur Geiger sur bras goniométrique), monocristal de \(\ce{NaCl}\) clivé, écran de plomb, plateau gradué.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Émission de rayons X (\(\lambda_{K_\alpha}(\ce{Cu}) = 154\,\mathrm{pm}\)) en direction du cristal.</li>
+      <li>Balayage angulaire \(\theta = 0\)–\(30^\circ\) par pas de 0,5°. À chaque position, mesurer le taux de comptage en mode \(\theta\)–\(2\theta\).</li>
+      <li>Identifier les pics de Bragg.</li>
+      <li>Pour chaque pic, calculer \(d = n\lambda/(2\sin\theta)\). Indexation des plans (100), (110), (111)…</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Calibration angulaire (\(\pm 0{,}1^\circ\)), monochromaticité du faisceau, alignement cristal.</p>
+    <p><strong>Exploitation.</strong> Comparer à la valeur tabulée \(a_{\ce{NaCl}} = 564\,\mathrm{pm}\) (\(d_{100} = 282\,\mathrm{pm}\)). Vérification de la cohérence des distances pour les différents \((hkl)\). Précaution : <strong>sécurité radiologique</strong> (cache de plomb obligatoire, dose mesurée &lt; 0,1 µSv/h).</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage — Identification d'un composé par spectroscopies couplées</h4>
+    <p><strong>Objectif.</strong> Caractériser un produit de synthèse (ex. paracétamol) par IR + RMN + UV-Vis, puis comparer aux spectres de référence.</p>
+    <p><strong>Matériel.</strong> Spectromètre IR (ATR ou pastille KBr), spectromètre RMN ¹H 60 ou 400 MHz, spectromètre UV-Vis, échantillons standards.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>IR : bandes diagnostic des fonctions présentes (C=O ester ou amide, O-H, N-H, etc.).</li>
+      <li>RMN ¹H : analyse multiplicités, intégrations, déplacements. Application des règles \(n+1\).</li>
+      <li>UV-Vis : si chromophore conjugué, mesure de \(\lambda_{\max}\) et \(\varepsilon\).</li>
+      <li>Compilation : structure proposée, vérification de la cohérence avec toutes les spectroscopies.</li>
+    </ol>
+    <p><strong>Exploitation.</strong> Croisement des données = identification non ambiguë. Application aux produits issus de TP : aspirine, paracétamol, savon, etc. C'est la base de l'analyse structurelle moderne.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 13 JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 13</div>
+  <h2>13. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Configuration électronique et exceptions.</strong> Les exceptions à Klechkowski (\(\ce{Cr}, \ce{Cu}, \ce{Mo}, \ce{Ag}, \ce{Au}\)) proviennent de la stabilité des sous-couches \(d\) demi-pleine ou pleine. Le jury attend que l'on puisse justifier ces exceptions par la stabilité énergétique, pas juste les mémoriser.</div>
+    <div class="jury-item"><strong>VSEPR et géométrie réelle.</strong> Les angles prédits par VSEPR sont des valeurs typiques (\(109{,}5^\circ\), \(120^\circ\)). Les angles réels diffèrent légèrement à cause de l'effet des doublets non liants (plus volumineux) et de la nature des ligands (effet d'électronégativité). Toujours mentionner ces ajustements.</div>
+    <div class="jury-item"><strong>Paramagnétisme de \(\boldsymbol{\ce{O2}}\).</strong> Lewis prédit une double liaison \(\ce{O=O}\) sans électron célibataire \(\Rightarrow\) diamagnétisme. Mais \(\ce{O2}\) est expérimentalement paramagnétique ! La théorie des OM explique ce paradoxe — c'est l'argument historique fort en faveur de l'OM contre Lewis. Toujours mentionner ce cas à l'oral.</div>
+    <div class="jury-item"><strong>Compacité et stabilité.</strong> Les empilements compacts (CFC et HC à 74 %) sont privilégiés par les métaux car ils maximisent les interactions métalliques cohésives. La CC (68 %) est moins compacte mais reste stable pour certains métaux par effet de la structure de bande électronique (\(\ce{Fe}_\alpha, \ce{Cr}, \ce{Na}\)). Ne pas conclure « la CFC est toujours plus stable ».</div>
+    <div class="jury-item"><strong>Bragg et diffraction électronique.</strong> Les rayons X sont diffractés par les <em>électrons</em> des atomes (pas les noyaux). Les électrons des liaisons interviennent peu dans la diffraction X (faible densité), d'où la difficulté à localiser les atomes \(\ce{H}\) (peu d'électrons). C'est pourquoi la diffraction de neutrons (sensible aux noyaux) est complémentaire pour ces analyses.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">\(\ce{O2}\) selon la théorie des OM : ordre de liaison et magnétisme ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. OL = (8−4)/2 = 2 pour O₂. Et O₂ est bien paramagnétique (vérifié expérimentalement).')">OL = 3, diamagnétique</button><button class="q-opt" onclick="quiz(this,true,'Correct. Config : ...(σ₂ₚ)²(π₂ₚ)⁴(π*₂ₚ)². OL = (8−4)/2 = 2. Les 2 électrons antiliants sont dans 2 OM π* dégénérées avec spins parallèles (Hund) → paramagnétique. Lewis ne peut pas expliquer cela !')">OL = 2, paramagnétique (2 électrons non appariés)</button><button class="q-opt" onclick="quiz(this,false,'Non. OL = (électrons liants − antiliants)/2 = (8−4)/2 = 2, pas 1.')">OL = 1, 2 électrons non appariés</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Maille CFC, paramètre \(a = 362\,\mathrm{pm}\), \(M = 63{,}5\,\mathrm{g\cdot mol^{-1}}\). Masse volumique :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. ρ = zM/(N_A·a³) = 4 × 63,5 / (6,022e23 × (3,62e-8)³) ≈ 8,9 g·cm⁻³. C\'est la densité du cuivre (8,96 expérimental).')">\(\rho \approx 8{,}9\,\mathrm{g\cdot cm^{-3}}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — la formule correcte est ρ = zM/(N_A·a³) avec z = 4 pour CFC.')">\(\rho \approx 4{,}5\,\mathrm{g\cdot cm^{-3}}\)</button><button class="q-opt" onclick="quiz(this,false,'Non — N_A doit être au dénominateur, pas au numérateur.')">\(\rho \approx 23\,\mathrm{g\cdot cm^{-3}}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Géométrie de \(\ce{NH3}\) selon VSEPR :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — il faut compter les doublets non liants. NH₃ a 3 ligands + 1 doublet non liant.')">Trigonale plane (120°)</button><button class="q-opt" onclick="quiz(this,true,'Correct. AX₃E : 3 H + 1 doublet non liant sur N. Géométrie pyramidale (trigonale), angle réel ≈ 107° (le doublet non liant comprime les angles H-N-H).')">Pyramidale trigonale (~107°)</button><button class="q-opt" onclick="quiz(this,false,'Non — NH₃ n\'est pas plan. Le doublet non liant impose une géométrie pyramidale.')">Tétraédrique (109,5°) sans déformation</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Empilements à compacité maximale (74 %) :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. CS a une compacité de 52 %, CC de 68 %.')">CS et CC</button><button class="q-opt" onclick="quiz(this,true,'Correct. CFC (empilement ABCABC) et HC (empilement ABAB) ont tous deux 74 % de compacité, qui est le maximum théorique pour des sphères identiques (théorème de Kepler).')">CFC et HC</button><button class="q-opt" onclick="quiz(this,false,'Non. CC est à 68 %, pas 74 %.')">CC et HC</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Loi de Bragg : à quelle condition observe-t-on un pic de diffraction X ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — la longueur d\'onde compte (rayons X = 0,1 nm typique). Mais ce n\'est pas la condition seule.')">\(\lambda &lt; a/2\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. La loi de Bragg s\'écrit 2d sin θ = nλ. C\'est la condition d\'interférence constructive entre rayons réfléchis par des plans successifs de distance d.')">\(2d\sin\theta = n\lambda\)</button><button class="q-opt" onclick="quiz(this,false,'Non — la diffraction X interagit avec les électrons. Et l\'angle θ peut être supérieur à n × π.')">\(\theta &gt; n\,\pi\) (angle de Bragg)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Structure \(\ce{NaCl}\) (rocksalt) : coordinence des deux ions ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. C\'est la coordinence de la structure CsCl, pas NaCl.')">8:8</button><button class="q-opt" onclick="quiz(this,true,'Correct. Dans NaCl : Cl⁻ en CFC, Na⁺ dans les sites octaédriques (4/maille). Chaque Na⁺ est entouré de 6 Cl⁻ et inversement → coordinence 6:6. C\'est la structure rocksalt.')">6:6</button><button class="q-opt" onclick="quiz(this,false,'Non. 4:4 est la coordinence de ZnS blende.')">4:4</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Bande IR à 1735 cm⁻¹ :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — O-H est vers 3200-3600 cm⁻¹.')">\(\ce{O-H}\) (alcool)</button><button class="q-opt" onclick="quiz(this,true,'Correct. 1735 cm⁻¹ est caractéristique de C=O d\'un ester (acide : 1700, cétone : 1715, amide : 1650). C\'est un diagnostic important.')">\(\ce{C=O}\) (ester)</button><button class="q-opt" onclick="quiz(this,false,'Non — C-H alkyle est vers 2850-3000 cm⁻¹.')">\(\ce{C-H}\) (alkyle)</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets et corrigés des sessions précédentes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.chemtube3d.com/" target="_blank">
+      <span class="ri">⚛</span><div><div class="rt">Chemtube3D</div><div class="rd">Animations 3D de structures et mécanismes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="chimie-organique.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Chimie organique</span></a>
+  <a class="pnav-link next" href="index.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Retour à l'accueil</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link cur" href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

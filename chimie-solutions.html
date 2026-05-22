@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chimie des solutions & Équilibres ioniques — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="active">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero c r">
+    <div class="chap-eyebrow c">Chimie · Sujets oraux 6, 7, 8, 14, 17, 18</div>
+    <h1>Chimie des solutions <em class="c">& Équilibres ioniques</em></h1>
+    <p class="lead">Sujets oraux n°6 (Titrages), n°7 (Solubilité), n°8 (Conductivité), n°14 (Oxydo-réduction), n°17 (Acidité), n°18 (Complexes). Fondation de la chimie analytique — six sujets oraux couverts.</p>
+    <div class="chap-badges"><span class="badge bc">6 sujets oraux</span> <span class="badge bg">Fondamental</span> <span class="badge br">Fréquent à l'écrit</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#acide-base">01 · Équilibres acide-base</a>
+        <a href="#calculs-ph">02 · Calculs de pH</a>
+        <a href="#tampons">03 · Solutions tampons</a>
+        <a href="#dosages">04 · Dosages & titrages</a>
+        <a href="#conductivite">05 · Conductivité ionique</a>
+        <a href="#solubilite">06 · Solubilité & précipitation</a>
+        <a href="#complexes">07 · Complexation</a>
+        <a href="#redox">08 · Oxydoréduction en solution</a>
+        <a href="#pedagogie">09 · Pédagogie</a>
+        <a href="#demos">10 · Démonstrations clés</a>
+        <a href="#exercices">11 · Exercices résolus</a>
+        <a href="#lecons-montages">12 · Leçons & Montages</a>
+        <a href="#jury">13 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="cur" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 ACIDE-BASE ═══════════════════ -->
+<div class="sblock r" id="acide-base">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Équilibres acide-base</h2>
+  <p class="intro">Sujet oral n°17 (Acidité). Définitions de Brønsted et de Lewis, constantes \(K_a\), produit ionique de l'eau, classement des couples.</p>
+
+  <h3>1.1 Définitions</h3>
+  <div class="fbox c">
+    <span class="fl">Acide-base au sens de Brønsted-Lowry</span>
+    <span class="fc"><strong>Acide</strong> : donneur de proton \(\ce{H+}\). <strong>Base</strong> : accepteur de proton.</span>
+    <span class="fm">\[ \ce{AH &lt;=&gt; A^- + H+}\quad (\text{couple acide/base conjugués}) \]</span>
+    <hr>
+    <span class="fc">L'eau est un solvant amphotère :</span>
+    <span class="fm">\[ \ce{2 H2O &lt;=&gt; H3O+ + OH^-}\quad K_e = [\ce{H3O+}][\ce{OH^-}] = 10^{-14}\ (\text{à 25 °C}) \]</span>
+    <hr>
+    <span class="fc">Définition de Lewis (plus générale) : acide = accepteur de doublet, base = donneur de doublet. Couvre aussi les complexes métalliques (Section 07).</span>
+  </div>
+
+  <h3>1.2 Constante d'acidité</h3>
+  <div class="fbox c">
+    <span class="fl">Constante \(K_a\) et \(pK_a\)</span>
+    <span class="fm">\[ K_a \;=\; \dfrac{[\ce{A^-}][\ce{H3O+}]}{[\ce{AH}]} \qquad pK_a = -\log K_a \]</span>
+    <hr>
+    <span class="fc">Plus \(K_a\) grand (\(pK_a\) petit) → acide plus fort.</span>
+    <hr>
+    <span class="fc">Relation entre \(K_a\) et \(K_b\) d'un couple :</span>
+    <span class="fm">\[ K_a \times K_b = K_e \qquad pK_a + pK_b = 14\ (\text{à 25 °C}) \]</span>
+    <hr>
+    <span class="fc">Classement (\(pK_a\) à 25 °C, valeurs typiques) :</span>
+    <span class="fm">\[ \ce{HCl}\ (\text{fort}) \,&lt;\, \ce{H2SO4}\ (\text{fort, 1ère acidité}) \,&lt;\, \ce{HF}\ (3{,}2) \,&lt;\, \ce{CH3COOH}\ (4{,}75) \,&lt;\, \ce{NH4+}\ (9{,}25) \,&lt;\, \ce{H2O}\ (14) \]</span>
+  </div>
+
+  <h3>1.3 Domaines de prédominance</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Diagramme de prédominance d'un couple acide/base</div>
+    <div class="notion-body">
+      <p>Sur un axe horizontal de pH, on place la frontière au \(pK_a\) :</p>
+      <ul>
+        <li><strong>pH &lt; pKa</strong> : forme <em>acide</em> \(\ce{AH}\) prédomine (\([\ce{AH}] &gt; [\ce{A^-}]\)).</li>
+        <li><strong>pH = pKa</strong> : équiconcentration (\([\ce{AH}] = [\ce{A^-}]\)).</li>
+        <li><strong>pH &gt; pKa</strong> : forme <em>basique</em> \(\ce{A^-}\) prédomine.</li>
+      </ul>
+      <p>Pour un acide polyacide \(\ce{H2A}\) (\(pK_{a_1}, pK_{a_2}\)) : trois domaines (\(\ce{H2A}, \ce{HA^-}, \ce{A^{2-}}\)). Exemple \(\ce{H2CO3}\) : \(pK_{a_1} = 6{,}3\) (\(\ce{H2CO3}/\ce{HCO3^-}\)), \(pK_{a_2} = 10{,}3\) (\(\ce{HCO3^-}/\ce{CO3^{2-}}\)).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 CALCULS DE pH ═══════════════════ -->
+<div class="sblock r" id="calculs-ph">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Calculs de pH</h2>
+  <p class="intro">Cinq cas-types à maîtriser parfaitement, avec les conditions de validité des approximations.</p>
+
+  <div class="fbox c">
+    <span class="fl">Cinq cas fondamentaux (à 25 °C)</span>
+    <span class="fc"><strong>Acide fort</strong> (entièrement dissocié, concentration \(C_a\), avec \(C_a \gg 10^{-7}\)) :</span>
+    <span class="fm">\[ \mathrm{pH} \;=\; -\log C_a \]</span>
+    <hr>
+    <span class="fc"><strong>Base forte</strong> (\(C_b \gg 10^{-7}\)) :</span>
+    <span class="fm">\[ \mathrm{pH} \;=\; 14 + \log C_b \]</span>
+    <hr>
+    <span class="fc"><strong>Acide faible</strong> peu dissocié (\(\alpha \ll 1\), validité si \(pK_a + \log C_a \geq 1\)) :</span>
+    <span class="fm">\[ \mathrm{pH} \;\approx\; \dfrac{1}{2}(pK_a - \log C_a) \]</span>
+    <hr>
+    <span class="fc"><strong>Base faible</strong> peu protonnée :</span>
+    <span class="fm">\[ \mathrm{pH} \;\approx\; 14 - \dfrac{1}{2}(pK_b - \log C_b) \;=\; 7 + \dfrac{1}{2}(pK_a + \log C_b) \]</span>
+    <hr>
+    <span class="fc"><strong>Amphotère</strong> (\(\ce{HA-}\) intermédiaire de polyacide \(pK_{a_1}, pK_{a_2}\)) :</span>
+    <span class="fm">\[ \mathrm{pH} \;\approx\; \dfrac{1}{2}(pK_{a_1} + pK_{a_2}) \]</span>
+    <span class="fc">Indépendant de la concentration ! Validité si concentration suffisante.</span>
+  </div>
+
+  <div class="alert alert-chim r">
+    <span class="ico">⚠️</span>
+    <div><strong>Conditions de validité.</strong> Toujours vérifier après calcul : (i) taux de dissociation \(\alpha = [\ce{A^-}]/C_a\) reste petit (\(&lt; 5\,\%\)) ; (ii) l'autoprotolyse de l'eau est négligeable (\([\ce{H3O+}] \gg 10^{-7}\) ou \([\ce{OH^-}] \gg 10^{-7}\)). Si non, il faut résoudre le système complet.</div>
+  </div>
+
+  <h3>2.1 Méthode générale (système exact)</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Approche systématique pour un calcul de pH</div>
+    <div class="notion-body">
+      <ol>
+        <li><strong>Inventorier les espèces</strong> en solution (réactifs, produits, eau).</li>
+        <li><strong>Écrire les équilibres</strong> avec leurs constantes (\(K_a\), \(K_e\), \(\beta\), \(K_s\)).</li>
+        <li><strong>Bilan de matière</strong> (conservation de chaque élément).</li>
+        <li><strong>Électroneutralité</strong> (\(\sum \text{cations} = \sum \text{anions}\) en charges).</li>
+        <li><strong>Hypothèses simplificatrices</strong> : choisir la(les) espèce(s) dominante(s).</li>
+        <li><strong>Résoudre</strong> et <strong>vérifier les hypothèses</strong>.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 TAMPONS ═══════════════════ -->
+<div class="sblock r" id="tampons">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Solutions tampons</h2>
+  <p class="intro">Mélanges acide faible / base conjuguée résistant aux variations de pH. Essentiels en biologie (sang : tampon \(\ce{H2CO3}/\ce{HCO3^-}\)) et en chimie analytique.</p>
+
+  <div class="fbox c">
+    <span class="fl">Formule de Henderson-Hasselbalch</span>
+    <span class="fc">Pour un mélange acide faible \(\ce{AH}\) et sa base conjuguée \(\ce{A^-}\) :</span>
+    <span class="fm">\[ \boxed{\;\mathrm{pH} \;=\; pK_a + \log\!\dfrac{[\ce{A^-}]}{[\ce{AH}]}\;} \]</span>
+    <hr>
+    <span class="fc">Démonstration : on part de \(K_a = [\ce{A^-}][\ce{H3O+}]/[\ce{AH}]\), on prend le \(-\log\) :</span>
+    <span class="fm">\[ pK_a = -\log[\ce{A^-}] - \log[\ce{H3O+}] + \log[\ce{AH}] \]</span>
+    <span class="fm">\[ \Rightarrow \mathrm{pH} = pK_a + \log([\ce{A^-}]/[\ce{AH}]). \]</span>
+  </div>
+
+  <h3>3.1 Propriétés d'un tampon</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Pouvoir tampon</div>
+    <div class="notion-body">
+      <p>Un tampon résiste aux variations de pH causées par :</p>
+      <ul>
+        <li><strong>Ajout d'acide ou de base</strong> : \(\ce{AH}\) ou \(\ce{A^-}\) consomme les ions ajoutés.</li>
+        <li><strong>Dilution</strong> : seul le rapport \([\ce{A^-}]/[\ce{AH}]\) compte dans Henderson — la dilution préserve ce rapport.</li>
+      </ul>
+      <p>Capacité maximale à \(\mathrm{pH} = pK_a\) (équiconcentration). Zone tampon utile : \(\mathrm{pH} = pK_a \pm 1\).</p>
+      <p>Définition rigoureuse du pouvoir tampon : \(\beta = \mathrm{d}n_b/\mathrm{d}\mathrm{pH}\) (mol de base à ajouter par unité de pH). Maximal à \(\mathrm{pH} = pK_a\).</p>
+    </div>
+  </div>
+
+  <h3>3.2 Tampons biologiques et physiologiques</h3>
+  <table class="compact">
+    <thead><tr><th>Tampon</th><th>pKa</th><th>Application</th></tr></thead>
+    <tbody>
+      <tr><td>\(\ce{H2CO3}/\ce{HCO3^-}\)</td><td>6,35 (apparent ~6,1)</td><td>Sang humain (pH 7,4)</td></tr>
+      <tr><td>\(\ce{H2PO4^-}/\ce{HPO4^{2-}}\)</td><td>7,21</td><td>Intracellulaire</td></tr>
+      <tr><td>\(\ce{CH3COOH}/\ce{CH3COO^-}\)</td><td>4,75</td><td>Tampon de référence chimie</td></tr>
+      <tr><td>\(\ce{NH4+}/\ce{NH3}\)</td><td>9,25</td><td>Tampon basique</td></tr>
+      <tr><td>Tris (\(\ce{HOCH2)3CNH3+}\)) / Tris</td><td>8,1</td><td>Biochimie, électrophorèse</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ 04 DOSAGES ═══════════════════ -->
+<div class="sblock r" id="dosages">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Dosages et titrages</h2>
+  <p class="intro">Sujet oral n°6 (Titrages). Méthodes quantitatives pour déterminer une concentration inconnue.</p>
+
+  <h3>4.1 Principe de l'équivalence</h3>
+  <div class="fbox c">
+    <span class="fl">Définition de l'équivalence</span>
+    <span class="fc">À l'<strong>équivalence</strong>, le réactif titrant et l'analyte ont été introduits en proportions stœchiométriques.</span>
+    <hr>
+    <span class="fc">Pour \(\ce{AH + OH^- -> A^- + H2O}\) :</span>
+    <span class="fm">\[ C_a\,V_a \;=\; C_b\,V_{b,\text{éq}} \]</span>
+    <hr>
+    <span class="fc">Méthodes de détection :</span>
+    <span class="fc">— <strong>pHmétrie</strong> : maximum de \(\mathrm{d}\mathrm{pH}/\mathrm{d}V\) (point d'inflexion).</span>
+    <span class="fc">— <strong>Conductimétrie</strong> : rupture de pente sur \(\sigma(V)\).</span>
+    <span class="fc">— <strong>Indicateur coloré</strong> : virage à \(\mathrm{pH} = pK_{In} \pm 1\), choisi dans la zone du saut.</span>
+    <span class="fc">— <strong>Spectrophotométrie</strong> (UV-Vis) : pour analytes colorés.</span>
+  </div>
+
+  <h3>4.2 Courbe de titrage acide-base</h3>
+  <div class="fbox c">
+    <span class="fl">pH à différentes étapes du titrage</span>
+    <span class="fc">Pour titrage acide faible (\(\ce{AH}\), \(C_a, V_a\)) par base forte (\(\ce{OH^-}\), \(C_b\)) :</span>
+    <hr>
+    <span class="fc"><strong>Initial</strong> (\(V_b = 0\)) : acide faible seul, \(\mathrm{pH} \approx \frac{1}{2}(pK_a - \log C_a)\).</span>
+    <hr>
+    <span class="fc"><strong>Demi-équivalence</strong> (\(V_b = V_{\text{éq}}/2\)) : \([\ce{AH}] = [\ce{A^-}]\) → \(\mathrm{pH} = pK_a\). <em>Méthode rapide pour mesurer \(pK_a\) !</em></span>
+    <hr>
+    <span class="fc"><strong>Avant équivalence</strong> (\(0 &lt; V_b &lt; V_{\text{éq}}\)) : mélange tampon \(\ce{AH}/\ce{A^-}\), Henderson.</span>
+    <hr>
+    <span class="fc"><strong>À l'équivalence</strong> : seul \(\ce{A^-}\) (base faible), \(\mathrm{pH}_{\text{éq}} = 7 + \frac{1}{2}(pK_a + \log C_{\text{éq}}) &gt; 7\).</span>
+    <hr>
+    <span class="fc"><strong>Après équivalence</strong> : excès de \(\ce{OH^-}\), \(\mathrm{pH} \approx 14 + \log[\ce{OH^-}]_{\text{excès}}\).</span>
+  </div>
+
+  <h3>4.3 Cas particulier — acide polyacide</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Titrage en plusieurs étapes</div>
+    <div class="notion-body">
+      <p>Un diacide \(\ce{H2A}\) avec \(pK_{a_1}\) et \(pK_{a_2}\) bien séparés (\(\Delta pK_a &gt; 4\)) présente <strong>deux sauts de pH successifs</strong> :</p>
+      <ul>
+        <li>1<sup>re</sup> équivalence : \(V_b = V_{\text{éq},1}\), \(\ce{H2A}\) entièrement consommé, \(\ce{HA^-}\) seul. \(\mathrm{pH} \approx \frac{1}{2}(pK_{a_1} + pK_{a_2})\).</li>
+        <li>2<sup>e</sup> équivalence : \(V_b = 2 V_{\text{éq},1}\), \(\ce{A^{2-}}\) seul.</li>
+      </ul>
+      <p>Exemple : \(\ce{H3PO4}\) (\(pK_a\) = 2,1, 7,2, 12,4) — trois équivalences théoriques mais la 3<sup>e</sup> est invisible (\(pK_{a_3}\) proche de \(pK_e\)).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 05 CONDUCTIVITE ═══════════════════ -->
+<div class="sblock r" id="conductivite">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Conductivité ionique</h2>
+  <p class="intro">Sujet oral n°8 (Conductivité). Caractérisation et dosage par mesure de conductance.</p>
+
+  <div class="fbox c">
+    <span class="fl">Conductivité d'une solution</span>
+    <span class="fc">Pour une solution contenant des ions \(i\) de concentration \(c_i\) :</span>
+    <span class="fm">\[ \sigma \;=\; \sum_i \lambda_i\,c_i \qquad [\mathrm{S\cdot m^{-1}}] \]</span>
+    <span class="fc">\(\lambda_i\) : conductivité ionique molaire (en S·m²·mol⁻¹).</span>
+    <hr>
+    <span class="fc">Conductance mesurée par cellule (deux électrodes parallèles) :</span>
+    <span class="fm">\[ G \;=\; \dfrac{\sigma\,S}{L} \qquad [\mathrm{S}] \]</span>
+    <span class="fc">Le rapport \(L/S\) est la <em>constante de cellule</em>, à étalonner.</span>
+  </div>
+
+  <h3>5.1 Conductivités ioniques molaires à dilution infinie</h3>
+  <table class="compact">
+    <thead><tr><th>Ion</th><th>\(\lambda^\circ\) (mS·m²·mol⁻¹)</th><th>Remarque</th></tr></thead>
+    <tbody>
+      <tr><td>\(\ce{H3O+}\)</td><td>34,98</td><td>Mécanisme de Grotthuss (sauts de proton)</td></tr>
+      <tr><td>\(\ce{OH^-}\)</td><td>19,86</td><td>Aussi par sauts</td></tr>
+      <tr><td>\(\ce{K+}\)</td><td>7,35</td><td>Référence usuelle</td></tr>
+      <tr><td>\(\ce{Na+}\)</td><td>5,01</td><td></td></tr>
+      <tr><td>\(\ce{Li+}\)</td><td>3,87</td><td>Très hydraté</td></tr>
+      <tr><td>\(\ce{Cl^-}\)</td><td>7,63</td><td></td></tr>
+      <tr><td>\(\ce{NO3^-}\)</td><td>7,14</td><td></td></tr>
+      <tr><td>\(\ce{CH3COO^-}\)</td><td>4,09</td><td></td></tr>
+      <tr><td>\(\ce{SO4^{2-}}\)</td><td>16,0</td><td>Charge 2- → λ° plus élevé</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-chim r">
+    <span class="ico">💡</span>
+    <div><strong>Mobilité de \(\ce{H3O+}\) et \(\ce{OH^-}\).</strong> Ces ions ont des \(\lambda^\circ\) anormalement élevés par le <strong>mécanisme de Grotthuss</strong> : le proton ne migre pas en bloc, mais saute d'une molécule d'eau à la suivante via les liaisons H. Cette dynamique de réseau explique aussi la conductivité élevée de l'eau acidifiée/basique.</div>
+  </div>
+
+  <h3>5.2 Loi de Kohlrausch</h3>
+  <div class="fbox c">
+    <span class="fl">Effet de la concentration</span>
+    <span class="fm">\[ \Lambda_m \;=\; \Lambda^\circ_m - k\sqrt{c} \]</span>
+    <span class="fc">\(\Lambda_m\) : conductivité molaire à la concentration \(c\), \(\Lambda^\circ_m = \sum \nu_i \lambda^\circ_i\) à dilution infinie. Décroissance en \(\sqrt{c}\) (effet de l'atmosphère ionique de Debye-Hückel).</span>
+    <hr>
+    <span class="fc">Loi additive (limite diluée) :</span>
+    <span class="fm">\[ \Lambda^\circ_m(\ce{KCl}) \;=\; \lambda^\circ(\ce{K+}) + \lambda^\circ(\ce{Cl^-}) \]</span>
+  </div>
+
+  <h3>5.3 Dosage conductimétrique</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Allure des courbes \(\sigma(V)\)</div>
+    <div class="notion-body">
+      <p>Pour \(\ce{HCl}\) (forte) par \(\ce{NaOH}\) (forte) :</p>
+      <ul>
+        <li>Avant équivalence : \(\ce{H+}\) consommé (\(\lambda^\circ = 35\)) et remplacé par \(\ce{Na+}\) (\(\lambda^\circ = 5\)) → \(\sigma\) <strong>diminue</strong>.</li>
+        <li>Après équivalence : ajout net de \(\ce{Na+} + \ce{OH^-}\) (\(\sum\lambda^\circ = 25\)) → \(\sigma\) <strong>augmente</strong>.</li>
+        <li>Rupture de pente à l'équivalence — détectable précisément.</li>
+      </ul>
+      <p>Avantage : pas d'étalonnage de pH-mètre, lecture précise du point d'équivalence par intersection de deux droites.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 06 SOLUBILITE ═══════════════════ -->
+<div class="sblock r" id="solubilite">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Solubilité et précipitation</h2>
+  <p class="intro">Sujet oral n°7 (Solubilité). Équilibres solide-solution, produit de solubilité, effets du pH et des complexes.</p>
+
+  <h3>6.1 Produit de solubilité</h3>
+  <div class="fbox c">
+    <span class="fl">Équilibre de dissolution</span>
+    <span class="fc">Pour un sel \(\ce{M_nX_m(s)}\) en équilibre avec ses ions :</span>
+    <span class="fm">\[ \ce{M_nX_m(s) &lt;=&gt; n M^{m+} + m X^{n-}} \qquad K_s = [\ce{M^{m+}}]^n\,[\ce{X^{n-}}]^m \]</span>
+    <hr>
+    <span class="fc">Solubilité molaire \(s\) (mol·L⁻¹) — quantité dissoute par litre :</span>
+    <table class="compact">
+      <thead><tr><th>Stœchiométrie</th><th>Lien \(s\) ↔ \(K_s\)</th></tr></thead>
+      <tbody>
+        <tr><td>1:1 (\(\ce{AgCl}\))</td><td>\(K_s = s^{2} \Rightarrow s = \sqrt{K_s}\)</td></tr>
+        <tr><td>2:1 (\(\ce{Ag2SO4}\))</td><td>\(K_s = 4 s^{3} \Rightarrow s = (K_s/4)^{1/3}\)</td></tr>
+        <tr><td>1:2 (\(\ce{CaF2}\))</td><td>\(K_s = 4 s^{3} \Rightarrow s = (K_s/4)^{1/3}\)</td></tr>
+        <tr><td>3:2 (\(\ce{Ca3(PO4)2}\))</td><td>\(K_s = 108 s^{5}\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6.2 Critère de précipitation</h3>
+  <div class="key-box c">
+    <p>Quotient de réaction \(Q = [\ce{M^{m+}}]^n\,[\ce{X^{n-}}]^m\). À comparer à \(K_s\) :</p>
+    \[ Q &lt; K_s :\ \text{tout dissout (pas de précipité)} \qquad Q = K_s :\ \text{équilibre (saturation)} \qquad Q &gt; K_s :\ \text{précipitation} \]
+  </div>
+
+  <h3>6.3 Effets perturbateurs</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Modulation de la solubilité</div>
+    <div class="notion-body">
+      <p><strong>Effet d'ion commun</strong> : ajouter un ion déjà présent dans l'équilibre <em>diminue</em> la solubilité (déplacement de Le Châtelier). Exemple : \(\ce{AgCl}\) est moins soluble dans \(\ce{NaCl}\) que dans l'eau pure.</p>
+      <p><strong>Effet du pH</strong> : si l'anion est une base (\(\ce{CO3^{2-}}, \ce{PO4^{3-}}, \ce{OH^-}\)), l'acidification protonne l'anion et déplace la dissolution → <em>augmentation</em> de la solubilité. Exemple : \(\ce{CaCO3}\) (calcaire) se dissout dans \(\ce{HCl}\).</p>
+      <p><strong>Effet de complexation</strong> : si le cation forme un complexe avec un ligand, la solubilité augmente. Exemple : \(\ce{AgCl(s)}\) dissous par \(\ce{NH3}\) → \(\ce{[Ag(NH3)2]+}\) (β élevé). Procédé du daguerréotype et photo argentique.</p>
+      <p><strong>Effet de force ionique</strong> : augmentation modeste de \(s\) par diminution des coefficients d'activité (Debye-Hückel).</p>
+    </div>
+  </div>
+
+  <h3>6.4 Exemples industriels</h3>
+  <p>La précipitation sélective est utilisée pour <strong>purifier</strong> des métaux (traitement des minerais, métallurgie), pour <strong>séparer</strong> des ions (analyse qualitative classique : \(\ce{Ag+, Pb^{2+}, Hg2^{2+}}\) précipités par \(\ce{Cl-}\) → groupe argent), pour <strong>traiter les eaux</strong> usées (élimination des métaux lourds par précipitation des hydroxydes ou sulfures).</p>
+</div>
+
+<!-- ═══════════════════ 07 COMPLEXES ═══════════════════ -->
+<div class="sblock r" id="complexes">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Complexation</h2>
+  <p class="intro">Sujet oral n°18 (Complexes). Formation de complexes entre cations métalliques et ligands — applications analytiques et thérapeutiques.</p>
+
+  <div class="fbox c">
+    <span class="fl">Formation d'un complexe \(\ce{[ML_p]^{n+}}\)</span>
+    <span class="fm">\[ \ce{M^{n+} + p L &lt;=&gt; [ML_p]^{n+}} \]</span>
+    <span class="fc">avec \(L\) : ligand (\(\ce{NH3, CN-, H2O, EDTA, SCN-, Cl-}\)…).</span>
+    <hr>
+    <span class="fc">Constante de stabilité globale :</span>
+    <span class="fm">\[ \beta_p \;=\; \dfrac{[\ce{[ML_p]^{n+}}]}{[\ce{M^{n+}}][\ce{L}]^p} \]</span>
+    <span class="fc">Plus \(\beta\) est grand, plus le complexe est stable. Valeurs typiques : \(10^{6}\) à \(10^{30}\).</span>
+    <hr>
+    <span class="fc">Constantes successives \(K_i\) (formation étape par étape) :</span>
+    <span class="fm">\[ \beta_p \;=\; K_1\cdot K_2\cdots K_p \qquad pK_{d,i} = \log K_i \]</span>
+  </div>
+
+  <h3>7.1 Ligands polydentates et EDTA</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Effet chélate</div>
+    <div class="notion-body">
+      <p>Un ligand <strong>polydentate</strong> (chélatant) coordine le métal par plusieurs sites. Le complexe formé est exceptionnellement stable, par effet entropique : la libération de plusieurs molécules d'eau de la sphère de coordination augmente \(\Delta S\) (donc abaisse \(\Delta G\)).</p>
+      <p><strong>EDTA</strong> (acide éthylènediaminetétraacétique) : hexadentate (2 N + 4 O). Forme des complexes très stables (\(\beta &gt; 10^{12}\)) avec quasi-tous les cations métalliques. Applications :</p>
+      <ul>
+        <li><strong>Titrages complexométriques</strong> : dosage \(\ce{Ca^{2+}, Mg^{2+}}\) (dureté de l'eau).</li>
+        <li><strong>Antidote</strong> aux intoxications par métaux lourds (plomb, mercure).</li>
+        <li><strong>Conservation</strong> alimentaire et cosmétique (\(\ce{Na2EDTA}\) chelate les traces métalliques catalysant l'oxydation).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>7.2 Compétition complexation-précipitation</h3>
+  <div class="fbox c">
+    <span class="fl">Dissolution d'un précipité par un ligand</span>
+    <span class="fc">Réaction globale : \(\ce{MX_n(s) + p L &lt;=&gt; [ML_p]^{n+} + n X^-}\). Constante :</span>
+    <span class="fm">\[ K \;=\; K_s\cdot \beta_p \]</span>
+    <hr>
+    <span class="fc">Si \(K \gg 1\), le précipité se dissout en présence du ligand. Exemple emblématique :</span>
+    <span class="fm">\[ \ce{AgCl(s) + 2 NH3 &lt;=&gt; [Ag(NH3)2]+ + Cl-} \qquad K_s = 10^{-9{,}7}\,,\ \beta_2 = 10^{7{,}2}\ \Rightarrow K = 10^{-2{,}5} \]</span>
+    <span class="fc">À \([\ce{NH3}] = 1\,\mathrm{mol/L}\), le \(\ce{AgCl}\) se dissout. Procédé utilisé en photo argentique et en métallurgie (cyanuration de l'or).</span>
+  </div>
+
+  <h3>7.3 Couleur des complexes</h3>
+  <p>Les complexes des métaux de transition sont souvent <strong>colorés</strong> (transitions \(d\)–\(d\) en UV-Vis). La couleur dépend du métal, du ligand (champ fort/faible — théorie du champ cristallin), de la géométrie. Exemples : \(\ce{[Cu(H2O)6]^{2+}}\) (bleu pâle), \(\ce{[Cu(NH3)4]^{2+}}\) (bleu nuit), \(\ce{[Fe(SCN)]^{2+}}\) (rouge sang).</p>
+</div>
+
+<!-- ═══════════════════ 08 REDOX ═══════════════════ -->
+<div class="sblock r" id="redox">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Oxydoréduction en solution</h2>
+  <p class="intro">Sujet oral n°14 (Oxydo-réduction). Couples redox en solution, équation de Nernst, dosages et applications. Pour les piles et l'électrolyse, voir <a href="electrochimie.html">électrochimie</a>.</p>
+
+  <h3>8.1 Couples redox et équation de Nernst</h3>
+  <div class="fbox c">
+    <span class="fl">Potentiel d'électrode</span>
+    <span class="fc">Pour un couple \(\ce{Ox + n e^- &lt;=&gt; Red}\), l'équation de Nernst (à 25 °C) :</span>
+    <span class="fm">\[ E \;=\; E^\circ + \dfrac{0{,}0592}{n}\,\log\!\dfrac{[\ce{Ox}]^a}{[\ce{Red}]^b} \]</span>
+    <hr>
+    <span class="fc">Convention : potentiels standard mesurés vs ESH (\(\ce{H+/H2}\), \(E^\circ = 0\,\mathrm{V}\)).</span>
+    <hr>
+    <span class="fc">Classement (\(E^\circ\) en V, sélection) :</span>
+    <span class="fm">\[ \ce{F2/F-}\ (+2{,}87) &gt; \ce{MnO4-/Mn^{2+}}\ (+1{,}51) &gt; \ce{Cl2/Cl-}\ (+1{,}36) &gt; \ce{O2/H2O}\ (+1{,}23) &gt; \ldots &gt; \ce{Zn^{2+}/Zn}\ (-0{,}76) &gt; \ce{Na+/Na}\ (-2{,}71) \]</span>
+  </div>
+
+  <h3>8.2 Règle du gamma</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Prévision qualitative</div>
+    <div class="notion-body">
+      <p>Tracer un axe vertical de \(E^\circ\) décroissants. L'oxydant du couple le plus haut (\(E^\circ\) le plus élevé) réagit avec le réducteur du couple le plus bas (\(E^\circ\) le plus faible). La forme dessinée « γ » donne le sens spontané.</p>
+      <p>Constante d'équilibre de la réaction globale (à 25 °C) :</p>
+      \[ \log K^\circ \;=\; \dfrac{n\,(E^\circ_1 - E^\circ_2)}{0{,}0592} \]
+      <p>Si \(\Delta E^\circ &gt; 0{,}25\,\mathrm{V}\) (pour \(n = 1\)) : \(K^\circ &gt; 10^{4}\), réaction quasi-totale dans le sens direct.</p>
+    </div>
+  </div>
+
+  <h3>8.3 Dosages redox</h3>
+  <div class="fbox c">
+    <span class="fl">Méthodes courantes</span>
+    <span class="fc"><strong>Permanganimétrie</strong> : oxydation par \(\ce{MnO4-}\) (violet) → \(\ce{Mn^{2+}}\) (incolore). L'équivalence est repérée par persistance de la couleur violette. Applications : dosage du \(\ce{Fe^{2+}}\), de l'eau oxygénée, des oxalates.</span>
+    <hr>
+    <span class="fc"><strong>Iodométrie</strong> : \(\ce{I2}\) (jaune brun) titré par \(\ce{S2O3^{2-}}\) (thiosulfate). Indicateur empois d'amidon (bleu noir avec \(\ce{I2}\), incolore à l'équivalence). Applications : dosage du dichlore, du cuivre.</span>
+    <hr>
+    <span class="fc"><strong>Cérimétrie</strong> : oxydation par \(\ce{Ce^{4+}}\) (orange). Très stable, méthode précise.</span>
+    <hr>
+    <span class="fc"><strong>Potentiométrie</strong> : suivi de \(E\) au cours du titrage. Saut à l'équivalence si \(\Delta E^\circ\) suffisant.</span>
+  </div>
+
+  <h3>8.4 Dismutation et médiamutation</h3>
+  <div class="alert alert-chim r">
+    <span class="ico">💡</span>
+    <div><strong>Dismutation</strong> : une espèce s'oxyde ET se réduit elle-même. Cas typique : son couple est <em>encadré</em> par deux autres couples de la même espèce dans la classification redox. Exemple : \(\ce{H2O2 -> O2 + H2O}\) : \(\ce{H2O2}\) se dismute en \(\ce{O2}\) (oxydation) et \(\ce{H2O}\) (réduction).
+    <br><br><strong>Médiamutation</strong> : deux formes extrêmes réagissent pour donner la forme intermédiaire (inverse de la dismutation).</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
+    <div class="notion-body"><ul>
+      <li><strong>Cycle 4 / Seconde</strong> : notion de pH (échelle, papier indicateur), ions principaux, premières dissolutions.</li>
+      <li><strong>1<sup>re</sup> spé</strong> : pH, couples acide/base, constante d'acidité \(K_a\), réactions d'oxydoréduction (nombre d'oxydation, équilibrage).</li>
+      <li><strong>Terminale spé</strong> : titrages pH-métriques et colorimétriques (point d'équivalence), dosages redox simples (permanganate-fer). Notion qualitative de \(K_s\) (introduite récemment).</li>
+      <li><strong>Terminale STL</strong> : approfondissement (complexométrie EDTA, conductimétrie quantitative).</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confondre acide <em>fort</em> (entièrement dissocié) et acide <em>concentré</em> (grande quantité).</li>
+        <li>Croire qu'à l'équivalence pH = 7 toujours (faux pour acide faible / base forte ou inverse).</li>
+        <li>Oublier que \(K_s, \beta, K_a\) sont des constantes <em>sans unité</em> (activités, division par \(c^\circ\)).</li>
+        <li>Inclure les solides dans \(K_s\) (activité = 1, n'apparaissent pas).</li>
+        <li>Oublier d'équilibrer les charges ET les atomes dans une demi-équation redox.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 10 DEMOS ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Démonstrations attendues à l'écrit et à l'oral.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.1 — pH d'un acide faible peu dissocié</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Soit un acide faible \(\ce{AH}\) de concentration initiale \(C_a\), \(pK_a\) connu. Équilibre \(\ce{AH + H2O &lt;=&gt; A^- + H3O+}\).</p>
+        <p>Bilan : \([\ce{AH}] = C_a - x\), \([\ce{A^-}] = x\), \([\ce{H3O+}] \approx x\) (autoprotolyse négligée).</p>
+        \[ K_a = \dfrac{x \cdot x}{C_a - x} \approx \dfrac{x^{2}}{C_a} \quad (\text{si } x \ll C_a). \]
+        <p>D'où \(x = \sqrt{K_a\,C_a}\). Le pH :</p>
+        \[ \mathrm{pH} = -\log x = -\log\sqrt{K_a C_a} = \dfrac{1}{2}\,(-\log K_a - \log C_a) = \dfrac{1}{2}\,(pK_a - \log C_a). \]
+        <p>Validité : \(\alpha = x/C_a = \sqrt{K_a/C_a} \ll 1\), soit \(C_a \gg K_a\) (ou \(pK_a + \log C_a \geq 1\)).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.2 — Formule de Henderson-Hasselbalch</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour un mélange \(\ce{AH}\) et \(\ce{A^-}\) en concentrations \([\ce{AH}]\) et \([\ce{A^-}]\) :</p>
+        \[ K_a = \dfrac{[\ce{A^-}]\,[\ce{H3O+}]}{[\ce{AH}]} \quad\Longrightarrow\quad [\ce{H3O+}] = K_a\,\dfrac{[\ce{AH}]}{[\ce{A^-}]}. \]
+        <p>En prenant le \(-\log\) :</p>
+        \[ \mathrm{pH} = pK_a - \log\!\left(\dfrac{[\ce{AH}]}{[\ce{A^-}]}\right) = pK_a + \log\!\left(\dfrac{[\ce{A^-}]}{[\ce{AH}]}\right). \]
+        <p>Hypothèse implicite : les concentrations à l'équilibre sont voisines des concentrations introduites (dissociation peu altérée). Valable si on est dans la zone tampon, à condition que \(C_a, C_b \gg K_a\) et \(\gg K_b\) (≪ ne perturbe pas).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.3 — pH à la demi-équivalence d'un acide faible</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Titrage d'un acide faible \(\ce{AH}\) par une base forte. À \(V_b = V_{\text{éq}}/2\) : la moitié des moles d'acide ont été neutralisées en \(\ce{A^-}\).</p>
+        \[ n(\ce{AH})_{\text{restant}} = n(\ce{A^-})_{\text{formé}} = n_{a,\text{initial}}/2. \]
+        <p>Donc \([\ce{AH}] = [\ce{A^-}]\) (en négligeant la dilution due à \(V_b\)). Par Henderson :</p>
+        \[ \boxed{\;\mathrm{pH}_{V_{\text{éq}}/2} \;=\; pK_a + \log 1 \;=\; pK_a\;} \]
+        <p>Méthode rapide et précise pour mesurer expérimentalement le \(pK_a\) d'un acide faible.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.4 — Solubilité d'un sel 2:1</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour \(\ce{Ag2CrO4(s) &lt;=&gt; 2 Ag+ + CrO4^{2-}}\), si \(s\) (mol/L) du sel se dissolvent :</p>
+        \[ [\ce{Ag+}] = 2 s\,,\quad [\ce{CrO4^{2-}}] = s. \]
+        <p>Produit de solubilité :</p>
+        \[ K_s = [\ce{Ag+}]^{2}[\ce{CrO4^{2-}}] = (2s)^{2}\cdot s = 4 s^{3}. \]
+        <p>D'où :</p>
+        \[ \boxed{\;s = \sqrt[3]{K_s/4}\;} \]
+        <p>Numériquement, avec \(K_s = 1{,}1\times 10^{-12}\) : \(s = (2{,}75\times 10^{-13})^{1/3} \approx 6{,}5\times 10^{-5}\,\mathrm{mol/L}\). Soit \(\sim 22\,\mathrm{mg/L}\) — peu soluble.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>10.5 — Dissolution d'\(\ce{AgCl}\) par l'ammoniac</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Réaction de dissolution complexante :</p>
+        \[ \ce{AgCl(s) + 2 NH3 &lt;=&gt; [Ag(NH3)2]+ + Cl-} \]
+        <p>Décomposition en deux équilibres :</p>
+        \[ \text{Dissolution :}\quad \ce{AgCl(s) &lt;=&gt; Ag+ + Cl-}\,,\quad K_s = 10^{-9{,}7} \]
+        \[ \text{Complexation :}\quad \ce{Ag+ + 2 NH3 &lt;=&gt; [Ag(NH3)2]+}\,,\quad \beta_2 = 10^{7{,}2} \]
+        <p>Multiplication des deux équilibres → réaction globale :</p>
+        \[ K_{\text{globale}} = K_s \cdot \beta_2 = 10^{-9{,}7+7{,}2} = 10^{-2{,}5} \approx 3\times 10^{-3}. \]
+        <p>À une concentration \([\ce{NH3}] = 1\,\mathrm{mol/L}\), avec \([\ce{[Ag(NH3)2]+}] = [\ce{Cl-}] = s\) :</p>
+        \[ K_{\text{globale}} = s^{2}/[\ce{NH3}]^{2} \quad\Rightarrow\quad s = \sqrt{K_{\text{globale}}}\cdot [\ce{NH3}] \approx 0{,}055\,\mathrm{mol/L}. \]
+        <p>Soit ~7,9 g/L de \(\ce{AgCl}\) dissout dans \(\ce{NH3}\) molaire (vs 0,002 g/L dans l'eau pure). Application photo argentique : « fixateur » au thiosulfate dissout l'\(\ce{AgX}\) non révélé.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 11 EXOS ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Exercices résolus — type concours</h2>
+  <p class="intro">Trois exercices calibrés agrégation interne.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — pH d'un mélange acide acétique / acétate (★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>On prépare un tampon en dissolvant \(0{,}10\,\mathrm{mol}\) de \(\ce{CH3COOH}\) et \(0{,}20\,\mathrm{mol}\) de \(\ce{CH3COONa}\) dans 1 L d'eau. \(pK_a(\ce{CH3COOH}/\ce{CH3COO-}) = 4{,}75\).</p>
+      <ol>
+        <li>Calculer le pH du tampon.</li>
+        <li>On ajoute 1 mmol de \(\ce{HCl}\) sans variation de volume. Calculer le nouveau pH.</li>
+        <li>Comparer avec ce qu'on aurait obtenu en ajoutant 1 mmol \(\ce{HCl}\) à 1 L d'eau pure.</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Henderson-Hasselbalch :</p>
+      \[ \mathrm{pH} = pK_a + \log\!\dfrac{[\ce{CH3COO-}]}{[\ce{CH3COOH}]} = 4{,}75 + \log(0{,}20/0{,}10) = 4{,}75 + 0{,}30 = 5{,}05. \]
+      <p><strong>2.</strong> Le \(\ce{HCl}\) (acide fort, 1 mmol) protonne 1 mmol de \(\ce{CH3COO-}\) en \(\ce{CH3COOH}\) :</p>
+      <ul>
+        <li>\([\ce{CH3COO-}]\) passe de 0,20 à 0,199 mol/L.</li>
+        <li>\([\ce{CH3COOH}]\) passe de 0,10 à 0,101 mol/L.</li>
+      </ul>
+      \[ \mathrm{pH} = 4{,}75 + \log(0{,}199/0{,}101) = 4{,}75 + 0{,}294 = 5{,}044 \approx 5{,}04. \]
+      <p>Variation : \(\Delta\mathrm{pH} = -0{,}01\) (quasi-imperceptible).</p>
+      <p><strong>3.</strong> Dans l'eau pure : 1 mmol/L de \(\ce{HCl}\) → \([\ce{H+}] = 10^{-3}\,\mathrm{mol/L}\) → \(\mathrm{pH} = 3\). Variation depuis le pH initial 7 : \(\Delta\mathrm{pH} = -4\) (catastrophique). Le tampon a divisé l'effet par 400 — illustration spectaculaire de l'efficacité tamponante.</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — Titrage potentiométrique d'un acide phosphorique (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>On titre 20 mL d'une solution de \(\ce{H3PO4}\) (\(pK_a\) = 2,1, 7,2, 12,4) à 0,10 mol/L par \(\ce{NaOH}\) à 0,10 mol/L.</p>
+      <ol>
+        <li>Calculer les volumes d'équivalence (théoriques).</li>
+        <li>Calculer le pH initial, à la demi-équivalence du 1<sup>er</sup> saut, à la 1<sup>re</sup> équivalence, à la 2<sup>e</sup> équivalence.</li>
+        <li>Combien de sauts seront visibles expérimentalement ? Pourquoi ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> 3 acidités théoriques. À chaque équivalence : \(C_a V_a = n\cdot C_b V_b\) avec \(n = 1\) (par étape). Pour 20 mL à 0,1 mol/L = 2 mmol, \(V_{\text{éq},n} = n \times 20\,\mathrm{mL}\). Donc 20, 40, 60 mL.</p>
+      <p><strong>2.</strong></p>
+      <ul>
+        <li><strong>Initial</strong> : \(\ce{H3PO4}\) acide « assez fort » (\(pK_{a_1} = 2{,}1\)). Approximation acide faible : \(\mathrm{pH} \approx \frac{1}{2}(pK_a - \log C) = \frac{1}{2}(2{,}1 + 1) = 1{,}55\). En pratique, vérifier que \(\alpha\) reste &lt; 1 (ici, modeste car \(pK_a\) bas).</li>
+        <li><strong>Demi-éq 1</strong> (\(V_b = 10\,\mathrm{mL}\)) : \([\ce{H3PO4}] = [\ce{H2PO4^-}]\) → \(\mathrm{pH} = pK_{a_1} = 2{,}1\).</li>
+        <li><strong>1<sup>re</sup> équivalence</strong> (\(V_b = 20\,\mathrm{mL}\)) : amphotère \(\ce{H2PO4^-}\) → \(\mathrm{pH} \approx \frac{1}{2}(pK_{a_1} + pK_{a_2}) = \frac{1}{2}(2{,}1 + 7{,}2) = 4{,}65\).</li>
+        <li><strong>2<sup>e</sup> équivalence</strong> (\(V_b = 40\,\mathrm{mL}\)) : amphotère \(\ce{HPO4^{2-}}\) → \(\mathrm{pH} \approx \frac{1}{2}(pK_{a_2} + pK_{a_3}) = \frac{1}{2}(7{,}2 + 12{,}4) = 9{,}8\).</li>
+      </ul>
+      <p><strong>3.</strong> Seulement <strong>2 sauts visibles</strong>. Pourquoi ?</p>
+      <ul>
+        <li>1<sup>er</sup> saut autour de \(\mathrm{pH} = 4{,}65\) : net.</li>
+        <li>2<sup>e</sup> saut autour de \(\mathrm{pH} = 9{,}8\) : net.</li>
+        <li>3<sup>e</sup> saut autour de \(\mathrm{pH} = 12\)–\(13\) : <em>invisible</em> car \(pK_{a_3} = 12{,}4\) est trop proche du \(pK_e = 14\). L'eau elle-même est titrée en compétition avec \(\ce{HPO4^{2-}}\).</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Précipitation sélective et compétition complexation (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>On dispose d'une solution contenant \(\ce{Ag+}\) et \(\ce{Pb^{2+}}\), tous deux à \(10^{-2}\,\mathrm{mol/L}\). On souhaite séparer ces ions par précipitation à l'iodure. Données : \(K_s(\ce{AgI}) = 8{,}5\times 10^{-17}\), \(K_s(\ce{PbI2}) = 7{,}1\times 10^{-9}\).</p>
+      <ol>
+        <li>Calculer la concentration minimale en \(\ce{I-}\) pour faire précipiter chacun des ions.</li>
+        <li>Si l'on ajoute progressivement \(\ce{KI}\), lequel précipite en premier ?</li>
+        <li>Quelle est la concentration résiduelle en \(\ce{Ag+}\) lorsque \(\ce{Pb^{2+}}\) commence à précipiter ?</li>
+        <li>Conclusion sur la qualité de la séparation.</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Pour \(\ce{AgI}\) : \([\ce{I^-}]_{\min} = K_s / [\ce{Ag+}] = 8{,}5\times 10^{-17} / 10^{-2} = 8{,}5\times 10^{-15}\,\mathrm{mol/L}\).</p>
+      <p>Pour \(\ce{PbI2}\) (\(K_s = [\ce{Pb^{2+}}][\ce{I-}]^{2}\)) : \([\ce{I^-}]_{\min} = \sqrt{K_s/[\ce{Pb^{2+}}]} = \sqrt{7{,}1\times 10^{-9}/10^{-2}} = \sqrt{7{,}1\times 10^{-7}} \approx 8{,}4\times 10^{-4}\,\mathrm{mol/L}\).</p>
+      <p><strong>2.</strong> \(\ce{AgI}\) précipite à \(8{,}5\times 10^{-15}\) mol/L, énorme avant \(\ce{PbI2}\) (\(8{,}4\times 10^{-4}\)). C'est \(\ce{AgI}\) qui précipite en premier (de loin).</p>
+      <p><strong>3.</strong> Quand \([\ce{I^-}] = 8{,}4\times 10^{-4}\,\mathrm{mol/L}\), \([\ce{Ag+}]\) restant en solution :</p>
+      \[ [\ce{Ag+}] = K_s(\ce{AgI})/[\ce{I^-}] = 8{,}5\times 10^{-17}/8{,}4\times 10^{-4} = 1{,}0\times 10^{-13}\,\mathrm{mol/L}. \]
+      <p><strong>4.</strong> La concentration résiduelle en \(\ce{Ag+}\) est de \(10^{-13}\,\mathrm{mol/L}\), soit \(10^{11}\) fois plus faible qu'initialement. La séparation est <strong>excellente</strong> : pratiquement tout l'argent précipite avant que le plomb commence. C'est la base de l'analyse qualitative classique (groupes Ag/Pb/Hg séparés par précipitation différentielle).</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 12 LECONS-MONTAGES ═══════════════════ -->
+<div class="sblock r" id="lecons-montages">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Leçons pour l'oral & montages expérimentaux</h2>
+  <p class="intro">Deux propositions de leçons + deux montages.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon — Solutions tampons et homéostasie du sang</h4>
+    <div class="lecon-meta">Niveau · Terminale spé / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Pourquoi le pH de notre sang reste-t-il en permanence entre 7,35 et 7,45, alors que nous produisons ou ingérons constamment des acides (lactique, gastrique) et des bases (alimentation) ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Notion de pH et de tampon : démo expérimentale de comparaison tampon vs eau (ajout de \(\ce{HCl}\) ou \(\ce{NaOH}\)).</li>
+      <li>Préparation d'un tampon acétate au laboratoire — calcul des proportions par Henderson-Hasselbalch.</li>
+      <li>Démonstration de la formule de Henderson. Zone tampon \([pK_a \pm 1]\). Capacité tamponante.</li>
+      <li>Tampons physiologiques : \(\ce{H2CO3}/\ce{HCO3^-}\) (sang), \(\ce{H2PO4^-}/\ce{HPO4^{2-}}\) (intracellulaire), hémoglobine.</li>
+      <li>Acidose et alcalose : pathologies liées au déséquilibre acide-base. Régulation respiratoire (\(\ce{CO2}\)) et rénale.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> 1<sup>re</sup> spé : pH, acide-base, \(K_a\). Terminale spé : équilibre acide-base quantitatif, calculs de pH. Lien SVT : régulation physiologique.</p>
+    <p><strong>Activité élève proposée.</strong> Préparer trois solutions (eau pure, tampon acétate, tampon ammoniacal) au laboratoire. Y verser progressivement \(\ce{HCl}\), suivre le pH. Comparer les courbes et conclure sur la zone d'efficacité.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage 1 — Titrage pH-métrique et conductimétrique couplés</h4>
+    <p><strong>Objectif.</strong> Doser une solution d'acide faible (\(\ce{CH3COOH}\) inconnu) par \(\ce{NaOH}\), comparer les deux méthodes.</p>
+    <p><strong>Matériel.</strong> pH-mètre étalonné, conductimètre étalonné, burette graduée, bécher, agitateur magnétique, solutions \(\ce{NaOH}\) (0,1 mol/L) et acide à doser.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Prélever 20 mL de l'acide, ajouter de l'eau distillée jusqu'à immerger les électrodes (\(\sim 100\,\mathrm{mL}\)).</li>
+      <li>Verser \(\ce{NaOH}\) par 0,5 mL. Noter pH et conductivité après chaque ajout.</li>
+      <li>Affiner près de l'équivalence (ajouts de 0,1 mL).</li>
+      <li>Tracer \(\mathrm{pH}(V_b)\) et \(\sigma(V_b)\). Détermination du volume d'équivalence par dérivée et par intersection des droites.</li>
+      <li>Calculer \(C_a\) par bilan stœchiométrique.</li>
+      <li>Mesurer \(pK_a\) à la demi-équivalence (méthode rapide).</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Étalonnage pH-mètre (\(\pm 0{,}05\)), précision burette (\(\pm 0{,}05\,\mathrm{mL}\)), concentration \(\ce{NaOH}\) (\(\pm 2\,\%\) après préparation/conservation).</p>
+    <p><strong>Exploitation.</strong> Comparer les deux méthodes : pH-métrie plus fine sur le saut, conductimétrie plus robuste si le saut est petit. Discussion des avantages et limites. Comparer le \(pK_a\) mesuré à la valeur tabulée.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage 2 — Dosage de la dureté d'une eau par complexométrie EDTA</h4>
+    <p><strong>Objectif.</strong> Mesurer la concentration en \(\ce{Ca^{2+}} + \ce{Mg^{2+}}\) (dureté de l'eau) par titrage à l'EDTA.</p>
+    <p><strong>Matériel.</strong> Solution EDTA (\(10^{-2}\,\mathrm{mol/L}\)), tampon ammoniacal pH 10, indicateur Noir d'Eriochrome T (NET), burette, fiole conique, échantillon d'eau.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Dans une fiole conique : 50 mL d'eau à doser + 5 mL tampon pH 10 + 3 gouttes NET. La solution devient rouge vin (NET-Mg lié).</li>
+      <li>Titrer par EDTA jusqu'au virage rouge → bleu (NET libre).</li>
+      <li>Réaction : \(\ce{EDTA^{4-} + Mg^{2+} (ou Ca^{2+}) -> [M(EDTA)]^{2-}}\). L'EDTA déloge le NET du métal.</li>
+      <li>Concentration totale \([Ca + Mg] = C_{\text{EDTA}}\,V_{\text{éq}}/V_{\text{échantillon}}\).</li>
+      <li>Convertir en degré français (TH) : 1 °f = 10 mg CaCO₃/L.</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Lecture du virage (\(\pm 0{,}05\,\mathrm{mL}\)), pureté EDTA, calibration.</p>
+    <p><strong>Exploitation.</strong> Eau « douce » : TH &lt; 15. Eau « dure » : TH &gt; 30 (problèmes d'entartrage). Vérification par référence de l'eau du robinet local. Discussion des techniques d'adoucissement (résines échangeuses d'ions, filtres).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 13 JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 13</div>
+  <h2>13. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Acide fort vs concentré.</strong> Acide fort = entièrement dissocié (\(\ce{HCl}, \ce{HNO3}, \ce{H2SO4}\) 1<sup>re</sup> acidité, \(\ce{HClO4}\)). Acide concentré = quantité élevée. Un acide faible peut être très concentré (vinaigre 6 %). Confusion fréquente à l'oral.</div>
+    <div class="jury-item"><strong>pH à l'équivalence \(\neq 7\).</strong> pH = 7 seulement pour acide fort / base forte. Acide faible / base forte → pH_éq &gt; 7. Base faible / acide fort → pH_éq &lt; 7. Toujours analyser l'espèce présente à l'équivalence.</div>
+    <div class="jury-item"><strong>Activités et constantes.</strong> Les solides ont \(a = 1\) (n'apparaissent pas dans \(K_s\)). Le solvant a \(a = 1\) en solution diluée (n'apparaît pas dans \(K_a, \beta\)). Les concentrations sont divisées par \(c^\circ = 1\,\mathrm{mol/L}\) (constantes sans unité).</div>
+    <div class="jury-item"><strong>Équilibrage des demi-équations redox.</strong> Méthode systématique : (1) équilibrer atomes principaux ; (2) équilibrer O avec \(\ce{H2O}\) ; (3) équilibrer H avec \(\ce{H+}\) ; (4) équilibrer charges avec \(\ce{e-}\). En milieu basique, additionner \(\ce{OH-}\) pour neutraliser les \(\ce{H+}\). Étape souvent bâclée.</div>
+    <div class="jury-item"><strong>Dilution lors d'un titrage.</strong> Au cours du titrage, le volume total augmente. Pour des calculs précis, ne pas négliger la dilution (sauf si \(V_b \ll V_a\)). Important surtout aux titrages dilués ou pour la détermination de \(K_a\) à la demi-équivalence (où l'erreur de dilution affecte le rapport \([\ce{AH}]/[\ce{A^-}]\)).</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">Solution d'acide acétique 0,01 mol/L (\(pK_a = 4{,}75\)). pH approximatif :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. L\'acide acétique est faible (Ka ≪ 1), pas entièrement dissocié. Un acide fort à 0,01 mol/L aurait pH = 2.')">\(\mathrm{pH} = 2\) (acide fort)</button><button class="q-opt" onclick="quiz(this,true,'Correct. pH ≈ ½(pKa − log C) = ½(4,75 + 2) = 3,4. α = 10^(pH−pKa) ≈ 4,5 % < 5 % → hypothèse valide.')">\(\mathrm{pH} \approx \dfrac{1}{2}(pK_a - \log C_a) \approx 3{,}4\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Une solution d\'acide donne pH < 7, jamais 7 (neutre).')">\(\mathrm{pH} \approx 7\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Titrage de \(\ce{CH3COOH}\) (pKa = 4,75) par \(\ce{NaOH}\). À l'équivalence :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. pH = 7 seulement pour acide fort / base forte. Ici l\'acétate (base faible) est seul en solution → pH > 7.')">\(\mathrm{pH} = 7\)</button><button class="q-opt" onclick="quiz(this,false,'Non. À l\'équivalence, l\'acide est entièrement neutralisé. La base conjuguée acétate domine → pH basique, pas acide.')">\(\mathrm{pH} &lt; 7\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. À l\'équivalence, seul l\'acétate (base faible) reste. pH_éq = ½(pKa + 14 + log C_éq), typiquement ~8,7 pour C ≈ 0,01 mol/L. > 7.')">\(\mathrm{pH} &gt; 7\) (acétate base faible)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">\(K_s(\ce{Ag2CrO4}) = 1{,}1\times 10^{-12}\). Solubilité dans l'eau pure :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Ag₂CrO₄ → 2Ag⁺ + CrO₄²⁻. Ks = [Ag+]²[CrO₄²⁻] = (2s)²s = 4s³, pas s².')">\(s = \sqrt{K_s} \approx 10^{-6}\,\mathrm{mol/L}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. Ks = 4s³ → s = (Ks/4)^(1/3) = (2,75×10⁻¹³)^(1/3) ≈ 6,5×10⁻⁵ mol/L. Bien plus soluble que ce qu\'on aurait cru en applicant √Ks.')">\(s = (K_s/4)^{1/3} \approx 6{,}5\times 10^{-5}\,\mathrm{mol/L}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. s ≠ Ks. Il faut résoudre Ks = 4s³.')">\(s = K_s = 1{,}1\times 10^{-12}\,\mathrm{mol/L}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pour un tampon optimal à pH = 7,2, quel couple choisir ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. CH₃COOH a pKa = 4,75, zone tampon 3,75-5,75. Inadapté à pH 7,2.')">\(\ce{CH3COOH/CH3COO^-}\) (pKa = 4,75)</button><button class="q-opt" onclick="quiz(this,true,'Correct. H₂PO₄⁻/HPO₄²⁻ a pKa = 7,21 ≈ pH visé. Capacité tamponante maximale. C\'est le tampon intracellulaire physiologique.')">\(\ce{H2PO4^-/HPO4^{2-}}\) (pKa = 7,21)</button><button class="q-opt" onclick="quiz(this,false,'Non. NH₄⁺ a pKa = 9,25, zone tampon 8,25-10,25. Trop basique pour pH 7,2.')">\(\ce{NH4+/NH3}\) (pKa = 9,25)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Dans un titrage conductimétrique de \(\ce{HCl}\) par \(\ce{NaOH}\), la conductivité \(\sigma\) :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. H₃O⁺ (λ° = 35) est remplacé par Na⁺ (λ° = 5). Donc σ diminue avant l\'équivalence.')">Augmente puis diminue</button><button class="q-opt" onclick="quiz(this,true,'Correct. Avant éq : H₃O⁺ (λ° = 35) remplacé par Na⁺ (λ° = 5) → σ diminue. Après éq : ajout net de Na⁺ + OH⁻ (λ° = 5+20 = 25) → σ augmente. Rupture de pente à l\'équivalence — détectable par intersection.')">Diminue puis augmente (rupture à l'équivalence)</button><button class="q-opt" onclick="quiz(this,false,'Non. La conductivité varie au cours du titrage car les ions présents changent.')">Reste constante</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Constante de stabilité \(\beta = 10^{12}\). Le complexe est :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. β grand → équilibre déplacé vers le complexe formé → stable.')">Très instable (se dissocie facilement)</button><button class="q-opt" onclick="quiz(this,true,'Correct. β = [complexe]/([M][L]ᵖ) = 10¹² très grand → formation quasi-totale du complexe. Stable. C\'est le cas typique d\'EDTA-métal divalent.')">Très stable (équilibre quasi-totalement déplacé)</button><button class="q-opt" onclick="quiz(this,false,'Non. La couleur dépend du couple métal-ligand, pas de β en soi.')">Forcément coloré</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">À la demi-équivalence d'un titrage acide faible / base forte :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. pH = 7 ne se produit qu\'à l\'équivalence d\'un titrage acide fort / base forte.')">\(\mathrm{pH} = 7\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. À demi-équivalence, [AH] = [A⁻]. Par Henderson : pH = pKa + log(1) = pKa. C\'est une méthode rapide et précise pour mesurer pKa expérimentalement.')">\(\mathrm{pH} = pK_a\) (mesure rapide de \(pK_a\))</button><button class="q-opt" onclick="quiz(this,false,'Non. La conductivité change continûment lors du titrage. La rupture est à l\'équivalence, pas à la demi-équivalence.')">La conductivité atteint son minimum</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets et corrigés des sessions précédentes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.chemtube3d.com/" target="_blank">
+      <span class="ri">⚛</span><div><div class="rt">Chemtube3D</div><div class="rd">Animations 3D de structures</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="physique-moderne.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Physique moderne</span></a>
+  <a class="pnav-link next" href="thermodynamique-chimique.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Thermodynamique chimique</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link cur" href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

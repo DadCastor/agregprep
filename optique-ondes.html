@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optique, Ondes & Signal — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="active">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero r">
+    <div class="chap-eyebrow">Physique · Chapitres 15–21</div>
+    <h1>Optique, Ondes <em>& Signal</em></h1>
+    <p class="lead">Sujets oraux n°2 (Acoustique), n°6 (Interférences), n°7 (Diffraction), n°15 (Signal analogique/numérique), n°17 (Temps–fréquence), n°21 (Ondes stationnaires). Six sujets d'oral — un des chapitres les plus exposés.</p>
+    <div class="chap-badges"><span class="badge bp">Sujets oraux 2, 6, 7, 15, 17, 21</span> <span class="badge bg">Fréquent à l'écrit</span> <span class="badge br">6 sujets oraux</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#geometrique">01 · Optique géométrique</a>
+        <a href="#interferences">02 · Interférences</a>
+        <a href="#diffraction">03 · Diffraction</a>
+        <a href="#ondes-meca">04 · Ondes mécaniques</a>
+        <a href="#stationnaires">05 · Ondes stationnaires</a>
+        <a href="#acoustique">06 · Acoustique</a>
+        <a href="#signal">07 · Signal & Fourier</a>
+        <a href="#pedagogie">08 · Pédagogie</a>
+        <a href="#demos">09 · Démonstrations clés</a>
+        <a href="#exercices">10 · Exercices résolus</a>
+        <a href="#lecons">11 · Leçons pour l'oral</a>
+        <a href="#montages">12 · Montages</a>
+        <a href="#jury">13 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="cur" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 OPTIQUE GEOMETRIQUE ═══════════════════ -->
+<div class="sblock r" id="geometrique">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Optique géométrique</h2>
+  <p class="intro">Approximation valable quand la longueur d'onde \(\lambda\) est petite devant les dimensions des objets et instruments. Rayons lumineux et lois de Descartes.</p>
+
+  <h3>1.1 Lois de Snell-Descartes</h3>
+  <div class="fbox r">
+    <span class="fl">Réflexion et réfraction</span>
+    <span class="fc">Réflexion : les rayons incident et réfléchi sont dans le plan d'incidence, de même angle avec la normale.</span>
+    <span class="fm">\[ \theta_i \;=\; \theta_r \]</span>
+    <hr>
+    <span class="fc">Réfraction (passage milieu 1 → milieu 2, indices \(n_1\) et \(n_2\)) :</span>
+    <span class="fm">\[ n_1\,\sin\theta_1 \;=\; n_2\,\sin\theta_2 \]</span>
+    <hr>
+    <span class="fc">Réflexion totale interne (\(n_1 &gt; n_2\), angle limite \(\theta_{\text{lim}}\) au-delà duquel pas de réfraction) :</span>
+    <span class="fm">\[ \sin\theta_{\text{lim}} \;=\; \dfrac{n_2}{n_1} \]</span>
+  </div>
+
+  <h3>1.2 Lentille mince — relation de conjugaison</h3>
+  <div class="fbox r">
+    <span class="fl">Lentille mince, convention algébrique (sens lumière → axe \(+\))</span>
+    <span class="fc">Vergence et distance focale :</span>
+    <span class="fm">\[ V \;=\; \dfrac{1}{f'} \quad [\text{dioptries}] \qquad (f' \text{ en mètres}) \]</span>
+    <hr>
+    <span class="fc">Relation de conjugaison (Descartes), \(\overline{OA} = u\), \(\overline{OA'} = v\) :</span>
+    <span class="fm">\[ \dfrac{1}{v} - \dfrac{1}{u} \;=\; \dfrac{1}{f'} \]</span>
+    <hr>
+    <span class="fc">Grandissement transversal :</span>
+    <span class="fm">\[ \gamma \;=\; \dfrac{\overline{A'B'}}{\overline{AB}} \;=\; \dfrac{v}{u} \]</span>
+    <span class="fc">\(\gamma &lt; 0\) : image renversée ; \(|\gamma| &gt; 1\) : image agrandie.</span>
+  </div>
+
+  <h3>1.3 Prisme et déviation</h3>
+  <div class="fbox r">
+    <span class="fl">Prisme — formules fondamentales</span>
+    <span class="fc">Pour un prisme d'angle \(A\), indice \(n\) :</span>
+    <span class="fm">\[ \sin i_1 = n\,\sin r_1\,,\quad \sin i_2 = n\,\sin r_2\,,\quad r_1 + r_2 = A \]</span>
+    <span class="fm">\[ D \;=\; i_1 + i_2 - A \quad\text{(déviation totale)} \]</span>
+    <hr>
+    <span class="fc">Minimum de déviation \(D_m\) (dispositif symétrique \(i_1 = i_2 = i_m\), \(r_1 = r_2 = A/2\)) :</span>
+    <span class="fm">\[ n \;=\; \dfrac{\sin\!\left(\dfrac{A + D_m}{2}\right)}{\sin\!\left(\dfrac{A}{2}\right)} \]</span>
+    <span class="fc">Permet la mesure précise de l'indice d'un verre.</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 INTERFERENCES ═══════════════════ -->
+<div class="sblock r" id="interferences">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Interférences à deux ondes</h2>
+  <p class="intro">Sujet oral n°6. Manifestation directe de la nature ondulatoire de la lumière. Coexistence d'ondes cohérentes → modulation spatiale de l'intensité.</p>
+
+  <h3>2.1 Conditions d'interférences et formule fondamentale</h3>
+  <div class="fbox r">
+    <span class="fl">Formule fondamentale des interférences à deux ondes</span>
+    <span class="fc">Pour deux ondes monochromatiques cohérentes d'amplitudes \(a_1, a_2\) et différence de marche \(\delta\) :</span>
+    <span class="fm">\[ I(\delta) \;=\; I_1 + I_2 + 2\sqrt{I_1\,I_2}\,\cos\!\left(\dfrac{2\pi\,\delta}{\lambda}\right) \]</span>
+    <hr>
+    <span class="fc">Conditions d'interférences :</span>
+    <span class="fc">— même fréquence (cohérence temporelle) — sources cohérentes en phase relative stable</span>
+    <span class="fc">— polarisation compatible (états identiques ou non orthogonaux)</span>
+    <span class="fc">— différence de marche \(\delta &lt; L_c\) (longueur de cohérence)</span>
+    <hr>
+    <span class="fc">Franges brillantes : \(\delta = p\,\lambda\) (interférence constructive, \(p \in \mathbb{Z}\)).</span>
+    <span class="fc">Franges sombres : \(\delta = (p + \tfrac{1}{2})\,\lambda\) (interférence destructive).</span>
+  </div>
+
+  <h3>2.2 Fentes d'Young</h3>
+  <div class="fbox r">
+    <span class="fl">Fentes d'Young — différence de marche et interfrange</span>
+    <span class="fc">Deux fentes parallèles séparées de \(a\), écran à distance \(D \gg a\), point d'observation \(M\) d'abscisse \(x\) :</span>
+    <span class="fm">\[ \delta(x) \;\approx\; \dfrac{a\,x}{D} \qquad \text{(approximation petits angles)} \]</span>
+    <hr>
+    <span class="fc">Interfrange (distance entre deux franges brillantes consécutives) :</span>
+    <span class="fm">\[ \boxed{\;i \;=\; \dfrac{\lambda\,D}{a}\;} \]</span>
+    <hr>
+    <span class="fc">Profil d'intensité (sources identiques, \(I_1 = I_2 = I_0\)) :</span>
+    <span class="fm">\[ I(x) \;=\; 2\,I_0\left[1 + \cos\!\left(\dfrac{2\pi a\,x}{\lambda D}\right)\right] \;=\; 4 I_0 \cos^{2}\!\left(\dfrac{\pi a\,x}{\lambda D}\right) \]</span>
+  </div>
+
+  <h3>2.3 Visibilité et cohérence</h3>
+  <div class="fbox r">
+    <span class="fl">Contraste et longueur de cohérence</span>
+    <span class="fc">Visibilité (contraste de Michelson) :</span>
+    <span class="fm">\[ V \;=\; \dfrac{I_{\max} - I_{\min}}{I_{\max} + I_{\min}} \;\in\; [0, 1] \]</span>
+    <span class="fc">\(V = 1\) : franges parfaitement contrastées. \(V = 0\) : aucune interférence visible.</span>
+    <hr>
+    <span class="fc">Longueur de cohérence temporelle (source de largeur spectrale \(\Delta\nu\)) :</span>
+    <span class="fm">\[ L_c \;\approx\; \dfrac{c}{\Delta\nu} \;=\; \dfrac{\lambda^{2}}{\Delta\lambda} \]</span>
+    <span class="fc">Laser He-Ne : \(L_c \sim 20\,\mathrm{cm}\). Lampe spectrale \(\sim\) mm. Lumière blanche \(\sim\) µm.</span>
+  </div>
+
+  <h3>2.4 Interféromètre de Michelson</h3>
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Michelson — deux modes d'utilisation</div>
+    <div class="notion-body">
+      <p><strong>Lame d'air (franges d'égale inclinaison).</strong> Miroirs perpendiculaires. Différence de marche \(\delta = 2 e \cos\theta\) avec \(e\) épaisseur d'air, \(\theta\) angle d'incidence. Anneaux concentriques à l'infini, projetés à la sortie.</p>
+      <p><strong>Coin d'air (franges d'égale épaisseur).</strong> Miroirs légèrement inclinés (angle \(\alpha\) faible). Différence de marche \(\delta(x) \approx 2\,\alpha\,x\). Franges rectilignes localisées sur le coin d'air, observables à proximité.</p>
+      <p>Applications : mesure précise de \(\lambda\) (déplacement du chariot mobile), test de planéité de surfaces, spectroscopie par transformée de Fourier.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 DIFFRACTION ═══════════════════ -->
+<div class="sblock r" id="diffraction">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Diffraction</h2>
+  <p class="intro">Sujet oral n°7. Effet ondulatoire à l'origine de la limite de résolution de tous les instruments d'optique.</p>
+
+  <h3>3.1 Diffraction par une fente</h3>
+  <div class="fbox r">
+    <span class="fl">Fente unique — figure de diffraction de Fraunhofer</span>
+    <span class="fc">Fente de largeur \(a\), longueur d'onde \(\lambda\), angle d'observation \(\theta\) :</span>
+    <span class="fm">\[ I(\theta) \;=\; I_0\,\mathrm{sinc}^{2}\!\left(\dfrac{\pi\,a\,\sin\theta}{\lambda}\right) \qquad \mathrm{sinc}(u) = \dfrac{\sin u}{u} \]</span>
+    <hr>
+    <span class="fc">Premier zéro d'intensité (et tache centrale) :</span>
+    <span class="fm">\[ \sin\theta_1 \;=\; \dfrac{\lambda}{a} \qquad\text{largeur angulaire totale}\;\; 2\theta_1 \approx \dfrac{2\lambda}{a} \]</span>
+  </div>
+
+  <h3>3.2 Réseau de diffraction</h3>
+  <div class="fbox r">
+    <span class="fl">Réseau à \(N\) fentes, pas \(d\)</span>
+    <span class="fc">Position des maxima principaux (ordre \(p \in \mathbb{Z}\)) :</span>
+    <span class="fm">\[ d\,\sin\theta_p \;=\; p\,\lambda \]</span>
+    <hr>
+    <span class="fc">Pouvoir de résolution (capacité à distinguer deux longueurs d'onde proches) :</span>
+    <span class="fm">\[ R \;=\; \dfrac{\lambda}{\Delta\lambda} \;=\; p\,N \]</span>
+    <span class="fc">Plus l'ordre et le nombre de traits sont grands, plus le réseau est résolvant.</span>
+  </div>
+
+  <h3>3.3 Critère de Rayleigh</h3>
+  <div class="key-box">
+    \[ \theta_{\min} \;=\; 1{,}22\,\dfrac{\lambda}{D} \]
+    <p>Pour une ouverture circulaire de diamètre \(D\) : deux sources sont résolvables si leur séparation angulaire dépasse \(\theta_{\min}\). C'est la limite de résolution de tout instrument d'optique (œil, télescope, microscope).</p>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Applications du critère de Rayleigh</div>
+    <div class="notion-body"><ul>
+      <li><strong>Œil humain</strong> (\(D \approx 2\,\mathrm{mm}\), \(\lambda \approx 550\,\mathrm{nm}\)) : \(\theta_{\min} \approx 3{,}4\times 10^{-4}\,\mathrm{rad}\) ≈ 1 minute d'arc. Tableau de Snellen calibré sur cette valeur.</li>
+      <li><strong>Télescope Hubble</strong> (\(D = 2{,}4\,\mathrm{m}\)) : \(\theta_{\min} \approx 0{,}05\,\mu\mathrm{rad}\), 10 mille fois mieux que l'œil.</li>
+      <li><strong>Microscope optique</strong> : résolution latérale \(\sim \lambda/2 \approx 250\,\mathrm{nm}\) → motive l'utilisation d'UV ou de microscopie électronique pour aller au-delà.</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 04 ONDES MECANIQUES ═══════════════════ -->
+<div class="sblock r" id="ondes-meca">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Ondes mécaniques — équation d'onde et OPPM</h2>
+  <p class="intro">Cadre général des ondes (cordes, sons, surfaces) — équation d'onde de d'Alembert, ondes planes progressives, dispersion.</p>
+
+  <h3>4.1 Équation d'onde de d'Alembert</h3>
+  <div class="fbox r">
+    <span class="fl">Équation d'onde unidimensionnelle</span>
+    <span class="fm">\[ \dfrac{\partial^{2}\psi}{\partial t^{2}} \;=\; c^{2}\,\dfrac{\partial^{2}\psi}{\partial x^{2}} \]</span>
+    <span class="fc">avec \(\psi(x,t)\) déplacement, pression, ou autre grandeur ondulatoire. \(c\) : célérité.</span>
+    <hr>
+    <span class="fc">Solutions générales (d'Alembert) :</span>
+    <span class="fm">\[ \psi(x,t) \;=\; f(x - c\,t) + g(x + c\,t) \]</span>
+    <span class="fc">superposition d'une onde se propageant vers \(+x\) et d'une vers \(-x\).</span>
+  </div>
+
+  <h3>4.2 Onde plane progressive monochromatique (OPPM)</h3>
+  <div class="fbox r">
+    <span class="fl">OPPM — paramètres caractéristiques</span>
+    <span class="fm">\[ \psi(x,t) \;=\; A\,\cos(\omega\,t - k\,x + \varphi_0) \]</span>
+    <span class="fc">Pulsation \(\omega = 2\pi f\), vecteur d'onde \(k = 2\pi/\lambda\), phase initiale \(\varphi_0\).</span>
+    <hr>
+    <span class="fc">Relation de dispersion (milieu non dispersif) :</span>
+    <span class="fm">\[ \omega \;=\; c\,k \qquad\Longrightarrow\qquad v_\varphi \;=\; \dfrac{\omega}{k} = c\,,\quad v_g \;=\; \dfrac{\mathrm{d}\omega}{\mathrm{d}k} = c \]</span>
+    <hr>
+    <span class="fc">Milieu dispersif (relation \(\omega(k)\) non linéaire) :</span>
+    <span class="fm">\[ v_\varphi \neq v_g \qquad \text{en général} \]</span>
+    <span class="fc">\(v_\varphi\) : vitesse des fronts de phase. \(v_g\) : vitesse de transport de l'énergie et de l'information.</span>
+  </div>
+
+  <h3>4.3 Célérité des ondes mécaniques</h3>
+  <table class="compact">
+    <thead><tr><th>Système</th><th>Célérité \(c\)</th><th>Type d'onde</th></tr></thead>
+    <tbody>
+      <tr><td>Corde vibrante (tension \(T\), masse linéique \(\mu\))</td><td>\(c = \sqrt{T/\mu}\)</td><td>Transversale</td></tr>
+      <tr><td>Onde sonore dans un gaz (\(\gamma\), \(M\), \(T\))</td><td>\(c = \sqrt{\gamma R T / M}\)</td><td>Longitudinale</td></tr>
+      <tr><td>Onde de surface (eau peu profonde \(h\))</td><td>\(c = \sqrt{g\,h}\)</td><td>Mixte</td></tr>
+      <tr><td>Onde élastique solide (compression, module \(E\), \(\rho\))</td><td>\(c = \sqrt{E/\rho}\)</td><td>Longitudinale</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ 05 ONDES STATIONNAIRES ═══════════════════ -->
+<div class="sblock r" id="stationnaires">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Ondes stationnaires</h2>
+  <p class="intro">Sujet oral n°21. Superposition de deux OPPM contre-propageantes — modes propres, nœuds et ventres, quantification des fréquences.</p>
+
+  <h3>5.1 Formation d'une onde stationnaire</h3>
+  <div class="fbox r">
+    <span class="fl">Superposition de deux OPPM contre-propageantes</span>
+    <span class="fc">Deux OPPM de même amplitude se propageant en sens opposés :</span>
+    <span class="fm">\[ \psi_1 = A\cos(\omega t - k x)\,,\qquad \psi_2 = A\cos(\omega t + k x) \]</span>
+    <hr>
+    <span class="fc">Superposition (identité trigonométrique \(\cos a + \cos b = 2\cos\tfrac{a+b}{2}\cos\tfrac{a-b}{2}\)) :</span>
+    <span class="fm">\[ \boxed{\;\psi(x,t) \;=\; 2A\,\cos(k\,x)\,\cos(\omega\,t)\;} \]</span>
+    <span class="fc">Découplage spatial/temporel : la fonction du temps ne dépend pas de \(x\). Il n'y a plus de propagation.</span>
+  </div>
+
+  <h3>5.2 Nœuds et ventres</h3>
+  <div class="fbox r">
+    <span class="fl">Positions remarquables (\(\lambda = 2\pi/k\))</span>
+    <span class="fc">Nœuds (amplitude nulle, \(\cos(kx) = 0\)) :</span>
+    <span class="fm">\[ x_{\text{nœud}} \;=\; \dfrac{\lambda}{4} + p\,\dfrac{\lambda}{2}\qquad p \in \mathbb{Z} \]</span>
+    <hr>
+    <span class="fc">Ventres (amplitude max, \(|\cos(kx)| = 1\)) :</span>
+    <span class="fm">\[ x_{\text{ventre}} \;=\; p\,\dfrac{\lambda}{2}\qquad p \in \mathbb{Z} \]</span>
+    <span class="fc">Distance nœud–ventre voisin : \(\lambda/4\). Distance nœud–nœud (ou ventre–ventre) : \(\lambda/2\).</span>
+  </div>
+
+  <h3>5.3 Fréquences propres — modes</h3>
+  <div class="fbox r">
+    <span class="fl">Quantification par les conditions aux limites</span>
+    <span class="fc">Corde de longueur \(L\) fixée aux deux extrémités (\(\psi = 0\) en \(0\) et \(L\)) :</span>
+    <span class="fm">\[ L \;=\; n\,\dfrac{\lambda_n}{2} \quad\Longrightarrow\quad f_n \;=\; \dfrac{n\,c}{2L}\qquad n = 1,2,3,\ldots \]</span>
+    <hr>
+    <span class="fc">Tube sonore fermé-ouvert (nœud en fermé, ventre en ouvert) :</span>
+    <span class="fm">\[ L \;=\; (2n - 1)\,\dfrac{\lambda_n}{4} \quad\Longrightarrow\quad f_n \;=\; \dfrac{(2n-1)\,c}{4L} \quad\text{(harmoniques impairs)} \]</span>
+    <hr>
+    <span class="fc">Tube ouvert-ouvert (ventres aux deux extrémités) :</span>
+    <span class="fm">\[ f_n \;=\; \dfrac{n\,c}{2L} \qquad\text{(comme la corde fixée-fixée)} \]</span>
+  </div>
+
+  <pre class="ascii-schema">  Corde fixée-fixée — modes propres :
+
+  n=1 (fondamental, λ₁ = 2L)
+  ●─────⌣─────●     L = λ₁/2
+
+  n=2 (1er harmonique, λ₂ = L)
+  ●──⌣──●──⌣──●     L = λ₂
+
+  n=3 (2nd harmonique, λ₃ = 2L/3)
+  ●─⌣─●─⌣─●─⌣─●     L = 3λ₃/2
+
+  ● : nœud (point fixe)     ⌣ : ventre (amplitude max)</pre>
+</div>
+
+<!-- ═══════════════════ 06 ACOUSTIQUE ═══════════════════ -->
+<div class="sblock r" id="acoustique">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Acoustique</h2>
+  <p class="intro">Sujet oral n°2. Ondes sonores : ondes de pression longitudinales dans un fluide. Effets Doppler, niveau sonore, instruments de musique.</p>
+
+  <h3>6.1 Célérité du son et impédance</h3>
+  <div class="fbox r">
+    <span class="fl">Célérité dans un gaz parfait</span>
+    <span class="fm">\[ c \;=\; \sqrt{\dfrac{\gamma\,R\,T}{M}} \;=\; \sqrt{\dfrac{\gamma\,P}{\rho}} \]</span>
+    <span class="fc">Dans l'air à 20 °C : \(c \approx 343\,\mathrm{m\cdot s^{-1}}\).</span>
+    <hr>
+    <span class="fc">Impédance acoustique :</span>
+    <span class="fm">\[ Z \;=\; \rho\,c \quad [\mathrm{Pa\cdot s\cdot m^{-1}}] \qquad \text{air : } Z \approx 415\,\mathrm{Pa\cdot s\cdot m^{-1}} \]</span>
+    <span class="fc">Eau : \(Z \approx 1{,}5\times 10^{6}\,\mathrm{Pa\cdot s\cdot m^{-1}}\) — d'où la difficulté de transmission air ↔ eau (gel pour échographies).</span>
+  </div>
+
+  <h3>6.2 Intensité et niveau sonore</h3>
+  <div class="fbox r">
+    <span class="fl">Intensité acoustique et décibels</span>
+    <span class="fc">Intensité moyenne \(I\) (puissance par unité de surface) :</span>
+    <span class="fm">\[ I \;=\; \dfrac{p_{\text{rms}}^{2}}{Z} \quad [\mathrm{W\cdot m^{-2}}] \]</span>
+    <hr>
+    <span class="fc">Niveau sonore en décibels (seuil d'audibilité \(I_0 = 10^{-12}\,\mathrm{W\cdot m^{-2}}\)) :</span>
+    <span class="fm">\[ L \;=\; 10\,\log_{10}\!\left(\dfrac{I}{I_0}\right) \quad [\mathrm{dB}] \]</span>
+    <hr>
+    <span class="fc">Échelle typique : conversation 60 dB, trafic routier 80 dB, seuil de douleur 120 dB.</span>
+  </div>
+
+  <h3>6.3 Effet Doppler-Fizeau</h3>
+  <div class="fbox r">
+    <span class="fl">Décalage de fréquence — source ou observateur en mouvement</span>
+    <span class="fc">Vitesses comptées algébriquement le long de la ligne source-observateur :</span>
+    <span class="fm">\[ f' \;=\; f\,\dfrac{c - v_{\text{obs}}}{c - v_{\text{src}}} \]</span>
+    <span class="fc">avec \(v &gt; 0\) si déplacement de la source vers l'observateur (ou de l'obs. en s'éloignant). Approche \(\to\) fréquence augmentée, éloignement \(\to\) fréquence diminuée.</span>
+    <hr>
+    <span class="fc">Applications : radar routier (réflexion sur véhicule, double Doppler), vélocimétrie Doppler médicale, astronomie (redshift cosmologique, vitesse des étoiles).</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 07 SIGNAL & FOURIER ═══════════════════ -->
+<div class="sblock r" id="signal">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Signal et analyse de Fourier</h2>
+  <p class="intro">Sujets oraux n°15 (Signal analogique et numérique) et n°17 (Analyse temps-fréquence). Décomposition spectrale, échantillonnage, filtrage.</p>
+
+  <h3>7.1 Série de Fourier (signal périodique)</h3>
+  <div class="fbox r">
+    <span class="fl">Décomposition d'un signal \(T_0\)-périodique</span>
+    <span class="fm">\[ x(t) \;=\; \dfrac{a_0}{2} + \sum_{n=1}^{+\infty}\left[a_n\cos(n\omega_0 t) + b_n\sin(n\omega_0 t)\right] \qquad \omega_0 = \dfrac{2\pi}{T_0} \]</span>
+    <span class="fc">Coefficients (intégrales sur une période) :</span>
+    <span class="fm">\[ a_n = \dfrac{2}{T_0}\int_0^{T_0} x(t)\cos(n\omega_0 t)\,\mathrm{d}t\,,\quad b_n = \dfrac{2}{T_0}\int_0^{T_0} x(t)\sin(n\omega_0 t)\,\mathrm{d}t \]</span>
+  </div>
+
+  <h3>7.2 Transformée de Fourier (signal non périodique)</h3>
+  <div class="fbox r">
+    <span class="fl">TF directe et inverse</span>
+    <span class="fm">\[ X(f) \;=\; \int_{-\infty}^{+\infty} x(t)\,\mathrm{e}^{-2\mathrm{i}\pi f t}\,\mathrm{d}t \,,\qquad x(t) \;=\; \int_{-\infty}^{+\infty} X(f)\,\mathrm{e}^{+2\mathrm{i}\pi f t}\,\mathrm{d}f \]</span>
+    <hr>
+    <span class="fc">Théorème de Parseval (conservation de l'énergie) :</span>
+    <span class="fm">\[ \int_{-\infty}^{+\infty}|x(t)|^{2}\,\mathrm{d}t \;=\; \int_{-\infty}^{+\infty}|X(f)|^{2}\,\mathrm{d}f \]</span>
+  </div>
+
+  <h3>7.3 Échantillonnage et théorème de Shannon</h3>
+  <div class="key-box">
+    \[ f_{\text{éch}} \;\geq\; 2\,f_{\max} \qquad \text{(critère de Nyquist-Shannon)} \]
+    <p>Sans cette condition, il y a <strong>repliement de spectre (aliasing)</strong> : les hautes fréquences se replient sur les basses et créent de fausses composantes. Application : CD audio à 44,1 kHz (≥ 2 × 22 kHz, seuil d'audibilité).</p>
+  </div>
+
+  <h3>7.4 Filtrage linéaire</h3>
+  <p>Un filtre linéaire de fonction de transfert \(H(f)\) transforme le spectre du signal d'entrée : \(Y(f) = H(f)\cdot X(f)\). Filtres passe-bas (\(|H|\) décroissant), passe-haut, passe-bande, coupe-bande.</p>
+</div>
+
+<!-- ═══════════════════ 08 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Au lycée — Terminale spécialité</div>
+    <div class="notion-body"><ul>
+      <li><strong>Optique géométrique</strong> : réflexion, réfraction, lentilles convergentes/divergentes.</li>
+      <li><strong>Ondes mécaniques</strong> : célérité, longueur d'onde, fréquence, relation \(\lambda = c/f\).</li>
+      <li><strong>Interférences à deux ondes</strong> : fentes d'Young, interfrange.</li>
+      <li><strong>Diffraction</strong> : fente simple, écart angulaire \(\theta = \lambda/a\).</li>
+      <li><strong>Effet Doppler</strong> : appliqué qualitativement à la lumière (redshift) et au son.</li>
+      <li><strong>Signal et chaîne d'acquisition</strong> : numérisation, échantillonnage, quantification.</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confondre nœud et ventre (les nœuds <em>vibrent</em> zéro, contre-intuitivement).</li>
+        <li>Penser qu'interférences et diffraction sont des phénomènes distincts (en réalité, toutes les interférences se font sur des sources elles-mêmes diffractées).</li>
+        <li>Confondre vitesse de phase et vitesse de groupe en milieu dispersif.</li>
+        <li>Signes dans la relation de conjugaison en optique géométrique.</li>
+        <li>Aliasing en numérique : penser que \(f_{\text{éch}} &gt; f_{\max}\) suffit (faux : il faut \(\geq 2f_{\max}\)).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 DEMOS ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Démonstrations attendues à l'écrit et systématiquement demandées à l'oral.</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>9.1 — Snell-Descartes par le principe de Fermat</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Le rayon lumineux entre deux points \(A\) (milieu 1) et \(B\) (milieu 2) emprunte le chemin de durée extrémale. Soit \(I\) le point d'entrée dans le milieu 2, sur l'axe \(x\). Temps de parcours :</p>
+        \[ \tau(x) \;=\; \dfrac{\sqrt{x^{2} + h_1^{2}}}{c/n_1} + \dfrac{\sqrt{(d-x)^{2} + h_2^{2}}}{c/n_2}. \]
+        <p>Dérivation par rapport à \(x\) et annulation :</p>
+        \[ \dfrac{n_1\,x}{c\sqrt{x^{2}+h_1^{2}}} \;=\; \dfrac{n_2\,(d-x)}{c\sqrt{(d-x)^{2}+h_2^{2}}}. \]
+        <p>En reconnaissant \(\sin\theta_1\) et \(\sin\theta_2\) :</p>
+        \[ \boxed{\;n_1\,\sin\theta_1 \;=\; n_2\,\sin\theta_2\;} \]
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>9.2 — Formule fondamentale des interférences à deux ondes</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Deux ondes monochromatiques cohérentes en \(M\) : \(s_1 = a_1\cos(\omega t)\) et \(s_2 = a_2\cos(\omega t - \varphi)\) avec \(\varphi = 2\pi\delta/\lambda\) le déphasage. Superposition :</p>
+        \[ s = s_1 + s_2 = a_1\cos(\omega t) + a_2\cos(\omega t - \varphi). \]
+        <p>L'intensité (moyenne temporelle de \(s^{2}\) sur une période) :</p>
+        \[ I \;=\; \langle s^{2}\rangle \;=\; \dfrac{a_1^{2}}{2} + \dfrac{a_2^{2}}{2} + a_1 a_2\,\langle\cos(\omega t)\cos(\omega t - \varphi)\rangle. \]
+        <p>Avec \(\langle\cos(\omega t)\cos(\omega t - \varphi)\rangle = \tfrac{1}{2}\cos\varphi\) :</p>
+        \[ I = I_1 + I_2 + 2\sqrt{I_1 I_2}\,\cos\varphi \;=\; I_1 + I_2 + 2\sqrt{I_1 I_2}\,\cos\!\left(\dfrac{2\pi\delta}{\lambda}\right). \]
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>9.3 — Fréquences propres d'une corde fixée-fixée</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>L'équation d'onde \(\partial_t^{2}\psi = c^{2}\partial_x^{2}\psi\) admet par séparation des variables \(\psi(x,t) = X(x)T(t)\) les solutions sinusoïdales \(\cos(kx + \varphi_x)\cos(\omega t + \varphi_t)\) avec \(\omega = ck\).</p>
+        <p>Conditions aux limites \(\psi(0,t) = \psi(L,t) = 0\) :</p>
+        \[ \sin(kL) \;=\; 0 \quad\Longrightarrow\quad k_n L \;=\; n\pi \quad\Longrightarrow\quad k_n = \dfrac{n\pi}{L},\ \lambda_n = \dfrac{2L}{n}. \]
+        <p>Fréquences propres :</p>
+        \[ \boxed{\;f_n \;=\; \dfrac{\omega_n}{2\pi} \;=\; \dfrac{c\,k_n}{2\pi} \;=\; \dfrac{n\,c}{2L}\;} \qquad n = 1,2,3,\ldots \]
+        <p>L'instrument à corde produit le fondamental + ses harmoniques (entiers de \(f_1\)) → timbre caractéristique.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>9.4 — Critère de Rayleigh à partir du sinc</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour deux sources ponctuelles séparées d'un angle \(\Delta\theta\), leurs figures de diffraction sont des taches d'Airy (cas circulaire) ou de sinc² (cas rectangulaire). Critère de Rayleigh : on considère que les deux taches sont à peine séparables quand le maximum de l'une coïncide avec le premier zéro de l'autre.</p>
+        <p>Pour une ouverture circulaire de diamètre \(D\), le premier zéro de la fonction d'Airy se situe à \(\sin\theta_1 = 1{,}22\,\lambda/D\). D'où :</p>
+        \[ \boxed{\;\theta_{\min} \;\approx\; 1{,}22\,\dfrac{\lambda}{D}\;} \]
+        <p>Pour une fente (cas 1D), on aurait \(\theta_{\min} = \lambda/a\). Le facteur 1,22 provient du premier zéro de la fonction de Bessel \(J_1\) (\(2{,}44\pi\approx 7{,}66 \to 1{,}22\)).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>9.5 — Théorème d'échantillonnage (Shannon)</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Un signal \(x(t)\) à spectre borné \(|X(f)| = 0\) pour \(|f| &gt; f_{\max}\), échantillonné aux instants \(t_n = n/f_{\text{éch}}\), donne un spectre périodisé :</p>
+        \[ X_{\text{éch}}(f) \;=\; f_{\text{éch}} \sum_{k}X(f - k f_{\text{éch}}). \]
+        <p>Si \(f_{\text{éch}} &gt; 2 f_{\max}\), les répliques ne se recouvrent pas et on peut récupérer \(X(f)\) par filtrage passe-bas idéal de coupure \(f_{\text{éch}}/2\). Si \(f_{\text{éch}} &lt; 2 f_{\max}\), les répliques se recouvrent : <em>aliasing</em>, perte d'information irréversible.</p>
+        <p>D'où la condition de Nyquist-Shannon :</p>
+        \[ \boxed{\;f_{\text{éch}} \;\geq\; 2\,f_{\max}\;} \]
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 10 EXOS ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Exercices résolus — type concours</h2>
+  <p class="intro">Trois exercices calibrés agrégation interne. Tente avant d'ouvrir le corrigé.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — Interféromètre de Michelson en lame d'air (★ classique)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Un interféromètre de Michelson est réglé en lame d'air. On observe sur écran des anneaux concentriques avec un laser He-Ne (\(\lambda = 632{,}8\,\mathrm{nm}\)). On déplace le miroir mobile de \(\Delta x = 100\,\mu\mathrm{m}\) et l'on compte \(N\) anneaux qui défilent en un point fixe de l'écran.</p>
+      <ol>
+        <li>Exprimer la différence de marche \(\delta\) en fonction de l'épaisseur de la lame d'air.</li>
+        <li>Combien d'anneaux défilent ?</li>
+        <li>Quelle est la précision sur la mesure de \(\lambda\) si l'on compte les anneaux à \(\pm 1\) près ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Avec une épaisseur d'air \(e\), \(\delta = 2 e\) (aller-retour). Quand on déplace le miroir de \(\Delta x\), l'épaisseur change de \(\Delta x\) et la différence de marche varie de \(\Delta\delta = 2\Delta x\).</p>
+      <p><strong>2.</strong> Un anneau défile chaque fois que \(\delta\) varie de \(\lambda\) :</p>
+      \[ N \;=\; \dfrac{\Delta\delta}{\lambda} \;=\; \dfrac{2\,\Delta x}{\lambda} \;=\; \dfrac{2\times 100\times 10^{-6}}{632{,}8\times 10^{-9}} \;\approx\; 316. \]
+      <p><strong>3.</strong> \(\lambda = 2\Delta x / N\), donc</p>
+      \[ \dfrac{u(\lambda)}{\lambda} \;=\; \dfrac{u(\Delta x)}{\Delta x} \oplus \dfrac{u(N)}{N} \approx \dfrac{1}{316} \approx 3\times 10^{-3}. \]
+      <p>Soit \(u(\lambda) \approx 2\,\mathrm{nm}\). Pour gagner en précision, augmenter \(\Delta x\) (on multiplie \(N\) sans augmenter l'erreur de comptage).</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — Réseau et résolution du doublet jaune du sodium (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Le doublet du sodium est constitué de deux raies à \(\lambda_1 = 589{,}00\,\mathrm{nm}\) et \(\lambda_2 = 589{,}59\,\mathrm{nm}\). On souhaite les séparer à l'ordre \(p = 2\) avec un réseau de 500 traits/mm.</p>
+      <ol>
+        <li>Quel nombre minimum de traits \(N\) doit éclairer le faisceau ?</li>
+        <li>Quelle largeur minimale d'éclairement du réseau cela représente-t-il ?</li>
+        <li>Quel est l'écart angulaire entre les deux raies à l'ordre 2 (pour une incidence normale) ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Pouvoir de résolution \(R = pN \geq \lambda/\Delta\lambda\) :</p>
+      \[ N \;\geq\; \dfrac{\lambda}{p\,\Delta\lambda} \;=\; \dfrac{589}{2\times 0{,}59} \;\approx\; 499. \]
+      <p>Soit 500 traits minimum.</p>
+      <p><strong>2.</strong> Pas du réseau \(d = 1/(500\times 10^{3}) = 2\,\mu\mathrm{m}\). Largeur éclairée :</p>
+      \[ \ell_{\min} \;=\; N\cdot d \;=\; 500 \times 2\times 10^{-6} \;=\; 1{,}0\,\mathrm{mm}. \]
+      <p><strong>3.</strong> Formule du réseau \(d\sin\theta_p = p\lambda\). Incidence normale (\(\theta_0 = 0\)) : \(\sin\theta_2 = 2\lambda/d\). Pour \(\lambda_1\) : \(\sin\theta_2^{(1)} = 0{,}589\) → \(\theta_2^{(1)} = 36{,}10^\circ\). Différentiation à \(p, d\) fixés : \(d\cos\theta_2\,\mathrm{d}\theta = p\,\mathrm{d}\lambda\), d'où</p>
+      \[ \Delta\theta \;=\; \dfrac{p\,\Delta\lambda}{d\,\cos\theta_2} \;=\; \dfrac{2\times 0{,}59\times 10^{-9}}{2\times 10^{-6}\times \cos 36{,}10^\circ} \;\approx\; 7{,}3\times 10^{-4}\,\mathrm{rad} \approx 2{,}5\,'. \]
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Effet Doppler médical (★★ vélocimétrie sanguine)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Un appareil d'échographie Doppler émet une onde ultrasonore à \(f_0 = 5\,\mathrm{MHz}\). L'onde se réfléchit sur des globules rouges en mouvement à la vitesse \(v\) selon la direction du faisceau (vers la sonde). Célérité du son dans les tissus : \(c = 1540\,\mathrm{m\cdot s^{-1}}\). On mesure un décalage de fréquence \(\Delta f = 1{,}3\,\mathrm{kHz}\).</p>
+      <ol>
+        <li>Expliquer pourquoi il y a un double effet Doppler.</li>
+        <li>Exprimer \(\Delta f\) en fonction de \(v\), \(c\) et \(f_0\) (avec \(v \ll c\)).</li>
+        <li>Calculer la vitesse du sang.</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Premier effet : les globules « voient » une fréquence \(f_1 = f_0(1 + v/c)\) (Doppler en réception). Deuxième effet : ils ré-émettent à cette même fréquence \(f_1\), et la sonde la reçoit avec un nouveau décalage \(f_2 = f_1(1 + v/c)\) (Doppler en émission). Au total :</p>
+      \[ f_2 \;=\; f_0\,\dfrac{1 + v/c}{1 - v/c} \;\approx\; f_0\,(1 + 2v/c) \quad\text{si}\quad v\ll c. \]
+      <p><strong>2.</strong> Décalage :</p>
+      \[ \Delta f \;=\; f_2 - f_0 \;\approx\; \dfrac{2\,v\,f_0}{c}. \]
+      <p><strong>3.</strong> Vitesse :</p>
+      \[ v \;=\; \dfrac{c\,\Delta f}{2 f_0} \;=\; \dfrac{1540\times 1300}{2\times 5\times 10^{6}} \;\approx\; 0{,}20\,\mathrm{m\cdot s^{-1}} \;=\; 20\,\mathrm{cm\cdot s^{-1}}. \]
+      <p>Cohérent avec une vitesse dans une artère majeure.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 11 LECONS ═══════════════════ -->
+<div class="sblock r" id="lecons">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Développements pédagogiques pour l'oral</h2>
+  <p class="intro">Deux propositions de leçons calibrées agrégation interne.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon 1 — Interférences lumineuses : preuves de la nature ondulatoire</h4>
+    <div class="lecon-meta">Niveau · Terminale spé / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Avant Young (1801), Newton défendait une lumière corpusculaire. Comment l'expérience des fentes a-t-elle convaincu la communauté scientifique ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Position du problème : modèles corpusculaire vs ondulatoire (rappel historique).</li>
+      <li>Conditions d'interférences à deux ondes : cohérence temporelle, spatiale, polarisation.</li>
+      <li>Expérience des fentes d'Young — calcul de \(\delta = ax/D\), interfrange \(i = \lambda D/a\). Démonstration.</li>
+      <li>Influence de la cohérence : lampe spectrale (franges peu nombreuses), laser (franges nettes), lumière blanche (frange centrale blanche, autres irisées).</li>
+      <li>Application moderne : interféromètre de Michelson, mesure de \(\lambda\), détection d'ondes gravitationnelles (LIGO).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Seconde : ondes mécaniques, longueur d'onde. Première spé : ondes lumineuses. Terminale spé : interférences quantitatives, condition de phase.</p>
+    <p><strong>Activité élève proposée.</strong> Mesurer la largeur d'un cheveu par diffraction (laser pointer + écran). Comparaison au microscope optique. Discuter la résolution.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Leçon 2 — Ondes stationnaires : de la corde de guitare à la mécanique quantique</h4>
+    <div class="lecon-meta">Niveau · 2<sup>e</sup> année CPGE / oral agrégation</div>
+    <p><strong>Accroche.</strong> Pourquoi une corde de guitare ne joue-t-elle qu'une note fondamentale et ses harmoniques, et pas n'importe quelle fréquence ? Le même phénomène quantifie aussi les niveaux d'énergie d'un atome.</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Superposition de deux OPPM contre-propageantes — démonstration de \(\psi = 2A\cos(kx)\cos(\omega t)\). Mise en évidence des nœuds et ventres.</li>
+      <li>Conditions aux limites → quantification de \(k\). Modes propres d'une corde fixée-fixée : \(f_n = nc/(2L)\).</li>
+      <li>Tubes sonores : effet des conditions aux limites (ouvert/fermé) — harmoniques pairs ou impairs.</li>
+      <li>Généralisation : modes propres d'une membrane (timbale), d'une cavité électromagnétique (laser, four micro-ondes).</li>
+      <li>Ouverture : modes propres d'un puits quantique → quantification de l'énergie (lien avec l'équation de Schrödinger).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Cycle 4 : ondes sonores, instruments de musique. Terminale spé : timbre, harmoniques, spectre.</p>
+    <p><strong>Erreur fréquente d'élève.</strong> Penser que la corde « émet » directement les fréquences \(f_n\). En réalité elle vibre, et les vibrations sont couplées à l'air via la table de l'instrument. Sans table d'harmonie, une corde isolée produit un son très faible.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 12 MONTAGES ═══════════════════ -->
+<div class="sblock r" id="montages">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Montages expérimentaux</h2>
+  <p class="intro">Deux montages exploitables à l'oral d'agrégation.</p>
+
+  <div class="lecon-card">
+    <h4>Montage 1 — Mesure de \(\lambda\) d'un laser par fentes d'Young</h4>
+    <p><strong>Objectif.</strong> Déterminer la longueur d'onde d'un laser à partir de l'interfrange observée sur un écran.</p>
+    <p><strong>Matériel.</strong> Laser He-Ne ou diode (\(\lambda \sim 633\,\mathrm{nm}\) ou \(650\,\mathrm{nm}\)), fentes d'Young (\(a \sim 100\)–\(500\,\mu\mathrm{m}\)), écran ou capteur CCD, mètre, support gradué.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Mesurer l'écartement \(a\) des fentes (notice ou microscope).</li>
+      <li>Aligner laser → fentes → écran, distance \(D\) (50 cm à 2 m).</li>
+      <li>Mesurer l'interfrange \(i\) : compter \(N\) interfranges sur une largeur \(\ell\) → \(i = \ell/N\). Précision améliorée en prenant \(N\) grand.</li>
+      <li>Calculer \(\lambda = a\,i/D\). Répéter pour plusieurs \(D\), tracer \(i = f(D)\), pente \(\lambda/a\).</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Écartement \(a\) (\(\pm 5\,\mu\mathrm{m}\)), distance \(D\) (\(\pm 5\,\mathrm{mm}\)), interfrange \(i\) (\(\pm 0{,}5\,\mathrm{mm}\) sur la mesure cumulée).</p>
+    <p><strong>Exploitation.</strong> Propagation des incertitudes :</p>
+    \[ \dfrac{u(\lambda)}{\lambda} \;=\; \sqrt{\left(\dfrac{u(a)}{a}\right)^{2} + \left(\dfrac{u(i)}{i}\right)^{2} + \left(\dfrac{u(D)}{D}\right)^{2}}. \]
+    <p>Comparaison à la valeur notice du laser, écart relatif typique 1–3 %.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage 2 — Célérité du son par tube de Kundt</h4>
+    <p><strong>Objectif.</strong> Mesurer \(c_{\text{air}}\) en mettant en évidence les ondes stationnaires dans un tube fermé.</p>
+    <p><strong>Matériel.</strong> Tube transparent (\(L \sim 1\,\mathrm{m}\)), haut-parleur à une extrémité, GBF + amplificateur, microphone monté sur chariot pour explorer le tube, oscilloscope ou logiciel.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Émettre un signal sinusoïdal de fréquence \(f\) (typiquement 1–5 kHz) avec le HP à une extrémité, l'autre fermée.</li>
+      <li>Ajuster \(f\) pour observer une résonance — amplitude maximale au micro.</li>
+      <li>Déplacer le microphone le long du tube : repérer les positions des nœuds successifs (minima d'amplitude).</li>
+      <li>Distance entre deux nœuds consécutifs : \(\lambda/2\). En déduire \(\lambda\), puis \(c = \lambda f\).</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Position des nœuds (\(\pm 2\,\mathrm{mm}\)), fréquence GBF (\(\pm 1\,\mathrm{Hz}\)), effets de bord (correction d'extrémité).</p>
+    <p><strong>Exploitation.</strong> Refaire pour plusieurs \(f\), tracer \(\lambda = f(1/f)\) (devrait être linéaire de pente \(c\)). Comparer à \(c_{\text{théo}} = \sqrt{\gamma RT/M}\) en mesurant aussi \(T\) ambiante. Écart relatif typique 2–5 %.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 13 JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 13</div>
+  <h2>13. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Cohérence des sources.</strong> Deux sources <em>indépendantes</em> (deux lampes, deux lasers distincts) ne sont JAMAIS cohérentes — pas d'interférences observables. L'astuce des fentes d'Young : <em>une seule</em> source, divisée en deux. Confusion fréquente à l'oral.</div>
+    <div class="jury-item"><strong>Vitesse de phase \(v_\varphi\) vs vitesse de groupe \(v_g\).</strong> En milieu non dispersif, \(v_\varphi = v_g = c\). En milieu dispersif, \(v_\varphi\) peut dépasser \(c\) sans contradiction avec la relativité — c'est \(v_g\) (transport de l'énergie/information) qui reste \(\leq c\).</div>
+    <div class="jury-item"><strong>Interférences ET diffraction.</strong> Tout schéma d'interférences (Young) comprend aussi la diffraction par chaque fente individuelle. Le profil d'intensité réel est le produit : enveloppe de diffraction × franges d'interférence. À mentionner systématiquement à l'oral.</div>
+    <div class="jury-item"><strong>Critère de Nyquist strict.</strong> La condition est \(f_{\text{éch}} \geq 2\,f_{\max}\) (avec égalité, on est juste à la limite, en pratique on prend \(f_{\text{éch}} = 2{,}2\,f_{\max}\) à \(4\,f_{\max}\)). L'égalité stricte ne garantit pas la reconstruction sans filtre passe-bas idéal — qui n'existe pas physiquement.</div>
+    <div class="jury-item"><strong>Effet Doppler — convention de signe.</strong> Bien préciser le sens choisi des vitesses. La formule \(f' = f\,(c\pm v_{\text{obs}})/(c\mp v_{\text{src}})\) varie selon les conventions des manuels — toujours redémontrer rapidement pour éviter ambiguïté.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">Dans une expérience de fentes d'Young, on double l'écartement \(a\) entre les fentes. L'interfrange \(i\) :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. i = λD/a — l\'interfrange est inversement proportionnel à a. Si a double, i est divisé par 2.')">Double (\(i\) proportionnel à \(a\))</button><button class="q-opt" onclick="quiz(this,true,'Correct. i = λD/a. Si a → 2a, alors i → i/2. Les franges se resserrent quand les fentes s\'écartent — intuitivement, l\'écart de phase varie plus rapidement avec x.')">Est divisé par 2</button><button class="q-opt" onclick="quiz(this,false,'Non. i = λD/a dépend aussi de a et D.')">Ne change pas</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Une corde de longueur \(L = 0{,}5\,\mathrm{m}\), fixée aux deux extrémités, vibre sur son mode fondamental. \(c = 200\,\mathrm{m\cdot s^{-1}}\). La fréquence fondamentale :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. c/(4L) correspond à un tube fermé-ouvert. Pour une corde fixée-fixée : f₁ = c/(2L).')">\(f_1 = c/(4L) = 100\,\mathrm{Hz}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. f₁ = c/(2L) = 200/(2×0,5) = 200 Hz. La longueur de la corde correspond à L = λ₁/2 (un seul ventre central).')">\(f_1 = c/(2L) = 200\,\mathrm{Hz}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Cette formule donnerait f si L = λ entier, mais en mode fondamental L = λ/2.')">\(f_1 = 2c/L = 800\,\mathrm{Hz}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Signal contenant des fréquences jusqu'à \(f_{\max} = 10\,\mathrm{kHz}\). Fréquence d'échantillonnage minimale pour éviter le repliement :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Le théorème de Shannon impose f_éch ≥ 2·f_max — sinon aliasing.')">\(f_{\text{éch}} = f_{\max} = 10\,\mathrm{kHz}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct (Nyquist-Shannon). f_éch ≥ 2·f_max = 20 kHz. Le CD audio utilise 44,1 kHz (≥ 2×22 kHz, seuil d\'audibilité humaine).')">\(f_{\text{éch}} = 2\,f_{\max} = 20\,\mathrm{kHz}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. C\'est l\'inverse du critère de Shannon — avec f_éch < 2·f_max, il y a aliasing.')">\(f_{\text{éch}} = f_{\max}/2 = 5\,\mathrm{kHz}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Critère de Rayleigh pour l'œil humain (\(D \approx 2\,\mathrm{mm}\), \(\lambda \approx 550\,\mathrm{nm}\)). Quelle taille minimum d'un objet discernable à 25 cm ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Avec θ_min = 1,22·λ/D ≈ 3,4×10⁻⁴ rad, la taille à 25 cm est ℓ = θ_min × d = 3,4×10⁻⁴ × 0,25 ≈ 85 µm.')">\(\sim 5\,\mu\mathrm{m}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. θ_min = 1,22 × 550e-9 / 2e-3 ≈ 3,4×10⁻⁴ rad (≈ 1 minute d\'arc). À 25 cm : ℓ = θ × d ≈ 85 µm. C\'est la limite optique. En pratique, on ne distingue qu\'autour de 100–200 µm à l\'œil nu (autres facteurs limitants : densité de cônes rétiniens).')">\(\sim 80\,\mu\mathrm{m}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. À 25 cm, la résolution de l\'œil est bien meilleure que 1 mm — sinon on ne pourrait pas lire.')">\(\sim 1\,\mathrm{mm}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Une voiture s'approche d'un observateur à \(v = 36\,\mathrm{km/h}\) en klaxonnant à \(f = 440\,\mathrm{Hz}\). Fréquence perçue par l'observateur (immobile, \(c = 340\,\mathrm{m/s}\)) :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Une source qui s\'approche → fréquence perçue plus élevée (effet Doppler positif).')">\(f' &lt; 440\,\mathrm{Hz}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. v = 36 km/h = 10 m/s. f\' = f·c/(c−v) = 440·340/330 ≈ 453 Hz. Décalage perceptible (+13 Hz) — c\'est le « waaa » du Doppler routier.')">\(f' \approx 453\,\mathrm{Hz}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. L\'écart est trop important — il faudrait une vitesse comparable à c.')">\(f' \approx 880\,\mathrm{Hz}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Réseau de 1000 traits/mm, lumière incidente normale \(\lambda = 600\,\mathrm{nm}\). Quel est le nombre maximal d'ordres observables ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. d sin θ_p = pλ avec |sin θ_p| ≤ 1 impose p ≤ d/λ.')">2 ordres</button><button class="q-opt" onclick="quiz(this,true,'Correct. d = 1/1000 mm = 10⁻⁶ m = 1000 nm. p_max ≤ d/λ = 1000/600 ≈ 1,67 donc p_max = 1. Plus 1 ordre négatif et l\'ordre 0 → 3 ordres au total (-1, 0, +1).')">1 ordre (plus l'ordre 0 et l'ordre −1)</button><button class="q-opt" onclick="quiz(this,false,'Non. La condition sin θ ≤ 1 limite p à d/λ ≈ 1,67 — donc p_max = 1 seulement.')">Aucune limite</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Tube fermé-ouvert de \(L = 30\,\mathrm{cm}\) (clarinette idéalisée). \(c = 340\,\mathrm{m/s}\). Fréquence fondamentale ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. C\'est la formule du tube ouvert-ouvert ou de la corde fixée-fixée.')">\(f_1 = c/(2L) \approx 567\,\mathrm{Hz}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. Tube fermé-ouvert : f_n = (2n−1)c/(4L). Fondamental : f₁ = c/(4L) = 340/(4×0,3) ≈ 283 Hz. Note proche de Ré3 (Ré4 en notation savante). À noter : seulement les harmoniques impaires (1, 3, 5...) — d\'où le timbre particulier de la clarinette.')">\(f_1 = c/(4L) \approx 283\,\mathrm{Hz}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Le facteur 1/L sans diviseur correct donnerait des fréquences trop élevées.')">\(f_1 = c/L \approx 1133\,\mathrm{Hz}\)</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets des sessions précédentes avec corrigés</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes du jury, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://phet.colorado.edu/fr/" target="_blank">
+      <span class="ri">🔬</span><div><div class="rt">PhET Simulations</div><div class="rd">Simulations interactives autorisées aux oraux</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="thermodynamique.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Thermodynamique</span></a>
+  <a class="pnav-link next" href="electricite.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Électricité</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link cur" href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

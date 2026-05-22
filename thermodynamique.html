@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thermodynamique & Machines thermiques — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="active">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero r">
+    <div class="chap-eyebrow">Physique · Chapitres 12–14</div>
+    <h1>Thermodynamique <em>& Machines thermiques</em></h1>
+    <p class="lead">Sujets oraux n°11 (États de la matière) et n°24e (Machines thermiques). Très fréquent à l'écrit. Maîtriser les bilans énergétiques et entropiques, les diagrammes de phases et les rendements de Carnot.</p>
+    <div class="chap-badges"><span class="badge bp">Sujets oraux 11 & 24e</span> <span class="badge bg">Fréquent à l'écrit</span> <span class="badge br">Rendements Carnot</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#premier">01 · Premier principe</a>
+        <a href="#enthalpie">02 · Enthalpie & écoulements</a>
+        <a href="#second">03 · Second principe</a>
+        <a href="#machines">04 · Machines thermiques</a>
+        <a href="#phases">05 · Changements de phase</a>
+        <a href="#diagrammes">06 · Diagrammes thermodynamiques</a>
+        <a href="#pedagogie">07 · Pédagogie</a>
+        <a href="#demos">08 · Démonstrations clés</a>
+        <a href="#exercices">09 · Exercices résolus</a>
+        <a href="#lecons">10 · Leçons pour l'oral</a>
+        <a href="#montages">11 · Montages</a>
+        <a href="#jury">12 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="cur" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 PREMIER PRINCIPE ═══════════════════ -->
+<div class="sblock r" id="premier">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Premier principe de la thermodynamique</h2>
+  <p class="intro">Conservation de l'énergie appliquée aux systèmes thermodynamiques. Introduction de l'énergie interne \(U\) et des deux modes d'échange : travail \(W\) et chaleur \(Q\).</p>
+
+  <h3>1.1 Énoncé du premier principe</h3>
+  <div class="fbox r">
+    <span class="fl">Premier principe — système fermé</span>
+    <span class="fc">Entre deux états d'équilibre A et B (convention récepteur : \(W\) et \(Q\) reçus par le système &gt; 0) :</span>
+    <span class="fm">\[ \Delta U \;=\; W + Q \qquad\text{avec}\qquad U \text{ fonction d'état} \]</span>
+    <hr>
+    <span class="fc">Travail des forces de pression (transformation quasi-statique) :</span>
+    <span class="fm">\[ \delta W \;=\; -\,P_{\text{ext}}\,\mathrm{d}V \qquad\Longrightarrow\qquad W \;=\; -\int_{V_A}^{V_B} P_{\text{ext}}\,\mathrm{d}V \]</span>
+    <hr>
+    <span class="fc">Cas particulier compression réversible : \(P_{\text{ext}} = P\).</span>
+  </div>
+
+  <h3>1.2 Gaz parfait</h3>
+  <div class="fbox r">
+    <span class="fl">Modèle du gaz parfait</span>
+    <span class="fc">Équation d'état :</span>
+    <span class="fm">\[ P\,V \;=\; n\,R\,T \qquad R = 8{,}314\,\mathrm{J\cdot K^{-1}\cdot mol^{-1}} \]</span>
+    <hr>
+    <span class="fc">Énergie interne (loi de Joule) : \(U\) ne dépend que de \(T\) :</span>
+    <span class="fm">\[ U(T) \;=\; n\,C_{V,m}\,T + \text{cste} \qquad C_{V,m} = \dfrac{\mathrm{d}U_m}{\mathrm{d}T} \]</span>
+    <hr>
+    <span class="fc">Capacités thermiques molaires :</span>
+    <span class="fm">\[ C_{V,m} = \dfrac{3R}{2}\ \text{(GPM)},\quad \dfrac{5R}{2}\ \text{(GPD)} \qquad \gamma = \dfrac{C_{P,m}}{C_{V,m}} = \dfrac{5}{3}\ \text{(GPM)},\ \dfrac{7}{5}\ \text{(GPD)} \]</span>
+  </div>
+
+  <h3>1.3 Transformations usuelles</h3>
+  <table class="compact">
+    <thead><tr><th>Transformation</th><th>Condition</th><th>Relations</th></tr></thead>
+    <tbody>
+      <tr><td>Isotherme</td><td>\(T = \text{cste}\)</td><td>\(PV = \text{cste}\) ; \(\Delta U = 0\) ; \(W = -nRT\ln(V_B/V_A) = -Q\)</td></tr>
+      <tr><td>Isobare</td><td>\(P = \text{cste}\)</td><td>\(W = -P\,\Delta V\) ; \(Q = n C_{P,m}\Delta T = \Delta H\)</td></tr>
+      <tr><td>Isochore</td><td>\(V = \text{cste}\)</td><td>\(W = 0\) ; \(Q = n C_{V,m}\Delta T = \Delta U\)</td></tr>
+      <tr><td>Adiabatique rév. (Laplace)</td><td>\(Q = 0\)</td><td>\(PV^{\gamma} = \text{cste}\) ; \(TV^{\gamma-1} = \text{cste}\) ; \(T^{\gamma}P^{1-\gamma} = \text{cste}\)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-gold r">
+    <span class="ico">💡</span>
+    <div><strong>Conventions de signe.</strong> En thermo française (récepteur) : \(W&gt;0\) et \(Q&gt;0\) signifient que le système reçoit. À l'oral et à l'écrit, énonce explicitement la convention adoptée avant tout calcul — le jury sanctionne les changements implicites en cours de raisonnement.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 ENTHALPIE ═══════════════════ -->
+<div class="sblock r" id="enthalpie">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Enthalpie et bilans en écoulement</h2>
+  <p class="intro">L'enthalpie \(H = U + PV\) est la fonction d'état adaptée aux transformations isobares et aux écoulements stationnaires (turbines, compresseurs, échangeurs).</p>
+
+  <div class="fbox r">
+    <span class="fl">Enthalpie et capacités thermiques</span>
+    <span class="fm">\[ H \;=\; U + PV \qquad \mathrm{d}H \;=\; \mathrm{d}U + \mathrm{d}(PV) \]</span>
+    <span class="fc">Pour une transformation monobare réversible : \(\Delta H = Q_p\) (chaleur échangée à \(P\) constante).</span>
+    <hr>
+    <span class="fc">Capacités thermiques (gaz parfait, dépendant de \(T\) seulement) :</span>
+    <span class="fm">\[ C_V = \left(\dfrac{\partial U}{\partial T}\right)_{\!V}\,,\qquad C_P = \left(\dfrac{\partial H}{\partial T}\right)_{\!P} \]</span>
+  </div>
+
+  <h3>2.1 Relation de Mayer</h3>
+  <div class="key-box">
+    \[ \boxed{\;C_{P,m} - C_{V,m} \;=\; R\;} \qquad\Longrightarrow\qquad C_{V,m} = \dfrac{R}{\gamma - 1}\,,\quad C_{P,m} = \dfrac{\gamma R}{\gamma - 1}. \]
+  </div>
+  <div class="demo-block">
+    <p>Pour un gaz parfait, \(U = n C_{V,m} T\) (loi de Joule) et \(PV = nRT\). Donc \(H = U + PV = n(C_{V,m} + R)\,T\), d'où</p>
+    \[ C_{P,m} \;=\; \dfrac{\mathrm{d}H_m}{\mathrm{d}T} \;=\; C_{V,m} + R. \]
+  </div>
+
+  <h3>2.2 Premier principe en écoulement stationnaire</h3>
+  <div class="fbox r">
+    <span class="fl">Bilan énergétique d'un système ouvert stationnaire</span>
+    <span class="fc">Pour un fluide en écoulement permanent à travers un volume de contrôle (turbine, compresseur, vanne…) :</span>
+    <span class="fm">\[ \Delta h \;=\; w_u + q \qquad \text{(par unité de masse, négligeant }\Delta E_c\text{ et }\Delta E_p\text{)} \]</span>
+    <span class="fc">avec \(h\) enthalpie massique, \(w_u\) travail utile reçu (hors travail des forces de pression d'entrée/sortie), \(q\) chaleur reçue.</span>
+    <hr>
+    <span class="fc">Cas particuliers :</span>
+    <span class="fm">\[ \text{Détente adiabatique (turbine) :}\quad w_u = \Delta h\quad\quad \text{Détendeur isenthalpique :}\quad \Delta h = 0 \]</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 SECOND PRINCIPE ═══════════════════ -->
+<div class="sblock r" id="second">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Second principe et entropie</h2>
+  <p class="intro">Sens d'évolution spontanée des systèmes isolés. Introduction de l'entropie \(S\) comme fonction d'état caractérisant l'irréversibilité.</p>
+
+  <h3>3.1 Énoncé et inégalité de Clausius</h3>
+  <div class="fbox r">
+    <span class="fl">Second principe — bilan entropique</span>
+    <span class="fc">Pour un système fermé subissant une transformation infinitésimale :</span>
+    <span class="fm">\[ \mathrm{d}S \;=\; \delta S_{\text{ech}} + \delta S_{\text{cr}} \qquad \delta S_{\text{ech}} = \dfrac{\delta Q}{T_{\text{front}}}\,,\quad \delta S_{\text{cr}} \geq 0 \]</span>
+    <span class="fc">avec \(\delta S_{\text{cr}} = 0\) si la transformation est <em>réversible</em>, \(\delta S_{\text{cr}} &gt; 0\) si <em>irréversible</em>.</span>
+    <hr>
+    <span class="fc">Inégalité de Clausius (transformation cyclique) :</span>
+    <span class="fm">\[ \oint \dfrac{\delta Q}{T_{\text{front}}} \leq 0 \qquad (= 0 \text{ ssi réversible}) \]</span>
+  </div>
+
+  <h3>3.2 Entropie du gaz parfait</h3>
+  <div class="fbox r">
+    <span class="fl">Variation d'entropie d'un gaz parfait</span>
+    <span class="fm">\[ \Delta S \;=\; n\,C_{V,m}\ln\!\dfrac{T_2}{T_1} + n\,R\ln\!\dfrac{V_2}{V_1} \;=\; n\,C_{P,m}\ln\!\dfrac{T_2}{T_1} - n\,R\ln\!\dfrac{P_2}{P_1} \]</span>
+    <hr>
+    <span class="fc">Cas particuliers :</span>
+    <span class="fm">\[ \text{Isotherme :}\quad \Delta S = n R \ln(V_2/V_1) = -nR\ln(P_2/P_1) \]</span>
+    <span class="fm">\[ \text{Adiabatique réversible :}\quad \Delta S = 0\ \text{(isentropique)} \]</span>
+  </div>
+
+  <h3>3.3 Sources d'irréversibilité</h3>
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Origines macroscopiques de \(S_{\text{cr}} &gt; 0\)</div>
+    <div class="notion-body"><ul>
+      <li><strong>Frottements</strong> mécaniques (énergie cinétique → chaleur).</li>
+      <li><strong>Détente dans le vide</strong> (Joule-Gay-Lussac) — gaz parfait : \(\Delta T = 0\) mais \(\Delta S &gt; 0\).</li>
+      <li><strong>Mélange</strong> de deux fluides initialement séparés.</li>
+      <li><strong>Transferts thermiques sous écart de température fini</strong> entre source chaude et froide.</li>
+      <li><strong>Réactions chimiques</strong> spontanées (création d'entropie).</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 04 MACHINES THERMIQUES ═══════════════════ -->
+<div class="sblock r" id="machines">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Machines thermiques</h2>
+  <p class="intro">Sujet oral n°24e. Applications du second principe : moteur, réfrigérateur, pompe à chaleur. Rendement maximal de Carnot.</p>
+
+  <h3>4.1 Machine ditherme — théorème de Carnot</h3>
+  <div class="fbox r">
+    <span class="fl">Moteur ditherme</span>
+    <span class="fc">Source chaude à \(T_c\), source froide à \(T_f\) (\(T_c &gt; T_f\)). Pour un cycle :</span>
+    <span class="fm">\[ \Delta U = 0 \Rightarrow W + Q_c + Q_f = 0\,,\qquad \oint\dfrac{\delta Q}{T} \leq 0 \Rightarrow \dfrac{Q_c}{T_c} + \dfrac{Q_f}{T_f} \leq 0 \]</span>
+    <hr>
+    <span class="fc">Rendement : \(\eta = \dfrac{|W|}{Q_c}\). Théorème de Carnot :</span>
+    <span class="fm">\[ \boxed{\;\eta \;\leq\; \eta_{\text{Carnot}} \;=\; 1 - \dfrac{T_f}{T_c}\;} \]</span>
+    <span class="fc">Égalité ssi cycle réversible (cycle de Carnot : 2 isothermes + 2 adiabatiques).</span>
+  </div>
+
+  <h3>4.2 Réfrigérateur et pompe à chaleur</h3>
+  <div class="fbox r">
+    <span class="fl">Coefficients de performance (COP)</span>
+    <span class="fc">Réfrigérateur (on veut extraire \(Q_f\) de la source froide) :</span>
+    <span class="fm">\[ \mathrm{COP}_{\text{frigo}} \;=\; \dfrac{Q_f}{|W|} \;\leq\; \dfrac{T_f}{T_c - T_f} \]</span>
+    <hr>
+    <span class="fc">Pompe à chaleur (on veut fournir \(Q_c\) à la source chaude) :</span>
+    <span class="fm">\[ \mathrm{COP}_{\text{PAC}} \;=\; \dfrac{|Q_c|}{|W|} \;\leq\; \dfrac{T_c}{T_c - T_f} \]</span>
+    <hr>
+    <span class="fc">Relation : \(\mathrm{COP}_{\text{PAC}} = \mathrm{COP}_{\text{frigo}} + 1\) (conservation de l'énergie sur le cycle).</span>
+  </div>
+
+  <div class="key-box">
+    <p>Pour une PAC fonctionnant entre une source extérieure à 0 °C (\(T_f = 273\,\mathrm{K}\)) et un intérieur à 20 °C (\(T_c = 293\,\mathrm{K}\)) :</p>
+    \[ \mathrm{COP}_{\text{PAC,max}} \;=\; \dfrac{293}{293 - 273} \;=\; 14{,}65. \]
+    <p>En pratique, on atteint 3 à 5 — bien meilleur qu'un chauffage résistif (\(\mathrm{COP} = 1\)).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 05 PHASES ═══════════════════ -->
+<div class="sblock r" id="phases">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Changements d'état d'un corps pur</h2>
+  <p class="intro">Sujet oral n°11. Coexistence des phases solide / liquide / vapeur, courbes de saturation, point triple et point critique.</p>
+
+  <h3>5.1 Règle des phases de Gibbs</h3>
+  <div class="fbox r">
+    <span class="fl">Variance d'un système thermodynamique</span>
+    <span class="fc">Système à \(c\) constituants indépendants, \(\varphi\) phases en équilibre :</span>
+    <span class="fm">\[ \boxed{\;v \;=\; c - \varphi + 2\;} \qquad \text{(2 = paramètres intensifs : }P, T\text{)} \]</span>
+    <hr>
+    <span class="fc">Corps pur (\(c = 1\)) :</span>
+    <span class="fm">\[ \varphi = 1 : v = 2 \ (P, T \text{ libres}) \quad\quad \varphi = 2 : v = 1 \ (P = f(T))\quad\quad \varphi = 3 : v = 0 \ (\text{point triple}) \]</span>
+  </div>
+
+  <h3>5.2 Chaleur latente et relation de Clausius-Clapeyron</h3>
+  <div class="fbox r">
+    <span class="fl">Chaleur latente massique de changement d'état</span>
+    <span class="fc">À \(T\) et \(P\) fixées :</span>
+    <span class="fm">\[ Q \;=\; m\,L_{\text{trans}}\,(T) \qquad L \text{ en } \mathrm{J\cdot kg^{-1}} \]</span>
+    <hr>
+    <span class="fc">Relation de Clapeyron (pente de la courbe d'équilibre dans le diagramme \(P\)–\(T\)) :</span>
+    <span class="fm">\[ \boxed{\;\dfrac{\mathrm{d}P}{\mathrm{d}T} \;=\; \dfrac{L_{\text{trans}}}{T\,\Delta v_{\text{trans}}}\;} \]</span>
+    <span class="fc">avec \(\Delta v = v_{\text{phase2}} - v_{\text{phase1}}\), volumes massiques.</span>
+    <hr>
+    <span class="fc">Cas de la vaporisation, vapeur assimilée à un GP, \(v_{\text{liq}} \ll v_{\text{vap}}\) :</span>
+    <span class="fm">\[ \dfrac{\mathrm{d}\ln P}{\mathrm{d}T} \;\approx\; \dfrac{L_{\text{vap}}\,M}{R\,T^{2}} \qquad \text{(forme de Clausius-Clapeyron)} \]</span>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Diagramme \(P\)–\(T\) d'un corps pur</div>
+    <div class="notion-body">
+      <p>Trois courbes se rejoignent au <strong>point triple</strong> (variance nulle, \(P\) et \(T\) fixées) :</p>
+      <ul>
+        <li><strong>Courbe de fusion</strong> (solide / liquide) — pente positive en général, sauf eau (glace moins dense que l'eau).</li>
+        <li><strong>Courbe de vaporisation</strong> (liquide / vapeur) — se termine au <strong>point critique</strong> (\(T_c\), \(P_c\)) où la distinction L/V disparaît.</li>
+        <li><strong>Courbe de sublimation</strong> (solide / vapeur).</li>
+      </ul>
+      <p>Au-dessus du point critique : état <em>supercritique</em>, ni liquide ni gaz au sens habituel. Pour l'eau : \(T_c = 374\,^\circ\mathrm{C}\), \(P_c = 22{,}1\,\mathrm{MPa}\).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 06 DIAGRAMMES ═══════════════════ -->
+<div class="sblock r" id="diagrammes">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Diagrammes thermodynamiques</h2>
+  <p class="intro">Outils visuels essentiels pour analyser cycles et changements d'état. À savoir lire et tracer à l'oral.</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Diagrammes principaux</div>
+    <div class="notion-body"><ul>
+      <li><strong>\(P\)–\(V\) (Clapeyron)</strong> : isothermes hyperboles \(PV = \text{cste}\), adiabatiques plus pentues (\(PV^{\gamma} = \text{cste}\)). Le <em>travail</em> sur un cycle est l'aire algébrique sous la courbe.</li>
+      <li><strong>\(T\)–\(S\) (entropique)</strong> : cycle de Carnot = rectangle. La <em>chaleur</em> reçue est l'aire sous la courbe (à \(P\) ou \(V\) fixé), aire totale = \(W_{\text{cycle}}\).</li>
+      <li><strong>\(h\)–\(s\) (Mollier)</strong> : utilisé pour les turbines à vapeur. Une détente isentropique est une verticale.</li>
+      <li><strong>Diagramme des frigoristes (\(\log P\)–\(h\))</strong> : utilisé pour les cycles frigorifiques. Isothermes horizontales dans la zone diphasée.</li>
+    </ul></div>
+  </div>
+
+  <pre class="ascii-schema">    P  │       isobare ────
+       │                      ┌── adiabatique  PV^γ = cste
+       │                      │    (pente ~ −γ P/V)
+       │\\                     ▼
+       │ \\                  ╱
+       │  \\               ╱   isotherme  PV = cste
+       │   ╲ ╱           ╱     (hyperbole)
+       │     ╳         ╱
+       │   ╱  ╲      ╱
+       │ ╱      ╲ ╱
+       │          ╳
+       │        ╱   ╲
+       └──────────────────── V</pre>
+</div>
+
+<!-- ═══════════════════ 07 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques des élèves.</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Au lycée — Terminale spécialité</div>
+    <div class="notion-body"><ul>
+      <li><strong>Premier principe</strong> : \(\Delta U = W + Q\). Bilan d'énergie d'un système (calorimétrie, mélanges).</li>
+      <li><strong>Machines thermiques</strong> : principes du moteur (essence, Diesel), du réfrigérateur, de la pompe à chaleur. Rendement de Carnot abordé.</li>
+      <li><strong>Changements d'état</strong> : courbes de chauffe, chaleur latente, palier de fusion / vaporisation.</li>
+      <li><strong>Au collège</strong> (cycle 4) : conservation de la matière, équilibre thermique, transferts.</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confusion convention récepteur vs moteur — toujours fixer la convention au début.</li>
+        <li>Oublier de convertir en kelvin pour les formules de Carnot.</li>
+        <li>Croire qu'une transformation adiabatique est nécessairement réversible (faux : détente de Joule-Gay-Lussac est adiabatique <em>irréversible</em>).</li>
+        <li>Confondre \(\Delta U\) (fonction d'état) et \(W\) ou \(Q\) (dépendent du chemin).</li>
+        <li>Penser que le rendement de Carnot est atteignable en pratique.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 DEMOS ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Démonstrations attendues à l'écrit et systématiquement demandées à l'oral. À maîtriser sur le bout des doigts.</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.1 — Loi de Laplace (adiabatique réversible d'un GP)</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Premier principe : \(\mathrm{d}U = \delta W + \delta Q\). En adiabatique réversible (\(\delta Q = 0\), \(P_{\text{ext}} = P\)) avec un GP :</p>
+        \[ n C_{V,m}\,\mathrm{d}T \;=\; -\,P\,\mathrm{d}V. \]
+        <p>On élimine \(T\) via \(PV = nRT\) → \(n\,\mathrm{d}T = (P\,\mathrm{d}V + V\,\mathrm{d}P)/R\). Reportée et avec \(C_{P,m} - C_{V,m} = R\) :</p>
+        \[ C_{V,m}\,(P\,\mathrm{d}V + V\,\mathrm{d}P) \;=\; -\,R\,P\,\mathrm{d}V \quad\Longrightarrow\quad \dfrac{\mathrm{d}P}{P} + \gamma\,\dfrac{\mathrm{d}V}{V} \;=\; 0. \]
+        <p>Intégration : \(\ln P + \gamma\ln V = \text{cste}\), soit</p>
+        \[ \boxed{\;P\,V^{\gamma} \;=\; \text{cste}\;} \]
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.2 — Théorème de Carnot</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Cycle moteur ditherme entre \(T_c\) et \(T_f\). Sur un cycle, \(\Delta U = 0\) :</p>
+        \[ W + Q_c + Q_f \;=\; 0 \quad\Longrightarrow\quad W = -(Q_c + Q_f). \]
+        <p>Second principe (inégalité de Clausius) : \(\oint\delta Q/T_{\text{front}} \leq 0\) avec \(T_{\text{front}} = T_c\) pour les échanges avec la source chaude et \(T_f\) pour la source froide :</p>
+        \[ \dfrac{Q_c}{T_c} + \dfrac{Q_f}{T_f} \;\leq\; 0 \quad\Longrightarrow\quad Q_f \;\leq\; -\dfrac{T_f}{T_c}\,Q_c. \]
+        <p>Rendement \(\eta = |W|/Q_c = -(Q_c + Q_f)/Q_c = 1 + Q_f/Q_c\). En substituant :</p>
+        \[ \eta \;=\; 1 + \dfrac{Q_f}{Q_c} \;\leq\; 1 - \dfrac{T_f}{T_c} \;=\; \eta_{\text{Carnot}}. \]
+        <p>Égalité ssi cycle réversible (cycle de Carnot : 2 isothermes + 2 adiabatiques).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.3 — Relation de Clausius-Clapeyron</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Sur la courbe d'équilibre liquide-vapeur d'un corps pur, les potentiels chimiques sont égaux : \(\mu_{\ell}(T,P) = \mu_v(T,P)\). En différentiant le long de la courbe :</p>
+        \[ \mathrm{d}\mu_{\ell} = \mathrm{d}\mu_v \quad\Longleftrightarrow\quad -s_{\ell}\mathrm{d}T + v_{\ell}\mathrm{d}P = -s_v\mathrm{d}T + v_v\mathrm{d}P \]
+        <p>(relation de Gibbs-Duhem : \(\mathrm{d}\mu = -s\,\mathrm{d}T + v\,\mathrm{d}P\)). On isole :</p>
+        \[ \dfrac{\mathrm{d}P}{\mathrm{d}T} \;=\; \dfrac{s_v - s_{\ell}}{v_v - v_{\ell}} \;=\; \dfrac{\Delta s_{\text{vap}}}{\Delta v_{\text{vap}}}. \]
+        <p>Avec \(L_{\text{vap}} = T\,\Delta s_{\text{vap}}\) (chaleur latente massique, transition réversible isotherme) :</p>
+        \[ \boxed{\;\dfrac{\mathrm{d}P}{\mathrm{d}T} \;=\; \dfrac{L_{\text{vap}}}{T\,(v_v - v_{\ell})}\;} \]
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.4 — Entropie d'un gaz parfait</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Identité thermodynamique : \(\mathrm{d}U = T\,\mathrm{d}S - P\,\mathrm{d}V\). Pour un GP, \(\mathrm{d}U = n C_{V,m}\,\mathrm{d}T\) et \(P = nRT/V\) :</p>
+        \[ \mathrm{d}S \;=\; \dfrac{n C_{V,m}\,\mathrm{d}T}{T} + \dfrac{n R\,\mathrm{d}V}{V}. \]
+        <p>Intégration entre les états 1 et 2 :</p>
+        \[ \boxed{\;\Delta S \;=\; n C_{V,m}\ln\!\dfrac{T_2}{T_1} + n R \ln\!\dfrac{V_2}{V_1}\;} \]
+        <p>Forme équivalente avec \(P\) au lieu de \(V\) (Mayer) :</p>
+        \[ \Delta S \;=\; n C_{P,m}\ln\!\dfrac{T_2}{T_1} - n R\ln\!\dfrac{P_2}{P_1}. \]
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 EXERCICES ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Exercices résolus — type concours</h2>
+  <p class="intro">Trois exercices calibrés écrit d'agrégation interne. Tente avant d'ouvrir le corrigé.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — Détente de Joule-Gay-Lussac (★ classique)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Un gaz parfait, initialement dans un compartiment de volume \(V_0\) à température \(T_0\) et pression \(P_0\), occupe brutalement un volume \(2V_0\) après ouverture d'une vanne (le second compartiment était vide). Les parois sont calorifugées.</p>
+      <ol>
+        <li>Pourquoi \(W = 0\) et \(Q = 0\) ? En déduire \(\Delta U\).</li>
+        <li>En déduire la température finale \(T_f\).</li>
+        <li>Calculer \(\Delta S\) pour \(n\) moles de GP. Que conclut-on ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Détente dans le vide : pas de force de pression extérieure → \(W = 0\). Parois calorifugées → \(Q = 0\). Donc \(\Delta U = 0\).</p>
+      <p><strong>2.</strong> Pour un GP, \(U\) ne dépend que de \(T\) (loi de Joule). \(\Delta U = 0 \Rightarrow T_f = T_0\).</p>
+      <p><strong>3.</strong> Variation d'entropie :</p>
+      \[ \Delta S \;=\; n R\ln\!\dfrac{2V_0}{V_0} \;=\; n R\ln 2 \;&gt;\; 0. \]
+      <p>Bien que \(Q = 0\) (donc \(\delta S_{\text{ech}} = 0\)), on a \(\Delta S = \delta S_{\text{cr}} &gt; 0\) : la transformation est <strong>irréversible</strong>. C'est le prototype de transformation adiabatique <em>non réversible</em>.</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — Cycle de Beau de Rochas (moteur essence, ★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Le cycle théorique d'un moteur à essence comprend quatre transformations sur un gaz parfait diatomique (\(\gamma = 7/5\)) :</p>
+      <ol>
+        <li>\(A \to B\) : compression adiabatique réversible (\(V_A \to V_B = V_A/a\), \(a\) taux de compression volumétrique).</li>
+        <li>\(B \to C\) : combustion isochore (\(T_B \to T_C\), \(Q_c &gt; 0\) reçue).</li>
+        <li>\(C \to D\) : détente adiabatique réversible (\(V_C \to V_D = V_A\)).</li>
+        <li>\(D \to A\) : refroidissement isochore (\(T_D \to T_A\), \(Q_f &lt; 0\) cédée).</li>
+      </ol>
+      <p>Exprimer le rendement \(\eta\) en fonction de \(a\) et \(\gamma\). Application : \(a = 9\), \(\gamma = 7/5\).</p>
+      <div class="exo-head">Corrigé</div>
+      <p>Sur chaque branche isochore : \(Q = n C_{V,m}\,\Delta T\). Donc :</p>
+      \[ Q_c \;=\; n C_{V,m}(T_C - T_B)\,,\qquad Q_f \;=\; n C_{V,m}(T_A - T_D). \]
+      <p>Rendement : \(\eta = 1 + Q_f/Q_c = 1 - (T_D - T_A)/(T_C - T_B)\).</p>
+      <p>Sur les branches adiabatiques (loi de Laplace) : \(T V^{\gamma-1} = \text{cste}\), donc</p>
+      \[ T_B = T_A\,a^{\gamma-1}\,,\qquad T_C = T_D\,a^{\gamma-1}. \]
+      <p>D'où \((T_C - T_B) = a^{\gamma-1}(T_D - T_A)\), et finalement</p>
+      \[ \boxed{\;\eta \;=\; 1 - \dfrac{1}{a^{\gamma-1}}\;} \]
+      <p>Application : \(\eta = 1 - 9^{-0{,}4} \approx 1 - 0{,}415 \approx 58\,\%\). En pratique, autour de 30 % (pertes par frottements, combustion incomplète, échanges thermiques).</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Pompe à chaleur sur source eau (★★ Mines)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Une pompe à chaleur fonctionne entre une nappe d'eau souterraine à \(T_f = 285\,\mathrm{K}\) et l'intérieur d'une maison à \(T_c = 295\,\mathrm{K}\). On souhaite fournir une puissance thermique \(P_c = 6\,\mathrm{kW}\) à la maison.</p>
+      <ol>
+        <li>Calculer le COP idéal (Carnot).</li>
+        <li>En déduire la puissance électrique \(P_{\text{élec}}\) minimale du compresseur.</li>
+        <li>En supposant un rendement effectif de 50 % du Carnot, calculer \(P_{\text{élec}}\) réelle.</li>
+        <li>Comparer à un chauffage résistif fournissant 6 kW. Économie annuelle pour 1500 h de fonctionnement et 0,18 €/kWh.</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> \(\mathrm{COP}_{\text{Carnot}} = \dfrac{T_c}{T_c - T_f} = \dfrac{295}{10} = 29{,}5\).</p>
+      <p><strong>2.</strong> \(P_{\text{élec,min}} = P_c / \mathrm{COP}_{\text{Carnot}} = 6000/29{,}5 \approx 203\,\mathrm{W}\).</p>
+      <p><strong>3.</strong> \(\mathrm{COP}_{\text{réel}} = 0{,}5 \times 29{,}5 = 14{,}75\). Donc \(P_{\text{élec,réelle}} = 6000/14{,}75 \approx 407\,\mathrm{W}\).</p>
+      <p><strong>4.</strong> Énergie annuelle consommée :</p>
+      <ul>
+        <li>Résistif : \(6\,\mathrm{kW}\times 1500\,\mathrm{h} = 9000\,\mathrm{kWh}\) → 1620 €.</li>
+        <li>PAC : \(0{,}407\,\mathrm{kW}\times 1500\,\mathrm{h} = 611\,\mathrm{kWh}\) → 110 €.</li>
+      </ul>
+      <p>Économie annuelle : <strong>~1510 €</strong>, soit un facteur ~15 d'économie énergétique. Argument central des PAC en transition énergétique.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 10 LECONS ═══════════════════ -->
+<div class="sblock r" id="lecons">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Développements pédagogiques pour l'oral</h2>
+  <p class="intro">Deux propositions de leçons calibrées agrégation interne, avec plan, accroche et liens vers le secondaire.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon 1 — Premier principe : du calorimètre au moteur</h4>
+    <div class="lecon-meta">Niveau · Terminale spé / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Pourquoi un moteur à essence chauffe-t-il toujours, quel que soit son rendement ? Faut-il une « source d'énergie » ou une « source de chaleur » pour faire fonctionner un moteur ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>De l'expérience de Joule à la notion d'énergie interne \(U\) (équivalent mécanique de la calorie, 1843).</li>
+      <li>Travail, chaleur, énergie interne. Premier principe : \(\Delta U = W + Q\). Convention de signe.</li>
+      <li>Application : calorimétrie (mesure de capacité thermique, chaleur latente de fusion).</li>
+      <li>Transformations d'un gaz parfait — isotherme, isochore, adiabatique. Loi de Laplace (démonstration).</li>
+      <li>Ouverture : enthalpie \(H = U + PV\), application aux écoulements (turbine, détendeur).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Cycle 4 : transferts thermiques, conservation. Terminale spé : premier principe explicite, calorimétrie quantitative, machines thermiques au programme.</p>
+    <p><strong>Activité élève proposée.</strong> Mesurer la capacité thermique massique d'un métal par calorimétrie (chauffage à 100 °C, immersion dans l'eau à 20 °C, lecture de la température finale). Comparaison aux valeurs tabulées.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Leçon 2 — Second principe : irréversibilité et machines thermiques</h4>
+    <div class="lecon-meta">Niveau · 2<sup>e</sup> année CPGE PC/PSI · transposable agrégation</div>
+    <p><strong>Accroche.</strong> Une tasse de café posée se refroidit toujours, jamais l'inverse. Pourquoi cette flèche du temps thermodynamique ? Quelle est la rentabilité maximale d'un moteur ou d'une PAC ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Constat d'irréversibilité — exemples qualitatifs (mélange, détente dans le vide, frottements).</li>
+      <li>Entropie \(S\) comme fonction d'état mesurant l'irréversibilité. Bilan : \(\mathrm{d}S = \delta S_{\text{ech}} + \delta S_{\text{cr}}\) avec \(\delta S_{\text{cr}} \geq 0\).</li>
+      <li>Application au gaz parfait : démonstration de \(\Delta S\) en fonction de \(T\), \(V\) (ou \(T\), \(P\)).</li>
+      <li>Cycles thermodynamiques. Théorème de Carnot : démonstration du rendement maximal.</li>
+      <li>Applications : moteur essence (Beau de Rochas), réfrigérateur, pompe à chaleur. Discussion énergétique (transition).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Terminale spé : notion intuitive de désordre, irréversibilité abordée qualitativement. Machines thermiques au programme avec rendement de Carnot.</p>
+    <p><strong>Erreur fréquente d'élève.</strong> Penser que \(\Delta S &gt; 0\) implique \(Q &gt; 0\). Contre-exemple : détente de Joule-Gay-Lussac (\(Q = 0\) et \(\Delta S &gt; 0\)). Il faut distinguer entropie <em>échangée</em> et entropie <em>créée</em>.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 11 MONTAGES ═══════════════════ -->
+<div class="sblock r" id="montages">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Montages expérimentaux</h2>
+  <p class="intro">Deux montages exploitables à l'oral d'agrégation : protocole, schéma, sources d'incertitude, exploitation.</p>
+
+  <div class="lecon-card">
+    <h4>Montage 1 — Mesure de \(\gamma\) par la méthode de Clément-Désormes</h4>
+    <p><strong>Objectif.</strong> Déterminer \(\gamma = C_P/C_V\) de l'air à partir d'une détente adiabatique brève.</p>
+    <p><strong>Matériel.</strong> Bonbonne en verre (~10 L), manomètre à eau ou différentiel électronique, pompe à main, vanne à ouverture rapide, chronomètre.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>État initial : air dans la bonbonne à pression atmosphérique \(P_0\), température ambiante \(T_0\).</li>
+      <li>Surpression : pomper jusqu'à \(P_1 = P_0 + h_1\), attendre retour à \(T_0\) (équilibre thermique).</li>
+      <li>Détente adiabatique brève : ouverture rapide du robinet jusqu'à \(P_0\). L'air restant subit une détente adiabatique réversible (sur quelques secondes) → refroidissement à \(T_2 &lt; T_0\).</li>
+      <li>Échauffement isochore : on referme. L'air remonte à \(T_0\), la pression remonte à \(P_2 = P_0 + h_2\) avec \(h_2 &lt; h_1\).</li>
+      <li>Exploitation : pour \(h_1\), \(h_2\) faibles devant \(P_0\) (\(h \ll P_0\)) :</li>
+    </ol>
+    \[ \gamma \;=\; \dfrac{h_1}{h_1 - h_2}. \]
+    <pre class="ascii-schema">     ┌─────────────────┐
+     │                   │ ←── vanne à ouverture rapide
+     │       AIR         │
+     │      bonbonne     │
+     │                   │
+     │                   │
+     └───────┬───────────┘
+             │  manomètre
+            ├╤╤╤╤╤╧╤╤╤╤╤┤
+            ├───────────┤  → lecture h en mm d'eau
+            └───────────┘  pompe à main</pre>
+    <p><strong>Sources d'incertitude.</strong> Lecture des hauteurs (\(\pm 1\,\mathrm{mm}\)), durée d'ouverture du robinet (effets visqueux si trop lent), inhomogénéités thermiques après la détente.</p>
+    <p><strong>Exploitation.</strong> Comparaison à la valeur tabulée \(\gamma_{\text{air}} \approx 1{,}40\) (diatomique). Calcul d'incertitude par propagation. Discuter pourquoi cette méthode marche : la détente est suffisamment rapide pour être adiabatique mais suffisamment lente pour rester proche de la réversibilité.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage 2 — Chaleur latente de fusion de la glace par calorimétrie</h4>
+    <p><strong>Objectif.</strong> Mesurer \(L_{\text{fus}}\) de la glace (eau pure à \(0\,^\circ\mathrm{C}\)) par bilan calorimétrique.</p>
+    <p><strong>Matériel.</strong> Calorimètre à vases Dewar, thermomètre à 0,1 °C près, balance de précision (\(\pm 0{,}1\,\mathrm{g}\)), glace pilée séchée, eau chaude (~40 °C).</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Mesurer la masse d'eau chaude \(m_e\), la verser dans le calorimètre, mesurer \(T_1\) (température initiale).</li>
+      <li>Préparer une masse \(m_g\) de glace pilée séchée, à \(T_g = 0\,^\circ\mathrm{C}\). L'introduire rapidement.</li>
+      <li>Agiter doucement, attendre l'équilibre, mesurer \(T_2\) (température finale).</li>
+      <li>Bilan d'énergie (système isolé, \(P = \text{cste}\)) :</li>
+    </ol>
+    \[ m_e\,c_e\,(T_1 - T_2) + \mu\,(T_1 - T_2) \;=\; m_g\,L_{\text{fus}} + m_g\,c_e\,(T_2 - 0) \]
+    <p>où \(c_e = 4{,}18\,\mathrm{kJ\cdot kg^{-1}\cdot K^{-1}}\) est la capacité thermique massique de l'eau liquide, \(\mu\) la valeur en eau du calorimètre (à déterminer préalablement par étalonnage).</p>
+    <p><strong>Sources d'incertitude.</strong> Pesées (\(\pm 0{,}1\,\mathrm{g}\)), température (\(\pm 0{,}1\,\mathrm{K}\)), capacité du calorimètre (\(\pm 2\,\%\)), glace pas parfaitement à 0 °C ou humide (biais positif sur \(m_g\)).</p>
+    <p><strong>Exploitation.</strong> Valeur tabulée : \(L_{\text{fus}} = 334\,\mathrm{kJ\cdot kg^{-1}}\). Écart relatif typique : 5–10 %. Discuter physiquement la grande valeur de \(L_{\text{fus}}\) (rupture de liaisons hydrogène lors de la fusion).</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 12 PIEGES JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année. À anticiper en oral.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Conventions de signe.</strong> Toujours préciser la convention adoptée (récepteur ou moteur) avant tout calcul. Le jury sanctionne les changements implicites en cours de raisonnement. Convention française usuelle : récepteur, donc \(W&gt;0\) et \(Q&gt;0\) signifient « reçu par le système ».</div>
+    <div class="jury-item"><strong>Kelvin oublié.</strong> Les températures dans les formules de Carnot et de Clapeyron sont en kelvin <em>absolus</em>. Travailler en °C donne \(\eta\) erroné, voire négatif. Conversion : \(T(\mathrm{K}) = T(^\circ\mathrm{C}) + 273{,}15\).</div>
+    <div class="jury-item"><strong>Adiabatique vs réversible.</strong> Une transformation adiabatique (\(Q = 0\)) n'est <em>pas</em> nécessairement réversible. Contre-exemple : détente de Joule-Gay-Lussac (\(Q = 0\) mais \(\Delta S_{\text{cr}} &gt; 0\)). La loi de Laplace \(PV^{\gamma} = \text{cste}\) n'est valable que pour les adiabatiques <em>réversibles</em>.</div>
+    <div class="jury-item"><strong>Cycle = fonction d'état nulle.</strong> Sur un cycle, \(\Delta U = 0\) et \(\Delta S = 0\) (fonctions d'état), mais \(W \neq 0\) et \(Q \neq 0\) en général (échanges, pas de fonction d'état). Erreur classique : « le cycle est isentropique donc \(\Delta S = 0\) pour chaque branche ».</div>
+    <div class="jury-item"><strong>Rendement réel.</strong> Le rendement de Carnot est un <em>maximum théorique</em> jamais atteint. Donner systématiquement l'écart entre rendement réel (mesuré) et Carnot (calculé) à l'oral. Pour un moteur essence : Carnot ~60–70 %, réel ~25–30 %.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension avant de passer à la suite.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">Une mole de gaz parfait diatomique subit une compression adiabatique réversible. Si la pression double (\(\gamma = 7/5\)), par quel facteur le volume change-t-il ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. En adiabatique réversible on a PVᵞ = cste, pas PV = cste (qui serait isotherme). Avec γ > 1, la compression isentropique est moins forte que l\'isotherme.')">Le volume est divisé par 2 (isotherme)</button><button class="q-opt" onclick="quiz(this,true,'Correct. P₁V₁ᵞ = P₂V₂ᵞ avec P₂ = 2P₁ donne V₂ = V₁(P₁/P₂)^(1/γ) = V₁/2^(5/7) ≈ V₁/1,64.')">Le volume est divisé par \(2^{1/\gamma} = 2^{5/7} \approx 1{,}64\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Un processus isochore signifie V constant — incompatible avec une compression.')">Le volume ne change pas (isochore)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Le coefficient de performance maximal d'une pompe à chaleur fonctionnant entre 0 °C et 20 °C vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Les températures doivent être en kelvin absolus, pas en celsius. T_f = 273,15 K, T_c = 293,15 K.')">\(\mathrm{COP} = 20/0 \to \infty\)</button><button class="q-opt" onclick="quiz(this,true,'Exact. COP_PAC = T_c/(T_c − T_f) = 293/20 ≈ 14,65. Une PAC peut fournir jusqu\'à 14,65 fois plus d\'énergie thermique que d\'énergie électrique — argument central des PAC en transition énergétique.')">\(\mathrm{COP} = \dfrac{T_c}{T_c - T_f} = \dfrac{293}{20} \approx 14{,}65\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Le COP d\'une PAC peut largement dépasser 1 car la PAC « pompe » de l\'énergie de la source froide vers la source chaude.')">\(\mathrm{COP} = 1\) (conservation de l'énergie)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Détente de Joule-Gay-Lussac d'un gaz parfait : on ouvre une vanne entre une enceinte calorifugée contenant le gaz et une enceinte vide. Que vaut \(\Delta T\) ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Pour un GP, l\'énergie interne U ne dépend que de T (loi de Joule). Or W = 0 (vide) et Q = 0 (calorifugé) donc ΔU = 0, donc ΔT = 0.')">\(\Delta T &lt; 0\) (refroidissement par détente)</button><button class="q-opt" onclick="quiz(this,true,'Correct. W = 0 (pas de pression extérieure), Q = 0 (calorifugé), donc ΔU = 0. Pour un GP, U = nCvT donc ΔT = 0. Mais ΔS > 0 (irréversibilité) — la transformation est adiabatique <em>irréversible</em>.')">\(\Delta T = 0\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Pour un gaz parfait, U ne dépend que de T. Le travail étant nul (vide) et la chaleur nulle, ΔU = 0 implique ΔT = 0.')">\(\Delta T &gt; 0\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pour un cycle moteur entre une source à 600 K et une source à 300 K, le rendement de Carnot vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. η_Carnot = 1 − T_f/T_c, pas (T_c − T_f)/T_f.')">\(\eta = (600 - 300)/300 = 100\,\%\)</button><button class="q-opt" onclick="quiz(this,true,'Exact. η_Carnot = 1 − T_f/T_c = 1 − 300/600 = 0,5 soit 50 %. C\'est un maximum théorique : un moteur réel entre ces températures atteindra 25–35 %.')">\(\eta = 1 - 300/600 = 50\,\%\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Un rendement vaut entre 0 et 1 par définition. La valeur 200 % n\'a pas de sens pour un moteur (économie d\'énergie au sens classique impossible).')">\(\eta = 600/300 = 200\,\%\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">La règle des phases de Gibbs pour un corps pur (\(c = 1\)) avec deux phases en équilibre donne :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. v = c − φ + 2 = 1 − 2 + 2 = 1. Variance 1 signifie une relation entre P et T (courbe de saturation).')">\(v = 0\) (point fixe)</button><button class="q-opt" onclick="quiz(this,true,'Correct. v = c − φ + 2 = 1 − 2 + 2 = 1. Un seul paramètre intensif libre — c\'est ce qui définit la courbe de saturation P_sat(T) sur le diagramme P–T.')">\(v = 1\) (une relation \(P = f(T)\))</button><button class="q-opt" onclick="quiz(this,false,'Non. v = 2 correspondrait à une seule phase (P et T libres). Avec deux phases en équilibre, P et T sont liés par la courbe de saturation.')">\(v = 2\) (\(P\) et \(T\) indépendants)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Relation de Clausius-Clapeyron pour la vaporisation, avec \(L_{\text{vap}}\) chaleur latente massique, \(M\) masse molaire :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. La forme correcte donne d ln P / dT ∝ 1/T² (l\'arrangement vient de l\'approximation v_vap ≈ RT/(PM) puis intégration).')">\(\dfrac{\mathrm{d}P}{\mathrm{d}T} = \dfrac{L\,T}{M}\)</button><button class="q-opt" onclick="quiz(this,true,'Exact. Sous l\'approximation v_liq ≪ v_vap ≈ RT/(PM) (GP), on obtient d(ln P)/dT = L_vap·M/(RT²). C\'est la forme intégrée utilisable en pratique (loi de pression de vapeur saturante).')">\(\dfrac{\mathrm{d}\ln P}{\mathrm{d}T} = \dfrac{L_{\text{vap}}\,M}{R\,T^{2}}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. P ne dépend pas linéairement de T dans la courbe de saturation — c\'est exponentiel via l\'intégration de Clausius-Clapeyron.')">\(P = L\,T/(R\,M)\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Au cours d'un <em>cycle</em> thermodynamique quelconque, on a nécessairement :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. W et Q ne sont pas des fonctions d\'état — ils peuvent être non nuls sur un cycle (c\'est même le cas pour tout cycle utile : moteur W < 0, frigo Q_f > 0…).')">\(W = 0\) et \(Q = 0\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. U et S sont des fonctions d\'état, donc ΔU = 0 et ΔS_système = 0 sur un cycle (l\'état initial = état final). Mais W, Q et S_créée ne sont pas nuls en général ! Sur un moteur : W < 0, Q_c > 0, Q_f < 0, S_créée ≥ 0.')">\(\Delta U = 0\) et \(\Delta S_{\text{syst}} = 0\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Si toutes ces conditions étaient vérifiées, le cycle serait trivial (rien ne se passe). Sur un cycle utile, W ou Q sont non nuls.')">\(\Delta U = W = Q = 0\)</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets des sessions précédentes avec corrigés</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes du jury, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://phet.colorado.edu/fr/" target="_blank">
+      <span class="ri">🔬</span><div><div class="rt">PhET Simulations</div><div class="rd">Simulations interactives autorisées aux oraux</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="electromagnetisme.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Électromagnétisme</span></a>
+  <a class="pnav-link next" href="optique-ondes.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Optique & Ondes</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link cur" href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

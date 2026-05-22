@@ -1,0 +1,20 @@
+# Secrets — jamais commités
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Éditeur / OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Netlify CLI (si utilisé plus tard)
+.netlify/
+
+# Node (si build tool ajouté plus tard)
+node_modules/
+dist/
+npm-debug.log*

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Électromagnétisme & Ondes EM — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="active">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero r">
+    <div class="chap-eyebrow">Physique · Chapitres 07–11</div>
+    <h1>Électromagnétisme <em>& Ondes EM</em></h1>
+    <p class="lead">Sujets oraux n°5 (Propagation libre et guidée) et n°18 (Interaction lumière-matière). Chapitre dense, très présent à l'écrit. Cette page couvre l'intégralité du programme avec démonstrations rigoureuses, exercices résolus et propositions de leçons.</p>
+    <div class="chap-badges"><span class="badge bp">Sujets oraux 5 & 18</span> <span class="badge br">Difficile</span> <span class="badge bg">Fréquent à l'écrit</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#electrostatique">01 · Électrostatique</a>
+        <a href="#magnetostatique">02 · Magnétostatique</a>
+        <a href="#induction">03 · Induction</a>
+        <a href="#maxwell">04 · Équations de Maxwell</a>
+        <a href="#ondes">05 · Ondes EM</a>
+        <a href="#energie">06 · Énergie EM</a>
+        <a href="#pedagogie">07 · Pédagogie</a>
+        <a href="#demos">08 · Démonstrations clés</a>
+        <a href="#exercices">09 · Exercices résolus</a>
+        <a href="#lecons">10 · Leçons pour l'oral</a>
+        <a href="#montages">11 · Montages</a>
+        <a href="#jury">12 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="cur" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 ELECTROSTATIQUE ═══════════════════ -->
+<div class="sblock r" id="electrostatique">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Électrostatique</h2>
+  <p class="intro">Étude des champs créés par des charges au repos. Deux piliers : la loi de Coulomb (force entre charges) et le théorème de Gauss (flux du champ).</p>
+
+  <h3>1.1 Loi de Coulomb et champ électrostatique</h3>
+  <div class="fbox r">
+    <span class="fl">Force et champ d'une charge ponctuelle</span>
+    <span class="fc">Force exercée par \(q_1\) sur \(q_2\) (séparation \(r\)) :</span>
+    <span class="fm">\[ \vec{F}_{1\to 2} \;=\; \dfrac{1}{4\pi\varepsilon_0}\,\dfrac{q_1\,q_2}{r^{2}}\,\vec{u}_{1\to 2} \qquad \varepsilon_0 \approx 8{,}854\times 10^{-12}\,\mathrm{F\cdot m^{-1}} \]</span>
+    <hr>
+    <span class="fc">Champ électrostatique créé par une charge \(q\) en \(P\), évalué en \(M\) :</span>
+    <span class="fm">\[ \vec{E}(M) \;=\; \dfrac{1}{4\pi\varepsilon_0}\,\dfrac{q}{r^{2}}\,\vec{u}_{P\to M} \qquad [\vec{E}] = \mathrm{V\cdot m^{-1}} \]</span>
+    <hr>
+    <span class="fc">Champ d'une distribution \(\rho(\vec{r}')\) (principe de superposition) :</span>
+    <span class="fm">\[ \vec{E}(M) \;=\; \dfrac{1}{4\pi\varepsilon_0}\iiint \dfrac{\rho(\vec{r}')\,\vec{u}_{P\to M}}{r^{2}}\,\mathrm{d}\tau' \]</span>
+  </div>
+
+  <h3>1.2 Potentiel scalaire</h3>
+  <p>Le champ électrostatique étant à rotationnel nul, il dérive globalement d'un <strong>potentiel scalaire</strong> \(V\) : \(\vec{E} = -\,\vec{\mathrm{grad}}\,V\). Pour une charge ponctuelle (avec \(V(\infty) = 0\)) :</p>
+  <div class="fbox r">
+    <span class="fl">Potentiel d'une charge ponctuelle</span>
+    <span class="fm">\[ V(M) \;=\; \dfrac{1}{4\pi\varepsilon_0}\,\dfrac{q}{r} \qquad \text{et} \qquad \vec{\mathrm{rot}}\,\vec{E} = \vec{0} \quad\text{(régime statique)} \]</span>
+  </div>
+  <p>Le travail de la force électrostatique entre deux points \(A\) et \(B\) ne dépend pas du chemin : \(W_{A\to B} = q\bigl(V(A) - V(B)\bigr)\).</p>
+
+  <h3>1.3 Théorème de Gauss</h3>
+  <div class="fbox r">
+    <span class="fl">Théorème de Gauss — formes intégrale et locale</span>
+    <span class="fc">Pour toute surface fermée \(\Sigma\) délimitant un volume \(V\) :</span>
+    <span class="fm">\[ \oiint_{\Sigma} \vec{E}\cdot\vec{\mathrm{d}S} \;=\; \dfrac{Q_{\text{int}}}{\varepsilon_0} \qquad\Longleftrightarrow\qquad \boxed{\,\mathrm{div}\,\vec{E} \;=\; \dfrac{\rho}{\varepsilon_0}\,}\;\;\text{(Maxwell-Gauss)} \]</span>
+  </div>
+
+  <div class="demo-block">
+    <p>On vérifie d'abord pour une charge ponctuelle \(q\) en \(O\). Par symétrie sphérique, \(\vec{E} = E(R)\,\vec{e}_r\) avec \(E(R) = q/(4\pi\varepsilon_0 R^{2})\). Sur une sphère \(\Sigma\) de rayon \(R\) centrée en \(O\) :</p>
+    \[ \oiint_{\Sigma}\vec{E}\cdot\vec{\mathrm{d}S} \;=\; E(R)\cdot 4\pi R^{2} \;=\; \dfrac{q}{\varepsilon_0}. \]
+    <p>Le résultat est indépendant de \(R\) — il est aussi indépendant de la forme de la surface (invariance topologique du flux d'un champ en \(1/r^{2}\)). Par linéarité on étend à toute distribution. Avec Ostrogradski \(\oiint \vec{E}\cdot\vec{\mathrm{d}S} = \iiint \mathrm{div}\,\vec{E}\,\mathrm{d}\tau\) valable pour <em>tout</em> volume, on en déduit la forme locale.</p>
+  </div>
+
+  <div class="alert alert-phys r">
+    <span class="ico">💡</span>
+    <div><strong>Méthode Gauss.</strong> 1) Repérer les symétries (sphérique, cylindrique, plane) → direction et dépendance du champ. 2) Choisir une surface adaptée. 3) Calculer \(Q_{\text{int}}\). Le théorème est <em>toujours</em> vrai mais n'est <em>exploitable</em> que si la symétrie permet de sortir \(E\) de l'intégrale.</div>
+  </div>
+
+  <h4>Exemples canoniques</h4>
+  <table class="compact">
+    <thead><tr><th>Distribution</th><th>Champ \(\vec{E}\)</th><th>Potentiel \(V\)</th></tr></thead>
+    <tbody>
+      <tr><td>Sphère uniformément chargée (volume), \(Q\), \(R\)</td><td>Ext : \(\dfrac{Q}{4\pi\varepsilon_0 r^{2}}\,\vec{e}_r\) — Int : \(\dfrac{Qr}{4\pi\varepsilon_0 R^{3}}\,\vec{e}_r\)</td><td>Ext : \(\dfrac{Q}{4\pi\varepsilon_0 r}\)</td></tr>
+      <tr><td>Fil infini, densité linéique \(\lambda\)</td><td>\(\dfrac{\lambda}{2\pi\varepsilon_0\,r}\,\vec{e}_r\)</td><td>\(-\dfrac{\lambda}{2\pi\varepsilon_0}\ln r + \text{cste}\)</td></tr>
+      <tr><td>Plan infini, densité surfacique \(\sigma\)</td><td>\(\dfrac{\sigma}{2\varepsilon_0}\,\vec{e}_n\) (de chaque côté)</td><td>\(-\dfrac{\sigma}{2\varepsilon_0}|z| + \text{cste}\)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>1.4 Équations locales — Poisson et Laplace</h3>
+  <p>Les deux équations couplées de l'électrostatique :</p>
+  \[ \mathrm{div}\,\vec{E} = \dfrac{\rho}{\varepsilon_0}\,,\qquad \vec{\mathrm{rot}}\,\vec{E} = \vec{0}. \]
+  <p>En reportant \(\vec{E} = -\,\vec{\mathrm{grad}}\,V\) dans la première :</p>
+  <div class="key-box">
+    \[ \Delta V \;=\; -\,\dfrac{\rho}{\varepsilon_0} \quad\text{(équation de Poisson)}\,,\qquad \Delta V = 0 \quad\text{(équation de Laplace, dans le vide)}. \]
+  </div>
+
+  <h3>1.5 Conducteurs en équilibre — condensateur plan</h3>
+  <p>Dans un conducteur à l'équilibre électrostatique, \(\vec{E}_{\text{int}} = \vec{0}\) et toute charge en excès est répartie sur la surface (théorème de Coulomb : juste à l'extérieur, \(\vec{E} = \dfrac{\sigma}{\varepsilon_0}\vec{n}\)).</p>
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Condensateur plan dans le vide</div>
+    <div class="notion-body">
+      <p>Deux armatures planes de surface \(S\), séparées d'une distance \(e\), portant \(\pm Q\) :</p>
+      \[ C \;=\; \dfrac{\varepsilon_0 S}{e}\,,\qquad Q = C\,U\,,\qquad W_{\text{stocké}} \;=\; \dfrac{1}{2}CU^{2} \;=\; \dfrac{Q^{2}}{2C}. \]
+      <p>Avec un diélectrique de permittivité relative \(\varepsilon_r\) : \(C \to \varepsilon_r\,C\).</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 MAGNETOSTATIQUE ═══════════════════ -->
+<div class="sblock r" id="magnetostatique">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Magnétostatique</h2>
+  <p class="intro">Étude du champ magnétique créé par des courants stationnaires. Pendants exacts de Coulomb et Gauss : Biot-Savart et théorème d'Ampère.</p>
+
+  <h3>2.1 Loi de Biot et Savart</h3>
+  <div class="fbox r">
+    <span class="fl">Champ créé par un élément de courant</span>
+    <span class="fc">Élément de courant \(I\,\vec{\mathrm{d}\ell}\) en \(P\), point d'observation \(M\) :</span>
+    <span class="fm">\[ \vec{\mathrm{d}B}(M) \;=\; \dfrac{\mu_0\,I}{4\pi}\,\dfrac{\vec{\mathrm{d}\ell}\wedge\vec{u}_{P\to M}}{r^{2}} \qquad \mu_0 = 4\pi\times 10^{-7}\,\mathrm{H\cdot m^{-1}} \]</span>
+    <span class="fc">Champ pour une distribution volumique de courants \(\vec{j}\) :</span>
+    <span class="fm">\[ \vec{B}(M) \;=\; \dfrac{\mu_0}{4\pi}\iiint \dfrac{\vec{j}(\vec{r}')\wedge\vec{u}_{P\to M}}{r^{2}}\,\mathrm{d}\tau' \]</span>
+  </div>
+
+  <h3>2.2 Théorème d'Ampère</h3>
+  <div class="fbox r">
+    <span class="fl">Théorème d'Ampère — formes intégrale et locale</span>
+    <span class="fc">Circulation de \(\vec{B}\) le long d'un contour fermé \(\mathcal{C}\) orienté :</span>
+    <span class="fm">\[ \oint_{\mathcal{C}}\vec{B}\cdot\vec{\mathrm{d}\ell} \;=\; \mu_0\,I_{\text{enl}} \qquad\Longleftrightarrow\qquad \boxed{\,\vec{\mathrm{rot}}\,\vec{B} \;=\; \mu_0\,\vec{j}\,}\;\;\text{(forme locale, régime statique)} \]</span>
+  </div>
+
+  <div class="demo-block">
+    <p><strong>Champ d'un fil rectiligne infini parcouru par \(I\).</strong> Symétrie cylindrique : \(\vec{B} = B(r)\,\vec{e}_\theta\). Contour : cercle \(\mathcal{C}\) de rayon \(r\) centré sur le fil. Alors</p>
+    \[ \oint_{\mathcal{C}}\vec{B}\cdot\vec{\mathrm{d}\ell} \;=\; B(r)\cdot 2\pi r \;=\; \mu_0 I \quad\Longrightarrow\quad B(r) \;=\; \dfrac{\mu_0\,I}{2\pi\,r}. \]
+  </div>
+
+  <div class="demo-block">
+    <p><strong>Solénoïde infini, \(n\) spires par mètre, courant \(I\).</strong> Le champ est nul à l'extérieur (raisonnement d'invariance + comportement à l'infini). On prend un contour rectangulaire à cheval intérieur/extérieur, longueur \(L\) parallèle à l'axe. Seule la portion intérieure contribue : \(\oint\vec{B}\cdot\vec{\mathrm{d}\ell} = B L\). Courant enlacé : \(I_{\text{enl}} = nLI\). D'où</p>
+    \[ \vec{B}_{\text{int}} \;=\; \mu_0\,n\,I\,\vec{e}_z\,,\qquad \vec{B}_{\text{ext}} = \vec{0}. \]
+  </div>
+
+  <h3>2.3 Équations locales et potentiel vecteur</h3>
+  <div class="key-box">
+    \[ \mathrm{div}\,\vec{B} \;=\; 0\,,\qquad \vec{\mathrm{rot}}\,\vec{B} \;=\; \mu_0\,\vec{j}. \]
+  </div>
+  <p>L'équation \(\mathrm{div}\,\vec{B} = 0\) traduit l'<strong>absence de monopôle magnétique</strong> : le flux de \(\vec{B}\) à travers toute surface fermée est nul. On en déduit l'existence d'un <strong>potentiel vecteur</strong> \(\vec{A}\) tel que \(\vec{B} = \vec{\mathrm{rot}}\,\vec{A}\), défini à un \(\vec{\mathrm{grad}}\,\chi\) près (liberté de jauge — jauge de Coulomb : \(\mathrm{div}\,\vec{A} = 0\)).</p>
+</div>
+
+<!-- ═══════════════════ 03 INDUCTION ═══════════════════ -->
+<div class="sblock r" id="induction">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Induction électromagnétique</h2>
+  <p class="intro">Couplage entre circuits et champs variables. Le pilier de la conversion électromécanique : moteurs, transformateurs, génératrices.</p>
+
+  <h3>3.1 Loi de Faraday et loi de Lenz</h3>
+  <div class="fbox r">
+    <span class="fl">Loi de Faraday — fem induite</span>
+    <span class="fc">Flux à travers une surface s'appuyant sur le contour \(\mathcal{C}\) :</span>
+    <span class="fm">\[ \Phi \;=\; \iint_{\mathcal{S}}\vec{B}\cdot\vec{\mathrm{d}S} \]</span>
+    <span class="fc">Force électromotrice induite (signe selon orientation choisie) :</span>
+    <span class="fm">\[ \boxed{\;e \;=\; -\,\dfrac{\mathrm{d}\Phi}{\mathrm{d}t}\;} \qquad\Longleftrightarrow\qquad \vec{\mathrm{rot}}\,\vec{E} \;=\; -\,\dfrac{\partial\vec{B}}{\partial t} \]</span>
+  </div>
+  <p><strong>Loi de Lenz</strong> (interprétation qualitative) : les effets de l'induction s'opposent à la cause qui leur donne naissance. C'est une conséquence directe de la conservation de l'énergie.</p>
+
+  <h3>3.2 Auto-induction et inductance mutuelle</h3>
+  <div class="fbox r">
+    <span class="fl">Inductances \(L\) et \(M\)</span>
+    <span class="fc">Flux propre d'un circuit parcouru par \(i\) : \(\Phi_{\text{propre}} = L\,i\), fem auto-induite :</span>
+    <span class="fm">\[ e_L \;=\; -\,L\,\dfrac{\mathrm{d}i}{\mathrm{d}t} \qquad W_L \;=\; \dfrac{1}{2}L\,i^{2} \qquad u_m \;=\; \dfrac{\vec{B}^{2}}{2\mu_0} \]</span>
+    <span class="fc">Couplage de deux circuits \(\Phi_{1\to 2} = M\,i_1\), théorème de Neumann \(M_{12} = M_{21}\) :</span>
+    <span class="fm">\[ e_2 \;=\; -\,M\,\dfrac{\mathrm{d}i_1}{\mathrm{d}t} \qquad k = \dfrac{M}{\sqrt{L_1\,L_2}} \in [0,1] \]</span>
+  </div>
+
+  <h3>3.3 Force de Laplace et conversion électromécanique</h3>
+  <p>Un conducteur parcouru par un courant \(I\) dans un champ \(\vec{B}\) subit une force de Laplace :</p>
+  \[ \vec{\mathrm{d}F} \;=\; I\,\vec{\mathrm{d}\ell}\wedge\vec{B}. \]
+  <p>Couplée à la fem induite (Lorentz), elle réalise la conversion mécanique ⟷ électrique : c'est le principe du moteur (entrée électrique → mouvement) et de la génératrice (mouvement → courant).</p>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Neumann vs Lorentz.</strong> Deux origines distinctes donnent la même expression \(e = -\,\mathrm{d}\Phi/\mathrm{d}t\) : circuit fixe avec \(\vec{B}\) variable (Neumann, terme \(\partial_t\vec{B}\)) ou circuit mobile dans \(\vec{B}\) stationnaire (Lorentz, terme \(\vec{v}\wedge\vec{B}\)). Le jury attend la distinction explicite à l'oral.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 04 MAXWELL ═══════════════════ -->
+<div class="sblock r" id="maxwell">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Équations de Maxwell</h2>
+  <p class="intro">L'unification de l'électricité et du magnétisme. Quatre équations qui prédisent l'existence des ondes électromagnétiques.</p>
+
+  <h3>4.1 Les quatre équations dans le vide</h3>
+  <div class="fbox r">
+    <span class="fl">Équations de Maxwell (formes locales, vide avec sources \(\rho, \vec{j}\))</span>
+    <span class="fm">\[ \begin{aligned}
+    \mathrm{div}\,\vec{E} &\;=\; \dfrac{\rho}{\varepsilon_0} && \text{(Maxwell-Gauss)} \\[2pt]
+    \mathrm{div}\,\vec{B} &\;=\; 0 && \text{(Maxwell-Thomson)} \\[2pt]
+    \vec{\mathrm{rot}}\,\vec{E} &\;=\; -\,\dfrac{\partial\vec{B}}{\partial t} && \text{(Maxwell-Faraday)} \\[2pt]
+    \vec{\mathrm{rot}}\,\vec{B} &\;=\; \mu_0\,\vec{j} + \mu_0\varepsilon_0\,\dfrac{\partial\vec{E}}{\partial t} && \text{(Maxwell-Ampère)}
+    \end{aligned} \]</span>
+    <hr>
+    <span class="fc">Le terme \(\mu_0\varepsilon_0\,\partial_t\vec{E}\) est le <strong>courant de déplacement</strong> introduit par Maxwell (1865). Il assure la cohérence avec la conservation de la charge.</span>
+  </div>
+
+  <h3>4.2 Conservation de la charge</h3>
+  <div class="demo-block">
+    <p>On prend la divergence de Maxwell-Ampère. Or \(\mathrm{div}(\vec{\mathrm{rot}}\,\vec{B}) = 0\) (identité différentielle), donc</p>
+    \[ 0 \;=\; \mu_0\,\mathrm{div}\,\vec{j} + \mu_0\varepsilon_0\,\dfrac{\partial}{\partial t}(\mathrm{div}\,\vec{E}) \;=\; \mu_0\left(\mathrm{div}\,\vec{j} + \dfrac{\partial\rho}{\partial t}\right). \]
+    <p>D'où l'équation locale de conservation de la charge :</p>
+    \[ \boxed{\;\mathrm{div}\,\vec{j} + \dfrac{\partial\rho}{\partial t} \;=\; 0\;} \]
+    <p>Sans le terme de Maxwell, l'équation d'Ampère serait incompatible avec cette équation en régime variable. C'est l'argument historique de Maxwell.</p>
+  </div>
+
+  <h3>4.3 Formes intégrales</h3>
+  <table class="compact">
+    <thead><tr><th>Locale</th><th>Intégrale</th></tr></thead>
+    <tbody>
+      <tr><td>\(\mathrm{div}\,\vec{E} = \rho/\varepsilon_0\)</td><td>\(\oiint \vec{E}\cdot\vec{\mathrm{d}S} = Q_{\text{int}}/\varepsilon_0\)</td></tr>
+      <tr><td>\(\mathrm{div}\,\vec{B} = 0\)</td><td>\(\oiint \vec{B}\cdot\vec{\mathrm{d}S} = 0\)</td></tr>
+      <tr><td>\(\vec{\mathrm{rot}}\,\vec{E} = -\partial_t\vec{B}\)</td><td>\(\oint \vec{E}\cdot\vec{\mathrm{d}\ell} = -\,\mathrm{d}\Phi_B/\mathrm{d}t\)</td></tr>
+      <tr><td>\(\vec{\mathrm{rot}}\,\vec{B} = \mu_0\vec{j} + \mu_0\varepsilon_0\partial_t\vec{E}\)</td><td>\(\oint \vec{B}\cdot\vec{\mathrm{d}\ell} = \mu_0 I_{\text{enl}} + \mu_0\varepsilon_0\,\mathrm{d}\Phi_E/\mathrm{d}t\)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4.4 Approximation des régimes quasi-stationnaires (ARQS)</h3>
+  <p>L'ARQS est valable lorsque la taille caractéristique \(L\) du système est très inférieure à la longueur d'onde \(\lambda = c/f\). En ARQS <strong>magnétique</strong>, on néglige le courant de déplacement (\(\vec{\mathrm{rot}}\,\vec{B} = \mu_0\,\vec{j}\)) MAIS on conserve \(\vec{\mathrm{rot}}\,\vec{E} = -\partial_t\vec{B}\). C'est volontairement asymétrique — sinon il n'y aurait plus d'induction et plus de circuits RL ou de transformateurs.</p>
+  <p class="pull-quote">« L'ARQS, c'est l'art de garder l'induction tout en oubliant la propagation. »</p>
+</div>
+
+<!-- ═══════════════════ 05 ONDES EM ═══════════════════ -->
+<div class="sblock r" id="ondes">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Ondes électromagnétiques dans le vide</h2>
+  <p class="intro">Sujet oral n°5. Les ondes EM découlent directement de Maxwell sans sources, à la vitesse \(c = 1/\sqrt{\mu_0\varepsilon_0}\).</p>
+
+  <h3>5.1 Équation d'onde</h3>
+  <div class="demo-block">
+    <p>Dans le vide sans sources, on prend le rotationnel de Maxwell-Faraday :</p>
+    \[ \vec{\mathrm{rot}}\!\left(\vec{\mathrm{rot}}\,\vec{E}\right) \;=\; -\,\dfrac{\partial}{\partial t}\!\left(\vec{\mathrm{rot}}\,\vec{B}\right). \]
+    <p>Identité vectorielle : \(\vec{\mathrm{rot}}(\vec{\mathrm{rot}}\,\vec{E}) = \vec{\mathrm{grad}}(\mathrm{div}\,\vec{E}) - \vec\Delta\vec{E}\). Comme \(\mathrm{div}\,\vec{E} = 0\), il reste \(-\vec\Delta\vec{E}\). À droite, on substitue Maxwell-Ampère sans sources : \(\vec{\mathrm{rot}}\,\vec{B} = \mu_0\varepsilon_0\,\partial_t\vec{E}\). D'où</p>
+    \[ \boxed{\;\vec\Delta\vec{E} \;-\; \dfrac{1}{c^{2}}\,\dfrac{\partial^{2}\vec{E}}{\partial t^{2}} \;=\; \vec{0}\;} \qquad\text{avec}\qquad c \;=\; \dfrac{1}{\sqrt{\mu_0\varepsilon_0}}. \]
+    <p>Même équation pour \(\vec{B}\). Numériquement \(c \approx 2{,}998\times 10^{8}\,\mathrm{m\cdot s^{-1}}\) — la vitesse de la lumière. Maxwell (1865) identifie la lumière à une OEM sur cette seule base.</p>
+  </div>
+
+  <h3>5.2 Onde plane progressive monochromatique (OPPM)</h3>
+  <div class="fbox r">
+    <span class="fl">OPPM dans le vide</span>
+    <span class="fm">\[ \vec{E}(\vec{r},t) \;=\; \vec{E}_0\,\cos(\omega t - \vec{k}\cdot\vec{r} + \varphi) \]</span>
+    <span class="fc">Relation de dispersion : \(\omega = c\,\|\vec{k}\|\). Pulsation \(\omega = 2\pi f\), longueur d'onde \(\lambda = 2\pi/k = c/f\).</span>
+    <hr>
+    <span class="fc">Structure imposée par Maxwell sans sources :</span>
+    <span class="fm">\[ \vec{k}\cdot\vec{E} = 0\,,\qquad \vec{k}\cdot\vec{B} = 0\,,\qquad \vec{B} \;=\; \dfrac{\vec{k}\wedge\vec{E}}{\omega} \]</span>
+    <span class="fc">\((\vec{k},\vec{E},\vec{B})\) forme un trièdre direct, \(\|\vec{B}\| = \|\vec{E}\|/c\). L'onde est <strong>transversale</strong>.</span>
+  </div>
+
+  <h3>5.3 Polarisation</h3>
+  <p>Selon la composition des deux composantes transversales de \(\vec{E}\), on distingue : polarisation <strong>rectiligne</strong> (\(\vec{E}\) garde une direction fixe), <strong>circulaire</strong> (composantes orthogonales de même amplitude en quadrature \(\pm \pi/2\)), <strong>elliptique</strong> (cas général). Vérification expérimentale par <em>loi de Malus</em> \(I = I_0\,\cos^{2}\theta\) après un polariseur idéal.</p>
+
+  <h3>5.4 Propagation dans un milieu et guidage</h3>
+  <div class="fbox r">
+    <span class="fl">Milieu LHI et fibre optique</span>
+    <span class="fc">Milieu linéaire homogène isotrope, indice optique \(n\) :</span>
+    <span class="fm">\[ n \;=\; \sqrt{\varepsilon_r\,\mu_r}\,,\qquad v_\varphi \;=\; \dfrac{c}{n}\,,\qquad \lambda_{\text{milieu}} \;=\; \dfrac{\lambda_0}{n} \]</span>
+    <hr>
+    <span class="fc">Réflexion totale interne (fibre optique, \(n_1 > n_2\)) :</span>
+    <span class="fm">\[ \sin\theta_{\text{lim}} \;=\; \dfrac{n_2}{n_1}\,,\qquad \text{ouverture numérique :}\ \mathrm{ON} = \sqrt{n_1^{2} - n_2^{2}} \]</span>
+    <hr>
+    <span class="fc">Coefficients de Fresnel à incidence normale :</span>
+    <span class="fm">\[ r \;=\; \dfrac{n_1 - n_2}{n_1 + n_2}\,,\qquad t \;=\; \dfrac{2 n_1}{n_1 + n_2}\,,\qquad R = r^{2},\ T = 1 - R \]</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 06 ENERGIE EM ═══════════════════ -->
+<div class="sblock r" id="energie">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Énergie électromagnétique</h2>
+  <p class="intro">Densité d'énergie EM, vecteur de Poynting, bilan local de l'énergie. La signature du champ comme « réservoir » d'énergie.</p>
+
+  <div class="fbox r">
+    <span class="fl">Densité d'énergie et vecteur de Poynting</span>
+    <span class="fm">\[ u_{\text{em}} \;=\; \dfrac{\varepsilon_0\,\vec{E}^{2}}{2} \;+\; \dfrac{\vec{B}^{2}}{2\mu_0}\,,\qquad \vec{\Pi} \;=\; \dfrac{\vec{E}\wedge\vec{B}}{\mu_0}\quad[\mathrm{W\cdot m^{-2}}] \]</span>
+    <hr>
+    <span class="fc">Équation locale du bilan d'énergie (théorème de Poynting) :</span>
+    <span class="fm">\[ \boxed{\;\dfrac{\partial u_{\text{em}}}{\partial t} + \mathrm{div}\,\vec{\Pi} \;=\; -\,\vec{j}\cdot\vec{E}\;} \]</span>
+  </div>
+
+  <div class="demo-block">
+    <p>On part de \(\vec{j}\cdot\vec{E}\) (puissance volumique cédée aux charges). Avec Maxwell-Ampère :</p>
+    \[ \vec{j}\cdot\vec{E} \;=\; \dfrac{1}{\mu_0}\vec{E}\cdot\vec{\mathrm{rot}}\,\vec{B} - \varepsilon_0\,\vec{E}\cdot\dfrac{\partial\vec{E}}{\partial t}. \]
+    <p>On utilise l'identité \(\mathrm{div}(\vec{E}\wedge\vec{B}) = \vec{B}\cdot\vec{\mathrm{rot}}\,\vec{E} - \vec{E}\cdot\vec{\mathrm{rot}}\,\vec{B}\) et Maxwell-Faraday \(\vec{\mathrm{rot}}\,\vec{E} = -\partial_t\vec{B}\). Après réarrangement, on aboutit à l'équation de Poynting.</p>
+  </div>
+
+  <h3>6.1 Cas d'une OPPM</h3>
+  <p>Pour une OPPM rectiligne \(\vec{E} = E_0\cos(\omega t - kz)\,\vec{e}_x\) :</p>
+  <div class="key-box">
+    \[ \langle u_{\text{em}}\rangle \;=\; \dfrac{1}{2}\,\varepsilon_0\,E_0^{2}\,,\qquad \langle\vec{\Pi}\rangle \;=\; \dfrac{1}{2}\,\varepsilon_0 c\,E_0^{2}\,\vec{e}_z\,,\qquad I \;=\; \|\langle\vec{\Pi}\rangle\| \;=\; \dfrac{1}{2}\,\varepsilon_0 c\,E_0^{2}. \]
+  </div>
+  <p>L'éclairement \(I\) (intensité moyenne reçue) s'exprime en \(\mathrm{W\cdot m^{-2}}\). Application : constante solaire \(I_{\odot} = 1{,}36\,\mathrm{kW\cdot m^{-2}}\), donc \(E_0 \approx 1{,}01\,\mathrm{kV\cdot m^{-1}}\).</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Interaction lumière-matière (sujet oral n°18)</div>
+    <div class="notion-body"><ul>
+      <li><strong>Absorption</strong> — loi de Beer-Lambert : \(I(z) = I_0\,\mathrm{e}^{-\alpha z}\), avec \(\alpha\) le coefficient d'absorption.</li>
+      <li><strong>Diffusion Rayleigh</strong> — intensité diffusée \(\propto 1/\lambda^{4}\) → couleur bleue du ciel, rouge du coucher de soleil.</li>
+      <li><strong>Effet photoélectrique</strong> — \(E_{c,\text{max}} = h\nu - W_s\) (Einstein, 1905) : quantification de la lumière.</li>
+      <li><strong>Diffusion Compton</strong> — \(\lambda' - \lambda = \dfrac{h}{m_e\,c}\,(1 - \cos\theta)\) : le photon perd de l'énergie en interagissant avec un électron.</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 07 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques des élèves.</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Au lycée — programme spécialité physique-chimie</div>
+    <div class="notion-body"><ul>
+      <li><strong>Champs</strong> électrique et magnétique : notion de champ, lignes de champ, superposition.</li>
+      <li><strong>Force de Lorentz</strong> : \(\vec{F} = q(\vec{E} + \vec{v}\wedge\vec{B})\) — application au spectrographe de masse.</li>
+      <li><strong>Induction</strong> : loi de Faraday, loi de Lenz — approche expérimentale indispensable.</li>
+      <li><strong>Ondes électromagnétiques</strong> : spectre EM, célérité \(c\), lumière visible.</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confondre champ \(\vec{E}\) et force \(\vec{F} = q\vec{E}\) (le champ existe sans charge test).</li>
+        <li>Signe dans la loi de Faraday (convention d'orientation du circuit et du flux).</li>
+        <li>Loi de Lenz « s'opposer à la cause » — mal appliquée quand le flux diminue.</li>
+        <li>Notion de champ comme réalité physique, pas juste un outil mathématique.</li>
+        <li>Vitesse de la lumière dans un milieu : \(v = c/n\) (pas \(c\,n\)).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 DEMOS CLES ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Les démonstrations attendues à l'écrit et systématiquement demandées à l'oral. Synthèse récapitulative.</p>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.1 — Théorème de Gauss à partir de Coulomb</div>
+    <div class="notion-body">Voir section 1.3. Argument clé : invariance topologique du flux d'un champ en \(1/r^{2}\), puis Ostrogradski pour passer à la forme locale.</div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.2 — Équation d'onde dans le vide</div>
+    <div class="notion-body">Voir section 5.1. Argument clé : rotationnel de Maxwell-Faraday, identité \(\vec{\mathrm{rot}}(\vec{\mathrm{rot}}\,\vec{E}) = \vec{\mathrm{grad}}(\mathrm{div}\,\vec{E}) - \vec\Delta\vec{E}\), avec \(\mathrm{div}\,\vec{E} = 0\) dans le vide.</div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.3 — Conservation de la charge</div>
+    <div class="notion-body">Voir section 4.2. Argument clé : divergence de Maxwell-Ampère + identité \(\mathrm{div}(\vec{\mathrm{rot}}) = 0\). C'est la raison historique du courant de déplacement.</div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.4 — Théorème de Poynting</div>
+    <div class="notion-body">Voir section 6. Argument clé : exprimer \(\vec{j}\cdot\vec{E}\) via Maxwell-Ampère, puis utiliser \(\mathrm{div}(\vec{E}\wedge\vec{B})\) et Maxwell-Faraday.</div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.5 — Structure d'une OPPM</div>
+    <div class="notion-body">
+      <p>À partir de \(\vec{E}(\vec{r},t) = \vec{E}_0\cos(\omega t - \vec{k}\cdot\vec{r})\), Maxwell-Gauss sans charges donne \(\vec{k}\cdot\vec{E} = 0\), et Maxwell-Faraday relie \(\vec{B}\) à \(\vec{E}\). On obtient :</p>
+      \[ \vec{B} \;=\; \dfrac{\vec{k}\wedge\vec{E}}{\omega}\,,\qquad \omega = c\,\|\vec{k}\|. \]
+      <p>Trièdre \((\vec{k},\vec{E},\vec{B})\) direct, \(\|\vec{B}\| = \|\vec{E}\|/c\), onde transversale.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 EXERCICES ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Exercices résolus type concours</h2>
+  <p class="intro">Trois exercices calibrés écrit d'agrégation interne. Tente avant d'ouvrir le corrigé.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — Sphère uniformément chargée (★ classique CCINP)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Une boule de rayon \(R\) porte une charge totale \(Q\) répartie uniformément en volume.</p>
+      <ol>
+        <li>Exprimer \(\rho\) en fonction de \(Q\) et \(R\).</li>
+        <li>Invariances, symétries. Forme générale de \(\vec{E}(M)\).</li>
+        <li>Calculer \(\vec{E}\) à l'intérieur et à l'extérieur (Gauss).</li>
+        <li>En déduire \(V(r)\) avec \(V(\infty) = 0\).</li>
+        <li>Énergie électrostatique stockée \(W\).</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> \(\rho = \dfrac{Q}{\tfrac{4}{3}\pi R^{3}} = \dfrac{3Q}{4\pi R^{3}}\).</p>
+      <p><strong>2.</strong> Symétrie sphérique → \(\vec{E} = E(r)\,\vec{e}_r\).</p>
+      <p><strong>3.</strong> Sphère de Gauss de rayon \(r\), flux \(\Phi = E(r)\cdot 4\pi r^{2}\).</p>
+      <ul>
+        <li>Ext (\(r > R\)) : \(Q_{\text{int}} = Q\) → \(E(r) = \dfrac{Q}{4\pi\varepsilon_0\,r^{2}}\).</li>
+        <li>Int (\(r < R\)) : \(Q_{\text{int}} = Q(r/R)^{3}\) → \(E(r) = \dfrac{Q\,r}{4\pi\varepsilon_0\,R^{3}}\) (linéaire).</li>
+      </ul>
+      <p><strong>4.</strong> \(\mathrm{d}V/\mathrm{d}r = -E(r)\) avec \(V(\infty) = 0\).</p>
+      <ul>
+        <li>Ext : \(V(r) = \dfrac{Q}{4\pi\varepsilon_0\,r}\).</li>
+        <li>Int : \(V(r) = \dfrac{Q}{4\pi\varepsilon_0}\,\dfrac{3R^{2} - r^{2}}{2R^{3}}\), continuité en \(r = R\) : \(V(R) = \dfrac{Q}{4\pi\varepsilon_0\,R}\).</li>
+      </ul>
+      <p><strong>5.</strong> \(W = \dfrac{\varepsilon_0}{2}\iiint E^{2}\,\mathrm{d}\tau\), sur les deux domaines :</p>
+      \[ W \;=\; \dfrac{3}{5}\,\dfrac{Q^{2}}{4\pi\varepsilon_0\,R}. \]
+      <p>Le facteur \(3/5\) (vs \(1/2\) pour une sphère <em>conductrice</em>) est un classique d'astrophysique (énergie d'auto-gravitation d'une boule uniforme).</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — OPPM et constante solaire (★★ Mines-Ponts)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>OPPM dans le vide : \(\vec{E}(z,t) = E_0\,\cos(\omega t - kz)\,\vec{e}_x\).</p>
+      <ol>
+        <li>Déterminer \(\vec{B}(z,t)\) via Maxwell-Faraday.</li>
+        <li>Vérifier les équations de Maxwell sans sources. Relation de dispersion.</li>
+        <li>Densité d'énergie instantanée et moyenne.</li>
+        <li>Vecteur de Poynting moyen.</li>
+        <li>Pour \(I_{\odot} = 1{,}36\,\mathrm{kW\cdot m^{-2}}\), calculer \(E_0\) et \(B_0\).</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> \(\vec{\mathrm{rot}}\,\vec{E} = -\partial_z E_x\,\vec{e}_y = E_0 k\sin(\omega t - kz)\,\vec{e}_y\). On intègre \(\partial_t\vec{B} = -\vec{\mathrm{rot}}\,\vec{E}\) :</p>
+      \[ \vec{B}(z,t) \;=\; \dfrac{E_0}{c}\,\cos(\omega t - kz)\,\vec{e}_y. \]
+      <p><strong>2.</strong> \(\mathrm{div}\,\vec{E} = \mathrm{div}\,\vec{B} = 0\) (champs ⊥ à la direction de variation). Maxwell-Ampère donne \(\omega = c k\).</p>
+      <p><strong>3.</strong> \(u_{\text{em}} = \varepsilon_0 E_0^{2}\cos^{2}(\omega t - kz)\) → \(\langle u_{\text{em}}\rangle = \tfrac{1}{2}\varepsilon_0 E_0^{2}\). Les contributions \(\vec{E}\) et \(\vec{B}\) sont égales en moyenne.</p>
+      <p><strong>4.</strong> \(\langle\vec{\Pi}\rangle = \tfrac{1}{2}\varepsilon_0 c\,E_0^{2}\,\vec{e}_z\).</p>
+      <p><strong>5.</strong> \(I = \tfrac{1}{2}\varepsilon_0 c\,E_0^{2}\) → \(E_0 = \sqrt{2I/(\varepsilon_0 c)}\). Numériquement :</p>
+      \[ E_0 \;=\; \sqrt{\dfrac{2\times 1360}{8{,}85\times 10^{-12}\times 3\times 10^{8}}} \;\approx\; 1{,}01\times 10^{3}\,\mathrm{V\cdot m^{-1}}\,,\qquad B_0 \;=\; \dfrac{E_0}{c} \;\approx\; 3{,}4\,\mathrm{\mu T}. \]
+      <p>À comparer au champ géomagnétique (\(\sim 50\,\mathrm{\mu T}\)).</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Barre sur rails et induction (★★ Centrale)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Barre conductrice de masse \(m\), longueur \(\ell\), résistance \(R\), sur deux rails horizontaux sans frottement, dans un champ \(\vec{B} = B_0\,\vec{e}_z\) vertical uniforme. À \(t = 0\), \(v(0) = v_0\,\vec{e}_x\).</p>
+      <ol>
+        <li>Équation différentielle du mouvement.</li>
+        <li>\(v(t)\) et \(i(t)\).</li>
+        <li>Bilan énergétique global.</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Fem de Lorentz : \(e = B_0\ell v\). Loi des mailles : \(i = e/R = B_0\ell v/R\). Force de Laplace de norme \(B_0 i \ell\), dirigée opposée à \(\vec{v}\) (Lenz). Newton :</p>
+      \[ m\,\dfrac{\mathrm{d}v}{\mathrm{d}t} \;=\; -\,\dfrac{B_0^{2}\ell^{2}}{R}\,v. \]
+      <p><strong>2.</strong> Exponentielle décroissante : \(v(t) = v_0\,\mathrm{e}^{-t/\tau}\) avec \(\tau = \dfrac{mR}{B_0^{2}\ell^{2}}\). Puis \(i(t) = \dfrac{B_0\ell v_0}{R}\,\mathrm{e}^{-t/\tau}\).</p>
+      <p><strong>3.</strong> \(E_c(0) = \tfrac{1}{2}m v_0^{2}\). Énergie dissipée par effet Joule :</p>
+      \[ W_J \;=\; \int_0^{\infty}\!R\,i^{2}\,\mathrm{d}t \;=\; \dfrac{(B_0\ell v_0)^{2}}{R}\cdot\dfrac{\tau}{2} \;=\; \tfrac{1}{2}m v_0^{2}. \]
+      <p>Bilan : toute l'énergie cinétique part en Joule. La force de Laplace est la « courroie de transmission » mécanique → électrique → thermique.</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 10 LECONS ORAL ═══════════════════ -->
+<div class="sblock r" id="lecons">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Développements pédagogiques pour l'oral</h2>
+  <p class="intro">Deux propositions de leçons calibrées agrégation interne, avec plan, accroche et liens vers le secondaire.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon 1 — Champ électrostatique : du frottement au condensateur</h4>
+    <div class="lecon-meta">Niveau · Terminale spécialité / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Frotter une règle plastique sur un pull et l'approcher de petits papiers : qu'est-ce qui agit à distance ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>De la force de Coulomb au champ \(\vec{E}\) — notion de champ comme intermédiaire local. Démo : grain de gris dans l'huile entre deux électrodes (lignes de champ).</li>
+      <li>Symétries et invariances comme outil de calcul (sphérique, cylindrique, plane).</li>
+      <li>Théorème de Gauss — énoncé, démonstration (fil infini), application au condensateur plan.</li>
+      <li>Potentiel scalaire et énergie : \(\vec{E} = -\,\vec{\mathrm{grad}}\,V\), \(W = \tfrac{1}{2}CU^{2}\).</li>
+      <li>Ouverture : conducteurs en équilibre, effet de pointe (paratonnerre).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Cycle 4 : électrisation par frottement. Seconde : interactions électrostatiques. 1<sup>re</sup> spé : condensateur, énergie. Terminale spé : modèle du dipôle, force de Lorentz.</p>
+    <p><strong>Activité élève proposée.</strong> Mesurer la force entre deux billes de polystyrène chargées (balance de torsion artisanale, caméra smartphone) → tracer \(F(r)\) → vérifier la loi en \(1/r^{2}\).</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Leçon 2 — Induction électromagnétique : du moteur au transformateur</h4>
+    <div class="lecon-meta">Niveau · 2<sup>e</sup> année CPGE PC/PSI · transposable agrégation</div>
+    <p><strong>Accroche.</strong> Une plaque à induction chauffe une casserole en fer, mais pas une casserole en verre. Pourquoi ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Mise en évidence expérimentale (aimant + spire + ampèremètre).</li>
+      <li>Loi de Faraday \(e = -\dfrac{\mathrm{d}\Phi}{\mathrm{d}t}\) ; loi de Lenz comme conséquence énergétique.</li>
+      <li>Distinction Neumann (\(\partial_t\vec{B}\)) vs Lorentz (\(\vec{v}\wedge\vec{B}\)) sur deux exemples.</li>
+      <li>Auto-induction et circuit RL ; densité d'énergie magnétique \(u_m = B^{2}/(2\mu_0)\).</li>
+      <li>Applications : transformateur, freinage par courants de Foucault, plaques à induction, génératrice.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Terminale spé STL : transformateur idéal. Terminale spé générale : programme limité, points de contact avec « énergie électrique et puissance ».</p>
+    <p><strong>Erreur fréquente d'élève.</strong> Confondre « champ qui varie » et « flux qui varie ». Insister : c'est le <em>flux à travers le circuit</em> qui importe — un champ uniforme à travers un circuit qui se déforme génère aussi de l'induction.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 11 MONTAGES ═══════════════════ -->
+<div class="sblock r" id="montages">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Montages expérimentaux</h2>
+  <p class="intro">Deux montages exploitables à l'oral d'agrégation : protocole, schéma, sources d'incertitude, exploitation.</p>
+
+  <div class="lecon-card">
+    <h4>Montage 1 — Mesure de \(\mu_0\) par solénoïde</h4>
+    <p><strong>Objectif.</strong> Vérifier \(B = \mu_0\,n\,I\) au centre d'un solénoïde et en déduire \(\mu_0\).</p>
+    <p><strong>Matériel.</strong> Solénoïde (\(L \approx 50\,\mathrm{cm}\), \(N \approx 500\) spires), générateur continu 0–5 A, ampèremètre, teslamètre à effet Hall, support gradué.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Mesurer \(N\) et \(L\) → \(n = N/L\).</li>
+      <li>Insérer la sonde de Hall au centre du solénoïde, parallèle à l'axe.</li>
+      <li>Pour \(I\) variant de 0 à 5 A par pas de 0,5 A, mesurer \(B\). Trois répétitions.</li>
+      <li>Tracer \(B = f(I)\) avec barres d'erreur. Régression linéaire → pente \(\mu_0\,n\) → \(\mu_0\).</li>
+    </ol>
+    <pre class="ascii-schema">     ┌──────────────────────────────────────┐
+     │   solénoïde · N spires · longueur L   │
+ ────┤  │  │  │  │  │  │  │  │  │  │  │  ├──── → I
+     │                  ●                    │
+     │                  ↑  sonde de Hall     │
+     └──────────────────────────────────────┘
+                        │
+                  ┌────────────┐
+                  │ teslamètre │
+                  └────────────┘</pre>
+    <p><strong>Sources d'incertitude.</strong> Calibration sonde (\(\pm 2\,\%\)), positionnement axial (\(\pm 2\,\mathrm{mm}\)), intensité (\(\pm 0{,}05\,\mathrm{A}\)), longueur effective (effets de bord).</p>
+    <p><strong>Exploitation.</strong> Propagation des incertitudes :</p>
+    \[ \dfrac{u(\mu_0)}{\mu_0} \;=\; \sqrt{\left(\dfrac{u(\text{pente})}{\text{pente}}\right)^{\!2} + \left(\dfrac{u(n)}{n}\right)^{\!2}}. \]
+    <p>Comparaison à \(\mu_0^{\text{théo}} = 4\pi\times 10^{-7}\,\mathrm{H\cdot m^{-1}}\), écart relatif typique 3–8 % à discuter.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage 2 — Polarisation d'une OEM hertzienne (bande X)</h4>
+    <p><strong>Objectif.</strong> Vérifier la transversalité d'une OEM (\(\sim 9{,}5\,\mathrm{GHz}\)) et la loi de Malus.</p>
+    <p><strong>Matériel.</strong> Émetteur Gunn, cornets émetteur/récepteur, détecteur à diode, multimètre, banc gradué, absorbants mousse hyperfréquence.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Aligner émetteur et récepteur, polarisations parallèles. Mesurer \(S_0\).</li>
+      <li>Tourner le récepteur autour de l'axe de \(\theta = 0\) à \(180^\circ\) par pas de \(10^\circ\).</li>
+      <li>Tracer \(S(\theta)\), tester la loi de Malus \(S = S_0\,\cos^{2}\theta\).</li>
+      <li>Insérer une grille métallique (fils parallèles) comme polariseur — passage si la grille est \(\perp\) à \(\vec{E}\).</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Bruit du détecteur (\(\pm 5\,\%\)), positionnement angulaire (\(\pm 2^\circ\)), parasites par réflexions.</p>
+    <p><strong>Exploitation.</strong> Régression non linéaire \(S = S_0\,\cos^{2}\theta\) ou linéarisation \(\sqrt{S/S_0} = |\cos\theta|\). Lien direct avec le programme d'optique (polarisation = transversalité). Preuve expérimentale accessible que l'OEM est transversale.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 12 PIEGES JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année. À anticiper en oral.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Symétries vs antisymétries.</strong> Le champ \(\vec{E}\) est <em>parallèle</em> à un plan de symétrie des charges, <em>perpendiculaire</em> à un plan d'antisymétrie. Pour \(\vec{B}\) (champ axial, pseudo-vecteur), c'est <em>l'inverse</em>. Beaucoup inversent en magnétostatique.</div>
+    <div class="jury-item"><strong>Théorème de Gauss mal exploité.</strong> Le théorème reste vrai pour toute surface fermée, mais n'est <em>exploitable</em> pour calculer \(\vec{E}\) que si la symétrie permet de sortir \(E\) de l'intégrale. Le jury sanctionne les surfaces inadaptées.</div>
+    <div class="jury-item"><strong>Fem induite et orientation.</strong> Le signe de \(e = -\,\mathrm{d}\Phi/\mathrm{d}t\) dépend de l'orientation choisie (règle de la main droite entre \(\vec{\mathrm{d}\ell}\) et \(\vec{\mathrm{d}S}\)). Fixer l'orientation au début et la garder partout.</div>
+    <div class="jury-item"><strong>ARQS asymétrique.</strong> En ARQS magnétique, on néglige \(\mu_0\varepsilon_0\,\partial_t\vec{E}\) dans Maxwell-Ampère MAIS on garde \(\vec{\mathrm{rot}}\,\vec{E} = -\partial_t\vec{B}\). Sinon plus d'induction, plus de circuits RL. Question quasi-systématique à l'oral.</div>
+    <div class="jury-item"><strong>Vitesse de phase \(>c\).</strong> Dans un milieu dispersif, \(v_\varphi = \omega/k\) peut dépasser \(c\) sans violer la relativité : c'est la vitesse de groupe \(v_g = \mathrm{d}\omega/\mathrm{d}k\) qui transporte l'information et reste \(\leq c\). Savoir formuler proprement.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension avant de passer à la suite.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">La vitesse de la lumière dans un verre d'indice \(n = 1{,}5\) vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Dans un milieu, la lumière ralentit : v = c/n. Multiplier par n donnerait une vitesse supérieure à c, ce qui est impossible.')">\(c\,n = 4{,}5\times 10^{8}\,\mathrm{m\cdot s^{-1}}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. v = c/n = 3·10⁸ / 1,5 = 2·10⁸ m·s⁻¹. La longueur d\'onde change (λ = λ₀/n) mais la fréquence reste la même.')">\(c/n = 2{,}0\times 10^{8}\,\mathrm{m\cdot s^{-1}}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Seule la vitesse de la lumière dans le vide vaut c. Dans un milieu d\'indice n > 1, la lumière ralentit à c/n.')">\(c = 3\times 10^{8}\,\mathrm{m\cdot s^{-1}}\) (identique)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Le courant de déplacement dans l'équation de Maxwell-Ampère est proportionnel à :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. j⃗ est le courant de conduction. Le courant de déplacement est un terme distinct, qui peut exister même dans le vide où j⃗ = 0.')">la densité de courant de conduction \(\vec{j}\)</button><button class="q-opt" onclick="quiz(this,true,'Exact. Le courant de déplacement vaut ε₀·∂E⃗/∂t. Ajouté par Maxwell pour assurer la cohérence avec la conservation de la charge — et c\'est ce terme qui prédit les ondes EM.')">\(\partial\vec{E}/\partial t\) (dérivée temporelle du champ électrique)</button><button class="q-opt" onclick="quiz(this,false,'Non. ∂B⃗/∂t apparaît dans Maxwell-Faraday, pas Maxwell-Ampère.')">\(\partial\vec{B}/\partial t\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Fibre optique avec cœur \(n_1 = 1{,}50\) et gaine \(n_2 = 1{,}45\). Angle limite de réflexion totale interne :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. La formule est sin(θ_lim) = n₂/n₁ (rapport plus petit que 1 pour obtenir un angle < 90°).')">\(\theta_{\text{lim}} = \arcsin(n_1/n_2) \approx 75^\circ\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. sin(θ_lim) = n₂/n₁ = 1,45/1,50 ≈ 0,967, soit θ_lim ≈ 75°. Tout rayon dépassant cet angle est totalement réfléchi → guidage dans la fibre.')">\(\theta_{\text{lim}} = \arcsin(n_2/n_1) \approx 75^\circ\)</button><button class="q-opt" onclick="quiz(this,false,'Non. n₁ > n₂ : la réflexion totale interne existe bien pour des angles supérieurs à θ_lim.')">\(\theta_{\text{lim}} = 90^\circ\) (pas de réflexion totale)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pour une OPPM dans le vide d'amplitude \(E_0\), l'éclairement (intensité moyenne) vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. L\'éclairement est une puissance moyenne par unité de surface, donc dépend de E₀² et fait intervenir c et ε₀.')">\(I = E_0/c\)</button><button class="q-opt" onclick="quiz(this,true,'Exact. I = ½·ε₀·c·E₀² (W·m⁻²). Le facteur ½ provient de la moyenne temporelle de cos²(ωt). Application directe : constante solaire 1,36 kW·m⁻².')">\(I = \tfrac{1}{2}\,\varepsilon_0 c\,E_0^{2}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Tu as oublié le facteur ½ de la moyenne temporelle de cos². L\'énergie instantanée maximale vaut ε₀E₀² mais la moyenne est divisée par 2.')">\(I = \varepsilon_0 c\,E_0^{2}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Dans l'ARQS magnétique, quelles équations de Maxwell conserve-t-on telles quelles ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. C\'est l\'inverse : on néglige le courant de déplacement dans Maxwell-Ampère, mais on conserve ∂B⃗/∂t dans Maxwell-Faraday — sinon plus d\'induction.')">On néglige \(\partial_t\vec{B}\) dans Faraday mais on garde le courant de déplacement</button><button class="q-opt" onclick="quiz(this,true,'Correct. ARQS magnétique : on néglige µ₀ε₀·∂E⃗/∂t dans Maxwell-Ampère, MAIS on garde rot(E⃗) = −∂B⃗/∂t. Asymétrie volontaire — sinon plus d\'induction. Piège classique du jury.')">On néglige le courant de déplacement dans Ampère mais on garde \(\partial_t\vec{B}\) dans Faraday</button><button class="q-opt" onclick="quiz(this,false,'Non. Sans les deux ∂_t, on retrouverait les équations purement statiques — plus d\'induction, plus de circuits RL ou de transformateurs, ce qui rendrait l\'ARQS inutile pour les circuits.')">On néglige les deux termes \(\partial_t\) pour revenir aux équations statiques</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Barre conductrice de longueur \(\ell\) glissant à vitesse \(v\) dans \(\vec{B}\) perpendiculaire. La fem induite a pour module :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Une fem s\'exprime en volts (V), pas en V·m. Il manque la multiplication par v ou ℓ.')">\(B\,\ell\) (en V·m)</button><button class="q-opt" onclick="quiz(this,true,'Correct. e = Bℓv (induction de Lorentz). Retrouvé soit par dΦ/dt avec Φ = B·ℓ·x → dΦ/dt = B·ℓ·v, soit directement par v⃗∧B⃗ sur les porteurs : ∫(v⃗∧B⃗)·dℓ⃗ = B·ℓ·v.')">\(B\,\ell\,v\)</button><button class="q-opt" onclick="quiz(this,false,'Non. B²ℓv/R est la force de Laplace de freinage divisée par v — pas la fem elle-même.')">\(\dfrac{B^{2}\ell\,v}{R}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Quelle relation lie le potentiel vecteur \(\vec{A}\) au champ \(\vec{B}\) ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Le potentiel scalaire est lié à E⃗ par E⃗ = −grad V, mais ce n\'est pas la relation pour B⃗.')">\(\vec{B} = -\,\vec{\mathrm{grad}}\,V\)</button><button class="q-opt" onclick="quiz(this,true,'Exact. B⃗ = rot(A⃗). Cette relation existe parce que div(B⃗) = 0 toujours (pas de monopôle magnétique). A⃗ est défini à un grad(χ) près : c\'est la liberté de jauge. Jauge de Coulomb : div(A⃗) = 0.')">\(\vec{B} = \vec{\mathrm{rot}}\,\vec{A}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. div(A⃗) est une grandeur scalaire — elle ne peut pas être égale à B⃗ qui est vectoriel. Cette divergence est par contre liée au choix de jauge.')">\(\vec{B} = \mathrm{div}\,\vec{A}\)</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets des sessions précédentes avec corrigés</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes du jury, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://phet.colorado.edu/fr/" target="_blank">
+      <span class="ri">🔬</span><div><div class="rt">PhET Simulations</div><div class="rd">Simulations interactives autorisées aux oraux</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="mecanique.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Mécanique</span></a>
+  <a class="pnav-link next" href="thermodynamique.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Thermodynamique</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link cur" href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+// Sidebar active on scroll
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+// Scroll reveal
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

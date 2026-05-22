@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chimie organique & Mécanismes — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)']],
+      displayMath: [['\\[','\\]']],
+      packages: {'[+]': ['mhchem','ams']},
+      macros: {
+        oiint: '\\mathop{\\unicode{x222F}}',
+        oiiint: '\\mathop{\\unicode{x2230}}'
+      }
+    },
+    loader: { load: ['[tex]/mhchem','[tex]/ams'] },
+    svg: { fontCache: 'global' },
+    options: { renderActions: { addMenu: [] } }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="active">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero c r">
+    <div class="chap-eyebrow c">Chimie · Sujets oraux 4, 22, 23, 25, 26, 27m</div>
+    <h1>Chimie organique <em class="c">& Mécanismes</em></h1>
+    <p class="lead">Sujets oraux n°4 (Stéréoisomérie), n°22 (Mécanismes), n°23 (Électrophilie/nucléophilie), n°25 (Modification de fonctions), n°26 (Modification de chaîne), n°27m (Stratégies de synthèse). Six sujets oraux — un des chapitres les plus exposés en oral.</p>
+    <div class="chap-badges"><span class="badge bc">Sujets oraux 4, 22, 23, 25, 26, 27m</span> <span class="badge bg">Très fréquent</span> <span class="badge br">6 sujets oraux</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#stereo">01 · Stéréochimie</a>
+        <a href="#effets">02 · Effets électroniques</a>
+        <a href="#sn">03 · Substitution nucléophile</a>
+        <a href="#elim">04 · Élimination</a>
+        <a href="#additions">05 · Additions électrophiles</a>
+        <a href="#carbonyles">06 · Composés carbonylés</a>
+        <a href="#synthese">07 · Stratégies de synthèse</a>
+        <a href="#pedagogie">08 · Pédagogie</a>
+        <a href="#demos">09 · Démonstrations clés</a>
+        <a href="#exercices">10 · Exercices résolus</a>
+        <a href="#lecons">11 · Leçons pour l'oral</a>
+        <a href="#montages">12 · Montages</a>
+        <a href="#jury">13 · Pièges du jury</a>
+        <a href="#quiz-section">Quiz</a>
+        <a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div>
+        <a class="" href="mecanique.html"><span class="dot p"></span>Mécanique</a>
+        <a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a>
+        <a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a>
+        <a class="" href="optique-ondes.html"><span class="dot p"></span>Optique & Ondes</a>
+        <a class="" href="electricite.html"><span class="dot p"></span>Électricité</a>
+        <a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a>
+        <a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a>
+        <a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a>
+        <a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a>
+        <a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique & Catalyse</a>
+        <a class="cur" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a>
+        <a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a>
+      </div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ═══════════════════ 01 STEREOCHIMIE ═══════════════════ -->
+<div class="sblock r" id="stereo">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Stéréochimie</h2>
+  <p class="intro">Sujet oral n°4. Représentation tridimensionnelle des molécules, configurations absolues et relatives, conformations, énantiomères, diastéréoisomères.</p>
+
+  <h3>1.1 Chiralité et carbones asymétriques</h3>
+  <div class="fbox c">
+    <span class="fl">Définitions de la chiralité</span>
+    <span class="fc">Une molécule est <strong>chirale</strong> si elle n'est pas superposable à son image dans un miroir (absence de plan, axe ou centre de symétrie). Les deux formes sont des <strong>énantiomères</strong>.</span>
+    <hr>
+    <span class="fc">Carbone asymétrique (centre stéréogène) : carbone \(sp^{3}\) avec 4 substituants différents → 2 configurations absolues possibles.</span>
+    <hr>
+    <span class="fc">Pour \(n\) centres stéréogènes : au plus \(2^{n}\) stéréoisomères. Les <strong>diastéréoisomères</strong> sont des stéréoisomères qui ne sont pas énantiomères (configurations différentes sur certains centres seulement).</span>
+  </div>
+
+  <h3>1.2 Règles CIP — descripteurs R/S</h3>
+  <div class="fbox c">
+    <span class="fl">Cahn-Ingold-Prelog (CIP)</span>
+    <span class="fc">Priorités des substituants selon (a) numéro atomique \(Z\) décroissant, (b) propagation au rang suivant si égalité, (c) atomes doublement liés comptés deux fois.</span>
+    <hr>
+    <span class="fc">Détermination R/S : on place le substituant de plus basse priorité (4) <em>en arrière</em>, on lit le sens de rotation 1→2→3 :</span>
+    <span class="fm">\[ \text{Sens horaire :}\;\mathbf{R}\ (\textit{rectus}) \qquad \text{Sens anti-horaire :}\;\mathbf{S}\ (\textit{sinister}) \]</span>
+  </div>
+
+  <h3>1.3 Configurations Z/E (doubles liaisons)</h3>
+  <div class="fbox c">
+    <span class="fl">Isomérie géométrique d'une C=C</span>
+    <span class="fc">Pour chaque carbone de la double liaison, on classe les deux substituants par priorité CIP :</span>
+    <span class="fm">\[ \mathbf{Z}\ (\textit{zusammen}) :\ \text{substituants prioritaires du même côté} \]</span>
+    <span class="fm">\[ \mathbf{E}\ (\textit{entgegen}) :\ \text{substituants prioritaires opposés} \]</span>
+    <span class="fc">Cas particulier des alcènes simples (\(\ce{CH3CH=CHCH3}\)) : on parle aussi de <em>cis</em> (Z) et <em>trans</em> (E).</span>
+  </div>
+
+  <h3>1.4 Pouvoir rotatoire</h3>
+  <div class="fbox c">
+    <span class="fl">Activité optique</span>
+    <span class="fc">Loi de Biot pour une solution :</span>
+    <span class="fm">\[ \alpha \;=\; [\alpha]_T^{\lambda}\cdot \ell\cdot c \]</span>
+    <span class="fc">\(\alpha\) : angle observé [°]. \([\alpha]\) : pouvoir rotatoire spécifique [°·dm⁻¹·g⁻¹·cm³], \(\ell\) : longueur [dm], \(c\) : concentration [g·cm⁻³].</span>
+    <hr>
+    <span class="fc">Mélange racémique : 50/50 d'énantiomères → \([\alpha] = 0\) (inactif optiquement).</span>
+    <span class="fc">Excès énantiomérique : \(ee = \dfrac{[R] - [S]}{[R] + [S]} \times 100\,\%\).</span>
+  </div>
+
+  <h3>1.5 Conformations</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Analyse conformationnelle (cas du butane)</div>
+    <div class="notion-body">
+      <p>Rotation autour d'une liaison \(\sigma\) C–C — les positions instantanées sont des <strong>conformations</strong>, interconvertibles à T ambiante. Représentation de Newman (vue le long de la liaison).</p>
+      <ul>
+        <li><strong>Décalée anti</strong> : groupes encombrants opposés (180°) — minimum d'énergie.</li>
+        <li><strong>Décalée gauche</strong> (gauche, 60°) — répulsion modérée.</li>
+        <li><strong>Éclipsée</strong> (0°) — recouvrement orbital, répulsion maximale.</li>
+      </ul>
+      <p>Pour le butane : \(\Delta E_{\text{anti}\to\text{gauche}} \approx 3{,}8\,\mathrm{kJ\cdot mol^{-1}}\). Barrière à la rotation par éclipse : \(\sim 16\,\mathrm{kJ\cdot mol^{-1}}\). À \(T\) ambiante (\(RT \approx 2{,}5\,\mathrm{kJ\cdot mol^{-1}}\)), la barrière est franchissable thermiquement.</p>
+      <p>Cyclohexane : conformation <strong>chaise</strong> très stable (substituants axiaux/équatoriaux), interconversion par le bateau via demi-chaise. Le t-butyl en équatorial bloque la conformation préférentielle.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 02 EFFETS ELECTRONIQUES ═══════════════════ -->
+<div class="sblock r" id="effets">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Effets électroniques et nucléophilie / électrophilie</h2>
+  <p class="intro">Sujet oral n°23. Compréhension qualitative et quantitative de la réactivité organique par les effets électroniques.</p>
+
+  <h3>2.1 Effet inductif</h3>
+  <div class="fbox c">
+    <span class="fl">Transmission par les liaisons sigma</span>
+    <span class="fc"><strong>Effet inductif donneur (+I)</strong> : groupes alkyles (\(\ce{-CH3}\), \(\ce{-C(CH3)3}\)…). Stabilisent les carbocations adjacents.</span>
+    <span class="fc"><strong>Effet inductif attracteur (−I)</strong> : groupes électronégatifs (\(\ce{-F}, \ce{-Cl}, \ce{-OH}, \ce{-NO2}, \ce{-COOH}\)).</span>
+    <hr>
+    <span class="fc">Diminue rapidement avec la distance (effet en \(1/r^{3}\) environ, négligeable au-delà de 3 liaisons).</span>
+    <hr>
+    <span class="fc">Stabilité des carbocations (effet +I des alkyles) :</span>
+    <span class="fm">\[ \text{tertiaire} \,&gt;\, \text{secondaire} \,&gt;\, \text{primaire} \,&gt;\, \ce{CH3+} \]</span>
+  </div>
+
+  <h3>2.2 Effet mésomère (résonance)</h3>
+  <div class="fbox c">
+    <span class="fl">Délocalisation par conjugaison de doubles liaisons</span>
+    <span class="fc"><strong>Effet mésomère donneur (+M)</strong> : groupes à doublet libre conjugué (\(\ce{-OH}, \ce{-OR}, \ce{-NH2}, \ce{-Cl}\) en aromatique).</span>
+    <span class="fc"><strong>Effet mésomère attracteur (−M)</strong> : groupes avec C/N/O doublement lié polarisable (\(\ce{-NO2}, \ce{-CN}, \ce{-CHO}, \ce{-COR}, \ce{-COOH}\)).</span>
+    <hr>
+    <span class="fc">Formes mésomères : représentations limites équivalentes du même hybride de résonance. Convention : flèches courbes à 2 électrons partant d'un doublet libre ou d'une liaison \(\pi\).</span>
+    <hr>
+    <span class="fc">En général : effet mésomère &gt; effet inductif.</span>
+  </div>
+
+  <h3>2.3 Acidité et basicité</h3>
+  <div class="fbox c">
+    <span class="fl">Échelle de \(pK_a\) en chimie organique</span>
+    <span class="fm">\[ \mathrm{R-COOH}\ (pK_a \sim 4)\ &gt;\ \mathrm{Ar-OH}\ (pK_a \sim 10)\ &gt;\ \mathrm{R-OH}\ (pK_a \sim 16-18)\ &gt;\ \mathrm{R-NH3+}\ (pK_a \sim 10) \]</span>
+    <hr>
+    <span class="fc">Stabilisation de la base conjuguée → acidité augmentée. Les acides carboxyliques sont les plus acides parmi les hydrocarbures car la base \(\ce{R-COO-}\) est stabilisée par résonance (charge délocalisée sur 2 O équivalents).</span>
+  </div>
+
+  <h3>2.4 Nucléophilie vs basicité</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Distinction cruciale</div>
+    <div class="notion-body">
+      <p>Une <strong>base</strong> capte un proton \(\ce{H+}\). Un <strong>nucléophile</strong> attaque un carbone électrophile. Une espèce peut être bonne base mais mauvais nucléophile (et vice versa).</p>
+      <ul>
+        <li><strong>\(\ce{OH-}\)</strong> : bonne base ET bon nucléophile.</li>
+        <li><strong>\(\ce{tBuO-}\)</strong> : bonne base mais nucléophile médiocre (encombrement stérique).</li>
+        <li><strong>\(\ce{I-}\)</strong> : nucléophile fort en solvant protique (polarisable) mais base faible (acide \(\ce{HI}\) très fort, \(pK_a \approx -10\)).</li>
+        <li><strong>Effet de solvant</strong> : un solvant aprotique polaire (DMSO, DMF) augmente la nucléophilie des anions (libres, non solvatés).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 03 SUBSTITUTION NUCLEOPHILE ═══════════════════ -->
+<div class="sblock r" id="sn">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Substitution nucléophile</h2>
+  <p class="intro">Sujet oral n°22 (Mécanismes). Remplacement d'un nucléofuge par un nucléophile sur un carbone \(sp^{3}\). Deux mécanismes selon les conditions.</p>
+
+  <h3>3.1 SN2 — bimoléculaire et concertée</h3>
+  <div class="fbox c">
+    <span class="fl">Substitution nucléophile bimoléculaire</span>
+    <span class="fc">Bilan :</span>
+    <span class="fm">\[ \ce{Nu^- + R-X -> R-Nu + X^-} \]</span>
+    <hr>
+    <span class="fc">Loi cinétique d'ordre 2 :</span>
+    <span class="fm">\[ v \;=\; k\,[\ce{R-X}]\,[\ce{Nu^-}] \]</span>
+    <hr>
+    <span class="fc">État de transition unique avec inversion de Walden (le nucléophile attaque dos au nucléofuge) :</span>
+    <span class="fm">\[ \ce{Nu^{\delta -}\cdots C\cdots X^{\delta -}}\ (\text{TS bipyramide trigonale}) \]</span>
+    <hr>
+    <span class="fc">Conditions favorables : carbone <strong>primaire</strong> (peu encombré), nucléophile <strong>fort</strong>, solvant aprotique polaire.</span>
+    <span class="fc">Stéréospécifique : <strong>100 % inversion</strong> de configuration au carbone réagissant.</span>
+  </div>
+
+  <h3>3.2 SN1 — unimoléculaire et dissociative</h3>
+  <div class="fbox c">
+    <span class="fl">Substitution nucléophile unimoléculaire</span>
+    <span class="fc">Mécanisme en deux étapes :</span>
+    <span class="fm">\[ \text{Étape 1 (lente) :}\quad \ce{R-X -> R^+ + X^-} \quad\text{(carbocation)} \]</span>
+    <span class="fm">\[ \text{Étape 2 (rapide) :}\quad \ce{R^+ + Nu -> R-Nu} \]</span>
+    <hr>
+    <span class="fc">Loi cinétique d'ordre 1 :</span>
+    <span class="fm">\[ v \;=\; k\,[\ce{R-X}] \quad \text{(indépendant de }[\ce{Nu}]\text{)} \]</span>
+    <hr>
+    <span class="fc">Conditions favorables : carbone <strong>tertiaire</strong> (carbocation stable), nucléophile faible, solvant <strong>protique polaire</strong> (\(\ce{H2O}, \ce{ROH}\)) qui stabilise le carbocation.</span>
+    <span class="fc">Stéréochimie : carbocation plan → attaque sur les 2 faces → <strong>racémisation</strong> partielle ou totale.</span>
+  </div>
+
+  <h3>3.3 Compétition SN1 vs SN2</h3>
+  <table class="compact">
+    <thead><tr><th>Facteur</th><th>Favorise SN2</th><th>Favorise SN1</th></tr></thead>
+    <tbody>
+      <tr><td>Carbone réagissant</td><td>Primaire, méthyle</td><td>Tertiaire</td></tr>
+      <tr><td>Nucléophile</td><td>Fort et concentré (\(\ce{OH-}, \ce{CN-}, \ce{RS-}\))</td><td>Faible (\(\ce{H2O}, \ce{ROH}\))</td></tr>
+      <tr><td>Solvant</td><td>Aprotique polaire (DMSO, DMF, acétone)</td><td>Protique polaire (\(\ce{H2O}, \ce{ROH}\))</td></tr>
+      <tr><td>Nucléofuge</td><td colspan="2">\(\ce{I-} &gt; \ce{Br-} &gt; \ce{Cl-} \gg \ce{F-}\) (les deux)</td></tr>
+      <tr><td>Stéréochimie</td><td>Inversion 100 %</td><td>Racémisation</td></tr>
+      <tr><td>Cinétique</td><td>Ordre 2</td><td>Ordre 1</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ 04 ELIMINATION ═══════════════════ -->
+<div class="sblock r" id="elim">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Élimination — E1, E2</h2>
+  <p class="intro">Formation d'une double liaison par perte de \(\ce{H}\) et de \(\ce{X}\) sur deux carbones adjacents. Compétition systématique avec la substitution.</p>
+
+  <h3>4.1 E2 — bimoléculaire et concertée</h3>
+  <div class="fbox c">
+    <span class="fl">Élimination bimoléculaire</span>
+    <span class="fc">Bilan :</span>
+    <span class="fm">\[ \ce{B^- + H-C-C-X -> B-H + C=C + X^-} \]</span>
+    <hr>
+    <span class="fc">État de transition unique, géométrie <strong>anti-périplanaire</strong> (H et X dans le même plan, opposés) :</span>
+    <span class="fm">\[ v \;=\; k\,[\ce{R-X}]\,[\ce{B^-}] \quad\text{(ordre 2)} \]</span>
+    <hr>
+    <span class="fc">Conditions favorables : base <strong>forte et encombrée</strong> (\(\ce{tBuO-}\), LDA), température élevée, carbone secondaire ou tertiaire.</span>
+    <hr>
+    <span class="fc">Régiosélectivité : règle de <strong>Zaïtsev</strong> — l'alcène le plus substitué (le plus stable thermodynamiquement) est majoritaire. Sauf base très encombrée (Hoffmann) qui privilégie l'alcène moins substitué.</span>
+  </div>
+
+  <h3>4.2 E1 — unimoléculaire</h3>
+  <div class="fbox c">
+    <span class="fl">Élimination unimoléculaire</span>
+    <span class="fc">Mécanisme en deux étapes via carbocation :</span>
+    <span class="fm">\[ \ce{R-X -> R^+ + X^-} \to \ce{C=C + B-H} \]</span>
+    <hr>
+    <span class="fc">Loi cinétique d'ordre 1 : \(v = k\,[\ce{R-X}]\).</span>
+    <hr>
+    <span class="fc">Conditions favorables : carbone tertiaire, solvant protique polaire, base faible. <strong>Toujours en compétition avec SN1.</strong></span>
+  </div>
+
+  <h3>4.3 Synthèse SN/E</h3>
+  <table class="compact">
+    <thead><tr><th>Substrat</th><th>Nucléophile/base faible</th><th>Nucléophile fort</th><th>Base forte encombrée</th></tr></thead>
+    <tbody>
+      <tr><td>Primaire</td><td>peu de réaction</td><td><strong>SN2</strong></td><td>E2 (Hoffmann)</td></tr>
+      <tr><td>Secondaire</td><td>SN1/E1</td><td><strong>SN2</strong> ou E2</td><td><strong>E2</strong></td></tr>
+      <tr><td>Tertiaire</td><td><strong>SN1/E1</strong></td><td>E2 (impossible SN2)</td><td><strong>E2</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════════ 05 ADDITIONS ═══════════════════ -->
+<div class="sblock r" id="additions">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Additions électrophiles</h2>
+  <p class="intro">Sujet oral n°23. Addition sur alcènes/alcynes et substitution électrophile aromatique (SEAr).</p>
+
+  <h3>5.1 Addition sur alcènes (AE)</h3>
+  <div class="fbox c">
+    <span class="fl">Mécanisme général</span>
+    <span class="fc">Bilan pour \(\ce{H-X}\) (\(\ce{HCl}, \ce{HBr}, \ce{HI}\)) :</span>
+    <span class="fm">\[ \ce{R-CH=CH2 + H-X -> R-CHX-CH3}\quad(\text{Markovnikov}) \]</span>
+    <hr>
+    <span class="fc">Mécanisme : protonation de la double liaison → carbocation le plus stable → addition de \(\ce{X^-}\).</span>
+    <hr>
+    <span class="fc"><strong>Règle de Markovnikov</strong> : \(\ce{H}\) se fixe sur le carbone le plus hydrogéné (le \(\ce{X}\) va sur celui qui forme le carbocation le plus stable, généralement le plus substitué).</span>
+    <hr>
+    <span class="fc"><strong>Anti-Markovnikov</strong> avec \(\ce{HBr}\) en présence de peroxydes (mécanisme radicalaire), ou par hydroboration-oxydation.</span>
+  </div>
+
+  <h3>5.2 Bromation et trans-addition</h3>
+  <div class="fbox c">
+    <span class="fl">Addition de \(\ce{Br2}\) — pont bromonium</span>
+    <span class="fc">L'attaque du \(\ce{Br_2}\) sur la double liaison forme un ion <strong>bromonium</strong> cyclique :</span>
+    <span class="fm">\[ \ce{R-CH=CH-R' + Br2 -> R-CHBr-CHBr-R'}\quad(\text{anti-addition}) \]</span>
+    <span class="fc">Le second \(\ce{Br^-}\) attaque dos au pont, d'où une <strong>trans-addition stéréospécifique</strong>. Sur le cyclohexène : trans-1,2-dibromocyclohexane (paire d'énantiomères).</span>
+  </div>
+
+  <h3>5.3 Substitution électrophile aromatique (SEAr)</h3>
+  <div class="fbox c">
+    <span class="fl">Mécanisme SEAr</span>
+    <span class="fc">Bilan général sur le benzène :</span>
+    <span class="fm">\[ \ce{C6H6 + E^+ -> C6H5-E + H^+} \]</span>
+    <hr>
+    <span class="fc">Étapes : attaque de l'électrophile \(\ce{E^+}\) sur l'aromatique → complexe \(\sigma\) (arénium, intermédiaire de Wheland) → déprotonation pour restaurer l'aromaticité.</span>
+    <hr>
+    <span class="fc">Principales réactions :</span>
+    <span class="fm">\[ \text{Nitration :}\ \ce{HNO3 + H2SO4} \to \ce{NO2+} \]</span>
+    <span class="fm">\[ \text{Halogénation :}\ \ce{Cl2 + FeCl3}\ \text{ou}\ \ce{Br2 + FeBr3} \]</span>
+    <span class="fm">\[ \text{Sulfonation :}\ \ce{H2SO4 conc.} \to \ce{SO3 / HSO4-} \]</span>
+    <span class="fm">\[ \text{Friedel-Crafts alkyl/acyl :}\ \ce{RCl + AlCl3}\ \text{ou}\ \ce{RCOCl + AlCl3} \]</span>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Orientation et activation en SEAr</div>
+    <div class="notion-body">
+      <p>Un substituant déjà présent sur le benzène <strong>oriente</strong> l'arrivée du second électrophile et <strong>active</strong> ou <strong>désactive</strong> le cycle :</p>
+      <ul>
+        <li><strong>Activateurs ortho/para</strong> (\(+M\) dominant) : \(\ce{-OH}, \ce{-OR}, \ce{-NH2}, \ce{-NR2}, \ce{-alkyle}\).</li>
+        <li><strong>Désactivateurs ortho/para</strong> (\(-I\) dominant, \(+M\) faible) : <strong>halogènes</strong> \(\ce{-F}, \ce{-Cl}, \ce{-Br}, \ce{-I}\). Cas particulier.</li>
+        <li><strong>Désactivateurs méta</strong> (\(-M\) dominant) : \(\ce{-NO2}, \ce{-CHO}, \ce{-COR}, \ce{-COOH}, \ce{-CN}, \ce{-SO3H}\).</li>
+      </ul>
+      <p>Justification : la stabilité du carbocation intermédiaire (positions ortho/para vs méta) dépend des effets mésomères du substituant.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 06 CARBONYLES ═══════════════════ -->
+<div class="sblock r" id="carbonyles">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Chimie des composés carbonylés</h2>
+  <p class="intro">Sujet oral n°25 (Modification de fonctions). Réactivité du groupe \(\ce{C=O}\) — additions nucléophiles, énolates, condensations.</p>
+
+  <h3>6.1 Réactivité du carbonyle</h3>
+  <div class="fbox c">
+    <span class="fl">Polarisation \(\ce{C^{\delta +}=O^{\delta -}}\)</span>
+    <span class="fc">L'oxygène, plus électronégatif, polarise la liaison. Le carbone est électrophile (siège d'attaque nucléophile), l'oxygène est basique/nucléophile.</span>
+    <hr>
+    <span class="fc">Réactivité décroissante (effet stérique + électronique) :</span>
+    <span class="fm">\[ \text{Aldéhyde}\ (\ce{RCHO}) \,&gt;\, \text{Cétone}\ (\ce{RCOR'}) \,&gt;\, \text{Ester}\ (\ce{RCOOR'}) \,&gt;\, \text{Amide}\ (\ce{RCONR'2}) \]</span>
+    <span class="fc">Pour les esters/amides : effet \(+M\) de \(\ce{-OR}\) ou \(\ce{-NR2}\) diminue l'électrophilie du C.</span>
+  </div>
+
+  <h3>6.2 Additions nucléophiles classiques</h3>
+  <div class="fbox c">
+    <span class="fl">Réactions clés</span>
+    <span class="fc">Réduction par les hydrures :</span>
+    <span class="fm">\[ \ce{RCHO + NaBH4 -> RCH2OH}\quad(\text{aldéhyde → alcool primaire}) \]</span>
+    <span class="fm">\[ \ce{RCOOR' + LiAlH4 -> RCH2OH + R'OH}\quad(\text{ester → 2 alcools}) \]</span>
+    <hr>
+    <span class="fc">Addition d'organométalliques (\(\ce{RMgX}\), \(\ce{RLi}\)) :</span>
+    <span class="fm">\[ \ce{RCHO + R'MgX ->[H2O] RR'CHOH}\quad(\text{alcool secondaire}) \]</span>
+    <span class="fm">\[ \ce{R2C=O + R'MgX ->[H2O] R2R'COH}\quad(\text{alcool tertiaire}) \]</span>
+    <hr>
+    <span class="fc">Hémiacétals et acétals (catalyse acide) :</span>
+    <span class="fm">\[ \ce{RCHO + R'OH &lt;=&gt;[H+] RCH(OH)(OR')}\ \xrightarrow{R'OH/H+}\ \ce{RCH(OR')2 + H2O} \]</span>
+    <span class="fc">Les acétals sont utilisés comme <strong>groupes protecteurs</strong> du carbonyle (stables en milieu basique, hydrolysables en acide).</span>
+  </div>
+
+  <h3>6.3 Énolisation et condensation aldolique</h3>
+  <div class="fbox c">
+    <span class="fl">Équilibre céto-énolique et condensation aldolique</span>
+    <span class="fc">Tautomérie céto-énol (catalyse acide ou basique) :</span>
+    <span class="fm">\[ \ce{R-CO-CH2-R' &lt;=&gt; R-C(OH)=CH-R'} \]</span>
+    <span class="fc">Pour les cétones simples, \(K_{\text{éq}} \approx 10^{-6}\) (forme céto majoritaire). Plus stable côté énol si conjugaison ou liaison H intramoléculaire (β-dicarbonylés).</span>
+    <hr>
+    <span class="fc">Condensation aldolique (catalyse basique) :</span>
+    <span class="fm">\[ \text{1)}\ \ce{R-CO-CH2-R' + B^- -> R-CO-CHR'^-}\quad(\text{énolate}) \]</span>
+    <span class="fm">\[ \text{2)}\ \ce{R-CO-CHR'^- + R''-CHO -> R-CO-CHR'-CH(OH)-R''}\quad(\text{aldol}) \]</span>
+    <span class="fm">\[ \text{3)}\ \text{Crotonisation (T élevée) :}\ \ce{-> R-CO-CR'=CH-R'' + H2O} \]</span>
+  </div>
+
+  <h3>6.4 Estérification et saponification</h3>
+  <div class="fbox c">
+    <span class="fl">Acide + alcool ⇌ ester</span>
+    <span class="fc">Estérification de Fischer (catalyse acide, équilibre limité) :</span>
+    <span class="fm">\[ \ce{R-COOH + R'OH &lt;=&gt;[H+] R-COOR' + H2O}\qquad K \sim 4 \text{ pour acétate d'éthyle} \]</span>
+    <span class="fc">Mécanisme PADPED : <strong>P</strong>rotonation, <strong>A</strong>ddition nucléophile (alcool), <strong>D</strong>éprotonation, <strong>P</strong>rotonation (OH partant), <strong>É</strong>limination (H₂O), <strong>D</strong>éprotonation.</span>
+    <hr>
+    <span class="fc">Saponification (hydrolyse basique, irréversible) :</span>
+    <span class="fm">\[ \ce{R-COOR' + NaOH -> R-COO^- Na+ + R'OH}\quad(\text{déplacé vers la droite}) \]</span>
+    <span class="fc">Application historique : production du savon à partir de triglycérides + \(\ce{NaOH}\).</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ 07 SYNTHESE ═══════════════════ -->
+<div class="sblock r" id="synthese">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Stratégies de synthèse</h2>
+  <p class="intro">Sujets oraux n°26 (Modification de chaîne) et n°27m (Stratégies de synthèse). Construction logique de molécules cibles complexes.</p>
+
+  <h3>7.1 Modifications de fonction</h3>
+  <table class="compact">
+    <thead><tr><th>Transformation</th><th>Réactif</th><th>Sélectivité</th></tr></thead>
+    <tbody>
+      <tr><td>Alcool 1° → aldéhyde</td><td>PCC, Swern (DMSO/(COCl)₂), DMP</td><td>Oxydation douce, s'arrête au CHO</td></tr>
+      <tr><td>Alcool 1° → acide</td><td>\(\ce{KMnO4}\), \(\ce{CrO3}\)/Jones</td><td>Oxydation forte</td></tr>
+      <tr><td>Alcool 2° → cétone</td><td>PCC, Swern, Jones</td><td>Pas de surafrofond. possible</td></tr>
+      <tr><td>Aldéhyde/cétone → alcool</td><td>\(\ce{NaBH4}\) (doux), \(\ce{LiAlH4}\) (fort)</td><td>Réduction</td></tr>
+      <tr><td>Ester → alcool 1°</td><td>\(\ce{LiAlH4}\)</td><td>Réduction totale</td></tr>
+      <tr><td>Acide → alcool 1°</td><td>\(\ce{LiAlH4}\)</td><td>Réduction totale</td></tr>
+      <tr><td>Alcène → alcool</td><td>\(\ce{H2O/H+}\) (Markovnikov) ou \(\ce{BH3}\) puis \(\ce{H2O2/HO^-}\) (anti-Markovnikov)</td><td>Hydratation</td></tr>
+      <tr><td>Alcène → diol</td><td>\(\ce{OsO4/H2O}\) (syn-diol) ou \(\ce{KMnO4}\) dilué (cis)</td><td>cis-Hydroxylation</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 Modification de chaîne</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Réactions clés d'allongement / raccourcissement de chaîne</div>
+    <div class="notion-body">
+      <ul>
+        <li><strong>Aldolisation</strong> : +2 C (cf. section 6.3).</li>
+        <li><strong>Wittig</strong> : \(\ce{R2C=O + Ph3P=CHR' -> R2C=CHR' + Ph3P=O}\) — création d'une C=C contrôlée stéréochimiquement.</li>
+        <li><strong>Grignard</strong> : \(\ce{RMgX + R'CHO -> RR'CHOH}\) — allongement avec création de centre stéréogène.</li>
+        <li><strong>Décarboxylation thermique</strong> des β-dicarbonyles : \(\ce{R-CO-CH2-COOH -> R-CO-CH3 + CO2}\) (perte d'1 C).</li>
+        <li><strong>Cleavage oxydant</strong> : \(\ce{O3 / Zn}\) ou \(\ce{KMnO4 conc.}\) sur alcène → 2 carbonyles (perte de C selon le clivage).</li>
+        <li><strong>Polymerisations</strong> : éthylène → polyéthylène (radicalaire), styrène → polystyrène.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>7.3 Rétrosynthèse (méthode de Corey)</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Approche systématique</div>
+    <div class="notion-body">
+      <p>Partir de la <strong>cible</strong> et la décomposer par déconnexions logiques (flèches \(\Rightarrow\)) jusqu'à des <strong>synthons</strong> (fragments idéaux) puis des <strong>réactifs équivalents</strong> commercialement disponibles.</p>
+      <p><strong>Stratégie générale :</strong></p>
+      <ol>
+        <li>Identifier les groupes fonctionnels et les centres stéréogènes.</li>
+        <li>Choisir les déconnexions à proximité des groupes fonctionnels (liaisons C–C aux α des carbonyles, liaisons C–OH, C–N).</li>
+        <li>Identifier les synthons (cation et anion, ou électrophile et nucléophile équivalents).</li>
+        <li>Remonter à des réactifs réels (Grignards, organocuprates, énolates, etc.).</li>
+        <li>Vérifier la faisabilité, la sélectivité et la stéréochimie de chaque étape.</li>
+      </ol>
+      <p><strong>Exemple — synthèse de l'ibuprofène :</strong></p>
+      <ol>
+        <li>Cible : acide 2-(4-isobutylphényl)propanoïque. Centres stéréogènes : 1 (méso : un seul produit utilisable).</li>
+        <li>Déconnexion \(\ce{Ar-CH(CH3)-COOH}\) au niveau de la chaîne latérale → arylacide + alkyle (synthon : énolate de propionate).</li>
+        <li>Réactifs : Friedel-Crafts isobutylation du benzène, puis substitution avec \(\ce{CH3CH(Br)COOH}\) ou voie via \(\ce{ArMgBr}\) et \(\ce{CO2}\).</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 PEDAGOGIE ═══════════════════ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Pédagogie et didactique</h2>
+  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
+    <div class="notion-body"><ul>
+      <li><strong>Cycle 4 / Seconde</strong> : groupes caractéristiques (alcane, alcène, alcool, acide), formules et nomenclature simples.</li>
+      <li><strong>1<sup>re</sup> spé</strong> : groupes fonctionnels (alcool, aldéhyde, cétone, acide, ester, amine, amide), réactions d'oxydoréduction, synthèse de l'aspirine.</li>
+      <li><strong>Terminale spé</strong> : stéréoisomérie (énantiomères, diastéréoisomères, Z/E), réactions catalysées (Friedel-Crafts non au programme mais évocable), polymérisation.</li>
+      <li><strong>Terminale STL</strong> : approfondissement chimie organique appliquée (cosmétique, pharmacie), spectroscopie IR/RMN.</li>
+    </ul></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Difficultés classiques des élèves :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Confondre énantiomères et diastéréoisomères.</li>
+        <li>Ne pas voir la chiralité en 2D (passer à des modèles moléculaires en TP).</li>
+        <li>Confondre nucléophile et base (\(\ce{tBuO-}\) est base forte mais nucléophile faible).</li>
+        <li>Oublier l'inversion de Walden en SN2.</li>
+        <li>Mémoriser des réactions sans comprendre les mécanismes (effets électroniques).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 09 DEMOS ═══════════════════ -->
+<div class="sblock r" id="demos">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Démonstrations clés (niveau agrégation)</h2>
+  <p class="intro">Mécanismes et raisonnements attendus à l'oral.</p>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.1 — Stéréospécificité de la SN2 (inversion de Walden)</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>L'attaque du nucléophile \(\ce{Nu^-}\) sur \(\ce{R-X}\) se fait du côté opposé au nucléofuge, par recouvrement orbital optimal. L'état de transition est trigonal bipyramidal :</p>
+        \[ \ce{Nu^{\delta -}\cdots C(R1)(R2)(R3)\cdots X^{\delta -}} \]
+        <p>Les trois substituants \(R_1, R_2, R_3\) passent du côté nucléophile au côté nucléofuge (inversion de « parapluie retourné »). Conséquence : si le carbone est stéréogène, la configuration absolue est inversée (R → S et inversement). C'est une <strong>stéréospécificité totale</strong>.</p>
+        <p><strong>Exemple :</strong> \((S)\)-2-bromobutane + \(\ce{OH^-}\) → \((R)\)-butan-2-ol (100 % d'inversion). Vérification expérimentale par mesure du pouvoir rotatoire avant/après réaction.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.2 — Cinétique SN1 : ordre 1 et carbocation</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Mécanisme en 2 étapes :</p>
+        \[ \ce{R-X &lt;=&gt;[k_1][k_{-1}] R^+ + X^-} \quad\text{(rapide)} \qquad \ce{R^+ + Nu -&gt;[k_2] R-Nu} \quad\text{(rapide)} \]
+        <p>Si l'étape de dissociation est limitante (\(k_1 \ll k_2\,[\ce{Nu}]\)), la vitesse globale est :</p>
+        \[ v = k_1\,[\ce{R-X}] \]
+        <p>Ordre 1 par rapport à \(\ce{R-X}\), <strong>indépendant</strong> de \([\ce{Nu}]\) — signature cinétique distinctive du SN1. Si \([\ce{Nu}]\) très faible, on peut observer un changement de mécanisme.</p>
+        <p>Le carbocation intermédiaire est plan (\(sp^{2}\)). Il peut être attaqué sur ses deux faces avec des probabilités proches → racémisation. Une inversion partielle est observée si le nucléofuge n'a pas complètement diffusé (effet de paire d'ions).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.3 — Règle de Markovnikov par stabilité du carbocation</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour l'addition de \(\ce{HBr}\) sur le propène \(\ce{CH3-CH=CH2}\), deux voies sont possibles selon le site de protonation :</p>
+        <p><strong>Voie 1 :</strong> \(\ce{H+}\) sur \(\ce{CH2}\) terminal → carbocation secondaire \(\ce{CH3-CH^+-CH3}\) → \(\ce{CH3-CHBr-CH3}\) (Markovnikov).</p>
+        <p><strong>Voie 2 :</strong> \(\ce{H+}\) sur \(\ce{CH}\) central → carbocation primaire \(\ce{CH3-CH2-CH2^+}\) → \(\ce{CH3-CH2-CH2Br}\) (anti-Markovnikov).</p>
+        <p>Comme le carbocation secondaire est plus stable (\(+I\) de 2 méthyles), la voie 1 est cinétiquement favorisée (postulat de Hammond : état de transition tardif, structure proche du carbocation). C'est la <strong>règle de Markovnikov</strong> :</p>
+        \[ \boxed{\;\text{Le }\ce{H+}\text{ va sur le }C\text{ déjà le plus H-substitué — le carbocation le plus stable se forme.}\;} \]
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.4 — Effet mésomère et orientation en SEAr</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour une attaque \(\ce{E+}\) sur le phénol \(\ce{C6H5OH}\), examinons les trois carbocations intermédiaires (ortho, méta, para) après protonation :</p>
+        <p><strong>Ortho/para :</strong> une des formes mésomères place la charge \(+\) sur le carbone porteur du \(\ce{-OH}\). Cette charge peut être stabilisée par le doublet libre de \(\ce{O}\) qui « remplit » l'orbitale vacante. Le carbocation est ainsi <strong>fortement stabilisé</strong>.</p>
+        <p><strong>Méta :</strong> aucune forme mésomère ne place la charge sur le carbone porteur du \(\ce{-OH}\) — pas de stabilisation supplémentaire par \(+M\). Carbocation moins stable.</p>
+        <p>Conséquence : la SEAr sur le phénol est <strong>activée</strong> (cycle plus riche en électrons) et <strong>orientée en ortho/para</strong>. Idem pour \(\ce{-NH2}, \ce{-OR}, \ce{-NR2}\) (groupes \(+M\) à doublet libre).</p>
+        <p>Pour \(\ce{-NO2}\) (\(-M\), pas de doublet libre) : c'est l'inverse, la position méta est moins déstabilisée et devient l'orientation préférée.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.5 — Mécanisme de la condensation aldolique</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Soit l'aldolisation entre l'acétaldéhyde et lui-même (catalyse \(\ce{HO^-}\)) :</p>
+        <p><strong>Étape 1 — Formation de l'énolate :</strong></p>
+        \[ \ce{HO^- + CH3-CHO -> H2O + ^-CH2-CHO} \]
+        <p>Le \(H\) en α est faiblement acide (\(pK_a \approx 17\)) car la base conjuguée (énolate) est stabilisée par résonance sur l'oxygène carbonyle.</p>
+        <p><strong>Étape 2 — Addition nucléophile :</strong></p>
+        \[ \ce{^-CH2-CHO + CH3-CHO -> CH3-CH(O^-)-CH2-CHO} \]
+        <p>L'énolate attaque le carbone électrophile d'une autre molécule d'aldéhyde. On obtient un alcoolate.</p>
+        <p><strong>Étape 3 — Protonation :</strong></p>
+        \[ \ce{CH3-CH(O^-)-CH2-CHO + H2O -> CH3-CH(OH)-CH2-CHO + HO^-} \]
+        <p>Produit final : 3-hydroxybutanal (« aldol », d'où le nom). En chauffant : déshydration → 2-buténal (crotonisation, élimination E1cb).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 10 EXOS ═══════════════════ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Exercices résolus — type concours</h2>
+  <p class="intro">Trois exercices calibrés agrégation interne.</p>
+
+  <details class="exo-block">
+    <summary>Exercice 1 — Compétition SN/E sur 2-bromopropane (★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>On fait réagir le 2-bromopropane \(\ce{(CH3)2CHBr}\) avec différents réactifs :</p>
+      <ol>
+        <li>\(\ce{NaOH}\) dilué dans l'éthanol, à T modérée.</li>
+        <li>\(\ce{NaOH}\) concentré, à reflux dans l'éthanol.</li>
+        <li>\(\ce{tBuOK}\) (tert-butylate de potassium) dans le DMSO.</li>
+        <li>Solvolyse dans l'éthanol seul.</li>
+      </ol>
+      <p>Prédire et justifier le produit majoritaire dans chaque cas.</p>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> \(\ce{NaOH}\) dilué dans EtOH (solvant protique polaire, base/nucléophile modéré, T modérée) sur secondaire : compétition SN2 et SN1. SN2 légèrement favorisée → propan-2-ol \(\ce{(CH3)2CHOH}\) majoritaire (peu d'E2 à T modérée).</p>
+      <p><strong>2.</strong> \(\ce{NaOH}\) concentré + T élevée → favorise E2 sur secondaire. Produit majoritaire : propène \(\ce{CH2=CH-CH3}\). En réalité, mélange (\(\sim 50/50\)) car \(\ce{HO^-}\) reste un bon nucléophile.</p>
+      <p><strong>3.</strong> \(\ce{tBuOK}\) (base très forte, encombrée) dans DMSO (aprotique) : E2 largement favorisée. Produit : propène (Zaïtsev). La nucléophilie de \(\ce{tBuO^-}\) est étouffée par l'encombrement, SN2 négligeable.</p>
+      <p><strong>4.</strong> Solvolyse dans EtOH (nucléophile/base très faibles) sur secondaire : SN1/E1 via carbocation \(\ce{(CH3)2CH^+}\). Produits : éther \(\ce{(CH3)2CH-OCH2CH3}\) (SN1) et propène (E1) en mélange.</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 2 — Stéréochimie d'une SN2 sur cyclohexane (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Le \((R)\)-1-bromo-2-méthylcyclohexane réagit avec \(\ce{NaOH}\) en solution aqueuse selon SN2.</p>
+      <ol>
+        <li>Donner la stéréochimie du produit majoritaire.</li>
+        <li>Y a-t-il un seul produit ou un mélange ? Justifier en raisonnant sur la conformation initiale.</li>
+        <li>Si la même réaction se faisait en SN1, quelle serait la stéréochimie du produit ?</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> SN2 → inversion de Walden au carbone porteur du \(\ce{Br}\). Le \(\ce{HO^-}\) attaque dos au \(\ce{Br}\), prend la place inversée. Si le \(\ce{Br}\) était axial vers le haut, le \(\ce{OH}\) se retrouve équatorial vers le bas (et vice versa). La configuration en \(\ce{C_1}\) passe de \((R)\) à \((S)\). Le centre \(\ce{C_2}\) (qui porte le \(\ce{CH3}\)) n'est pas touché.</p>
+      <p>Produit : \((1S, 2R)\)-2-méthylcyclohexan-1-ol (configuration relative <strong>trans</strong> entre \(\ce{OH}\) et \(\ce{CH3}\), supposant le substrat de départ trans).</p>
+      <p><strong>2.</strong> Un seul produit (stéréospécificité de SN2). La conformation de départ doit avoir le \(\ce{Br}\) en position <em>axiale</em> pour permettre l'attaque dorsale du nucléophile. Si la chaise majoritaire avait \(\ce{Br}\) équatorial, l'équilibre conformationnel doit basculer (rapide à T ambiante).</p>
+      <p><strong>3.</strong> SN1 via carbocation cyclohexyle plan → attaque du \(\ce{HO^-}\) sur les deux faces → mélange racémique cis/trans. Stéréospécificité perdue.</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 3 — Rétrosynthèse du paracétamol (★★)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Cible : paracétamol, soit \(N\)-(4-hydroxyphényl)acétamide \(\ce{HO-C6H4-NHCOCH3}\). Proposer une rétrosynthèse en partant de matières premières commerciales (phénol, acide acétique, anhydride acétique, etc.).</p>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>Étape 1 — Déconnexion de la liaison amide :</strong></p>
+      \[ \ce{HO-C6H4-NHCOCH3} \Rightarrow \ce{HO-C6H4-NH2 + (CH3CO)2O} \]
+      <p>Synthons : amine \(\ce{Ar-NH2}\) (4-aminophénol) + cation acylium \(\ce{CH3CO^+}\). Réactif équivalent : anhydride acétique (acylation douce, sans \(\ce{HCl}\) gazeux).</p>
+      <p><strong>Étape 2 — Préparation du 4-aminophénol :</strong></p>
+      <p>Voie classique : nitration du phénol → réduction du \(\ce{-NO2}\) :</p>
+      \[ \ce{C6H5OH ->[HNO3 dilué] HO-C6H4-NO2} \quad(\text{para majoritaire, OH activant ortho/para}) \]
+      \[ \ce{HO-C6H4-NO2 ->[Fe/HCl ou H2/Pd] HO-C6H4-NH2} \]
+      <p><strong>Étape 3 — Acylation finale :</strong></p>
+      \[ \ce{HO-C6H4-NH2 + (CH3CO)2O -> HO-C6H4-NHCOCH3 + CH3COOH} \]
+      <p>Conditions douces (eau, T ambiante) — l'amine est plus nucléophile que le phénol (\(pK_a \approx 10\) pour \(\ce{ArOH}\) vs amine basique). Sélectivité naturelle.</p>
+      <p>Synthèse industrielle : 70 000 tonnes/an, procédé moins de 200 ans après la première synthèse (Morse, 1878).</p>
+    </div>
+  </details>
+</div>
+
+<!-- ═══════════════════ 11 LECONS ═══════════════════ -->
+<div class="sblock r" id="lecons">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Développements pédagogiques pour l'oral</h2>
+  <p class="intro">Deux propositions de leçons calibrées agrégation interne.</p>
+
+  <div class="lecon-card">
+    <h4>Leçon 1 — Stéréochimie : la chiralité en 3D</h4>
+    <div class="lecon-meta">Niveau · Terminale spé / 1<sup>re</sup> année CPGE</div>
+    <p><strong>Accroche.</strong> Pourquoi la main droite et la main gauche sont-elles si différentes ? Comment des molécules « miroir » peuvent-elles avoir des effets biologiques opposés (thalidomide : un énantiomère traite les nausées, l'autre cause des malformations) ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Mise en évidence expérimentale : modèles moléculaires, miroir, polarimètre avec une solution sucrée.</li>
+      <li>Définition de la chiralité — éléments de symétrie nécessaires à l'achiralité (plan, axe, centre).</li>
+      <li>Carbone asymétrique. Règles CIP et descripteurs R/S sur exemples.</li>
+      <li>Énantiomères vs diastéréoisomères. Mesure du pouvoir rotatoire (loi de Biot), notion d'excès énantiomérique.</li>
+      <li>Importance en biologie : enzymes chirales, médicaments énantiopurs, signaux olfactifs (limonène, carvone).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> 1<sup>re</sup> spé : groupes fonctionnels, isomérie. Terminale spé : stéréoisomérie explicite, énantiomères, isomérie Z/E.</p>
+    <p><strong>Activité élève proposée.</strong> Mesurer le pouvoir rotatoire d'une solution sucrée (saccharose) — calcul du \([\alpha]\) et comparaison à la valeur tabulée. Discussion sur le sucre comme molécule chirale historiquement célèbre (Pasteur, séparation des cristaux d'acide tartrique).</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Leçon 2 — Substitution nucléophile : un mécanisme, deux voies</h4>
+    <div class="lecon-meta">Niveau · 2<sup>e</sup> année CPGE PC / oral agrégation</div>
+    <p><strong>Accroche.</strong> Comment fabrique-t-on l'éthanol industriellement à partir d'éthène ? Pourquoi le bromobutane primaire et le bromobutane tertiaire ne réagissent pas de la même façon avec l'eau ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Bilan d'une substitution nucléophile — exemples expérimentaux (solvolyse, alkylation).</li>
+      <li>Mécanisme SN2 : état de transition, cinétique d'ordre 2, inversion de Walden (démonstration).</li>
+      <li>Mécanisme SN1 : carbocation intermédiaire, cinétique d'ordre 1, racémisation.</li>
+      <li>Compétition SN1/SN2 : effet du substrat, du nucléophile, du solvant. Tableau récapitulatif.</li>
+      <li>Applications industrielles : hydrolyse alcaline d'halogénoalcanes, alkylation d'alcoolates (synthèse d'éthers), hydratation des alcènes via carbocation.</li>
+      <li>Compétition avec l'élimination — choix des conditions selon la cible voulue.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> 1<sup>re</sup> spé : transformation acide-base, oxydoréduction. Terminale spé : modélisation des mécanismes (flèches courbes), polarité des liaisons.</p>
+    <p><strong>Erreur fréquente d'élève.</strong> Penser que SN2 et SN1 « se choisissent » selon les goûts. En réalité, c'est entièrement déterminé par les conditions (substrat, nucléophile, solvant, T). Le mécanisme est imposé par la thermodynamique et la cinétique.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 12 MONTAGES ═══════════════════ -->
+<div class="sblock r" id="montages">
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Montages expérimentaux</h2>
+  <p class="intro">Deux montages exploitables à l'oral d'agrégation.</p>
+
+  <div class="lecon-card">
+    <h4>Montage 1 — Synthèse de l'aspirine (estérification)</h4>
+    <p><strong>Objectif.</strong> Synthétiser l'acide acétylsalicylique (\(\ce{C9H8O4}\)) par estérification de Fischer entre l'acide salicylique et l'anhydride acétique, puis le purifier et le caractériser.</p>
+    <p><strong>Matériel.</strong> Acide salicylique, anhydride acétique, acide phosphorique catalyseur, ballon tricol, agitateur, réfrigérant, bain-marie, entonnoir Büchner, filtre, étuve, banc Kofler (point de fusion).</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Dans un ballon, mélanger 3 g d'acide salicylique, 6 mL d'anhydride acétique, 5 gouttes \(\ce{H3PO4}\).</li>
+      <li>Chauffer doucement (bain-marie à 60 °C) pendant 15 min sous agitation.</li>
+      <li>Laisser refroidir, ajouter 30 mL d'eau froide → précipitation de l'aspirine.</li>
+      <li>Filtrer sous vide, rincer à l'eau froide, sécher à l'étuve à 80 °C.</li>
+      <li>Recristalliser dans l'éthanol/eau chaude pour purifier.</li>
+      <li>Mesurer le point de fusion sur banc Kofler (théorique : 135 °C).</li>
+      <li>Caractérisation IR : bande \(\ce{C=O}\) ester (1730 cm⁻¹) + \(\ce{C=O}\) acide (1690 cm⁻¹) + \(\ce{O-H}\) acide (large, 2500-3300 cm⁻¹).</li>
+    </ol>
+    <p><strong>Bilan réactionnel :</strong></p>
+    \[ \ce{HO-C6H4-COOH + (CH3CO)2O -> CH3COO-C6H4-COOH + CH3COOH} \]
+    <p><strong>Sources d'incertitude.</strong> Pesées (\(\pm 0{,}01\,\mathrm{g}\)), pertes lors de la filtration, pureté de l'anhydride acétique (s'hydrolyse au contact de l'air).</p>
+    <p><strong>Exploitation.</strong> Rendement \(\eta = m_{\text{exp}}/m_{\text{théo}}\) typique 60–80 %. Le point de fusion permet de vérifier la pureté (écart \(\pm 1\,^\circ\mathrm{C}\) acceptable). Discussion sur la nature de l'anhydride d'acide (plus réactif que l'acide pour cette estérification, et déplace l'équilibre par consommation de \(\ce{CH3COOH}\) comme produit).</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Montage 2 — Polarimétrie d'un mélange de sucres</h4>
+    <p><strong>Objectif.</strong> Suivre l'inversion du saccharose en glucose + fructose par mesure du pouvoir rotatoire au cours du temps.</p>
+    <p><strong>Matériel.</strong> Polarimètre (cuve de 10 cm), saccharose pur, \(\ce{HCl}\) ou enzyme invertase, balance, fioles jaugées, chronomètre.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Préparer une solution de saccharose à 10 g/100 mL dans l'eau distillée.</li>
+      <li>Mesurer le pouvoir rotatoire initial \(\alpha_0\). Théorique : \([\alpha]_{\text{sacc}} = +66{,}5\,°\)·dm⁻¹·g⁻¹·cm³ → \(\alpha = +66{,}5 \times 0{,}1 \times 0{,}1 = +6{,}65\,°\) en cuve 1 dm. Avec cuve 10 cm = 1 dm, mais \(c = 0{,}1\,\mathrm{g\cdot cm^{-3}}\), donc \(\alpha = +6{,}65\,°\).</li>
+      <li>Ajouter \(\ce{HCl}\) (5 mL à 1 mol/L pour 50 mL) → début de l'hydrolyse.</li>
+      <li>Mesurer \(\alpha(t)\) toutes les 5 minutes pendant 1 heure.</li>
+      <li>Tracer \(\alpha(t)\). Au bout d'un temps infini, on doit observer \(\alpha_{\infty}\) calculé avec \([\alpha]_{\text{gluc}} = +52{,}5\,°\) et \([\alpha]_{\text{fruct}} = -92\,°\) (somme = \(-39{,}5\,°/2 = -19{,}75\,°\) pour le mélange équimolaire).</li>
+    </ol>
+    <p><strong>Résultat attendu.</strong> Inversion de signe du pouvoir rotatoire : \(\alpha\) part positif (+6,65°) et finit négatif (\(-2{,}0\,°\) environ). D'où le nom historique de « sucre inverti » utilisé en confiserie.</p>
+    <p><strong>Sources d'incertitude.</strong> Calibration du polarimètre (\(\pm 0{,}01\,°\)), température (le pouvoir rotatoire dépend de T), longueur de la cuve (\(\pm 1\,\mathrm{mm}\)), concentration (préparation).</p>
+    <p><strong>Exploitation.</strong> Cinétique d'ordre 1 par rapport au saccharose (catalyse acide, \(\ce{H+}\) en grand excès) : \(\alpha(t) = \alpha_{\infty} + (\alpha_0 - \alpha_{\infty})\exp(-kt)\). Régression non linéaire donne \(k\) (constante de vitesse). Variante : suivi à plusieurs températures pour déterminer l'énergie d'activation par Arrhenius.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ 13 JURY ═══════════════════ -->
+<div class="sblock r" id="jury">
+  <div class="sblock-num">Section 13</div>
+  <h2>13. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+
+  <div class="jury-list">
+    <div class="jury-item"><strong>Stéréospécifique vs stéréosélective.</strong> <em>Stéréospécifique</em> : un substrat donné mène à un seul stéréoisomère (ex. SN2 → 100 % inversion). <em>Stéréosélective</em> : un mélange d'isomères est obtenu mais l'un est majoritaire (ex. Cram pour additions sur carbonyles α-stéréogènes). Termes souvent confondus à l'oral.</div>
+    <div class="jury-item"><strong>Nucléophile ≠ base.</strong> \(\ce{tBuO^-}\) est une <em>base forte</em> mais un <em>nucléophile faible</em> (encombrement stérique). \(\ce{I^-}\) est un <em>bon nucléophile</em> (polarisable) mais une <em>base très faible</em>. Distinguer dans les analyses de mécanisme : le critère thermodynamique (basicité) n'est pas le critère cinétique (nucléophilie).</div>
+    <div class="jury-item"><strong>Stabilité des carbocations.</strong> Ordre \(\text{tertiaire} &gt; \text{secondaire} &gt; \text{primaire} &gt; \ce{CH3^+}\) (effet \(+I\) des alkyles, hyperconjugaison). MAIS les carbocations <em>allyliques</em> et <em>benzyliques</em> sont stabilisés par mésomérie et peuvent dépasser les tertiaires simples. Cas particuliers à connaître.</div>
+    <div class="jury-item"><strong>Sens des flèches courbes.</strong> Convention universelle : une flèche courbe représente le <em>déplacement de 2 électrons</em>, depuis leur source (doublet libre ou liaison) vers leur destination (atome ou liaison à former). Ne JAMAIS partir d'un atome positif ou aller vers un atome négatif. À redoublement de vérification systématique en oral.</div>
+    <div class="jury-item"><strong>Effets \(\boldsymbol{+M}\) et \(\boldsymbol{-M}\) des halogènes.</strong> Les halogènes (\(\ce{-F, -Cl, -Br, -I}\)) sont à la fois \(-I\) (forts) et \(+M\) (faibles, doublet libre). En SEAr, le \(-I\) désactive le cycle, mais le \(+M\) oriente en ortho/para. <strong>Désactivateur ortho/para</strong> : c'est l'exception qui surprend.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ QUIZ ═══════════════════ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">Sept questions pour tester ta compréhension.</p>
+  <div class="quiz-wrap"><div class="quiz-card r">
+  <div class="q-text">Le \((R)\)-2-bromobutane réagit avec \(\ce{NaCN}\) (nucléophile fort) dans le DMSO selon SN2. Le produit est :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. La SN2 procède avec inversion de Walden — la configuration absolue change.')">\((R)\)-2-cyanobutane (configuration conservée)</button><button class="q-opt" onclick="quiz(this,true,'Correct. SN2 → inversion de Walden, donc (R) → (S). Le CN remplace Br avec inversion configurationnelle au carbone réagissant.')">\((S)\)-2-cyanobutane (inversion de Walden)</button><button class="q-opt" onclick="quiz(this,false,'Non. La SN2 est stéréospécifique (un seul produit). C\'est la SN1 qui donne un mélange racémique.')">Mélange racémique \((R)+(S)\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Le 2-méthyl-2-bromopropane (tertiaire) dans l'eau pure donne :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. La SN2 sur un carbone tertiaire est presque impossible (encombrement stérique maximal).')">Inversion par SN2 → un seul produit</button><button class="q-opt" onclick="quiz(this,true,'Correct. Carbone tertiaire + solvant protique polaire + nucléophile faible (H₂O) → SN1. Carbocation tertiaire stable → 2-méthylpropan-2-ol par solvolyse. Pas de problème stéréochimique (pas de centre stéréogène).')">SN1 → 2-méthylpropan-2-ol (solvolyse)</button><button class="q-opt" onclick="quiz(this,false,'Non. E2 nécessite une base forte (NaOH conc., tBuOK). L\'eau seule est trop faible.')">E2 → 2-méthylpropène</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">L'addition de \(\ce{HBr}\) sur le 2-méthylpropène \(\ce{(CH3)2C=CH2}\) donne :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. La règle de Markovnikov favorise le produit où le Br va sur le carbone le plus substitué (carbocation tertiaire stable).')">\(\ce{(CH3)2CH-CH2Br}\) (Br sur C primaire)</button><button class="q-opt" onclick="quiz(this,true,'Correct (Markovnikov). H+ va sur le C terminal (CH₂), formant le carbocation tertiaire (CH₃)₃C+ très stable, puis Br⁻ s\'additionne → (CH₃)₃CBr (2-bromo-2-méthylpropane).')">\(\ce{(CH3)3CBr}\) (Br sur C tertiaire)</button><button class="q-opt" onclick="quiz(this,false,'Non. Br₂ donnerait une dibromation, pas HBr. Avec HBr, un seul Br s\'additionne.')">\(\ce{(CH3)2CBr-CH2Br}\) (dibromation)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Sur l'aniline \(\ce{C6H5-NH2}\), une nitration donne préférentiellement :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. -NH₂ est un activateur fort par effet +M (doublet libre conjugué au cycle) → orientation ortho/para. Le produit majoritaire est le 4-nitroaniline (para, moins d\'encombrement que ortho).')">4-nitroaniline (orientation para)</button><button class="q-opt" onclick="quiz(this,false,'Non. Le groupe -NH₂ est un +M activateur, donc orienteur ortho/para. Le 3-nitroaniline (méta) est obtenu seulement avec des groupes -M (NO₂, CHO, etc.).')">3-nitroaniline (orientation méta)</button><button class="q-opt" onclick="quiz(this,false,'Non. -NH₂ active fortement le cycle (effet +M dominant), donc on observe une orientation préférentielle, pas un mélange aléatoire.')">Mélange ortho/méta/para équirépartis</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Le 2-bromopropane + \(\ce{tBuOK}\) (base forte et très encombrée) dans le DMSO donne majoritairement :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. La SN2 est inhibée car tBuO⁻ est trop encombré pour attaquer un C secondaire. La compétition E2 vs SN2 est largement gagnée par E2.')">Propan-2-ol par SN2</button><button class="q-opt" onclick="quiz(this,true,'Correct. Base très forte et encombrée = E2 prédominant. Avec un carbone secondaire, on obtient le propène (Zaïtsev : alcène le plus substitué, ici le seul possible).')">Propène par E2 (Zaïtsev)</button><button class="q-opt" onclick="quiz(this,false,'Non. tBu n\'attaque pas le C — c\'est un alcoolate (donneur), pas un substrat. Et il est trop encombré pour SN2 sur secondaire.')">tert-Butyl-propyléther (couplage)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Quel réactif convertit un aldéhyde \(\ce{RCHO}\) en alcool primaire \(\ce{RCH2OH}\) sans toucher aux esters voisins ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. NaBH₄ est un réducteur doux qui réduit aldéhydes et cétones mais pas les esters (trop peu électrophiles). Bonne sélectivité.')">\(\ce{NaBH4}\) dans le méthanol</button><button class="q-opt" onclick="quiz(this,false,'Non. LiAlH₄ est trop fort — il réduit tout : aldéhydes, cétones, esters, acides, amides. Aucune sélectivité.')">\(\ce{LiAlH4}\) dans l\'éther</button><button class="q-opt" onclick="quiz(this,false,'Non. KMnO₄ est un oxydant — il ferait l\'inverse (aldéhyde → acide).')">\(\ce{KMnO4}\) en milieu basique</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Combien de stéréoisomères possibles pour le 2,3-dibromobutane \(\ce{CH3-CHBr-CHBr-CH3}\) ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Cette molécule a 2 centres stéréogènes (C2 et C3), donc au maximum 2² = 4 stéréoisomères.')">2 stéréoisomères</button><button class="q-opt" onclick="quiz(this,true,'Correct. 2 centres stéréogènes → 2² = 4 stéréoisomères théoriques. Mais ici, les deux carbones portent les mêmes substituants (CH₃ et Br), donc (2R,3S) = (2S,3R) (forme méso achirale, plan de symétrie interne). On a donc 3 stéréoisomères distincts : (2R,3R), (2S,3S) (paire d\'énantiomères) et la forme méso.')">3 stéréoisomères (composé méso + 1 paire d'énantiomères)</button><button class="q-opt" onclick="quiz(this,false,'Non — la symétrie du composé réduit le nombre attendu. Le couple (R,R) et (S,S) sont 2 énantiomères, mais (R,S) = (S,R) (méso), donc 3 au total.')">4 stéréoisomères</button></div>
+  <div class="q-expl"></div>
+</div></div>
+</div>
+
+<!-- ═══════════════════ RESSOURCES ═══════════════════ -->
+<div class="sblock r" id="ressources-section">
+  <div class="sblock-num">Ressources</div>
+  <h2>Aller plus loin</h2>
+  <div class="g2" style="margin-top:1rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets et corrigés des sessions précédentes</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes, statistiques</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.chemtube3d.com/" target="_blank">
+      <span class="ri">⚛</span><div><div class="rt">Chemtube3D</div><div class="rd">Animations 3D de mécanismes et structures</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="index.html">
+      <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="page-nav">
+  <a class="pnav-link" href="cinetique-catalyse.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Cinétique & Catalyse</span></a>
+  <a class="pnav-link next" href="structure-matiere.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Structure de la matière</span></a>
+</div>
+<div class="chap-strip r">
+  <a class="cs-link " href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a>
+  <a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a>
+  <a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a>
+  <a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique & Ondes</a>
+  <a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a>
+  <a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a>
+  <a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a>
+  <a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a>
+  <a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a>
+  <a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique & Catalyse</a>
+  <a class="cs-link cur" href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a>
+  <a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

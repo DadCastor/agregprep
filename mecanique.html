@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mécanique & Dynamique newtonienne — AgrégPrep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- MathJax 3 avec mhchem pour la chimie -->
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)'], ['$', '$']],
+    displayMath: [['\\[', '\\]'], ['$$', '$$']],
+    packages: {'[+]': ['ams', 'mhchem', 'physics']},
+    processEscapes: true
+  },
+  loader: { load: ['[tex]/mhchem', '[tex]/physics', '[tex]/ams'] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+/* Styles spécifiques à cette page — démos, exercices, montages */
+.demo{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--phys);border-radius:0 12px 12px 0;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.demo-head{font-family:var(--mono);font-size:9px;color:var(--phys);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem}
+.demo h4{font-family:var(--serif);font-size:1.05rem;color:var(--text);margin-bottom:.6rem;line-height:1.3}
+.demo .step{margin:.7rem 0;padding-left:1rem;border-left:1px dashed var(--border2)}
+.demo .step-label{font-family:var(--mono);font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.25rem}
+.demo p,.demo li{font-size:13px;color:var(--muted2);line-height:1.75}
+.demo ul{margin:.4rem 0 .4rem 1.1rem;display:flex;flex-direction:column;gap:4px}
+.demo .eq{background:var(--bg3);padding:.5rem .75rem;border-radius:6px;margin:.5rem 0;display:block;overflow-x:auto;color:var(--gold);font-size:13px;text-align:center}
+.demo .ccl{margin-top:.7rem;padding:.6rem .85rem;background:var(--phys-d);border:1px solid var(--phys-b);border-radius:6px;font-size:13px;color:var(--text)}
+.demo .ccl strong{color:var(--phys)}
+
+.exo{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0;border-left:3px solid var(--gold)}
+.exo-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;flex-wrap:wrap;gap:.5rem}
+.exo-tag{font-family:var(--mono);font-size:9px;color:var(--gold);text-transform:uppercase;letter-spacing:.12em}
+.exo-level{font-family:var(--mono);font-size:9px;padding:2px 7px;border-radius:4px;background:var(--phys-d);color:var(--phys);border:1px solid var(--phys-b)}
+.exo h4{font-family:var(--serif);font-size:1.05rem;color:var(--text);margin-bottom:.6rem;line-height:1.3}
+.exo .enonce{font-size:13.5px;color:var(--muted2);line-height:1.75;margin-bottom:.8rem}
+.exo details{margin-top:.6rem;border-top:1px dashed var(--border2);padding-top:.7rem}
+.exo summary{cursor:pointer;font-size:12px;font-family:var(--mono);color:var(--gold);text-transform:uppercase;letter-spacing:.1em;padding:4px 0;list-style:none;user-select:none}
+.exo summary::-webkit-details-marker{display:none}
+.exo summary::before{content:'▸ ';transition:transform .15s}
+.exo details[open] summary::before{content:'▾ '}
+.exo .corr p,.exo .corr li{font-size:13px;color:var(--muted2);line-height:1.75}
+.exo .corr ol{margin:.4rem 0 .4rem 1.3rem;display:flex;flex-direction:column;gap:8px}
+.exo .corr .eq{background:var(--bg3);padding:.55rem .8rem;border-radius:6px;margin:.5rem 0;display:block;overflow-x:auto;color:var(--gold);text-align:center;font-size:13.5px}
+.exo .corr .key{padding:.55rem .8rem;background:var(--gold-d);border-left:2px solid var(--gold);border-radius:0 6px 6px 0;margin:.5rem 0;font-size:13px;color:var(--text)}
+
+.montage{background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:1.1rem 1.3rem;margin:1rem 0}
+.montage-head{font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem}
+.montage h4{font-family:var(--serif);font-size:.98rem;color:var(--text);margin-bottom:.5rem}
+.montage p,.montage li{font-size:12.5px;color:var(--muted2);line-height:1.7}
+.montage ul{margin:.4rem 0 .4rem 1.1rem;display:flex;flex-direction:column;gap:4px}
+.montage .mat{display:grid;grid-template-columns:max-content 1fr;gap:.4rem 1rem;font-size:12px;margin:.5rem 0}
+.montage .mat-k{color:var(--gold);font-family:var(--mono)}
+.montage .mat-v{color:var(--muted2)}
+
+.ped-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;margin:.8rem 0}
+.ped-card h5{font-size:13px;color:var(--text);margin-bottom:.4rem;font-weight:600}
+.ped-card p,.ped-card li{font-size:12.5px;color:var(--muted2);line-height:1.7}
+.ped-card .niveau{font-family:var(--mono);font-size:9px;color:var(--phys);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+
+.summary-box{background:linear-gradient(135deg,var(--phys-d) 0%,var(--bg2) 100%);border:1px solid var(--phys-b);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.summary-box h4{color:var(--phys);font-family:var(--serif);font-size:1.05rem;margin-bottom:.6rem}
+.summary-box ul{margin:.4rem 0 .4rem 1.1rem;display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted2);line-height:1.65}
+
+/* MathJax — couleur cohérente avec le thème sombre */
+mjx-container{color:var(--text)!important}
+.fbox mjx-container{color:var(--gold)!important}
+.notion mjx-container,.demo mjx-container,.exo mjx-container{color:var(--text)!important}
+.eq mjx-container{color:var(--gold)!important}
+.fbox .eq-block{display:block;text-align:center;margin:.6rem 0;color:var(--gold)}
+
+svg.fig{display:block;max-width:100%;height:auto;margin:1rem auto;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:.5rem}
+
+/* Petites améliorations typographiques */
+.fbox{line-height:2.1}
+.fbox .fc{display:block;margin:.25rem 0}
+.notion p,.notion li{line-height:1.8}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">AgrégPrep <span class="nav-badge">Interne 2027</span></a>
+  <ul class="nav-links"><li><a href="mecanique.html" class="active">Mécanique</a></li><li><a href="electromagnetisme.html" class="">EM</a></li><li><a href="thermodynamique.html" class="">Thermo P</a></li><li><a href="optique-ondes.html" class="">Optique</a></li><li><a href="chimie-solutions.html" class="">Solutions</a></li><li><a href="thermodynamique-chimique.html" class="">Thermo C</a></li><li><a href="chimie-organique.html" class="">Chimie org.</a></li></ul>
+</nav>
+<div class="wrap">
+  <div class="chap-hero r">
+    <div class="chap-eyebrow">Physique · Sujet oral n°1 · Sujets associés 8, 9, 13, 14, 19, 23e</div>
+    <h1>Mécanique &amp; <em>Dynamique newtonienne</em></h1>
+    <p class="lead">Sujet oral n°1 du programme officiel — fondement de toute la physique. Indispensable à l'écrit (présent à toutes les sessions) et à l'oral. Le rapport de jury 2025 insiste sur la maîtrise rigoureuse de l'équation d'Euler, du théorème du moment cinétique et des oscillateurs forcés.</p>
+    <div class="chap-badges"><span class="badge bp">Sujet oral n°1</span> <span class="badge bg">Fréquent à l'écrit</span> <span class="badge bv">Fondation</span> <span class="badge br">Jury 2025 : exigeant</span></div>
+  </div>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-head">Sommaire</div>
+      <nav class="sidebar-nav">
+        <a href="#cinematique">1. Cinématique</a><a href="#newton">2. Lois de Newton</a><a href="#referentiels">3. Référentiels non galiléens</a><a href="#energie">4. Énergie &amp; travail</a><a href="#moment">5. Moment cinétique</a><a href="#oscillateurs">6. Oscillateurs &amp; résonance</a><a href="#fluides">7. Mécanique des fluides</a><a href="#kepler">8. Force centrale (Kepler)</a><a href="#exercices">9. Exercices résolus</a><a href="#montages">10. Montages</a><a href="#pedagogie">11. Pédagogie</a><a href="#quiz-section">Quiz</a><a href="#ressources-section">Ressources</a>
+      </nav>
+      <div class="sidebar-chapters"><div class="sidebar-chapters-head">Tous les chapitres</div><a class="cur" href="mecanique.html"><span class="dot p"></span>Mécanique</a><a class="" href="electromagnetisme.html"><span class="dot p"></span>Électromagnétisme</a><a class="" href="thermodynamique.html"><span class="dot p"></span>Thermodynamique</a><a class="" href="optique-ondes.html"><span class="dot p"></span>Optique &amp; Ondes</a><a class="" href="electricite.html"><span class="dot p"></span>Électricité</a><a class="" href="physique-moderne.html"><span class="dot p"></span>Physique moderne</a><a class="" href="chimie-solutions.html"><span class="dot c"></span>Chimie des solutions</a><a class="" href="thermodynamique-chimique.html"><span class="dot c"></span>Thermodynamique chimique</a><a class="" href="electrochimie.html"><span class="dot c"></span>Électrochimie</a><a class="" href="cinetique-catalyse.html"><span class="dot c"></span>Cinétique &amp; Catalyse</a><a class="" href="chimie-organique.html"><span class="dot c"></span>Chimie organique</a><a class="" href="structure-matiere.html"><span class="dot c"></span>Structure de la matière</a></div>
+    </aside>
+
+    <div class="content">
+      <div class="content-wrap">
+
+<!-- ============================================ -->
+<!-- SECTION 1 : CINÉMATIQUE -->
+<!-- ============================================ -->
+<div class="sblock r" id="cinematique">
+  <div class="sblock-num">Section 01</div>
+  <h2>1. Cinématique du point matériel</h2>
+  <p class="intro">La cinématique décrit le mouvement sans s'intéresser à ses causes. En mécanique newtonienne, on travaille toujours dans un référentiel galiléen <em>de référence</em>. Tout commence par un choix rigoureux du référentiel et du système de coordonnées adapté à la géométrie du problème.</p>
+
+<div class="notion r">
+  <div class="notion-title"><span class="nt-bar"></span>Vecteur position, vitesse, accélération</div>
+  <div class="notion-body">
+  <p>Soit \(M\) un point matériel et \(O\) un point fixe d'un référentiel \(\mathcal{R}\). Le <strong>vecteur position</strong> est \(\vec{r}(t) = \overrightarrow{OM}(t)\).</p>
+  <p>La <strong>vitesse</strong> est la dérivée temporelle de la position dans \(\mathcal{R}\) :</p>
+  <p style="text-align:center">\[ \vec{v}_{M/\mathcal{R}} = \left(\dfrac{\mathrm{d}\overrightarrow{OM}}{\mathrm{d}t}\right)_{\!\mathcal{R}} \]</p>
+  <p>L'<strong>accélération</strong> est la dérivée de la vitesse dans \(\mathcal{R}\) :</p>
+  <p style="text-align:center">\[ \vec{a}_{M/\mathcal{R}} = \left(\dfrac{\mathrm{d}\vec{v}_{M/\mathcal{R}}}{\mathrm{d}t}\right)_{\!\mathcal{R}} = \left(\dfrac{\mathrm{d}^2\overrightarrow{OM}}{\mathrm{d}t^2}\right)_{\!\mathcal{R}} \]</p>
+  <p><strong>Notation jury :</strong> il est attendu d'écrire systématiquement « dans le référentiel \(\mathcal{R}\) » et de placer une flèche sur tout vecteur. La notation \(\vec{v}_{M/\mathcal{R}}\) signifie « vitesse de \(M\) par rapport à \(\mathcal{R}\) ».</p>
+  </div>
+</div>
+
+<div class="fbox r">
+  <span class="fl">Cinématique — expressions dans les trois bases usuelles</span>
+  <span class="fc"><strong>Cartésiennes</strong> \((O\,;\vec{e}_x, \vec{e}_y, \vec{e}_z)\) — base fixe :</span>
+  \[ \overrightarrow{OM} = x\,\vec{e}_x + y\,\vec{e}_y + z\,\vec{e}_z \]
+  \[ \vec{v} = \dot{x}\,\vec{e}_x + \dot{y}\,\vec{e}_y + \dot{z}\,\vec{e}_z \qquad \vec{a} = \ddot{x}\,\vec{e}_x + \ddot{y}\,\vec{e}_y + \ddot{z}\,\vec{e}_z \]
+  <hr>
+  <span class="fc"><strong>Cylindro-polaires</strong> \((\vec{e}_r, \vec{e}_\theta, \vec{e}_z)\) — base mobile :</span>
+  \[ \overrightarrow{OM} = r\,\vec{e}_r + z\,\vec{e}_z \]
+  \[ \vec{v} = \dot{r}\,\vec{e}_r + r\dot{\theta}\,\vec{e}_\theta + \dot{z}\,\vec{e}_z \]
+  \[ \vec{a} = \bigl(\ddot{r} - r\dot{\theta}^2\bigr)\,\vec{e}_r + \bigl(r\ddot{\theta} + 2\dot{r}\dot{\theta}\bigr)\,\vec{e}_\theta + \ddot{z}\,\vec{e}_z \]
+  <hr>
+  <span class="fc"><strong>Repère de Frenet</strong> \((\vec{T}, \vec{N})\) — trajectoire courbe quelconque :</span>
+  \[ \vec{v} = v\,\vec{T} \quad \text{avec}\quad v = \dfrac{\mathrm{d}s}{\mathrm{d}t}\;(\text{abscisse curviligne algébrique}) \]
+  \[ \vec{a} = \dfrac{\mathrm{d}v}{\mathrm{d}t}\,\vec{T} + \dfrac{v^2}{R_c}\,\vec{N} \]
+  <span class="fc">\(R_c\) : rayon de courbure ; \(\vec{N}\) pointe vers le centre de courbure.</span>
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Cinématique en polaires</div>
+  <h4>Établir l'expression de \(\vec{v}\) et \(\vec{a}\) en coordonnées polaires</h4>
+  <div class="step">
+    <div class="step-label">Étape 1 — Position</div>
+    <p>On pose \(\overrightarrow{OM} = r\,\vec{e}_r\) où \(r \geq 0\) et \(\vec{e}_r\) dépend de \(\theta\) :</p>
+    <span class="eq">\( \vec{e}_r(\theta) = \cos\theta\,\vec{e}_x + \sin\theta\,\vec{e}_y \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Dérivées des vecteurs de base</div>
+    <p>Par dérivation directe par rapport au temps (via la règle de chaîne, \(\dot\theta = \mathrm{d}\theta/\mathrm{d}t\)) :</p>
+    <span class="eq">\( \dfrac{\mathrm{d}\vec{e}_r}{\mathrm{d}t} = \dot{\theta}\bigl(-\sin\theta\,\vec{e}_x + \cos\theta\,\vec{e}_y\bigr) = \dot{\theta}\,\vec{e}_\theta \)</span>
+    <span class="eq">\( \dfrac{\mathrm{d}\vec{e}_\theta}{\mathrm{d}t} = \dot{\theta}\bigl(-\cos\theta\,\vec{e}_x - \sin\theta\,\vec{e}_y\bigr) = -\dot{\theta}\,\vec{e}_r \)</span>
+    <p>Ces deux relations sont à connaître par cœur — elles fondent toute la cinématique en polaires.</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Vitesse</div>
+    <span class="eq">\( \vec{v} = \dfrac{\mathrm{d}(r\,\vec{e}_r)}{\mathrm{d}t} = \dot{r}\,\vec{e}_r + r\,\dfrac{\mathrm{d}\vec{e}_r}{\mathrm{d}t} = \dot{r}\,\vec{e}_r + r\dot{\theta}\,\vec{e}_\theta \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 4 — Accélération</div>
+    <p>On dérive à nouveau :</p>
+    <span class="eq">\( \vec{a} = \ddot{r}\,\vec{e}_r + \dot{r}\dot{\theta}\,\vec{e}_\theta + \dot{r}\dot{\theta}\,\vec{e}_\theta + r\ddot{\theta}\,\vec{e}_\theta - r\dot{\theta}^2\,\vec{e}_r \)</span>
+    <span class="eq">\( \vec{a} = \bigl(\ddot{r} - r\dot{\theta}^2\bigr)\,\vec{e}_r + \bigl(r\ddot{\theta} + 2\dot{r}\dot{\theta}\bigr)\,\vec{e}_\theta \)</span>
+  </div>
+  <div class="ccl"><strong>Interprétation physique :</strong> le terme \(-r\dot{\theta}^2\) est l'accélération <em>centripète</em> (attire vers \(O\)). Le terme \(2\dot{r}\dot{\theta}\) est l'accélération de Coriolis cinématique (à ne pas confondre avec la force de Coriolis dans un référentiel non inertiel — voir Section 3).</div>
+</div>
+
+<div class="alert alert-gold r">
+  <span class="ico">💡</span>
+  <div><strong>Choix du système de coordonnées :</strong> cartésiennes pour les translations rectilignes ; polaires/cylindriques dès qu'il y a une <em>symétrie de révolution</em> (mouvement circulaire, force centrale, problème à 2 corps) ; sphériques uniquement si la 3D est essentielle.</div>
+</div>
+
+<div class="alert alert-red r">
+  <span class="ico">⚠️</span>
+  <div><strong>Erreur classique signalée par le jury :</strong> oublier que \(\vec{e}_r\) et \(\vec{e}_\theta\) <em>dépendent du temps</em> via \(\theta(t)\) en polaires. Beaucoup de candidats écrivent \(\vec{v} = \dot{r}\,\vec{e}_r\) en oubliant le terme \(r\dot{\theta}\,\vec{e}_\theta\). À l'oral, montrer explicitement la dérivation de \(\vec{e}_r\).</div>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 2 : LOIS DE NEWTON & PFD -->
+<!-- ============================================ -->
+<div class="sblock r" id="newton">
+  <div class="sblock-num">Section 02</div>
+  <h2>2. Lois de Newton et principe fondamental de la dynamique</h2>
+  <p class="intro">La dynamique relie la cause (force) à l'effet (variation de mouvement). Trois lois historiques de Newton, formulées rigoureusement en termes vectoriels.</p>
+
+<div class="fbox r">
+  <span class="fl">Newton — les trois lois (Philosophiæ Naturalis Principia Mathematica, 1687)</span>
+  <span class="fc"><strong>1ʳᵉ loi</strong> (principe d'inertie) — postule l'existence des référentiels galiléens :</span>
+  \[ \exists\,\mathcal{R}\text{ galiléen} : \sum \vec{F}_{\text{ext}} = \vec{0} \;\Longrightarrow\; \vec{v} = \overrightarrow{\text{cste}} \]
+  <hr>
+  <span class="fc"><strong>2ᵉ loi</strong> (PFD) — dans un référentiel galiléen :</span>
+  \[ \dfrac{\mathrm{d}\vec{p}}{\mathrm{d}t} = \sum \vec{F}_{\text{ext}} \quad\text{avec}\quad \vec{p} = m\,\vec{v} \]
+  \[ \text{Si } m = \text{cste} : \quad \sum \vec{F}_{\text{ext}} = m\,\vec{a} \]
+  <hr>
+  <span class="fc"><strong>3ᵉ loi</strong> (actions réciproques) — pour deux corps \(A\) et \(B\) en interaction :</span>
+  \[ \vec{F}_{A\to B} = -\vec{F}_{B\to A} \quad\text{(mêmes droites d'action, sens opposés)} \]
+  <span class="fc">⚠ Ces deux forces s'appliquent à des corps <em>différents</em> — ne jamais les sommer dans un même bilan.</span>
+</div>
+
+<div class="notion r">
+  <div class="notion-title"><span class="nt-bar"></span>Méthode de résolution rigoureuse — le canevas du jury</div>
+  <div class="notion-body">
+  <p>Le jury 2025 attend ce canevas systématique pour toute application du PFD :</p>
+  <ul>
+  <li><strong>① Système :</strong> définir précisément le système matériel étudié (souvent assimilé à un point).</li>
+  <li><strong>② Référentiel :</strong> choisir et nommer le référentiel ; justifier son caractère galiléen ou non (terrestre = approximation galiléenne pour les mouvements de courte durée).</li>
+  <li><strong>③ Repère :</strong> choisir une base adaptée à la géométrie (cartésienne / polaire / Frenet).</li>
+  <li><strong>④ Bilan des forces :</strong> énumérer toutes les forces extérieures (poids, réaction, frottement, tension, etc.) et les représenter sur un schéma.</li>
+  <li><strong>⑤ Application du PFD :</strong> écrire l'équation vectorielle \(\sum \vec{F} = m\vec{a}\).</li>
+  <li><strong>⑥ Projection :</strong> projeter sur les axes choisis, obtenir des équations scalaires.</li>
+  <li><strong>⑦ Conditions initiales :</strong> les écrire explicitement avant de résoudre.</li>
+  <li><strong>⑧ Résolution :</strong> intégrer les équations différentielles, donner \(v(t)\) et \(x(t)\).</li>
+  <li><strong>⑨ Analyse dimensionnelle et limites :</strong> vérifier les unités et les cas particuliers.</li>
+  </ul>
+  </div>
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Conservation de la quantité de mouvement</div>
+  <h4>Système isolé de \(N\) points : la quantité de mouvement totale est conservée</h4>
+  <div class="step">
+    <div class="step-label">Étape 1 — PFD pour chaque point</div>
+    <p>Pour tout point \(i\) :</p>
+    <span class="eq">\( \dfrac{\mathrm{d}\vec{p}_i}{\mathrm{d}t} = \vec{F}_i^{\text{ext}} + \displaystyle\sum_{j\neq i} \vec{f}_{j\to i} \)</span>
+    <p>où \(\vec{f}_{j\to i}\) est la force exercée par le point \(j\) sur le point \(i\).</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Sommation sur tous les points</div>
+    <span class="eq">\( \displaystyle\dfrac{\mathrm{d}}{\mathrm{d}t}\!\left(\sum_i \vec{p}_i\right) = \sum_i \vec{F}_i^{\text{ext}} + \sum_i \sum_{j\neq i} \vec{f}_{j\to i} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Application de la 3ᵉ loi de Newton</div>
+    <p>Pour chaque paire \((i,j)\) : \(\vec{f}_{j\to i} + \vec{f}_{i\to j} = \vec{0}\). La double somme des forces internes est donc nulle.</p>
+    <span class="eq">\( \dfrac{\mathrm{d}\vec{P}_{\text{tot}}}{\mathrm{d}t} = \displaystyle\sum_i \vec{F}_i^{\text{ext}} \)</span>
+  </div>
+  <div class="ccl"><strong>Conclusion :</strong> si le système est isolé (\(\sum \vec{F}^{\text{ext}} = \vec{0}\)), alors \(\vec{P}_{\text{tot}} = \overrightarrow{\text{cste}}\). C'est la base de la mécanique des systèmes — propulsion par réaction, chocs, fragmentations.</div>
+</div>
+
+<div class="alert alert-red r">
+  <span class="ico">⚠️</span>
+  <div><strong>Erreur classique du jury :</strong> confondre paire d'action–réaction et compensation des forces. Le poids d'un objet posé sur une table et la réaction du support <em>ne forment pas</em> une paire action–réaction (elles s'appliquent au même corps). La réaction du poids, c'est l'attraction exercée par l'objet sur la Terre.</div>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 3 : RÉFÉRENTIELS NON INERTIELS -->
+<!-- ============================================ -->
+<div class="sblock r" id="referentiels">
+  <div class="sblock-num">Section 03</div>
+  <h2>3. Référentiels non inertiels — composition des mouvements</h2>
+  <p class="intro">Tous les référentiels ne sont pas galiléens. Pour appliquer le PFD dans un référentiel \(\mathcal{R}'\) non galiléen, il faut introduire les forces d'inertie (dites « fictives » car elles ne traduisent aucune interaction réelle, mais réelles dans leurs effets observables).</p>
+
+<div class="fbox r">
+  <span class="fl">Composition des vitesses et des accélérations</span>
+  <span class="fc">Soit \(\mathcal{R}\) galiléen et \(\mathcal{R}'\) en mouvement par rapport à \(\mathcal{R}\), avec \(\vec{v}_{O'/\mathcal{R}}\) la vitesse du point \(O'\) origine de \(\mathcal{R}'\) et \(\vec{\Omega}\) le vecteur rotation instantané de \(\mathcal{R}'\) par rapport à \(\mathcal{R}\) :</span>
+  \[ \vec{v}_{M/\mathcal{R}} = \vec{v}_{M/\mathcal{R}'} + \vec{v}_e \qquad\text{(composition des vitesses)} \]
+  \[ \vec{v}_e = \vec{v}_{O'/\mathcal{R}} + \vec{\Omega} \wedge \overrightarrow{O'M} \qquad\text{(vitesse d'entraînement)} \]
+  <hr>
+  \[ \vec{a}_{M/\mathcal{R}} = \vec{a}_{M/\mathcal{R}'} + \vec{a}_e + \vec{a}_c \]
+  \[ \vec{a}_e = \vec{a}_{O'/\mathcal{R}} + \dfrac{\mathrm{d}\vec{\Omega}}{\mathrm{d}t}\wedge\overrightarrow{O'M} + \vec{\Omega}\wedge(\vec{\Omega}\wedge\overrightarrow{O'M}) \]
+  \[ \vec{a}_c = 2\,\vec{\Omega}\wedge\vec{v}_{M/\mathcal{R}'} \qquad\text{(accélération de Coriolis)} \]
+</div>
+
+<div class="fbox r">
+  <span class="fl">PFD dans un référentiel non galiléen</span>
+  <span class="fc">On reporte la composition des accélérations dans le PFD écrit dans \(\mathcal{R}\) galiléen :</span>
+  \[ m\,\vec{a}_{M/\mathcal{R}'} = \sum \vec{F}_{\text{ext}} + \vec{F}_{\text{ie}} + \vec{F}_{\text{ic}} \]
+  \[ \vec{F}_{\text{ie}} = -m\,\vec{a}_e \qquad \vec{F}_{\text{ic}} = -m\,\vec{a}_c = -2m\,\vec{\Omega}\wedge\vec{v}_{M/\mathcal{R}'} \]
+  <hr>
+  <span class="fc"><strong>Cas particulier :</strong> \(\mathcal{R}'\) en rotation uniforme autour d'un axe fixe (\(\vec{\Omega} = \overrightarrow{\text{cste}}\)), \(O'\) sur l'axe :</span>
+  \[ \vec{F}_{\text{ie}} = -m\,\vec{\Omega}\wedge(\vec{\Omega}\wedge\overrightarrow{O'M}) = +m\,\Omega^2\,\overrightarrow{HM} \qquad\text{(force centrifuge)} \]
+  <span class="fc">où \(H\) est la projection orthogonale de \(M\) sur l'axe de rotation.</span>
+</div>
+
+<div class="alert alert-gold r">
+  <span class="ico">💡</span>
+  <div><strong>Propriété fondamentale de la force de Coriolis :</strong> elle est <em>toujours</em> orthogonale à \(\vec{v}_{M/\mathcal{R}'}\). Conséquence : son travail dans \(\mathcal{R}'\) est nul. Elle dévie la trajectoire mais ne modifie jamais la norme de la vitesse relative.</div>
+</div>
+
+<div class="notion r">
+  <div class="notion-title"><span class="nt-bar"></span>Le référentiel terrestre est-il galiléen ?</div>
+  <div class="notion-body">
+  <p>Le référentiel terrestre \(\mathcal{R}_T\) (lié au sol) tourne avec la Terre à la vitesse \(\Omega = 2\pi/(86\,164\,\mathrm{s}) \approx 7{,}29\cdot 10^{-5}\,\mathrm{rad\cdot s^{-1}}\) par rapport au référentiel géocentrique \(\mathcal{R}_G\). Il est non galiléen, mais l'écart est faible.</p>
+  <p><strong>Hiérarchie des référentiels en physique terrestre :</strong></p>
+  <ul>
+  <li><strong>Référentiel de Copernic</strong> (héliocentrique, axes vers étoiles fixes) : galiléen à très bonne approximation.</li>
+  <li><strong>Référentiel géocentrique</strong> (centré sur la Terre, axes parallèles à Copernic) : galiléen pour des durées \(\ll\) année.</li>
+  <li><strong>Référentiel terrestre</strong> \(\mathcal{R}_T\) : galiléen pour des durées courtes et des mouvements peu étendus. Pour des mouvements lents/longs, prendre en compte \(\vec{F}_{\text{ie}}\) (modifie \(\vec{g}\) apparent) et \(\vec{F}_{\text{ic}}\) (déviation des vents, pendule de Foucault).</li>
+  </ul>
+  <p><strong>Pesanteur effective :</strong></p>
+  <p style="text-align:center">\[ \vec{g}_{\text{eff}} = \vec{g}_{\text{attract}} - \vec{a}_e \approx \vec{g}_{\text{attract}} + \Omega^2\,\overrightarrow{HM} \]</p>
+  <p>Conséquence : \(g\) varie de \(g_{\text{équateur}}\approx 9{,}780\,\mathrm{m\cdot s^{-2}}\) à \(g_{\text{pôle}}\approx 9{,}832\,\mathrm{m\cdot s^{-2}}\). L'écart relatif (\(\approx 3{,}5\cdot 10^{-3}\)) provient à la fois de l'aplatissement de la Terre et de la force centrifuge.</p>
+  </div>
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Déviation vers l'est en chute libre</div>
+  <h4>Un objet lâché sans vitesse initiale d'une hauteur \(h\) dévie vers l'est</h4>
+  <div class="step">
+    <div class="step-label">Étape 1 — Repère et hypothèses</div>
+    <p>Référentiel terrestre \(\mathcal{R}_T\) au point \(M\) de latitude \(\lambda\). Repère local : \(\vec{e}_x\) vers le sud, \(\vec{e}_y\) vers l'est, \(\vec{e}_z\) verticale ascendante. Vecteur rotation :</p>
+    <span class="eq">\( \vec{\Omega} = \Omega\bigl(-\cos\lambda\,\vec{e}_x + \sin\lambda\,\vec{e}_z\bigr) \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — PFD avec forces d'inertie</div>
+    <p>On inclut \(\vec{F}_{\text{ie}}\) dans \(\vec{g}_{\text{eff}}\) et on conserve la seule force de Coriolis :</p>
+    <span class="eq">\( m\,\vec{a} = m\,\vec{g}_{\text{eff}} - 2m\,\vec{\Omega}\wedge\vec{v} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Approximation au 1ᵉʳ ordre en \(\Omega\)</div>
+    <p>On remplace \(\vec{v}\) dans le terme de Coriolis par la solution sans Coriolis : \(\vec{v}^{(0)} = -g\,t\,\vec{e}_z\). Alors :</p>
+    <span class="eq">\( -2\vec{\Omega}\wedge\vec{v}^{(0)} = -2\Omega\bigl(-\cos\lambda\,\vec{e}_x + \sin\lambda\,\vec{e}_z\bigr)\wedge(-g\,t\,\vec{e}_z) = -2\Omega\,g\,t\,\cos\lambda\,\vec{e}_y \cdot(-1) \)</span>
+    <p>Avec \(\vec{e}_x\wedge\vec{e}_z = -\vec{e}_y\), le résultat est dirigé selon \(+\vec{e}_y\) (l'est). En sommant à l'accélération de pesanteur :</p>
+    <span class="eq">\( \ddot{y} \approx 2\,\Omega\,g\,t\,\cos\lambda \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 4 — Intégration de l'écart</div>
+    <p>Pour une chute de hauteur \(h\), durée \(\tau = \sqrt{2h/g}\). Double intégration de \(\ddot{y}\) :</p>
+    <span class="eq">\( y(\tau) = \dfrac{1}{3}\,\Omega\,g\,\cos\lambda\,\tau^3 = \dfrac{1}{3}\,\Omega\,\cos\lambda\,\sqrt{\dfrac{8h^3}{g}} \)</span>
+  </div>
+  <div class="ccl"><strong>Application numérique :</strong> à Paris (\(\lambda = 49°\)), pour \(h = 100\,\mathrm{m}\), on trouve \(y \approx 1{,}5\,\mathrm{cm}\) vers l'est. Effet petit mais mesurable (expérience historique de Reich, 1831, en mine).</div>
+</div>
+
+<div class="alert alert-red r">
+  <span class="ico">⚠️</span>
+  <div><strong>Erreur classique :</strong> confondre <em>accélération</em> de Coriolis (cinématique pure, dans la composition des accélérations, terme \(+2\vec{\Omega}\wedge\vec{v}\)) et <em>force</em> de Coriolis (force d'inertie, signe opposé : \(-2m\vec{\Omega}\wedge\vec{v}\)). Le « \(-\) » provient du report dans le PFD.</div>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 4 : ÉNERGIE -->
+<!-- ============================================ -->
+<div class="sblock r" id="energie">
+  <div class="sblock-num">Section 04</div>
+  <h2>4. Énergie, travail et conservation</h2>
+  <p class="intro">L'approche énergétique permet souvent de résoudre un problème sans intégrer les équations différentielles du mouvement. Sujets oraux n°3 (Énergie mécanique) et n°4 (Conservation).</p>
+
+<div class="fbox r">
+  <span class="fl">Travail et énergie cinétique</span>
+  <span class="fc">Travail élémentaire d'une force \(\vec{F}\) :</span>
+  \[ \delta W = \vec{F}\cdot\mathrm{d}\vec{\ell} = \vec{F}\cdot\vec{v}\,\mathrm{d}t \qquad W_{A\to B}(\vec{F}) = \int_A^B \vec{F}\cdot\mathrm{d}\vec{\ell} \]
+  <hr>
+  <span class="fc">Énergie cinétique : \( E_c = \tfrac{1}{2}\,m\,v^2 \).</span>
+  <span class="fc">Théorème de l'énergie cinétique (référentiel galiléen) :</span>
+  \[ \Delta E_c = E_c(B) - E_c(A) = \sum_i W_{A\to B}(\vec{F}_i) \]
+  <hr>
+  <span class="fc">Théorème de la puissance cinétique (forme différentielle) :</span>
+  \[ \dfrac{\mathrm{d}E_c}{\mathrm{d}t} = \sum_i \mathcal{P}_i = \sum_i \vec{F}_i\cdot\vec{v} \]
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Théorème de l'énergie cinétique</div>
+  <h4>Du PFD au théorème de l'énergie cinétique</h4>
+  <div class="step">
+    <div class="step-label">Étape 1 — PFD multiplié scalairement par \(\vec{v}\)</div>
+    <p>Dans \(\mathcal{R}\) galiléen, \(m\,\mathrm{d}\vec{v}/\mathrm{d}t = \sum_i \vec{F}_i\). On multiplie scalairement par \(\vec{v}\) :</p>
+    <span class="eq">\( m\,\vec{v}\cdot\dfrac{\mathrm{d}\vec{v}}{\mathrm{d}t} = \displaystyle\sum_i \vec{F}_i\cdot\vec{v} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Identification</div>
+    <p>Or \(\vec{v}\cdot\mathrm{d}\vec{v}/\mathrm{d}t = \tfrac{1}{2}\,\mathrm{d}(\vec{v}\cdot\vec{v})/\mathrm{d}t = \tfrac{1}{2}\,\mathrm{d}(v^2)/\mathrm{d}t\). D'où :</p>
+    <span class="eq">\( \dfrac{\mathrm{d}}{\mathrm{d}t}\!\left(\tfrac{1}{2}\,m\,v^2\right) = \displaystyle\sum_i \vec{F}_i\cdot\vec{v} = \sum_i \mathcal{P}_i \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Intégration entre \(t_A\) et \(t_B\)</div>
+    <span class="eq">\( \Delta E_c = \displaystyle\int_{t_A}^{t_B}\!\!\left(\sum_i \vec{F}_i\cdot\vec{v}\right)\mathrm{d}t = \sum_i \int_A^B \vec{F}_i\cdot\mathrm{d}\vec{\ell} = \sum_i W(\vec{F}_i) \)</span>
+  </div>
+  <div class="ccl"><strong>Cas particulier important :</strong> dans un référentiel non galiléen \(\mathcal{R}'\), la force de Coriolis ne travaille pas. Le théorème devient \(\Delta E_c^{\mathcal{R}'} = \sum W(\vec{F}_{\text{ext}}) + W(\vec{F}_{\text{ie}})\). La force d'inertie d'entraînement, elle, peut travailler.</div>
+</div>
+
+<div class="fbox r">
+  <span class="fl">Forces conservatives — énergie potentielle</span>
+  <span class="fc">Une force est conservative ssi \(W\) ne dépend pas du chemin :</span>
+  \[ \oint \vec{F}\cdot\mathrm{d}\vec{\ell} = 0 \;\Longleftrightarrow\; \vec{F} = -\overrightarrow{\mathrm{grad}}\,E_p \;\Longleftrightarrow\; \mathrm{d}E_p = -\vec{F}\cdot\mathrm{d}\vec{\ell} \]
+  <hr>
+  <span class="fc"><strong>Énergies potentielles usuelles</strong> (le choix de la référence est libre) :</span>
+  \[ E_p^{\text{pesanteur}} = m\,g\,z \quad(z\text{ axe }\uparrow) \qquad E_p^{\text{ressort}} = \tfrac{1}{2}\,k\,x^2 \]
+  \[ E_p^{\text{grav}} = -\dfrac{G\,M\,m}{r} \quad(\text{réf. à l'}\infty) \qquad E_p^{\text{Coulomb}} = \dfrac{q_1 q_2}{4\pi\varepsilon_0\,r} \]
+  <hr>
+  <span class="fc">Énergie mécanique : \( E_m = E_c + E_p \).</span>
+  \[ \dfrac{\mathrm{d}E_m}{\mathrm{d}t} = \mathcal{P}(\vec{F}_{\text{non-cons}}) \;\leq 0\text{ si frottements} \]
+  <span class="fc">Conservation si seules forces conservatives + forces ne travaillant pas (\(\vec{R}_N\), \(\vec{F}_{\text{Cor}}\)).</span>
+</div>
+
+<div class="notion r">
+  <div class="notion-title"><span class="nt-bar"></span>Étude qualitative par le potentiel — états liés et états de diffusion</div>
+  <div class="notion-body">
+  <p>Pour un mouvement à 1 degré de liberté avec \(E_m\) conservée : \(E_c = E_m - E_p(x) \geq 0\).</p>
+  <ul>
+  <li>Les <strong>positions accessibles</strong> sont celles où \(E_p(x) \leq E_m\).</li>
+  <li><strong>Points de rebroussement</strong> : \(E_p(x) = E_m\) (vitesse nulle).</li>
+  <li><strong>Position d'équilibre</strong> : \(\mathrm{d}E_p/\mathrm{d}x = 0\). Stable si \(\mathrm{d}^2 E_p/\mathrm{d}x^2 > 0\) (minimum), instable sinon.</li>
+  <li><strong>État lié</strong> : trajectoire bornée (puits de potentiel). <strong>État de diffusion</strong> : trajectoire non bornée.</li>
+  </ul>
+  <p>Cette analyse est <em>incontournable</em> pour les problèmes de force centrale (potentiel effectif), de physique moléculaire (potentiel de Lennard-Jones), de physique nucléaire.</p>
+  </div>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 5 : MOMENT CINÉTIQUE & SOLIDES -->
+<!-- ============================================ -->
+<div class="sblock r" id="moment">
+  <div class="sblock-num">Section 05</div>
+  <h2>5. Moment cinétique et solides en rotation</h2>
+  <p class="intro">Le moment cinétique est l'analogue de la quantité de mouvement pour les rotations. Sa conservation, lorsqu'elle s'applique, est l'un des outils les plus puissants de la mécanique (force centrale, mouvement gyroscopique, étoiles à neutrons).</p>
+
+<div class="fbox r">
+  <span class="fl">Moment cinétique d'un point matériel</span>
+  <span class="fc">Par rapport à un point \(O\) fixe dans \(\mathcal{R}\) galiléen :</span>
+  \[ \vec{L}_O = \overrightarrow{OM}\wedge\vec{p} = \overrightarrow{OM}\wedge(m\,\vec{v}) \]
+  <hr>
+  <span class="fc"><strong>Théorème du moment cinétique</strong> (TMC) en \(O\) fixe :</span>
+  \[ \dfrac{\mathrm{d}\vec{L}_O}{\mathrm{d}t} = \vec{\mathcal{M}}_O(\vec{F}_{\text{ext}}) = \sum_i \overrightarrow{OM}\wedge\vec{F}_i \]
+  <hr>
+  <span class="fc">TMC scalaire par rapport à un axe \(\Delta\) fixe :</span>
+  \[ \dfrac{\mathrm{d}L_\Delta}{\mathrm{d}t} = \mathcal{M}_\Delta(\vec{F}_{\text{ext}}) \]
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · TMC à partir du PFD</div>
+  <h4>Établir \(\mathrm{d}\vec{L}_O/\mathrm{d}t = \vec{\mathcal{M}}_O(\vec{F}_{\text{ext}})\) pour un point matériel</h4>
+  <div class="step">
+    <div class="step-label">Étape 1 — Dérivée du moment cinétique</div>
+    <p>\(\vec{L}_O = \overrightarrow{OM}\wedge(m\,\vec{v})\). On dérive (\(O\) fixe dans \(\mathcal{R}\)) :</p>
+    <span class="eq">\( \dfrac{\mathrm{d}\vec{L}_O}{\mathrm{d}t} = \dfrac{\mathrm{d}\overrightarrow{OM}}{\mathrm{d}t}\wedge(m\,\vec{v}) + \overrightarrow{OM}\wedge\!\left(m\,\dfrac{\mathrm{d}\vec{v}}{\mathrm{d}t}\right) \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Le premier terme s'annule</div>
+    <p>\(\mathrm{d}\overrightarrow{OM}/\mathrm{d}t = \vec{v}\) et \(\vec{v}\wedge(m\,\vec{v}) = \vec{0}\) (deux vecteurs colinéaires).</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Application du PFD</div>
+    <p>\(m\,\mathrm{d}\vec{v}/\mathrm{d}t = \sum \vec{F}_{\text{ext}}\), d'où :</p>
+    <span class="eq">\( \dfrac{\mathrm{d}\vec{L}_O}{\mathrm{d}t} = \overrightarrow{OM}\wedge\displaystyle\sum \vec{F}_{\text{ext}} = \sum \vec{\mathcal{M}}_O(\vec{F}_{\text{ext}}) \)</span>
+  </div>
+  <div class="ccl"><strong>Cas important :</strong> si toutes les forces passent par \(O\) (force centrale), alors \(\vec{\mathcal{M}}_O = \vec{0}\) et \(\vec{L}_O\) est conservé. C'est la base des mouvements à force centrale (Kepler) et de la 2ᵉ loi de Kepler (loi des aires).</div>
+</div>
+
+<div class="notion r">
+  <div class="notion-title"><span class="nt-bar"></span>Solide indéformable en rotation autour d'un axe fixe</div>
+  <div class="notion-body">
+  <p>Pour un solide indéformable en rotation autour d'un axe fixe \(\Delta\) avec vitesse angulaire \(\Omega\) :</p>
+  <p style="text-align:center">\[ L_\Delta = J_\Delta\,\Omega \qquad \mathcal{M}_\Delta(\vec{F}_{\text{ext}}) = J_\Delta\,\dfrac{\mathrm{d}\Omega}{\mathrm{d}t} \]</p>
+  <p>où le <strong>moment d'inertie</strong> \(J_\Delta\) est défini par :</p>
+  <p style="text-align:center">\[ J_\Delta = \iiint_{(S)} r^2\,\mathrm{d}m \qquad (r : \text{distance de l'élément } \mathrm{d}m \text{ à l'axe}) \]</p>
+  <p><strong>Moments d'inertie de référence</strong> (par rapport à un axe de symétrie passant par \(G\)) :</p>
+  <ul>
+  <li>Sphère pleine de rayon \(R\) : \(J_G = \tfrac{2}{5}\,m\,R^2\)</li>
+  <li>Sphère creuse mince : \(J_G = \tfrac{2}{3}\,m\,R^2\)</li>
+  <li>Cylindre plein, axe de révolution : \(J_G = \tfrac{1}{2}\,m\,R^2\)</li>
+  <li>Cylindre creux mince, axe de révolution : \(J_G = m\,R^2\)</li>
+  <li>Disque mince, axe \(\perp\) par \(G\) : \(J_G = \tfrac{1}{2}\,m\,R^2\)</li>
+  <li>Tige mince de longueur \(L\), axe \(\perp\) par \(G\) : \(J_G = \tfrac{m\,L^2}{12}\)</li>
+  <li>Tige mince, axe \(\perp\) par une extrémité : \(J = \tfrac{m\,L^2}{3}\)</li>
+  </ul>
+  <p><strong>Théorème de Huygens-Steiner :</strong> pour un axe \(\Delta'\) parallèle à un axe \(\Delta_G\) passant par \(G\), distant de \(d\) :</p>
+  <p style="text-align:center">\[ J_{\Delta'} = J_G + m\,d^2 \]</p>
+  </div>
+</div>
+
+<div class="fbox r">
+  <span class="fl">Énergie cinétique d'un solide</span>
+  <span class="fc">Solide en rotation autour de \(\Delta\) fixe à la vitesse \(\Omega\) :</span>
+  \[ E_c = \tfrac{1}{2}\,J_\Delta\,\Omega^2 \]
+  <hr>
+  <span class="fc"><strong>Théorème de König</strong> (mouvement quelconque, \(G\) centre de masse) :</span>
+  \[ E_c^{\mathcal{R}} = \tfrac{1}{2}\,M\,v_G^2 + E_c^{*} \qquad\text{avec } E_c^{*}(\text{solide}) = \tfrac{1}{2}\,J_G\,\Omega^2 \]
+  <span class="fc">où \(\mathcal{R}^{*}\) est le référentiel barycentrique en translation par rapport à \(\mathcal{R}\), et \(E_c^{*}\) est l'énergie cinétique calculée dans \(\mathcal{R}^{*}\).</span>
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Théorème de König pour l'énergie cinétique</div>
+  <h4>Décomposition de \(E_c\) en énergie de translation du centre de masse + énergie barycentrique</h4>
+  <div class="step">
+    <div class="step-label">Étape 1 — Composition des vitesses</div>
+    <p>Soit \(\mathcal{R}\) un référentiel galiléen et \(\mathcal{R}^{*}\) le référentiel barycentrique (centré sur \(G\), en translation par rapport à \(\mathcal{R}\)). Pour un point \(M_i\) du système :</p>
+    <span class="eq">\( \vec{v}_{i/\mathcal{R}} = \vec{v}_G + \vec{v}_{i/\mathcal{R}^{*}} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Sommation des énergies</div>
+    <p>\(E_c^{\mathcal{R}} = \displaystyle\sum_i \tfrac{1}{2}\,m_i\,\|\vec{v}_{i/\mathcal{R}}\|^2\). En développant le carré :</p>
+    <span class="eq">\( E_c^{\mathcal{R}} = \displaystyle\sum_i \tfrac{1}{2}\,m_i\,v_G^2 + \sum_i \tfrac{1}{2}\,m_i\,\|\vec{v}_{i/\mathcal{R}^{*}}\|^2 + \vec{v}_G\cdot\!\sum_i m_i\,\vec{v}_{i/\mathcal{R}^{*}} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Annulation du terme croisé</div>
+    <p>Par définition du centre de masse, \(\displaystyle\sum_i m_i\,\overrightarrow{GM_i} = \vec{0}\). En dérivant dans \(\mathcal{R}^{*}\) :</p>
+    <span class="eq">\( \displaystyle\sum_i m_i\,\vec{v}_{i/\mathcal{R}^{*}} = \vec{p}^{*} = \vec{0} \quad(\text{quantité de mouvement barycentrique nulle}) \)</span>
+    <p>Donc le terme croisé s'annule.</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 4 — Conclusion</div>
+    <span class="eq">\( E_c^{\mathcal{R}} = \tfrac{1}{2}\,M\,v_G^2 + E_c^{*} \qquad M = \sum_i m_i \)</span>
+    <p>Pour un <strong>solide indéformable</strong> en rotation autour d'un axe \(\Delta_G\) (passant par \(G\)) à la vitesse \(\vec{\Omega}\) : dans \(\mathcal{R}^{*}\), tous les points décrivent une rotation pure autour de \(\Delta_G\), donc \(E_c^{*} = \tfrac{1}{2}\,J_{\Delta_G}\,\Omega^2\).</p>
+  </div>
+  <div class="ccl"><strong>Application typique :</strong> bille qui roule sans glisser sur un plan incliné. Énergie cinétique totale : \(E_c = \tfrac{1}{2}\,m\,v_G^2 + \tfrac{1}{2}\,J_G\,\Omega^2\). Avec le roulement sans glissement \(v_G = R\,\Omega\) et \(J_G = \tfrac{2}{5}m R^2\) (sphère pleine) : \(E_c = \tfrac{7}{10}\,m\,v_G^2\). C'est ce facteur \(7/10\) (au lieu de \(1/2\)) qui ralentit une sphère qui roule par rapport à un objet qui glisse.</div>
+</div>
+
+<div class="alert alert-gold r">
+  <span class="ico">💡</span>
+  <div><strong>Pour l'oral n°1 :</strong> savoir démontrer le TMC à partir du PFD pour un point, puis l'étendre à un système (les moments des forces internes se compensent par paires en vertu de la 3ᵉ loi de Newton, à condition que les forces internes soient newtoniennes — i.e. portées par la droite joignant les deux points).</div>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 6 : OSCILLATEURS -->
+<!-- ============================================ -->
+<div class="sblock r" id="oscillateurs">
+  <div class="sblock-num">Section 06</div>
+  <h2>6. Oscillateurs mécaniques et résonance</h2>
+  <p class="intro">Sujets oraux n°8 (Oscillateurs) et n°14 (Résonance). L'oscillateur harmonique est le modèle universel : tout système au voisinage d'une position d'équilibre stable se comporte au 1ᵉʳ ordre comme un oscillateur harmonique. Présent en mécanique, électricité, optique, physique quantique.</p>
+
+<div class="fbox r">
+  <span class="fl">Oscillateur harmonique libre (sans amortissement)</span>
+  <span class="fc">Équation différentielle canonique :</span>
+  \[ \ddot{x} + \omega_0^2\,x = 0 \]
+  <hr>
+  <span class="fc">Solution générale :</span>
+  \[ x(t) = A\,\cos(\omega_0\,t + \varphi) = X_0\,\cos(\omega_0 t) + \dfrac{V_0}{\omega_0}\,\sin(\omega_0 t) \]
+  \[ T_0 = \dfrac{2\pi}{\omega_0} \qquad f_0 = \dfrac{\omega_0}{2\pi} \]
+  <hr>
+  <span class="fc"><strong>Pulsations propres usuelles</strong> :</span>
+  \[ \text{Ressort-masse :}\quad \omega_0 = \sqrt{\dfrac{k}{m}} \qquad T_0 = 2\pi\sqrt{\dfrac{m}{k}} \]
+  \[ \text{Pendule simple (petits angles) :}\quad \omega_0 = \sqrt{\dfrac{g}{L}} \qquad T_0 = 2\pi\sqrt{\dfrac{L}{g}} \]
+  \[ \text{Pendule pesant :}\quad \omega_0 = \sqrt{\dfrac{m\,g\,d}{J_\Delta}} \quad(d = OG) \]
+  \[ \text{Pendule de torsion :}\quad \omega_0 = \sqrt{\dfrac{C}{J}} \qquad \text{Oscillateur LC :}\quad \omega_0 = \dfrac{1}{\sqrt{LC}} \]
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Pendule simple — équation et linéarisation</div>
+  <h4>Du TMC à l'équation du pendule</h4>
+
+  <svg class="fig" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma du pendule simple : fil, masse, vecteurs poids et tension, angle theta.">
+    <defs>
+      <marker id="ah-phys" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f9cf9"/>
+      </marker>
+      <marker id="ah-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#f5a623"/>
+      </marker>
+      <marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#9aa3c0"/>
+      </marker>
+    </defs>
+
+    <!-- Plafond / support -->
+    <line x1="120" y1="40" x2="280" y2="40" stroke="#9aa3c0" stroke-width="1.5"/>
+    <g stroke="#9aa3c0" stroke-width="1">
+      <line x1="130" y1="40" x2="120" y2="30"/>
+      <line x1="150" y1="40" x2="140" y2="30"/>
+      <line x1="170" y1="40" x2="160" y2="30"/>
+      <line x1="190" y1="40" x2="180" y2="30"/>
+      <line x1="210" y1="40" x2="200" y2="30"/>
+      <line x1="230" y1="40" x2="220" y2="30"/>
+      <line x1="250" y1="40" x2="240" y2="30"/>
+      <line x1="270" y1="40" x2="260" y2="30"/>
+    </g>
+
+    <!-- Verticale de référence (pointillés) -->
+    <line x1="200" y1="40" x2="200" y2="290" stroke="#6e7899" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- Fil du pendule (angle theta = 25°, longueur 200) -->
+    <line x1="200" y1="40" x2="284.5" y2="221.3" stroke="#eaecf4" stroke-width="2"/>
+
+    <!-- Arc d'angle theta -->
+    <path d="M 200 110 A 70 70 0 0 1 229.6 103.4" fill="none" stroke="#9aa3c0" stroke-width="1.2"/>
+    <text x="215" y="100" fill="#9aa3c0" font-family="JetBrains Mono, monospace" font-size="13" font-style="italic">θ</text>
+
+    <!-- Étiquette longueur L sur le fil -->
+    <text x="252" y="130" fill="#9aa3c0" font-family="JetBrains Mono, monospace" font-size="13" font-style="italic">L</text>
+
+    <!-- Point O (suspension) -->
+    <circle cx="200" cy="40" r="3.5" fill="#eaecf4"/>
+    <text x="206" y="34" fill="#eaecf4" font-family="DM Sans, sans-serif" font-size="13" font-weight="600">O</text>
+
+    <!-- Masse m -->
+    <circle cx="284.5" cy="221.3" r="11" fill="#4f9cf9" stroke="#eaecf4" stroke-width="1.2"/>
+    <text x="298" y="227" fill="#eaecf4" font-family="DM Sans, sans-serif" font-size="13" font-weight="600">m</text>
+
+    <!-- Vecteur poids P = mg, depuis M vers le bas -->
+    <line x1="284.5" y1="232" x2="284.5" y2="292" stroke="#f5a623" stroke-width="2" marker-end="url(#ah-gold)"/>
+    <text x="293" y="278" fill="#f5a623" font-family="DM Sans, sans-serif" font-size="13" font-style="italic">m g⃗</text>
+
+    <!-- Vecteur tension T, le long du fil vers O -->
+    <line x1="280" y1="213" x2="240.7" y2="128.7" stroke="#4f9cf9" stroke-width="2" marker-end="url(#ah-phys)"/>
+    <text x="217" y="160" fill="#4f9cf9" font-family="DM Sans, sans-serif" font-size="13" font-style="italic">T⃗</text>
+
+    <!-- Vecteur e_theta : tangent à la trajectoire, sens des theta croissants -->
+    <!-- e_theta = (cos θ, -sin θ) en SVG, soit vers la droite-bas pour θ = 25° > 0 -->
+    <line x1="284.5" y1="221.3" x2="330" y2="200" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#ah-muted)" opacity="0.85"/>
+    <text x="335" y="198" fill="#a78bfa" font-family="DM Sans, sans-serif" font-size="11" font-style="italic">e⃗_θ</text>
+
+    <!-- Trajectoire (arc en pointillé) -->
+    <path d="M 200 240 A 200 200 0 0 1 295 246" fill="none" stroke="#6e7899" stroke-width="1" stroke-dasharray="2 4" opacity="0.6"/>
+
+    <!-- Légende coordonnée angulaire -->
+    <text x="20" y="320" fill="#6e7899" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.05em">PENDULE SIMPLE — REPÈRE POLAIRE EN O</text>
+  </svg>
+
+  <div class="step">
+    <div class="step-label">Étape 1 — Système et bilan</div>
+    <p>Masse ponctuelle \(m\) suspendue à un fil inextensible de longueur \(L\) (fil de masse négligeable), oscillant dans un plan vertical. Forces : poids \(m\vec{g}\) et tension \(\vec{T}\) du fil.</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — TMC en \(O\) (point d'attache)</div>
+    <p>La tension \(\vec{T}\) passe par \(O\) : son moment en \(O\) est nul. Le TMC en \(O\) élimine donc cette inconnue. Plus rapide que le PFD.</p>
+    <span class="eq">\( L_O = m\,L^2\,\dot{\theta} \qquad \mathcal{M}_O(\text{poids}) = -m\,g\,L\,\sin\theta \)</span>
+    <span class="eq">\( m\,L^2\,\ddot{\theta} = -m\,g\,L\,\sin\theta \quad\Longrightarrow\quad \ddot{\theta} + \dfrac{g}{L}\,\sin\theta = 0 \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Approximation des petites oscillations</div>
+    <p>Pour \(|\theta| \leq 15° \approx 0{,}26\,\mathrm{rad}\), \(\sin\theta \approx \theta\) à mieux que 1 %. Alors :</p>
+    <span class="eq">\( \ddot{\theta} + \omega_0^2\,\theta = 0 \quad\text{avec}\quad \omega_0^2 = \dfrac{g}{L} \)</span>
+    <span class="eq">\( \theta(t) = \theta_0\,\cos(\omega_0 t + \varphi) \qquad T_0 = 2\pi\sqrt{\dfrac{L}{g}} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 4 — Correction au 4ᵉ ordre (formule de Borda)</div>
+    <p>Au-delà des petites oscillations, \(T\) dépend de l'amplitude. Développement de Borda :</p>
+    <span class="eq">\( T(\theta_0) \approx T_0\!\left(1 + \dfrac{\theta_0^2}{16} + \dfrac{11\,\theta_0^4}{3072} + \ldots\right) \)</span>
+    <p>Pour \(\theta_0 = 30°\) (0,52 rad), correction \(\approx 1{,}7\,\%\). À \(\theta_0 = 60°\), correction \(\approx 7\,\%\).</p>
+  </div>
+  <div class="ccl"><strong>Propriété remarquable :</strong> dans l'approximation harmonique, \(T_0\) ne dépend ni de la masse \(m\) ni de l'amplitude \(\theta_0\) (isochronisme des petites oscillations, propriété découverte par Galilée).</div>
+</div>
+
+<div class="fbox r">
+  <span class="fl">Oscillateur amorti par frottement fluide (\(\vec{f} = -h\vec{v}\))</span>
+  <span class="fc">Équation différentielle :</span>
+  \[ \ddot{x} + \dfrac{\omega_0}{Q}\,\dot{x} + \omega_0^2\,x = 0 \qquad Q = \dfrac{m\,\omega_0}{h} \;\text{(sans dimension)} \]
+  <hr>
+  <span class="fc">Polynôme caractéristique : \(r^2 + (\omega_0/Q)\,r + \omega_0^2 = 0\), discriminant \(\Delta = \omega_0^2(1/Q^2 - 4)\).</span>
+  <hr>
+  <span class="fc"><strong>Régimes</strong> selon \(Q\) :</span>
+  \[ Q < \tfrac{1}{2} \;\text{(apériodique)} : \quad x(t) = A\,\mathrm{e}^{r_1 t} + B\,\mathrm{e}^{r_2 t},\; r_{1,2} < 0 \]
+  \[ Q = \tfrac{1}{2} \;\text{(critique)} : \quad x(t) = (A + B\,t)\,\mathrm{e}^{-\omega_0\,t} \]
+  \[ Q > \tfrac{1}{2} \;\text{(pseudo-périodique)} : \quad x(t) = X_0\,\mathrm{e}^{-\omega_0 t/(2Q)}\,\cos(\omega t + \varphi) \]
+  \[ \text{avec}\quad \omega = \omega_0\sqrt{1 - \dfrac{1}{4Q^2}} \qquad T = \dfrac{2\pi}{\omega} \;\text{(pseudo-période)} \]
+  <hr>
+  <span class="fc">Décrément logarithmique : \(\delta = \ln(x_n/x_{n+1}) = \dfrac{\pi}{\sqrt{Q^2 - 1/4}}\). Pour \(Q\) grand : \(\delta \approx \pi/Q\).</span>
+</div>
+
+<div class="fbox r">
+  <span class="fl">Oscillateur forcé — résonance</span>
+  <span class="fc">Excitation harmonique : \(F(t) = F_0\,\cos(\Omega\,t)\).</span>
+  \[ \ddot{x} + \dfrac{\omega_0}{Q}\,\dot{x} + \omega_0^2\,x = \dfrac{F_0}{m}\,\cos(\Omega\,t) \]
+  <hr>
+  <span class="fc">Régime permanent (forcé) : \(x(t) = X(\Omega)\,\cos(\Omega t - \psi)\) avec :</span>
+  \[ X(\Omega) = \dfrac{F_0/m}{\sqrt{(\omega_0^2 - \Omega^2)^2 + (\omega_0\,\Omega/Q)^2}} \qquad \tan\psi = \dfrac{\omega_0\,\Omega/Q}{\omega_0^2 - \Omega^2} \]
+  <hr>
+  <span class="fc"><strong>Résonance en élongation</strong> (max de \(X\)) :</span>
+  \[ \Omega_r = \omega_0\sqrt{1 - \dfrac{1}{2Q^2}} \quad\text{(existe si }Q > 1/\sqrt{2}\text{)} \]
+  \[ X(\Omega_r) = \dfrac{F_0}{m\omega_0^2}\cdot\dfrac{Q}{\sqrt{1 - 1/(4Q^2)}} \approx \dfrac{Q\,F_0}{m\omega_0^2}\;\text{si }Q\gg 1 \]
+  <hr>
+  <span class="fc"><strong>Résonance en vitesse</strong> (toujours, pour \(\dot{x}_{\max}\)) :</span>
+  \[ \Omega_v = \omega_0 \qquad V_{\max} = \dfrac{F_0}{h} = \dfrac{Q\,F_0}{m\,\omega_0} \]
+  <hr>
+  <span class="fc"><strong>Bande passante</strong> à \(-3\,\mathrm{dB}\) autour de \(\omega_0\) (pour la résonance en vitesse) :</span>
+  \[ \Delta\Omega = \dfrac{\omega_0}{Q} \;\Longrightarrow\; Q = \dfrac{\omega_0}{\Delta\Omega} \;\text{(mesure expérimentale)} \]
+</div>
+
+<div class="alert alert-gold r">
+  <span class="ico">💡</span>
+  <div><strong>À ne pas confondre — résonance en élongation \(\neq\) résonance en vitesse :</strong> la résonance en vitesse (ou en puissance moyenne) a toujours lieu en \(\Omega = \omega_0\), indépendamment de \(Q\). La résonance en élongation a lieu en \(\Omega_r &lt; \omega_0\) et n'existe que si \(Q &gt; 1/\sqrt{2} \approx 0{,}71\). Pour \(Q\) grand, les deux pulsations sont quasi confondues.</div>
+</div>
+
+<div class="alert alert-red r">
+  <span class="ico">⚠️</span>
+  <div><strong>Erreur classique :</strong> écrire la solution générale de l'oscillateur forcé sans le terme transitoire. La solution complète est \(x(t) = x_{\text{trans}}(t) + x_{\text{forc}}(t)\), où le transitoire est solution de l'équation homogène et s'amortit en \(\mathrm{e}^{-\omega_0 t/(2Q)}\). En régime permanent (\(t \gg Q/\omega_0\)), seul subsiste le forcé.</div>
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Pulsation de résonance en élongation</div>
+  <h4>Établir \(\Omega_r = \omega_0\sqrt{1 - 1/(2Q^2)}\) et son existence sous condition \(Q &gt; 1/\sqrt{2}\)</h4>
+  <div class="step">
+    <div class="step-label">Étape 1 — Expression de \(X(\Omega)\)</div>
+    <p>L'amplitude en régime forcé vaut :</p>
+    <span class="eq">\( X(\Omega) = \dfrac{F_0/m}{\sqrt{D(\Omega)}} \qquad D(\Omega) = (\omega_0^2 - \Omega^2)^2 + \left(\dfrac{\omega_0\,\Omega}{Q}\right)^{\!2} \)</span>
+    <p>Maximiser \(X\) revient à minimiser \(D(\Omega)\).</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Changement de variable</div>
+    <p>On pose \(u = \Omega^2 \geq 0\). Alors :</p>
+    <span class="eq">\( D(u) = (\omega_0^2 - u)^2 + \dfrac{\omega_0^2}{Q^2}\,u \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Annulation de la dérivée</div>
+    <span class="eq">\( \dfrac{\mathrm{d}D}{\mathrm{d}u} = -2(\omega_0^2 - u) + \dfrac{\omega_0^2}{Q^2} = 0 \;\Longrightarrow\; u_r = \omega_0^2 - \dfrac{\omega_0^2}{2Q^2} = \omega_0^2\!\left(1 - \dfrac{1}{2Q^2}\right) \)</span>
+    <p>D'où, sous réserve que \(u_r \geq 0\) :</p>
+    <span class="eq">\( \boxed{\;\Omega_r = \omega_0\sqrt{1 - \dfrac{1}{2Q^2}}\;} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 4 — Condition d'existence</div>
+    <p>\(u_r \geq 0\) impose \(Q^2 \geq 1/2\), soit \(Q \geq 1/\sqrt{2} \approx 0{,}707\). Pour \(Q &lt; 1/\sqrt{2}\), la dérivée \(\mathrm{d}D/\mathrm{d}u\) est positive pour tout \(u \geq 0\) : \(X(\Omega)\) est monotone décroissante, pas de résonance. \(X\) est maximale en \(\Omega = 0\) (régime quasi-statique).</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 5 — Limite \(Q \gg 1\)</div>
+    <span class="eq">\( \Omega_r \approx \omega_0\!\left(1 - \dfrac{1}{4Q^2}\right) \approx \omega_0 \)</span>
+    <p>À grand \(Q\), résonance en élongation et résonance en vitesse sont quasi confondues.</p>
+  </div>
+  <div class="ccl"><strong>Remarque :</strong> pour un oscillateur amorti <em>libre</em> (sans forçage), la pseudo-pulsation \(\omega = \omega_0\sqrt{1 - 1/(4Q^2)}\) existe dès que \(Q &gt; 1/2\). Trois pulsations à ne pas confondre : \(\omega_0\) (propre), \(\omega\) (pseudo-pulsation amortie), \(\Omega_r\) (résonance forcée).</div>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 7 : MÉCANIQUE DES FLUIDES -->
+<!-- ============================================ -->
+<div class="sblock r" id="fluides">
+  <div class="sblock-num">Section 07</div>
+  <h2>7. Mécanique des fluides</h2>
+  <p class="intro">Sujet oral n°13. Le rapport de jury 2025 signale que <strong>l'équation d'Euler est insuffisamment maîtrisée</strong>. Priorité absolue : démontrer Bernoulli à partir d'Euler, comprendre la dérivée particulaire, identifier le sens physique de chaque terme.</p>
+
+<div class="fbox r">
+  <span class="fl">Description eulérienne — dérivée particulaire</span>
+  <span class="fc">En description d'Euler, le champ de vitesse \(\vec{v}(M,t)\) est défini en chaque point \(M\) du fluide. L'accélération d'une particule fluide n'est PAS \(\partial\vec{v}/\partial t\) : il faut la dérivée particulaire.</span>
+  \[ \dfrac{\mathrm{D}\vec{v}}{\mathrm{D}t} = \dfrac{\partial\vec{v}}{\partial t} + (\vec{v}\cdot\vec{\nabla})\vec{v} \]
+  <span class="fc">— \(\partial\vec{v}/\partial t\) : terme local (variation au point \(M\))</span>
+  <span class="fc">— \((\vec{v}\cdot\vec{\nabla})\vec{v}\) : terme convectif (la particule fluide change de point)</span>
+  <hr>
+  <span class="fc">Identité vectorielle utile :</span>
+  \[ (\vec{v}\cdot\vec{\nabla})\vec{v} = \vec{\nabla}\!\left(\dfrac{v^2}{2}\right) - \vec{v}\wedge(\vec{\nabla}\wedge\vec{v}) = \vec{\nabla}\!\left(\dfrac{v^2}{2}\right) - \vec{v}\wedge\vec{\omega} \]
+  <span class="fc">où \(\vec{\omega} = \overrightarrow{\mathrm{rot}}\,\vec{v}\) est le vecteur tourbillon.</span>
+</div>
+
+<div class="fbox r">
+  <span class="fl">Équations fondamentales du fluide parfait</span>
+  <span class="fc">Conservation de la masse (continuité) :</span>
+  \[ \dfrac{\partial \rho}{\partial t} + \mathrm{div}(\rho\,\vec{v}) = 0 \]
+  \[ \text{Si } \rho \text{ uniforme et constant : }\mathrm{div}\,\vec{v} = 0 \;(\text{incompressible}) \]
+  <hr>
+  <span class="fc">Équation d'<strong>Euler</strong> (fluide parfait, non visqueux) :</span>
+  \[ \rho\!\left(\dfrac{\partial\vec{v}}{\partial t} + (\vec{v}\cdot\vec{\nabla})\vec{v}\right) = -\vec{\nabla}P + \rho\,\vec{g} + \vec{f}_{\text{vol}} \]
+  <hr>
+  <span class="fc">Pour un fluide visqueux newtonien : équation de <strong>Navier-Stokes</strong></span>
+  \[ \rho\,\dfrac{\mathrm{D}\vec{v}}{\mathrm{D}t} = -\vec{\nabla}P + \rho\,\vec{g} + \eta\,\Delta\vec{v} \]
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Théorème de Bernoulli</div>
+  <h4>De Euler à Bernoulli — fluide parfait, incompressible, écoulement permanent</h4>
+  <div class="step">
+    <div class="step-label">Hypothèses</div>
+    <ul>
+      <li>Fluide <strong>parfait</strong> (\(\eta = 0\))</li>
+      <li>Fluide <strong>incompressible</strong> (\(\rho =\) cste)</li>
+      <li>Écoulement <strong>permanent</strong> (\(\partial/\partial t = 0\))</li>
+      <li>Forces volumiques dérivant d'un potentiel : \(\vec{g} = -\vec{\nabla}(g\,z)\) (pesanteur)</li>
+    </ul>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 1 — Réécriture d'Euler avec l'identité vectorielle</div>
+    <span class="eq">\( \dfrac{\partial\vec{v}}{\partial t} + \vec{\nabla}\!\left(\dfrac{v^2}{2}\right) - \vec{v}\wedge\vec{\omega} = -\vec{\nabla}\!\left(\dfrac{P}{\rho}\right) - \vec{\nabla}(g\,z) \)</span>
+    <p>En régime permanent, le premier terme s'annule :</p>
+    <span class="eq">\( \vec{\nabla}\!\left(\dfrac{v^2}{2} + \dfrac{P}{\rho} + g\,z\right) = \vec{v}\wedge\vec{\omega} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Bernoulli le long d'une ligne de courant</div>
+    <p>On projette sur \(\mathrm{d}\vec{\ell}\) tangent à une ligne de courant. Comme \(\mathrm{d}\vec{\ell}\,\|\,\vec{v}\), le second membre \(\vec{v}\wedge\vec{\omega}\) a une projection nulle sur \(\mathrm{d}\vec{\ell}\). Donc :</p>
+    <span class="eq">\( \mathrm{d}\!\left(\dfrac{v^2}{2} + \dfrac{P}{\rho} + g\,z\right) = 0 \;\text{ le long d'une ligne de courant} \)</span>
+    <span class="eq">\( \boxed{\;\tfrac{1}{2}\,\rho\,v^2 + P + \rho\,g\,z = \text{cste le long de la ligne de courant}\;} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Bernoulli partout (cas irrotationnel)</div>
+    <p>Si en plus l'écoulement est <strong>irrotationnel</strong> (\(\vec{\omega} = \vec{0}\)), alors \(\vec{v}\wedge\vec{\omega} = \vec{0}\) partout, et la quantité \(\tfrac{1}{2}\rho v^2 + P + \rho g z\) est constante <em>dans tout le fluide</em>, pas seulement le long d'une ligne de courant.</p>
+  </div>
+  <div class="ccl"><strong>Hypothèses à NE JAMAIS oublier à l'oral :</strong> parfait + incompressible + permanent + le long d'une ligne de courant. Les oublier est une faute classique relevée par le jury.</div>
+</div>
+
+<div class="fbox r">
+  <span class="fl">Hydrostatique et applications</span>
+  <span class="fc">\(\vec{v} = \vec{0}\) dans Euler donne : \(\vec{\nabla} P = \rho\,\vec{g}\).</span>
+  \[ \text{Fluide incompressible, axe }z\uparrow :\quad \dfrac{\mathrm{d}P}{\mathrm{d}z} = -\rho\,g \]
+  \[ P(z) = P_0 + \rho\,g\,(z_0 - z) = P_{\text{atm}} + \rho\,g\,h \;(\text{profondeur }h) \]
+  <hr>
+  <span class="fc">Atmosphère isotherme (gaz parfait) — atmosphère exponentielle :</span>
+  \[ P(z) = P_0\,\mathrm{e}^{-z/H} \qquad H = \dfrac{R\,T}{M\,g} \]
+  <span class="fc">Air à \(T = 273\,\mathrm{K}\) : \(H \approx 8000\,\mathrm{m}\) (échelle de hauteur).</span>
+  <hr>
+  <span class="fc"><strong>Théorème d'Archimède</strong> (corps immergé dans un fluide pesant au repos) :</span>
+  \[ \vec{F}_A = -\rho_{\text{fluide}}\,V_{\text{imm}}\,\vec{g} \]
+  <span class="fc">(force verticale ascendante, appliquée au centre de poussée = centre de masse du volume déplacé)</span>
+</div>
+
+<div class="fbox r">
+  <span class="fl">Écoulements visqueux — loi de Poiseuille</span>
+  <span class="fc">Écoulement laminaire stationnaire dans un tube cylindrique de rayon \(R\) et longueur \(L\) :</span>
+  \[ v(r) = \dfrac{P_1 - P_2}{4\,\eta\,L}\,(R^2 - r^2) \quad\text{(profil parabolique)} \]
+  \[ Q_v = \dfrac{\pi\,R^4\,(P_1 - P_2)}{8\,\eta\,L} \quad\text{(loi de Poiseuille)} \]
+  <hr>
+  <span class="fc"><strong>Nombre de Reynolds</strong> — caractérise la nature de l'écoulement :</span>
+  \[ \mathrm{Re} = \dfrac{\rho\,v\,L}{\eta} = \dfrac{v\,L}{\nu} \qquad \nu = \dfrac{\eta}{\rho} \;\text{(viscosité cinématique)} \]
+  \[ \mathrm{Re} \ll 1 : \text{Stokes (visqueux dominant)} \qquad \mathrm{Re} \lesssim 2000 : \text{laminaire} \qquad \mathrm{Re} \gtrsim 4000 : \text{turbulent} \]
+</div>
+
+<div class="alert alert-gold r">
+  <span class="ico">💡</span>
+  <div><strong>Effet Venturi (application directe de Bernoulli) :</strong> dans un rétrécissement, la conservation du débit \(Q_v = v\,S\) impose \(v\uparrow\) donc \(P\downarrow\). Applications : trompe à eau, carburateur, débitmètre Venturi, portance d'aile (intuition partielle ; la vraie explication fait intervenir la circulation et le théorème de Kutta-Joukowski).</div>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 8 : MOUVEMENT À FORCE CENTRALE -->
+<!-- ============================================ -->
+<div class="sblock r" id="kepler">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Mouvements à force centrale — Kepler</h2>
+  <p class="intro">Sujet oral n°23 (Gravitation et mouvements képlériens). Application directe du théorème du moment cinétique. Cas emblématique : le mouvement planétaire.</p>
+
+<div class="fbox r">
+  <span class="fl">Propriétés générales d'un mouvement à force centrale</span>
+  <span class="fc">Force \(\vec{F} = f(r)\,\vec{e}_r\) dirigée vers (ou depuis) un point fixe \(O\).</span>
+  <hr>
+  <span class="fc">① <strong>Conservation du moment cinétique</strong> : \(\vec{L}_O =\) cste \(\Longrightarrow\) mouvement plan (plan \(\perp\) à \(\vec{L}_O\)).</span>
+  <hr>
+  <span class="fc">② <strong>Constante des aires</strong> :</span>
+  \[ C = r^2\,\dot{\theta} = \dfrac{L_O}{m} \;\Longrightarrow\; \text{2}^{\text{e}}\text{ loi de Kepler : }\dfrac{\mathrm{d}\mathcal{A}}{\mathrm{d}t} = \dfrac{C}{2} = \text{cste} \]
+  <hr>
+  <span class="fc">③ Si force conservative : énergie mécanique conservée</span>
+  \[ E_m = \tfrac{1}{2}\,m\,v^2 + E_p(r) = \tfrac{1}{2}\,m\,(\dot{r}^2 + r^2\dot{\theta}^2) + E_p(r) = \tfrac{1}{2}\,m\,\dot{r}^2 + E_p^{\text{eff}}(r) \]
+  \[ E_p^{\text{eff}}(r) = E_p(r) + \dfrac{L_O^2}{2\,m\,r^2} \quad\text{(potentiel effectif)} \]
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · 3ᵉ loi de Kepler (orbite circulaire)</div>
+  <h4>Pour une orbite circulaire de rayon \(a\) autour d'un astre de masse \(M\) : \(T^2 = \dfrac{4\pi^2\,a^3}{G\,M}\)</h4>
+  <div class="step">
+    <div class="step-label">Étape 1 — PFD en mouvement circulaire uniforme</div>
+    <p>Référentiel héliocentrique galiléen. Force d'attraction newtonienne :</p>
+    <span class="eq">\( \vec{F} = -\dfrac{G\,M\,m}{a^2}\,\vec{e}_r \qquad \vec{a} = -a\,\omega^2\,\vec{e}_r \)</span>
+    <p>D'où :</p>
+    <span class="eq">\( -m\,a\,\omega^2 = -\dfrac{G\,M\,m}{a^2} \quad\Longrightarrow\quad \omega^2 = \dfrac{G\,M}{a^3} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Période</div>
+    <p>\(T = 2\pi/\omega\), donc :</p>
+    <span class="eq">\( T^2 = \dfrac{4\pi^2}{\omega^2} = \dfrac{4\pi^2\,a^3}{G\,M} \)</span>
+  </div>
+  <div class="ccl"><strong>Généralisation (orbite elliptique) :</strong> la 3ᵉ loi de Kepler s'écrit \(T^2 = 4\pi^2\,a^3/(G\,M)\) où \(a\) est le <em>demi-grand axe</em> de l'ellipse. Cette loi reste vraie même pour les orbites elliptiques (démonstration plus longue : intégration de la loi des aires sur une période).</div>
+</div>
+
+<div class="notion r">
+  <div class="notion-title"><span class="nt-bar"></span>États liés et états de diffusion (potentiel newtonien)</div>
+  <div class="notion-body">
+  <p>Pour l'attraction newtonienne \(E_p(r) = -G\,M\,m/r\), le potentiel effectif vaut :</p>
+  <p style="text-align:center">\[ E_p^{\text{eff}}(r) = -\dfrac{G\,M\,m}{r} + \dfrac{L_O^2}{2\,m\,r^2} \]</p>
+  <p>Cette fonction présente un minimum en \(r_0 = L_O^2/(G\,M\,m^2)\) qui correspond à l'orbite circulaire stable. Selon \(E_m\) :</p>
+  <ul>
+  <li><strong>\(E_m &lt; 0\)</strong> : trajectoire elliptique (état lié) — planètes, comètes périodiques</li>
+  <li><strong>\(E_m = 0\)</strong> : trajectoire parabolique (cas limite) — vitesse de libération</li>
+  <li><strong>\(E_m &gt; 0\)</strong> : trajectoire hyperbolique (état de diffusion) — sondes spatiales</li>
+  </ul>
+  <p><strong>Vitesse de libération</strong> à la surface d'un astre : \(v_{\text{lib}} = \sqrt{2\,G\,M/R}\). Pour la Terre : \(v_{\text{lib}} \approx 11{,}2\,\mathrm{km\cdot s^{-1}}\).</p>
+  </div>
+</div>
+
+<div class="notion r">
+  <div class="notion-title"><span class="nt-bar"></span>Équation d'une orbite — formule de Binet</div>
+  <div class="notion-body">
+  <p>En posant \(u(\theta) = 1/r(\theta)\), la formule de Binet donne l'équation différentielle de la trajectoire :</p>
+  <p style="text-align:center">\[ \dfrac{\mathrm{d}^2 u}{\mathrm{d}\theta^2} + u = -\dfrac{f(1/u)}{m\,C^2\,u^2} \]</p>
+  <p>Pour la force newtonienne \(f(r) = -GMm/r^2\), donc \(-f(1/u)/(mC^2u^2) = GM/C^2\) (constante) ; la solution est :</p>
+  <p style="text-align:center">\[ r(\theta) = \dfrac{p}{1 + e\,\cos(\theta - \theta_0)} \qquad p = \dfrac{C^2}{G\,M},\quad e = \text{excentricité} \]</p>
+  <p>C'est l'équation d'une conique de foyer \(O\) : ellipse (\(0 \leq e &lt; 1\)), parabole (\(e = 1\)), hyperbole (\(e &gt; 1\)) — c'est la <strong>1ʳᵉ loi de Kepler</strong>.</p>
+  </div>
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Relation de vis-viva</div>
+  <h4>Pour une orbite elliptique de demi-grand axe \(a\) : \(v^2 = G M\!\left(\dfrac{2}{r} - \dfrac{1}{a}\right)\)</h4>
+  <div class="step">
+    <div class="step-label">Étape 1 — Énergie mécanique sur une ellipse</div>
+    <p>Pour le potentiel newtonien \(E_p(r) = -GMm/r\), on montre (intégration de l'équation de la trajectoire) que l'énergie mécanique d'une orbite elliptique fermée de demi-grand axe \(a\) vaut :</p>
+    <span class="eq">\( E_m = -\dfrac{G\,M\,m}{2\,a} \quad(\text{cas elliptique : } E_m < 0) \)</span>
+    <p>Démonstration au péri- et apocentre (où \(\dot{r} = 0\)) : en sommant les deux énergies au péricentre \(r_p = a(1-e)\) et à l'apocentre \(r_a = a(1+e)\), on obtient \(2 E_m = -GMm/r_p - GMm/r_a + \tfrac{1}{2}m(v_p^2 + v_a^2)\). La conservation \(r_p v_p = r_a v_a\) (moment cinétique) et la conservation de \(E_m\) permettent de résoudre et de retrouver \(E_m = -GMm/(2a)\).</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Égalité \(E_m\) en un point quelconque</div>
+    <p>En tout point de l'orbite (conservation de \(E_m\)) :</p>
+    <span class="eq">\( \tfrac{1}{2}\,m\,v^2 - \dfrac{G\,M\,m}{r} = -\dfrac{G\,M\,m}{2\,a} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Isolation de \(v^2\)</div>
+    <span class="eq">\( \boxed{\;v^2 = G\,M\!\left(\dfrac{2}{r} - \dfrac{1}{a}\right)\;} \quad(\text{relation de vis-viva}) \)</span>
+  </div>
+  <div class="ccl"><strong>Cas particuliers :</strong>
+    <ul>
+      <li><strong>Orbite circulaire</strong> \(r = a\) : \(v^2 = GM/a\) (vitesse orbitale constante).</li>
+      <li><strong>Parabole</strong> \(a \to \infty\) : \(v^2 = 2GM/r\) (vitesse de libération à la distance \(r\)).</li>
+      <li><strong>Au périgée</strong> \(r = a(1-e)\) : \(v_p^2 = (GM/a)\cdot(1+e)/(1-e)\) — la vitesse est maximale.</li>
+      <li><strong>Apogée</strong> \(r = a(1+e)\) : \(v_a^2 = (GM/a)\cdot(1-e)/(1+e)\) — vitesse minimale.</li>
+    </ul>
+  Outil indispensable pour les transferts d'orbite (Hohmann) et les calculs de mission spatiale.</div>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 9 : EXERCICES RÉSOLUS -->
+<!-- ============================================ -->
+<div class="sblock r" id="exercices">
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Exercices résolus niveau CPGE</h2>
+  <p class="intro">Sept exercices types couvrant les compétences les plus évaluées à l'écrit et à l'oral. Chaque corrigé respecte le canevas méthodologique attendu par le jury.</p>
+
+<!-- Exercice 1 -->
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice 1 · Plan incliné avec frottement</span>
+    <span class="exo-level">CPGE · 1ʳᵉ année</span>
+  </div>
+  <h4>Bloc lâché sur un plan incliné rugueux</h4>
+  <div class="enonce">Un bloc de masse \(m\) est lâché sans vitesse initiale au sommet d'un plan incliné faisant l'angle \(\alpha\) avec l'horizontale. Le coefficient de frottement dynamique est \(\mu\). La longueur du plan est \(L\).<br>
+  <strong>1.</strong> Donner la condition sur \(\alpha\) pour que le bloc se mette en mouvement.<br>
+  <strong>2.</strong> Calculer son accélération s'il glisse.<br>
+  <strong>3.</strong> Trouver la vitesse en bas du plan, par PFD puis par énergie. Comparer.</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <p><strong>Système :</strong> bloc assimilé à un point \(M\), masse \(m\). <strong>Référentiel :</strong> terrestre, supposé galiléen. <strong>Repère :</strong> \((O\vec{e}_x\) le long du plan vers le bas, \(O\vec{e}_y\) orthogonal au plan vers l'extérieur).</p>
+      <p><strong>Bilan des forces :</strong> poids \(m\vec{g}\) (composantes \(m g \sin\alpha\) selon \(\vec{e}_x\), \(-m g \cos\alpha\) selon \(\vec{e}_y\)), réaction normale \(\vec{R}_N = N\,\vec{e}_y\), force de frottement \(\vec{f} = -\mu N\,\vec{e}_x\) (opposée au mouvement, supposé vers les \(x\) positifs).</p>
+
+      <ol>
+        <li><strong>Condition de mise en mouvement :</strong> à l'instant initial, on utilise le coefficient de frottement <em>statique</em> \(\mu_s\). La condition d'équilibre limite donne \(\tan\alpha = \mu_s\). Le bloc glisse si \(\tan\alpha &gt; \mu_s\). (Pour la suite, on suppose le bloc en mouvement et on utilise \(\mu = \mu_d\).)</li>
+        <li><strong>Accélération :</strong> PFD projeté.
+        <span class="eq">\( \text{selon } \vec{e}_y :\; 0 = N - mg\cos\alpha \;\Longrightarrow\; N = mg\cos\alpha \)</span>
+        <span class="eq">\( \text{selon } \vec{e}_x :\; ma = mg\sin\alpha - \mu N = mg(\sin\alpha - \mu\cos\alpha) \)</span>
+        <span class="eq">\( \boxed{\; a = g(\sin\alpha - \mu\cos\alpha)\;} \)</span>
+        <div class="key">Condition de glissement : \(a &gt; 0 \Longleftrightarrow \tan\alpha &gt; \mu\). Pour \(\alpha = 30°\) et \(\mu = 0{,}3\) : \(a = g(0{,}5 - 0{,}3 \times 0{,}866) \approx 2{,}36\,\mathrm{m\cdot s^{-2}}\).</div>
+        </li>
+        <li><strong>Vitesse en bas — méthode PFD + cinématique :</strong> mouvement uniformément accéléré, \(x(t) = \tfrac{1}{2}\,a\,t^2\), donc en \(x = L\) : \(t = \sqrt{2L/a}\) et \(v = a t = \sqrt{2aL}\).
+        <span class="eq">\( v^2 = 2\,g\,L\,(\sin\alpha - \mu\cos\alpha) \)</span>
+        <p><strong>Méthode énergétique :</strong> théorème de l'énergie cinétique entre haut et bas.</p>
+        <span class="eq">\( \tfrac{1}{2}\,m\,v^2 - 0 = W(\text{poids}) + W(\vec{R}_N) + W(\vec{f}) \)</span>
+        <p>\(W(\text{poids}) = mgL\sin\alpha\) (descente de hauteur \(L\sin\alpha\)) ; \(W(\vec{R}_N) = 0\) (force \(\perp\) déplacement) ; \(W(\vec{f}) = -\mu N L = -\mu m g L\cos\alpha\). D'où :</p>
+        <span class="eq">\( \tfrac{1}{2}\,m\,v^2 = m g L\sin\alpha - \mu m g L\cos\alpha \)</span>
+        <span class="eq">\( v^2 = 2 g L(\sin\alpha - \mu\cos\alpha) \;\checkmark \)</span>
+        <div class="key">Le théorème de l'énergie cinétique évite d'intégrer le PFD : plus rapide quand la chronologie n'est pas demandée.</div>
+        </li>
+      </ol>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 2 -->
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice 2 · Pendule conique</span>
+    <span class="exo-level">CPGE · 1ʳᵉ année</span>
+  </div>
+  <h4>Pendule conique — fil incliné en rotation uniforme</h4>
+  <div class="enonce">Une masse \(m\) est suspendue à un fil de longueur \(L\), fixé en \(O\). Elle décrit un cercle horizontal à vitesse angulaire constante \(\omega\), le fil faisant l'angle \(\theta\) avec la verticale. Déterminer la relation entre \(\omega\), \(\theta\) et \(L\). Existe-t-il une vitesse angulaire minimale pour que le mouvement conique soit possible ?</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <p><strong>Référentiel :</strong> terrestre galiléen. <strong>Bilan :</strong> poids \(m\vec{g}\) + tension \(\vec{T}\) du fil. La masse décrit un cercle de rayon \(r = L\sin\theta\) à vitesse angulaire \(\omega\).</p>
+      <p>Repère cartésien : \(\vec{e}_x\) horizontal radial (vers le centre), \(\vec{e}_z\) vertical ascendant. Accélération centripète : \(\vec{a} = -r\,\omega^2\,\vec{e}_x\).</p>
+      <ol>
+        <li>PFD : \(\vec{T}\) a deux composantes (\(-T\sin\theta\) selon \(\vec{e}_x\), \(T\cos\theta\) selon \(\vec{e}_z\)).
+        <span class="eq">\( \text{selon } \vec{e}_z :\; 0 = T\cos\theta - mg \;\Longrightarrow\; T = \dfrac{mg}{\cos\theta} \)</span>
+        <span class="eq">\( \text{selon } \vec{e}_x :\; -mr\omega^2 = -T\sin\theta \;\Longrightarrow\; m L\sin\theta\,\omega^2 = T\sin\theta \)</span>
+        <span class="eq">\( \boxed{\;\cos\theta = \dfrac{g}{L\,\omega^2}\;} \)</span>
+        <div class="key">Relation fondamentale du pendule conique.</div>
+        </li>
+        <li><strong>Vitesse minimale :</strong> \(\cos\theta \leq 1\) impose \(\omega^2 \geq g/L\), donc \(\omega_{\min} = \sqrt{g/L}\). En dessous, le mouvement conique est impossible : le fil reste vertical (\(\theta = 0\)).</li>
+        <li><strong>Limite \(\omega \gg \sqrt{g/L}\) :</strong> \(\cos\theta \to 0\), donc \(\theta \to 90°\) (le fil tend vers l'horizontale, sans jamais l'atteindre rigoureusement).</li>
+      </ol>
+      <div class="key">Application numérique : \(L = 1\,\mathrm{m}\), \(\omega = 5\,\mathrm{rad\cdot s^{-1}}\) \(\Rightarrow\) \(\cos\theta = 9{,}81/25 \approx 0{,}39\) \(\Rightarrow\) \(\theta \approx 67°\).</div>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 3 -->
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice 3 · Oscillateur amorti — détermination de Q</span>
+    <span class="exo-level">CPGE · 2ᵉ année</span>
+  </div>
+  <h4>Mesure expérimentale du facteur de qualité d'un pendule amorti</h4>
+  <div class="enonce">Un pendule pesant à amortissement faible voit son amplitude divisée par 2 toutes les \(n = 5\) oscillations. Sa pseudo-période vaut \(T = 2{,}00\,\mathrm{s}\). Déterminer le facteur de qualité \(Q\) et le coefficient d'amortissement \(\lambda = \omega_0/(2Q)\). Que vaut la pulsation propre \(\omega_0\) ?</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <p>Pour un oscillateur faiblement amorti (\(Q \gg 1\)), \(x(t) = X_0\,\mathrm{e}^{-\lambda t}\cos(\omega t + \varphi)\) avec \(\lambda = \omega_0/(2Q)\) et \(\omega \approx \omega_0\).</p>
+      <ol>
+        <li><strong>Décrément logarithmique :</strong> sur \(n\) pseudo-périodes, l'amplitude est multipliée par \(\mathrm{e}^{-n\lambda T}\).
+        <span class="eq">\( \dfrac{x_n}{x_0} = \mathrm{e}^{-n\lambda T} = \tfrac{1}{2} \;\Longrightarrow\; n\lambda T = \ln 2 \)</span>
+        <span class="eq">\( \lambda = \dfrac{\ln 2}{n\,T} = \dfrac{0{,}693}{5 \times 2{,}00} = 0{,}0693\,\mathrm{s^{-1}} \)</span>
+        </li>
+        <li><strong>Pulsation propre :</strong> on suppose \(Q \gg 1\), donc \(\omega \approx \omega_0 = 2\pi/T\).
+        <span class="eq">\( \omega_0 \approx \dfrac{2\pi}{2{,}00} = \pi \approx 3{,}14\,\mathrm{rad\cdot s^{-1}} \)</span>
+        </li>
+        <li><strong>Facteur de qualité :</strong>
+        <span class="eq">\( Q = \dfrac{\omega_0}{2\lambda} = \dfrac{3{,}14}{2 \times 0{,}0693} \approx 22{,}7 \)</span>
+        <div class="key">\(Q \approx 23 \gg 1\) : l'hypothèse de faible amortissement est cohérente. On peut aussi utiliser \(Q \approx \pi n/\ln 2 = 5\pi/\ln 2 \approx 22{,}7\). \(\checkmark\)</div>
+        </li>
+        <li><strong>Vérification de l'approximation :</strong> \(\omega = \omega_0\sqrt{1 - 1/(4Q^2)} \approx \omega_0(1 - 1/(8Q^2))\) avec écart relatif \(1/(8 \times 23^2) \approx 2{,}4\cdot 10^{-4}\) : négligeable.</li>
+      </ol>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 4 -->
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice 4 · Tube de Pitot</span>
+    <span class="exo-level">CPGE · 2ᵉ année</span>
+  </div>
+  <h4>Mesure de la vitesse d'un avion par tube de Pitot</h4>
+  <div class="enonce">Un avion vole à la vitesse \(v_0\) dans l'air supposé incompressible (\(\rho = 1{,}2\,\mathrm{kg\cdot m^{-3}}\)). Un tube de Pitot mesure la différence de pression entre un point d'arrêt (\(P_a\)) et un point latéral (\(P_s\)) où la vitesse de l'air est \(v_0\). Donner \(v_0\) en fonction de \(\Delta P = P_a - P_s\). Application : \(\Delta P = 5000\,\mathrm{Pa}\).</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <p><strong>Référentiel :</strong> lié à l'avion. Dans ce référentiel, l'écoulement est stationnaire (régime permanent). Hypothèses : fluide parfait, incompressible, écoulement permanent — Bernoulli s'applique le long d'une ligne de courant.</p>
+      <ol>
+        <li>On considère une ligne de courant qui passe loin de l'avion (point « infini amont », vitesse \(v_0\), pression \(P_\infty\)) puis arrive au point d'arrêt \(A\) (vitesse 0, pression \(P_a\)). On néglige la variation de \(z\).
+        <span class="eq">\( P_\infty + \tfrac{1}{2}\,\rho\,v_0^2 = P_a + 0 \quad\Longrightarrow\quad P_a = P_\infty + \tfrac{1}{2}\,\rho\,v_0^2 \)</span>
+        </li>
+        <li>Au point latéral \(S\), la ligne de courant n'est pas perturbée par l'avion, donc la vitesse vaut \(v_0\) et la pression \(P_s \approx P_\infty\).
+        <span class="eq">\( \Delta P = P_a - P_s = \tfrac{1}{2}\,\rho\,v_0^2 \;\Longrightarrow\; v_0 = \sqrt{\dfrac{2\,\Delta P}{\rho}} \)</span>
+        </li>
+        <li>Application : \(v_0 = \sqrt{2 \times 5000 / 1{,}2} = \sqrt{8333} \approx 91\,\mathrm{m\cdot s^{-1}} \approx 328\,\mathrm{km\cdot h^{-1}}\).</li>
+      </ol>
+      <div class="key">Limite du modèle : pour les avions rapides (\(\mathrm{Ma} &gt; 0{,}3\)), la compressibilité de l'air n'est plus négligeable. On utilise alors la formule de Saint-Venant.</div>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 5 -->
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice 5 · Vitesse de libération et énergie</span>
+    <span class="exo-level">CPGE · 2ᵉ année</span>
+  </div>
+  <h4>Mise en orbite et vitesse d'évasion</h4>
+  <div class="enonce">Une fusée est lancée depuis la surface terrestre (rayon \(R_T\), masse \(M_T\)). On suppose la Terre sphérique homogène et on néglige la rotation propre.<br>
+  <strong>1.</strong> Donner l'expression de la vitesse de libération \(v_{\text{lib}}\).<br>
+  <strong>2.</strong> Quelle vitesse minimale pour un satellite en orbite circulaire rasante ? Comparer aux \(7{,}9\,\mathrm{km/s}\) historiquement appelés « première vitesse cosmique ».<br>
+  <strong>3.</strong> Quel est le rapport \(v_{\text{lib}}/v_{\text{orb}}\) ?</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <ol>
+        <li><strong>Vitesse de libération :</strong> conservation de l'énergie mécanique entre le sol (\(r = R_T\)) et l'infini (\(r \to \infty\)).
+        <span class="eq">\( \tfrac{1}{2}\,m\,v_{\text{lib}}^2 - \dfrac{G\,M_T\,m}{R_T} = \tfrac{1}{2}\,m\,v_\infty^2 + 0 \)</span>
+        <p>La vitesse de libération est la vitesse minimale, donc \(v_\infty = 0\) :</p>
+        <span class="eq">\( v_{\text{lib}} = \sqrt{\dfrac{2\,G\,M_T}{R_T}} \)</span>
+        <p>Or à la surface, \(g = G M_T/R_T^2\), donc \(G M_T = g R_T^2\) :</p>
+        <span class="eq">\( v_{\text{lib}} = \sqrt{2\,g\,R_T} \)</span>
+        </li>
+        <li><strong>Vitesse orbitale rasante :</strong> orbite circulaire à \(r \approx R_T\), PFD :
+        <span class="eq">\( \dfrac{m\,v_{\text{orb}}^2}{R_T} = \dfrac{G\,M_T\,m}{R_T^2} \;\Longrightarrow\; v_{\text{orb}} = \sqrt{\dfrac{G\,M_T}{R_T}} = \sqrt{g\,R_T} \)</span>
+        <p>AN : \(g = 9{,}81\,\mathrm{m\cdot s^{-2}}\), \(R_T = 6{,}37\cdot 10^6\,\mathrm{m}\). \(v_{\text{orb}} = \sqrt{9{,}81 \times 6{,}37\cdot 10^6} \approx 7{,}91\cdot 10^3\,\mathrm{m\cdot s^{-1}}\).</p>
+        <div class="key">\(v_{\text{orb}} \approx 7{,}9\,\mathrm{km\cdot s^{-1}}\) \(\checkmark\) (« première vitesse cosmique »)</div>
+        </li>
+        <li><strong>Rapport :</strong> \(v_{\text{lib}}/v_{\text{orb}} = \sqrt{2} \approx 1{,}41\). \(v_{\text{lib}} \approx 11{,}2\,\mathrm{km/s}\) (« deuxième vitesse cosmique »).</li>
+      </ol>
+      <div class="key">Interprétation physique : la vitesse de libération correspond à \(E_m = 0\) (cas parabolique limite), la vitesse orbitale circulaire correspond à \(E_m = -\tfrac{1}{2}\,GMm/R\). Le théorème du viriel donne \(\langle E_c\rangle = -\tfrac{1}{2}\langle E_p\rangle\) pour une orbite circulaire newtonienne.</div>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 6 (NOUVEAU) -->
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice 6 · Pendule pesant — Huygens-Steiner</span>
+    <span class="exo-level">CPGE · 2ᵉ année</span>
+  </div>
+  <h4>Période d'un pendule pesant composé d'une tige et d'un disque</h4>
+  <div class="enonce">Un pendule pesant est constitué d'une tige homogène de longueur \(L\) et de masse \(m_t\), fixée à son extrémité supérieure \(O\), à laquelle on a soudé un disque homogène de rayon \(R\) et de masse \(m_d\) à son extrémité inférieure (le centre du disque coïncide avec l'extrémité de la tige). Déterminer le moment d'inertie de l'ensemble par rapport à l'axe \(\Delta\) horizontal passant par \(O\), puis la pulsation propre des petites oscillations.</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <ol>
+        <li><strong>Moment d'inertie de la tige</strong> par rapport à \(\Delta\) (axe \(\perp\) tige par une extrémité) :
+        <span class="eq">\( J_{\text{tige}/\Delta} = \dfrac{m_t\,L^2}{3} \)</span>
+        </li>
+        <li><strong>Moment d'inertie du disque</strong> par rapport à \(\Delta\). Pour un axe perpendiculaire au plan du disque passant par son centre \(G_d\) : \(J_{G_d} = \tfrac{1}{2}\,m_d\,R^2\). On applique Huygens-Steiner avec \(d = L\) (distance \(OG_d\)) :
+        <span class="eq">\( J_{\text{disque}/\Delta} = \tfrac{1}{2}\,m_d\,R^2 + m_d\,L^2 \)</span>
+        </li>
+        <li><strong>Moment d'inertie total :</strong>
+        <span class="eq">\( J_\Delta = \dfrac{m_t\,L^2}{3} + \dfrac{1}{2}\,m_d\,R^2 + m_d\,L^2 \)</span>
+        </li>
+        <li><strong>Position du centre de masse \(G\) de l'ensemble</strong> (axe vertical descendant depuis \(O\)) :
+        <span class="eq">\( OG = \dfrac{m_t\cdot(L/2) + m_d\cdot L}{m_t + m_d} = \dfrac{L\,(m_t/2 + m_d)}{m_t + m_d} \)</span>
+        <p>Avec \(M = m_t + m_d\) la masse totale, on note \(d = OG\).</p>
+        </li>
+        <li><strong>Équation du mouvement</strong> par TMC en \(O\) (la réaction du pivot n'a pas de moment en \(O\)) :
+        <span class="eq">\( J_\Delta\,\ddot{\theta} = -M\,g\,d\,\sin\theta \;\xrightarrow{\theta\ll 1}\; \ddot{\theta} + \omega_0^2\,\theta = 0 \)</span>
+        <span class="eq">\( \omega_0 = \sqrt{\dfrac{M\,g\,d}{J_\Delta}} \qquad T_0 = 2\pi\sqrt{\dfrac{J_\Delta}{M\,g\,d}} \)</span>
+        <div class="key">Cette formule généralise le pendule simple : on retrouve \(T_0 = 2\pi\sqrt{L/g}\) si l'on fait \(J_\Delta = m L^2\) et \(d = L\) (cas limite : toute la masse concentrée à l'extrémité).</div>
+        </li>
+        <li><strong>Vérification par l'énergie :</strong> \(E_m = \tfrac{1}{2}J_\Delta\dot{\theta}^2 - Mgd\cos\theta\). \(\mathrm{d}E_m/\mathrm{d}t = 0\) (pivot sans frottement) redonne l'équation.</li>
+      </ol>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 7 (NOUVEAU) -->
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice 7 · Choc élastique 1D — bille rebondissante</span>
+    <span class="exo-level">CPGE · 1ʳᵉ année</span>
+  </div>
+  <h4>Choc élastique direct entre deux solides — formulaire et application</h4>
+  <div class="enonce">Deux solides \(S_1\) (masse \(m_1\), vitesse \(\vec{v}_1 = v_1\,\vec{e}_x\)) et \(S_2\) (masse \(m_2\), vitesse \(\vec{v}_2 = v_2\,\vec{e}_x\)) entrent en collision élastique et directe sur un plan horizontal sans frottement. Déterminer les vitesses \(\vec{v}_1'\) et \(\vec{v}_2'\) après le choc. Discuter le cas \(m_1 = m_2\) puis \(m_2 \gg m_1\) (rebond sur un mur).</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <p><strong>Système :</strong> \(\{S_1 + S_2\}\). <strong>Référentiel :</strong> terrestre galiléen. Sur le plan horizontal sans frottement, les forces extérieures verticales (poids, réaction) se compensent : le système est <em>pseudo-isolé</em> horizontalement.</p>
+      <ol>
+        <li><strong>Conservation de la quantité de mouvement</strong> (projection sur \(\vec{e}_x\)) :
+        <span class="eq">\( m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2' \quad (1) \)</span>
+        </li>
+        <li><strong>Conservation de l'énergie cinétique</strong> (définition du choc élastique) :
+        <span class="eq">\( \tfrac{1}{2}m_1 v_1^2 + \tfrac{1}{2}m_2 v_2^2 = \tfrac{1}{2}m_1 v_1'^2 + \tfrac{1}{2}m_2 v_2'^2 \quad (2) \)</span>
+        </li>
+        <li><strong>Résolution :</strong> on écrit \((1)\) sous la forme \(m_1(v_1 - v_1') = m_2(v_2' - v_2)\) et \((2)\) sous la forme \(m_1(v_1 - v_1')(v_1 + v_1') = m_2(v_2' - v_2)(v_2' + v_2)\). Le rapport donne \(v_1 + v_1' = v_2' + v_2\), soit la <em>règle de Huygens</em> : la vitesse relative est inversée.
+        <span class="eq">\( v_2' - v_1' = -(v_2 - v_1) \quad (3) \)</span>
+        En combinant \((1)\) et \((3)\) :
+        <span class="eq">\( v_1' = \dfrac{(m_1 - m_2)\,v_1 + 2 m_2\,v_2}{m_1 + m_2} \qquad v_2' = \dfrac{2 m_1\,v_1 + (m_2 - m_1)\,v_2}{m_1 + m_2} \)</span>
+        </li>
+        <li><strong>Cas \(m_1 = m_2\) :</strong> \(v_1' = v_2\) et \(v_2' = v_1\) — les deux objets <em>échangent leurs vitesses</em>. C'est le principe du berceau de Newton.</li>
+        <li><strong>Cas \(m_2 \gg m_1\) avec \(v_2 = 0\)</strong> (rebond sur un mur immobile) : \(v_1' \approx -v_1\), \(v_2' \approx 0\). La bille rebondit en gardant sa norme de vitesse. C'est le modèle classique du gaz parfait pour la pression cinétique.</li>
+        <li><strong>Cas \(m_1 = m_2\) avec \(v_2 = 0\) :</strong> \(v_1' = 0\) et \(v_2' = v_1\). Le projectile s'arrête et transmet toute sa vitesse à la cible. Particulièrement contre-intuitif !</li>
+      </ol>
+      <div class="key">À l'oral, savoir distinguer choc <em>élastique</em> (\(E_c\) conservée), <em>inélastique</em> (\(E_c\) non conservée), <em>parfaitement inélastique</em> (les deux corps restent collés : \(v_1' = v_2'\)). Seul le 1ᵉʳ cas a 2 inconnues fixées par 2 équations.</div>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 8 (NOUVEAU NUIT 2) -->
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice 8 · Transfert de Hohmann (Mines-Ponts)</span>
+    <span class="exo-level">CPGE · 2ᵉ année</span>
+  </div>
+  <h4>Transfert d'orbite circulaire basse vers orbite géostationnaire</h4>
+  <div class="enonce">Un satellite, initialement sur une orbite circulaire basse de rayon \(r_1 = R_T + 200\,\mathrm{km}\) autour de la Terre, doit rejoindre l'orbite géostationnaire de rayon \(r_2 \approx 42\,200\,\mathrm{km}\). On utilise le <em>transfert de Hohmann</em> : ellipse tangente aux deux orbites circulaires, demi-grand axe \(a = (r_1 + r_2)/2\). Donnée : \(g_0 = 9{,}81\,\mathrm{m\cdot s^{-2}}\), \(R_T = 6{,}37\cdot 10^6\,\mathrm{m}\).<br>
+  <strong>1.</strong> Calculer la vitesse \(v_1\) sur l'orbite basse circulaire.<br>
+  <strong>2.</strong> Calculer la vitesse au périgée \(v_p\) de l'ellipse de transfert (vis-viva).<br>
+  <strong>3.</strong> En déduire le premier incrément de vitesse \(\Delta v_1 = v_p - v_1\).<br>
+  <strong>4.</strong> Idem pour le deuxième incrément \(\Delta v_2\) à l'apogée. Vitesse géostationnaire : \(v_{\text{geo}} \approx 3{,}07\,\mathrm{km/s}\).<br>
+  <strong>5.</strong> Durée du transfert.</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <p><strong>Méthode :</strong> on assimile chaque allumage moteur à un changement instantané de vitesse, sans déplacement (impulsion). Le satellite passe d'une orbite à l'autre par tangence (vitesse colinéaire).</p>
+      <p>\(G M_T = g_0\,R_T^2 = 9{,}81 \times (6{,}37\cdot 10^6)^2 \approx 3{,}98\cdot 10^{14}\,\mathrm{m^3\cdot s^{-2}}\).</p>
+      <ol>
+        <li><strong>Vitesse orbite basse :</strong> \(r_1 = 6{,}57\cdot 10^6\,\mathrm{m}\).
+        <span class="eq">\( v_1 = \sqrt{\dfrac{GM_T}{r_1}} = \sqrt{\dfrac{3{,}98\cdot 10^{14}}{6{,}57\cdot 10^6}} \approx 7{,}79\,\mathrm{km\cdot s^{-1}} \)</span>
+        </li>
+        <li><strong>Demi-grand axe de l'ellipse :</strong> \(a = (r_1 + r_2)/2 = (6{,}57 + 42{,}2)\cdot 10^6/2 \approx 24{,}4\cdot 10^6\,\mathrm{m}\).
+        <strong>Vis-viva au périgée</strong> (\(r = r_1\)) :
+        <span class="eq">\( v_p^2 = GM_T\!\left(\dfrac{2}{r_1} - \dfrac{1}{a}\right) = 3{,}98\cdot 10^{14}\!\left(\dfrac{2}{6{,}57\cdot 10^6} - \dfrac{1}{24{,}4\cdot 10^6}\right) \)</span>
+        <span class="eq">\( v_p \approx 1{,}02\cdot 10^4\,\mathrm{m\cdot s^{-1}} = 10{,}2\,\mathrm{km\cdot s^{-1}} \)</span>
+        </li>
+        <li><strong>Premier boost :</strong> \(\Delta v_1 = v_p - v_1 \approx 10{,}2 - 7{,}79 = 2{,}4\,\mathrm{km\cdot s^{-1}}\).</li>
+        <li><strong>Vitesse à l'apogée</strong> (\(r = r_2\)) :
+        <span class="eq">\( v_a^2 = GM_T\!\left(\dfrac{2}{r_2} - \dfrac{1}{a}\right) \;\Longrightarrow\; v_a \approx 1{,}59\,\mathrm{km\cdot s^{-1}} \)</span>
+        <strong>Deuxième boost :</strong> \(\Delta v_2 = v_{\text{geo}} - v_a \approx 3{,}07 - 1{,}59 = 1{,}48\,\mathrm{km\cdot s^{-1}}\).
+        <div class="key"><strong>Budget total \(\Delta v\) du transfert :</strong> \(\Delta v_{\text{tot}} \approx 2{,}4 + 1{,}48 = 3{,}9\,\mathrm{km\cdot s^{-1}}\). C'est le « coût » énergétique de la mission GEO.</div>
+        </li>
+        <li><strong>Durée :</strong> par 3ᵉ loi de Kepler, \(T_{\text{ellipse}} = 2\pi\sqrt{a^3/(GM_T)}\). Le transfert est une demi-ellipse, donc \(t = T_{\text{ellipse}}/2\).
+        <span class="eq">\( t = \pi\sqrt{\dfrac{(24{,}4\cdot 10^6)^3}{3{,}98\cdot 10^{14}}} \approx 1{,}9\cdot 10^4\,\mathrm{s} \approx 5\,\mathrm{h}\,20\,\mathrm{min} \)</span>
+        </li>
+      </ol>
+      <div class="key"><strong>Pour aller plus loin :</strong> le transfert de Hohmann minimise \(\Delta v\) pour passer entre deux orbites coplanaires. Pour changer l'inclinaison ou pour des transferts rapides (sondes interplanétaires), on utilise des trajectoires différentes (bi-elliptique, assistance gravitationnelle).</div>
+    </div>
+  </details>
+</div>
+
+<!-- Exercice 9 (NOUVEAU NUIT 2) -->
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice 9 · Force de Coriolis — déviation d'un projectile (Centrale)</span>
+    <span class="exo-level">CPGE · 2ᵉ année</span>
+  </div>
+  <h4>Tir vertical depuis le sol — déviation due à la rotation terrestre</h4>
+  <div class="enonce">Un projectile est tiré verticalement vers le haut depuis la surface terrestre, à la latitude \(\lambda\) (hémisphère Nord), avec une vitesse initiale \(v_0\). On néglige les frottements et la force centrifuge devant le poids. La rotation terrestre \(\vec{\Omega}\) (\(\Omega = 2\pi/86\,164\,\mathrm{s} \approx 7{,}29\cdot 10^{-5}\,\mathrm{rad\cdot s^{-1}}\)) est prise en compte au premier ordre via la force de Coriolis.<br>
+  <strong>1.</strong> Écrire le PFD dans le référentiel terrestre, et montrer qu'au 1ᵉʳ ordre en \(\Omega\), la déviation est dirigée selon l'axe est-ouest.<br>
+  <strong>2.</strong> Calculer la vitesse maximale (point culminant) et la durée de vol.<br>
+  <strong>3.</strong> Établir l'expression de la déviation \(x\) au retour au sol, et faire l'application numérique pour \(v_0 = 100\,\mathrm{m\cdot s^{-1}}\) et \(\lambda = 45°\).</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <p><strong>Repère local :</strong> \(\vec{e}_z\) verticale ascendante, \(\vec{e}_x\) vers l'est, \(\vec{e}_y\) vers le nord. La rotation terrestre vue dans ce repère :</p>
+      <span class="eq">\( \vec{\Omega} = \Omega\,\cos\lambda\,\vec{e}_y + \Omega\,\sin\lambda\,\vec{e}_z \)</span>
+      <p>(à la latitude \(\lambda\), composante verticale \(\Omega\sin\lambda\) et composante horizontale nord \(\Omega\cos\lambda\)).</p>
+      <ol>
+        <li><strong>PFD dans le référentiel terrestre</strong> (non galiléen, mais terrestre supposé galiléen au 1ᵉʳ ordre, on ajoute uniquement Coriolis) :
+        <span class="eq">\( m\,\vec{a} = m\,\vec{g} - 2m\,\vec{\Omega}\wedge\vec{v} \)</span>
+        À l'ordre 0 (Coriolis négligée) : \(\vec{v}_0 = (v_0 - g t)\,\vec{e}_z\) (mouvement vertical). Au 1ᵉʳ ordre, \(\vec{\Omega}\wedge\vec{v}_0 = \Omega\cos\lambda(v_0 - gt)\,\vec{e}_y\wedge\vec{e}_z = \Omega\cos\lambda(v_0 - gt)\,\vec{e}_x\). La force de Coriolis vaut donc :
+        <span class="eq">\( \vec{F}_{\text{Cor}} = -2m\,\Omega\cos\lambda\,(v_0 - g t)\,\vec{e}_x \)</span>
+        Cette force est dirigée vers l'<strong>ouest</strong> à la montée (\(v_0 - gt > 0\)) et vers l'<strong>est</strong> à la descente (\(v_0 - gt < 0\)).
+        </li>
+        <li><strong>Cinématique d'ordre 0 :</strong> \(\dot{z}(t) = v_0 - gt\), donc temps de montée \(t_m = v_0/g\), durée totale \(t_v = 2 v_0/g\). Hauteur max \(z_{\max} = v_0^2/(2g)\).</li>
+        <li><strong>Déviation selon \(\vec{e}_x\) :</strong>
+        <span class="eq">\( \ddot{x} = -2\,\Omega\,\cos\lambda\,(v_0 - g t) \)</span>
+        Intégration avec \(\dot{x}(0) = 0\) et \(x(0) = 0\) :
+        <span class="eq">\( \dot{x}(t) = -2\Omega\cos\lambda\,\left(v_0\,t - \tfrac{1}{2}g\,t^2\right) \)</span>
+        <span class="eq">\( x(t) = -2\Omega\cos\lambda\,\left(\dfrac{v_0\,t^2}{2} - \dfrac{g\,t^3}{6}\right) \)</span>
+        À \(t_v = 2v_0/g\) :
+        <span class="eq">\( x(t_v) = -\dfrac{4}{3}\,\Omega\cos\lambda\,\dfrac{v_0^3}{g^2} \)</span>
+        Signe négatif : déviation vers l'<strong>ouest</strong> (résultat net, dominé par la montée).
+        <div class="key"><strong>AN :</strong> \(v_0 = 100\,\mathrm{m/s}\), \(\lambda = 45°\) (\(\cos\lambda \approx 0{,}707\)). \(|x| = (4/3)\times 7{,}29\cdot 10^{-5}\times 0{,}707\times 10^6/9{,}81^2 \approx 0{,}71\,\mathrm{m}\).</div>
+        </li>
+      </ol>
+      <div class="key"><strong>Interprétation :</strong> ce résultat contre-intuitif (déviation vers l'ouest et non vers l'est, contrairement au cas de la chute libre) s'explique par la dissymétrie temporelle : à la montée la vitesse est vers le haut, à la descente vers le bas, mais le 1ᵉʳ ordre fait que les déplacements n'ont pas le même poids. C'est un classique de l'oral n°9 (référentiels non galiléens). Voir aussi : déviation vers l'est en chute libre (\(\Delta x = +\tfrac{1}{3}\Omega\cos\lambda\,g\,t^3\)).</div>
+    </div>
+  </details>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 10 : MONTAGES EXPÉRIMENTAUX -->
+<!-- ============================================ -->
+<div class="sblock r" id="montages">
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Montages expérimentaux pour l'oral</h2>
+  <p class="intro">L'épreuve orale de montage exige des manipulations <strong>réalisées et exploitées qualitativement ET quantitativement</strong> (rapport de jury 2025). Voici les montages-clés associés à la mécanique.</p>
+
+<div class="montage r">
+  <div class="montage-head">Montage 1 — Étude d'un oscillateur amorti</div>
+  <h4>Pendule pesant ou ressort-masse — détermination expérimentale de Q</h4>
+  <p><strong>Objectif :</strong> mesurer la pseudo-période, le décrément logarithmique, en déduire \(Q\) et le coefficient d'amortissement.</p>
+  <div class="mat">
+    <span class="mat-k">Matériel</span><span class="mat-v">Pendule pesant à amortissement réglable, ou banc de mécanique avec ressort-masse + frein magnétique (courants de Foucault)</span>
+    <span class="mat-k">Capteur</span><span class="mat-v">Capteur de position (LVDT, ultrason) ou caméra rapide (Latis-Pro / Aviméca)</span>
+    <span class="mat-k">Acquisition</span><span class="mat-v">Carte d'acquisition (Eurosmart, Sysam) — fréquence d'échantillonnage ≥ 100 Hz</span>
+    <span class="mat-k">Traitement</span><span class="mat-v">Régression \(x(t) = X_0\,\mathrm{e}^{-\lambda t}\cos(\omega t + \varphi)\) sous Regressi/Python (scipy.optimize.curve_fit)</span>
+  </div>
+  <p><strong>Mesures à exploiter :</strong></p>
+  <ul>
+    <li>Pseudo-période \(T\) par mesure entre passages successifs à zéro (ou par FFT)</li>
+    <li>Décrément logarithmique \(\delta = (1/n)\ln(x_0/x_n)\) sur \(n\) pseudo-périodes</li>
+    <li>\(Q = \pi/\delta\) (en faible amortissement) ; vérifier la cohérence avec \(\omega_0/\omega\)</li>
+    <li>Comparer à la valeur théorique selon le mécanisme d'amortissement (frottement fluide ou solide)</li>
+  </ul>
+  <p><strong>Sources d'erreur principales :</strong> non-linéarité du capteur, frottements parasites au pivot, amplitude finie (correction de Borda), grandes oscillations sortant du domaine harmonique.</p>
+</div>
+
+<div class="montage r">
+  <div class="montage-head">Montage 2 — Résonance d'un oscillateur forcé</div>
+  <h4>Tracé de la courbe \(X(\Omega)\) et détermination du facteur de qualité</h4>
+  <p><strong>Objectif :</strong> tracer expérimentalement la courbe d'amplitude en fonction de la fréquence d'excitation et mesurer \(Q\) par la bande passante à \(-3\,\mathrm{dB}\).</p>
+  <div class="mat">
+    <span class="mat-k">Système</span><span class="mat-v">Pendule de torsion + bobines de Helmholtz (force de Laplace), ou ressort excité par GBF + haut-parleur</span>
+    <span class="mat-k">Excitation</span><span class="mat-v">GBF sinusoïdal, balayage manuel ou automatique de la fréquence</span>
+    <span class="mat-k">Mesure</span><span class="mat-v">Amplitude crête à crête à chaque fréquence (oscilloscope ou capteur)</span>
+  </div>
+  <p><strong>Méthode rigoureuse :</strong></p>
+  <ul>
+    <li>Attendre le régime permanent à chaque fréquence (\(\approx 5\,Q/\omega_0\))</li>
+    <li>Tracer \(X(f)\) puis ajuster avec la formule théorique pour extraire \(\omega_0\) et \(Q\)</li>
+    <li>Vérifier \(Q\) par la largeur \(\Delta f\) à \(-3\,\mathrm{dB}\) : \(Q = f_0/\Delta f\)</li>
+  </ul>
+  <p><strong>Lien pédagogique :</strong> ce montage permet d'introduire la résonance acoustique (chambres de résonance, instruments de musique) et électrique (RLC série), montrant l'universalité du modèle.</p>
+</div>
+
+<div class="montage r">
+  <div class="montage-head">Montage 3 — Vérification de Bernoulli (effet Venturi)</div>
+  <h4>Mesure de la dépression dans un rétrécissement</h4>
+  <p><strong>Objectif :</strong> vérifier la conservation de la charge dans un écoulement de fluide quasi-parfait, observer la dépression dans le col d'un Venturi.</p>
+  <div class="mat">
+    <span class="mat-k">Tube de Venturi</span><span class="mat-v">Tube transparent avec sections \(S_1\) et \(S_2 &lt; S_1\), prises de pression latérales</span>
+    <span class="mat-k">Manomètre</span><span class="mat-v">Manomètre différentiel à eau (ou capteurs de pression Pasco)</span>
+    <span class="mat-k">Débit</span><span class="mat-v">Pompe + débitmètre (ou mesure par chronométrage du volume)</span>
+  </div>
+  <p><strong>Exploitation :</strong> \(\tfrac{1}{2}\rho(v_2^2 - v_1^2) = P_1 - P_2\). Avec \(Q = v_1 S_1 = v_2 S_2\) :</p>
+  <p style="text-align:center">\[ \Delta P = \tfrac{1}{2}\,\rho\,Q^2\!\left(\dfrac{1}{S_2^2} - \dfrac{1}{S_1^2}\right) \]</p>
+  <p>Tracer \(\Delta P\) en fonction de \(Q^2\) doit donner une droite passant par l'origine.</p>
+  <p><strong>Limite à signaler :</strong> aux grands débits, la viscosité et la turbulence introduisent des pertes de charge. Discuter le nombre de Reynolds.</p>
+</div>
+
+<div class="montage r">
+  <div class="montage-head">Montage 4 — Chute libre et chute avec frottements</div>
+  <h4>Détermination de \(g\) et étude de la vitesse limite (Stokes)</h4>
+  <p><strong>Objectif :</strong> mesurer \(g\) par chute libre, puis étudier la chute d'une bille dans un fluide visqueux (vitesse limite, loi de Stokes).</p>
+  <div class="mat">
+    <span class="mat-k">Chute libre</span><span class="mat-v">Bille + capteur de position laser ou caméra rapide. Régression \(x(t) = \tfrac{1}{2}g t^2\)</span>
+    <span class="mat-k">Chute fluide</span><span class="mat-v">Tube vertical rempli de glycérol, bille de petit rayon. Mesure de \(v_{\text{lim}}\)</span>
+    <span class="mat-k">Stokes</span><span class="mat-v">Pour \(\mathrm{Re} \ll 1\) : \(F_{\text{visq}} = 6\pi\eta R v\) \(\Rightarrow\) \(v_{\text{lim}} = \dfrac{2(\rho_b - \rho_f)\,g\,R^2}{9\eta}\)</span>
+  </div>
+  <p><strong>Pédagogie :</strong> ce montage illustre PFD + chute libre (programme de 1ʳᵉ) ainsi que l'introduction des frottements en CPGE. Discuter le domaine de validité de Stokes (\(\mathrm{Re} &lt; 1\)).</p>
+</div>
+
+<div class="montage r">
+  <div class="montage-head">Montage 5 — Détermination d'un moment d'inertie par TMC</div>
+  <h4>Pendule de torsion : mesure de \(C\) puis de \(J\) par changement de masselotte</h4>
+  <p><strong>Objectif :</strong> mesurer expérimentalement le moment d'inertie \(J\) d'un objet en l'accrochant à un pendule de torsion de constante \(C\) connue ; vérifier le théorème de Huygens-Steiner.</p>
+  <div class="mat">
+    <span class="mat-k">Système</span><span class="mat-v">Fil de torsion calibré (acier ou nylon), barre horizontale supportant deux masselottes coulissantes (distance \(d\) ajustable)</span>
+    <span class="mat-k">Mesure</span><span class="mat-v">Chronométrage de la pseudo-période \(T = 2\pi\sqrt{J/C}\) (10 oscillations, moyenne)</span>
+    <span class="mat-k">Étalonnage</span><span class="mat-v">\(C\) déterminée par couplage statique (peson) ou par référence (\(J_0\) tabulé)</span>
+  </div>
+  <p><strong>Exploitation :</strong> en déplaçant les masselottes, \(J(d) = J_0 + 2m d^2\). Tracer \(T^2\) en fonction de \(d^2\) doit donner une droite de pente \(8\pi^2 m/C\) et d'ordonnée à l'origine \(4\pi^2 J_0/C\) — vérifie Huygens-Steiner.</p>
+  <p><strong>Sources d'incertitude :</strong> amortissement non nul (correction de période négligeable si \(Q \gg 1\)), incertitude sur la masse et la distance des masselottes, anélasticité du fil.</p>
+</div>
+
+<div class="montage r">
+  <div class="montage-head">Montage 6 — Pendule de Kater (mesure absolue de \(g\))</div>
+  <h4>Détermination absolue de l'intensité de la pesanteur par pendule réversible</h4>
+  <p><strong>Principe :</strong> un pendule réversible possède deux axes de suspension parallèles tels que la période est la même pour les deux. La distance \(\ell\) entre ces deux axes vaut alors la longueur du pendule simple synchrone : \(T = 2\pi\sqrt{\ell/g}\). On obtient \(g\) sans avoir à mesurer la position du centre de masse ni les moments d'inertie individuellement — d'où la précision (méthode utilisée historiquement jusqu'au gravimètre absolu).</p>
+  <div class="mat">
+    <span class="mat-k">Système</span><span class="mat-v">Tige rigide munie de deux couteaux \(O_1\) et \(O_2\) (axes \(\perp\) à la tige), plus deux masselottes coulissantes</span>
+    <span class="mat-k">Mesure</span><span class="mat-v">Chronométrage de la pseudo-période pour chaque axe (50 à 100 oscillations pour moyenner)</span>
+    <span class="mat-k">Capteur</span><span class="mat-v">Cellule photoélectrique au passage à l'équilibre (déclenchement automatique) ou caméra rapide</span>
+  </div>
+  <p><strong>Démonstration de la formule :</strong> avec \(d_1 = O_1G\), \(d_2 = O_2G\), \(\ell = d_1 + d_2\), et le théorème de Huygens-Steiner \(J_{O_i} = J_G + m d_i^2\) :</p>
+  <p style="text-align:center">\[ T_1^2 = \dfrac{4\pi^2(J_G + m d_1^2)}{m g d_1}, \qquad T_2^2 = \dfrac{4\pi^2(J_G + m d_2^2)}{m g d_2} \]</p>
+  <p>L'égalité \(T_1 = T_2 = T\) entraîne, après élimination de \(J_G\) :</p>
+  <p style="text-align:center">\[ T^2 = \dfrac{4\pi^2\,(d_1 + d_2)}{g} = \dfrac{4\pi^2\,\ell}{g} \quad\Longrightarrow\quad g = \dfrac{4\pi^2\,\ell}{T^2} \]</p>
+  <p><strong>Protocole expérimental :</strong></p>
+  <ul>
+    <li>Suspendre par \(O_1\) : mesurer \(T_1\) sur \(N\) périodes (typ. \(N \geq 50\)).</li>
+    <li>Retourner, suspendre par \(O_2\) : mesurer \(T_2\).</li>
+    <li>Déplacer les masselottes par essais successifs jusqu'à obtenir \(T_1 = T_2 \pm \) précision instrumentale.</li>
+    <li>Mesurer \(\ell\) avec un pied à coulisse (précision \(\sim 10^{-5}\) sur \(\ell \sim 1\,\mathrm{m}\)).</li>
+  </ul>
+  <p><strong>Sources d'incertitude :</strong> amortissement (correction de Kater : \(T_{\text{vrai}} = T_{\text{mesuré}}\sqrt{1 - 1/(4Q^2)}\)), amplitude finie (correction de Borda \(T \to T_0(1 + \theta_0^2/16)\)), flexibilité du support, dilatation thermique. Une précision \(10^{-4}\) sur \(g\) est accessible avec un pendule de Kater soigné.</p>
+  <p><strong>Pédagogie :</strong> ce montage relie le secondaire (pendule simple, mesure de \(g\) au lycée) et la CPGE (théorème de Huygens-Steiner, TMC, oscillateur amorti). Il illustre aussi la notion de <em>méthode absolue</em> opposée aux méthodes <em>comparatives</em>.</p>
+</div>
+
+<div class="alert alert-gold r">
+  <span class="ico">💡</span>
+  <div><strong>Présentation à l'oral :</strong> le jury 2025 attend une <em>évaluation des incertitudes</em> sur chaque grandeur mesurée (type A : statistique, type B : instrumentale). La présentation des résultats sous forme « grandeur \(\pm\,u(\text{grandeur})\), unité » est indispensable. Pour les régressions, donner les incertitudes sur les paramètres (méthode des moindres carrés ou Monte-Carlo).</div>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 11 : PÉDAGOGIE -->
+<!-- ============================================ -->
+<div class="sblock r" id="pedagogie">
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Pédagogie et didactique pour l'oral</h2>
+  <p class="intro">L'oral d'agrégation interne s'adresse à un jury qui évalue à la fois la maîtrise scientifique et la <strong>capacité à enseigner</strong>. Pour chaque notion, savoir : à quel niveau elle est abordée, comment l'introduire, quelles sont les difficultés des élèves, quels exemples utiliser.</p>
+
+<div class="ped-card r">
+  <div class="niveau">Cycle 4 — collège (5ᵉ, 4ᵉ, 3ᵉ)</div>
+  <h5>Mouvement, forces, énergie</h5>
+  <ul>
+    <li>Notion de mouvement et de référentiel (« bouge par rapport à quoi ? »)</li>
+    <li>Trajectoire, vitesse comme grandeur scalaire (puis introduction du vecteur en 3ᵉ)</li>
+    <li>Forces : poids, réaction du support, frottement — représentation par une flèche</li>
+    <li>Loi de Hooke \(F = k\,x\) (ressort) — proportionnalité linéaire</li>
+    <li>Principe d'inertie qualitatif : « si toutes les forces se compensent, le mouvement ne change pas »</li>
+    <li>Énergie cinétique \(E_c = \tfrac{1}{2}m v^2\) introduite en 3ᵉ</li>
+  </ul>
+</div>
+
+<div class="ped-card r">
+  <div class="niveau">Lycée — seconde GT</div>
+  <h5>Vecteurs vitesse et accélération</h5>
+  <ul>
+    <li>Construction du vecteur vitesse moyenne par la méthode des positions successives</li>
+    <li>Lien entre la variation du vecteur vitesse et l'existence d'une force résultante</li>
+    <li>Étude expérimentale par chronophotographie ou vidéo (Aviméca, Latis Pro)</li>
+  </ul>
+</div>
+
+<div class="ped-card r">
+  <div class="niveau">Lycée — première spécialité</div>
+  <h5>2ᵉ loi de Newton et applications</h5>
+  <ul>
+    <li>Énoncé du PFD : \(\sum \vec{F} = m\vec{a}\) (introduit comme « 2ᵉ loi »)</li>
+    <li>Applications guidées : chute libre verticale, mouvement rectiligne uniformément accéléré, plan incliné sans frottement</li>
+    <li>Énergie cinétique, énergie potentielle de pesanteur, conservation</li>
+    <li>Choc élastique / inélastique (introduction qualitative)</li>
+  </ul>
+</div>
+
+<div class="ped-card r">
+  <div class="niveau">Lycée — terminale spécialité</div>
+  <h5>Mouvement dans un champ uniforme et oscillateur</h5>
+  <ul>
+    <li>Mouvement dans le champ de pesanteur uniforme (chute parabolique, balistique)</li>
+    <li>Mouvement dans un champ électrique uniforme (déviation, oscilloscope cathodique en histoire des sciences)</li>
+    <li>Oscillateur mécanique : pendule simple, pendule pesant — mise en évidence de la pseudo-période</li>
+    <li>Dissipation d'énergie par frottement — analyse énergétique</li>
+  </ul>
+</div>
+
+<div class="ped-card r">
+  <div class="niveau">CPGE — MPSI / PCSI / PTSI</div>
+  <h5>Formalisation rigoureuse</h5>
+  <ul>
+    <li>Cinématique en coordonnées polaires et de Frenet</li>
+    <li>PFD complet, théorème du moment cinétique</li>
+    <li>Référentiels non galiléens (force d'inertie, Coriolis)</li>
+    <li>Oscillateurs amortis et forcés, résonance</li>
+    <li>Mécanique du solide en rotation autour d'un axe fixe</li>
+  </ul>
+</div>
+
+<div class="ped-card r">
+  <div class="niveau">CPGE — MP / PC / PSI</div>
+  <h5>Approfondissement</h5>
+  <ul>
+    <li>Mécanique des fluides : Euler, Bernoulli, Navier-Stokes (PSI)</li>
+    <li>Mouvements à force centrale, Kepler complet</li>
+    <li>Approche énergétique en référentiel non galiléen (force d'inertie d'entraînement travaille)</li>
+  </ul>
+</div>
+
+<div class="alert alert-phys r">
+  <span class="ico">📋</span>
+  <div><strong>Difficultés classiques des élèves (à connaître pour l'oral) :</strong>
+    <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+      <li><strong>Conception aristotélicienne :</strong> « une force est nécessaire pour maintenir le mouvement ». Difficulté à accepter qu'un objet en mouvement uniforme n'a pas besoin de force.</li>
+      <li><strong>Confusion vitesse / accélération :</strong> beaucoup pensent que ralentir = accélération nulle (alors que \(\vec{a}\) est opposé à \(\vec{v}\)).</li>
+      <li><strong>3ᵉ loi de Newton :</strong> sommer dans un même bilan une force et sa réaction (qui s'appliquent à des systèmes différents).</li>
+      <li><strong>Projections :</strong> oublier les signes lors du passage du vecteur au scalaire ; mauvaise orientation des axes.</li>
+      <li><strong>Forces conservatives :</strong> méconnaissance du test \(\oint\vec{F}\cdot\mathrm{d}\vec{\ell} = 0\) et application aveugle de la conservation de l'énergie en présence de frottements.</li>
+      <li><strong>Force centrifuge :</strong> tendance à l'invoquer dans un référentiel galiléen alors qu'elle n'existe que dans un référentiel tournant.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="summary-box r">
+  <h4>Plan-type pour la leçon orale n°1 (Mécanique du point)</h4>
+  <ul>
+    <li><strong>Introduction (5 min) :</strong> motivation historique (Galilée, Newton, satellites GPS), problématique : prévoir le mouvement à partir des causes.</li>
+    <li><strong>I. Référentiel et cinématique (15 min) :</strong> position, vitesse, accélération ; coordonnées cartésiennes/polaires ; choix d'un référentiel galiléen.</li>
+    <li><strong>II. Lois de Newton et PFD (15 min) :</strong> énoncé des trois lois, applications simples (chute libre, plan incliné), méthode rigoureuse.</li>
+    <li><strong>III. Approche énergétique (10 min) :</strong> théorème de l'énergie cinétique, démonstration, conservation, exemple (pendule, glissière).</li>
+    <li><strong>IV. Application : oscillateur harmonique (10 min) :</strong> ressort-masse, pendule simple, pulsation propre, isochronisme.</li>
+    <li><strong>Conclusion + ouverture (5 min) :</strong> limites du modèle (relativité, mécanique quantique), liens avec d'autres domaines.</li>
+  </ul>
+</div>
+
+<div class="summary-box r">
+  <h4>Plan-type pour la leçon orale n°13 (Mécanique des fluides)</h4>
+  <ul>
+    <li><strong>I. Description d'Euler :</strong> champ de vitesse, dérivée particulaire, conservation de la masse.</li>
+    <li><strong>II. Statique des fluides :</strong> hydrostatique, théorème d'Archimède, atmosphère exponentielle.</li>
+    <li><strong>III. Dynamique du fluide parfait :</strong> équation d'Euler, démonstration de Bernoulli.</li>
+    <li><strong>IV. Applications de Bernoulli :</strong> Venturi, tube de Pitot, écoulement à travers un orifice (Torricelli).</li>
+    <li><strong>V. Effet de la viscosité :</strong> Navier-Stokes, Poiseuille, Reynolds, transition laminaire/turbulent.</li>
+  </ul>
+</div>
+
+</div>
+
+<!-- ============================================ -->
+<!-- QUIZ ENRICHI -->
+<!-- ============================================ -->
+<div class="sblock r" id="quiz-section">
+  <div class="sblock-num">Auto-évaluation</div>
+  <h2>Quiz de révision</h2>
+  <p class="intro">20 questions pour tester sa maîtrise. Chaque réponse est commentée — y compris les mauvaises pour comprendre les pièges.</p>
+  <div class="quiz-wrap">
+
+<div class="quiz-card r">
+  <div class="q-text">1. Un pendule simple de longueur \(L = 1{,}00\,\mathrm{m}\) oscille avec une amplitude \(\theta_0 = 5°\) (\(g = 9{,}81\,\mathrm{m\cdot s^{-2}}\)). Quelle est sa période ?</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Cette formule confond longueur et masse. La masse n\'intervient pas pour un pendule simple ! T_0 = 2π√(L/g).')">\(T_0 = 2\pi\sqrt{m/g} \approx 2\,\mathrm{s}\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Correct. T_0 = 2π√(1/9,81) ≈ 2,007 s. Propriété remarquable : T_0 est indépendante de la masse et (au 1er ordre) de l\'amplitude — c\'est l\'isochronisme des petites oscillations découvert par Galilée.')">\(T_0 = 2\pi\sqrt{L/g} \approx 2{,}0\,\mathrm{s}\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'C\'est la formule du ressort-masse. Pour un pendule pesant simple : T_0 = 2π√(L/g).')">\(T_0 = 2\pi\sqrt{m/k} \approx 0{,}5\,\mathrm{s}\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Cette formule mélange tout. Pour un pendule simple, T = 2π·√(L/g).')">\(T_0 = \sqrt{L\,g} \approx 3\,\mathrm{s}\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">2. Dans un référentiel non galiléen en rotation \(\vec{\Omega}\), la force de Coriolis sur un point de vitesse relative \(\vec{v}\) vaut :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Presque ! Le facteur 2 manque : il vient de la dérivation des vecteurs de base dans un référentiel tournant. F_Cor = -2m·Ω∧v.')">\(\vec{F}_{\text{Cor}} = -m\,\vec{\Omega}\wedge\vec{v}\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Exact. F_Cor = -2m·Ω∧v_{/R\\'}. Cette force est perpendiculaire à v et à Ω : elle ne travaille jamais dans R\\'.')">\(\vec{F}_{\text{Cor}} = -2m\,\vec{\Omega}\wedge\vec{v}_{/\mathcal{R}'}\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non, c\'est la force centrifuge. La centrifuge dépend de la position (OM), pas de la vitesse.')">\(\vec{F}_{\text{Cor}} = -m\,\vec{\Omega}\wedge(\vec{\Omega}\wedge\overrightarrow{OM})\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non. Le PFD dans un référentiel non galiléen impose le signe « - » : F_inertie = -m·a_inertie.')">\(\vec{F}_{\text{Cor}} = +2m\,\vec{\Omega}\wedge\vec{v}_{/\mathcal{R}'}\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">3. Un oscillateur amorti a \(Q = 0{,}3\). Quel est son régime ?</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Non. Le régime pseudo-périodique requiert Q > 1/2. Ici Q = 0,3 < 0,5.')">Pseudo-périodique (oscillations amorties)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Le régime critique correspond exactement à Q = 1/2. Ici Q < 1/2.')">Critique (retour le plus rapide sans oscillation)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Correct. Q < 1/2 : le polynôme caractéristique a deux racines réelles négatives. Régime apériodique : retour exponentiel sans oscillation, plus lent que le critique.')">Apériodique (sur-amorti)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Le régime divergent n\'existe pas pour un amortissement positif. Tous les régimes amortis convergent vers l\'équilibre.')">Divergent</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">4. Selon le théorème de Bernoulli, dans un fluide parfait incompressible en régime permanent, si la section d'un tube diminue, la pression :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Intuition fausse ! Bernoulli : P + 1/2·ρv² + ρgz = cte. La continuité (Q = vS) impose v↑ quand S↓, donc P doit baisser.')">Augmente (section plus petite → plus de pression)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non. Bernoulli prédit un échange entre P, v et z. Ici v augmente.')">Reste constante</button>
+    <button class="q-opt" onclick="quiz(this,true,'Effet Venturi ! Q = vS imposé par la continuité ⟹ v augmente quand S diminue ⟹ P diminue d\'après Bernoulli. Applications : carburateur, trompe à eau, ailes d\'avion (intuition partielle).')">Diminue (la vitesse augmente, la pression chute)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Bernoulli ne dit pas cela. La pression dépend de S via la continuité.')">Dépend de la viscosité</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">5. La 3ᵉ loi de Kepler s'écrit \(T^2 = 4\pi^2 a^3/(GM)\). Si on multiplie par 8 le demi-grand axe d'une orbite, par combien est multipliée la période ?</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Non, ce serait le cas si T était proportionnelle à a. Or T² ∝ a³.')">Par 8</button>
+    <button class="q-opt" onclick="quiz(this,false,'Cela correspondrait à T ∝ a^(3/4), incorrect. La 3e loi : T ∝ a^(3/2).')">Par 4</button>
+    <button class="q-opt" onclick="quiz(this,true,'Exact. T² ∝ a³, donc T ∝ a^(3/2). Si a → 8a, T → 8^(3/2)·T = √(8³)·T = √512·T ≈ 22,6·T.')">Par \(8^{3/2} \approx 22{,}6\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Cela donnerait T ∝ a², ce qui n\'est pas la loi de Kepler. La bonne formule : T ∝ a^(3/2).')">Par 64</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">6. Pour un solide en rotation autour d'un axe fixe \(\Delta\), l'énergie cinétique s'écrit :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'C\'est l\'énergie d\'un point matériel ponctuel. Pour un solide étendu, on utilise le moment d\'inertie.')">\(E_c = \tfrac{1}{2}m\,v_G^2\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Correct. E_c = 1/2·J_Δ·Ω² pour une rotation autour de Δ fixe. C\'est l\'analogue de 1/2·m·v² pour la translation.')">\(E_c = \tfrac{1}{2}J_\Delta\,\Omega^2\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'L_Δ = J_Δ·Ω, ce n\'est pas l\'énergie. C\'est le moment cinétique scalaire.')">\(E_c = J_\Delta\,\Omega\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Le moment d\'inertie n\'est pas au carré dans l\'énergie cinétique : E_c = 1/2·J_Δ·Ω².')">\(E_c = \tfrac{1}{2}J_\Delta^2\,\Omega\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">7. La vitesse de libération à la surface d'une planète de masse \(M\) et rayon \(R\) vaut :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'C\'est la vitesse de mise en orbite circulaire rasante (« 1re vitesse cosmique »), pas la vitesse de libération.')">\(v = \sqrt{GM/R}\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Correct. La vitesse de libération s\'obtient par conservation de l\'énergie : 1/2·v² = GM/R. C\'est √2 fois la vitesse orbitale circulaire (v_lib = v_orb·√2).')">\(v = \sqrt{2GM/R}\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Trop grand. La vitesse correcte est √(2GM/R), soit v_orb·√2.')">\(v = \sqrt{4GM/R}\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Mauvais exposant. La force gravitationnelle est en 1/r² mais l\'énergie en 1/r.')">\(v = \sqrt{GM/R^2}\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">8. Le théorème de Huygens-Steiner relie le moment d'inertie par rapport à un axe \(\Delta'\) parallèle à un axe \(\Delta_G\) passant par \(G\) (distance \(d\)) selon :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Le théorème ajoute un terme positif m·d², il ne soustrait pas.')">\(J_{\Delta'} = J_G - m\,d^2\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Exact : J_Δ\\' = J_G + m·d². Conséquence : J est minimal pour l\'axe passant par G — utile en montage pour minimiser l\'inertie d\'un système.')">\(J_{\Delta'} = J_G + m\,d^2\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'L\'exposant est 2, pas 1. Le théorème : J_Δ\\' = J_G + m·d².')">\(J_{\Delta'} = J_G + m\,d\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Pas de produit. Le théorème est additif : J_Δ\\' = J_G + m·d².')">\(J_{\Delta'} = J_G \cdot m\,d^2\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">9. Dans un écoulement de Poiseuille, le débit volumique est proportionnel à :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Non, c\'est trop faible : la loi de Poiseuille est en R⁴, pas R².')">\(R^2\,\Delta P/(\eta\,L)\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Exact : Q_v = π·R⁴·ΔP/(8·η·L). La dépendance en R⁴ est remarquable et explique pourquoi la résistance d\'un fluide chute drastiquement quand on dilate un vaisseau (médicaments vasodilatateurs).')">\(R^4\,\Delta P/(\eta\,L)\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Trop fort en R. La loi est en R⁴ pour le débit volumique.')">\(R^6\,\Delta P/(\eta\,L)\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'La loi de Poiseuille concerne le régime laminaire visqueux : la viscosité η intervient, contrairement à Bernoulli.')">\(R^2\,\Delta P/(\rho\,L)\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">10. Pour un mouvement à force centrale conservative, quelles grandeurs sont conservées ?</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'La quantité de mouvement n\'est pas conservée : la force centrale est non nulle (sauf en O).')">\(\vec{p}\) et \(E_m\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Correct. La force étant centrale, le moment cinétique L_O est conservé (mouvement plan, loi des aires). Étant conservative, l\'énergie mécanique l\'est aussi. Ces deux conservations permettent d\'intégrer entièrement le problème.')">\(\vec{L}_O\) et \(E_m\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'L\'énergie cinétique seule n\'est pas conservée : le PFD montre qu\'elle varie au cours du mouvement (sauf orbite circulaire).')">\(E_c\) et \(\vec{L}_O\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Le moment cinétique est bien conservé, mais c\'est la quantité de mouvement p qui ne l\'est pas.')">\(\vec{p}\) et \(\vec{L}_O\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">11. Lors d'un choc élastique direct entre deux billes de masses égales, où l'une est initialement immobile :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Non. La conservation de E_c interdit cette répartition pour des masses égales. Vérifie en sommant 1/4 + 1/4 = 1/2 ≠ 1 (en unités de v² incidente).')">Les deux billes repartent à \(v/2\) chacune</button>
+    <button class="q-opt" onclick="quiz(this,true,'Correct : v_1\\' = 0, v_2\\' = v. Le projectile s\'arrête, la cible part avec toute la vitesse incidente. Principe du berceau de Newton. Vérification : conservation de p ✓ et de E_c ✓.')">Le projectile s'arrête, la cible part à \(v\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'C\'est le cas du choc parfaitement inélastique (les billes se collent), pas du choc élastique.')">Les deux billes repartent collées à \(v/2\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non. La règle de Huygens v_2\\' − v_1\\' = −(v_2 − v_1) inverse la vitesse relative. Le projectile peut s\'arrêter mais pas rebondir à −v.')">Le projectile rebondit à \(-v\), la cible reste immobile</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">12. La dérivée particulaire \(\mathrm{D}\vec{v}/\mathrm{D}t\) d'un champ de vitesse fluide eulérien vaut :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'C\'est seulement la dérivée locale. Il manque le terme convectif (v·∇)v qui traduit le fait que la particule fluide change de position.')">\(\partial\vec{v}/\partial t\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Exact. Le terme convectif (v·∇)v est indispensable : il représente l\'effet du transport de la particule fluide par le champ de vitesse lui-même.')">\(\partial\vec{v}/\partial t + (\vec{v}\cdot\vec{\nabla})\vec{v}\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non, l\'écoulement n\'est pas forcément stationnaire. En général, le terme local ∂v/∂t est non nul.')">\((\vec{v}\cdot\vec{\nabla})\vec{v}\) uniquement</button>
+    <button class="q-opt" onclick="quiz(this,false,'Le laplacien apparaît dans Navier-Stokes (terme visqueux η·Δv), pas dans la dérivée particulaire.')">\(\partial\vec{v}/\partial t + \Delta\vec{v}\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">13. Pour un oscillateur forcé, la résonance en élongation existe seulement si :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Non. Pour Q très grand, certes la résonance est marquée, mais elle existe dès que Q > 1/√2.')">\(Q &gt; 10\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Correct. Ω_r = ω_0·√(1 − 1/(2Q²)) n\'a de sens (réelle) que si 1 − 1/(2Q²) > 0, soit Q > 1/√2 ≈ 0,71. En-dessous, X(Ω) est monotone décroissante.')">\(Q &gt; 1/\sqrt{2} \approx 0{,}71\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non, la résonance en élongation a un seuil Q > 1/√2 ≈ 0,71, pas Q > 1/2.')">\(Q &gt; 1/2\) (seuil critique)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Faux. La résonance en élongation n\'existe pas toujours — elle disparaît pour Q ≤ 1/√2.')">Toujours, quelle que soit \(Q\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">14. Un satellite décrit une orbite elliptique autour de la Terre. Au périgée (distance minimale), sa vitesse est-elle :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Non. La 2e loi de Kepler (conservation du moment cinétique) impose r·v_⊥ = cste : v est plus grande quand r est plus petit.')">Minimale (la planète va lentement en s'approchant)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Exact. Conservation de L_O = m·r·v_⊥ : quand r diminue, v augmente. Conservation de E_m aussi : E_p diminue (devient plus négatif) quand r diminue, donc E_c augmente.')">Maximale (la planète va vite près du foyer)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non. Pour une ellipse, la vitesse varie continûment : maximale au périgée, minimale à l\'apogée.')">Égale à celle de l'apogée (vitesse uniforme sur l'orbite)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non, la 3e loi de Kepler donne la période en fonction du demi-grand axe a, pas la vitesse instantanée.')">Donnée par la 3ᵉ loi de Kepler</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">15. À l'oral, on vous demande d'énoncer le théorème de Bernoulli. Quelle est la liste correcte des hypothèses ?</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Incomplet : il manque « incompressible ». Bernoulli sous cette forme nécessite ρ = cste.')">Fluide parfait + écoulement permanent</button>
+    <button class="q-opt" onclick="quiz(this,true,'Liste complète. La forme 1/2·ρv² + P + ρgz = cste vaut le long d\'une ligne de courant pour un fluide parfait, incompressible, en écoulement permanent, soumis à la pesanteur.')">Fluide parfait + incompressible + permanent + le long d'une ligne de courant</button>
+    <button class="q-opt" onclick="quiz(this,false,'Bernoulli s\'applique aussi aux fluides rotationnels, mais alors la constante peut varier d\'une ligne de courant à l\'autre. C\'est l\'hypothèse irrotationnelle qui étend Bernoulli à tout le fluide.')">Fluide visqueux + incompressible + irrotationnel</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non, Bernoulli ne nécessite pas l\'isotherme. C\'est une équation purement mécanique (sans thermodynamique).')">Fluide isotherme + incompressible + parfait</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">16. Le théorème de König pour l'énergie cinétique d'un système de points s'écrit \(E_c^{\mathcal{R}} = \tfrac{1}{2}M v_G^2 + E_c^{*}\). Pourquoi le terme croisé \(\vec{v}_G\cdot\sum_i m_i \vec{v}_{i/\mathcal{R}^*}\) s'annule-t-il ?</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Non, le terme croisé existe a priori — il s\'annule pour une raison précise liée à la définition de R*.')">Parce que les vitesses barycentriques sont orthogonales à \(\vec{v}_G\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Exact. R* est défini centré sur G, donc Σm_i·GM_i = 0. En dérivant dans R*, Σm_i·v_{i/R*} = p* = 0 : la quantité de mouvement barycentrique est nulle par construction.')">Parce que la quantité de mouvement totale dans \(\mathcal{R}^{*}\) est nulle par définition</button>
+    <button class="q-opt" onclick="quiz(this,false,'Faux. Le système peut très bien être en rotation : l\'annulation ne tient pas à l\'absence de rotation.')">Parce que le système n'est pas en rotation</button>
+    <button class="q-opt" onclick="quiz(this,false,'Non, la 3e loi de Newton concerne les forces internes, pas les vitesses.')">Par la 3ᵉ loi de Newton sur les forces internes</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">17. Une bille pleine de masse \(m\) roule sans glisser sur un plan incliné. L'énergie cinétique totale en fonction de la vitesse de translation \(v_G\) vaut :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Vous avez oublié l\'énergie cinétique de rotation propre, qui s\'ajoute via le théorème de König.')">\(E_c = \tfrac{1}{2}\,m\,v_G^2\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Correct. König : E_c = 1/2 m v_G² + 1/2 J_G Ω². Sphère pleine : J_G = (2/5)mR² ; roulement sans glissement : v_G = RΩ. Donc E_c = (1/2 + 1/5)·m·v_G² = (7/10)m·v_G². Ce facteur 7/10 explique qu\'une sphère qui roule descend plus lentement qu\'un objet qui glisse sans frottement.')">\(E_c = \tfrac{7}{10}\,m\,v_G^2\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'C\'est la formule pour un cylindre plein (J_G = mR²/2), pas pour une sphère. Vérifier J_G de référence.')">\(E_c = \tfrac{3}{4}\,m\,v_G^2\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'C\'est la formule pour une sphère creuse mince (J_G = (2/3)mR²), pas pour une sphère pleine.')">\(E_c = \tfrac{5}{6}\,m\,v_G^2\)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">18. Relation de vis-viva pour un mouvement képlérien : \(v^2 = GM(2/r - 1/a)\). Pour un satellite sur une orbite circulaire (\(r = a\)), la vitesse est :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'C\'est la vitesse de libération à la distance r, pas la vitesse orbitale circulaire.')">\(v = \sqrt{2 G M/a}\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Correct. Pour r = a : v² = GM(2/a - 1/a) = GM/a, donc v = √(GM/a). Cette vitesse vaut v_lib/√2.')">\(v = \sqrt{G M/a}\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Faux. La vis-viva ne contient pas de facteur 1/2 dans v².')">\(v = \sqrt{G M/(2a)}\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Pour une orbite circulaire la vitesse est constante : elle ne peut pas être nulle (sinon le satellite tombe).')">\(v = 0\) (vitesse nulle car orbite stable)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">19. Un projectile est lancé verticalement vers le haut (hémisphère Nord, latitude 45°). Au retour au sol, l'effet de la force de Coriolis fait dévier le point de chute :</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Erreur fréquente : c\'est en chute libre depuis une tour que la déviation est vers l\'est (+1/3 Ω cosλ g t³). Pour un tir vertical, le calcul donne le résultat opposé.')">Vers l'est (sens de rotation de la Terre)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Exact. Au calcul, x(t_v) = -(4/3) Ω cos λ · v₀³/g² : déviation vers l\'ouest, dominée par la phase montée. Le coefficient 4/3 (contre +1/3 pour la chute libre) reflète la dissymétrie temporelle du parcours aller-retour.')">Vers l'ouest (effet net dominé par la phase montée)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Si le tir était exactement zénithal et la rotation négligée, oui. Mais ici la rotation terrestre induit une déviation au 1er ordre en Ω.')">Pas de déviation (tir vertical)</button>
+    <button class="q-opt" onclick="quiz(this,false,'La déviation est principalement est-ouest car Ω∧v_z donne une composante selon e_x (axe est). Très peu vers le nord/sud.')">Vers le nord</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+<div class="quiz-card r">
+  <div class="q-text">20. Un transfert de Hohmann d'orbite basse \(r_1\) à orbite haute \(r_2\) requiert deux impulsions : \(\Delta v_1\) au périgée et \(\Delta v_2\) à l'apogée. Que vaut \(\Delta v_{\text{tot}} = \Delta v_1 + \Delta v_2\) minimal en fonction de \(r_1\), \(r_2\) et \(GM\) ?</div>
+  <div class="q-opts">
+    <button class="q-opt" onclick="quiz(this,false,'Trop simple : ce serait la différence des vitesses orbitales circulaires, mais le transfert nécessite de monter et de freiner.')">\(\sqrt{GM/r_1} - \sqrt{GM/r_2}\)</button>
+    <button class="q-opt" onclick="quiz(this,true,'Exact. Δv₁ = v_p − v₁ avec v_p² = GM(2/r₁ − 1/a), v₁ = √(GM/r₁) et a = (r₁+r₂)/2. Δv₂ = v_geo − v_a avec v_a² = GM(2/r₂ − 1/a). On factorise √(GM/r₁) puis √(GM/r₂) : Δv_tot = √(GM/r₁)·(√(2r₂/(r₁+r₂)) − 1) + √(GM/r₂)·(1 − √(2r₁/(r₁+r₂))).')">\(\sqrt{\tfrac{GM}{r_1}}\!\left(\!\sqrt{\tfrac{2r_2}{r_1+r_2}} - 1\!\right) + \sqrt{\tfrac{GM}{r_2}}\!\left(\!1 - \sqrt{\tfrac{2r_1}{r_1+r_2}}\!\right)\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'Cela suppose une seule impulsion radiale, ce qui n\'est pas physique pour un transfert tangent.')">\(\sqrt{2 G M\,(1/r_1 - 1/r_2)}\)</button>
+    <button class="q-opt" onclick="quiz(this,false,'C\'est nul : impossible de changer d\'orbite sans transfert d\'énergie. Δv ne peut pas être nul.')">\(0\) (mouvement libre conservatif)</button>
+  </div>
+  <div class="q-expl"></div>
+</div>
+
+  </div>
+</div>
+
+        <div class="sblock r" id="ressources-section">
+          <div class="sblock-num">Ressources</div>
+          <h2>Aller plus loin</h2>
+          <div class="g2" style="margin-top:1rem">
+            <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+              <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets des sessions précédentes avec corrigés</div></div><span class="ra">→</span>
+            </a>
+            <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
+              <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes du jury, statistiques</div></div><span class="ra">→</span>
+            </a>
+            <a class="res-link" href="https://phet.colorado.edu/fr/simulations/category/physics/motion" target="_blank">
+              <span class="ri">🔬</span><div><div class="rt">PhET — Simulations mécanique</div><div class="rd">Pendule, ressort, force et mouvement (autorisées aux oraux)</div></div><span class="ra">→</span>
+            </a>
+            <a class="res-link" href="http://ressources.agreg.phys.ens.fr/ressources/" target="_blank">
+              <span class="ri">🧪</span><div><div class="rt">Ressources ENS Agrég</div><div class="rd">Vidéos d'expériences, scripts Python pour montages</div></div><span class="ra">→</span>
+            </a>
+            <a class="res-link" href="https://femto-physique.fr/mecanique/" target="_blank">
+              <span class="ri">📖</span><div><div class="rt">Femto-Physique — Mécanique</div><div class="rd">Cours CPGE complet en ligne (J. Roussel)</div></div><span class="ra">→</span>
+            </a>
+            <a class="res-link" href="index.html">
+              <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="page-nav"><a class="pnav-link" href="index.html"><span class="pnav-label">← Précédent</span><span class="pnav-title">Retour à l'accueil</span></a><a class="pnav-link next" href="electromagnetisme.html"><span class="pnav-label">Suivant →</span><span class="pnav-title">Électromagnétisme</span></a></div>
+        <div class="chap-strip r"><a class="cs-link cur" href="mecanique.html"><span class="cs-dot p"></span>Mécanique</a><a class="cs-link " href="electromagnetisme.html"><span class="cs-dot p"></span>Électromagnétisme</a><a class="cs-link " href="thermodynamique.html"><span class="cs-dot p"></span>Thermodynamique</a><a class="cs-link " href="optique-ondes.html"><span class="cs-dot p"></span>Optique &amp; Ondes</a><a class="cs-link " href="electricite.html"><span class="cs-dot p"></span>Électricité</a><a class="cs-link " href="physique-moderne.html"><span class="cs-dot p"></span>Physique moderne</a><a class="cs-link " href="chimie-solutions.html"><span class="cs-dot c"></span>Chimie des solutions</a><a class="cs-link " href="thermodynamique-chimique.html"><span class="cs-dot c"></span>Thermodynamique chimique</a><a class="cs-link " href="electrochimie.html"><span class="cs-dot c"></span>Électrochimie</a><a class="cs-link " href="cinetique-catalyse.html"><span class="cs-dot c"></span>Cinétique &amp; Catalyse</a><a class="cs-link " href="chimie-organique.html"><span class="cs-dot c"></span>Chimie organique</a><a class="cs-link " href="structure-matiere.html"><span class="cs-dot c"></span>Structure de la matière</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function quiz(el, ok, txt) {
+  const card = el.closest('.quiz-card');
+  card.querySelectorAll('.q-opt').forEach(o => { o.disabled = true; o.style.cursor = 'default'; });
+  el.classList.add(ok ? 'ok' : 'ko');
+  const ex = card.querySelector('.q-expl');
+  ex.textContent = txt; ex.style.display = 'block';
+}
+// Sidebar active on scroll
+const secs = document.querySelectorAll('.sblock[id]');
+const lks  = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  lks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+}, {passive: true});
+// Scroll reveal
+const ro = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('v'); ro.unobserve(e.target); }
+}), {threshold: 0.05});
+document.querySelectorAll('.r').forEach(el => ro.observe(el));
+// Force re-typeset après chargement dynamique éventuel
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.MathJax && window.MathJax.typesetPromise) {
+    window.MathJax.typesetPromise().catch(err => console.warn('MathJax:', err));
+  }
+});
+</script>
+</body>
+</html>
