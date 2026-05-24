@@ -135,6 +135,9 @@ body>nav.scrolled{border-bottom-color:var(--border2);box-shadow:0 1px 0 var(--bo
 .alert-red{background:rgba(185,28,28,.05);border:1px solid rgba(185,28,28,.18);border-left:3px solid var(--red)}
 .alert-red strong{color:var(--red)}
 
+/* Microtag de sourçage discret (rapport jury, récurrence inter-sessions) */
+.src-tag{font-family:var(--mono);font-size:11px;color:var(--muted2);white-space:nowrap}
+
 /* QUIZ */
 .quiz-wrap{display:flex;flex-direction:column;gap:14px}
 .quiz-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.35rem;transition:border-color .2s,box-shadow .2s;box-shadow:var(--shadow-sm)}

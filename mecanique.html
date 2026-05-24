@@ -407,6 +407,83 @@ svg.fig{display:block;max-width:100%;height:auto;margin:1rem auto;background:var
   </div>
 </div>
 
+<div class="alert alert-gold r">
+  <span class="ico">💡</span>
+  <div><strong>Méthodologie — choisir entre PFD et approche énergétique :</strong> face à un problème de mécanique, le choix de la méthode doit être <em>raisonné</em> et <em>justifié à l'oral</em>. Le jury 2025 a explicitement sanctionné l'absence de discussion sur le sens des résultats et l'application aveugle d'une méthode.
+    <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:5px">
+      <li><strong>Approche énergétique privilégiée si :</strong>
+        <ul style="margin:.3rem 0 0 1rem;display:flex;flex-direction:column;gap:3px">
+          <li>1 seul degré de liberté + toutes les forces sont conservatives ou ne travaillent pas \(\Rightarrow\) \(E_m\) conservée, intégrale première immédiate.</li>
+          <li>On cherche une <em>vitesse</em> ou une <em>position</em> à un instant donné, sans avoir besoin de la loi horaire complète \(x(t)\).</li>
+          <li>On veut une <em>condition limite</em> (vitesse minimale, hauteur maximale) sans détailler la dynamique intermédiaire.</li>
+        </ul>
+      </li>
+      <li><strong>PFD (ou TMC) à privilégier si :</strong>
+        <ul style="margin:.3rem 0 0 1rem;display:flex;flex-direction:column;gap:3px">
+          <li>On veut la <em>loi horaire</em> complète \(x(t)\) ou la <em>période</em> d'un mouvement.</li>
+          <li>Présence de forces non conservatives complexes (frottement variable, forces de contact à analyser).</li>
+          <li>Étude d'un <em>équilibre</em> ou d'une force de réaction (composante normale d'un support, tension d'un fil).</li>
+          <li>Système à plusieurs degrés de liberté couplés (Lagrange ou Newton vectoriel ; l'énergétique seule ne suffit pas).</li>
+        </ul>
+      </li>
+      <li><strong>Souvent la meilleure stratégie : combiner les deux.</strong> L'énergétique donne \(v(x)\) sans intégrer ; le PFD radial donne la force de réaction à l'endroit voulu (cas typique : looping, pendule à grande amplitude, satellite). À l'oral, <em>annoncer explicitement ce choix raisonné</em> et le justifier en une phrase est apprécié.</li>
+      <li><strong>Vérification du sens physique :</strong> tout résultat numérique doit être commenté (ordre de grandeur, signe, comportement limite). C'est un attendu jury 2025 explicite.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="exo r">
+  <div class="exo-head">
+    <span class="exo-tag">Exercice · Looping</span>
+    <span class="exo-level">CPGE — 1ʳᵉ année</span>
+  </div>
+  <h4>Bille dans un rail circulaire vertical — condition de non-décrochage au sommet</h4>
+  <div class="enonce">Une bille assimilée à un point matériel de masse \(m\) est lancée à la vitesse horizontale \(v_0\) au point \(A\), situé en bas d'un rail circulaire vertical de rayon \(R\) et de centre \(O\) (\(A\) au point le plus bas du cercle). Le rail est <strong>sans frottement</strong>. On note \(S\) le point le plus haut du rail. <em>Référentiel terrestre supposé galiléen.</em><br>
+  <strong>1.</strong> En utilisant l'approche énergétique, exprimer la vitesse \(v(\theta)\) en un point du rail repéré par l'angle \(\theta\) compté depuis la verticale descendante \(\overrightarrow{OA}\).<br>
+  <strong>2.</strong> Par projection du PFD sur \(\vec{e}_r\) (radial sortant), exprimer la composante normale \(N\) de la réaction du rail sur la bille au point d'angle \(\theta\).<br>
+  <strong>3.</strong> En déduire la <strong>vitesse minimale \(v_0^{\min}\)</strong> au point \(A\) pour que la bille effectue un tour complet sans décrocher du rail. Discuter le sens physique du résultat.</div>
+
+  <details>
+    <summary>Corrigé détaillé</summary>
+    <div class="corr">
+      <p><strong>Système :</strong> bille assimilée à un point matériel \(M\). <strong>Référentiel :</strong> terrestre galiléen. <strong>Coordonnées :</strong> polaires \((r,\theta)\) centrées en \(O\), avec \(\theta = 0\) en \(A\) (vertical bas) et \(\theta = \pi\) en \(S\) (vertical haut). Sur le rail, \(r = R\) constant. <strong>Bilan des forces :</strong> poids \(\vec{P} = m\vec{g}\), réaction normale du rail \(\vec{N} = -N\,\vec{e}_r\) (le rail pousse vers le centre, donc opposée à \(\vec{e}_r\) sortant).</p>
+
+      <p><strong>Choix méthodologique :</strong> 1 ddl (l'angle \(\theta\)), seule force qui travaille = le poids (conservative ; la réaction \(\vec{N}\) est normale à la trajectoire donc ne travaille pas). L'<em>approche énergétique</em> donne immédiatement \(v(\theta)\). Pour la réaction \(N(\theta)\), il faut le <em>PFD radial</em>. <strong>On combine les deux.</strong></p>
+
+      <ol>
+        <li><strong>Approche énergétique — vitesse en fonction de \(\theta\) :</strong>
+        \(E_m\) conservée (seule force qui travaille est conservative). Avec l'altitude \(z(\theta) = R - R\cos\theta = R(1 - \cos\theta)\) au-dessus de \(A\) :
+        <span class="eq">\( \tfrac{1}{2}m\,v_0^2 + 0 = \tfrac{1}{2}m\,v(\theta)^2 + m\,g\,R\,(1-\cos\theta) \)</span>
+        <span class="eq">\( \boxed{\;v(\theta)^2 = v_0^2 - 2\,g\,R\,(1-\cos\theta)\;} \)</span>
+        On vérifie : \(v(0)^2 = v_0^2\) ✓, \(v(\pi)^2 = v_0^2 - 4gR\). La bille ralentit en montant, accélère en redescendant.
+        </li>
+        <li><strong>PFD radial — réaction du rail :</strong>
+        L'accélération en polaires avec \(r = R\) constant (\(\dot{r} = \ddot{r} = 0\)) est purement centripète :
+        <span class="eq">\( \vec{a} = -R\,\dot{\theta}^2\,\vec{e}_r + R\,\ddot{\theta}\,\vec{e}_\theta = -\dfrac{v^2}{R}\,\vec{e}_r + R\,\ddot{\theta}\,\vec{e}_\theta \)</span>
+        Projection du poids sur \(\vec{e}_r\) sortant : avec \(\theta\) compté depuis \(\overrightarrow{OA}\) (vers le bas), \(\vec{e}_r\) pointe vers le bas en \(A\) (\(\vec{P}\cdot\vec{e}_r = +mg\)) et vers le haut en \(S\) (\(\vec{P}\cdot\vec{e}_r = -mg\)). Formule générale : \(\vec{P}\cdot\vec{e}_r = m g\cos\theta\). Projection du PFD sur \(\vec{e}_r\) :
+        <span class="eq">\( -N + m\,g\,\cos\theta = -m\,\dfrac{v(\theta)^2}{R} \;\Longrightarrow\; N(\theta) = m\,g\,\cos\theta + m\,\dfrac{v(\theta)^2}{R} \)</span>
+        En remplaçant \(v(\theta)^2\) :
+        <span class="eq">\( \boxed{\;N(\theta) = m\,g\,(3\cos\theta - 2) + m\,\dfrac{v_0^2}{R}\;} \)</span>
+        </li>
+        <li><strong>Condition de non-décrochage :</strong> le rail ne peut que <em>pousser</em> la bille vers le centre, soit \(N \geq 0\) (composante normale réelle de la réaction). La condition la plus contraignante est obtenue là où \(N\) est minimal, c'est-à-dire pour \(\cos\theta\) minimal : \(\theta = \pi\) (au sommet \(S\)). On exige donc :
+        <span class="eq">\( N(\pi) = -3\,m\,g + m\,\dfrac{v_0^2}{R} \geq 0 \;\Longrightarrow\; v_0^2 \geq 3\,g\,R \)</span>
+        Soit, après reformulation au sommet via \(v_S^2 = v_0^2 - 4gR\) :
+        <span class="eq">\( \boxed{\;v_S^{\min} = \sqrt{g\,R}\;\Longleftrightarrow\;v_0^{\min} = \sqrt{5\,g\,R}\;} \)</span>
+        </li>
+      </ol>
+
+      <div class="key"><strong>Sens physique :</strong>
+        <ul>
+          <li>Au sommet, la condition \(v_S \geq \sqrt{g R}\) signifie que le poids \(m g\) doit suffire (ou plus) à fournir l'accélération centripète \(m v_S^2/R\). Si \(v_S\) est trop faible, le poids est <em>plus que suffisant</em> et la bille « tombe » avant le sommet : c'est le décrochage.</li>
+          <li>Le facteur 5 dans \(v_0^{\min} = \sqrt{5 g R}\) provient de la somme de la hauteur \(2R\) à acquérir (terme \(4gR\) dans \(v_0^2\)) <em>plus</em> la condition centripète au sommet (terme \(gR\)).</li>
+          <li>Application numérique pour \(R = 1{,}0\,\mathrm{m}\) : \(v_0^{\min} = \sqrt{5 \times 9{,}81 \times 1{,}0} \approx 7{,}0\,\mathrm{m\cdot s^{-1}}\) (\(\approx 25\,\mathrm{km/h}\)). Ordre de grandeur cohérent avec un parc d'attractions.</li>
+          <li><strong>Choix méthodologique justifié :</strong> ici, l'énergétique seule ne donne pas \(N(\theta)\) car la réaction ne travaille pas (équation triviale \(0 = 0\) sur \(N\)). Le PFD radial est <em>indispensable</em> pour la composante normale. L'articulation des deux méthodes est typique des problèmes de looping, pendule à grand angle, satellite sur orbite circulaire.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+</div>
+
 </div>
 
 <!-- ============================================ -->
@@ -722,6 +799,19 @@ svg.fig{display:block;max-width:100%;height:auto;margin:1rem auto;background:var
   <h2>7. Mécanique des fluides</h2>
   <p class="intro">Sujet oral n°13. Le rapport de jury 2025 signale que <strong>l'équation d'Euler est insuffisamment maîtrisée</strong>. Priorité absolue : démontrer Bernoulli à partir d'Euler, comprendre la dérivée particulaire, identifier le sens physique de chaque terme.</p>
 
+<div class="alert alert-red r">
+  <span class="ico">⚠️</span>
+  <div><strong>Pièges jury 2025 sur Euler et Bernoulli (récurrence forte) :</strong> le rapport souligne que la mécanique des fluides est insuffisamment maîtrisée. Cinq confusions à éviter absolument à l'oral :
+    <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:5px">
+      <li><strong>Dérivée particulaire vs dérivée partielle :</strong> écrire \(\vec{a}_{\text{particule}} = \partial\vec{v}/\partial t\) est <em>faux</em> en description eulérienne. La bonne expression est \(\mathrm{D}\vec{v}/\mathrm{D}t = \partial\vec{v}/\partial t + (\vec{v}\cdot\vec{\nabla})\vec{v}\). Le terme convectif \((\vec{v}\cdot\vec{\nabla})\vec{v}\) est <strong>indispensable</strong>, y compris en régime permanent où \(\partial\vec{v}/\partial t = 0\) mais \(\mathrm{D}\vec{v}/\mathrm{D}t \neq 0\) en général (cas du Venturi).</li>
+      <li><strong>Les 4 hypothèses de Bernoulli, énoncées AVANT le calcul :</strong> fluide <em>parfait</em> (\(\eta = 0\)) + <em>incompressible</em> (\(\rho\) uniforme et constant) + écoulement <em>permanent</em> (\(\partial/\partial t = 0\)) + le long d'une <em>ligne de courant</em>. Les oublier — ou les énoncer après — est une faute systématiquement sanctionnée. <strong>Rigueur formelle exigée</strong> : poser les hypothèses, puis dérouler le calcul.</li>
+      <li><strong>« Le long d'une ligne de courant » vs « partout dans le fluide » :</strong> la version « partout » nécessite l'hypothèse supplémentaire d'écoulement <em>irrotationnel</em> (\(\vec{\omega} = \vec{0}\)). Beaucoup l'oublient et appliquent Bernoulli en deux points pris n'importe où.</li>
+      <li><strong>Fluide parfait ≠ fluide incompressible :</strong> ce sont deux hypothèses <em>indépendantes</em>. Un fluide peut être parfait et compressible (acoustique), ou incompressible et visqueux (Navier-Stokes incompressible). Les deux doivent être posées séparément pour Bernoulli.</li>
+      <li><strong>\(\rho\) uniforme dans l'espace ≠ \(\rho\) constant dans le temps :</strong> incompressible signifie \(\mathrm{D}\rho/\mathrm{D}t = 0\) (suivi d'une particule fluide). L'écriture \(\rho = \text{cste}\) impose simultanément l'uniformité spatiale ET la constance temporelle, ce qui est strictement plus fort.</li>
+    </ul>
+  </div>
+</div>
+
 <div class="fbox r">
   <span class="fl">Description eulérienne — dérivée particulaire</span>
   <span class="fc">En description d'Euler, le champ de vitesse \(\vec{v}(M,t)\) est défini en chaque point \(M\) du fluide. L'accélération d'une particule fluide n'est PAS \(\partial\vec{v}/\partial t\) : il faut la dérivée particulaire.</span>
@@ -776,6 +866,42 @@ svg.fig{display:block;max-width:100%;height:auto;margin:1rem auto;background:var
     <p>Si en plus l'écoulement est <strong>irrotationnel</strong> (\(\vec{\omega} = \vec{0}\)), alors \(\vec{v}\wedge\vec{\omega} = \vec{0}\) partout, et la quantité \(\tfrac{1}{2}\rho v^2 + P + \rho g z\) est constante <em>dans tout le fluide</em>, pas seulement le long d'une ligne de courant.</p>
   </div>
   <div class="ccl"><strong>Hypothèses à NE JAMAIS oublier à l'oral :</strong> parfait + incompressible + permanent + le long d'une ligne de courant. Les oublier est une faute classique relevée par le jury.</div>
+</div>
+
+<div class="demo r">
+  <div class="demo-head">Démonstration · Formule de Torricelli</div>
+  <h4>Vitesse de vidange d'un réservoir par un petit orifice — application directe de Bernoulli</h4>
+  <div class="step">
+    <div class="step-label">Hypothèses (à énoncer explicitement avant tout calcul)</div>
+    <ul>
+      <li>Fluide <strong>parfait</strong> (\(\eta = 0\), pas de viscosité).</li>
+      <li>Fluide <strong>incompressible</strong> et homogène (eau : \(\rho \approx 1{,}00\cdot 10^3\,\mathrm{kg\cdot m^{-3}}\)).</li>
+      <li>Écoulement <strong>quasi-permanent</strong> : la section \(S\) de l'orifice est très petite devant la section \(\Sigma\) du réservoir (\(S \ll \Sigma\)), donc le niveau \(h\) baisse lentement et \(\partial/\partial t \approx 0\) sur l'échelle de temps de l'écoulement de la particule fluide.</li>
+      <li>Application de Bernoulli <strong>le long d'une ligne de courant</strong> reliant un point \(A\) de la surface libre (en haut, à la pression atmosphérique) à un point \(B\) immédiatement à la sortie de l'orifice (également à la pression atmosphérique car le jet sortant est à l'air libre).</li>
+    </ul>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 1 — Écriture de Bernoulli entre \(A\) (surface libre) et \(B\) (orifice)</div>
+    <p>Soit \(z_A = h\) (hauteur de la surface libre au-dessus de l'orifice) et \(z_B = 0\) (origine prise à l'orifice). On note \(v_A\) la vitesse de descente de la surface libre et \(v_B\) la vitesse du jet à la sortie.</p>
+    <span class="eq">\( \tfrac{1}{2}\rho\,v_A^2 + P_A + \rho\,g\,h = \tfrac{1}{2}\rho\,v_B^2 + P_B + 0 \)</span>
+    <p>Avec \(P_A = P_B = P_{\text{atm}}\) (les deux points sont à l'air libre), il vient :</p>
+    <span class="eq">\( \tfrac{1}{2}\rho\,v_A^2 + \rho\,g\,h = \tfrac{1}{2}\rho\,v_B^2 \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 2 — Conservation du débit (\(S \ll \Sigma\))</div>
+    <p>Le fluide étant incompressible, conservation du débit volumique : \(\Sigma\,v_A = S\,v_B\). Comme \(S \ll \Sigma\), \(v_A = (S/\Sigma)\,v_B \ll v_B\), donc \(v_A^2\) est négligeable devant \(v_B^2\) à l'ordre dominant.</p>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 3 — Isolation de \(v_B\)</div>
+    <span class="eq">\( \boxed{\;v_B = \sqrt{2\,g\,h}\;} \quad\text{(formule de Torricelli, 1644)} \)</span>
+  </div>
+  <div class="step">
+    <div class="step-label">Étape 4 — Vérification dimensionnelle et sens physique</div>
+    <p><strong>Dimension :</strong> \([g\,h] = (\mathrm{m\cdot s^{-2}})\cdot\mathrm{m} = \mathrm{m^2\cdot s^{-2}}\) donc \(\sqrt{g\,h}\) est bien homogène à une vitesse (m·s⁻¹). ✓</p>
+    <p><strong>Sens physique :</strong> on retrouve la vitesse acquise par une masse en chute libre depuis la hauteur \(h\) (théorème de l'énergie cinétique : \(\tfrac{1}{2}m v^2 = m g h\)). C'est cohérent : Bernoulli sur un fluide parfait incompressible est une expression de la conservation de l'énergie mécanique pour une particule fluide.</p>
+    <p><strong>Application numérique :</strong> pour \(h = 1{,}0\,\mathrm{m}\) et \(g = 9{,}81\,\mathrm{m\cdot s^{-2}}\), \(v_B = \sqrt{2 \times 9{,}81 \times 1{,}0} \approx 4{,}4\,\mathrm{m\cdot s^{-1}}\) (\(\approx 16\,\mathrm{km/h}\)).</p>
+  </div>
+  <div class="ccl"><strong>Corrections expérimentales :</strong> en pratique, on observe une vitesse réelle inférieure (coefficient de contraction de la veine fluide \(\approx 0{,}6\)–\(0{,}65\), effet de Borda) et un débit \(Q_v = C_d\,S\sqrt{2 g h}\) avec \(C_d \in [0{,}6\,;\,0{,}65]\) pour un orifice à parois minces. Ces écarts à Torricelli sont liés aux hypothèses idéales (notamment fluide parfait) et offrent une excellente illustration de la <strong>distinction expérience / modèle</strong> attendue par le jury.</div>
 </div>
 
 <div class="fbox r">
@@ -1427,6 +1553,17 @@ svg.fig{display:block;max-width:100%;height:auto;margin:1rem auto;background:var
   </ul>
 </div>
 
+<div class="ped-card r">
+  <div class="niveau">CPGE — filières BCPST / TSI / MPI</div>
+  <h5>Spécificités et adaptations pour l'oral</h5>
+  <ul>
+    <li><strong>BCPST (bio-vétérinaire) :</strong> mécanique du solide allégée, pas de référentiel non galiléen au programme. Privilégier les illustrations <em>biomécaniques</em> (locomotion, statique du squelette, hémodynamique avec Poiseuille pour la circulation sanguine, loi de Laplace pour les alvéoles). Application directe : analyse dimensionnelle de la fréquence cardiaque selon la masse de l'animal (loi de Kleiber).</li>
+    <li><strong>TSI (technologie et sciences industrielles) :</strong> orientation génie mécanique. Privilégier l'<em>application industrielle</em> : transmission de puissance (engrenages, courroies), liaisons cinématiques (modélisation par solide indéformable et torseur d'effort), oscillations dans les systèmes mécaniques (suspension automobile, embrayage, équilibrage dynamique). Bien faire le pont avec les notions de SII (sciences industrielles de l'ingénieur).</li>
+    <li><strong>MPI (mathématiques, physique, informatique) :</strong> programme proche de MP mais avec <em>focus modélisation et simulation</em>. Privilégier la résolution numérique d'équations différentielles (Euler explicite, Runge-Kutta 4 en Python), le portrait de phase calculé, la vérification numérique de la conservation \(E_m\) et \(L\) pour les schémas symplectiques. Excellent vecteur pour montrer la <strong>distinction modèle / simulation / expérience</strong> chère au jury.</li>
+    <li><strong>Conseil d'adaptation à l'oral :</strong> si la classe interrogée est inconnue, partir d'un exposé MP/PC/PSI puis indiquer en ouverture les variations possibles ; l'examinateur appréciera la souplesse pédagogique. Pour BCPST notamment, éviter de mobiliser des outils hors programme (force d'inertie, formules de Binet) sans précaution.</li>
+  </ul>
+</div>
+
 <div class="alert alert-phys r">
   <span class="ico">📋</span>
   <div><strong>Difficultés classiques des élèves (à connaître pour l'oral) :</strong>
@@ -1437,6 +1574,9 @@ svg.fig{display:block;max-width:100%;height:auto;margin:1rem auto;background:var
       <li><strong>Projections :</strong> oublier les signes lors du passage du vecteur au scalaire ; mauvaise orientation des axes.</li>
       <li><strong>Forces conservatives :</strong> méconnaissance du test \(\oint\vec{F}\cdot\mathrm{d}\vec{\ell} = 0\) et application aveugle de la conservation de l'énergie en présence de frottements.</li>
       <li><strong>Force centrifuge :</strong> tendance à l'invoquer dans un référentiel galiléen alors qu'elle n'existe que dans un référentiel tournant.</li>
+      <li><strong>Confusion poids et masse :</strong> les élèves emploient indifféremment « poids » (force, en newtons) et « masse » (en kilogrammes). Sur la Lune, la masse est inchangée mais le poids vaut \(\approx m\,g_{\text{Lune}}/6\). Conception très tenace, même au lycée.</li>
+      <li><strong>Confusion période et pseudo-période :</strong> en présence d'amortissement, le mouvement n'est plus périodique au sens strict (l'amplitude décroît). La grandeur observée est une <em>pseudo-période</em> \(T = 2\pi/\omega\) avec \(\omega = \omega_0\sqrt{1 - 1/(4Q^2)}\), légèrement supérieure à \(T_0\). Beaucoup d'élèves notent \(T_0\) ce qu'ils mesurent expérimentalement, et appellent « période » la pseudo-période sans le préciser.</li>
+      <li><strong>Extension abusive de l'isochronisme :</strong> le pendule simple est isochrone <em>uniquement</em> aux petits angles (\(\theta_{\max} \lesssim 10°\), erreur \(\lesssim 0{,}2\,\%\) sur \(T\)). À grande amplitude, la période croît : \(T(\theta_{\max}) = T_0\,[1 + \theta_{\max}^2/16 + \ldots]\) (développement de Borda). Faute classique : prétendre que « le pendule est isochrone » sans préciser la condition.</li>
     </ul>
   </div>
 </div>
@@ -1462,6 +1602,97 @@ svg.fig{display:block;max-width:100%;height:auto;margin:1rem auto;background:var
     <li><strong>IV. Applications de Bernoulli :</strong> Venturi, tube de Pitot, écoulement à travers un orifice (Torricelli).</li>
     <li><strong>V. Effet de la viscosité :</strong> Navier-Stokes, Poiseuille, Reynolds, transition laminaire/turbulent.</li>
   </ul>
+</div>
+
+<div class="summary-box r">
+  <h4>Plan-type pour la leçon orale n°8 (Oscillateurs mécaniques)</h4>
+  <ul>
+    <li><strong>Introduction (5 min) :</strong> les oscillations dans la vie quotidienne (balançoire, suspension de voiture, diapason, sismographe). Problématique : pourquoi un système écarté de l'équilibre y revient-il en oscillant ? Prérequis : forces, énergie potentielle, équilibre stable. Annonce du plan en 2 parties.</li>
+    <li><strong>I. Approche niveau lycée — l'oscillateur harmonique sans amortissement (15 min)</strong>
+      <ul>
+        <li>Système masse-ressort horizontal : étude expérimentale, loi de Hooke \(\vec{F} = -k\,x\,\vec{e}_x\), bilan énergétique \(E_m = \tfrac{1}{2}m\dot{x}^2 + \tfrac{1}{2}k\,x^2\).</li>
+        <li>Établissement de \(\ddot{x} + \omega_0^2\,x = 0\) par PFD <em>dans le référentiel terrestre supposé galiléen</em>. Solution sinusoïdale, période \(T_0 = 2\pi\sqrt{m/k}\). <strong>Insister sur l'unité de \(\omega_0\) : rad·s⁻¹</strong> (attente jury 2025).</li>
+        <li>Pendule simple aux petits angles : \(\omega_0 = \sqrt{g/L}\) ; <strong>isochronisme</strong> et sa <strong>limite</strong> (\(\theta_{\max} \lesssim 10°\)).</li>
+        <li><strong>Illustration expérimentale n°1 :</strong> mesure de \(T_0\) au capteur photoélectrique sur un système masse-ressort horizontal (rail à coussin d'air). Vérification de \(T_0 = 2\pi\sqrt{m/k}\) par variation de \(m\) ; régression linéaire de \(T_0^2\) en fonction de \(m\). Incertitudes sur \(k\) (étalonnage statique) et discussion du sens physique de la pente.</li>
+      </ul>
+    </li>
+    <li><strong>II. Approfondissement CPGE — amortissement et portrait de phase (20 min)</strong>
+      <ul>
+        <li>Force de frottement fluide \(\vec{F}_f = -h\,\vec{v}\). Équation \(\ddot{x} + 2\,\lambda\,\dot{x} + \omega_0^2\,x = 0\) ; trois régimes (sous-amorti, critique, sur-amorti) selon le facteur de qualité \(Q = \omega_0/(2\lambda)\).</li>
+        <li>Pseudo-période \(T = 2\pi/\omega\) avec \(\omega = \omega_0\sqrt{1 - 1/(4Q^2)}\) — <strong>distinguer rigoureusement période et pseudo-période</strong>.</li>
+        <li>Décrément logarithmique \(\delta = \ln(x_n/x_{n+1}) \approx \pi/Q\) pour \(Q \gg 1\). Universalité du modèle (RLC série, retour à l'équilibre thermique linéarisé).</li>
+        <li>Portrait de phase \((x,\dot{x})\) : spirale convergente, attracteur en zéro. Lecture qualitative.</li>
+        <li><strong>Illustration expérimentale n°2 :</strong> oscillateur électromécanique (pendule pesant à fluide visqueux variable, ou circuit RLC série) ; acquisition Latis Pro/Regressi à \(f_e \geq 10\,f_0\) ; ajustement de \(x(t) = A\,\mathrm{e}^{-\lambda t}\cos(\omega t + \varphi)\) ; extraction de \(Q\) et confrontation au calcul théorique. Discuter les sources d'incertitudes (étalonnage capteur, ajustement non-linéaire).</li>
+      </ul>
+    </li>
+    <li><strong>Conclusion + ouverture (5 min) :</strong> universalité de l'oscillateur harmonique (toute énergie potentielle au voisinage d'un minimum se développe en \(\tfrac{1}{2}k_{\text{eff}}\,x^2\) — Taylor à l'ordre 2). Liens : oscillateur quantique, modes propres d'une corde vibrante, électromagnétisme (LC), sismologie. Ouverture vers la leçon n°14 (résonance) et n°23 (mouvements à force centrale, oscillations radiales).</li>
+  </ul>
+</div>
+
+<div class="summary-box r">
+  <h4>Plan-type pour la leçon orale n°14 (Résonance)</h4>
+  <ul>
+    <li><strong>Introduction (5 min) :</strong> pourquoi un pont peut s'effondrer sous une excitation périodique modérée (Tacoma Narrows 1940 — schématiquement, le mécanisme exact est une instabilité aéroélastique plus subtile que la résonance simple ; à mentionner sans détailler). Problématique : que se passe-t-il quand on excite un oscillateur à une fréquence proche de sa fréquence propre ? Prérequis : oscillateur harmonique amorti, complexes en physique.</li>
+    <li><strong>I. Approche niveau lycée — la résonance d'un oscillateur (15 min)</strong>
+      <ul>
+        <li>Excitation périodique d'un pendule simple, d'un ressort. Observation : grandes amplitudes quand \(f_{\text{exc}} \approx f_0\).</li>
+        <li>Mise en équation simple : \(\ddot{x} + 2\lambda\dot{x} + \omega_0^2\,x = F_0\,\cos(\omega t)/m\), <em>dans le référentiel terrestre supposé galiléen</em>. Solution stationnaire \(x(t) = X(\omega)\,\cos(\omega t - \varphi)\).</li>
+        <li>Analogie avec un circuit RLC alimenté en sinus (intensité maximale à \(\omega = 1/\sqrt{LC}\)).</li>
+        <li><strong>Illustration expérimentale n°1 :</strong> diapason couplé à une caisse de résonance ; ou résonance acoustique d'une colonne d'air à une extrémité fermée (tube de Kundt). Mesure des fréquences propres et confrontation à \(f_n = (2n+1)c/(4L)\).</li>
+      </ul>
+    </li>
+    <li><strong>II. Approfondissement CPGE — résonance en élongation vs en vitesse, courbes universelles (20 min)</strong>
+      <ul>
+        <li>Méthode complexe : \(\underline{x}(t) = \underline{X}\,\mathrm{e}^{j\omega t}\), \(\underline{X} = F_0/[m(\omega_0^2 - \omega^2 + 2j\lambda\omega)]\).</li>
+        <li><strong>Résonance en élongation</strong> à \(\omega_r = \omega_0\sqrt{1 - 1/(2Q^2)}\), <strong>n'existe que si \(Q > 1/\sqrt{2}\)</strong>. <strong>Résonance en vitesse</strong> à \(\omega = \omega_0\) <em>quelle que soit la valeur de \(Q\)</em> — <strong>distinction critique attendue par le jury</strong>.</li>
+        <li>Bande passante à \(-3\,\mathrm{dB}\) : \(\Delta\omega = \omega_0/Q\). Facteur de qualité comme rapport \(\omega_0/\Delta\omega\).</li>
+        <li>Diagramme de Bode (amplitude et phase). Universalité : RLC série en intensité, sismographe, spectroscopie RMN, accordage radio.</li>
+        <li><strong>Illustration expérimentale n°2 :</strong> circuit RLC série piloté en GBF ; tracé expérimental de la courbe de résonance \(|I|(f)\) à amplitude de tension constante ; extraction de \(Q\) par la bande passante à \(-3\,\mathrm{dB}\) ; confrontation à \(Q = (1/R)\sqrt{L/C}\). Traitement informatisé (acquisition Sysam ; Python ou Regressi). Discuter \(u(f)\), \(u(I_{\max})\) et leur impact sur \(u(Q)\).</li>
+      </ul>
+    </li>
+    <li><strong>Conclusion + ouverture (5 min) :</strong> applications technologiques (filtre sélectif, IRM, accordage instruments). Limites du modèle linéaire : phénomènes non-linéaires (résonance paramétrique, hystérésis). Ouverture vers les oscillations couplées et les modes propres.</li>
+  </ul>
+</div>
+
+<div class="summary-box r">
+  <h4>Plan-type pour la leçon orale n°23 (Mouvements à force centrale — Kepler)</h4>
+  <ul>
+    <li><strong>Introduction (5 min) :</strong> de Ptolémée à Newton — de la cinématique des planètes à la dynamique gravitationnelle. Problématique : peut-on rendre compte des trois lois empiriques de Kepler à partir d'une seule loi d'interaction ? Prérequis : PFD, énergie potentielle, coordonnées polaires.</li>
+    <li><strong>I. Approche niveau lycée — orbites circulaires et 3ᵉ loi de Kepler (15 min)</strong>
+      <ul>
+        <li>Loi de la gravitation universelle \(\vec{F} = -GMm/r^2\,\vec{e}_r\), <em>dans le référentiel héliocentrique supposé galiléen</em>.</li>
+        <li>Orbite circulaire : PFD radial \(\Rightarrow v^2 = GM/r\) puis \(T^2 = 4\pi^2 r^3/(GM)\) (3ᵉ loi de Kepler dans le cas circulaire).</li>
+        <li>Énergie d'une orbite circulaire \(E_m = -GMm/(2r)\) — le signe est essentiel (état lié). Première et seconde vitesses cosmiques.</li>
+        <li><strong>Illustration expérimentale n°1 :</strong> exploitation quantitative d'un jeu de données astronomiques (rayons orbitaux et périodes des planètes du système solaire ; ou données récentes de satellites Starlink). Régression \(\log T = (3/2)\log r + \text{cste}\) ; extraction de \(GM_{\odot}\) ; comparaison à la valeur tabulée. Sources d'incertitudes : qualité du fit, dispersion d'orbites non strictement circulaires.</li>
+      </ul>
+    </li>
+    <li><strong>II. Approfondissement CPGE — trajectoires elliptiques et formule de Binet (20 min)</strong>
+      <ul>
+        <li>Conservation du moment cinétique \(\vec{L}_O\) pour toute force centrale \(\Rightarrow\) mouvement plan, loi des aires \(C = r^2\dot{\theta}\) constante (2ᵉ loi de Kepler).</li>
+        <li>Énergie effective \(E_p^{\text{eff}}(r) = -GMm/r + mC^2/(2r^2)\) ; analyse qualitative du portrait : états liés (ellipses, \(E_m < 0\)) et états de diffusion (paraboles \(E_m = 0\), hyperboles \(E_m > 0\)).</li>
+        <li>Équation de la trajectoire (formule de Binet) \(u'' + u = GM/C^2\) avec \(u = 1/r\) ; solution conique \(r = p/(1 + e\cos\theta)\). Identification \(p = C^2/(GM)\).</li>
+        <li>Relation vis-viva \(v^2 = GM(2/r - 1/a)\). 3ᵉ loi de Kepler généralisée : \(T^2/a^3 = 4\pi^2/(GM)\).</li>
+        <li><strong>Illustration expérimentale n°2 :</strong> analogue de force centrale en TP — bille sur table à coussin d'air avec attracteur central (élastique ou aimant) ; capture vidéo, traitement Aviméca ; tracé de la trajectoire, vérification de la loi des aires (intégration numérique de \(r^2\dot{\theta}\) le long de la trajectoire). Ou : simulation Python d'orbite képlérienne avec schéma de Verlet ; étude de la conservation numérique de \(E_m\) et \(L\) ; discussion du choix du pas \(\Delta t\).</li>
+      </ul>
+    </li>
+    <li><strong>Conclusion + ouverture (5 min) :</strong> Newton a unifié céleste et terrestre. Limites : précession du périhélie de Mercure (relativité générale) ; problème à \(N \geq 3\) corps non intégrable ; chaos déterministe. Applications : missions spatiales, transferts de Hohmann, satellites géostationnaires.</li>
+  </ul>
+</div>
+
+<div class="alert alert-red r">
+  <span class="ico">⚠️</span>
+  <div><strong>Top 8 pièges jury en mécanique — synthèse pour réviser avant l'oral :</strong> erreurs récurrentes identifiées sur les sessions 2023-2025. Chaque microtag indique la source. Pour 2026, le rapport paraîtra à l'automne 2026 — un badge « Confirmé 2026 » sera ajouté en mise à jour ultérieure.
+    <ol style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:6px">
+      <li><strong>Pulsation oubliée en rad·s⁻¹.</strong> Écrire \(\omega = 12{,}5\) sans unité, ou pire en Hz, est sanctionné. Toujours rappeler : \([\omega] = \mathrm{rad\cdot s^{-1}}\), \([f] = \mathrm{Hz}\), avec \(\omega = 2\pi f\). <span class="src-tag">[Rapport jury 2025, attentes générales — unités systématiques]</span></li>
+      <li><strong>Confusion Euler vs Navier-Stokes.</strong> Euler = fluide <em>parfait</em> (\(\eta = 0\)). Navier-Stokes = fluide visqueux newtonien (terme \(\eta\,\Delta\vec{v}\) en plus). Ne pas écrire « Euler avec viscosité » ni « Navier-Stokes sans viscosité ». <span class="src-tag">[Rapport jury 2025, mécanique des fluides — insuffisamment maîtrisée]</span></li>
+      <li><strong>\(\Delta E_m \neq 0\) en présence de frottements.</strong> Appliquer la conservation de l'énergie mécanique alors que des frottements (forces non conservatives) travaillent est une faute classique. Le bon outil est : \(\Delta E_m = W(\vec{F}_{\text{non-cons}}) \leq 0\). <span class="src-tag">[Récurrence confirmée 2023-2025]</span></li>
+      <li><strong>Dépendance temporelle de \(\vec{e}_r\) ignorée.</strong> En polaires, \(\vec{e}_r\) et \(\vec{e}_\theta\) <em>dépendent du temps</em> via \(\theta(t)\). Dérivée : \(\mathrm{d}\vec{e}_r/\mathrm{d}t = \dot{\theta}\,\vec{e}_\theta\). Oubli classique qui mène à des accélérations fausses. <span class="src-tag">[Rapport jury 2025, cinématique]</span></li>
+      <li><strong>Confusion accélération de Coriolis et force de Coriolis.</strong> L'<em>accélération de Coriolis</em> \(\vec{a}_C = 2\,\vec{\Omega}\wedge\vec{v}_r\) est une grandeur cinématique liée à la composition des accélérations. La <em>force d'inertie de Coriolis</em> \(\vec{F}_C = -2\,m\,\vec{\Omega}\wedge\vec{v}_r\) apparaît dans le PFD écrit dans le référentiel non galiléen. Signe opposé, statut conceptuel différent. <span class="src-tag">[Récurrence confirmée 2024-2025]</span></li>
+      <li><strong>Paire action-réaction appliquée sur le même corps.</strong> La 3ᵉ loi de Newton concerne deux forces s'exerçant sur <em>deux corps différents</em>. Les sommer dans un même bilan de forces (sur un même système) est faux. <span class="src-tag">[Rapport jury 2025, didactique]</span></li>
+      <li><strong>Résonance en élongation vs en vitesse.</strong> Résonance en élongation à \(\omega_r = \omega_0\sqrt{1 - 1/(2Q^2)}\), <em>n'existe que si \(Q > 1/\sqrt{2}\)</em>. Résonance en vitesse à \(\omega = \omega_0\) quel que soit \(Q\). Ne pas confondre, ne pas omettre la condition d'existence. <span class="src-tag">[Rapport jury 2025, oscillateurs]</span></li>
+      <li><strong>Isochronisme du pendule étendu hors petits angles.</strong> L'isochronisme est valide uniquement aux petits angles (\(\theta_{\max} \lesssim 10°\)). À grande amplitude, \(T(\theta_{\max}) = T_0\,[1 + \theta_{\max}^2/16 + \ldots]\) (formule de Borda). Affirmer « le pendule est isochrone » sans précision est une faute. <span class="src-tag">[Récurrence confirmée 2023-2025]</span></li>
+    </ol>
+  </div>
 </div>
 
 </div>
