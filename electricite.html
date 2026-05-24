@@ -287,6 +287,97 @@
      −40 ┤                      ╲╲
          └─────┬─────┬─────┬─────┬───────→ log ω
               0.1ωc   ωc   10ωc 100ωc</pre>
+
+  <h3>5.4 Amplificateur opérationnel et filtres actifs</h3>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Amplificateur opérationnel idéal</div>
+    <div class="notion-body">
+      <p>L'amplificateur opérationnel (AO) est un amplificateur différentiel intégré à très grand gain. Il possède deux entrées notées \(v^+\) (non-inverseuse) et \(v^-\) (inverseuse), une sortie \(v_s\) et une alimentation symétrique typiquement \(\pm 15\,\mathrm{V}\). Composant central de l'électronique analogique linéaire depuis les années 1960, il rend possible toutes les fonctions de §5.2-5.3 sans bobines ni atténuation.</p>
+
+      <p><strong>Modèle idéal — 3 hypothèses :</strong></p>
+      <ul>
+        <li>Impédance d'entrée infinie : \(i^+ = i^- = 0\) (aucun courant ne circule dans les entrées)</li>
+        <li>Impédance de sortie nulle : la sortie se comporte comme une source de tension idéale</li>
+        <li>Gain différentiel infini en boucle ouverte : \(A_d \to \infty\), soit \(v_s = A_d\,(v^+ - v^-)\) avec \(A_d \to \infty\)</li>
+      </ul>
+
+      <p><strong>Deux régimes mutuellement exclusifs :</strong></p>
+      <ul>
+        <li><strong>Régime linéaire</strong> — exige une <em>rétroaction négative</em> (fraction de \(v_s\) ramenée sur l'entrée \(-\)). Le système se stabilise sur \(\varepsilon = v^+ - v^- = 0\), soit \(\boxed{v^+ = v^-}\). La sortie reste dans la plage \(|v_s| < V_{sat}\). C'est dans ce régime que sont analysés tous les montages canoniques ci-dessous.</li>
+        <li><strong>Régime saturé</strong> — sortie bloquée à \(\pm V_{sat} \approx \pm 13\,\mathrm{V}\) (légèrement inférieure à l'alimentation), \(\varepsilon \neq 0\). Exploité dans les comparateurs et triggers de Schmitt (rétroaction positive : fraction de \(v_s\) ramenée sur l'entrée \(+\)).</li>
+      </ul>
+
+      <p><strong>Critère de reconnaissance du régime linéaire</strong> — tracer le chemin de contre-réaction : si une fraction de \(v_s\) revient sur l'entrée \(-\), rétroaction négative donc régime linéaire ; si elle revient sur l'entrée \(+\), rétroaction positive donc bascule en saturation. <em>Vérifier ce critère avant d'appliquer \(\varepsilon = 0\)</em> est un piège classique du jury (cf. §8, « AO en saturation ignorée »).</p>
+
+      <p><strong>Limites pratiques du modèle idéal</strong> — l'AO réel n'a pas un gain infini : \(A_d \sim 10^5\) à \(10^6\) en continu, avec un produit gain-bande constant \(A_d \cdot f \approx f_T\) où \(f_T \sim 1\) à \(10\,\mathrm{MHz}\) pour des AO usuels (TL081, LM741). S'ajoutent une tension d'offset, des courants de polarisation et un slew rate (vitesse maximale de variation de \(v_s\)) qui limitent les performances en haute fréquence et grand signal.</p>
+    </div>
+  </div>
+
+  <div class="fbox r">
+    <span class="fl">Montages canoniques en régime linéaire</span>
+    <span class="fc"><strong>Suiveur</strong> — entrée sur \(v^+\), sortie rebouclée directement sur \(v^-\). Gain unité, isolation parfaite des étages.</span>
+    <span class="fm">\[ v_s \;=\; v_e \qquad Z_e \to \infty,\quad Z_s \to 0 \]</span>
+    <span class="fc">Usage : adaptation d'impédance entre une source à forte impédance interne et une charge basse impédance.</span>
+    <hr>
+    <span class="fc"><strong>Amplificateur non-inverseur</strong> — entrée sur \(v^+\), pont diviseur \(R_1,R_2\) entre la sortie et la masse, point milieu sur \(v^-\).</span>
+    <span class="fm">\[ v_s \;=\; \left(1 + \dfrac{R_2}{R_1}\right) v_e \qquad \text{gain} \geq 1 \]</span>
+    <span class="fc">Impédance d'entrée infinie (entrée sur \(v^+\) directement). Pas d'inversion de phase.</span>
+    <hr>
+    <span class="fc"><strong>Amplificateur inverseur</strong> — entrée à travers \(R_1\) sur \(v^-\), contre-réaction par \(R_2\) entre sortie et \(v^-\), \(v^+\) à la masse.</span>
+    <span class="fm">\[ v_s \;=\; -\dfrac{R_2}{R_1}\, v_e \]</span>
+    <span class="fc">Gain négatif (déphasage \(\pi\)). Impédance d'entrée finie égale à \(R_1\) — c'est le compromis du montage.</span>
+    <hr>
+    <span class="fc"><strong>Sommateur inverseur</strong> — généralisation : plusieurs entrées \(v_i\) à travers \(R_i\) sur \(v^-\), même \(R\) en contre-réaction.</span>
+    <span class="fm">\[ v_s \;=\; -R\sum_i \dfrac{v_i}{R_i} \qquad \text{si } R_i = R \,:\, v_s = -\sum_i v_i \]</span>
+    <span class="fc">Usages : mixage audio, sommation pondérée en traitement analogique, conversion N→A par réseau R-2R.</span>
+    <hr>
+    <span class="fc"><strong>Intégrateur</strong> — \(R\) en entrée sur \(v^-\), \(C\) en contre-réaction.</span>
+    <span class="fm">\[ v_s(t) \;=\; -\dfrac{1}{RC}\int_0^t v_e(t')\,\mathrm{d}t' \;+\; v_s(0) \]</span>
+    <span class="fc"><strong>Mise en garde</strong> — en continu, l'offset d'entrée et les courants de polarisation font dériver la sortie jusqu'à saturation : il faut systématiquement placer une résistance \(R_f\) en parallèle de \(C\) pour borner le gain BF (gain \(= -R_f/R\) à fréquence nulle). Usages : générateurs de fonctions (rampe), asservissements PID (action I), démodulation.</span>
+    <hr>
+    <span class="fc"><strong>Dérivateur</strong> — \(C\) en entrée sur \(v^-\), \(R\) en contre-réaction.</span>
+    <span class="fm">\[ v_s \;=\; -RC\,\dfrac{\mathrm{d}v_e}{\mathrm{d}t} \]</span>
+    <span class="fc"><strong>Mise en garde</strong> — le gain croît en \(+20\,\mathrm{dB/déc}\) jusqu'à la fréquence de transition de l'AO : tout bruit HF est amplifié, le montage est instable. Rarement utilisé tel quel ; préférer un passe-haut suivi d'un amplificateur à gain plat.</span>
+  </div>
+
+  <div class="fbox r">
+    <span class="fl">Filtre actif passe-bas du 2e ordre — structure de Sallen-Key</span>
+    <span class="fc">Deux cellules RC en cascade bouclées autour d'un AO monté en non-inverseur de gain \(K\) (typiquement 1 ou réglable). Topologie la plus utilisée pour synthétiser des filtres d'ordre pair à partir de cellules du second ordre.</span>
+    <span class="fm">\[ \underline{H}(\mathrm{i}\omega) \;=\; \dfrac{K}{1 + \dfrac{\mathrm{i}\omega}{Q\,\omega_0} + \left(\dfrac{\mathrm{i}\omega}{\omega_0}\right)^2} \]</span>
+    <span class="fc">Avec composants identiques (\(R_1 = R_2 = R\), \(C_1 = C_2 = C\)) et gain unité : \(\omega_0 = 1/(RC)\) et \(Q = 1/(3-K)\). La réponse de Butterworth ordre 2 (\(Q = 1/\sqrt{2}\), réponse plate maximum en module) est atteinte pour \(K = 3 - \sqrt{2} \approx 1{,}586\) ou par dimensionnement asymétrique des composants.</span>
+    <hr>
+    <span class="fc"><strong>Quatre avantages vs filtre passif :</strong></span>
+    <span class="fc">(1) pas d'atténuation utile — le gain en bande passante est \(\geq 1\) au lieu d'être inférieur à 1 comme dans un RLC passif chargé ; (2) impédance de sortie quasi nulle — les cellules se chaînent sans recalculer la fonction de transfert globale, l'étage suivant ne charge pas le précédent ; (3) facteur de qualité \(Q\) réglable par le choix des composants, indépendamment de \(\omega_0\) ; (4) pas de bobines — encombrement minimal, idéal en audio (\(L\) basse fréquence = volumineuse, sensible aux parasites).</span>
+    <hr>
+    <span class="fc"><strong>Usage canonique</strong> — c'est exactement le filtre <em>anti-repliement</em> placé en amont du CAN dans la chaîne d'acquisition (cf. §6.4). En cascadant 2 à 4 cellules Sallen-Key, on obtient un Butterworth d'ordre 4 à 8, soit une pente de \(-80\) à \(-160\,\mathrm{dB/déc}\) au-delà de \(f_c\) — suffisante pour atténuer toute composante au-dessus de \(f_e/2\) sous le bruit de quantification du convertisseur.</span>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Oscillateur quasi-sinusoïdal — critère de Barkhausen</div>
+    <div class="notion-body">
+      <p>Un oscillateur quasi-sinusoïdal est une boucle fermée constituée d'un amplificateur de fonction de transfert \(\underline{A}(j\omega)\) et d'un réseau de réaction passif \(\underline{\beta}(j\omega)\) sélectif en fréquence. Sans signal d'entrée, le système entretient une oscillation sinusoïdale à une pulsation \(\omega_0\) déterminée par le réseau.</p>
+
+      <p><strong>Condition de Barkhausen</strong> — pour qu'une oscillation auto-entretenue existe, le gain de boucle doit valoir 1 à \(\omega_0\) :</p>
+      <p>\[ \underline{A}(j\omega_0)\,\underline{\beta}(j\omega_0) \;=\; 1 \quad\iff\quad \begin{cases} |\underline{A}\,\underline{\beta}| = 1 \\ \arg(\underline{A}\,\underline{\beta}) = 0\ [2\pi] \end{cases} \]</p>
+      <p>La condition de phase fixe la pulsation \(\omega_0\) ; la condition de module fixe l'amplitude (en théorie idéale).</p>
+
+      <p><strong>Exemple — oscillateur à pont de Wien.</strong> Le pont de Wien est un quadripôle RC sélectif :</p>
+      <p>\[ \underline{\beta}(j\omega) \;=\; \dfrac{1}{3 + \mathrm{j}\left(RC\omega - \dfrac{1}{RC\omega}\right)} \]</p>
+      <p>La phase est nulle lorsque \(RC\omega_0 = 1/(RC\omega_0)\), soit \(\boxed{\omega_0 = 1/(RC)}\). À cette pulsation, \(\underline{\beta}(j\omega_0) = 1/3\) (réel). La condition \(|\underline{A}\,\underline{\beta}| = 1\) impose alors \(A = 3\), réalisable par un AO en non-inverseur avec \(R_2/R_1 = 2\).</p>
+
+      <p><strong>Démarrage et stabilisation d'amplitude</strong> (point sensible du jury) — en pratique, on règle \(A\) légèrement supérieur à 3 pour que les fluctuations de bruit thermique amorcent l'oscillation et qu'elle croisse exponentiellement. Sans mécanisme de limitation, l'amplitude croît jusqu'à écrêtage par saturation de l'AO, ce qui introduit une forte distorsion harmonique. La stabilisation s'obtient par un élément non-linéaire à résistance dynamique variable en fonction de l'amplitude :</p>
+      <ul>
+        <li><strong>Lampe à incandescence</strong> en série dans la branche \(R_1\) — historique : HP 200A en 1939 (premier produit Hewlett-Packard, thèse de Bill Hewlett à Stanford). Très faible distorsion (THD &lt; 0,1 %).</li>
+        <li><strong>Diodes Zener tête-bêche</strong> en parallèle sur \(R_2\) — simple mais introduit une distorsion notable (THD de quelques %).</li>
+        <li><strong>JFET en zone ohmique</strong> piloté par l'amplitude redressée et filtrée de \(v_s\) — solution moderne, bon compromis.</li>
+      </ul>
+
+      <p><em>Ce dispositif sera détaillé dans la démo « pont de Wien » à venir (P5).</em></p>
+    </div>
+  </div>
+
+  <p class="cross-ref" style="font-size:13px;color:var(--muted2);margin-top:1rem;font-style:italic"><strong>Renvois :</strong> chaîne d'acquisition complète en §6.3 (AO en amplification d'instrumentation, filtre Sallen-Key comme anti-repliement) ; résonance et facteur \(Q\) en §4.2 ; pièges du jury sur la saturation AO et le critère de rétroaction en §8 ; développements pédagogiques CPGE 2ᵉ année (Leçons 8 et 14) où les montages AO sont explicitement attendus comme « saut conceptuel » du programme CPGE.</p>
 </div>
 
 <!-- ═══════════════════ 06 CAPTEURS ═══════════════════ -->
@@ -318,6 +409,82 @@
   <h3>6.2 Pont de Wheatstone</h3>
   <p>Conditionnement classique pour capteur résistif : 4 résistances en pont, équilibre quand \(R_1 R_4 = R_2 R_3\). La sortie différentielle est très sensible à la variation \(\Delta R\) du capteur :</p>
   \[ V_{\text{sortie}} \;\approx\; V_{\text{alim}}\,\dfrac{\Delta R}{4R} \quad\text{(pont déséquilibré, faible \(\Delta R\))}. \]
+
+  <h3>6.3 Chaîne d'acquisition complète</h3>
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>De la grandeur physique au fichier numérique</div>
+    <div class="notion-body">
+      <p>Une mesure physique exploitable passe systématiquement par six étages, chacun introduisant ses propres limites (sensibilité, bruit, bande passante, quantification). L'agrégatif doit savoir <strong>nommer chaque bloc, justifier sa présence et identifier l'étage limitant</strong> selon le contexte.</p>
+      <pre class="ascii-schema">  Chaîne d'acquisition — schéma fonctionnel
+
+    Grandeur                                                                                    Fichier
+    physique                                                                                    numérique
+       │                                                                                            ▲
+       ▼                                                                                            │
+  ┌──────────┐   ┌────────────────┐   ┌──────────────┐   ┌──────────────────┐   ┌──────┐   ┌──────────────────┐
+  │ Capteur  │──▶│ Conditionnement│──▶│ Amplification│──▶│ Filtre anti-rep. │──▶│ CAN  │──▶│ Traitement num.  │
+  │ Pt100,   │   │ pont de        │   │ AO, gain     │   │ passe-bas actif  │   │ N bits│   │ FFT, moyennage,  │
+  │ CTN, LDR,│   │ Wheatstone,    │   │ ×10 à ×10⁴   │   │ f_c < f_e/2      │   │ f_e   │   │ régression,      │
+  │ jauge…   │   │ source I, R/U  │   │ (cf. §5.4)   │   │ (Shannon)        │   │       │   │ détection seuil  │
+  └──────────┘   └────────────────┘   └──────────────┘   └──────────────────┘   └──────┘   └──────────────────┘
+   transduction    mise en forme       SNR amélioré      anti-repliement      quantif.    exploitation
+       │              électrique           │                  │                   │             │
+       └──────────────────┴──────────────────┴──────────────────┴───────────────────┘             │
+                       chaîne analogique                                  chaîne numérique ──────┘</pre>
+      <p><strong>Étage limitant :</strong> dépend du contexte. En basse fréquence et faible signal (thermocouple, μV), c'est le <em>bruit du premier étage d'amplification</em> qui domine (d'où l'usage d'AO à faible bruit ou d'amplificateurs d'instrumentation). En haute fréquence, c'est la <em>bande passante du conditionnement</em> ou le <em>temps de conversion du CAN</em>. En régime quasi-statique de précision, c'est la <em>résolution</em> du CAN et la <em>stabilité thermique</em> du conditionnement.</p>
+      <p><em>Renvoi prospectif :</em> l'étage d'amplification et le filtre anti-repliement sont détaillés en §5.4 (AO et filtres actifs).</p>
+    </div>
+  </div>
+
+  <h3>6.4 Échantillonnage et théorème de Shannon</h3>
+  <div class="fbox r">
+    <span class="fl">Critère de Nyquist–Shannon</span>
+    <span class="fc">Un signal de spectre borné par \(f_{\max}\) est reconstructible sans perte à partir de ses échantillons à la fréquence \(f_e\) si et seulement si :</span>
+    <span class="fm">\[ f_e \;>\; 2\,f_{\max} \qquad\text{(fréquence de Nyquist :}\ f_N = f_e/2\text{)} \]</span>
+    <hr>
+    <span class="fc"><strong>Repliement de spectre (aliasing).</strong> Si \(f_e < 2f_{\max}\), toute composante au-dessus de \(f_N\) est repliée dans la bande \([0,\,f_N]\) et devient indiscernable d'une vraie composante BF. En pratique on impose donc <strong>un filtre passe-bas analogique</strong> de fréquence de coupure \(f_c < f_N\) <em>avant</em> le CAN — c'est le <strong>filtre anti-repliement</strong>, typiquement un Sallen-Key d'ordre 4 à 8 (cf. §5.4).</span>
+    <hr>
+    <span class="fc"><strong>Quantification.</strong> Un CAN sur \(N\) bits sur une plage \(\Delta V\) a un pas \(q = \Delta V / 2^N\). Bruit de quantification ajouté : \(\sigma_q = q/\sqrt{12}\). Pour 12 bits sur \(\pm 5\,\mathrm{V}\) : \(q \approx 2{,}4\,\mathrm{mV}\), \(\sigma_q \approx 0{,}7\,\mathrm{mV}\). Le rapport signal sur bruit théorique vaut \(\mathrm{SNR}_\mathrm{dB} \approx 6{,}02\,N + 1{,}76\).</span>
+  </div>
+
+  <h3>6.5 Incertitudes et propagation (GUM)</h3>
+  <div class="fbox r">
+    <span class="fl">Cadre GUM — Guide to the expression of Uncertainty in Measurement</span>
+    <span class="fc">Distinguer rigoureusement :</span>
+    <span class="fc"><strong>Incertitude de type A</strong> — évaluation statistique sur \(n\) mesures répétées : \(u_A = \sigma_{n-1}/\sqrt{n}\) (écart-type expérimental de la moyenne).</span>
+    <span class="fc"><strong>Incertitude de type B</strong> — évaluation non statistique (notice constructeur, résolution, calibration). Pour une résolution \(\Delta\) à distribution rectangulaire : \(u_B = \Delta/\sqrt{12}\).</span>
+    <hr>
+    <span class="fl">Propagation pour grandeur composée</span>
+    <span class="fc">Si \(Y = f(X_1, X_2, \ldots)\) avec variables indépendantes :</span>
+    <span class="fm">\[ u_c^{2}(Y) \;=\; \sum_i \left(\dfrac{\partial f}{\partial X_i}\right)^{2}\,u^{2}(X_i) \]</span>
+    <span class="fc">Pour un produit/quotient \(Y = X_1^a X_2^b\) : \(\left(u(Y)/Y\right)^2 = a^2\,(u(X_1)/X_1)^2 + b^2\,(u(X_2)/X_2)^2\) — les incertitudes <em>relatives</em> se composent quadratiquement.</span>
+    <hr>
+    <span class="fc"><strong>Incertitude élargie :</strong> \(U = k\,u_c\) avec facteur d'élargissement \(k = 2\) pour un niveau de confiance ≈ 95 %. Résultat à présenter au jury sous la forme \(Y = (y \pm U)\,\text{unité}\), avec \(U\) arrondi à 1 ou 2 chiffres significatifs et \(y\) arrondi au même rang décimal.</span>
+  </div>
+
+  <div class="alert alert-red r">
+    <strong>Six pièges spécifiques à la chaîne d'acquisition et au traitement numérique — format <em>(a) pratique fautive</em> / <em>(b) correction attendue</em>.</strong>
+    <ul>
+      <li><strong>1. Repliement de spectre ignoré.</strong><br>
+        <em>(a)</em> Échantillonner sans filtre anti-repliement en amont, en se contentant de « régler \(f_e\) assez haut ».<br>
+        <em>(b)</em> Justifier rigoureusement \(f_c < f_e/2\) (théorème de Shannon-Nyquist) et mentionner <strong>explicitement</strong> le filtre passe-bas analogique avant le CAN, avec sa fréquence de coupure dimensionnée par rapport à \(f_e\).</li>
+      <li><strong>2. Confusion résolution / précision / sensibilité / justesse.</strong><br>
+        <em>(a)</em> Utiliser ces termes comme synonymes dans un compte-rendu de montage.<br>
+        <em>(b)</em> Définir précisément : <strong>résolution</strong> = plus petite variation détectable (liée au quantum \(q\) du CAN) ; <strong>précision</strong> = écart-type des mesures répétées (fidélité) ; <strong>sensibilité</strong> = pente de la caractéristique sortie/entrée ; <strong>justesse</strong> = absence de biais systématique. Ces termes ne sont <em>pas</em> interchangeables.</li>
+      <li><strong>3. Incertitudes traitées trop tard ou absentes.</strong><br>
+        <em>(a)</em> Donner un résultat numérique à 6 chiffres significatifs sans incertitude, ou reléguer l'analyse d'incertitudes à la fin sans la chiffrer.<br>
+        <em>(b)</em> Intégrer la discussion d'incertitudes <em>dès le protocole expérimental</em> : identifier les sources (calibre, lecture, quantification, bruit), les chiffrer, les composer. Tout résultat numérique doit s'accompagner d'une <em>discussion argumentée</em> et de ses <em>unités</em> — exigence explicite du jury 2025.</li>
+      <li><strong>4. Composition linéaire des incertitudes au lieu de quadratique.</strong><br>
+        <em>(a)</em> Sommer \(u(X_1) + u(X_2)\) systématiquement.<br>
+        <em>(b)</em> Pour variables indépendantes : \(u_c^2(Y) = \sum_i (\partial f/\partial X_i)^2\,u^2(X_i)\). La somme linéaire ne reste valable que pour une borne supérieure pessimiste (cas d'erreurs systématiques corrélées), pas pour une incertitude-type.</li>
+      <li><strong>5. Sens physique du résultat non discuté.</strong><br>
+        <em>(a)</em> Annoncer la valeur numérique brute et passer à la suite sans commentaire.<br>
+        <em>(b)</em> Discuter <em>systématiquement</em> l'ordre de grandeur : cohérent avec la physique du problème ? Avec les valeurs tabulées ? Avec les hypothèses du modèle ? Un résultat numérique non commenté est une faute pédagogique majeure soulignée par le jury session 2025.</li>
+      <li><strong>6. Traitement numérique présenté comme « boîte noire ».</strong><br>
+        <em>(a)</em> Annoncer « j'ai fait une FFT » ou « j'ai régressé » sans expliciter la méthode ni les limites.<br>
+        <em>(b)</em> Exposer la <strong>méthode complète</strong> : FFT et choix de la fenêtre (Hanning, Hamming, rectangulaire), régression linéaire avec coefficient \(R^2\) ou résidus, filtrage numérique avec sa fonction de transfert. Mentionner <em>explicitement</em> les outils utilisés (Python/numpy/scipy, Regressi, Latis Pro) — attendu en oral.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- ═══════════════════ 07 CONVERSION ═══════════════════ -->
@@ -360,30 +527,109 @@
 <!-- ═══════════════════ 08 PEDAGOGIE ═══════════════════ -->
 <div class="sblock r" id="pedagogie">
   <div class="sblock-num">Section 08</div>
-  <h2>8. Pédagogie et didactique</h2>
-  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+  <h2>8. Pédagogie et didactique pour l'oral</h2>
+  <p class="intro">L'oral d'agrégation interne évalue la maîtrise scientifique <strong>et</strong> la capacité à enseigner. Pour chaque notion d'électricité, savoir : à quel niveau elle est abordée, comment l'introduire, quels écueils anticiper, quels exemples mobiliser.</p>
 
-  <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>Au lycée — Terminale spécialité</div>
-    <div class="notion-body"><ul>
-      <li><strong>Cycle 4 / Seconde</strong> : intensité, tension, lois des nœuds et des mailles, dipôle ohmique.</li>
-      <li><strong>1<sup>re</sup> spé</strong> : condensateur (charge, énergie), circuit RC, modélisation par équation différentielle.</li>
-      <li><strong>Terminale spé</strong> : circuit RL, circuit RLC, oscillations libres et forcées, résonance, énergie stockée.</li>
-      <li><strong>Terminale STL</strong> : capteurs (jauges, thermistances), conditionnement (pont de Wheatstone), conversion analogique-numérique.</li>
-    </ul></div>
+  <div class="ped-card r">
+    <div class="niveau">Cycle 4 — collège (5ᵉ, 4ᵉ, 3ᵉ)</div>
+    <h5>Circuits, intensité, tension</h5>
+    <ul>
+      <li>Circuit en boucle fermée, conducteurs/isolants, symboles normalisés.</li>
+      <li>Intensité \(I\) (ampèremètre en série), tension \(U\) (voltmètre en dérivation) — premières mesures.</li>
+      <li>Lois élémentaires : <strong>loi d'additivité des intensités</strong> (nœud) et <strong>des tensions</strong> (maille) en série/dérivation.</li>
+      <li>Dipôle ohmique : \(U = R\,I\) (loi de proportionnalité), caractéristique linéaire passant par l'origine.</li>
+      <li>Sécurité électrique (3ᵉ) : danger des courts-circuits, rôle du disjoncteur, tension du secteur.</li>
+    </ul>
   </div>
 
-  <div class="alert alert-gold r">
-    <span class="ico">📋</span>
-    <div><strong>Difficultés classiques des élèves :</strong>
+  <div class="ped-card r">
+    <div class="niveau">Lycée — seconde GT</div>
+    <h5>Caractéristiques de dipôles et puissance</h5>
+    <ul>
+      <li>Tracé expérimental de la caractéristique \(U(I)\) : résistor (linéaire), diode (seuil), pile (droite affine).</li>
+      <li>Modélisation : résistance équivalente, association série/parallèle.</li>
+      <li>Puissance électrique \(\mathcal{P} = U\,I\) — premières applications numériques avec unités (W, kWh).</li>
+      <li>Énergie consommée par un appareil domestique sur une durée, lecture d'une facture EDF.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Lycée — première spécialité</div>
+    <h5>Condensateur et régime transitoire RC</h5>
+    <ul>
+      <li>Condensateur : relation \(q = C\,u_C\), énergie stockée \(\mathcal{E} = \tfrac{1}{2}C\,u_C^2\).</li>
+      <li>Charge et décharge d'un condensateur à travers une résistance — observation à l'oscilloscope.</li>
+      <li>Établissement de l'équation différentielle \(\tau\,\dot{u}_C + u_C = E\) avec \(\tau = RC\) ; résolution exponentielle.</li>
+      <li>Lecture graphique de \(\tau\) (méthode de la tangente à l'origine, du 63 %, ou \(t_{1/2}\)).</li>
+      <li>Notion de modélisation par équation différentielle d'ordre 1 — pont vers les mathématiques.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Lycée — terminale spécialité</div>
+    <h5>RLC, oscillations libres et résonance</h5>
+    <ul>
+      <li>Bobine idéale : \(u_L = L\,\dot{i}\), énergie \(\mathcal{E} = \tfrac{1}{2}L\,i^2\). Régime transitoire RL.</li>
+      <li>Circuit RLC série libre : équation \(\ddot{q} + (R/L)\,\dot{q} + q/(LC) = 0\), trois régimes (pseudo-périodique, critique, apériodique).</li>
+      <li>Pulsation propre \(\omega_0 = 1/\sqrt{LC}\) — <strong>en rad·s⁻¹</strong> (attente jury 2025), à distinguer de \(f_0 = \omega_0/(2\pi)\) en Hz.</li>
+      <li>Régime sinusoïdal forcé : observation expérimentale de la résonance ; influence de \(R\) sur la sélectivité.</li>
+      <li>Analogie mécanique RLC ↔ masse-ressort amorti — universalité de l'oscillateur amorti.</li>
+      <li>Terminale STL : capteurs (CTN, jauges), conditionnement par pont de Wheatstone, chaîne d'acquisition jusqu'au CAN.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE — 1<sup>re</sup> année (MPSI / PCSI / PTSI)</div>
+    <h5>Formalisme complexe et fonctions de transfert</h5>
+    <ul>
+      <li>Régime sinusoïdal forcé : passage en complexes \(\underline{u}(t) = \underline{U}\,\mathrm{e}^{j\omega t}\), impédances \(\underline{Z}_R = R\), \(\underline{Z}_L = j L\omega\), \(\underline{Z}_C = 1/(j C\omega)\).</li>
+      <li>Diviseur de tension complexe, fonctions de transfert \(\underline{H}(j\omega)\) — diagrammes de Bode (gain en dB, phase en degrés).</li>
+      <li>Filtres du 1<sup>er</sup> ordre (RC, CR) puis 2<sup>e</sup> ordre (RLC) : passe-bas, passe-haut, passe-bande, coupe-bande.</li>
+      <li>Facteur de qualité \(Q = (1/R)\sqrt{L/C}\), bande passante à \(-3\,\mathrm{dB}\) : \(\Delta\omega = \omega_0/Q\).</li>
+      <li>Amplificateur opérationnel idéal en régime linéaire (\(\varepsilon = 0\), \(i_+ = i_- = 0\)) : montages amplificateur non-inverseur, inverseur, suiveur, sommateur, intégrateur, dérivateur.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE — 2<sup>e</sup> année (MP / PC / PSI)</div>
+    <h5>AO en saturation, électronique non-linéaire et conversion de puissance</h5>
+    <ul>
+      <li>AO en régime saturé : comparateurs à hystérésis (trigger de Schmitt), oscillateurs à relaxation (multivibrateur astable).</li>
+      <li>Oscillateurs quasi-sinusoïdaux : condition de Barkhausen, exemple du pont de Wien — distinguer rigoureusement régime linéaire et démarrage par instabilité.</li>
+      <li>Conversion DC-DC : hacheur série, étude par moyennage glissant, ondulation de courant en charge inductive, rendement.</li>
+      <li>Conversion AC-DC : redressement double alternance (pont de Graetz), filtrage capacitif, taux d'ondulation.</li>
+      <li>Échantillonnage et numérisation : théorème de Shannon, anti-repliement, quantification — pont vers le traitement du signal.</li>
+      <li>PSI/PT : focus sur la chaîne d'asservissement (capteur → amplification → correcteur → actionneur), stabilité d'un système bouclé.</li>
+    </ul>
+  </div>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Difficultés classiques des élèves et écueils à anticiper (à connaître pour l'oral) :</strong>
       <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
-        <li>Convention récepteur vs générateur — flécher \(u\) et \(i\) cohérents.</li>
-        <li>Comprendre que \(u_C\) est continu (charge ne saute pas) mais \(i\) peut sauter dans un RC.</li>
-        <li>Inversement : \(i_L\) est continu (flux magnétique), \(u_L\) peut sauter dans un RL.</li>
-        <li>Phase courant-tension dans \(L\) et \(C\) — confondre lequel est en avance.</li>
-        <li>Diviseur de tension en charge — la formule simple n'est valable qu'à vide.</li>
+        <li><strong>Convention récepteur vs générateur :</strong> élèves de lycée flèchent \(u\) et \(i\) au hasard, d'où des signes incohérents dans la loi des mailles. Imposer la convention récepteur (\(u\) et \(i\) opposés) en début de chaque exercice.</li>
+        <li><strong>Continuité de \(u_C\) (et non de \(i\)) dans un circuit RC :</strong> la charge d'un condensateur ne peut pas sauter (sinon \(i = C\,\dot{u}_C\) diverge), mais \(i\) peut sauter à \(t = 0^+\). Symétriquement : \(i_L\) est continu (sinon \(u_L\) diverge), pas \(u_L\).</li>
+        <li><strong>Phase courant-tension dans \(L\) et \(C\) :</strong> confusion fréquente. Mnémonique fiable : « <em>CIVIL</em> » — dans un Condensateur, \(I\) précède \(V\) ; dans un \(L\) (inductance), \(V\) précède \(I\). Vérifier toujours par dérivation directe.</li>
+        <li><strong>Diviseur de tension « en charge » :</strong> la formule \(u_s = u_e \times R_2/(R_1+R_2)\) n'est valable qu'à vide (charge infinie). Dès qu'on branche une charge \(R_{\text{ch}}\), il faut recalculer avec \(R_2 \parallel R_{\text{ch}}\) ; piège classique en exercice et à l'oral.</li>
+        <li><strong>Unité de la pulsation :</strong> écrire \(\omega = 314\) sans unité ou en Hz est sanctionné. Toujours rappeler \([\omega] = \mathrm{rad\cdot s^{-1}}\), \([f] = \mathrm{Hz}\), avec \(\omega = 2\pi f\).</li>
+        <li><strong>Résonance en élongation vs en intensité :</strong> dans un RLC série forcé, la résonance d'intensité existe <em>toujours</em> à \(\omega = \omega_0\) ; la résonance en charge (élongation) <em>n'existe que si</em> \(Q > 1/\sqrt{2}\). Distinction très souvent omise à l'oral.</li>
+        <li><strong>Confusion impédance / résistance :</strong> écrire « \(Z = R + L\omega + 1/(C\omega) \)» sans \(j\) — l'impédance est <em>complexe</em>, et son module n'est pas la somme des modules.</li>
+        <li><strong>AO idéal sans précaution :</strong> appliquer \(\varepsilon = 0\) en régime saturé est une faute. Toujours vérifier <em>au préalable</em> que la sortie n'est pas saturée (\(|u_s| < V_{\text{sat}}\)) et qu'il existe une contre-réaction sur l'entrée inverseuse.</li>
+        <li><strong>Confusion expérience / modèle / théorie :</strong> dire « la loi d'Ohm prouve que… » ou « le modèle de la résistance est vrai » — distinction attendue par le jury 2025. La loi d'Ohm est un <em>modèle</em> dont le domaine de validité est borné (échauffement, non-linéarité à fort \(I\)).</li>
       </ul>
     </div>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Trame jury — structurer la partie pédagogique d'une leçon d'électricité</h4>
+    <ul>
+      <li><strong>Annonce du niveau visé :</strong> indiquer explicitement la classe (ex. « Terminale spé ») et les prérequis attendus des élèves. Le jury évalue la capacité à se situer dans le curriculum.</li>
+      <li><strong>Articulation à deux étages :</strong> P1 lycée (modèle simple, expérience qualitative, vocabulaire accessible) ; P2 CPGE (formalisme complexe, expérience quantitative avec incertitudes, traitement informatisé). Transition explicitement justifiée.</li>
+      <li><strong>Une illustration expérimentale par partie :</strong> jamais de leçon « tout au tableau ». P1 = manipulation d'introduction (oscilloscope, GBF, multimètre). P2 = exploitation quantitative (acquisition Sysam/Latis Pro, Python/Regressi, incertitudes, régression).</li>
+      <li><strong>Distinguer expérience, modèle et théorie :</strong> exigence explicite du rapport jury 2025. Ne pas dire « la loi prouve » mais « les mesures sont compatibles avec le modèle dans son domaine de validité ».</li>
+      <li><strong>Liens curriculaires verticaux :</strong> rappeler en ouverture comment la notion apparaît au collège, au lycée, puis se formalise en CPGE. Un fil rouge curriculaire est très apprécié.</li>
+      <li><strong>Anticiper l'entretien (30 min) :</strong> chaque expérience choisie doit pouvoir être discutée en profondeur (incertitudes, choix du protocole, alternatives possibles, prolongements). Préparer 3-4 ouvertures vers d'autres chapitres du programme.</li>
+    </ul>
   </div>
 </div>
 
@@ -462,6 +708,97 @@
         <p>ED linéaire d'ordre 1 à coefficients constants. Solution générale = particulière (\(u_{C,p} = E\)) + homogène (\(A\mathrm{e}^{-t/\tau}\)) avec \(\tau = RC\). Condition initiale \(u_C(0) = 0\) (continuité de la charge) :</p>
         \[ u_C(t) \;=\; E\left(1 - \mathrm{e}^{-t/\tau}\right). \]
         <p>Au bout de \(5\tau\), \(u_C\) atteint 99,3 % de \(E\) — convention pratique du « régime établi ».</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>9.6 — Hacheur série abaisseur (<em>buck</em>) : tension moyenne et ondulation</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p><strong>Montage.</strong> Source DC \(E\), interrupteur commandé \(K\) (transistor MOS), diode de roue libre \(D\), inductance \(L\) en série, condensateur \(C\) en parallèle avec la charge \(R\). \(K\) commute à fréquence \(f = 1/T\), rapport cyclique \(\alpha = t_\text{ON}/T \in [0,1]\). Hypothèses : composants idéaux (\(R_\text{ON} = 0\), \(V_d = 0\)), conduction continue (\(i_L > 0\) sur toute la période), tension de sortie quasi constante \(v_s \approx V_s\) (ondulation \(\ll V_s\)).</p>
+
+        <p><strong>Phase 1 — \(K\) fermé, \(D\) bloquée \((0 \leq t \leq \alpha T)\) :</strong> la source alimente \(L\) et la charge. Loi des mailles :</p>
+        \[ E = L\,\dfrac{\mathrm{d}i_L}{\mathrm{d}t} + V_s \quad\Longrightarrow\quad \dfrac{\mathrm{d}i_L}{\mathrm{d}t} = \dfrac{E - V_s}{L} > 0. \]
+        <p>\(i_L\) croît linéairement de \(I_\text{min}\) à \(I_\text{max}\), variation \(\Delta i_L^{(1)} = (E - V_s)\alpha T/L\).</p>
+
+        <p><strong>Phase 2 — \(K\) ouvert, \(D\) passante \((\alpha T \leq t \leq T)\) :</strong> l'énergie magnétique de \(L\) se déverse dans \(C\) et \(R\) via la diode. Loi des mailles :</p>
+        \[ 0 = L\,\dfrac{\mathrm{d}i_L}{\mathrm{d}t} + V_s \quad\Longrightarrow\quad \dfrac{\mathrm{d}i_L}{\mathrm{d}t} = -\dfrac{V_s}{L} < 0. \]
+        <p>\(i_L\) décroît de \(I_\text{max}\) à \(I_\text{min}\), variation \(\Delta i_L^{(2)} = -V_s(1-\alpha)T/L\).</p>
+
+        <p><strong>Tension moyenne de sortie.</strong> En régime établi périodique, \(\langle \mathrm{d}i_L/\mathrm{d}t\rangle = 0\), donc \(\Delta i_L^{(1)} + \Delta i_L^{(2)} = 0\) :</p>
+        \[ (E - V_s)\alpha T - V_s(1-\alpha)T = 0 \quad\Longrightarrow\quad \boxed{\;V_s = \alpha\,E\;} \]
+        <p>La tension moyenne de sortie est <strong>proportionnelle au rapport cyclique</strong> — d'où le nom « abaisseur » : \(V_s \leq E\).</p>
+
+        <p><strong>Ondulation de courant dans \(L\).</strong> Amplitude crête-à-crête :</p>
+        \[ \Delta I_L = \dfrac{(E - V_s)\alpha T}{L} = \dfrac{\alpha(1-\alpha)\,E}{L\,f}. \]
+        <p>Maximum à \(\alpha = 1/2\) : \(\Delta I_{L,\max} = E/(4Lf)\). Augmenter \(f\) ou \(L\) réduit l'ondulation (compromis : pertes commutation vs encombrement bobinage).</p>
+
+        <p><strong>Ondulation de tension en sortie.</strong> Le courant \(i_C = i_L - V_s/R\) a une moyenne nulle ; sa composante triangulaire charge/décharge \(C\). On montre :</p>
+        \[ \Delta V_s = \dfrac{\Delta I_L}{8\,C\,f} = \dfrac{\alpha(1-\alpha)\,E}{8\,L\,C\,f^{2}}. \]
+        <p>L'ondulation chute en \(1/f^{2}\) : la haute fréquence permet une sortie très lisse avec \(L\), \(C\) modérés. Ordre de grandeur typique : \(E = 12\,\mathrm{V}\), \(f = 100\,\mathrm{kHz}\), \(L = 100\,\mathrm{\mu H}\), \(C = 10\,\mathrm{\mu F}\), \(\alpha = 0{,}5\) donnent \(\Delta I_L \approx 150\,\mathrm{mA}\) et \(\Delta V_s \approx 1{,}9\,\mathrm{mV}\) (\(\sim 0{,}03\,\%\) de \(V_s\)).</p>
+
+        <p class="muted"><strong>Lien programme.</strong> Conversion d'énergie DC-DC, hacheur série au programme MP/PSI/PT. Application directe : alimentation à découpage, variateur de vitesse pour MCC, chargeur de batterie.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>9.7 — Pont de Wien : oscillateur sinusoïdal quasi-pur</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p><strong>Principe.</strong> Le pont de Wien est un oscillateur quasi-sinusoïdal RC à amplificateur opérationnel, exploitant un <strong>filtre passe-bande</strong> RC dans la boucle de réaction positive. À la fréquence d'oscillation \(f_0\), le gain du filtre vaut exactement \(1/3\) et son déphasage est nul — l'AO doit fournir un gain \(+3\) pour entretenir l'oscillation (critère de Barkhausen).</p>
+
+        <p><strong>Topologie.</strong></p>
+        <pre style="font-family:var(--mono);font-size:0.78rem;line-height:1.5;background:#f5f3ee;padding:0.7rem;border-radius:0.4rem;overflow-x:auto;">
+        ┌──── R₁ ───┬──── R₂ ────┐
+        │           │            │
+        │          [+] AO   ─────┼──── v_s (sortie)
+        │     ┌────[-]           │
+        │     │                  │
+        │     └──── R ──── C ────┤   ← réaction positive
+        │                        │      (filtre passe-bande
+        │     ┌──── C ───┐       │       série-parallèle)
+        │     │          │       │
+        │     R          ┴       │
+        │     │         GND      │
+        │     ┴                  │
+        │    GND                 │
+        └────────────────────────┘
+        </pre>
+
+        <p>Filtre Wien (entrée \(v_s\), sortie sur le nœud \(v_+\) de l'AO) : une branche série \(R + 1/(jC\omega)\) et une branche parallèle \(R \parallel 1/(jC\omega)\). Fonction de transfert :</p>
+
+        <p><strong>Filtre de Wien — fonction de transfert.</strong></p>
+        <pre style="font-family:var(--mono);font-size:0.78rem;line-height:1.5;background:#f5f3ee;padding:0.7rem;border-radius:0.4rem;overflow-x:auto;">
+        v_s ──┬── R ──┬── C ──┬──── v_+
+              │       │       │
+              │       └───────┤
+              │       R       │
+              │       │       C
+              │       │       │
+              │      GND     GND
+        </pre>
+
+        <p>Soit \(\underline{Z}_s = R + 1/(jC\omega)\) (branche série) et \(\underline{Z}_p = R \parallel 1/(jC\omega) = R/(1 + jRC\omega)\) (branche parallèle). Le diviseur de tension donne :</p>
+
+        \[ \underline{H}(j\omega) = \dfrac{\underline{v}_+}{\underline{v}_s} = \dfrac{\underline{Z}_p}{\underline{Z}_s + \underline{Z}_p} = \dfrac{1}{3 + j\bigl(RC\omega - \dfrac{1}{RC\omega}\bigr)}. \]
+
+        <p>(Le 3 au dénominateur sort du calcul direct \(\underline{Z}_s/\underline{Z}_p + 1\), c'est la signature du pont de Wien.) On pose \(x = RC\omega\) :</p>
+
+        \[ \underline{H} = \dfrac{1}{3 + j(x - 1/x)}, \quad |\underline{H}| = \dfrac{1}{\sqrt{9 + (x - 1/x)^{2}}}. \]
+
+        <p><strong>Fréquence d'oscillation.</strong> Le module est maximal et le déphasage nul quand \(x = 1/x\), soit \(x = 1\) :</p>
+        \[ \boxed{\;\omega_0 = \dfrac{1}{RC} \;\Longleftrightarrow\; f_0 = \dfrac{1}{2\pi RC}\;}\,, \quad \underline{H}(j\omega_0) = \dfrac{1}{3}. \]
+
+        <p><strong>Critère d'oscillation (Barkhausen).</strong> Boucle ouverte : \(\underline{T}(j\omega) = \underline{H}(j\omega)\cdot A_v\) où \(A_v = 1 + R_2/R_1\) est le gain de l'AO monté en non-inverseur. Oscillation entretenue si \(\underline{T}(j\omega_0) = 1\), soit :</p>
+        \[ \dfrac{1}{3}\cdot\left(1 + \dfrac{R_2}{R_1}\right) = 1 \quad\Longrightarrow\quad \boxed{\;R_2 = 2\,R_1\;}\,. \]
+
+        <p>En pratique on choisit \(R_2 \gtrsim 2 R_1\) (par exemple \(R_2 = 2{,}1\,R_1\)) pour amorcer l'oscillation à partir du bruit ; sans <strong>contrôle d'amplitude</strong> (lampe à incandescence, JFET, diodes anti-parallèles), l'amplitude croît jusqu'à saturer l'AO et le signal devient écrêté — sinusoïde dégradée. Un régulateur d'amplitude (thermistance NTC, AGC) maintient \(R_2/R_1 \approx 2\) en régime établi et préserve la pureté spectrale (THD \(< 0{,}1\,\%\) possible).</p>
+
+        <p><strong>Application numérique.</strong> \(R = 16\,\mathrm{k}\Omega\), \(C = 10\,\mathrm{nF}\) donnent \(f_0 \approx 995\,\mathrm{Hz}\) — calibration standard de générateur BF de laboratoire.</p>
+
+        <p class="muted"><strong>Lien programme.</strong> Oscillateurs quasi-sinusoïdaux et critère de Barkhausen au programme PSI/PC. Historique : breveté par William Hewlett (1939, modèle 200A) — premier produit de la société HP, vendu à Disney pour la post-production de <em>Fantasia</em>.</p>
       </div>
     </div>
   </div>
@@ -545,7 +882,7 @@
 <div class="sblock r" id="lecons">
   <div class="sblock-num">Section 11</div>
   <h2>11. Développements pédagogiques pour l'oral</h2>
-  <p class="intro">Deux propositions de leçons calibrées agrégation interne.</p>
+  <p class="intro">Six leçons orales calibrées agrégation interne — sujets n°8, 12, 14, 15, 9, 16 du programme d'oral.</p>
 
   <div class="lecon-card">
     <h4>Leçon 1 — Oscillations électriques amorties : un système à comprendre par analogie</h4>
@@ -577,6 +914,106 @@
     </ol>
     <p><strong>Liens secondaire.</strong> Terminale spé : étude qualitative de filtres. Terminale STL : analyse spectrale, filtres numériques, chaînes d'acquisition.</p>
     <p><strong>Erreur fréquente d'élève.</strong> Penser que la fréquence de coupure \(f_c\) est une « barrière nette ». En réalité, à \(f_c\) l'atténuation n'est que de \(-3\,\mathrm{dB}\) (signal divisé par \(\sqrt{2}\)). Insister sur la nature progressive du filtrage.</p>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type pour la leçon orale n°9 (Capteurs et chaîne de mesure)</h4>
+    <ul>
+      <li><strong>Introduction (5 min) :</strong> du thermomètre à mercure au smartphone — un capteur convertit une grandeur physique en signal exploitable. Problématique : comment garantir qu'une mesure soit fiable, c'est-à-dire à la fois juste et associée à une incertitude maîtrisée ? Prérequis : tension, intensité, pont diviseur, pont de Wheatstone, notion de signal. Annonce du plan en 2 parties.</li>
+      <li><strong>I. Approche niveau lycée — du capteur résistif au signal exploitable (15 min)</strong>
+        <ul>
+          <li>Définition d'un capteur : transducteur entre grandeur d'entrée (température, force, lumière…) et grandeur électrique (résistance, tension, fréquence). Caractéristique statique \(R(T)\), sensibilité \(s = \mathrm{d}R/\mathrm{d}T\), étendue de mesure, linéarité.</li>
+          <li>Exemple canonique : thermistance CTN, photorésistance, jauge de contrainte. Conditionnement par pont diviseur ou pont de Wheatstone (rappel : équilibre \(R_1R_3 = R_2R_4\)) — le pont fournit une tension nulle à l'équilibre et linéarise les petites variations.</li>
+          <li>Lecture d'une notice constructeur : <strong>classe, calibre, résolution</strong> — distinction explicite. Notion d'erreur de mesure vs incertitude (vocabulaire VIM 2012).</li>
+          <li><strong>Illustration expérimentale n°1 :</strong> étalonnage d'une thermistance CTN par pont de Wheatstone alimenté en continu, dans un bain thermostaté variable (5°C → 60°C). Tracé de \(R(T)\) et ajustement par la loi de Steinhart-Hart simplifiée \(R = R_0\,\mathrm{e}^{\beta(1/T - 1/T_0)}\). Extraction de \(\beta\). Discussion <strong>du sens physique de \(\beta\)</strong> (gap de la bande de conduction) et des sources d'incertitudes (étalonnage du thermomètre de référence, lecture du calibre du multimètre, auto-échauffement du capteur).</li>
+        </ul>
+      </li>
+      <li><strong>II. Approfondissement CPGE — chaîne de mesure complète et incertitudes GUM (20 min)</strong>
+        <ul>
+          <li>Schéma fonctionnel complet : capteur → conditionnement (pont) → amplification (AO en montage non-inverseur ou différentiel) → filtrage anti-repliement → CAN → traitement numérique. Notion d'impédance d'entrée et de charge — justifier le recours à l'AO suiveur.</li>
+          <li><strong>Quantification</strong> : pas \(q = V_{PE}/2^N\) ; rapport signal sur bruit théorique \(\mathrm{SNR}_{\mathrm{dB}} \approx 6{,}02\,N + 1{,}76\) (signal sinusoïdal pleine échelle). <strong>Théorème de Shannon-Nyquist</strong> \(f_e > 2\,f_{\max}\) ; repliement spectral (aliasing) et nécessité absolue d'un filtre anti-repliement analogique <em>avant</em> le CAN.</li>
+          <li><strong>Incertitudes (GUM)</strong> : type A par série de \(N\) mesures \(u_A = \sigma_{N-1}/\sqrt{N}\) ; type B par spécifications constructeur en supposant une distribution rectangulaire \(u_B = \Delta/\sqrt{3}\). Incertitude composée \(u_c = \sqrt{u_A^2 + u_B^2}\), élargie \(U = k\,u_c\) avec \(k = 2\) (niveau de confiance ~95 %). Présentation conventionnelle : \(X = (\mu \pm U)\,\text{unité}\), \(k = 2\). <strong>Distinction critique attendue par le jury 2025</strong>.</li>
+          <li><strong>Illustration expérimentale n°2 :</strong> chaîne d'acquisition complète d'un signal sinusoïdal délivré par un GBF, amplifié par AO non-inverseur, filtré par RC d'ordre 1 (\(f_c\) choisi), numérisé par carte Sysam à \(f_e\) variable. Mise en évidence du repliement spectral en violant délibérément Shannon. Traitement Python/Regressi : FFT, identification de la fréquence repliée \(f_{\text{rep}} = |f_{\text{vrai}} - f_e|\). Bilan d'incertitudes type A + type B sur l'amplitude lue.</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (5 min) :</strong> universalité de la chaîne de mesure (de la physique de paillasse aux capteurs LHC, en passant par les smartphones). Limites : bruit thermique (Johnson-Nyquist), bruit de quantification, dérive thermique. Ouverture vers la métrologie moderne (CODATA, redéfinition du SI 2019) et vers la leçon n°16 (conversion de puissance — analogue chaîne énergétique).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type pour la leçon orale n°12 (Dynamique des systèmes électriques)</h4>
+    <ul>
+      <li><strong>Introduction (5 min) :</strong> pourquoi une ampoule s'éteint-elle progressivement quand on coupe l'alimentation ? Pourquoi un défibrillateur fournit-il son énergie en quelques millisecondes ? Problématique : décrire le régime transitoire d'un circuit, comprendre l'analogie avec les systèmes mécaniques. Prérequis : loi des mailles, tension aux bornes de \(R\), \(C\), \(L\) ; équations différentielles linéaires d'ordre 1. Annonce du plan en 2 parties.</li>
+      <li><strong>I. Approche niveau lycée — circuits RC et RL en commutation (15 min)</strong>
+        <ul>
+          <li>Étude du circuit RC série soumis à un échelon de tension \(E\) : loi des mailles \(\Rightarrow RC\,\dot{u}_C + u_C = E\). Solution \(u_C(t) = E\,(1 - \mathrm{e}^{-t/\tau})\) avec \(\tau = RC\). Tracé, lecture graphique de \(\tau\) (méthode de la tangente à l'origine et critère 63 % / 95 % / 99 %).</li>
+          <li>Bilan énergétique de la charge d'un condensateur : <strong>énergie fournie par le générateur \(E^2 C\)</strong>, énergie stockée \(\tfrac{1}{2}CE^2\), <strong>énergie dissipée par effet Joule \(\tfrac{1}{2}CE^2\) indépendamment de \(R\)</strong> — résultat contre-intuitif à souligner.</li>
+          <li>Circuit RL : analogie formelle. \(\tau = L/R\). Lecture graphique du temps caractéristique.</li>
+          <li><strong>Illustration expérimentale n°1 :</strong> charge et décharge d'un RC série piloté par GBF en signal carré (\(f \ll 1/\tau\) pour bien observer le régime établi), acquisition à l'oscilloscope numérique. Mesure de \(\tau\) sur la décharge et confrontation au produit \(RC\) mesuré au multimètre. Discussion des sources d'incertitudes : tolérance constructeur sur \(R\) et \(C\), impédance d'entrée non infinie de l'oscilloscope.</li>
+        </ul>
+      </li>
+      <li><strong>II. Approfondissement CPGE — oscillateur RLC et analogie universelle (20 min)</strong>
+        <ul>
+          <li>Circuit RLC série libre : équation \(\ddot{q} + (R/L)\,\dot{q} + q/(LC) = 0\). Pulsation propre \(\omega_0 = 1/\sqrt{LC}\) — <strong>en rad·s⁻¹</strong>. Facteur de qualité \(Q = (1/R)\sqrt{L/C} = L\omega_0/R\).</li>
+          <li>Trois régimes selon \(Q\) : sous-amorti (\(Q > 1/2\), pseudo-périodique), critique (\(Q = 1/2\), retour le plus rapide sans dépassement), sur-amorti (\(Q < 1/2\), exponentielles). Décrément logarithmique \(\delta \approx \pi/Q\) pour \(Q \gg 1\).</li>
+          <li><strong>Analogie électromécanique</strong> : \(L \leftrightarrow m\), \(R \leftrightarrow h\), \(1/C \leftrightarrow k\), \(q \leftrightarrow x\), \(i \leftrightarrow \dot{x}\). Universalité : tout système à deux réservoirs d'énergie couplés et un dissipateur obéit à la même équation. Portrait de phase \((q, i)\) : spirale convergente.</li>
+          <li>Bilan énergétique instantané \(\mathrm{d}E_m/\mathrm{d}t = -Ri^2 \leq 0\) ; identification du puits d'énergie. <strong>Distinguer rigoureusement période \(T_0\) (oscillateur conservatif) et pseudo-période \(T\) (oscillateur amorti)</strong>.</li>
+          <li><strong>Illustration expérimentale n°2 :</strong> RLC série libre avec condensateur préchargé déclenché par interrupteur ; acquisition Sysam à haute fréquence d'échantillonnage. Ajustement de \(u_C(t) = U_0\,\mathrm{e}^{-\lambda t}\cos(\omega t + \varphi)\) par moindres carrés non-linéaires (Python). Extraction de \(\omega\), \(\lambda\), \(Q\) ; confrontation aux valeurs calculées à partir de \(R\), \(L\), \(C\) mesurés ; discussion du désaccord (résistance interne de la bobine non négligeable).</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (5 min) :</strong> universalité de l'oscillateur amorti (mécanique, électricité, biologie, économie). Limites du modèle linéaire (composants non-linéaires, saturation, hystérésis). Ouverture vers la leçon n°14 (résonance en régime forcé) et n°16 (conversion de puissance via convertisseurs à découpage).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type pour la leçon orale n°14 (Résonance — illustration en circuit RLC)</h4>
+    <ul>
+      <li><strong>Introduction (5 min) :</strong> comment un récepteur radio sélectionne-t-il une station parmi des centaines ? Comment un appareil IRM excite-t-il sélectivement les noyaux d'hydrogène ? Problématique : quand un système oscillant amorti est soumis à une excitation périodique, sous quelle condition l'amplitude stationnaire devient-elle maximale ? Prérequis : oscillateur harmonique amorti, complexes en physique. Annonce du plan en 2 parties.</li>
+      <li><strong>I. Approche niveau lycée — résonance d'un circuit RLC série (15 min)</strong>
+        <ul>
+          <li>Circuit RLC série alimenté en sinusoïdal \(e(t) = E_0\cos(\omega t)\). Régime stationnaire : intensité \(i(t) = I_0(\omega)\cos(\omega t - \varphi(\omega))\). Mise en équation par loi des mailles, équation différentielle linéaire d'ordre 2 avec second membre.</li>
+          <li>Observation expérimentale : variation de \(I_0(\omega)\) avec \(\omega\) à \(E_0\) constant. Mise en évidence d'un maximum à \(\omega = \omega_0 = 1/\sqrt{LC}\) — <strong>résonance d'intensité</strong>.</li>
+          <li>Analogie avec un oscillateur mécanique forcé (suspension de voiture, balançoire poussée à la bonne fréquence). Universalité du phénomène.</li>
+          <li><strong>Illustration expérimentale n°1 :</strong> RLC série alimenté par GBF, mesure de l'amplitude crête-à-crête de \(u_R \propto i\) à l'oscilloscope en variant \(f\) entre \(0{,}5\,f_0\) et \(2\,f_0\). Tracé point par point de \(I_0(f)\). Mesure indépendante de \(f_0\) par calcul \(1/(2\pi\sqrt{LC})\) — confrontation. <em>Niveau lycée : description qualitative + comparaison à la fréquence propre calculée.</em></li>
+        </ul>
+      </li>
+      <li><strong>II. Approfondissement CPGE — résonance en intensité vs en tension, bande passante (20 min)</strong>
+        <ul>
+          <li>Méthode complexe (impédance) : \(\underline{Z} = R + jL\omega + 1/(jC\omega)\) ; \(\underline{I} = \underline{E}/\underline{Z}\). Amplitude \(I_0(\omega) = E_0/\sqrt{R^2 + (L\omega - 1/(C\omega))^2}\). Phase \(\tan\varphi = (L\omega - 1/(C\omega))/R\).</li>
+          <li><strong>Résonance d'intensité</strong> à \(\omega = \omega_0 = 1/\sqrt{LC}\) <em>quelle que soit la valeur de \(Q\)</em> ; \(I_{\max} = E_0/R\), \(\varphi = 0\) (circuit purement résistif à la résonance).</li>
+          <li><strong>Résonance de tension aux bornes du condensateur</strong> à \(\omega_r = \omega_0\sqrt{1 - 1/(2Q^2)}\), <strong>n'existe que si \(Q > 1/\sqrt{2}\)</strong> — <strong>distinction critique attendue par le jury 2025</strong>. À la résonance, \(U_C^{\max} = QE_0\) (surtension).</li>
+          <li>Bande passante à \(-3\,\mathrm{dB}\) en intensité : \(\Delta\omega = R/L = \omega_0/Q\). Facteur de qualité interprété comme acuité de résonance \(Q = \omega_0/\Delta\omega\).</li>
+          <li>Diagramme de Bode (gain et phase). Lien avec les filtres passe-bande (cf. §10). Applications : accordage radio, IRM, spectroscopie RMN.</li>
+          <li><strong>Illustration expérimentale n°2 :</strong> RLC série avec acquisition automatisée Sysam/Latis ; balayage en fréquence GBF piloté ; tracé simultané de \(I_0(f)\) et \(\varphi(f)\). Extraction de \(Q\) par <strong>deux méthodes indépendantes</strong> : (1) bande passante \(-3\,\mathrm{dB}\) sur \(I_0(f)\) ; (2) ajustement complet de la courbe par moindres carrés non-linéaires (Python). Confrontation à \(Q = (1/R)\sqrt{L/C}\) calculé. Discussion des incertitudes type A (dispersion du fit) et type B (tolérance composants).</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (5 min) :</strong> applications technologiques (filtres sélectifs, antennes accordées, IRM, accordage instruments de musique). Limites : phénomènes non-linéaires (résonance paramétrique, saturation magnétique de la bobine à fort courant). Ouverture vers la résonance mécanique (leçon n°14 spécialité mécanique) et vers les modes propres d'une cavité électromagnétique.</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type pour la leçon orale n°16 (Conversion de puissance électrique)</h4>
+    <ul>
+      <li><strong>Introduction (5 min) :</strong> comment fait-on passer l'énergie du barrage hydraulique à votre smartphone en charge ? À chaque étape, il y a une conversion de puissance avec un rendement à optimiser. Problématique : modéliser, mesurer et améliorer le transfert de puissance entre un générateur et une charge, du continu au sinusoïdal. Prérequis : tension, intensité, puissance instantanée \(p(t) = u(t)i(t)\), loi d'Ohm. Annonce du plan en 2 parties.</li>
+      <li><strong>I. Approche niveau lycée — puissance en régime continu et adaptation d'impédance (15 min)</strong>
+        <ul>
+          <li>Puissance reçue par un dipôle en convention récepteur \(P = UI\). Cas du résistor \(P = RI^2 = U^2/R\) ; effet Joule. Bilan d'un générateur réel (modèle de Thévenin : f.é.m. \(E\), résistance interne \(r\)).</li>
+          <li><strong>Adaptation d'impédance</strong> : puissance fournie à la charge \(R\) par un générateur \((E, r)\) : \(P(R) = E^2 R/(R+r)^2\) ; maximum à \(R = r\), \(P_{\max} = E^2/(4r)\) ; rendement \(\eta = R/(R+r) = 1/2\) à l'adaptation. <strong>Compromis puissance/rendement à expliciter</strong>.</li>
+          <li>Applications : station de recharge solaire (MPPT), amplificateur audio. Lecture de la plaque signalétique d'un appareil (puissance nominale, tension, intensité).</li>
+          <li><strong>Illustration expérimentale n°1 :</strong> caractérisation d'une pile (ou panneau solaire) par tracé point par point de \(U(I)\) en faisant varier une résistance de charge. Extraction de \(E\) et \(r\) par régression linéaire. Tracé expérimental de \(P(R)\) ; vérification du maximum à \(R \approx r\). Discussion des sources d'incertitudes (lecture multimètre, échauffement de la résistance variable).</li>
+        </ul>
+      </li>
+      <li><strong>II. Approfondissement CPGE — puissance en sinusoïdal et conversion AC/DC (20 min)</strong>
+        <ul>
+          <li>Régime sinusoïdal forcé : puissance instantanée \(p(t) = u(t)i(t) = U_0 I_0 \cos(\omega t)\cos(\omega t - \varphi)\). Décomposition trigonométrique \(\Rightarrow\) <strong>puissance active</strong> \(P = U_{\text{eff}}I_{\text{eff}}\cos\varphi\), <strong>puissance réactive</strong> \(Q = U_{\text{eff}}I_{\text{eff}}\sin\varphi\), <strong>puissance apparente</strong> \(S = U_{\text{eff}}I_{\text{eff}}\).</li>
+          <li>Facteur de puissance \(\cos\varphi\) ; enjeu industriel (transport d'électricité, pénalités EDF sur les charges inductives). <strong>Compensation par condensateur</strong> en parallèle pour ramener \(\cos\varphi \to 1\).</li>
+          <li>Conversion AC/DC : redressement par pont de diodes (double alternance) ; filtrage par condensateur de lissage ; régulation par diode Zener ou régulateur intégré. Notion d'ondulation résiduelle et de rendement énergétique.</li>
+          <li>Évocation des convertisseurs à découpage (hacheur série) : principe, intérêt vs alimentation linéaire (rendement \(\eta > 90\,\%\) typique vs \(\sim 40\,\%\)). Lien avec la leçon n°12 (régime transitoire RC).</li>
+          <li><strong>Illustration expérimentale n°2 :</strong> alimentation linéaire complète AC/DC à partir du secteur via transformateur abaisseur 12 V — pont de diodes — condensateur de lissage — charge résistive variable. Mesure simultanée de \(U_{\text{eff}}\) primaire, \(I_{\text{eff}}\) primaire, \(U_{DC}\) et \(I_{DC}\) côté charge ; calcul du rendement global \(\eta = P_{DC}/P_{\text{ac,primaire}}\). Visualisation à l'oscilloscope de l'ondulation résiduelle ; confrontation au modèle \(\Delta U \approx I_{DC}/(C\,f)\) (formule approchée). Discussion des incertitudes composées sur \(\eta\).</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (5 min) :</strong> universalité de la problématique de conversion énergétique (rendement, dissipation thermique, qualité du signal). Enjeux contemporains : électronique de puissance pour véhicule électrique, photovoltaïque (onduleurs MPPT), réseaux intelligents. Limites : harmoniques générées par les convertisseurs à découpage (problématique CEM). Ouverture vers la leçon n°9 (capteurs — analogue de chaîne de conversion d'information) et vers la thermodynamique des machines (rendement de Carnot).</li>
+    </ul>
   </div>
 </div>
 
@@ -621,14 +1058,36 @@
 <div class="sblock r" id="jury">
   <div class="sblock-num">Section 13</div>
   <h2>13. Pièges du jury — rapport 2025</h2>
-  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+  <p class="intro">Huit erreurs récurrentes signalées chaque année, présentées au format <em>(a) pratique fautive</em> / <em>(b) correction attendue</em>.</p>
 
-  <div class="jury-list">
-    <div class="jury-item"><strong>Conventions de signe.</strong> Toujours flécher tension et courant ensemble (convention récepteur ou générateur) et garder la convention sur toute la résolution. Le signe de la fem dans la loi des mailles dépend du sens choisi pour la circulation.</div>
-    <div class="jury-item"><strong>Continuité.</strong> La <em>charge</em> d'un condensateur est continue (\(u_C\) ne saute jamais). Le <em>flux</em> dans une bobine est continu (\(i_L\) ne saute jamais). À chaque commutation, vérifier explicitement ces continuités pour fixer les conditions initiales.</div>
-    <div class="jury-item"><strong>Diviseur de tension chargé.</strong> La formule \(U_2 = U R_2/(R_1+R_2)\) suppose <em>aucun courant tiré au point intermédiaire</em>. Avec une charge \(R_L\) en parallèle de \(R_2\), il faut remplacer \(R_2\) par \(R_2\,R_L/(R_2 + R_L)\). Erreur très fréquente en oral.</div>
-    <div class="jury-item"><strong>Phase \(\boldsymbol{u/i}\) dans \(L\) et \(C\).</strong> Dans une bobine, la <em>tension</em> est en avance de \(\pi/2\) sur le courant. Dans un condensateur, c'est le <em>courant</em> qui est en avance de \(\pi/2\) sur la tension. Moyen mnémotechnique « C-I-V-I-L » : dans le <strong>C</strong>ondensateur, <strong>I</strong> avant <strong>V</strong> ; dans la bobine (<strong>L</strong>), <strong>V</strong> avant <strong>I</strong>.</div>
-    <div class="jury-item"><strong>ARQS.</strong> L'analyse par lois de Kirchhoff suppose l'ARQS — taille du circuit \(\ll \lambda = c/f\). Pour un circuit de 30 cm à 50 Hz : \(\lambda = 6000\,\mathrm{km}\), ARQS très largement vérifiée. À 1 GHz : \(\lambda = 30\,\mathrm{cm}\), ARQS limite — il faut passer aux équations de Maxwell complètes (lignes de transmission).</div>
+  <div class="alert alert-red r">
+    <strong>Huit pratiques fautives signalées par le jury session 2025 — et la correction attendue.</strong>
+    <ul>
+      <li><strong>1. Conventions de signe oubliées en cours de résolution.</strong><br>
+        <em>(a)</em> Flécher tension et courant arbitrairement sans cohérence, ou changer de convention au milieu de la résolution.<br>
+        <em>(b)</em> Choisir <strong>convention récepteur</strong> (\(\vec{i}\) et \(\vec{u}\) en sens opposés sur le dipôle) ou <strong>générateur</strong> (même sens) dès le début, l'<strong>annoncer explicitement</strong> et la conserver jusqu'au résultat final. Le signe de la fem dans la loi des mailles dépend du sens choisi pour la circulation.</li>
+      <li><strong>2. Continuité \(u_C\) et \(i_L\) non vérifiée aux commutations.</strong><br>
+        <em>(a)</em> Écrire des conditions initiales sans justifier ce qui est continu et ce qui peut sauter.<br>
+        <em>(b)</em> Énoncer systématiquement : « la charge d'un condensateur est continue donc \(u_C(0^+) = u_C(0^-)\) » et « le flux dans une bobine est continu donc \(i_L(0^+) = i_L(0^-)\) ». À chaque commutation, vérifier <em>explicitement</em> ces deux continuités avant d'écrire la suite.</li>
+      <li><strong>3. Diviseur de tension utilisé chargé sans correction.</strong><br>
+        <em>(a)</em> Appliquer \(U_2 = U\,R_2/(R_1+R_2)\) à un point intermédiaire d'où l'on tire un courant (mesure, étage suivant).<br>
+        <em>(b)</em> Rappeler que la formule suppose <em>aucun courant au point intermédiaire</em>. En présence d'une charge \(R_L\) en parallèle de \(R_2\), remplacer \(R_2\) par \(R_2\,R_L/(R_2 + R_L)\). Cas limite acceptable si \(R_L \gg R_2\) — à <strong>justifier numériquement</strong>.</li>
+      <li><strong>4. Phase \(u/i\) inversée dans bobine et condensateur.</strong><br>
+        <em>(a)</em> Affirmer sans réfléchir que « la tension est en avance dans le condensateur » ou inverser \(L\) et \(C\).<br>
+        <em>(b)</em> Dans une <strong>bobine</strong>, la <em>tension</em> est en avance de \(\pi/2\) sur le courant (\(u_L = L\,\mathrm{d}i/\mathrm{d}t\)). Dans un <strong>condensateur</strong>, le <em>courant</em> est en avance de \(\pi/2\) sur la tension (\(i_C = C\,\mathrm{d}u/\mathrm{d}t\)). Moyen mnémotechnique « C-I-V-I-L » : dans le <strong>C</strong>ondensateur, <strong>I</strong> avant <strong>V</strong> ; dans la bobine (<strong>L</strong>), <strong>V</strong> avant <strong>I</strong>.</li>
+      <li><strong>5. ARQS supposée sans vérification quantitative.</strong><br>
+        <em>(a)</em> Appliquer les lois de Kirchhoff à n'importe quel circuit sans justifier le régime quasi-stationnaire.<br>
+        <em>(b)</em> Vérifier explicitement \(L \ll \lambda = cT = c/f\) où \(L\) est la taille caractéristique du circuit. Circuit 30 cm à 50 Hz : \(\lambda = 6000\,\mathrm{km}\) — ARQS très largement vérifiée. À 1 GHz : \(\lambda = 30\,\mathrm{cm}\) — ARQS limite, il faut passer aux équations de Maxwell complètes (lignes de transmission, propagation).</li>
+      <li><strong>6. AO idéal supposé sans vérifier les hypothèses.</strong><br>
+        <em>(a)</em> Écrire d'emblée \(V_+ = V_-\) (HRL) sans avoir établi que le montage rétroagit sur l'entrée inverseuse et que la sortie n'est pas saturée.<br>
+        <em>(b)</em> Vérifier successivement : (i) <strong>rétroaction négative</strong> (sortie reliée à \(V_-\) par un chemin résistif) → l'AO fonctionne en régime linéaire → \(V_+ = V_-\) ; (ii) si rétroaction positive ou pas de rétroaction → fonctionnement en comparateur, sortie saturée à \(\pm V_{\text{sat}}\). Confusion linéaire/saturé très sanctionnée.</li>
+      <li><strong>7. Composition linéaire au lieu de quadratique des incertitudes.</strong><br>
+        <em>(a)</em> Sommer \(u(X_1) + u(X_2)\) pour propager une incertitude sur \(Y = X_1 + X_2\) ou un produit.<br>
+        <em>(b)</em> Pour variables indépendantes, composer <em>quadratiquement</em> : \(u_c^{2}(Y) = \sum_i (\partial f/\partial X_i)^2\,u^{2}(X_i)\). Pour un produit \(Y = X_1\,X_2\), ce sont les incertitudes <em>relatives</em> qui se composent : \((u(Y)/Y)^2 = (u(X_1)/X_1)^2 + (u(X_2)/X_2)^2\). Présenter le résultat sous la forme \(Y = (y \pm U)\,\text{unité}\) avec \(U = 2\,u_c\) (niveau de confiance ≈ 95 %).</li>
+      <li><strong>8. Composants idéalisés sans modèle limite.</strong><br>
+        <em>(a)</em> Affirmer « la diode est passante donc \(U_D = 0\) » ou « le transistor saturé donc \(R_{ON}=0\) » sans préciser le modèle utilisé.<br>
+        <em>(b)</em> Annoncer le <strong>modèle adopté</strong> : diode idéale (\(U_D = 0\) en passant, \(I_D = 0\) bloquée), diode à seuil (\(U_D = U_s \approx 0{,}6\,\mathrm{V}\) en Si passante), diode réelle (équation de Shockley). Pour un transistor en commutation : \(R_{ON}\) faible mais non nul, justifier l'approximation \(R_{ON} = 0\) par comparaison numérique avec la résistance de charge.</li>
+    </ul>
   </div>
 </div>
 
@@ -671,19 +1130,76 @@
 <!-- ═══════════════════ RESSOURCES ═══════════════════ -->
 <div class="sblock r" id="ressources-section">
   <div class="sblock-num">Ressources</div>
-  <h2>Aller plus loin</h2>
-  <div class="g2" style="margin-top:1rem">
-    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
-      <span class="ri">📚</span><div><div class="rt">Annales officielles</div><div class="rd">Sujets des sessions précédentes avec corrigés</div></div><span class="ra">→</span>
+  <h2>Aller plus loin — sources et références</h2>
+  <p style="margin-top:0.8rem;color:var(--gray-700)">Sélection hiérarchisée pour préparer l'agrégation interne 2027 sur le chapitre Électricité : sources officielles, ressources institutionnelles, simulateurs, manuels canoniques et recherches en didactique.</p>
+
+  <h4 style="margin-top:1.4rem">Programmes officiels et rapports du jury</h4>
+  <div class="g2" style="margin-top:0.6rem">
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/" target="_blank">
+      <span class="ri">🏛️</span><div><div class="rt">Site officiel AIPC</div><div class="rd">Programmes, rapports de jury 2012-2025, annales écrites et orales</div></div><span class="ra">→</span>
     </a>
     <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/uploads/1/2/8/4/128449349/rapport_jury_aipc_session_2025.pdf" target="_blank">
-      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025</div><div class="rd">Erreurs fréquentes, attentes du jury, statistiques</div></div><span class="ra">→</span>
+      <span class="ri">📋</span><div><div class="rt">Rapport de jury 2025 (PDF)</div><div class="rd">Erreurs fréquentes en électricité, attentes précises, statistiques</div></div><span class="ra">→</span>
     </a>
-    <a class="res-link" href="https://phet.colorado.edu/fr/" target="_blank">
-      <span class="ri">🔬</span><div><div class="rt">PhET Simulations</div><div class="rd">Simulations interactives autorisées aux oraux</div></div><span class="ra">→</span>
+    <a class="res-link" href="http://www.agregation-interne-physique-chimie.org/annales-des-eacutepreuves-eacutecrites.html" target="_blank">
+      <span class="ri">📚</span><div><div class="rt">Annales écrites officielles</div><div class="rd">Sujets et corrigés (RLC, filtrage, conversion AC/DC fréquemment posés)</div></div><span class="ra">→</span>
     </a>
+    <a class="res-link" href="https://www.devenirenseignant.gouv.fr/" target="_blank">
+      <span class="ri">⚖️</span><div><div class="rt">Cadre réglementaire</div><div class="rd">devenirenseignant.gouv.fr — modalités du concours interne</div></div><span class="ra">→</span>
+    </a>
+  </div>
+
+  <h4 style="margin-top:1.4rem">Ressources institutionnelles et pédagogiques</h4>
+  <div class="g2" style="margin-top:0.6rem">
+    <a class="res-link" href="http://ressources.agreg.phys.ens.fr/ressources/" target="_blank">
+      <span class="ri">🎓</span><div><div class="rt">Ressources ENS — agrégation physique</div><div class="rd">Scripts Python (acquisition, FFT, régression), vidéos d'expériences, fiches montages</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://eduscol.education.fr/" target="_blank">
+      <span class="ri">📖</span><div><div class="rt">Éduscol — programmes lycée</div><div class="rd">Programmes officiels seconde, 1ʳᵉ spé, terminale spé physique-chimie</div></div><span class="ra">→</span>
+    </a>
+  </div>
+
+  <h4 style="margin-top:1.4rem">Simulateurs et outils numériques</h4>
+  <div class="g2" style="margin-top:0.6rem">
+    <a class="res-link" href="https://phet.colorado.edu/fr/simulations/circuit-construction-kit-dc" target="_blank">
+      <span class="ri">🔬</span><div><div class="rt">PhET — Kit circuits DC</div><div class="rd">Construire et mesurer en circuit ouvert, validé pour l'oral (autorisé en salle)</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://phet.colorado.edu/fr/simulations/circuit-construction-kit-ac-virtual-lab" target="_blank">
+      <span class="ri">🌊</span><div><div class="rt">PhET — Kit circuits AC</div><div class="rd">Sources alternatives, déphasages U/I, comportement RLC visualisé</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.falstad.com/circuit/" target="_blank">
+      <span class="ri">⚡</span><div><div class="rt">Falstad Circuit Simulator</div><div class="rd">Simulateur SPICE en ligne — filtres, oscillateurs, AO en temps réel</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="https://www.geogebra.org/" target="_blank">
+      <span class="ri">📐</span><div><div class="rt">GeoGebra</div><div class="rd">Tracé de diagrammes de Bode interactifs, vecteurs de Fresnel</div></div><span class="ra">→</span>
+    </a>
+  </div>
+
+  <h4 style="margin-top:1.4rem">Manuels canoniques</h4>
+  <ul style="margin-top:0.6rem;line-height:1.7">
+    <li><strong>Pérez — Électronique : fondements et applications</strong> (Dunod, 3ᵉ éd.). Référence absolue niveau CPGE 2ᵉ année : AO réel et idéal, filtres actifs, oscillateurs, conversion analogique-numérique. Calibre exact pour le développement post-bac de l'oral.</li>
+    <li><strong>Krob — Électronique : signaux et systèmes</strong> (Ellipses). Approche systèmes (fonction de transfert, réponse fréquentielle, stabilité) avec applications expérimentales. Très utilisé en MP/PSI.</li>
+    <li><strong>Niard, Quaranta — Dictionnaire de physique expérimentale, tome IV (Électricité-Électronique)</strong> (Pierron). <em>Bible</em> du montage d'agrégation : protocoles détaillés, sources d'incertitudes, ordres de grandeur. Indispensable pour les épreuves d'oral.</li>
+    <li><strong>Sanz, Salamito, Cardini, Jurine — Physique tout-en-un PSI/PSI*</strong> (Dunod J'intègre). Niveau CPGE 2A complet : ARQS, régimes transitoires, AO, conversion électronique de puissance. Bon socle pour balayer le programme.</li>
+    <li><strong>Garing — Ondes électromagnétiques dans le vide et les conducteurs</strong> (Ellipses). Complément utile pour la jonction Électricité ↔ Électromagnétisme (lignes, propagation, effet de peau).</li>
+  </ul>
+
+  <h4 style="margin-top:1.4rem">Recherches en didactique de l'électricité</h4>
+  <ul style="margin-top:0.6rem;line-height:1.7">
+    <li><strong>Closset, J.-L. (1983)</strong> — <em>Le raisonnement séquentiel en électrocinétique</em>, thèse Paris 7. Article fondateur sur les conceptions erronées des élèves (« le courant s'use », raisonnement causal linéaire). Référence systématiquement citée par le jury.</li>
+    <li><strong>Viennot, L. (1996)</strong> — <em>Raisonner en physique : la part du sens commun</em> (De Boeck). Chapitres dédiés au courant électrique et à la causalité linéaire vs systémique. Cadre théorique essentiel pour la partie didactique de l'oral.</li>
+    <li><strong>Tiberghien, A., Vince, J., Gaidioz, P. (2009)</strong> — <em>Construction de la notion de tension en collège-lycée</em>, BUP n°917. Progression spiralée tension/intensité, articulation modèle/expérience.</li>
+    <li><strong>Beaufils, D., Le Maréchal, J.-F. (2010)</strong> — <em>Modélisation et simulation en enseignement des sciences</em>. Référence sur l'usage didactique des simulateurs (PhET, Falstad) en classe.</li>
+    <li><strong>BUP — Bulletin de l'Union des Physiciens</strong>. Numéros spéciaux fréquents sur l'électricité au lycée et l'usage d'oscilloscope/Arduino en TP. Consultable en ligne sur <em>udppc.asso.fr</em>.</li>
+  </ul>
+
+  <h4 style="margin-top:1.4rem">Navigation</h4>
+  <div class="g2" style="margin-top:0.6rem">
     <a class="res-link" href="index.html">
       <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
+    </a>
+    <a class="res-link" href="electromagnetisme.html">
+      <span class="ri">🧲</span><div><div class="rt">Chapitre Électromagnétisme</div><div class="rd">Suite logique : équations de Maxwell, propagation, induction</div></div><span class="ra">→</span>
     </a>
   </div>
 </div>
