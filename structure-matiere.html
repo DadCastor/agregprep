@@ -142,6 +142,36 @@
     <span class="fc">— <strong>Bloc \(f\)</strong> : lanthanides et actinides.</span>
   </div>
 
+<!-- À insérer après ligne ~143 (fin de la .fbox "Lignes et colonnes"), AVANT <h3>2.2 Tendances périodiques -->
+<h3>2.2 Charge nucléaire effective — règles de Slater</h3>
+<div class="fbox c">
+  <span class="fl">Effet d'écran et charge effective \(Z^{*}\)</span>
+  <span class="fc">Un électron de la couche externe n'est pas attiré par toute la charge \(+Ze\) du noyau : les électrons internes <em>écrantent</em> partiellement le noyau. On définit la charge effective :</span>
+  <span class="fm">\[ \boxed{\;Z^{*} \;=\; Z - \sigma\;} \qquad \sigma = \sum_i \sigma_i \quad (\text{contributions d'écrantage}) \]</span>
+  <hr>
+  <span class="fc"><strong>Regroupement de Slater des sous-couches :</strong></span>
+  <span class="fm">\[ [1s]\ [2s,2p]\ [3s,3p]\ [3d]\ [4s,4p]\ [4d]\ [4f]\ [5s,5p]\ \ldots \]</span>
+  <hr>
+  <span class="fc"><strong>Constantes d'écrantage \(\sigma_i\) appliquées à un électron de la sous-couche cible \(ns\) ou \(np\) :</strong></span>
+  <span class="fc">— autre électron du <em>même groupe</em> : \(\sigma = 0{,}35\) (sauf \([1s]\) : \(\sigma = 0{,}30\))</span>
+  <span class="fc">— électron du groupe immédiatement inférieur (\(n-1\)) : \(\sigma = 0{,}85\)</span>
+  <span class="fc">— électron de tout groupe plus interne (\(n-2\) et au-delà) : \(\sigma = 1{,}00\)</span>
+  <hr>
+  <span class="fc"><strong>Cas particulier \(nd\) ou \(nf\) :</strong> tous les électrons des groupes internes (y compris ceux des couches \(n\)) écrantent à \(\sigma = 1{,}00\) ; les autres électrons du même groupe \(nd\) ou \(nf\) écrantent à \(\sigma = 0{,}35\).</span>
+</div>
+
+<div class="key-box c">
+  <p><strong>Exemples calculés.</strong></p>
+  <p>\(\ce{Na}\) (\(Z = 11\), config. \(1s^2 2s^2 2p^6 3s^1\)) — électron \(3s\) :</p>
+  \[ Z^{*}(3s) \;=\; 11 - (8 \times 0{,}85 + 2 \times 1{,}00) \;=\; 11 - 8{,}80 \;=\; \boxed{2{,}20}. \]
+  <p>\(\ce{Cl}\) (\(Z = 17\), config. \([\ce{Ne}]\,3s^2 3p^5\)) — électron \(3p\) :</p>
+  \[ Z^{*}(3p) \;=\; 17 - (6 \times 0{,}35 + 8 \times 0{,}85 + 2 \times 1{,}00) \;=\; 17 - 10{,}90 \;=\; \boxed{6{,}10}. \]
+  <p>\(\ce{Fe}\) (\(Z = 26\), config. \([\ce{Ar}]\,3d^6 4s^2\)) — électron \(4s\) :</p>
+  \[ Z^{*}(4s) \;=\; 26 - (1 \times 0{,}35 + (6+8) \times 0{,}85 + 10 \times 1{,}00) \;=\; 26 - 21{,}25 \;\approx\; \boxed{4{,}75}. \]
+  <p><em>Note :</em> dans le décompte ci-dessus pour \(\ce{Fe}\), on comptabilise les \(6\) électrons \(3d\) et les \(8\) électrons \([3s,3p]\) avec \(\sigma = 0{,}85\) (groupe immédiatement intérieur à \([4s,4p]\)), les \(10\) électrons \([1s][2s,2p]\) avec \(\sigma = 1{,}00\), et l'autre électron \(4s\) avec \(\sigma = 0{,}35\).</p>
+  <p><strong>Sens physique.</strong> Le long d'une période, \(Z\) augmente de 1 à chaque case mais \(\sigma\) n'augmente que de \(0{,}35\) → \(Z^{*}\) <em>croît</em> → les électrons externes sont plus retenus → rayon ↓, \(E_i\) ↑, \(\chi\) ↑. C'est l'<strong>origine quantique des tendances périodiques horizontales</strong>.</p>
+</div>
+
   <h3>2.2 Tendances périodiques</h3>
   <table class="compact">
     <thead><tr><th>Grandeur</th><th>Variation horizontale (→)</th><th>Variation verticale (↓)</th><th>Origine physique</th></tr></thead>
@@ -180,6 +210,18 @@
     <hr>
     <span class="fc">Hypervalence (\(n &gt; 2\)) : \(\ce{SF6}, \ce{PCl5}, \ce{XeF4}\) — atomes \(\geq\) 3<sup>e</sup> période, octet expansé grâce aux sous-couches \(d\) accessibles.</span>
   </div>
+
+
+<!-- À insérer après ligne ~182, juste après la .fbox c contenant la mention "Hypervalence" (fin du §3.1, avant <h3>3.2 Théorie VSEPR) -->
+<div class="alert alert-red r">
+  <span class="ico">⚠️</span>
+  <div><strong>Hypervalence : le modèle des sous-couches \(d\) est dépassé.</strong>
+    <p style="margin:.4rem 0 0 0">La justification classique de l'hypervalence de \(\ce{SF6}\), \(\ce{PCl5}\), \(\ce{XeF4}\) par participation des orbitales \(d\) de valence (\(3d\) du soufre, \(3d\) du phosphore) est <strong>remise en cause</strong> par les calculs <em>ab initio</em> modernes et les analyses de population (NBO, EHT) : la contribution des orbitales \(d\) à la liaison est typiquement \(&lt; 5\,\%\). Elles ne sont pas accessibles en énergie pour participer significativement aux OM liantes.</p>
+    <p style="margin:.5rem 0 0 0"><strong>Modèle alternatif attendu par le jury 2025 :</strong> la <em>liaison à 3 centres et 4 électrons</em> (3c-4e, Pimentel-Rundle, 1951). Trois OA alignées (par ex. \(\mathrm{p}_z(\ce{F}) - \mathrm{p}_z(\ce{S}) - \mathrm{p}_z(\ce{F})\)) se combinent en 3 OM : une liante (occupée), une non liante (occupée), une antiliante (vide). On obtient deux liaisons \(\ce{S-F}\) avec seulement <em>une paire</em> d'électrons liants partagée → liaisons polarisées plus faibles que des liaisons à 2 centres classiques.</p>
+    <p style="margin:.5rem 0 0 0"><strong>Application à \(\ce{SF6}\) :</strong> les 6 liaisons \(\ce{S-F}\) sont mieux décrites par <em>3 systèmes 3c-4e mutuellement perpendiculaires</em> que par 6 liaisons \(\sigma\) classiques utilisant des hybrides \(\mathrm{sp^3d^2}\).</p>
+    <p style="margin:.5rem 0 0 0"><strong>Posture pédagogique :</strong> l'enseignement secondaire et la majorité des manuels de prépa conservent la vision « sous-couches \(d\) » (plus simple à manipuler). Un candidat doit savoir <em>situer les deux modèles</em> et reconnaître que le modèle 3c-4e est plus rigoureux quantitativement. Source : Magnasco, <em>Models for Bonding in Chemistry</em>, Wiley, 2010 ; Reed &amp; Schleyer, <em>JACS</em> 112, 1434 (1990).</p>
+  </div>
+</div>
 
   <h3>3.2 Théorie VSEPR (Gillespie)</h3>
   <div class="fbox c">
@@ -254,7 +296,42 @@
 
   <div class="key-box c">
     <p><strong>Cas emblématique de \(\ce{O2}\).</strong> Lewis prédit une double liaison sans électron célibataire \(\Rightarrow\) diamagnétisme. <em>Expérimentalement : \(\ce{O2}\) est paramagnétique</em> (attiré par un aimant à l'état liquide). La théorie des OM explique : 2 électrons dans 2 OM \(\pi_{2p}^{*}\) dégénérées avec spins parallèles (Hund) \(\Rightarrow\) 2 électrons non appariés \(\Rightarrow\) paramagnétique. C'est le succès historique majeur de la théorie OM.</p>
+  
+
+<!-- À insérer après ligne ~258, juste après la .key-box c "Cas emblématique de O2" (fin de §4.2), avant la fermeture du sblock §4 -->
+<h3>4.3 OM hétéronucléaires — cas de \(\ce{HF}\) et \(\ce{CO}\)</h3>
+<div class="notion c">
+  <div class="notion-title"><span class="nt-bar c"></span>Diagramme de \(\ce{HF}\) : la polarisation extrême</div>
+  <div class="notion-body">
+    <p>Différence d'électronégativité \(\Delta\chi = \chi_{\ce{F}} - \chi_{\ce{H}} \approx 3{,}98 - 2{,}20 = 1{,}78\). Les OA de \(\ce{F}\) (\(2s, 2p\)) sont nettement plus stables (plus basses en énergie) que la \(1s\) de \(\ce{H}\). Conséquences sur les OM :</p>
+    <ul>
+      <li>L'OM <strong>liante \(\sigma\)</strong> est essentiellement la \(2p_z\) de \(\ce{F}\) avec une faible contribution de \(1s\)(\(\ce{H}\)) → densité électronique <em>fortement localisée sur \(\ce{F}\)</em>.</li>
+      <li>Les <strong>OA \(2p_x\) et \(2p_y\) de \(\ce{F}\)</strong> ne trouvent pas de partenaire de symétrie compatible côté \(\ce{H}\) → restent <em>purement non liantes</em> (2 doublets libres sur \(\ce{F}\)).</li>
+      <li>La \(2s\) de \(\ce{F}\), très basse en énergie, reste essentiellement non liante.</li>
+      <li>HOMO : doublet non liant \(2p_{x,y}\) sur \(\ce{F}\). LUMO : \(\sigma^{*}\) polarisée sur \(\ce{H}\).</li>
+    </ul>
+    <p><strong>Conséquences chimiques.</strong> Moment dipolaire \(\mu(\ce{HF}) = 1{,}82\,\mathrm{D}\) (très polaire). La liaison \(\ce{H-F}\) a un fort caractère <em>ionique partiel</em> (~45 %), justifiant l'acidité forte en phase gaz mais aussi la liaison hydrogène très intense en phase condensée.</p>
   </div>
+</div>
+
+<div class="notion c">
+  <div class="notion-title"><span class="nt-bar c"></span>Diagramme de \(\ce{CO}\) : le piège « contre-intuitif »</div>
+  <div class="notion-body">
+    <p>\(\ce{O}\) est plus électronégatif que \(\ce{C}\) (\(\chi_{\ce{O}} = 3{,}44\) vs \(\chi_{\ce{C}} = 2{,}55\)). <em>Intuition naïve :</em> les OM devraient être polarisées vers \(\ce{O}\). <strong>Réalité :</strong> la HOMO de \(\ce{CO}\) est centrée sur \(\ce{C}\) !</p>
+    <p><strong>Origine :</strong> les OA \(2s\) et \(2p\) de \(\ce{O}\) sont notablement plus stables (plus basses) que celles de \(\ce{C}\). L'interaction \(2s\)(\(\ce{C}\)) – \(2s\)(\(\ce{O}\)) produit une OM liante très localisée sur \(\ce{O}\) et une OM antiliante \(\sigma_{2s}^{*}\) localisée sur \(\ce{C}\). Cette dernière, par interaction \(s\)–\(p\) (forte pour les éléments du début de période 2), se trouve <em>stabilisée</em> et devient la HOMO de \(\ce{CO}\), <strong>polarisée vers \(\ce{C}\)</strong> et de caractère essentiellement non liant.</p>
+    <p>Ordre des OM (schématique) :</p>
+    \[ \sigma_{2s}\ (\text{loc. }\ce{O}) \;<\; \sigma_{2s}^{*}\ (\text{loc. }\ce{C}) \;<\; \pi_{2p}\ (\text{loc. }\ce{O}) \;<\; \underbrace{\sigma_{2p}}_{\text{HOMO, loc. }\ce{C}} \;<\; \underbrace{\pi_{2p}^{*}}_{\text{LUMO, loc. }\ce{C}} \;<\; \sigma_{2p}^{*} \]
+    <p>Ordre de liaison : \(OL = (8 - 2)/2 = 3\) (triple liaison \(\ce{C#O}\)).</p>
+    <p><strong>Conséquence fondamentale : chimie de coordination.</strong></p>
+    <ul>
+      <li>HOMO sur \(\ce{C}\) → <strong>\(\ce{CO}\) est un \(\sigma\)-donneur via \(\ce{C}\)</strong> vers un métal de transition.</li>
+      <li>LUMO (\(\pi^{*}\)) également centrée sur \(\ce{C}\) → <strong>\(\ce{CO}\) est un \(\pi\)-accepteur via \(\ce{C}\)</strong> (rétrodonation \(\mathrm{d}_\pi(\ce{M}) \to \pi^{*}(\ce{CO})\)).</li>
+      <li>Conclusion : dans tous les complexes carbonyles (\(\ce{Ni(CO)4}\), \(\ce{Fe(CO)5}\), \(\ce{Cr(CO)6}\)), <em>\(\ce{CO}\) se lie au métal par l'atome de \(\ce{C}\), jamais par \(\ce{O}\)</em>. L'analyse OM rend ce fait, paradoxal au premier abord, parfaitement cohérent.</li>
+    </ul>
+    <p><em>Référence :</em> Albright, Burdett &amp; Whangbo, <em>Orbital Interactions in Chemistry</em>, 2<sup>e</sup> éd., Wiley, 2013.</p>
+  </div>
+</div>
+</div>
 </div>
 
 <!-- ═══════════════════ 05 INTERMOLECULAIRES ═══════════════════ -->
@@ -444,6 +521,40 @@
     <span class="fc">Couplage spin-spin : \(n\) voisins inéquivalents \(\Rightarrow n+1\) raies (singulet, doublet, triplet…). Constante de couplage vicinale \({}^{3}J_{HH} \approx 6\)–8 Hz (rotation libre).</span>
   </div>
 
+<!-- À insérer après ligne ~445 (fin de la .fbox "Déplacements chimiques δ (ppm) et couplages" de la RMN ¹H), avant <h3>8.3 UV-Visible -->
+<h3>8.2 bis — RMN du carbone-13 et expériences DEPT</h3>
+<div class="fbox c">
+  <span class="fl">RMN \(^{13}\ce{C}\) : déplacements caractéristiques</span>
+  <span class="fc">L'isotope \(^{13}\ce{C}\) (abondance naturelle 1,1 %) est sensible en RMN. L'échelle de déplacements est <em>plus étalée</em> qu'en \(^{1}\ce{H}\) (~0–220 ppm vs 0–13 ppm), ce qui réduit considérablement les recouvrements. Référence : TMS à \(\delta = 0\) ppm.</span>
+</div>
+
+<table class="compact">
+  <thead><tr><th>Type de carbone</th><th>\(\delta\) (ppm)</th><th>Remarque</th></tr></thead>
+  <tbody>
+    <tr><td>\(\ce{C}\) alkyle (\(\ce{CH3, CH2, CH}\))</td><td>0 – 50</td><td>Zone dense</td></tr>
+    <tr><td>\(\ce{C-O}\) (alcools, éthers)</td><td>50 – 90</td><td>Effet \(-I\) de \(\ce{O}\)</td></tr>
+    <tr><td>\(\ce{C#C}\) (alcynes)</td><td>65 – 90</td><td>Hybridation sp</td></tr>
+    <tr><td>\(\ce{C=C}\) (alcènes)</td><td>100 – 150</td><td></td></tr>
+    <tr><td>\(\ce{C}\) aromatique</td><td>110 – 160</td><td>Cycle benzénique ~128 ppm</td></tr>
+    <tr><td>\(\ce{C=O}\) ester, acide</td><td>160 – 180</td><td></td></tr>
+    <tr><td>\(\ce{C=O}\) aldéhyde, cétone</td><td>190 – 220</td><td>Très déblindés</td></tr>
+  </tbody>
+</table>
+
+<div class="fbox c">
+  <span class="fl">DEPT — Distortionless Enhancement by Polarization Transfer</span>
+  <span class="fc">Expériences impulsionnelles qui exploitent le couplage \(^{1}J_{\ce{CH}}\) (~125–250 Hz) pour <em>compter le nombre de \(\ce{H}\) directement liés à chaque \(\ce{C}\)</em>, sans devoir interpréter de multiplets (le découplage \(^{1}\ce{H}\) supprime la multiplicité).</span>
+  <hr>
+  <span class="fc"><strong>Trois expériences complémentaires :</strong></span>
+  <span class="fc">— <strong>\(^{1}\ce{H}\)-découplé (1D classique)</strong> : tous les \(\ce{C}\) visibles (\(\ce{C}\) quaternaires inclus), chaque \(\ce{C}\) = un singulet.</span>
+  <span class="fc">— <strong>DEPT-135°</strong> : \(\ce{CH}\) et \(\ce{CH3}\) en pic <em>positif</em>, \(\ce{CH2}\) en pic <em>négatif</em>, \(\ce{C}\) quaternaires <em>absents</em>.</span>
+  <span class="fc">— <strong>DEPT-90°</strong> : seuls les \(\ce{CH}\) sont visibles.</span>
+  <hr>
+  <span class="fc"><strong>Stratégie d'analyse :</strong> par <em>soustraction</em> du DEPT-135° au spectre \(^{1}\ce{H}\)-découplé, on identifie sans ambiguïté les \(\ce{C}\) quaternaires (présents dans le 1D, absents du DEPT). La comparaison DEPT-135° / DEPT-90° distingue \(\ce{CH}\) (présent dans les deux) de \(\ce{CH3}\) (présent uniquement dans le DEPT-135°).</span>
+  <hr>
+  <span class="fc"><em>Mise en garde quantitative :</em> contrairement à la RMN \(^{1}\ce{H}\), l'<strong>intégration en RMN \(^{13}\ce{C}\) n'est pas quantitative</strong> (temps de relaxation \(T_1\) très différents entre \(\ce{C}\) quaternaires et \(\ce{CH}_n\), effet NOE variable). DEPT pallie cette difficulté pour le décompte.</span>
+</div>
+
   <h3>8.3 UV-Visible et loi de Beer-Lambert</h3>
   <div class="fbox c">
     <span class="fl">Absorbance et coefficient molaire</span>
@@ -454,6 +565,95 @@
     <span class="fc">— \(n\to\pi^*\) (faible, ~100–500 L·mol⁻¹·cm⁻¹) : groupes \(\ce{C=O, N=O}\) (env. 280 nm pour cétones).</span>
     <span class="fc">— \(\pi\to\pi^*\) (forte, ~10⁴–10⁵) : chromophores conjugués. Plus la conjugaison s'étend, plus \(\lambda_{\max}\) se décale vers le rouge (effet bathochrome).</span>
   </div>
+
+
+<!-- À insérer après ligne ~456 (fin de la .fbox UV-Vis "8.3"), avant la fermeture du sblock §8 (avant le commentaire "═══ 09 PEDAGOGIE ═══") -->
+<h3>8.4 Spectrométrie de masse</h3>
+<div class="fbox c">
+  <span class="fl">Principe et ionisation par impact électronique (EI)</span>
+  <span class="fc">L'échantillon gazeux est bombardé par un faisceau d'électrons d'énergie \(\sim 70\,\mathrm{eV}\). Il en résulte :</span>
+  <span class="fc">— ionisation : \(\ce{M + e^- -> M^{+\bullet} + 2 e^-}\) (cation radical molécule)</span>
+  <span class="fc">— fragmentation : \(\ce{M^{+\bullet} -> A^+ + B^\bullet}\) (rupture homo- ou hétérolytique)</span>
+  <span class="fc">Le spectromètre sépare les ions selon leur rapport \(m/z\) (champ magnétique, quadripôle, temps de vol). Spectre : abondance relative en fonction de \(m/z\), normalisée à 100 % pour le <em>pic de base</em> (le plus intense).</span>
+</div>
+
+<div class="fbox c">
+  <span class="fl">Pic moléculaire \(\ce{M^{+\bullet}}\) et règle de l'azote</span>
+  <span class="fc">Le <strong>pic moléculaire</strong> \(\ce{M^{+\bullet}}\) est en général le plus grand \(m/z\) observé (mais pas forcément le pic de base si \(\ce{M^{+\bullet}}\) est très instable — cas des alcools, amines tertiaires).</span>
+  <hr>
+  <span class="fc"><strong>Règle de l'azote :</strong> pour une molécule organique constituée de C, H, N, O (sans halogène ni soufre), \(\ce{M^{+\bullet}}\) est de masse <em>impaire si et seulement si</em> le nombre d'atomes d'azote est <em>impair</em>. Ex : \(\ce{CH3NH2}\) : M = 31 (impair, 1 N) ; \(\ce{C2H7N}\) : M = 45 (impair, 1 N) ; glycine \(\ce{C2H5NO2}\) : M = 75 (impair, 1 N).</span>
+</div>
+
+<table class="compact">
+  <thead><tr><th>Perte (\(\Delta m\))</th><th>Fragment perdu</th><th>Diagnostic typique</th></tr></thead>
+  <tbody>
+    <tr><td>M − 15</td><td>\(\ce{CH3^\bullet}\)</td><td>Groupement méthyle terminal</td></tr>
+    <tr><td>M − 17</td><td>\(\ce{OH^\bullet}\)</td><td>Acide carboxylique</td></tr>
+    <tr><td>M − 18</td><td>\(\ce{H2O}\)</td><td>Alcool primaire ou secondaire (déshydratation)</td></tr>
+    <tr><td>M − 28</td><td>\(\ce{CO}\) ou \(\ce{C2H4}\)</td><td>Cétones aromatiques / réarrangement McLafferty</td></tr>
+    <tr><td>M − 29</td><td>\(\ce{CHO^\bullet}\)</td><td>Aldéhyde</td></tr>
+    <tr><td>M − 31</td><td>\(\ce{OCH3^\bullet}\)</td><td>Ester méthylique</td></tr>
+    <tr><td>M − 43</td><td>\(\ce{CH3CO^\bullet}\) ou \(\ce{C3H7^\bullet}\)</td><td>Méthylcétone (réarr. McLafferty), propyle</td></tr>
+    <tr><td>M − 45</td><td>\(\ce{OC2H5^\bullet}\) ou \(\ce{COOH^\bullet}\)</td><td>Ester éthylique, acide carboxylique</td></tr>
+  </tbody>
+</table>
+
+<div class="fbox c">
+  <span class="fl">Signatures isotopiques caractéristiques</span>
+  <span class="fc">Certains éléments ont des isotopes naturels en abondance suffisante pour produire des <em>multiplets isotopiques</em> dans le pic moléculaire — diagnostic immédiat.</span>
+  <hr>
+  <span class="fc"><strong>Chlore</strong> (\(^{35}\ce{Cl} : ^{37}\ce{Cl} \approx 3:1\)) : un \(\ce{Cl}\) donne \(\ce{M} : \ce{M}+2 \approx 3:1\).</span>
+  <span class="fc"><strong>Brome</strong> (\(^{79}\ce{Br} : ^{81}\ce{Br} \approx 1:1\)) : un \(\ce{Br}\) donne \(\ce{M} : \ce{M}+2 \approx 1:1\) (« deux pics égaux »).</span>
+  <span class="fc"><strong>Deux \(\ce{Cl}\)</strong> : \(\ce{M} : \ce{M}+2 : \ce{M}+4 \approx 9:6:1\) (loi binomiale).</span>
+  <span class="fc"><strong>Soufre</strong> : \(^{34}\ce{S}\) à ~4,4 % → pic \(\ce{M}+2\) de hauteur ~4 % du pic principal.</span>
+  <hr>
+  <span class="fc"><em>Piège à mentionner à l'oral :</em> \(\ce{M^{+\bullet}}\) <strong>n'est pas systématiquement le pic de base</strong>. Pour les alcools primaires par exemple, \(\ce{M^{+\bullet}}\) est parfois <em>quasi inexistant</em>, le pic de base étant un fragment stable (cation oxocarbénium, etc.).</span>
+</div>
+
+<!-- À insérer après le bloc A5 (spectrométrie de masse), avant la fermeture du sblock §8 -->
+<h3>8.5 Règles empiriques de Woodward-Fieser (UV-Vis)</h3>
+<div class="notion c">
+  <div class="notion-title"><span class="nt-bar c"></span>Prédiction de \(\lambda_{\max}\) pour systèmes conjugués</div>
+  <div class="notion-body">
+    <p>Pour les chromophores conjugués (diènes, énones, polyènes), Woodward (1941) puis Fieser ont établi des <em>règles additives empiriques</em> permettant de prédire \(\lambda_{\max}\) de la transition \(\pi \to \pi^{*}\) à partir d'une valeur de base + incréments selon les substituants.</p>
+
+    <p><strong>1. Diènes conjugués (transition \(\pi \to \pi^{*}\))</strong></p>
+    <ul>
+      <li>Base diène <em>hétéroannulaire</em> (les deux \(\ce{C=C}\) sur des cycles différents ou acyclique) : \(\lambda_{\text{base}} = 217\,\mathrm{nm}\).</li>
+      <li>Base diène <em>homoannulaire</em> (les deux \(\ce{C=C}\) dans le même cycle) : \(\lambda_{\text{base}} = 253\,\mathrm{nm}\).</li>
+      <li>Incréments : \(+5\,\mathrm{nm}\) par substituant alkyle sur le système diène ; \(+5\,\mathrm{nm}\) par double liaison conjuguée supplémentaire ; \(+30\,\mathrm{nm}\) si \(\ce{C=C}\) exocyclique au cycle ; \(+5\,\mathrm{nm}\) par groupe \(\ce{-OR}\) ; \(+30\,\mathrm{nm}\) par groupe \(\ce{-NR2}\).</li>
+    </ul>
+
+    <p><strong>2. Cétones \(\alpha,\beta\)-insaturées (énones)</strong></p>
+    <p>Valeurs de base :</p>
+    <ul>
+      <li>Cétone \(\alpha,\beta\)-insaturée acyclique ou cyclique à 6 chaînons : \(\lambda_{\text{base}} = 215\,\mathrm{nm}\).</li>
+      <li>Cétone cyclique à 5 chaînons : \(\lambda_{\text{base}} = 202\,\mathrm{nm}\).</li>
+      <li>Aldéhyde \(\alpha,\beta\)-insaturé : \(\lambda_{\text{base}} = 208\,\mathrm{nm}\).</li>
+    </ul>
+    <p>Incréments :</p>
+    <ul>
+      <li>\(+10\,\mathrm{nm}\) par substituant alkyle en position \(\alpha\)</li>
+      <li>\(+12\,\mathrm{nm}\) par substituant alkyle en position \(\beta\)</li>
+      <li>\(+18\,\mathrm{nm}\) par substituant alkyle en position \(\gamma\) ou \(\delta\)</li>
+      <li>\(+30\,\mathrm{nm}\) si \(\ce{C=C}\) exocyclique</li>
+      <li>\(+39\,\mathrm{nm}\) si diène homoannulaire (système plus étendu)</li>
+      <li>\(+30\,\mathrm{nm}\) par double liaison \(\ce{C=C}\) supplémentaire conjuguée</li>
+    </ul>
+
+    <p><strong>Exemple appliqué — 4,4-diméthylcyclohex-2-énone.</strong> Cétone cyclique 6 chaînons \(\alpha,\beta\)-insaturée, avec deux groupes méthyle en position \(\beta\) :</p>
+    \[ \lambda_{\max}^{\text{calc}} \;=\; 215 + 2\times 12 \;=\; 239\,\mathrm{nm}\,. \]
+    <p>Valeur expérimentale : \(\sim 237\,\mathrm{nm}\) (excellent accord).</p>
+
+    <p><strong>Limites et précautions.</strong></p>
+    <ul>
+      <li>Règles <em>empiriques</em> calibrées dans l'éthanol : un changement de solvant déplace \(\lambda_{\max}\) (effets bathochrome/hypsochrome selon polarité).</li>
+      <li>Les effets stériques (rotation hors plan d'un substituant volumineux) peuvent rompre la planéité du chromophore et invalider l'additivité.</li>
+      <li>Pour les systèmes très étendus (polyènes \(\ge 5\) doubles liaisons conjuguées) ou les chromophores aromatiques, utiliser les tables spécifiques (Scott, <em>Interpretation of the UV Spectra of Natural Products</em>, Pergamon, 1964) ou un calcul DFT.</li>
+    </ul>
+    <p><em>Référence :</em> Silverstein, Webster &amp; Kiemle, <em>Spectrometric Identification of Organic Compounds</em>, 8<sup>e</sup> éd., Wiley, 2014, chap. 7.</p>
+  </div>
+</div>
 </div>
 
 <!-- ═══════════════════ 09 PEDAGOGIE ═══════════════════ -->
@@ -462,28 +662,190 @@
   <h2>9. Pédagogie et didactique</h2>
   <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
 
-  <div class="notion c">
-    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
-    <div class="notion-body"><ul>
-      <li><strong>Cycle 4</strong> : atomes, molécules, ions. Symboles chimiques et tableau périodique (lecture).</li>
-      <li><strong>Seconde</strong> : modèle de Bohr, configuration électronique simple, électronégativité, polarité d'une liaison.</li>
-      <li><strong>1<sup>re</sup> spé</strong> : couches \(K, L, M\) (correspondance \(n=1,2,3\)), schéma de Lewis simple, géométrie qualitative.</li>
-      <li><strong>Terminale spé</strong> : représentation moléculaire (formules brute, semi-développée, topologique, Lewis), géométrie tétraédrique du carbone, stéréoisomérie.</li>
-      <li><strong>Terminale STL</strong> : spectroscopies IR, RMN, UV-Vis pour caractériser des produits de synthèse.</li>
-    </ul></div>
-  </div>
+  <!-- À insérer dans le sblock §9 "pedagogie", à la place ou en complément de la .notion existante. Idéalement : remplacer la .notion "Au lycée — Terminale spécialité" lignes 465-474 par cette série de 6 .ped-card (B7→B12), suivie de la .alert-gold conservée -->
+<div class="ped-card r">
+  <div class="niveau">Cycle 4 — Collège (5ᵉ, 4ᵉ, 3ᵉ)</div>
+  <h5>Premiers modèles de la matière</h5>
+  <ul>
+    <li><strong>Notions introduites</strong> : atome (« petite bille »), molécule comme assemblage d'atomes, ion (atome ayant gagné/perdu des électrons), modèle planétaire de Bohr <em>simplifié</em> (noyau + électrons sur des cercles), tableau périodique présenté comme un <em>annuaire</em> des éléments (lecture seule).</li>
+    <li><strong>Liaisons</strong> : approche qualitative — liaison ionique (« attraction \(+/-\) ») dans \(\ce{NaCl}\) ; liaison covalente (« partage d'électrons ») dans \(\ce{H2O}, \ce{CO2}\). Pas de formalisation Lewis ni VSEPR.</li>
+    <li><strong>Prérequis amont</strong> : conservation de la matière (Cycle 3), équilibrage d'une équation chimique simple.</li>
+    <li><strong>Difficultés classiques</strong> : confusion atome/molécule/ion (un élève dessine \(\ce{H2O}\) avec « 1 atome » ou parle de « la molécule sodium ») ; modèle planétaire pris trop littéralement (« les électrons tournent comme des planètes »), source de blocages ultérieurs ; difficulté à concevoir qu'un atome est très majoritairement <em>vide</em>.</li>
+    <li><strong>Référence programme</strong> : BO du 30 juillet 2020, cycle 4, attendus de fin de cycle « Décrire la constitution et les états de la matière ».</li>
+  </ul>
+</div>
 
-  <div class="alert alert-gold r">
-    <span class="ico">📋</span>
-    <div><strong>Difficultés classiques des élèves :</strong>
-      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
-        <li>Confondre couche/sous-couche et orbitale (une couche \(n=3\) contient les sous-couches \(3s, 3p, 3d\)).</li>
-        <li>Penser que les orbitales \(p\) sont alignées sur les axes \(x, y, z\) physiques (en réalité orientation arbitraire).</li>
-        <li>Ignorer les doublets non liants en VSEPR (ex. \(\ce{H2O}\) traité comme linéaire car « 2 H »).</li>
-        <li>Mémoriser les configurations sans comprendre les exceptions (\(\ce{Cr, Cu}\)).</li>
-        <li>Croire que les rayons X traversent les atomes alors qu'ils sont diffractés par les électrons.</li>
+<div class="ped-card r">
+  <div class="niveau">Seconde GT — Enseignement scientifique commun</div>
+  <h5>Configuration électronique et tableau périodique</h5>
+  <ul>
+    <li><strong>Notions introduites</strong> : numéro atomique \(Z\), nombre de nucléons \(A\), isotopes ; couches électroniques \(K, L, M\) (correspondance avec \(n=1, 2, 3\)) ; règle du duet et de l'octet ; <em>structure</em> du tableau périodique (lignes = périodes, colonnes = familles) ; ions monoatomiques par application de l'octet ; formules de Lewis <em>simples</em> (molécules diatomiques, eau, méthane, ammoniac).</li>
+    <li><strong>Limites</strong> : configurations limitées aux 18 premiers éléments. Aucune sous-couche \(s, p, d, f\). Aucun nombre quantique.</li>
+    <li><strong>Prérequis amont</strong> : modèle de l'atome de cycle 4 ; lecture du tableau périodique.</li>
+    <li><strong>Difficultés classiques</strong> : remplissage des couches (un élève remplit \(K\) avec 8 au lieu de 2) ; représentation de Lewis des molécules polyatomiques (\(\ce{CO2}\) : oubli des doublets non liants sur \(\ce{O}\)) ; confusion entre numéro de période et nombre de couches occupées.</li>
+    <li><strong>Référence programme</strong> : BO spécial n°1 du 22 janvier 2019, programme de seconde, partie « Constitution et transformations de la matière ».</li>
+  </ul>
+</div>
+
+<div class="ped-card r">
+  <div class="niveau">Première — Spécialité Physique-Chimie</div>
+  <h5>Polarité, VSEPR introductif et électronégativité</h5>
+  <ul>
+    <li><strong>Notions introduites</strong> : électronégativité de Pauling (échelle, lecture sur le tableau périodique) ; polarité d'une <em>liaison</em> covalente (\(\delta^+, \delta^-\) et moment dipolaire de liaison \(\vec{\mu}\)) ; polarité d'une <em>molécule</em> par somme vectorielle ; géométrie des molécules simples (linéaire, coudée, trigonale plane, tétraédrique, pyramidale) — sans formalisme VSEPR explicite.</li>
+    <li><strong>Applications</strong> : solubilité (« qui se ressemble s'assemble »), miscibilité des solvants, interactions soluté–solvant.</li>
+    <li><strong>Prérequis amont</strong> : Lewis simple (Seconde), modèle de l'octet.</li>
+    <li><strong>Difficultés classiques</strong> : <em>la</em> confusion centrale — molécule polaire vs liaison polaire. \(\ce{H2O}\) : 2 liaisons \(\ce{O-H}\) polaires <em>et</em> molécule polaire (coudée). \(\ce{CO2}\) : 2 liaisons \(\ce{C=O}\) polaires <em>mais</em> molécule apolaire (linéaire, \(\vec{\mu} = \vec{0}\) par symétrie). Toujours faire dessiner les \(\vec{\mu}\) de liaison et vérifier la somme vectorielle. Autre piège : oublier l'effet de symétrie (\(\ce{CCl4}\) tétraédrique apolaire malgré 4 liaisons \(\ce{C-Cl}\) polaires).</li>
+    <li><strong>Référence programme</strong> : BO spécial n°1 du 22 janvier 2019, programme de spécialité physique-chimie en première générale, partie « Constitution et transformations de la matière ».</li>
+  </ul>
+</div>
+
+<div class="ped-card r">
+  <div class="niveau">Terminale — Spécialité Physique-Chimie</div>
+  <h5>Spectroscopies et premiers cristaux</h5>
+  <ul>
+    <li><strong>Notions introduites</strong> : représentations moléculaires (brute, semi-développée, topologique, Lewis) ; spectroscopie <strong>IR</strong> (groupes fonctionnels : \(\ce{O-H}, \ce{C=O}, \ce{C-H}, \ce{N-H}\) — lecture de tables) ; spectroscopie <strong>RMN \(^{1}\ce{H}\)</strong> (déplacement chimique, intégration, multiplicité par règle des \(n+1\)) ; UV-Vis pour les colorants (loi de Beer-Lambert) ; <em>cristallographie</em> : maille cubique simple, motif, coordinence, compacité ; empilements compacts dans les métaux (CFC, HC) introduits qualitativement.</li>
+    <li><strong>Prérequis amont</strong> : géométrie des molécules (Première), polarité, formules brutes.</li>
+    <li><strong>Difficultés classiques</strong> : (i) <em>identification des groupes fonctionnels en IR</em> — un élève confond \(\ce{O-H}\) d'alcool (large, 3200–3550) et \(\ce{N-H}\) (plus fin, 3300–3500) ; oublie que la bande \(\ce{C=O}\) d'ester (~1735) diffère de celle de cétone (~1715) ; (ii) <em>lecture des spectres RMN</em> : la règle \(n+1\) est appliquée mécaniquement sans réfléchir à l'<em>équivalence</em> chimique des protons voisins ; (iii) <em>cristallographie</em> : confusion entre maille et motif, comptage erroné des atomes par maille (atomes de sommet : oublier le facteur 1/8).</li>
+    <li><strong>Référence programme</strong> : BO spécial n°8 du 25 juillet 2019, programme de spécialité physique-chimie en terminale générale.</li>
+  </ul>
+</div>
+
+<div class="ped-card r">
+  <div class="niveau">CPGE 1ʳᵉ année — MPSI / PCSI / PTSI / BCPST</div>
+  <h5>Modèle quantique, OM diatomiques, cristallographie complète</h5>
+  <ul>
+    <li><strong>Notions introduites</strong> : modèle quantique de l'atome (4 nombres quantiques \(n, \ell, m_\ell, m_s\)), cases quantiques, règles de Klechkowski, Pauli, Hund avec leurs exceptions (\(\ce{Cr, Cu}\)) ; tendances périodiques justifiées par \(Z^{*}\) (Slater) ; <em>théorie des OM</em> sur les diatomiques homonucléaires (\(\ce{H2}\) à \(\ce{F2}\)) avec le croisement \(\sigma_{2p}/\pi_{2p}\) pour \(Z \leq 7\), ordre de liaison, propriétés magnétiques ; interactions de Van der Waals quantitatives (Keesom, Debye, London en \(1/r^{6}\)) ; cristallographie complète (mailles CS, CC, CFC, HC, sites tétraédriques/octaédriques, cristaux ioniques \(\ce{NaCl}, \ce{CsCl}, \ce{ZnS}\), cycle de Born-Haber).</li>
+    <li><strong>Prérequis amont</strong> : configuration électronique (Lycée), Lewis et VSEPR (Lycée), modèles de cristaux simples (Terminale).</li>
+    <li><strong>Difficultés classiques</strong> : (i) <em>ordre des OM</em> : oublier le croisement \(\sigma/\pi\) en début de période 2 → diagnostic erroné du paramagnétisme de \(\ce{B2}, \ce{C2}\) ; (ii) <em>justification des propriétés magnétiques</em> par OM mal articulée : confondre OL et nombre d'électrons non appariés ; (iii) <em>sites interstitiels</em> : oublier qu'un site octaédrique CFC se trouve aussi au milieu de chaque arête (4 par maille au total, pas seulement le site central) ; (iv) <em>VdW</em> : confondre London et Keesom (London existe entre <em>toutes</em> molécules, Keesom seulement entre polaires).</li>
+    <li><strong>Référence programme</strong> : BO spécial n°1 du 25 janvier 2021, programmes MPSI/PCSI/PTSI/BCPST en vigueur.</li>
+  </ul>
+</div>
+
+<div class="ped-card r">
+  <div class="niveau">CPGE 2ᵉ année — MP / PC / PSI / PT / BCPST 2</div>
+  <h5>OM hétéronucléaires, Hückel, spectroscopies couplées</h5>
+  <ul>
+    <li><strong>Notions introduites</strong> : OM hétéronucléaires (\(\ce{HF, CO, NO}\)) avec polarisation, HOMO/LUMO et chimie de coordination (rétrodonation dans les carbonyles métalliques) ; introduction à la <em>méthode de Hückel</em> simplifiée pour les systèmes \(\pi\) conjugués (butadiène, benzène, polyènes) ; RMN \(^{13}\ce{C}\) et DEPT ; spectrométrie de masse (pic moléculaire, fragmentations classiques, signatures isotopiques \(\ce{Cl, Br}\), règle de l'azote) ; spectroscopies couplées (identification structurale par croisement IR + RMN \(^{1}\ce{H}\) + \(^{13}\ce{C}\) + MS) ; règles empiriques de Woodward-Fieser pour la prédiction de \(\lambda_{\max}\) en UV-Vis ; cristallographie avancée (conditions d'extinction de Bragg, indexation de diagrammes de poudre).</li>
+    <li><strong>Prérequis amont</strong> : OM diatomiques homonucléaires (1<sup>re</sup> année), VSEPR, Lewis avancé, géométrie moléculaire.</li>
+    <li><strong>Difficultés classiques</strong> : (i) <em>polarisation des OM hétéronucléaires</em> : un étudiant raisonne sur l'électronégativité brute sans tenir compte des écarts énergétiques relatifs des OA — typique de l'erreur sur \(\ce{CO}\) (« la HOMO doit être sur \(\ce{O}\) car plus électronégatif ») ; (ii) <em>hypervalence</em> : ignorer le débat sous-couches \(d\) vs liaison 3c-4e (cf. encart §3) ; (iii) <em>analyse spectrale couplée</em> : ne pas commencer par la <em>masse</em> (formule brute → degrés d'insaturation), ce qui mène à des hypothèses incompatibles ; (iv) <em>Hückel</em> : oubli de la dégénérescence des OM dans les systèmes cycliques (benzène : 2 OM à \(\alpha + \beta\), 2 à \(\alpha - \beta\)).</li>
+    <li><strong>Référence programme</strong> : BO spécial n°2 du 25 février 2021, programmes MP/PC/PSI/PT/BCPST 2 en vigueur.</li>
+  </ul>
+</div>
+
+<!-- À insérer dans le sblock §9 "pedagogie", après les 6 .ped-card (B7-B12) -->
+<div class="summary-box r">
+  <h4>Plan-type · Leçon orale n°2 — Liaisons chimiques</h4>
+  <p><em>Durée 50 min (exposé) + 30 min d'entretien. Niveau cible : Lycée + CPGE.</em></p>
+  <ul>
+    <li><strong>Introduction (5 min)</strong> : pourquoi les atomes s'assemblent ? Stabilité énergétique, règle de l'octet historique (Lewis 1916). Question-clé : pourquoi \(\ce{H2O}\) est liquide à 20 °C alors que \(\ce{H2S}\) est gazeux ? La nature des liaisons gouverne les propriétés macroscopiques.</li>
+    <li><strong>Partie 1 — Modèles de Lewis et géométrie (niveau Lycée, ~20 min)</strong>
+      <ul>
+        <li>I.1 Liaison covalente : modèle de Lewis, règle de l'octet, formules des molécules simples (\(\ce{H2O, NH3, CH4, CO2}\)). Charges formelles.</li>
+        <li>I.2 Liaison ionique : transfert d'électrons (\(\ce{NaCl}\)), énergie réticulaire qualitative, solides ioniques (réseau, T<sub>fus</sub> élevée).</li>
+        <li>I.3 Liaison métallique : modèle des électrons libres (Drude qualitatif) — conductivité, malléabilité.</li>
+        <li>I.4 Géométrie VSEPR \(\ce{AX_n E_m}\), polarité moléculaire.</li>
+        <li><strong>Expérience 1</strong> : test de solvatation comparée — \(\ce{NaCl}\) dans eau (dissolution ionique, conductivité au multimètre) vs dans cyclohexane (insoluble). Interprétation : la polarité du solvant fait la différence.</li>
       </ul>
-    </div>
+    </li>
+    <li><strong>Partie 2 — Théorie des orbitales moléculaires (niveau CPGE, ~20 min)</strong>
+      <ul>
+        <li>II.1 Limite du modèle de Lewis : paramagnétisme inexpliqué de \(\ce{O2}\), prédiction erronée pour \(\ce{B2}\).</li>
+        <li>II.2 Méthode LCAO sur \(\ce{H2}\) : OM liante \(\sigma\) et antiliante \(\sigma^{*}\), ordre de liaison.</li>
+        <li>II.3 Diatomiques homonucléaires de la 2<sup>e</sup> période : diagramme avec et sans interaction \(s\)–\(p\), application à \(\ce{O2}\) (paramagnétique, OL = 2).</li>
+        <li>II.4 OM hétéronucléaires : \(\ce{CO}\), HOMO sur \(\ce{C}\) → ligand \(\sigma\)-donneur des carbonyles métalliques.</li>
+        <li>II.5 Ouverture : liaisons 3 centres – 4 électrons pour l'hypervalence (\(\ce{SF6}\)).</li>
+        <li><strong>Expérience 2</strong> : paramagnétisme de \(\ce{O2}\) liquide — coulée entre les pôles d'un aimant fort (néodyme), retenue par le champ. Expérience emblématique, photo et vidéo à projeter si possible (ENS Lyon, ressources.agreg.phys.ens.fr).</li>
+      </ul>
+    </li>
+    <li><strong>Conclusion + ouverture (5 min)</strong> : hiérarchie énergétique des interactions (covalente ~ 200–800 kJ/mol, ionique ~ 500–1000, métallique ~ 100–400, liaison H ~ 10–40, VdW ~ 1–10). Pertinence selon les phénomènes (cohésion solides ⇄ propriétés biologiques, solvatation, réactivité).</li>
+  </ul>
+  <p><strong>Points incontournables pour le jury</strong> : (i) <em>distinguer expérience/modèle/théorie</em> tout au long ; (ii) ne pas confondre OL et nombre d'électrons non appariés ; (iii) toujours préciser le diagramme OM utilisé (avec ou sans interaction \(s\)–\(p\)) ; (iv) mentionner le débat hypervalence (3c-4e vs sous-couches \(d\)).</p>
+</div>
+
+<div class="summary-box r">
+  <h4>Plan-type · Leçon orale n°27e — Modélisation des solides cristallins</h4>
+  <p><em>Durée 50 min + 30 min d'entretien. Niveau cible : Terminale + CPGE.</em></p>
+  <ul>
+    <li><strong>Introduction (5 min)</strong> : la matière à l'état solide adopte des structures ordonnées qui déterminent ses propriétés macroscopiques (dureté, conductivité, transparence). Question : pourquoi le diamant raye le verre alors que le graphite glisse sur le papier — pour la même formule chimique \(\ce{C}\) ?</li>
+    <li><strong>Partie 1 — Quatre familles de cristaux et leurs propriétés (niveau Lycée/Terminale, ~20 min)</strong>
+      <ul>
+        <li>I.1 Cristaux <em>moléculaires</em> : glace, naphtalène — cohésion VdW + liaisons H, T<sub>fus</sub> basses.</li>
+        <li>I.2 Cristaux <em>ioniques</em> : \(\ce{NaCl, CaF2}\) — attraction électrostatique, T<sub>fus</sub> élevées, fragiles, isolants à l'état solide / conducteurs fondus.</li>
+        <li>I.3 Cristaux <em>métalliques</em> : \(\ce{Cu, Fe, Al}\) — gaz d'électrons délocalisés, conductivité, malléabilité.</li>
+        <li>I.4 Cristaux <em>covalents</em> : diamant, quartz, \(\ce{SiC}\) — réseau 3D de liaisons covalentes, T<sub>fus</sub> extrêmes, durs.</li>
+        <li><strong>Expérience 1</strong> : comparaison qualitative en TP — dissolution (\(\ce{NaCl}\) sucre dans eau / iode dans cyclohexane), fusion à la flamme (paraffine ~ 60 °C / sel inattaquable), conductivité solide vs liquide (sel solide isolant, sel fondu conducteur, cuivre toujours conducteur).</li>
+      </ul>
+    </li>
+    <li><strong>Partie 2 — Description cristallographique quantitative (niveau CPGE, ~20 min)</strong>
+      <ul>
+        <li>II.1 Définitions : maille, motif, réseau de Bravais, coordinence, compacité.</li>
+        <li>II.2 Empilements compacts ABAB (HC) et ABCABC (CFC), compacité maximale 74 % (théorème de Kepler).</li>
+        <li>II.3 Sites tétraédriques et octaédriques d'une CFC ; rapports critiques \(r/R = 0{,}225\) et \(0{,}414\) ; application aux cristaux ioniques (\(\ce{NaCl}\) rocksalt, \(\ce{ZnS}\) blende, \(\ce{CaF2}\) fluorine).</li>
+        <li>II.4 Énergie réticulaire et cycle de Born-Haber : \(U_{\text{rét}}(\ce{NaCl}) = -788\,\mathrm{kJ/mol}\), constante de Madelung.</li>
+        <li>II.5 Défauts cristallins (Schottky, Frenkel) — origine de la coloration des cristaux ioniques (centres F).</li>
+        <li><strong>Expérience 2</strong> : diffraction des rayons X sur monocristal de \(\ce{NaCl}\) ou \(\ce{LiF}\). Identification des pics de Bragg, exploitation \(d_{hkl} = n\lambda / (2\sin\theta)\), déduction du paramètre de maille \(a\). Comparaison à la valeur tabulée (\(a = 564\,\mathrm{pm}\) pour \(\ce{NaCl}\)).</li>
+      </ul>
+    </li>
+    <li><strong>Conclusion + ouverture (5 min)</strong> : limites de la description en réseau parfait infini (défauts, joints de grains, nanocristaux) ; passage solide cristallin → amorphe (verres) → solide à ordre intermédiaire (quasi-cristaux, Shechtman 2011).</li>
+  </ul>
+  <p><strong>Points incontournables pour le jury</strong> : (i) toujours <em>justifier</em> la compacité 74 % par le calcul, pas par affirmation ; (ii) bien distinguer <em>maille</em> (volume conventionnel) et <em>motif</em> (unité chimique) ; (iii) rappeler que les rayons X interagissent avec les <em>électrons</em>, d'où la difficulté à localiser \(\ce{H}\) (complémentarité avec la diffraction neutronique) ; (iv) sécurité radiologique mentionnée si manipulation X.</p>
+</div>
+
+<div class="summary-box r">
+  <h4>Plan-type · Leçon orale n°28e — Classification périodique des éléments</h4>
+  <p><em>Durée 50 min + 30 min d'entretien. Niveau cible : Lycée + CPGE.</em></p>
+  <ul>
+    <li><strong>Introduction (5 min)</strong> : Mendeleïev (1869) construit un tableau qui prédit l'existence du gallium, du scandium et du germanium <em>avant leur découverte</em> — propriétés prédictives confirmées en 1875, 1879, 1886. Le tableau n'est pas une liste mais un <em>outil prédictif</em>. Question : qu'est-ce qui rend ce tableau prédictif ?</li>
+    <li><strong>Partie 1 — Lecture et tendances macroscopiques (niveau Lycée, ~20 min)</strong>
+      <ul>
+        <li>I.1 Critères historiques de classement : Döbereiner (triades), Newlands (octaves), Mendeleïev (masse atomique + propriétés), Moseley (1913 : reclassement par \(Z\)).</li>
+        <li>I.2 Structure actuelle : périodes, groupes, familles principales (alcalins, alcalino-terreux, halogènes, gaz nobles). Position ⇔ configuration électronique externe.</li>
+        <li>I.3 Tendances observables : caractère métallique, électronégativité, rayon atomique, énergie d'ionisation — variations le long d'une période et d'un groupe.</li>
+        <li>I.4 Applications qualitatives : nature de la liaison \(\ce{A-B}\) (covalente ou ionique) prédite par \(\Delta\chi\), pouvoir oxydant/réducteur.</li>
+        <li><strong>Expérience 1</strong> : réactivité des alcalins avec l'eau — \(\ce{Li}\) (calme), \(\ce{Na}\) (vif avec flamme jaune), \(\ce{K}\) (violent avec flamme lilas), \(\ce{Cs}\) (vidéo uniquement, explosif). Démontre la <em>croissance</em> de la réactivité dans le groupe 1. Sécurité : très faible quantité, sous capot, lunettes.</li>
+      </ul>
+    </li>
+    <li><strong>Partie 2 — Origine quantique et applications avancées (niveau CPGE, ~20 min)</strong>
+      <ul>
+        <li>II.1 Modèle quantique : configuration électronique, règles de Klechkowski / Pauli / Hund. Blocs \(s, p, d, f\).</li>
+        <li>II.2 Charge nucléaire effective \(Z^{*}\) (règles de Slater) : justification rigoureuse des tendances horizontales (\(\chi\) ↑, rayon ↓) par croissance plus rapide de \(Z\) que de \(\sigma\).</li>
+        <li>II.3 <em>Exceptions</em> aux tendances : anomalie de \(\ce{B}\) (\(E_i\) < \(\ce{Be}\), passage du \(2s\) au \(2p\)), de \(\ce{O}\) (\(E_i\) < \(\ce{N}\), répulsion de spin dans \(2p^4\)), exceptions de Klechkowski (\(\ce{Cr, Cu, Mo, Ag, Au}\)) par stabilité \(d^5\) ou \(d^{10}\).</li>
+        <li>II.4 Métaux de transition : configuration \([Ar] 3d^n 4s^2\), degrés d'oxydation multiples, complexes — règle des 18 électrons.</li>
+        <li><strong>Expérience 2</strong> : test à la flamme pour les alcalins — \(\ce{Li}\) rouge carmin (671 nm), \(\ce{Na}\) jaune (589 nm doublet), \(\ce{K}\) lilas (404 + 769 nm, à observer à travers un verre cobalt pour filtrer le \(\ce{Na}\) parasite). Lecture au spectroscope de poche, identification \(\lambda \to\) niveaux atomiques (transition \(np \to ns\) de l'électron de valence).</li>
+      </ul>
+    </li>
+    <li><strong>Conclusion + ouverture (5 min)</strong> : éléments superlourds synthétiques (oganesson \(Z = 118\), 2002), 8<sup>e</sup> période hypothétique. Le tableau périodique reste un objet vivant : la prédiction de Mendeleïev se poursuit à la frontière de la physique nucléaire.</li>
+  </ul>
+  <p><strong>Points incontournables pour le jury</strong> : (i) ne pas confondre <em>mémoriser</em> les exceptions à Klechkowski et les <em>justifier</em> énergétiquement ; (ii) Slater est un modèle <em>empirique</em> à présenter comme tel (distinguer expérience/modèle/théorie) ; (iii) toujours rappeler \(\chi\) sans unité (échelle de Pauling, valeurs relatives) ; (iv) test à la flamme : préciser le mécanisme atomique (excitation puis désexcitation radiative).</p>
+</div>
+
+<div class="summary-box r">
+  <h4>Plan-type · Leçon orale n°28m — Spectroscopies moléculaires</h4>
+  <p><em>Durée 50 min + 30 min d'entretien. Niveau cible : Terminale + CPGE.</em></p>
+  <ul>
+    <li><strong>Introduction (5 min)</strong> : comment savoir qu'on a synthétisé la bonne molécule ? La chimie organique moderne repose sur la <em>caractérisation spectroscopique</em>. Question fil rouge : identifier une molécule inconnue uniquement par ses spectres.</li>
+    <li><strong>Partie 1 — Spectroscopies au lycée : IR et RMN \(^{1}\ce{H}\) (~20 min)</strong>
+      <ul>
+        <li>I.1 Spectroscopie IR : principe (excitation des vibrations), modèle de l'oscillateur harmonique, nombre d'onde \(\bar{\nu} = (2\pi c)^{-1}\sqrt{k/\mu}\). Identification des groupes fonctionnels par tables (\(\ce{O-H, N-H, C-H, C=O, C\equiv N}\)).</li>
+        <li>I.2 RMN \(^{1}\ce{H}\) : précession des spins dans \(B_0\), résonance, déplacement chimique \(\delta\) en ppm (blindage électronique), intégration (proportionnelle au nombre de \(\ce{H}\)), multiplicité par règle des \(n+1\) (couplage vicinal \(^{3}J_{HH}\)).</li>
+        <li>I.3 UV-Visible introductif : transition \(\pi \to \pi^{*}\) des chromophores conjugués, loi de Beer-Lambert pour le dosage.</li>
+        <li><strong>Expérience 1</strong> : identification d'un alcool (éthanol) <em>vs</em> une cétone (acétone) par IR — bande large 3200–3550 cm⁻¹ pour l'alcool absente chez la cétone, bande C=O à 1715 cm⁻¹ pour la cétone absente chez l'alcool. Spectres acquis sur spectromètre ATR didactique. Démonstration immédiate du diagnostic fonctionnel.</li>
+      </ul>
+    </li>
+    <li><strong>Partie 2 — Spectroscopies avancées et analyse couplée (niveau CPGE, ~20 min)</strong>
+      <ul>
+        <li>II.1 RMN \(^{13}\ce{C}\) : déplacements caractéristiques (0–220 ppm), \(\ce{C}\) quaternaires visibles. Limite : <em>intégration non quantitative</em>.</li>
+        <li>II.2 Expériences DEPT (135° et 90°) : comptage \(\ce{CH}, \ce{CH2}, \ce{CH3}\), distinction des quaternaires.</li>
+        <li>II.3 Spectrométrie de masse (impact électronique 70 eV) : pic moléculaire \(\ce{M^{+\bullet}}\), règle de l'azote, fragmentations diagnostiques (M-15, M-18, M-29, M-43), signatures isotopiques \(\ce{Cl}\) (3:1) et \(\ce{Br}\) (1:1).</li>
+        <li>II.4 Règles de Woodward-Fieser : prédiction de \(\lambda_{\max}\) en UV-Vis pour diènes et cétones \(\alpha,\beta\)-insaturées (additivité empirique).</li>
+        <li>II.5 <em>Analyse spectrale couplée</em> : méthodologie en 5 étapes — (1) MS : formule brute et degrés d'insaturation ; (2) IR : groupes fonctionnels ; (3) RMN \(^{13}\ce{C}\) + DEPT : squelette carboné ; (4) RMN \(^{1}\ce{H}\) : connectivité et multiplicité ; (5) synthèse et vérification.</li>
+        <li><strong>Expérience 2</strong> : détermination complète d'une molécule inconnue (acétate d'éthyle, paracétamol ou aspirine) par croisement IR + RMN \(^{1}\ce{H}\) + MS. Confrontation aux spectres tabulés (SDBS japonais, Sigma-Aldrich).</li>
+      </ul>
+    </li>
+    <li><strong>Conclusion + ouverture (5 min)</strong> : autres spectroscopies (RMN 2D : COSY, HSQC, HMBC ; RPE pour radicaux ; XPS pour surfaces ; cristallographie X pour la structure 3D définitive). Hiérarchie : MS donne la <em>composition</em>, IR les <em>fonctions</em>, RMN la <em>connectivité</em>, RX la <em>géométrie</em>. La combinaison est aujourd'hui le standard en chimie médicinale.</li>
+  </ul>
+  <p><strong>Points incontournables pour le jury</strong> : (i) toujours commencer une analyse par la MS (formule brute → degrés d'insaturation) ; (ii) ne pas confondre déplacement \(\delta\) (indép. de \(B_0\)) et couplage \(J\) (en Hz, indép. de \(B_0\) aussi mais piégeux car les massifs <em>semblent</em> différents en ppm selon l'appareil) ; (iii) règle des \(n+1\) valable seulement pour des couplages avec des protons <em>équivalents</em> ; (iv) toujours préciser le solvant de RMN (déplacement du résidu : \(\ce{CDCl3}\) à 7,26 ppm, \(\ce{DMSO-d_6}\) à 2,50 ppm).</p>
+</div>
   </div>
 </div>
 
@@ -567,6 +929,96 @@
       </div>
     </div>
   </div>
+
+
+<!-- À insérer dans le sblock §10 "demos", au début (avant la .notion "10.1 Compacité d'une maille CFC") ou à la fin. Recommandé : APRÈS la dernière démo §10.5 "Géométrie de H2O" (ligne ~569). Cette démo "tableau noir" complète bien le panel cristallographique. -->
+<div class="notion c">
+  <div class="notion-title"><span class="nt-bar c"></span>10.6 — Application des règles de Slater : \(Z^{*}\) et tendances</div>
+  <div class="notion-body">
+    <div class="demo-block">
+      <p>Objectif : calculer \(Z^{*}\) pour \(\ce{Na}\), \(\ce{Cl}\) et \(\ce{Fe}\), puis interpréter en termes de réactivité et d'extension spatiale des orbitales.</p>
+
+      <p><strong>Rappel des règles d'écrantage</strong> (pour électron cible \(ns\) ou \(np\)) :</p>
+      <ul>
+        <li>Même groupe : \(\sigma = 0{,}35\) (sauf \([1s]\) : 0,30).</li>
+        <li>Groupe \(n-1\) : \(\sigma = 0{,}85\).</li>
+        <li>Groupes plus internes : \(\sigma = 1{,}00\).</li>
+      </ul>
+
+      <p><strong>Sodium \(\ce{Na}\) (\(Z = 11\), config. \(1s^2 2s^2 2p^6 3s^1\)).</strong></p>
+      <p>Électron cible : le \(3s^1\). Aucun voisin dans le groupe \([3s,3p]\). Le groupe \(n-1 = [2s,2p]\) contient 8 électrons. Les groupes plus internes (\([1s]\)) contiennent 2 électrons.</p>
+      \[ Z^{*}(\ce{Na}, 3s) \;=\; 11 - (8 \times 0{,}85 + 2 \times 1{,}00) \;=\; 11 - 8{,}80 \;=\; \boxed{2{,}20}. \]
+
+      <p><strong>Chlore \(\ce{Cl}\) (\(Z = 17\), config. \([\ce{Ne}]\,3s^2 3p^5\)).</strong></p>
+      <p>Électron cible : un des \(3p\). Voisins du même groupe : 6 autres électrons \([3s,3p]\). Groupe \(n-1\) = \([2s,2p]\) : 8 électrons. Plus internes : \([1s]\), 2 électrons.</p>
+      \[ Z^{*}(\ce{Cl}, 3p) \;=\; 17 - (6 \times 0{,}35 + 8 \times 0{,}85 + 2 \times 1{,}00) \;=\; 17 - 10{,}90 \;=\; \boxed{6{,}10}. \]
+
+      <p><strong>Conséquence \(\ce{Na}\) vs \(\ce{Cl}\) :</strong> à \(n = 3\) identique, \(\ce{Cl}\) ressent une charge effective ~3 fois plus grande que \(\ce{Na}\). Ses électrons de valence sont beaucoup plus retenus → \(\ce{Cl}\) a une plus grande \(E_i\), une plus grande \(\chi\), un plus petit rayon. Réactivité : \(\ce{Cl}\) capte les électrons (oxydant), \(\ce{Na}\) les cède (réducteur). C'est l'<strong>origine quantique de la tendance horizontale</strong> du tableau périodique.</p>
+
+      <p><strong>Fer \(\ce{Fe}\) (\(Z = 26\), config. \([\ce{Ar}]\,3d^6 4s^2\)) — cas plus subtil.</strong></p>
+      <p>On compare \(Z^{*}(4s)\) et \(Z^{*}(3d)\).</p>
+
+      <p><em>Pour le \(4s\) :</em> voisin du même groupe \([4s, 4p]\) = 1 (l'autre \(4s\)). Groupe \(n-1\) à considérer dépend de la sous-couche cible — pour un \(s\) ou \(p\) cible, le groupe \(n-1\) inclut <em>toutes</em> les sous-couches de la couche \(n-1\) (ici \([3s,3p]\) = 8 électrons), mais aussi le groupe \([3d]\) qui est interne à la couche \(n=3\) → contribue à \(\sigma = 0{,}85\) (même couche \(n-1\) par rapport à \(4s\)). Plus internes (\([1s][2s,2p]\)) = 10 électrons à \(\sigma = 1{,}00\).</p>
+      \[ Z^{*}(\ce{Fe}, 4s) \;=\; 26 - (1 \times 0{,}35 + (8+6) \times 0{,}85 + 10 \times 1{,}00) \;=\; 26 - 22{,}25 \;\approx\; \boxed{3{,}75}. \]
+      <p><em>(Note : selon les conventions précises de Slater pour les \(d\) et \(s\), certains manuels comptent les \(3d\) à 0,85, d'autres à 1,00. Ici on suit la convention « couche \(n-1\) à 0,85 pour cible \(s\)/\(p\) ».)</em></p>
+
+      <p><em>Pour le \(3d\) :</em> 5 voisins du même groupe \([3d]\), chacun à \(\sigma = 0{,}35\). Tous les autres groupes (y compris \([3s,3p]\), même si même valeur de \(n\)) sont considérés comme <em>internes</em> par rapport au \(3d\) : \(\sigma = 1{,}00\). Les \(4s\) sont <em>plus externes</em> que le \(3d\) → ne contribuent pas à l'écrantage du \(3d\).</p>
+      \[ Z^{*}(\ce{Fe}, 3d) \;=\; 26 - (5 \times 0{,}35 + (2+8+6) \times 1{,}00) \;=\; 26 - 17{,}75 \;\approx\; \boxed{8{,}25}. \]
+
+      <p><strong>Interprétation.</strong> \(Z^{*}(3d) \approx 8{,}25 \gg Z^{*}(4s) \approx 3{,}75\) (rapport > 2). Bien que \(n = 3 < 4\) pour le \(3d\), la charge effective ressentie est nettement plus grande. <em>Conséquence :</em> les orbitales \(3d\) sont <strong>plus contractées et plus stables</strong> que les \(4s\) malgré un \(n\) plus petit, ce qui explique :</p>
+      <ul>
+        <li>l'ionisation prioritaire des \(4s\) (et non des \(3d\)) pour donner \(\ce{Fe^{2+}}\) : \([\ce{Ar}]\,3d^6\) (et non \([\ce{Ar}]\,3d^4 4s^2\)) ;</li>
+        <li>la grande implication des \(3d\) dans les liaisons des complexes (théorie du champ cristallin, transitions \(d\)–\(d\) responsables des couleurs des complexes de \(\ce{Fe}\)) ;</li>
+        <li>la <em>contraction des lanthanides</em> (effet analogue pour les \(4f\)).</li>
+      </ul>
+
+      <div class="ccl"><strong>Conclusion.</strong> Les règles de Slater, malgré leur caractère empirique, capturent <em>l'essentiel</em> de la physique des charges effectives : (i) origine des tendances périodiques horizontales (\(\chi, E_i, r\)) ; (ii) chimie des métaux de transition (priorité d'ionisation des \(s\) externes) ; (iii) cas particulier des lanthanides (contraction \(4f\)). Modèle de premier ordre, à compléter par les méthodes Hartree-Fock pour les calculs quantitatifs.</div>
+    </div>
+  </div>
+</div>
+
+<!-- À insérer dans le sblock §10 "demos", après la nouvelle démo D23 (10.6). Complète la démo CFC déjà présente en 10.1 par le calcul HC. -->
+<div class="notion c">
+  <div class="notion-title"><span class="nt-bar c"></span>10.7 — Compacité de l'empilement hexagonal compact (HC)</div>
+  <div class="notion-body">
+    <div class="demo-block">
+      <p>L'empilement hexagonal compact (HC) correspond à la séquence ABAB des couches compactes de sphères. Maille conventionnelle : prisme droit à base losange (ou à base hexagonale dans la maille étendue), paramètres \(a\) (dans le plan compact) et \(c\) (perpendiculaire).</p>
+
+      <p><strong>Étape 1 — Nombre d'atomes par maille \(z\).</strong></p>
+      <p>Maille primitive HC (prisme droit à base losange d'angle 120°, paramètres \(a, a, c\)) :</p>
+      <ul>
+        <li>8 atomes aux sommets, chacun partagé par 8 mailles → contribution \(8 \times 1/8 = 1\).</li>
+        <li>1 atome dans le volume (à mi-hauteur \(c/2\), position \((1/3, 2/3, 1/2)\) en coordonnées cristallographiques) → contribution \(1\).</li>
+      </ul>
+      \[ z_{\text{HC}} \;=\; 1 + 1 \;=\; \boxed{2\ \text{atomes/maille}}. \]
+
+      <p><strong>Étape 2 — Condition de tangence dans le plan compact.</strong></p>
+      <p>Dans le plan basal (plan compact), les sphères de rayon \(R\) sont tangentes le long de l'arête \(a\) du losange :</p>
+      \[ 2R \;=\; a \quad\Longrightarrow\quad a \;=\; 2R. \]
+
+      <p><strong>Étape 3 — Condition de tangence entre couches (calcul du rapport \(c/a\) idéal).</strong></p>
+      <p>L'atome de la couche B (à mi-hauteur \(c/2\)) est tangent aux 3 atomes de la couche A formant un triangle équilatéral de côté \(a = 2R\) en dessous (et symétriquement aux 3 atomes de la couche A' au-dessus). On considère un tétraèdre régulier formé par cet atome et les 3 atomes du triangle de la couche A : tous les côtés valent \(2R\).</p>
+      <p>Hauteur d'un tétraèdre régulier de côté \(2R\) : \(h = 2R \cdot \sqrt{2/3}\). Cette hauteur correspond à \(c/2\) :</p>
+      \[ \dfrac{c}{2} \;=\; 2R \sqrt{\dfrac{2}{3}} \quad\Longrightarrow\quad c \;=\; 4R \sqrt{\dfrac{2}{3}}. \]
+      <p>Rapport \(c/a\) idéal :</p>
+      \[ \boxed{\;\dfrac{c}{a} \;=\; \dfrac{4R \sqrt{2/3}}{2R} \;=\; 2\sqrt{\dfrac{2}{3}} \;=\; \sqrt{\dfrac{8}{3}} \;\approx\; 1{,}633\;.} \]
+
+      <p><strong>Étape 4 — Volume de la maille.</strong></p>
+      <p>La maille primitive est un prisme à base losange d'angle 120°, d'arête \(a\) et de hauteur \(c\). L'aire de la base losange est :</p>
+      \[ \mathcal{A}_{\text{base}} \;=\; a^2 \sin(120^\circ) \;=\; a^2 \cdot \dfrac{\sqrt{3}}{2}. \]
+      \[ V_{\text{maille}} \;=\; \mathcal{A}_{\text{base}} \times c \;=\; \dfrac{a^2 c \sqrt{3}}{2}. \]
+      <p>Avec \(a = 2R\) et \(c = 4R\sqrt{2/3}\) :</p>
+      \[ V_{\text{maille}} \;=\; \dfrac{(2R)^2 \cdot 4R\sqrt{2/3} \cdot \sqrt{3}}{2} \;=\; \dfrac{4R^2 \cdot 4R \sqrt{2}}{2} \;=\; 8\sqrt{2}\,R^3. \]
+
+      <p><strong>Étape 5 — Volume occupé par les sphères et compacité.</strong></p>
+      \[ V_{\text{sphères}} \;=\; z \times \dfrac{4}{3}\pi R^3 \;=\; 2 \times \dfrac{4\pi R^3}{3} \;=\; \dfrac{8\pi R^3}{3}. \]
+      \[ \boxed{\;C_{\text{HC}} \;=\; \dfrac{V_{\text{sphères}}}{V_{\text{maille}}} \;=\; \dfrac{8\pi R^3 / 3}{8\sqrt{2}\,R^3} \;=\; \dfrac{\pi}{3\sqrt{2}} \;=\; \dfrac{\pi\sqrt{2}}{6} \;\approx\; 0{,}7405\;.} \]
+      <p>Soit <strong>compacité de 74,05 %</strong>, identique à celle du CFC. Cette égalité est attendue : HC et CFC sont les deux séquences d'empilement (ABAB vs ABCABC) d'un même <em>plan compact</em> de sphères, qui réalise la compacité maximale du remplissage du plan (\(\pi / (2\sqrt{3}) \approx 90{,}7\,\%\) dans le plan). L'empilement vertical hérite ainsi de la même compacité 3D, quel que soit l'ordre des couches.</p>
+
+      <div class="ccl"><strong>Interprétation.</strong> Le théorème de Kepler (conjecture 1611, démontré par Hales en 1998 puis vérifié formellement en 2014) affirme que \(\pi/(3\sqrt{2}) \approx 74\,\%\) est la <em>compacité maximale</em> pour un empilement de sphères identiques dans l'espace euclidien \(\mathbb{R}^3\). Tout empilement à compacité 74 % (HC, CFC, ou empilements polytypiques aléatoires comme ABCABABC) atteint cette borne. C'est pourquoi la majorité des métaux purs cristallisent dans l'une de ces deux structures : minimiser l'énergie potentielle attractive métallique \(\Leftrightarrow\) maximiser la coordinence \(\Leftrightarrow\) atteindre la compacité maximale.</div>
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- ═══════════════════ 11 EXOS ═══════════════════ -->
@@ -643,6 +1095,152 @@
       <p><strong>Synthèse :</strong> \(\ce{CH3-CO-O-CH2-CH3}\) — acétate d'éthyle (éthanoate d'éthyle). Vérification : C₄H₈O₂ ✓, ester ✓, intégrations 3:3:2 ✓.</p>
     </div>
   </details>
+
+
+<!-- À insérer dans le sblock §11 "exercices", après l'<details class="exo-block"> "Exercice 3" (ligne ~645). Format <details>/<summary> pour rester cohérent avec les exercices existants. -->
+<details class="exo-block">
+  <summary>Exercice 4 — Géométrie VSEPR et polarité (★★)</summary>
+  <div class="exo-body">
+    <div class="exo-head">Énoncé</div>
+    <p>Pour chacune des molécules suivantes : (a) établir la structure de Lewis ; (b) déterminer le type \(\ce{AX_n E_m}\) et la géométrie VSEPR ; (c) conclure sur la polarité de la molécule.</p>
+    <p>Molécules : \(\ce{SF4}\), \(\ce{XeF2}\), \(\ce{PCl3}\), \(\ce{BF3}\), \(\ce{H2O}\), \(\ce{CO2}\), et \(\ce{SF6}\) (commentaire sur l'hypervalence).</p>
+
+    <div class="exo-head">Corrigé</div>
+
+    <p><strong>\(\ce{SF4}\) (soufre tétrafluoré).</strong></p>
+    <ul>
+      <li>Lewis : \(\ce{S}\) central, 6 électrons de valence. 4 liaisons \(\ce{S-F}\) + 1 doublet non liant sur \(\ce{S}\) = 10 électrons autour de \(\ce{S}\) → hypervalent.</li>
+      <li>Type : \(\ce{AX4E}\) → bipyramide trigonale à 5 directions, le doublet non liant occupe une position <em>équatoriale</em> (minimise les répulsions à 90°).</li>
+      <li>Géométrie : <strong>en bascule</strong> ou « escarpin » (seesaw), angles axial ~173°, équatorial ~102°.</li>
+      <li>Polarité : <strong>polaire</strong> (\(\mu \approx 0{,}63\,\mathrm{D}\)). Le doublet non liant brise la symétrie, \(\vec{\mu} \neq \vec{0}\).</li>
+    </ul>
+
+    <p><strong>\(\ce{XeF2}\) (difluorure de xénon).</strong></p>
+    <ul>
+      <li>Lewis : \(\ce{Xe}\) central (8 e⁻ de valence). 2 liaisons \(\ce{Xe-F}\) + 3 doublets non liants sur \(\ce{Xe}\) = 10 électrons → hypervalent.</li>
+      <li>Type : \(\ce{AX2E3}\) → bipyramide trigonale, les 3 doublets non liants occupent les 3 positions équatoriales (mutuellement à 120°, répulsion minimisée).</li>
+      <li>Géométrie : <strong>linéaire</strong>, angle \(\ce{F-Xe-F} = 180^\circ\).</li>
+      <li>Polarité : <strong>apolaire</strong> par symétrie centrale (\(\vec{\mu} = \vec{0}\)) malgré les 2 liaisons \(\ce{Xe-F}\) polaires.</li>
+    </ul>
+
+    <p><strong>\(\ce{PCl3}\) (trichlorure de phosphore).</strong></p>
+    <ul>
+      <li>Lewis : \(\ce{P}\) central (5 e⁻ valence). 3 liaisons \(\ce{P-Cl}\) + 1 doublet non liant sur \(\ce{P}\) = 8 e⁻ (octet respecté, pas d'hypervalence).</li>
+      <li>Type : \(\ce{AX3E}\) → tétraèdre à 4 directions, le doublet non liant occupe un sommet.</li>
+      <li>Géométrie : <strong>pyramidale trigonale</strong>, angle \(\ce{Cl-P-Cl} \approx 100^\circ\) (comprimé par le doublet non liant).</li>
+      <li>Polarité : <strong>polaire</strong> (\(\mu \approx 0{,}97\,\mathrm{D}\)).</li>
+    </ul>
+
+    <p><strong>\(\ce{BF3}\) (trifluorure de bore).</strong></p>
+    <ul>
+      <li>Lewis : \(\ce{B}\) central (3 e⁻ valence). 3 liaisons \(\ce{B-F}\), pas de doublet non liant sur \(\ce{B}\) = 6 e⁻ (<em>octet non atteint</em> : \(\ce{B}\) est un acide de Lewis).</li>
+      <li>Type : \(\ce{AX3}\) → trigonale plane.</li>
+      <li>Géométrie : <strong>trigonale plane</strong>, angle \(\ce{F-B-F} = 120^\circ\).</li>
+      <li>Polarité : <strong>apolaire</strong> par symétrie \(D_{3h}\) (\(\vec{\mu} = \vec{0}\)) malgré les 3 liaisons \(\ce{B-F}\) très polaires.</li>
+    </ul>
+
+    <p><strong>\(\ce{H2O}\) (eau, confirmation).</strong></p>
+    <ul>
+      <li>Lewis : \(\ce{O}\) central (6 e⁻ valence). 2 liaisons \(\ce{O-H}\) + 2 doublets non liants = 8 e⁻ (octet).</li>
+      <li>Type : \(\ce{AX2E2}\) → tétraèdre, deux sommets sont des doublets non liants.</li>
+      <li>Géométrie : <strong>coudée</strong>, angle \(\ce{H-O-H} = 104{,}5^\circ\) (comprimé par les 2 doublets non liants — répulsion nl–nl la plus forte).</li>
+      <li>Polarité : <strong>polaire</strong> (\(\mu = 1{,}85\,\mathrm{D}\)). Conséquence majeure : solvant universel.</li>
+    </ul>
+
+    <p><strong>\(\ce{CO2}\) (dioxyde de carbone, confirmation).</strong></p>
+    <ul>
+      <li>Lewis : \(\ce{O=C=O}\). \(\ce{C}\) central, 2 doubles liaisons.</li>
+      <li>Type : \(\ce{AX2}\) (les liaisons multiples comptent comme une seule direction VSEPR).</li>
+      <li>Géométrie : <strong>linéaire</strong>, angle \(\ce{O-C-O} = 180^\circ\).</li>
+      <li>Polarité : <strong>apolaire</strong> (\(\vec{\mu} = \vec{0}\) par compensation des 2 \(\vec{\mu}\) de liaison opposés), malgré les liaisons \(\ce{C=O}\) polaires.</li>
+    </ul>
+
+    <p><strong>\(\ce{SF6}\) (hexafluorure de soufre, commentaire hypervalence).</strong></p>
+    <ul>
+      <li>Lewis traditionnel : \(\ce{S}\) avec 12 électrons (6 liaisons \(\ce{S-F}\), pas de doublet non liant). Hypervalent.</li>
+      <li>Type : \(\ce{AX6}\) → <strong>octaédrique</strong>, angles \(\ce{F-S-F} = 90^\circ\), polarité \(\vec{\mu} = \vec{0}\) (apolaire malgré 6 liaisons polaires, symétrie \(O_h\)).</li>
+      <li><em>Commentaire jury 2025 :</em> la justification par les sous-couches \(3d\) du soufre est aujourd'hui critiquée (contribution \(d &lt; 5\,\%\) par calculs <em>ab initio</em>). Le modèle moderne décrit \(\ce{SF6}\) par <strong>3 systèmes de liaisons 3 centres – 4 électrons (3c-4e)</strong> mutuellement perpendiculaires (Pimentel-Rundle). Conclusion : tous les modèles aboutissent à la même géométrie octaédrique, mais l'explication moderne ne fait pas intervenir les \(d\). Mentionner ce débat est un plus à l'oral.</li>
+    </ul>
+
+    <div class="key"><strong>À retenir.</strong> La règle est mécanique : (1) Lewis → compter doublets liants + non liants sur l'atome central, (2) somme = nombre de directions VSEPR, (3) doublets non liants prennent les positions à plus grand angle libre (axiale ou équatoriale selon le cas), (4) polarité = somme vectorielle des moments de liaison. Toujours vérifier la cohérence géométrie ↔ polarité expérimentale.</div>
+  </div>
+</details>
+
+<!-- À insérer dans le sblock §11 "exercices", après D21 -->
+<details class="exo-block">
+  <summary>Exercice 5 — Analyse spectrale couplée IR + RMN + MS (★★★)</summary>
+  <div class="exo-body">
+    <div class="exo-head">Énoncé</div>
+    <p>Une molécule organique inconnue est caractérisée par les spectres suivants :</p>
+    <ul>
+      <li><strong>Spectrométrie de masse (EI 70 eV)</strong> : pic moléculaire \(\ce{M^{+\bullet}}\) à \(m/z = 88\) (masse paire). Pas de pic \(\ce{M+2}\) significatif (pas de \(\ce{Cl, Br, S}\)). Fragment majeur à \(m/z = 73\) (M−15), à \(m/z = 71\) (M−17), à \(m/z = 60\) (M−28), à \(m/z = 43\).</li>
+      <li><strong>IR</strong> : bande très large 2500–3300 cm⁻¹ (centrée vers 3000), forte absorption à 1715 cm⁻¹, bande moyenne à 1410 cm⁻¹, absence totale d'absorption nette 3400–3550 cm⁻¹.</li>
+      <li><strong>RMN \(^{1}\ce{H}\) (CDCl₃, 400 MHz)</strong> : \(\delta = 11{,}8\,\mathrm{ppm}\) (1H, singulet large) ; \(\delta = 2{,}33\,\mathrm{ppm}\) (2H, triplet, \(J = 7{,}4\,\mathrm{Hz}\)) ; \(\delta = 1{,}65\,\mathrm{ppm}\) (2H, sextuplet, \(J = 7{,}4\,\mathrm{Hz}\)) ; \(\delta = 0{,}95\,\mathrm{ppm}\) (3H, triplet, \(J = 7{,}4\,\mathrm{Hz}\)).</li>
+      <li><strong>RMN \(^{13}\ce{C}\) (avec DEPT)</strong> : 4 signaux. À 179,5 ppm : quaternaire (absent au DEPT). À 36,1 ppm : \(\ce{CH2}\) (DEPT négatif). À 18,4 ppm : \(\ce{CH2}\) (DEPT négatif). À 13,7 ppm : \(\ce{CH3}\) (DEPT positif).</li>
+    </ul>
+    <p>Identifier la molécule par croisement systématique des spectres.</p>
+
+    <div class="exo-head">Corrigé — méthodologie en 5 étapes</div>
+
+    <p><strong>Étape 1 — Spectrométrie de masse : formule brute et degrés d'insaturation.</strong></p>
+    <ul>
+      <li>\(\ce{M^{+\bullet}} = 88\) (pair). Règle de l'azote : masse paire \(\Rightarrow\) nombre pair (0 ou 2) d'atomes \(\ce{N}\). A priori 0 \(\ce{N}\) (à confirmer par IR/RMN).</li>
+      <li>Absence de pic \(\ce{M+2}\) significatif → exclusion de \(\ce{Cl, Br, S}\).</li>
+      <li>Composition probable : \(\ce{C}_x \ce{H}_y \ce{O}_z\). Recherche systématique :
+        <ul>
+          <li>\(\ce{C4H8O2}\) : \(48 + 8 + 32 = 88\) ✓</li>
+          <li>\(\ce{C3H4O3}\) : \(36 + 4 + 48 = 88\) ✓</li>
+          <li>\(\ce{C5H12O}\) : \(60 + 12 + 16 = 88\) ✓</li>
+        </ul>
+      </li>
+      <li>Degré d'insaturation pour \(\ce{C4H8O2}\) : \(\mathrm{DI} = (2 \times 4 + 2 - 8)/2 = 1\) → 1 cycle ou 1 double liaison.</li>
+    </ul>
+
+    <p><strong>Étape 2 — IR : groupes fonctionnels.</strong></p>
+    <ul>
+      <li>Bande très large 2500–3300 cm⁻¹ centrée ~3000 : <strong>signature caractéristique de \(\ce{O-H}\) d'acide carboxylique</strong> (liaison H intermoléculaire dimérique très forte).</li>
+      <li>Absorption à 1715 cm⁻¹ : \(\ce{C=O}\). Combinée à la \(\ce{O-H}\) large : <strong>fonction acide carboxylique \(\ce{-COOH}\)</strong> (T<sub>C=O</sub> ester serait ~1735, amide ~1650).</li>
+      <li>Pas de bande nette 3400–3550 cm⁻¹ → exclusion alcool seul, amine, amide.</li>
+      <li>1 \(\ce{COOH}\) consomme 2 \(\ce{O}\) sur les 2 disponibles de \(\ce{C4H8O2}\) et 1 DI sur les 1 disponibles. <strong>Formule brute confirmée : \(\ce{C4H8O2}\)</strong>, structure : un \(\ce{-COOH}\) attaché à un fragment alkyle \(\ce{C3H7}\).</li>
+    </ul>
+
+    <p><strong>Étape 3 — RMN \(^{13}\ce{C}\) + DEPT : squelette carboné.</strong></p>
+    <ul>
+      <li>4 signaux ⇔ 4 environnements de \(\ce{C}\) inéquivalents. Avec 4 \(\ce{C}\) au total → chaque \(\ce{C}\) a un environnement distinct (pas de symétrie).</li>
+      <li>179,5 ppm, quaternaire → <strong>\(\ce{C}\) du carboxyle \(\ce{-COOH}\)</strong> (zone 170–185 ppm pour acides).</li>
+      <li>36,1 ppm, \(\ce{CH2}\) → carbone en \(\alpha\) du \(\ce{COOH}\) (déblindé par effet \(-I\)).</li>
+      <li>18,4 ppm, \(\ce{CH2}\) → carbone intermédiaire.</li>
+      <li>13,7 ppm, \(\ce{CH3}\) → méthyle terminal.</li>
+      <li>Squelette : \(\ce{CH3 - CH2 - CH2 - COOH}\) (chaîne linéaire à 4 \(\ce{C}\)).</li>
+    </ul>
+
+    <p><strong>Étape 4 — RMN \(^{1}\ce{H}\) : confirmation et couplages.</strong></p>
+    <ul>
+      <li>\(\delta = 11{,}8\) ppm (1H, singulet large) : <strong>proton acide \(\ce{-COOH}\)</strong> (zone 10–13 ppm caractéristique). Singulet large car échangeable.</li>
+      <li>\(\delta = 2{,}33\) ppm (2H, t, \(J = 7{,}4\) Hz) : \(\ce{CH2}\) en \(\alpha\) du \(\ce{COOH}\), couplé à 2 voisins (triplet, \(n+1 = 3\)) → voisin = un \(\ce{CH2}\).</li>
+      <li>\(\delta = 1{,}65\) ppm (2H, sextuplet, \(J = 7{,}4\) Hz) : \(\ce{CH2}\) central, couplé à 2+3 = 5 voisins équivalents en \(J\) (sextuplet, \(n+1 = 6\)).</li>
+      <li>\(\delta = 0{,}95\) ppm (3H, t, \(J = 7{,}4\) Hz) : \(\ce{CH3}\) terminal couplé à 2 voisins (triplet).</li>
+      <li>Connectivité confirmée : \(\ce{CH3 - CH2 - CH2 - COOH}\).</li>
+    </ul>
+
+    <p><strong>Étape 5 — Synthèse et vérification.</strong></p>
+    <p>Molécule identifiée : <strong>acide butanoïque \(\ce{CH3-CH2-CH2-COOH}\)</strong> (acide butyrique).</p>
+    <ul>
+      <li>Vérification masse : \(\ce{C4H8O2}\), \(M = 4 \times 12 + 8 \times 1 + 2 \times 16 = 88\) g/mol ✓</li>
+      <li>Vérification fragmentations MS :
+        <ul>
+          <li>M−15 = 73 : perte \(\ce{CH3^\bullet}\) → \(\ce{[CH2-CH2-COOH]^+}\) ✓</li>
+          <li>M−17 = 71 : perte \(\ce{OH^\bullet}\) → cation acylium \(\ce{[CH3CH2CH2-CO]^+}\) ✓ (caractéristique des acides)</li>
+          <li>M−28 = 60 : perte de \(\ce{CO}\) → \(\ce{[CH3CH2CH2OH]^{+\bullet}}\) ou réarrangement McLafferty (perte \(\ce{C2H4}\)) → \(\ce{[CH2COOH]^{+\bullet}}\) ✓</li>
+          <li>\(m/z = 43\) : \(\ce{[C3H7]^+}\) (propyle) ou \(\ce{[CH3CO]^+}\) (acétyle) ✓</li>
+        </ul>
+      </li>
+      <li>Toutes les données convergent : <strong>acide butanoïque confirmé</strong>.</li>
+    </ul>
+
+    <div class="key"><strong>À retenir.</strong> La méthodologie d'analyse spectrale couplée est invariante : (1) MS → formule brute + DI ; (2) IR → groupes fonctionnels ; (3) \(^{13}\ce{C}\) + DEPT → squelette carboné et décompte \(\ce{CH}, \ce{CH2}, \ce{CH3}\) ; (4) \(^{1}\ce{H}\) → connectivité fine par les couplages ; (5) vérification croisée par les fragmentations MS. Chaque spectroscopie apporte une information complémentaire et non redondante.</div>
+  </div>
+</details>
 </div>
 
 <!-- ═══════════════════ 12 LECONS & MONTAGES ═══════════════════ -->
@@ -694,6 +1292,157 @@
     </ol>
     <p><strong>Exploitation.</strong> Croisement des données = identification non ambiguë. Application aux produits issus de TP : aspirine, paracétamol, savon, etc. C'est la base de l'analyse structurelle moderne.</p>
   </div>
+
+
+<!-- À insérer dans le sblock §12 "lecons-montages", après la .lecon-card "Classification périodique" existante -->
+<div class="lecon-card">
+  <h4>Leçon — Liaisons chimiques : du modèle de Lewis aux orbitales moléculaires (sujet oral n°2)</h4>
+  <div class="lecon-meta">Niveau · Lycée → CPGE 2<sup>e</sup> année — Durée : 50 min exposé + 30 min entretien</div>
+  <p><strong>Bibliographie recommandée.</strong></p>
+  <ul>
+    <li>Atkins, <em>Chimie physique</em>, 5<sup>e</sup> éd. française, De Boeck, 2015 — chapitres « Liaison chimique » et « Structure moléculaire ».</li>
+    <li>Sarrazin &amp; Verdaguer, <em>Tout-en-un PC/PC*</em>, Dunod, dernière éd. — partie atomistique et OM.</li>
+    <li>Hprépa Chimie PC/PC*, Hachette — diagrammes OM de référence.</li>
+  </ul>
+  <p><strong>Accroche.</strong> Pourquoi \(\ce{O2}\) est-il <em>paramagnétique</em> alors que la structure de Lewis prédit le contraire ? Cette anomalie a motivé le passage du modèle classique au modèle quantique de la liaison.</p>
+  <p><strong>Plan détaillé.</strong></p>
+  <ol>
+    <li><strong>I. La liaison covalente — modèle de Lewis (15 min, niveau Lycée)</strong>
+      <ul>
+        <li>I.1 Représentation de Lewis, règle de l'octet, charges formelles.</li>
+        <li>I.2 Géométrie VSEPR : méthode \(\ce{AX_n E_m}\), corrélation géométrie ↔ polarité moléculaire.</li>
+        <li>I.3 <em>Expérience 1</em> : solubilité de \(\ce{I2}\) dans eau (très faible) vs cyclohexane (élevée). Interprétation par polarité.</li>
+      </ul>
+    </li>
+    <li><strong>II. Liaisons ionique, métallique, intermoléculaires (10 min, niveau Lycée/CPGE)</strong>
+      <ul>
+        <li>II.1 Liaison ionique : \(\ce{NaCl}\), énergie réticulaire (cycle de Born-Haber).</li>
+        <li>II.2 Liaison métallique qualitative : gaz d'électrons, conductivité.</li>
+        <li>II.3 Liaisons faibles : VdW (London, Debye, Keesom), liaison H et son rôle pour l'eau.</li>
+      </ul>
+    </li>
+    <li><strong>III. Théorie des orbitales moléculaires (20 min, niveau CPGE)</strong>
+      <ul>
+        <li>III.1 Méthode LCAO sur \(\ce{H2}\) : combinaisons \(\sigma\) et \(\sigma^{*}\), ordre de liaison.</li>
+        <li>III.2 Diatomiques homonucléaires de la 2<sup>e</sup> période : diagramme avec et sans interaction \(s\)–\(p\), application à \(\ce{N2}\) et \(\ce{O2}\).</li>
+        <li>III.3 Résolution du paradoxe \(\ce{O2}\) : 2 électrons non appariés dans les \(\pi_{2p}^{*}\) dégénérées (Hund) → paramagnétisme expliqué.</li>
+        <li>III.4 Bref aperçu OM hétéronucléaires (\(\ce{CO}\) : HOMO sur \(\ce{C}\)).</li>
+        <li><em>Expérience 2</em> : <strong>\(\ce{O2}\) liquide attiré par un aimant néodyme</strong> — manipulation spectaculaire et historiquement décisive.</li>
+      </ul>
+    </li>
+    <li><strong>IV. Conclusion (5 min)</strong> : hiérarchie énergétique des liaisons (covalente ≫ ionique ≳ métallique ≫ H ≫ VdW), pertinence selon les phénomènes étudiés. Ouverture : DFT moderne, chimie supramoléculaire.</li>
+  </ol>
+  <p><strong>Points clés jury 2025.</strong> Distinguer expérience/modèle/théorie ; ne pas confondre OL et nombre d'électrons non appariés ; ne pas justifier l'hypervalence par les sous-couches \(d\) sans mentionner la critique moderne (3c-4e) ; rigoureusement préciser le diagramme OM utilisé (avec ou sans interaction \(s\)–\(p\)).</p>
+</div>
+
+<div class="lecon-card">
+  <h4>Leçon — Modélisation microscopique des solides cristallins (sujet oral n°27e)</h4>
+  <div class="lecon-meta">Niveau · Terminale → CPGE 2<sup>e</sup> année — Durée : 50 min exposé + 30 min entretien</div>
+  <p><strong>Bibliographie recommandée.</strong></p>
+  <ul>
+    <li>Sarrazin &amp; Verdaguer, <em>Tout-en-un PC/PC*</em>, Dunod — chapitres « Cristallographie » et « Structures cristallines ».</li>
+    <li>Hprépa Chimie PCSI/PSI — figures de référence pour mailles et sites interstitiels.</li>
+    <li>West, <em>Solid State Chemistry and its Applications</em>, 2<sup>e</sup> éd., Wiley, 2014 — pour les exemples ioniques et la cristallographie quantitative.</li>
+  </ul>
+  <p><strong>Accroche.</strong> Diamant et graphite : même formule \(\ce{C}\), mais l'un est transparent et le plus dur des matériaux, l'autre opaque, conducteur et lubrifiant. La <em>structure cristalline</em> gouverne tout.</p>
+  <p><strong>Plan détaillé.</strong></p>
+  <ol>
+    <li><strong>I. Quatre familles de cristaux (15 min, niveau Terminale)</strong>
+      <ul>
+        <li>I.1 Moléculaire, ionique, métallique, covalent : description et propriétés caractéristiques (T<sub>fus</sub>, dureté, conductivité, solubilité).</li>
+        <li>I.2 <em>Expérience 1</em> : comparaison qualitative de propriétés sur une boîte de quatre solides : \(\ce{NaCl}\), \(\ce{Cu}\), naphtalène, quartz. Mesure de fusion, conductivité au multimètre, dureté à l'ongle/au verre.</li>
+      </ul>
+    </li>
+    <li><strong>II. Description cristallographique : maille, motif, coordinence, compacité (15 min, niveau CPGE 1<sup>re</sup> année)</strong>
+      <ul>
+        <li>II.1 Vocabulaire : nœud, motif, réseau de Bravais. Mailles cubiques CS, CC, CFC ; comptage des atomes par maille.</li>
+        <li>II.2 Empilements compacts : CFC (ABC) et HC (ABAB), compacité 74 % (calcul détaillé en démonstration).</li>
+        <li>II.3 Sites interstitiels octaédriques et tétraédriques de la CFC, rapports critiques \(r/R\).</li>
+      </ul>
+    </li>
+    <li><strong>III. Cristaux ioniques et diffraction X (20 min, niveau CPGE 2<sup>e</sup> année)</strong>
+      <ul>
+        <li>III.1 Structures emblématiques : \(\ce{NaCl}\) (rocksalt 6:6), \(\ce{CsCl}\) (8:8), \(\ce{ZnS}\) (blende 4:4), \(\ce{CaF2}\) (fluorine 8:4).</li>
+        <li>III.2 Énergie réticulaire et cycle de Born-Haber, constante de Madelung.</li>
+        <li>III.3 Loi de Bragg \(2 d_{hkl} \sin\theta = n\lambda\), conditions d'extinction selon le réseau.</li>
+        <li><em>Expérience 2</em> : <strong>diffraction X sur monocristal de \(\ce{NaCl}\) ou \(\ce{LiF}\)</strong> avec diffractomètre éducatif Leybold ou Phywe (raie \(K_\alpha\) du \(\ce{Cu}\) à 154 pm), exploitation \(\theta \to d \to a\). Incertitudes discutées (calibration angulaire ±0,1°, monochromaticité).</li>
+      </ul>
+    </li>
+    <li><strong>IV. Conclusion + ouverture (5 min)</strong> : défauts cristallins, alliages d'insertion (\(\ce{C}\) dans \(\ce{Fe}\) → acier), nanocristaux, quasi-cristaux (Shechtman Nobel 2011).</li>
+  </ol>
+  <p><strong>Points clés jury 2025.</strong> Toujours démontrer la compacité 74 % (ne pas la poser) ; rappeler que la diffraction X interagit avec les <em>électrons</em> ; bien distinguer maille (volume conventionnel) et motif (entité chimique) ; sécurité radiologique mentionnée explicitement.</p>
+</div>
+
+<div class="lecon-card">
+  <h4>Leçon — Spectroscopies moléculaires pour la caractérisation structurale (sujet oral n°28m)</h4>
+  <div class="lecon-meta">Niveau · Terminale → CPGE 2<sup>e</sup> année — Durée : 50 min exposé + 30 min entretien</div>
+  <p><strong>Bibliographie recommandée.</strong></p>
+  <ul>
+    <li>Silverstein, Webster &amp; Kiemle, <em>Spectrometric Identification of Organic Compounds</em>, 8<sup>e</sup> éd., Wiley, 2014 — référence absolue, tables IR/RMN/MS.</li>
+    <li>Pretsch, Bühlmann &amp; Badertscher, <em>Structure Determination of Organic Compounds</em>, 5<sup>e</sup> éd., Springer, 2020 — tables compactes très complètes.</li>
+    <li>Sarrazin &amp; Verdaguer, <em>Tout-en-un PC/PC*</em>, Dunod — chapitre spectroscopies pour le formalisme CPGE.</li>
+  </ul>
+  <p><strong>Accroche.</strong> En 2017, le prix Nobel de chimie est décerné à Dubochet, Frank et Henderson pour la cryo-microscopie électronique — résolution atomique sur des biomolécules. Mais en routine, comment caractériser une molécule de synthèse en une journée ? Réponse : <em>les spectroscopies couplées</em>.</p>
+  <p><strong>Plan détaillé.</strong></p>
+  <ol>
+    <li><strong>I. Spectroscopies vibrationnelle et de résonance protonique (20 min, niveau Terminale + CPGE 1<sup>re</sup>)</strong>
+      <ul>
+        <li>I.1 IR : modèle oscillateur harmonique \(\bar{\nu} = (2\pi c)^{-1}\sqrt{k/\mu}\), règle de sélection (vibration IR-active si \(\partial\mu/\partial q \neq 0\)), tables des groupes fonctionnels.</li>
+        <li>I.2 RMN \(^{1}\ce{H}\) : précession dans \(B_0\), résonance, blindage et déplacement chimique \(\delta\) (ppm), intégration, multiplicité \(n+1\), constante de couplage \(J\) (Hz).</li>
+        <li>I.3 <em>Expérience 1</em> : enregistrement et comparaison des spectres IR (ATR) de l'éthanol et de l'acétone. Identification immédiate \(\ce{O-H}\) (3200–3550, large) et \(\ce{C=O}\) (1715 cm⁻¹).</li>
+      </ul>
+    </li>
+    <li><strong>II. Spectroscopies avancées : \(^{13}\ce{C}\), DEPT, MS, UV (15 min, niveau CPGE 2<sup>e</sup>)</strong>
+      <ul>
+        <li>II.1 RMN \(^{13}\ce{C}\) : domaines 0–220 ppm, \(\ce{C}\) quaternaires visibles ; intégration non quantitative.</li>
+        <li>II.2 DEPT-135° et DEPT-90° : comptage \(\ce{CH}, \ce{CH2}, \ce{CH3}\), élimination des quaternaires.</li>
+        <li>II.3 Spectrométrie de masse EI : pic moléculaire \(\ce{M^{+\bullet}}\), règle de l'azote, fragmentations (M−15, M−18, M−43), signatures isotopiques (\(\ce{Cl}\) 3:1, \(\ce{Br}\) 1:1).</li>
+        <li>II.4 UV-Vis : règles empiriques de Woodward-Fieser pour la prédiction de \(\lambda_{\max}\).</li>
+      </ul>
+    </li>
+    <li><strong>III. Analyse spectrale couplée — étude de cas (10 min)</strong>
+      <ul>
+        <li>III.1 Méthodologie 5 étapes : MS (formule brute, DI) → IR (fonctions) → \(^{13}\ce{C}\)+DEPT (squelette) → \(^{1}\ce{H}\) (connectivité) → vérification cohérente.</li>
+        <li><em>Expérience 2</em> : <strong>identification d'une molécule inconnue</strong> à partir d'un jeu de spectres (acide butanoïque ou acétate d'éthyle ou paracétamol). Croisement complet sur tableau ou diaporama, conclusion structurelle.</li>
+      </ul>
+    </li>
+    <li><strong>IV. Conclusion + ouverture (5 min)</strong> : autres méthodes (RMN 2D : COSY, HSQC, HMBC ; RPE ; X-ray crystallography pour la structure 3D définitive). Hiérarchie : MS = composition, IR = fonctions, RMN = connectivité, RX = géométrie 3D.</li>
+  </ol>
+  <p><strong>Points clés jury 2025.</strong> Commencer systématiquement l'analyse par la MS (formule brute → DI) ; ne pas confondre \(\delta\) (indép. de \(B_0\)) et \(J\) (en Hz, aussi indép. mais piège ppm/Hz) ; rappeler que l'intégration \(^{13}\ce{C}\) est non quantitative ; préciser le solvant de RMN (résidu \(\ce{CDCl3}\) à 7,26 ppm).</p>
+</div>
+
+<!-- À insérer dans le sblock §12, après la .lecon-card "Identification d'un composé par spectroscopies couplées" (ligne ~696) -->
+<div class="lecon-card">
+  <h4>Montage — Vérification expérimentale des règles de Woodward-Fieser en UV-Vis</h4>
+  <p><strong>Justification du choix.</strong> Montage quantitatif, faisable avec le matériel standard d'un lycée (spectrophotomètre UV-Vis Jasco/Cary/Secomam), couvrant l'illustration de la conjugaison \(\pi\) et la confrontation modèle empirique / expérience — exactement le triplet attendu par le jury (expérience, modèle, théorie).</p>
+  <p><strong>Objectif.</strong> Mesurer \(\lambda_{\max}\) de plusieurs cétones \(\alpha,\beta\)-insaturées et diènes conjugués, comparer aux prédictions de Woodward-Fieser, discuter les écarts.</p>
+  <p><strong>Matériel.</strong> Spectrophotomètre UV-Vis (200–800 nm, résolution \(\le 2\) nm), cuves de quartz 1 cm (le verre absorbe sous 350 nm), solvants spectroscopiques (éthanol anhydre, hexane), pipettes Pasteur, fioles jaugées 10 mL. Échantillons : mésityle oxyde (4-méthylpent-3-én-2-one, énone acyclique), cyclohex-2-énone, isophorone (3,5,5-triméthylcyclohex-2-énone), buta-1,3-diène (en bouteille pression, ou 2,3-diméthylbuta-1,3-diène plus pratique).</p>
+  <p><strong>Protocole.</strong></p>
+  <ol>
+    <li>Préparer des solutions à \(c \approx 5 \times 10^{-5}\,\mathrm{mol\cdot L^{-1}}\) dans l'éthanol (gamme appropriée pour \(\varepsilon \sim 10^{4}\) → \(A \sim 0{,}5\)).</li>
+    <li>Faire le blanc avec le solvant pur.</li>
+    <li>Enregistrer le spectre d'absorption entre 200 et 400 nm pour chaque composé.</li>
+    <li>Identifier \(\lambda_{\max}\) (position du maximum de la bande \(\pi \to \pi^{*}\)) à \(\pm 1\) nm près.</li>
+    <li>Calculer le \(\lambda_{\max}\) théorique par les règles de Woodward-Fieser :
+      <ul>
+        <li>Mésityle oxyde \(\ce{(CH3)2C=CH-CO-CH3}\) : base 215 (acyclique) + 12 (subst. \(\beta\) × 1) + 10 (subst. \(\alpha\)) + 12 (deuxième subst. \(\beta\)) = <strong>249 nm</strong> (théorique). <em>Mesure attendue ≈ 235 nm dans l'éthanol</em> — écart à discuter (correction de solvant ~ -10 nm pour EtOH vs hexane).</li>
+        <li>Cyclohex-2-énone : base 215 (6 chaînons) → <strong>215 nm</strong> ; mesure ≈ 218 nm.</li>
+        <li>Isophorone : base 215 + 10 (subst. \(\alpha\)) + 12 (subst. \(\beta\)) = <strong>237 nm</strong> ; mesure ≈ 235 nm (très bon accord).</li>
+        <li>2,3-Diméthylbuta-1,3-diène : base hétéroannulaire 217 + 5×2 (deux substituants alkyle) = <strong>227 nm</strong> ; mesure ≈ 227 nm.</li>
+      </ul>
+    </li>
+    <li>Tracer un graphe \(\lambda_{\max}^{\text{exp}}\) vs \(\lambda_{\max}^{\text{Woodward}}\), régression linéaire — vérifier la pente proche de 1 et l'ordonnée à l'origine proche de 0.</li>
+  </ol>
+  <p><strong>Sources d'incertitude.</strong></p>
+  <ul>
+    <li>Résolution spectrale du spectrophotomètre : \(\pm 1\) à \(\pm 2\) nm.</li>
+    <li>Étalonnage en longueur d'onde : vérifier avec une lampe holmium ou en utilisant un standard (benzène à 254 nm).</li>
+    <li>Solvant : Woodward-Fieser calibré sur l'éthanol ; un changement vers hexane décale \(\lambda_{\max}\) (effet hypsochrome pour les transitions \(\pi \to \pi^{*}\) des énones de l'ordre de \(-10\) nm).</li>
+    <li>Pureté des échantillons (impuretés absorbantes), photodégradation des diènes (manipuler à l'abri de la lumière directe).</li>
+  </ul>
+  <p><strong>Exploitation quantitative complémentaire.</strong> Mesure des coefficients molaires \(\varepsilon\) par loi de Beer-Lambert sur trois concentrations (\(A = \varepsilon \ell c\), régression linéaire \(A\) vs \(c\), vérifier linéarité \(R^2 > 0{,}999\)). Pour les cétones \(\alpha,\beta\)-insaturées étudiées, \(\varepsilon\) attendu \(\sim 10^{4}\,\mathrm{L\cdot mol^{-1}\cdot cm^{-1}}\) pour la bande \(\pi \to \pi^{*}\), confirmant le caractère permis de la transition.</p>
+  <p><strong>Conclusion pédagogique.</strong> Le montage articule (i) une <em>expérience</em> reproductible et précise, (ii) un <em>modèle empirique</em> (Woodward-Fieser), (iii) une <em>théorie</em> sous-jacente (transitions électroniques \(\pi \to \pi^{*}\), niveaux MO). Les écarts modèle/expérience (toujours quelques nm) illustrent que les règles additives sont des outils d'estimation, à confronter aux mesures réelles — démarche scientifique exemplaire à valoriser devant le jury.</p>
+</div>
 </div>
 
 <!-- ═══════════════════ 13 JURY ═══════════════════ -->
@@ -708,6 +1457,10 @@
     <div class="jury-item"><strong>Paramagnétisme de \(\boldsymbol{\ce{O2}}\).</strong> Lewis prédit une double liaison \(\ce{O=O}\) sans électron célibataire \(\Rightarrow\) diamagnétisme. Mais \(\ce{O2}\) est expérimentalement paramagnétique ! La théorie des OM explique ce paradoxe — c'est l'argument historique fort en faveur de l'OM contre Lewis. Toujours mentionner ce cas à l'oral.</div>
     <div class="jury-item"><strong>Compacité et stabilité.</strong> Les empilements compacts (CFC et HC à 74 %) sont privilégiés par les métaux car ils maximisent les interactions métalliques cohésives. La CC (68 %) est moins compacte mais reste stable pour certains métaux par effet de la structure de bande électronique (\(\ce{Fe}_\alpha, \ce{Cr}, \ce{Na}\)). Ne pas conclure « la CFC est toujours plus stable ».</div>
     <div class="jury-item"><strong>Bragg et diffraction électronique.</strong> Les rayons X sont diffractés par les <em>électrons</em> des atomes (pas les noyaux). Les électrons des liaisons interviennent peu dans la diffraction X (faible densité), d'où la difficulté à localiser les atomes \(\ce{H}\) (peu d'électrons). C'est pourquoi la diffraction de neutrons (sensible aux noyaux) est complémentaire pour ces analyses.</div>
+
+<!-- À insérer dans la .jury-list ligne ~711, juste avant la fermeture </div> de la .jury-list -->
+    <div class="jury-item"><strong>Intégration en RMN : valeur relative, jamais absolue.</strong> En RMN \(^{1}\ce{H}\), l'aire sous chaque pic est proportionnelle au <em>nombre</em> de protons concernés — mais c'est une information <em>relative</em>. Un rapport d'intégration 2:3 peut correspondre à 2H:3H, 4H:6H, 6H:9H… La détermination du nombre absolu de protons exige de connaître la formule brute (par spectrométrie de masse ou microanalyse). En RMN \(^{13}\ce{C}\), <strong>l'intégration n'est pas quantitative du tout</strong> (temps de relaxation \(T_1\) hétérogènes, effet NOE variable selon le nombre de \(\ce{H}\) liés) : recourir au DEPT pour compter \(\ce{CH}, \ce{CH2}, \ce{CH3}\).</div>
+    <div class="jury-item"><strong>Couplage \(J\) vs déplacement chimique \(\delta\) : dépendance au champ \(B_0\).</strong> Confusion fréquente à l'oral. Le déplacement chimique \(\delta\) (en ppm) dépend du <em>blindage chimique</em> (environnement électronique du noyau) et est, par construction, <em>indépendant</em> du champ \(B_0\) du spectromètre. La constante de couplage \(J\) (en Hz) traduit l'interaction spin–spin transmise par les électrons des liaisons et est <strong>indépendante de \(B_0\)</strong>. Conséquence : <em>l'écart en Hz</em> entre les raies d'un multiplet reste identique d'un appareil 60 MHz à un 600 MHz, mais <em>l'écart en ppm</em> diminue d'un facteur 10 → meilleure résolution des massifs à haut champ. Toujours indiquer \(J\) en Hz, jamais en ppm.</div>
   </div>
 </div>
 
