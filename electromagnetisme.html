@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Électromagnétisme pour l'agrégation interne : équations de Maxwell, ondes électromagnétiques, induction, circuits magnétiques. Démonstrations, exercices et montages niveau CPGE.">
+<meta property="og:title" content="Électromagnétisme — AgrégPrep">
+<meta property="og:description" content="Électromagnétisme pour l'agrégation interne : équations de Maxwell, ondes électromagnétiques, induction, circuits magnétiques. Démonstrations, exercices et montages niveau CPGE.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://agregationrozo.netlify.app/electromagnetisme.html">
 <title>Électromagnétisme & Ondes EM — AgrégPrep</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -937,8 +942,117 @@
       <span class="mat-v">Tracer \(B = f(I)\) sous Python (scipy.stats.linregress) ou Regressi avec barres d'erreur. Régression linéaire forcée par l'origine : pente = \(\mu_0 n\) → \(\mu_0 = \text{pente}/n\). Discuter l'écart à la valeur tabulée et identifier la source dominante d'incertitude. Schéma de principe ci-dessous.</span>
     </div>
     <figure class="diagram">
-      <img src="assets/mu0-solenoide-hall.png" alt="Schéma du montage : solénoïde relié à une alimentation (ampèremètre en série), sonde Hall au centre, teslamètre en dessous" loading="lazy" style="max-width:100%;border-radius:6px;border:1px solid var(--border);">
-      <figcaption>Montage de mesure de µ₀ — source : <a href="mu0-solenoide-hall.excalidraw" download>mu0-solenoide-hall.excalidraw</a> (ouvrir sur excalidraw.com pour éditer)</figcaption>
+      <svg viewBox="0 0 760 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma du montage solénoïde + sonde Hall pour mesure de µ₀" style="font-family:'DM Sans',sans-serif;background:var(--bg2);border-radius:10px;border:1px solid var(--border)">
+
+        <!-- ─── Solénoïde ─── -->
+        <!-- Corps du solénoïde -->
+        <rect x="200" y="100" width="360" height="80" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+        <!-- Spires symboliques (arcs) -->
+        <g stroke="#2563eb" stroke-width="1.5" fill="none">
+          <path d="M220,100 Q230,88 240,100"/>
+          <path d="M240,100 Q250,88 260,100"/>
+          <path d="M260,100 Q270,88 280,100"/>
+          <path d="M280,100 Q290,88 300,100"/>
+          <path d="M300,100 Q310,88 320,100"/>
+          <path d="M320,100 Q330,88 340,100"/>
+          <path d="M340,100 Q350,88 360,100"/>
+          <path d="M360,100 Q370,88 380,100"/>
+          <path d="M380,100 Q390,88 400,100"/>
+          <path d="M400,100 Q410,88 420,100"/>
+          <path d="M420,100 Q430,88 440,100"/>
+          <path d="M440,100 Q450,88 460,100"/>
+          <path d="M460,100 Q470,88 480,100"/>
+          <path d="M480,100 Q490,88 500,100"/>
+          <path d="M500,100 Q510,88 520,100"/>
+          <path d="M520,100 Q530,88 540,100"/>
+          <!-- Bas du solénoïde -->
+          <path d="M220,180 Q230,192 240,180"/>
+          <path d="M240,180 Q250,192 260,180"/>
+          <path d="M260,180 Q270,192 280,180"/>
+          <path d="M280,180 Q290,192 300,180"/>
+          <path d="M300,180 Q310,192 320,180"/>
+          <path d="M320,180 Q330,192 340,180"/>
+          <path d="M340,180 Q350,192 360,180"/>
+          <path d="M360,180 Q370,192 380,180"/>
+          <path d="M380,180 Q390,192 400,180"/>
+          <path d="M400,180 Q410,192 420,180"/>
+          <path d="M420,180 Q430,192 440,180"/>
+          <path d="M440,180 Q450,192 460,180"/>
+          <path d="M460,180 Q470,192 480,180"/>
+          <path d="M480,180 Q490,192 500,180"/>
+          <path d="M500,180 Q510,192 520,180"/>
+          <path d="M520,180 Q530,192 540,180"/>
+        </g>
+        <!-- Label solénoïde -->
+        <text x="380" y="150" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">Solénoïde</text>
+        <text x="380" y="165" text-anchor="middle" font-size="10" fill="#3b82f6">N ≈ 500 spires, L ≈ 50 cm</text>
+
+        <!-- Axe du solénoïde -->
+        <line x1="200" y1="140" x2="560" y2="140" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+
+        <!-- ─── Sonde Hall au centre ─── -->
+        <rect x="360" y="118" width="40" height="44" rx="4" fill="#fef9c3" stroke="#b45309" stroke-width="1.8"/>
+        <text x="380" y="137" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">Sonde</text>
+        <text x="380" y="149" text-anchor="middle" font-size="9" fill="#92400e">Hall</text>
+        <!-- Fil sonde vers teslamètre (vers le bas) -->
+        <line x1="380" y1="162" x2="380" y2="230" stroke="#b45309" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <!-- Flèche B -->
+        <defs>
+          <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#2563eb"/>
+          </marker>
+          <marker id="arrowI" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#059669"/>
+          </marker>
+        </defs>
+        <line x1="290" y1="128" x2="340" y2="128" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowB)"/>
+        <text x="315" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">B⃗</text>
+
+        <!-- ─── Teslamètre ─── -->
+        <rect x="330" y="230" width="100" height="40" rx="6" fill="#f0fdf4" stroke="#059669" stroke-width="1.8"/>
+        <text x="380" y="248" text-anchor="middle" font-size="11" font-weight="600" fill="#065f46">Teslamètre</text>
+        <text x="380" y="261" text-anchor="middle" font-size="9" fill="#059669">B = µ₀ n I</text>
+
+        <!-- ─── Circuit électrique (haut) ─── -->
+        <!-- Fil sortie gauche du solénoïde vers alimentation -->
+        <line x1="200" y1="140" x2="100" y2="140" stroke="#059669" stroke-width="2"/>
+        <line x1="100" y1="140" x2="100" y2="55" stroke="#059669" stroke-width="2"/>
+        <line x1="100" y1="55" x2="200" y2="55" stroke="#059669" stroke-width="2"/>
+        <!-- Fil sortie droite du solénoïde vers ampèremètre puis alimentation -->
+        <line x1="560" y1="140" x2="660" y2="140" stroke="#059669" stroke-width="2"/>
+        <line x1="660" y1="140" x2="660" y2="55" stroke="#059669" stroke-width="2"/>
+        <line x1="560" y1="55" x2="660" y2="55" stroke="#059669" stroke-width="2"/>
+
+        <!-- Alimentation (à gauche, haut) -->
+        <rect x="60" y="30" width="80" height="50" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+        <text x="100" y="52" text-anchor="middle" font-size="10" font-weight="700" fill="#1e40af">Alim.</text>
+        <text x="100" y="65" text-anchor="middle" font-size="9" fill="#3b82f6">0–5 A</text>
+        <!-- Bornes + et - -->
+        <text x="68" y="47" font-size="12" font-weight="700" fill="#059669">+</text>
+        <text x="120" y="47" font-size="12" font-weight="700" fill="#dc2626">−</text>
+
+        <!-- Ampèremètre (à droite, haut) -->
+        <circle cx="620" cy="55" r="22" fill="#f0fdf4" stroke="#059669" stroke-width="2"/>
+        <text x="620" y="51" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">A</text>
+        <text x="620" y="65" text-anchor="middle" font-size="8" fill="#059669">±0,01 A</text>
+
+        <!-- Flèche courant I -->
+        <line x1="200" y1="47" x2="240" y2="47" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowI)"/>
+        <text x="220" y="42" text-anchor="middle" font-size="10" font-weight="600" fill="#065f46">I</text>
+
+        <!-- ─── Légende ─── -->
+        <rect x="10" y="200" width="130" height="80" rx="6" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+        <text x="20" y="218" font-size="9" font-weight="700" fill="#64748b">Légende</text>
+        <rect x="20" y="225" width="12" height="8" rx="2" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+        <text x="37" y="233" font-size="9" fill="#374151">Solénoïde (N spires)</text>
+        <rect x="20" y="240" width="12" height="8" rx="2" fill="#fef9c3" stroke="#b45309" stroke-width="1.2"/>
+        <text x="37" y="248" font-size="9" fill="#374151">Sonde Hall (centre)</text>
+        <rect x="20" y="255" width="12" height="8" rx="2" fill="#f0fdf4" stroke="#059669" stroke-width="1.2"/>
+        <text x="37" y="263" font-size="9" fill="#374151">Circuit courant I</text>
+        <line x1="20" y1="272" x2="32" y2="272" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowB)"/>
+        <text x="37" y="276" font-size="9" fill="#374151">Champ B⃗ mesuré</text>
+      </svg>
+      <figcaption>Montage de mesure de µ₀ — solénoïde + sonde Hall. La régression linéaire B = f(I) donne la pente µ₀n.</figcaption>
     </figure>
   </div>
 
@@ -1035,6 +1149,15 @@
     <a class="res-link" href="index.html">
       <span class="ri">🏠</span><div><div class="rt">Retour à l'accueil</div><div class="rd">Programme, planning, méthodes, tracker</div></div><span class="ra">→</span>
     </a>
+  </div>
+  <div style="margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--border)">
+    <div style="font-family:var(--mono);font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.7rem">Bibliographie de référence</div>
+    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.35rem">
+      <li style="font-size:12px;color:var(--muted2)"><strong>Pérez, J.-P.</strong> — <em>Électromagnétisme</em>, EDP Sciences/Masson. Référence CPGE complète : lois de Maxwell, ondes, induction, magnétostatique.</li>
+      <li style="font-size:12px;color:var(--muted2)"><strong>Jackson, J.D.</strong> — <em>Classical Electrodynamics</em>, Wiley. Traitement avancé (jauge, potentiels retardés, rayonnement) pour approfondir hors programme strict.</li>
+      <li style="font-size:12px;color:var(--muted2)"><strong>Griffiths, D.J.</strong> — <em>Introduction to Electrodynamics</em>, Cambridge. Pédagogie exemplaire, idéal pour revoir les fondements avec clarté.</li>
+      <li style="font-size:12px;color:var(--muted2)"><strong>Diu, B. et al.</strong> — <em>Physique</em> (tome 3 : Électromagnétisme), Hermann. Traitement formel rigoureux adapté au niveau agrégation.</li>
+    </ul>
   </div>
 </div>
 

@@ -48,10 +48,61 @@
     rs.forEach(function(el){ io.observe(el); });
   }
 
+  // 5. aria-hidden sur les emojis icônes (rôle purement décoratif)
+  function setupAriaHidden(){
+    var selectors = ['.ico', '.mk', '.ri', '.ra', '.sv'];
+    selectors.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el){
+        el.setAttribute('aria-hidden', 'true');
+      });
+    });
+  }
+
+  // 6. Bouton retour en haut
+  function setupBackToTop(){
+    var btn = document.createElement('button');
+    btn.id = 'back-to-top';
+    btn.setAttribute('aria-label', 'Retour en haut de page');
+    btn.textContent = '↑';
+    btn.style.cssText = [
+      'position:fixed',
+      'bottom:1.5rem',
+      'right:1.5rem',
+      'width:2.4rem',
+      'height:2.4rem',
+      'border-radius:50%',
+      'border:none',
+      'background:var(--phys,#2563eb)',
+      'color:#fff',
+      'font-size:1.1rem',
+      'font-weight:700',
+      'line-height:1',
+      'cursor:pointer',
+      'box-shadow:0 2px 8px rgba(0,0,0,.18)',
+      'opacity:0',
+      'transform:translateY(8px)',
+      'transition:opacity .2s,transform .2s',
+      'z-index:999',
+      'pointer-events:none'
+    ].join(';');
+    document.body.appendChild(btn);
+    btn.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    window.addEventListener('scroll', function(){
+      var show = (document.documentElement.scrollTop || document.body.scrollTop) > 300;
+      btn.style.opacity = show ? '1' : '0';
+      btn.style.transform = show ? 'translateY(0)' : 'translateY(8px)';
+      btn.style.pointerEvents = show ? 'auto' : 'none';
+    }, { passive: true });
+  }
+
   // Init
   function init(){
     updateScroll();
     setupReveal();
+    setupAriaHidden();
+    setupBackToTop();
     window.addEventListener('scroll', updateScroll, { passive: true });
     window.addEventListener('resize', updateScroll, { passive: true });
   }
