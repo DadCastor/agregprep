@@ -122,6 +122,26 @@
     <span class="ico">💡</span>
     <div><strong>Conventions de signe.</strong> En thermo française (récepteur) : \(W&gt;0\) et \(Q&gt;0\) signifient que le système reçoit. À l'oral et à l'écrit, énonce explicitement la convention adoptée avant tout calcul — le jury sanctionne les changements implicites en cours de raisonnement.</div>
   </div>
+
+  <h3>1.4 Au-delà du gaz parfait — équation de Van der Waals (CPGE 2A)</h3>
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Modèle de Van der Waals — corrections au gaz parfait</div>
+    <div class="notion-body">
+      <p>Deux limites du modèle GP : (i) <em>volume propre</em> des molécules négligé, (ii) <em>interactions attractives</em> à distance moyenne (forces de London) négligées. Van der Waals (1873, Nobel 1910) introduit deux corrections phénoménologiques :</p>
+      <p style="text-align:center">\[ \left(P + \dfrac{n^2 a}{V^2}\right)(V - n b) \;=\; n R T \]</p>
+      <ul>
+        <li><strong>\(b\)</strong> (covolume, m³·mol⁻¹) : volume effectivement occupé par une mole de molécules. \(V - nb\) est le volume « libre » accessible.</li>
+        <li><strong>\(a\)</strong> (Pa·m⁶·mol⁻²) : intensité des attractions intermoléculaires. Le terme \(n^2 a/V^2\) est une « pression interne » qui s'ajoute à la pression extérieure.</li>
+      </ul>
+      <p><strong>Conséquences importantes :</strong></p>
+      <ul>
+        <li>Existence d'un <strong>point critique</strong> \((T_c, P_c, V_c)\) : pour \(T > T_c\), l'isotherme est monotone (un seul état fluide) ; pour \(T < T_c\), elle présente le palier de liquéfaction Maxwell.</li>
+        <li>\((\partial U/\partial V)_T = n^2 a/V^2 > 0\) : l'énergie interne <em>dépend du volume</em>. Une détente isotherme refroidirait un gaz réel (effet récupéré dans le coefficient de Joule-Thomson, cf. § 8.5).</li>
+        <li>Lien aux coordonnées critiques : \(a = 27 R^2 T_c^2/(64 P_c)\), \(b = R T_c/(8 P_c)\). Pour le \(\ce{CO2}\) : \(T_c = 304\,\mathrm{K}\), \(P_c = 7{,}38\,\mathrm{MPa}\).</li>
+      </ul>
+      <p><strong>Sens physique :</strong> ce modèle, malgré sa simplicité, capture qualitativement la transition liquide-gaz et le point critique — il sert de référence pédagogique pour montrer qu'<em>une équation d'état non triviale suffit à faire émerger la coexistence de phases</em>. C'est aussi un excellent terrain pour <strong>distinguer expérience, modèle et théorie</strong> (attente jury 2025) : les coefficients \(a, b\) sont des paramètres ajustés <em>à partir de l'expérience</em>, pas calculés <em>a priori</em>.</p>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════════ 02 ENTHALPIE ═══════════════════ -->
@@ -198,6 +218,25 @@
       <li><strong>Réactions chimiques</strong> spontanées (création d'entropie).</li>
     </ul></div>
   </div>
+
+  <h3>3.4 Potentiels thermodynamiques (CPGE 2<sup>e</sup> année)</h3>
+  <div class="fbox r">
+    <span class="fl">Énergie libre \(F\) et enthalpie libre \(G\)</span>
+    <span class="fc">Quand un système échange chaleur et travail avec un milieu extérieur à \(T_0\), \(P_0\), il est utile de combiner \(U\) (ou \(H\)) avec \(-TS\) pour bâtir des fonctions <em>décroissantes</em> à l'évolution spontanée :</span>
+    <span class="fm">\[ F \;=\; U - TS \qquad G \;=\; H - TS \]</span>
+    <hr>
+    <span class="fc">Différentielles (composition fixée) :</span>
+    <span class="fm">\[ \mathrm{d}F \;=\; -S\,\mathrm{d}T - P\,\mathrm{d}V \qquad \mathrm{d}G \;=\; -S\,\mathrm{d}T + V\,\mathrm{d}P \]</span>
+    <hr>
+    <span class="fc">Critères d'évolution spontanée :</span>
+    <span class="fm">\[ \text{Système monotherme à } V \text{ fixé :}\quad \mathrm{d}F \leq 0 \qquad \text{Système monotherme-monobare :}\quad \mathrm{d}G \leq 0 \]</span>
+    <span class="fc">À l'équilibre, \(F\) ou \(G\) atteint un minimum.</span>
+  </div>
+
+  <div class="alert alert-chim r">
+    <span class="ico">🧪</span>
+    <div><strong>Passerelle vers la thermodynamique chimique.</strong> En conditions usuelles (\(T, P\) imposés par l'atmosphère et le thermostat), c'est l'<strong>enthalpie libre \(G\)</strong> qui pilote l'évolution. Pour une réaction chimique : \(\Delta_r G = \Delta_r G^\circ + RT\ln Q_r\) — c'est cette grandeur (et non \(\Delta_r G^\circ\) !) qui décide du sens de réaction. <strong>Distinguer rigoureusement \(\Delta G\) et \(\Delta G^\circ\) est une attente jury 2025 explicite</strong> — cf. chapitre <a href="thermodynamique-chimique.html">Thermodynamique chimique</a>. <span class="src-tag">[Rapport jury 2025, p. 28]</span></div>
+  </div>
 </div>
 
 <!-- ═══════════════════ 04 MACHINES THERMIQUES ═══════════════════ -->
@@ -232,7 +271,19 @@
   <div class="key-box">
     <p>Pour une PAC fonctionnant entre une source extérieure à 0 °C (\(T_f = 273\,\mathrm{K}\)) et un intérieur à 20 °C (\(T_c = 293\,\mathrm{K}\)) :</p>
     \[ \mathrm{COP}_{\text{PAC,max}} \;=\; \dfrac{293}{293 - 273} \;=\; 14{,}65. \]
-    <p>En pratique, on atteint 3 à 5 — bien meilleur qu'un chauffage résistif (\(\mathrm{COP} = 1\)).</p>
+    <p>En pratique, on atteint 3 à 5 — bien meilleur qu'un chauffage résistif (\(\mathrm{COP} = 1\)). <strong>Sens physique :</strong> la PAC ne « crée » pas d'énergie, elle <em>déplace</em> de la chaleur du milieu froid (l'extérieur, l'air, le sol) vers le milieu chaud (l'intérieur de la maison), au prix d'un travail mécanique nettement inférieur à la chaleur transférée.</p>
+  </div>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Statut épistémologique du cycle de Carnot — attente jury 2025.</strong> Le cycle de Carnot (2 isothermes + 2 adiabatiques réversibles) est un <strong>idéal théorique</strong>, pas un dispositif réel. Le rendement \(\eta_{\text{Carnot}} = 1 - T_f/T_c\) est une <strong>borne supérieure</strong> jamais atteinte. À l'oral, distinguer rigoureusement :
+      <ul style="margin:.3rem 0 0 1rem">
+        <li><strong>Expérience</strong> : mesure du rendement d'un moteur réel (~30 % pour un moteur essence).</li>
+        <li><strong>Modèle</strong> : cycle de Beau de Rochas idéalisé (\(\eta = 1 - a^{1-\gamma}\)) — calcul théorique sur un GP avec transformations idéales.</li>
+        <li><strong>Théorie</strong> : second principe → théorème de Carnot, valable pour <em>tout</em> moteur ditherme, indépendamment du cycle particulier.</li>
+      </ul>
+      Cette distinction épistémologique est explicitement signalée par le jury 2025 comme attendue dans toute leçon de machines thermiques. <span class="src-tag">[Rapport jury 2025, p. 18, p. 24]</span>
+    </div>
   </div>
 </div>
 
@@ -315,29 +366,151 @@
 <div class="sblock r" id="pedagogie">
   <div class="sblock-num">Section 07</div>
   <h2>7. Pédagogie et didactique</h2>
-  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques des élèves.</p>
+  <p class="intro">Articulation des notions de thermodynamique du collège à la CPGE : conceptions des élèves, progressions curriculaires, et difficultés signalées par le jury 2025.</p>
 
-  <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>Au lycée — Terminale spécialité</div>
-    <div class="notion-body"><ul>
-      <li><strong>Premier principe</strong> : \(\Delta U = W + Q\). Bilan d'énergie d'un système (calorimétrie, mélanges).</li>
-      <li><strong>Machines thermiques</strong> : principes du moteur (essence, Diesel), du réfrigérateur, de la pompe à chaleur. Rendement de Carnot abordé.</li>
-      <li><strong>Changements d'état</strong> : courbes de chauffe, chaleur latente, palier de fusion / vaporisation.</li>
-      <li><strong>Au collège</strong> (cycle 4) : conservation de la matière, équilibre thermique, transferts.</li>
-    </ul></div>
+  <h3>7.1 Articulation curriculaire — du collège à la CPGE</h3>
+
+  <div class="ped-card r">
+    <div class="niveau">Cycle 4 — collège (5ᵉ, 4ᵉ, 3ᵉ)</div>
+    <h5>Énergie, transferts thermiques, états de la matière</h5>
+    <ul>
+      <li><strong>Formes d'énergie</strong> : cinétique, potentielle (de pesanteur, élastique), thermique, électrique, chimique, rayonnante, nucléaire — recensées sur des situations concrètes (voiture, lampe, pile, soleil).</li>
+      <li><strong>Conservation et transferts</strong> : « l'énergie ne se crée pas, ne se perd pas, elle se transforme et se transfère ». Diagrammes énergétiques (Sankey simplifié).</li>
+      <li><strong>États de la matière</strong> : solide / liquide / gaz. Changements d'état nommés (fusion, vaporisation, solidification, liquéfaction, sublimation, condensation). Conservation de la masse lors d'un changement d'état.</li>
+      <li><strong>Température</strong> : repérage du sens du transfert thermique (du chaud vers le froid), équilibre thermique, mais pas de bilan quantitatif.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Lycée — seconde GT</div>
+    <h5>Modélisation du gaz, pression et température</h5>
+    <ul>
+      <li><strong>Modèle microscopique du gaz</strong> : agitation thermique, lien qualitatif entre température et énergie cinétique moyenne des particules.</li>
+      <li><strong>Pression</strong> : définie comme force pressante par unité de surface, \(P = F/S\), unités Pa et bar (1 bar = 10⁵ Pa).</li>
+      <li><strong>Loi de Mariotte</strong> à température constante : \(PV = \text{cste}\) — vérifiée expérimentalement (seringue + manomètre).</li>
+      <li><strong>Pas de gaz parfait formalisé</strong>, pas d'énergie interne, pas de premier principe : tout reste qualitatif ou très partiel.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Lycée — première spécialité</div>
+    <h5>Énergie interne et capacité thermique massique</h5>
+    <ul>
+      <li><strong>Énergie interne</strong> \(U\) d'un système à l'échelle macroscopique, somme des énergies microscopiques. Variation \(\Delta U = c\,m\,\Delta T\) pour un corps incompressible (pas de changement d'état, pas de réaction).</li>
+      <li><strong>Capacité thermique massique</strong> \(c\) en J·kg⁻¹·K⁻¹. Application : calorimétrie, mélanges, identification d'un métal par sa capacité thermique.</li>
+      <li><strong>Premier principe encore implicite</strong> : bilan d'énergie \(\Delta U = Q\) (système incompressible, pas de travail mécanique au programme).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Lycée — terminale spécialité</div>
+    <h5>Premier principe explicite, machines thermiques, changements d'état</h5>
+    <ul>
+      <li><strong>Premier principe</strong> énoncé : \(\Delta U = W + Q\). Conventions de signe explicitées (récepteur en France).</li>
+      <li><strong>Transferts thermiques</strong> : conduction, convection, rayonnement. Loi phénoménologique de Newton \(\varphi = h\,(T_s - T_{\infty})\).</li>
+      <li><strong>Bilans énergétiques</strong> : isolation thermique d'un bâtiment, résistance thermique \(R_{\text{th}}\), associations en série/parallèle.</li>
+      <li><strong>Changements d'état</strong> : chaleur latente massique \(L\), palier de température lors d'un changement d'état pur, courbes de chauffe expérimentales.</li>
+      <li><strong>Machines thermiques</strong> introduites qualitativement : moteur thermique, réfrigérateur, pompe à chaleur. Rendement, COP. <em>Le rendement de Carnot n'est plus au programme du tronc commun depuis la réforme 2019</em> — il reste pertinent en enseignement scientifique optionnel et en intro CPGE.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE 1<sup>re</sup> année — MPSI / PCSI / PTSI</div>
+    <h5>Formalisation complète du premier principe et entrée dans l'entropie</h5>
+    <ul>
+      <li><strong>Gaz parfait monoatomique et diatomique</strong> : équation d'état \(PV = nRT\), loi de Joule \(U = nC_{V,m}T\), Mayer \(C_{P,m} - C_{V,m} = R\).</li>
+      <li><strong>Transformations classiques</strong> : isotherme, isobare, isochore, adiabatique réversible (loi de Laplace \(PV^{\gamma} = \text{cste}\) démontrée).</li>
+      <li><strong>Enthalpie</strong> \(H = U + PV\), premier principe en écoulement permanent (turbine, détendeur, échangeur).</li>
+      <li><strong>Second principe</strong> introduit : entropie \(S\), \(\mathrm{d}S = \delta S_{\text{ech}} + \delta S_{\text{cr}}\), inégalité de Clausius. Calcul de \(\Delta S\) pour le GP.</li>
+      <li><strong>Machines dithermes</strong> : moteur, réfrigérateur, PAC. Théorème de Carnot, cycle de Beau de Rochas, cycle de Carnot.</li>
+      <li><strong>Changements d'état d'un corps pur</strong> : diagramme \(P\)–\(T\), variance, relation de Clausius-Clapeyron.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE 2<sup>e</sup> année — MP / PC / PSI</div>
+    <h5>Potentiels thermodynamiques, gaz réels, diagrammes industriels</h5>
+    <ul>
+      <li><strong>Identités thermodynamiques</strong> : \(\mathrm{d}U = T\,\mathrm{d}S - P\,\mathrm{d}V\), \(\mathrm{d}H = T\,\mathrm{d}S + V\,\mathrm{d}P\). Relations de Maxwell (PC, PSI).</li>
+      <li><strong>Potentiels thermodynamiques</strong> : énergie libre \(F = U - TS\), enthalpie libre \(G = H - TS\). Critères d'évolution monotherme-monobare (\(\mathrm{d}G \leq 0\)) — pont avec la thermo chimique.</li>
+      <li><strong>Diffusion thermique</strong> (PC, PSI) : loi de Fourier \(\vec{j}_Q = -\lambda\,\vec{\nabla}T\), équation de la chaleur, ARQS thermique.</li>
+      <li><strong>Cycles industriels</strong> : Rankine (centrales vapeur), Brayton-Joule (turbines à gaz), cycle frigorifique à compression de vapeur. Lecture du diagramme \((\log P, h)\) des frigoristes.</li>
+      <li><strong>Gaz réels</strong> : équation de Van der Waals, coefficients calorimétriques, détente de Joule-Thomson, point critique et état supercritique (PC).</li>
+    </ul>
+  </div>
+
+  <h3>7.2 Difficultés classiques des élèves — conceptions documentées</h3>
+
+  <div class="alert alert-phys r">
+    <span class="ico">📋</span>
+    <div><strong>Conceptions erronées récurrentes (didactique des sciences) :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:6px">
+        <li><strong>Substantialisation de la chaleur</strong> (héritage du <em>calorique</em> du XVIII<sup>e</sup>) : la chaleur serait un fluide contenu dans les corps. Conséquence : confusion « chaleur stockée » et « température ». À combattre dès la 1<sup>re</sup> spé : la chaleur \(Q\) est un <em>mode de transfert</em>, pas une grandeur d'état.</li>
+        <li><strong>Confusion chaleur / température</strong> : « un grand verre d'eau à 30 °C contient plus de chaleur qu'une petite tasse à 80 °C ». Bien différencier \(T\) (intensive) et \(Q\) ou \(U\) (extensives). Faire manipuler des bilans \(Q = m\,c\,\Delta T\) où les masses diffèrent.</li>
+        <li><strong>Adiabatique = isotherme</strong> : raisonnement intuitif erroné « pas d'échange de chaleur = pas de variation de T ». Contre-exemple à exhiber : compression d'une pompe à vélo, fortement adiabatique, qui chauffe.</li>
+        <li><strong>Adiabatique = réversible</strong> : confusion entre absence d'échange thermique et caractère idéal. Insister sur la détente de Joule-Gay-Lussac (\(Q = 0\) mais \(\Delta S > 0\)).</li>
+        <li><strong>Réfrigérateur « créateur de froid »</strong> : non, il déplace de la chaleur de la source froide vers la source chaude au prix d'un travail. Geste de classe : ouvrir un frigo ne refroidit pas une pièce.</li>
+        <li><strong>Rendement de Carnot pris comme rendement réel</strong> : c'est un <em>maximum théorique inatteignable</em>. Donner l'écart typique (essence : Carnot ≈ 60 %, réel ≈ 30 %).</li>
+        <li><strong>Convention de signe vacillante</strong> : passer de récepteur à moteur en cours de raisonnement. Sanction systématique du jury — fixer la convention par écrit en début de problème.</li>
+        <li><strong>Kelvin oublié</strong> : utiliser des °C dans \(\eta_{\text{Carnot}} = 1 - T_f/T_c\). Erreur fatale, à pourchasser par un encadré « toujours en kelvin » au tableau.</li>
+        <li><strong>\(\Delta U\) confondu avec \(W\) ou \(Q\)</strong> : \(U\) est une fonction d'état (variation indépendante du chemin), \(W\) et \(Q\) en dépendent. Faire calculer \(W\) sur 2 chemins distincts entre les mêmes états pour matérialiser la différence.</li>
+      </ul>
+      <p style="margin-top:.6rem;font-size:0.95em">Références didactiques : travaux de M. <em>Tiberghien</em> (LIRDHIST Lyon, années 1990) sur les représentations en thermodynamique ; rapport jury AIPC 2025 (récurrent depuis 2018). <span class="src-tag">[Rapport jury 2025, p. 14-17]</span></p>
+    </div>
+  </div>
+
+  <h3>7.3 Plans-types de leçons orales</h3>
+
+  <div class="summary-box r">
+    <h4>Plan-type pour la leçon orale n°11 (États de la matière — corps pur)</h4>
+    <ul>
+      <li><strong>Introduction (5 min) :</strong> les états de la matière dans la vie quotidienne (vapeur d'eau d'une casserole, glace qui fond, dioxyde de carbone solide « carboglace » sublimable). Problématique : comment décrire et prévoir les changements d'état d'un corps pur ? Plan annoncé en deux temps (lycée puis CPGE).</li>
+      <li><strong>I. Approche niveau lycée — courbe de chauffe et chaleur latente (15 min)</strong>
+        <ul>
+          <li>Observation expérimentale : courbe de chauffe de l'eau de la glace à la vapeur, palier à 0 °C et 100 °C (à \(P_{\text{atm}}\)). Définition opérationnelle d'un changement d'état.</li>
+          <li>Bilan d'énergie : \(Q = m\,c\,\Delta T\) hors palier, \(Q = m\,L_{\text{trans}}\) sur palier. Tableau des valeurs (\(L_{\text{fus,eau}} = 334\,\mathrm{kJ\cdot kg^{-1}}\), \(L_{\text{vap,eau}} = 2260\,\mathrm{kJ\cdot kg^{-1}}\)).</li>
+          <li><strong>Illustration expérimentale n°1 :</strong> mesure de \(L_{\text{fus}}\) de la glace par calorimétrie (vase Dewar, glace pilée séchée). Discussion des sources d'incertitude (valeur en eau du calorimètre, glace humide). Comparaison à la valeur tabulée.</li>
+        </ul>
+      </li>
+      <li><strong>II. Approfondissement CPGE — diagramme \(P\)–\(T\), variance, Clausius-Clapeyron (20 min)</strong>
+        <ul>
+          <li>Règle des phases de Gibbs : \(v = c - \varphi + 2\). Diagramme \(P\)–\(T\) d'un corps pur (eau et \(\ce{CO2}\)) : courbes de fusion, vaporisation, sublimation ; point triple et point critique.</li>
+          <li>Relation de Clapeyron \(\dfrac{\mathrm{d}P}{\mathrm{d}T} = \dfrac{L_{\text{trans}}}{T\,\Delta v_{\text{trans}}}\). Démonstration à partir de l'égalité des potentiels chimiques.</li>
+          <li>Approximation Clausius-Clapeyron pour la vaporisation : \(\dfrac{\mathrm{d}\ln P_{\text{sat}}}{\mathrm{d}T} \approx \dfrac{L_{\text{vap}}\,M}{R\,T^{2}}\).</li>
+          <li><strong>Illustration expérimentale n°2 :</strong> mesure de la pression de vapeur saturante de l'eau entre 60 et 100 °C (ballon chauffé + manomètre absolu). Régression \(\ln P_{\text{sat}}\) en fonction de \(1/T\) → pente \(= -L_{\text{vap}}\,M/R\). Extraction de \(L_{\text{vap}}\) avec barres d'erreur, comparaison à la table.</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (5 min) :</strong> au-delà du corps pur — diagrammes binaires (cristallisation fractionnée, eutectique sel/glace), point critique et fluides supercritiques (extraction par CO₂ sc en agroalimentaire et pharmacie), transitions de phase quantiques (superfluidité de l'hélium).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type pour la leçon orale n°24e (Machines thermiques)</h4>
+    <ul>
+      <li><strong>Introduction (5 min) :</strong> contexte énergétique — la moitié de la consommation mondiale d'énergie primaire passe par une machine thermique (centrales, moteurs, réfrigérateurs, pompes à chaleur). Problématique : quel rendement peut-on espérer et qu'est-ce qui le limite ? Annonce du plan en deux temps.</li>
+      <li><strong>I. Approche niveau lycée — moteur thermique et bilan énergétique (15 min)</strong>
+        <ul>
+          <li>Schéma synoptique d'un moteur ditherme : source chaude \(T_c\), source froide \(T_f\), travail récupéré \(W\). Sens conventionnels avec convention récepteur.</li>
+          <li>Premier principe sur un cycle : \(\Delta U = 0 \Rightarrow W + Q_c + Q_f = 0\). Définition du rendement \(\eta = |W|/Q_c\).</li>
+          <li>Cas concret : moteur essence à 4 temps — cycle de Beau de Rochas. Compression adiabatique, combustion, détente, échappement.</li>
+          <li><strong>Illustration expérimentale n°1 :</strong> machine de Stirling de démonstration (paillasse), visualisation des 4 étapes ; mesure du couple moteur et de la puissance électrique générée par une dynamo couplée. Estimation grossière du rendement réel.</li>
+        </ul>
+      </li>
+      <li><strong>II. Approfondissement CPGE — théorème de Carnot et applications (20 min)</strong>
+        <ul>
+          <li>Second principe sur un cycle : \(\oint \delta Q/T \leq 0\) (inégalité de Clausius). Théorème de Carnot : \(\eta \leq 1 - T_f/T_c\), démonstration complète. <strong>Insister sur l'unité \(T\) en kelvin</strong> (attente jury 2025).</li>
+          <li>Renversement : réfrigérateur et pompe à chaleur, COP idéaux. Relation \(\mathrm{COP}_{\text{PAC}} = \mathrm{COP}_{\text{frigo}} + 1\).</li>
+          <li>Discussion du sens physique : à 0 °C extérieur / 20 °C intérieur, COP idéal ≈ 14,7, COP réel 3–5. Comparaison aux 100 % d'un radiateur résistif.</li>
+          <li><strong>Illustration expérimentale n°2 :</strong> mesure expérimentale du COP d'une mini-PAC à effet Peltier (\(T_c\), \(T_f\) mesurées par thermocouples ; puissance électrique mesurée). Comparaison COP réel / Carnot, discussion des irréversibilités.</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (5 min) :</strong> enjeu sociétal — les PAC en transition énergétique (chauffage résidentiel, climatisation), cycles industriels (Rankine en centrale nucléaire, Brayton en aviation), perspectives technologiques (PAC à CO₂ transcritique, réfrigération magnétocalorique).</li>
+    </ul>
   </div>
 
   <div class="alert alert-gold r">
-    <span class="ico">📋</span>
-    <div><strong>Difficultés classiques des élèves :</strong>
-      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
-        <li>Confusion convention récepteur vs moteur — toujours fixer la convention au début.</li>
-        <li>Oublier de convertir en kelvin pour les formules de Carnot.</li>
-        <li>Croire qu'une transformation adiabatique est nécessairement réversible (faux : détente de Joule-Gay-Lussac est adiabatique <em>irréversible</em>).</li>
-        <li>Confondre \(\Delta U\) (fonction d'état) et \(W\) ou \(Q\) (dépendent du chemin).</li>
-        <li>Penser que le rendement de Carnot est atteignable en pratique.</li>
-      </ul>
-    </div>
+    <span class="ico">💡</span>
+    <div><strong>Articulation avec la pratique professionnelle.</strong> L'agrégation interne est destinée à des enseignants en poste : le jury attend que le candidat <em>réinvestisse explicitement</em> sa pratique de classe. Pour ces deux leçons, citer des activités déjà menées (TP calorimétrie en 1<sup>re</sup> spé, étude du moteur Stirling en terminale enseignement scientifique, projet PAC en STI2D) renforce la crédibilité didactique.</div>
   </div>
 </div>
 
@@ -403,13 +576,49 @@
       </div>
     </div>
   </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.5 — Détente de Joule-Thomson (coefficient \(\mu_{\text{JT}}\))</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Détente isenthalpique d'un fluide à travers une paroi poreuse (vanne, capillaire). En régime stationnaire, on a montré (§ 2.2) que \(\Delta h = 0\). Le coefficient de Joule-Thomson, qui décrit la variation de température lors de la détente, est défini par :</p>
+        \[ \mu_{\text{JT}} \;\equiv\; \left(\dfrac{\partial T}{\partial P}\right)_{\!h}. \]
+        <p>À partir de l'identité \(\mathrm{d}h = c_p\,\mathrm{d}T + \left[v - T\left(\dfrac{\partial v}{\partial T}\right)_{\!P}\right]\mathrm{d}P\) (établie via Maxwell, cf. § 8.6), à \(h = \text{cste}\) on obtient :</p>
+        \[ \boxed{\;\mu_{\text{JT}} \;=\; \dfrac{1}{c_p}\!\left[T\!\left(\dfrac{\partial v}{\partial T}\right)_{\!P}\!\!-\,v\right]\;} \]
+        <p><strong>Cas du gaz parfait :</strong> \(v = RT/(PM)\) (massique) donc \(T(\partial v/\partial T)_P = v\) et \(\mu_{\text{JT}}^{\text{GP}} = 0\). <em>Un gaz parfait ne se refroidit pas par détente isenthalpique</em> — c'est précisément la signature des écarts à l'idéalité que cette détente sert à mesurer.</p>
+        <p><strong>Cas d'un gaz réel (Van der Waals à basse pression) :</strong> \(\mu_{\text{JT}} \approx (2a/(RT) - b)/c_p\). On définit la <em>température d'inversion</em> \(T_i = 2a/(Rb)\) : pour \(T < T_i\) la détente refroidit (\(\mu_{\text{JT}} > 0\)), pour \(T > T_i\) elle réchauffe. Pour l'air ambiant, \(T_i \approx 600\) K → toute détente J-T à 300 K refroidit. <strong>Sens physique :</strong> c'est le principe de la liquéfaction industrielle des gaz (procédé Linde) et des cycles frigorifiques à compression de vapeur.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>8.6 — Identités thermodynamiques et relations de Maxwell (CPGE 2A)</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>Pour un fluide simple (composition fixée, deux variables d'état indépendantes), les fonctions d'état \(U\), \(H\), \(F = U - TS\), \(G = H - TS\) admettent les <strong>différentielles</strong> :</p>
+        \[ \mathrm{d}U = T\,\mathrm{d}S - P\,\mathrm{d}V \qquad \mathrm{d}H = T\,\mathrm{d}S + V\,\mathrm{d}P \]
+        \[ \mathrm{d}F = -S\,\mathrm{d}T - P\,\mathrm{d}V \qquad \mathrm{d}G = -S\,\mathrm{d}T + V\,\mathrm{d}P \]
+        <p>Comme ces différentielles sont <strong>exactes</strong> (théorème de Schwarz, \(\partial^2/\partial x\partial y = \partial^2/\partial y\partial x\)), on obtient les <strong>relations de Maxwell</strong> :</p>
+        \[ \left(\dfrac{\partial T}{\partial V}\right)_{\!S} = -\left(\dfrac{\partial P}{\partial S}\right)_{\!V} \qquad \left(\dfrac{\partial T}{\partial P}\right)_{\!S} = \left(\dfrac{\partial V}{\partial S}\right)_{\!P} \]
+        \[ \left(\dfrac{\partial S}{\partial V}\right)_{\!T} = \left(\dfrac{\partial P}{\partial T}\right)_{\!V} \qquad \left(\dfrac{\partial S}{\partial P}\right)_{\!T} = -\left(\dfrac{\partial V}{\partial T}\right)_{\!P} \]
+        <p><strong>Application classique — vérification de la loi de Joule :</strong> à partir de \(\mathrm{d}U = T\,\mathrm{d}S - P\,\mathrm{d}V\) et de la 3<sup>e</sup> Maxwell :</p>
+        \[ \left(\dfrac{\partial U}{\partial V}\right)_{\!T} \;=\; T\!\left(\dfrac{\partial S}{\partial V}\right)_{\!T}\!\!-\,P \;=\; T\!\left(\dfrac{\partial P}{\partial T}\right)_{\!V}\!\!-\,P. \]
+        <p>Pour un gaz parfait, \(P = nRT/V\) donc \(T(\partial P/\partial T)_V = P\), et \(\boxed{(\partial U/\partial V)_T = 0}\) — \(U\) ne dépend que de \(T\), <em>retrouvée comme conséquence du second principe</em>. Pour un gaz de Van der Waals, \(P = nRT/(V-nb) - n^2 a/V^2\) donne \((\partial U/\partial V)_T = n^2 a/V^2 > 0\) : l'énergie interne dépend bien du volume (rapprochement à \(V\) faible → énergie potentielle d'interaction attractive).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Piège classique signalé par le jury 2025.</strong> Pour calculer \(\Delta S\) d'une transformation <em>irréversible</em>, on n'utilise pas \(\delta Q_{\text{irrev}}/T_{\text{front}}\) (qui donne \(S_{\text{ech}}\), pas \(\Delta S\)). On <em>imagine</em> une transformation <strong>réversible fictive</strong> reliant les mêmes états initial et final, et on calcule \(\Delta S = \int_{\text{rev}} \delta Q_{\text{rev}}/T\). \(S\) étant une fonction d'état, le résultat est indépendant du chemin choisi pour le calcul. <span class="src-tag">[Rapport jury 2025, p. 22]</span></div>
+  </div>
 </div>
 
 <!-- ═══════════════════ 09 EXERCICES ═══════════════════ -->
 <div class="sblock r" id="exercices">
   <div class="sblock-num">Section 09</div>
   <h2>9. Exercices résolus — type concours</h2>
-  <p class="intro">Trois exercices calibrés écrit d'agrégation interne. Tente avant d'ouvrir le corrigé.</p>
+  <p class="intro">Cinq exercices calibrés écrit d'agrégation interne, du gaz parfait au cycle de Rankine industriel. Tente avant d'ouvrir le corrigé.</p>
 
   <details class="exo-block">
     <summary>Exercice 1 — Détente de Joule-Gay-Lussac (★ classique)</summary>
@@ -477,6 +686,67 @@
       <p>Économie annuelle : <strong>~1510 €</strong>, soit un facteur ~15 d'économie énergétique. Argument central des PAC en transition énergétique.</p>
     </div>
   </details>
+
+  <details class="exo-block">
+    <summary>Exercice 4 — Cycle de Rankine d'une centrale à vapeur (★★★ CCMP)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Une centrale thermique fonctionne sur un cycle de Rankine idéal à eau. Les quatre étapes (système ouvert stationnaire, par unité de masse) :</p>
+      <ol>
+        <li>\(1 \to 2\) : <strong>pompe</strong> — compression adiabatique réversible du liquide saturé sortant du condenseur (\(P_1 = 5\,\mathrm{kPa}\), \(T_1 = 33\,^\circ\mathrm{C}\)) jusqu'à \(P_2 = 8\,\mathrm{MPa}\).</li>
+        <li>\(2 \to 3\) : <strong>chaudière</strong> — chauffage isobare jusqu'à vapeur surchauffée (\(T_3 = 500\,^\circ\mathrm{C}\), \(h_3 = 3399\,\mathrm{kJ\cdot kg^{-1}}\)).</li>
+        <li>\(3 \to 4\) : <strong>turbine</strong> — détente adiabatique réversible jusqu'à \(P_4 = P_1 = 5\,\mathrm{kPa}\) (sortie en mélange L+V, \(h_4 = 2080\,\mathrm{kJ\cdot kg^{-1}}\)).</li>
+        <li>\(4 \to 1\) : <strong>condenseur</strong> — condensation isobare jusqu'à liquide saturé (\(h_1 = 138\,\mathrm{kJ\cdot kg^{-1}}\)).</li>
+      </ol>
+      <p>Données : volume massique du liquide \(v_{\ell} \approx 1{,}0\cdot 10^{-3}\,\mathrm{m^3\cdot kg^{-1}}\), \(c_{p,\ell} = 4{,}18\,\mathrm{kJ\cdot kg^{-1}\cdot K^{-1}}\).</p>
+      <ol>
+        <li>Estimer \(h_2\) (travail de la pompe sur liquide quasi incompressible).</li>
+        <li>Calculer les transferts massiques \(q_{\text{chaud}}\), \(w_{\text{turb}}\), \(q_{\text{cond}}\), \(w_{\text{pompe}}\).</li>
+        <li>En déduire le rendement \(\eta\) du cycle. Comparer au rendement de Carnot entre \(T_3\) et \(T_1\). Commenter physiquement l'écart.</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> Pompe sur liquide quasi incompressible (système ouvert) : \(w_{\text{pompe}} = \Delta h \approx v_{\ell}\,\Delta P = 10^{-3} \times (8\cdot 10^6 - 5\cdot 10^3) \approx 8\,\mathrm{kJ\cdot kg^{-1}}\). Donc \(h_2 \approx h_1 + 8 = 146\,\mathrm{kJ\cdot kg^{-1}}\).</p>
+      <p><strong>2.</strong> En écoulement stationnaire, \(\Delta h = w_u + q\). Donc :</p>
+      <ul>
+        <li>Chaudière (isobare, \(w_u = 0\)) : \(q_{\text{chaud}} = h_3 - h_2 = 3399 - 146 = 3253\,\mathrm{kJ\cdot kg^{-1}}\).</li>
+        <li>Turbine (adiabatique, \(q = 0\)) : \(w_{\text{turb}} = h_4 - h_3 = 2080 - 3399 = -1319\,\mathrm{kJ\cdot kg^{-1}}\) (négatif → travail fourni par le fluide, c'est utile).</li>
+        <li>Condenseur (isobare) : \(q_{\text{cond}} = h_1 - h_4 = 138 - 2080 = -1942\,\mathrm{kJ\cdot kg^{-1}}\) (négatif → chaleur évacuée vers la source froide).</li>
+        <li>Pompe : \(w_{\text{pompe}} = +8\,\mathrm{kJ\cdot kg^{-1}}\) (positif → travail fourni au fluide).</li>
+      </ul>
+      <p>Vérification sur le cycle : \(\sum w + \sum q = 8 - 1319 + 3253 - 1942 = 0\) (à 0 près, fonction d'état). ✓</p>
+      <p><strong>3.</strong> Rendement :</p>
+      \[ \eta \;=\; \dfrac{|w_{\text{turb}}| - w_{\text{pompe}}}{q_{\text{chaud}}} \;=\; \dfrac{1319 - 8}{3253} \;\approx\; 40{,}3\,\%. \]
+      <p>Carnot entre \(T_3 = 773\,\mathrm{K}\) et \(T_1 = 306\,\mathrm{K}\) : \(\eta_{\text{Carnot}} = 1 - 306/773 \approx 60{,}4\,\%\).</p>
+      <p><strong>Commentaire physique :</strong> on est à 2/3 de Carnot, ce qui est très honorable pour un cycle réel — le cycle de Rankine perd surtout dans la chaudière (l'évaporation à \(T_{\text{sat}}\) n'est pas à \(T_3\), donc échange thermique sous \(\Delta T\) fini, source majeure d'irréversibilité). Les centrales modernes réelles atteignent 38–42 %. Les cycles supercritiques et la cogénération améliorent encore.</p>
+    </div>
+  </details>
+
+  <details class="exo-block">
+    <summary>Exercice 5 — Détente de Joule-Thomson d'un gaz de Van der Waals (★★ Centrale)</summary>
+    <div class="exo-body">
+      <div class="exo-head">Énoncé</div>
+      <p>Un gaz obéit à l'équation de Van der Waals : \(\left(P + n^2 a/V^2\right)(V - nb) = nRT\). On considère sa détente de Joule-Thomson (vanne ou paroi poreuse, \(\Delta h = 0\)).</p>
+      <ol>
+        <li>À basse densité (\(nb \ll V\), \(n^2 a/V^2 \ll P\)), montrer que la première correction au volume massique donne \(v \approx RT/(PM) - a/(RT) + b\) (en grandeurs massiques avec \(M\) masse molaire, et en redéfinissant \(a, b\) par mole de masse \(M\)).</li>
+        <li>En déduire l'expression approchée du coefficient \(\mu_{\text{JT}} = (\partial T/\partial P)_h\) pour un gaz de Van der Waals à basse pression.</li>
+        <li>Définir la <strong>température d'inversion</strong> \(T_i\). Pour le diazote, \(a = 0{,}137\,\mathrm{Pa\cdot m^6\cdot mol^{-2}}\), \(b = 3{,}87\cdot 10^{-5}\,\mathrm{m^3\cdot mol^{-1}}\). Calculer \(T_i\) et comparer à 300 K. Conclure sur la possibilité d'utiliser la détente J-T pour liquéfier le diazote à température ambiante.</li>
+      </ol>
+      <div class="exo-head">Corrigé</div>
+      <p><strong>1.</strong> En développant \(\left(P + n^2 a/V^2\right)(V - nb) = nRT\) à l'ordre 1 en \(a\) et \(b\) (gaz dilué) :</p>
+      \[ PV - Pnb + n^2 a/V - n^3 a b /V^2 \approx PV - Pnb + n^2 a/V \approx nRT \]
+      <p>(on néglige le terme en \(ab\)). Avec \(V \approx nRT/P\) au plus bas ordre dans le terme en \(a/V\) :</p>
+      \[ V \approx \dfrac{nRT}{P} + nb - \dfrac{na}{RT}. \]
+      <p>D'où en volume massique \(v = V/(nM)\) : \(v \approx RT/(PM) + b/M - a/(MRT)\) (en redéfinissant les constantes molaires).</p>
+      <p><strong>2.</strong> D'après la formule générale (§ 8.5) : \(\mu_{\text{JT}} = \dfrac{1}{c_p}\!\left[T(\partial v/\partial T)_P - v\right]\). Calcul des deux termes :</p>
+      \[ T\!\left(\dfrac{\partial v}{\partial T}\right)_{\!P} = T\!\left[\dfrac{R}{PM} + \dfrac{a}{MRT^2}\right] = \dfrac{RT}{PM} + \dfrac{a}{MRT}. \]
+      <p>Soustraction \(T(\partial v/\partial T)_P - v\) :</p>
+      \[ \mu_{\text{JT}} \;\approx\; \dfrac{1}{c_p\,M}\!\left[\dfrac{2a}{RT} - b\right]. \]
+      <p><strong>3.</strong> La <em>température d'inversion</em> est celle où \(\mu_{\text{JT}} = 0\) :</p>
+      \[ \boxed{\;T_i \;=\; \dfrac{2a}{R\,b}\;} \]
+      <p>Pour \(\ce{N2}\) : \(T_i = 2 \times 0{,}137/(8{,}314 \times 3{,}87\cdot 10^{-5}) \approx 851\,\mathrm{K}\). À 300 K, on est très en dessous de \(T_i\) → \(\mu_{\text{JT}} > 0\), la détente <strong>refroidit</strong>. <strong>On peut donc liquéfier le diazote par détente J-T à température ambiante</strong> — c'est précisément le principe du procédé Linde industriel.</p>
+      <p><strong>Cas inverse :</strong> pour le dihydrogène, \(T_i \approx 200\,\mathrm{K}\). À 300 K, \(\mu_{\text{JT}} < 0\) → une détente J-T <em>réchauffe</em> le \(\ce{H2}\) ! Pour le liquéfier, il faut d'abord le pré-refroidir sous \(T_i\) (azote liquide). Ce fait industriel a longtemps freiné la liquéfaction de \(\ce{H2}\) (Dewar, 1898). <span class="src-tag">[Atkins, Physical Chemistry, ch. 2]</span></p>
+    </div>
+  </details>
 </div>
 
 <!-- ═══════════════════ 10 LECONS ═══════════════════ -->
@@ -522,7 +792,7 @@
 <div class="sblock r" id="montages">
   <div class="sblock-num">Section 11</div>
   <h2>11. Montages expérimentaux</h2>
-  <p class="intro">Deux montages exploitables à l'oral d'agrégation : protocole, schéma, sources d'incertitude, exploitation.</p>
+  <p class="intro">Trois montages exploitables à l'oral d'agrégation interne (sujets oraux n°11 et n°24e), avec protocole, schéma, sources d'incertitude et traitement informatisé attendu par le jury 2025.</p>
 
   <div class="lecon-card">
     <h4>Montage 1 — Mesure de \(\gamma\) par la méthode de Clément-Désormes</h4>
@@ -568,20 +838,64 @@
     <p><strong>Sources d'incertitude.</strong> Pesées (\(\pm 0{,}1\,\mathrm{g}\)), température (\(\pm 0{,}1\,\mathrm{K}\)), capacité du calorimètre (\(\pm 2\,\%\)), glace pas parfaitement à 0 °C ou humide (biais positif sur \(m_g\)).</p>
     <p><strong>Exploitation.</strong> Valeur tabulée : \(L_{\text{fus}} = 334\,\mathrm{kJ\cdot kg^{-1}}\). Écart relatif typique : 5–10 %. Discuter physiquement la grande valeur de \(L_{\text{fus}}\) (rupture de liaisons hydrogène lors de la fusion).</p>
   </div>
+
+  <div class="lecon-card">
+    <h4>Montage 3 — Vérification de la relation de Clausius-Clapeyron sur l'eau</h4>
+    <p><strong>Objectif.</strong> Mesurer la pression de vapeur saturante \(P_{\text{sat}}(T)\) de l'eau entre 60 et 100 °C, vérifier la forme intégrée de Clausius-Clapeyron, en extraire la chaleur latente massique \(L_{\text{vap}}\) avec barres d'erreur.</p>
+    <p><strong>Matériel.</strong> Ballon en verre rodé (250 mL) avec col à robinet, plaque chauffante avec agitateur, sonde Pt100 (\(\pm 0{,}3\,\mathrm{K}\)) immergée dans le bain, capteur de pression absolue (0–1,2 bar, \(\pm 5\,\mathrm{hPa}\)), pompe à vide à membrane pour le dégazage initial, interface d'acquisition (Latis Pro ou Arduino), ordinateur avec Python/Regressi.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li><strong>Dégazage initial</strong> : remplir le ballon d'eau distillée à mi-hauteur, pomper l'air dissous (sinon erreur systématique : la pression mesurée serait \(P_{\text{sat,eau}} + P_{\text{air}}\)).</li>
+      <li><strong>Acquisition</strong> : chauffer doucement, mesurer simultanément \(T\) (dans le liquide) et \(P\) (au-dessus du liquide) tous les 5 °C entre 60 °C et 100 °C, en attendant l'équilibre thermique à chaque palier (~2 min).</li>
+      <li><strong>Traitement</strong> : tracer \(\ln(P_{\text{sat}}/P_0)\) en fonction de \(1/T\). D'après Clausius-Clapeyron intégrée (\(L_{\text{vap}}\) supposée constante sur l'intervalle, vapeur GP, \(v_{\ell} \ll v_v\)) :</li>
+    </ol>
+    \[ \ln\!\dfrac{P_{\text{sat}}}{P_0} \;=\; -\dfrac{L_{\text{vap}}\,M}{R}\,\dfrac{1}{T} + \text{cste} \]
+    <p>La pente vaut \(-L_{\text{vap}}\,M/R\). Régression linéaire avec barres d'erreur → extraction de \(L_{\text{vap}}\) et son incertitude.</p>
+    <pre class="ascii-schema">     Capteur P abs.
+              │
+     ┌────────┴───┐
+     │  vapeur    │ ←── robinet vers pompe (dégazage)
+     │            │
+     │  ~~~~~~~~  │  ←── interface L/V
+     │   eau dist.│
+     │            │      Sonde Pt100 ──┐
+     └────────────┘                    │
+     ════════════ ← plaque chauffante  │
+     [agitateur]                       ▼
+                              acquisition (T, P)</pre>
+    <p><strong>Sources d'incertitude.</strong> Température (\(\pm 0{,}3\,\mathrm{K}\)) → ~0,5 % sur \(1/T\) ; pression (\(\pm 5\,\mathrm{hPa}\)) → ~1 % en bas d'intervalle, ~0,1 % en haut ; gaz incondensable résiduel après dégazage incomplet (biais positif systématique sur \(P\)) ; hypothèse \(L_{\text{vap}}\) constante (variation réelle : -8 % entre 60 et 100 °C, à discuter).</p>
+    <p><strong>Exploitation.</strong> Valeur tabulée à 80 °C : \(L_{\text{vap}} = 2308\,\mathrm{kJ\cdot kg^{-1}}\). Ordre de grandeur expérimental typique : 2200–2400 kJ·kg⁻¹, soit ~5 % d'écart. Discuter le <strong>sens physique</strong> de \(L_{\text{vap}}\) gigantesque (≈ 6 × \(L_{\text{fus}}\) car la séparation moléculaire en phase gazeuse est complète, alors que la fusion ne brise qu'une partie des liaisons H). Lien avec l'évaporation refroidissante (sueur, climatisation, réfrigération).</p>
+    <p><strong>Traitement informatisé.</strong> Code Python type (numpy + scipy.optimize.curve_fit), affichage matplotlib avec barres d'erreur, calcul du \(\chi^2\) réduit, résidus. <em>Attente jury 2025 explicite</em> : tout montage doit comporter un traitement informatisé des données (régression, FFT, modélisation) avec discussion des incertitudes.</p>
+  </div>
 </div>
 
 <!-- ═══════════════════ 12 PIEGES JURY ═══════════════════ -->
 <div class="sblock r" id="jury">
   <div class="sblock-num">Section 12</div>
   <h2>12. Pièges du jury — rapport 2025</h2>
-  <p class="intro">Cinq erreurs récurrentes signalées chaque année. À anticiper en oral.</p>
+  <p class="intro">Huit erreurs récurrentes signalées dans les derniers rapports, dont trois disqualifiantes à l'oral. À anticiper systématiquement en préparation.</p>
 
   <div class="jury-list">
-    <div class="jury-item"><strong>Conventions de signe.</strong> Toujours préciser la convention adoptée (récepteur ou moteur) avant tout calcul. Le jury sanctionne les changements implicites en cours de raisonnement. Convention française usuelle : récepteur, donc \(W&gt;0\) et \(Q&gt;0\) signifient « reçu par le système ».</div>
-    <div class="jury-item"><strong>Kelvin oublié.</strong> Les températures dans les formules de Carnot et de Clapeyron sont en kelvin <em>absolus</em>. Travailler en °C donne \(\eta\) erroné, voire négatif. Conversion : \(T(\mathrm{K}) = T(^\circ\mathrm{C}) + 273{,}15\).</div>
+    <div class="jury-item"><strong>Conventions de signe.</strong> Toujours préciser la convention adoptée (récepteur ou moteur) avant tout calcul. Le jury sanctionne les changements implicites en cours de raisonnement. Convention française usuelle : récepteur, donc \(W&gt;0\) et \(Q&gt;0\) signifient « reçu par le système ». <span class="src-tag">[Rapport jury 2025, p. 19]</span></div>
+    <div class="jury-item"><strong>Kelvin oublié.</strong> Les températures dans les formules de Carnot et de Clapeyron sont en kelvin <em>absolus</em>. Travailler en °C donne \(\eta\) erroné, voire négatif. Conversion : \(T(\mathrm{K}) = T(^\circ\mathrm{C}) + 273{,}15\). <span class="src-tag">[Rapport jury 2025, p. 20]</span></div>
     <div class="jury-item"><strong>Adiabatique vs réversible.</strong> Une transformation adiabatique (\(Q = 0\)) n'est <em>pas</em> nécessairement réversible. Contre-exemple : détente de Joule-Gay-Lussac (\(Q = 0\) mais \(\Delta S_{\text{cr}} &gt; 0\)). La loi de Laplace \(PV^{\gamma} = \text{cste}\) n'est valable que pour les adiabatiques <em>réversibles</em>.</div>
     <div class="jury-item"><strong>Cycle = fonction d'état nulle.</strong> Sur un cycle, \(\Delta U = 0\) et \(\Delta S = 0\) (fonctions d'état), mais \(W \neq 0\) et \(Q \neq 0\) en général (échanges, pas de fonction d'état). Erreur classique : « le cycle est isentropique donc \(\Delta S = 0\) pour chaque branche ».</div>
     <div class="jury-item"><strong>Rendement réel.</strong> Le rendement de Carnot est un <em>maximum théorique</em> jamais atteint. Donner systématiquement l'écart entre rendement réel (mesuré) et Carnot (calculé) à l'oral. Pour un moteur essence : Carnot ~60–70 %, réel ~25–30 %.</div>
+    <div class="jury-item"><strong>\(P_{\text{ext}}\) confondu avec \(P\) du système.</strong> Le travail des forces de pression s'écrit \(\delta W = -P_{\text{ext}}\,\mathrm{d}V\). Confondre avec \(-P\,\mathrm{d}V\) (pression du système) n'est valide que pour une transformation <em>quasi-statique</em> où \(P = P_{\text{ext}}\) à chaque instant. Pour une détente brutale (Joule-Gay-Lussac, ouverture rapide), \(P_{\text{ext}} \neq P\).</div>
+    <div class="jury-item"><strong>Distinguer expérience, modèle et théorie.</strong> Le rapport 2025 insiste : ne pas présenter le gaz parfait comme « la réalité » mais comme un <em>modèle</em> dont les conditions de validité (densité faible, interactions négligeables) doivent être discutées. Idem pour le cycle de Carnot : c'est un <em>idéal théorique</em>, jamais réalisé. Cette distinction épistémologique est explicitement notée à l'oral. <span class="src-tag">[Rapport jury 2025, p. 18]</span></div>
+    <div class="jury-item"><strong>Sens physique des résultats numériques.</strong> Ne jamais s'arrêter au calcul brut. Un COP de 14,7 doit s'accompagner d'un commentaire : « pour 1 kWh électrique consommé, la PAC fournit 14,7 kWh thermiques — c'est-à-dire ~15 fois mieux qu'un convecteur ». Attente systématique du jury sur tous les chiffres. <span class="src-tag">[Rapport jury 2025, p. 12]</span></div>
+    <div class="jury-item"><strong>Bilan entropique d'un système isolé.</strong> Pour un système isolé en transformation irréversible : \(\Delta S = S_{\text{cr}} > 0\) (pas de \(S_{\text{ech}}\)). Erreur fréquente : appliquer \(\Delta S = Q/T\) avec \(Q\) interne ≠ 0 — non, \(Q\) est défini comme échange <em>avec l'extérieur</em>, et il est nul pour un système isolé.</div>
+  </div>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Top 3 des erreurs catastrophiques à éviter à l'oral (jury 2025) :</strong>
+      <ol style="margin:.5rem 0 0 1rem">
+        <li><strong>Annoncer un rendement supérieur à Carnot.</strong> Le jury arrête immédiatement le candidat. Toujours vérifier \(\eta_{\text{calc}} \leq 1 - T_f/T_c\) (avec \(T\) en K).</li>
+        <li><strong>Confondre énergie interne et chaleur.</strong> « L'énergie interne du gaz a augmenté, donc il a reçu de la chaleur » est faux : il peut avoir reçu du travail (compression adiabatique). Toujours écrire le bilan complet \(\Delta U = W + Q\).</li>
+        <li><strong>Oublier l'unité kelvin.</strong> Un calcul de Carnot avec des °C est une faute disqualifiante. Mettre un encadré « \(T\) en K » au tableau dès le début.</li>
+      </ol>
+    </div>
   </div>
 </div>
 
@@ -589,7 +903,7 @@
 <div class="sblock r" id="quiz-section">
   <div class="sblock-num">Auto-évaluation</div>
   <h2>Quiz de révision</h2>
-  <p class="intro">Sept questions pour tester ta compréhension avant de passer à la suite.</p>
+  <p class="intro">Onze questions pour tester ta compréhension — du lycée à la CPGE 2A — avant de passer à la suite.</p>
   <div class="quiz-wrap"><div class="quiz-card r">
   <div class="q-text">Une mole de gaz parfait diatomique subit une compression adiabatique réversible. Si la pression double (\(\gamma = 7/5\)), par quel facteur le volume change-t-il ?</div>
   <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. En adiabatique réversible on a PVᵞ = cste, pas PV = cste (qui serait isotherme). Avec γ > 1, la compression isentropique est moins forte que l\'isotherme.')">Le volume est divisé par 2 (isotherme)</button><button class="q-opt" onclick="quiz(this,true,'Correct. P₁V₁ᵞ = P₂V₂ᵞ avec P₂ = 2P₁ donne V₂ = V₁(P₁/P₂)^(1/γ) = V₁/2^(5/7) ≈ V₁/1,64.')">Le volume est divisé par \(2^{1/\gamma} = 2^{5/7} \approx 1{,}64\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Un processus isochore signifie V constant — incompatible avec une compression.')">Le volume ne change pas (isochore)</button></div>
@@ -617,6 +931,18 @@
 </div><div class="quiz-card r">
   <div class="q-text">Au cours d'un <em>cycle</em> thermodynamique quelconque, on a nécessairement :</div>
   <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. W et Q ne sont pas des fonctions d\'état — ils peuvent être non nuls sur un cycle (c\'est même le cas pour tout cycle utile : moteur W < 0, frigo Q_f > 0…).')">\(W = 0\) et \(Q = 0\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. U et S sont des fonctions d\'état, donc ΔU = 0 et ΔS_système = 0 sur un cycle (l\'état initial = état final). Mais W, Q et S_créée ne sont pas nuls en général ! Sur un moteur : W < 0, Q_c > 0, Q_f < 0, S_créée ≥ 0.')">\(\Delta U = 0\) et \(\Delta S_{\text{syst}} = 0\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Si toutes ces conditions étaient vérifiées, le cycle serait trivial (rien ne se passe). Sur un cycle utile, W ou Q sont non nuls.')">\(\Delta U = W = Q = 0\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pour un gaz parfait, le coefficient de Joule-Thomson \(\mu_{\text{JT}} = (\partial T/\partial P)_h\) vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Pour un GP, U et H ne dépendent que de T (deuxième loi de Joule). Une transformation isenthalpique d\'un GP est donc nécessairement isotherme : μ_JT = 0.')">\(\mu_{\text{JT}} &gt; 0\) (refroidissement à la détente)</button><button class="q-opt" onclick="quiz(this,true,'Exact. Pour un GP, H ne dépend que de T (2ᵉ loi de Joule), donc Δh = 0 implique ΔT = 0 : μ_JT = 0. La détente J-T n\'est exploitable industriellement (liquéfaction Linde) que parce que les gaz réels s\'écartent du GP — c\'est précisément la signature des interactions intermoléculaires.')">\(\mu_{\text{JT}} = 0\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Pour un GP, H ne dépend que de T. À ΔH = 0, on a ΔT = 0, donc μ_JT = 0 (et non pas négatif).')">\(\mu_{\text{JT}} &lt; 0\) (échauffement à la détente)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">L'enthalpie libre \(G = H - TS\) atteint un minimum à l'équilibre d'un système :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. C\'est F = U − TS (énergie libre) qui pilote l\'évolution à T et V fixés (système monotherme isochore).')">monotherme à \(V\) fixé</button><button class="q-opt" onclick="quiz(this,true,'Correct. dG = −SdT + VdP. À T et P fixés (conditions usuelles : thermostat + atmosphère), dG ≤ 0 spontanément, G minimal à l\'équilibre. C\'est cette grandeur qui pilote l\'équilibre chimique : Δ_r G < 0 → réaction directe spontanée.')">monotherme et monobare (\(T, P\) fixés)</button><button class="q-opt" onclick="quiz(this,false,'Non. À S et V fixés, c\'est U qui est minimale. À S et P fixés, c\'est H. Le critère pour G correspond à T et P fixés.')">isolé (\(U, V\) fixés)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">D'après la relation de Maxwell \(\left(\partial S/\partial V\right)_T = \left(\partial P/\partial T\right)_V\), pour un gaz parfait on a :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. P = nRT/V donc (∂P/∂T)_V = nR/V, pas nul. C\'est précisément cette dérivée non nulle qui rend S dépendante du volume à T fixée (entropie de mélange, par exemple).')">\(\left(\partial S/\partial V\right)_T = 0\)</button><button class="q-opt" onclick="quiz(this,true,'Exact. P = nRT/V donc (∂P/∂T)_V = nR/V. Donc (∂S/∂V)_T = nR/V > 0 : à T fixée, l\'entropie augmente avec le volume (plus de microétats accessibles). Cohérent avec ΔS = nR ln(V₂/V₁) pour une détente isotherme.')">\(\left(\partial S/\partial V\right)_T = nR/V\)</button><button class="q-opt" onclick="quiz(this,false,'Non. La relation correcte donne nR/V, pas n²a/V² (qui serait le terme de Van der Waals).')">\(\left(\partial S/\partial V\right)_T = n^2 a/V^2\)</button></div>
   <div class="q-expl"></div>
 </div></div>
 </div>

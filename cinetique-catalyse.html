@@ -188,7 +188,7 @@
       <li><strong>Spectrophotométrie UV-Vis</strong> : suivi de l'absorbance \(A(t)\) → \([X](t)\) via Beer-Lambert. Méthode reine pour les composés colorés (permanganate, complexe \(\ce{Fe^{3+}-SCN^-}\)).</li>
       <li><strong>Conductimétrie</strong> : suivi de la conductivité \(\sigma(t)\) lorsque la réaction modifie le nombre/la nature des ions (ex. hydrolyse de l'iodure de tertiobutyle).</li>
       <li><strong>pHmétrie</strong> : pour les réactions consommant ou produisant \(\ce{H+}\) ou \(\ce{OH-}\).</li>
-      <li><strong>Manométrie</strong> : suivi de pression pour réactions en phase gazeuse avec \(\Delta n &neq; 0\).</li>
+      <li><strong>Manométrie</strong> : suivi de pression pour réactions en phase gazeuse avec \(\Delta n \neq 0\).</li>
       <li><strong>Polarimétrie</strong> : pour les réactions avec changement de pouvoir rotatoire (inversion du saccharose).</li>
     </ul></div>
   </div>
@@ -399,26 +399,98 @@
 <div class="sblock r" id="pedagogie">
   <div class="sblock-num">Section 08</div>
   <h2>8. Pédagogie et didactique</h2>
-  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+  <p class="intro">Articulation collège → lycée → CPGE des notions de cinétique et catalyse, conformément aux programmes officiels (BO collège 2020, BO lycée 2019, arrêté CPGE 2021).</p>
 
-  <div class="notion c">
-    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
-    <div class="notion-body"><ul>
-      <li><strong>1<sup>re</sup> spé</strong> : vitesse de réaction (apparition, disparition), facteurs cinétiques (concentration, température, catalyseur).</li>
-      <li><strong>Terminale spé</strong> : vitesse volumique de réaction, loi de vitesse pour les réactions d'ordre 1 (intégration), influence de la température, catalyse (homogène, hétérogène, enzymatique). Loi d'Arrhenius hors programme stricto sensu mais discutée qualitativement.</li>
-      <li><strong>Terminale STL</strong> : cinétique appliquée à l'industrie chimique et alimentaire.</li>
-    </ul></div>
+  <h3>8.1 Progression collège → CPGE</h3>
+
+  <div class="ped-card r">
+    <div class="niveau">Cycle 4 — collège (5ᵉ, 4ᵉ, 3ᵉ) · BO 2020</div>
+    <h5>Réactions chimiques — approche qualitative de la vitesse</h5>
+    <ul>
+      <li><strong>Notion abordée</strong> : « certaines réactions sont rapides, d'autres lentes » (combustion du papier vs rouille du fer). Aucune formalisation mathématique.</li>
+      <li><strong>Facteurs cinétiques intuitifs</strong> identifiés par l'expérience : <em>température</em> (aliments au frigo vs chambre), <em>concentration / quantité de réactif</em> (effervescence d'un comprimé entier vs broyé), <em>surface de contact</em> (bûche vs petit bois), <em>présence d'un catalyseur</em> (mot évoqué sans formaliser).</li>
+      <li><strong>Activités expérimentales</strong> : effervescence \(\ce{Vinaigre + bicarbonate}\) à chaud/froid ; comparaison Alka-Seltzer entier vs écrasé ; oxydation d'une pomme coupée.</li>
+      <li><strong>Vocabulaire</strong> : réactif, produit, transformation chimique. Pas de loi de vitesse, pas d'ordre, pas de \(t_{1/2}\).</li>
+      <li><strong>Lien quotidien</strong> : conservation des aliments, prise du béton, digestion (enzymes évoquées sans formalisme).</li>
+    </ul>
   </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Lycée — Première spé & Terminale spé · BO 2019</div>
+    <h5>Vitesse volumique, ordre 1, Arrhenius qualitatif, catalyse</h5>
+    <ul>
+      <li><strong>Première spé</strong> : facteurs cinétiques (température, concentration, catalyseur) revisités avec suivi quantitatif (spectrophotométrie d'une cinétique simple). Notion de catalyseur : accélère sans figurer dans le bilan.</li>
+      <li><strong>Terminale spé</strong> — <em>vitesse volumique de disparition / d'apparition</em> :
+        \[ v_d(A) = -\dfrac{1}{V}\dfrac{\mathrm{d}n_A}{\mathrm{d}t} \quad\text{ou}\quad v = -\dfrac{\mathrm{d}[A]}{\mathrm{d}t} \]
+        (à volume constant ; la définition « avancement / \(\nu_i\) » n'est PAS au programme).</li>
+      <li><strong>Loi de vitesse d'ordre 1</strong> : \([A](t) = [A]_0\,\mathrm{e}^{-k t}\), \(t_{1/2} = \ln 2/k\) <strong>indépendante</strong> de \([A]_0\). Intégration exigible (séparation des variables, primitive de \(1/x\)).</li>
+      <li><strong>Loi d'Arrhenius</strong> : présentée qualitativement (« \(k\) augmente avec T »). La forme exponentielle \(k = A\,\mathrm{e}^{-E_a/RT}\) est hors programme stricto sensu mais souvent introduite en activité documentaire.</li>
+      <li><strong>Trois types de catalyse</strong> : homogène (\(\ce{H+}\) pour estérification), hétérogène (\(\ce{Pt}\) en pot catalytique), enzymatique (amylase salivaire, catalase et \(\ce{H2O2}\)). Caractère sélectif des enzymes.</li>
+      <li><strong>Activités expérimentales attendues</strong> : suivi spectrophotométrique (décoloration de \(\ce{KMnO4}\) par l'acide oxalique, ou \(\ce{I2}\) par \(\ce{S2O3^{2-}}\)), modélisation Python (tracé de \([A](t)\), \(\ln[A](t)\), test de l'ordre 1).</li>
+      <li><strong>Terminale STL</strong> : applications industrielles (vitesse de fermentation, conservation, pharmacocinétique — élimination d'un médicament en \(\mathrm{e}^{-k t}\)).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE — 1ʳᵉ et 2ᵉ année (MPSI/PCSI → MP/PC/PSI) · Arrêté 2021</div>
+    <h5>Lois d'ordre, mécanismes, AEQS, Arrhenius/Eyring, Michaelis-Menten</h5>
+    <ul>
+      <li><strong>PCSI / MPSI / PTSI</strong> : définition rigoureuse de la vitesse \(v = (1/\nu_i)\,\mathrm{d}[A_i]/\mathrm{d}t\), lois d'ordre 0/1/2 intégrées, méthodes expérimentales (vitesses initiales, demi-vies, dégénérescence d'ordre). Loi d'Arrhenius exigible, détermination graphique de \(E_a\).</li>
+      <li><strong>PC / PC*</strong> (programme le plus exigeant en cinétique) :
+        <ul style="margin:.3rem 0 .3rem 1.1rem">
+          <li><em>Mécanismes réactionnels</em> : actes élémentaires (mono/bimoléculaires), molécularité, intermédiaires réactionnels, profil énergétique avec complexe activé.</li>
+          <li><em>AEQS</em> sur un intermédiaire (\(\mathrm{d}[I]/\mathrm{d}t \approx 0\)), <em>approximation de l'étape cinétiquement déterminante</em>, <em>pré-équilibre rapide</em>.</li>
+          <li><em>Énergies d'activation directe/inverse</em> : \(\Delta_r H^\circ = E_a^{\to} - E_a^{\leftarrow}\) (relation à connaître absolument).</li>
+          <li><em>Catalyse</em> (homogène, hétérogène, enzymatique) avec cycle catalytique, sélectivité, empoisonnement.</li>
+          <li><em>Michaelis-Menten</em> : démonstration complète par AEQS sur \(\ce{ES}\), équation \(v = V_{\max}[S]/(K_M + [S])\), linéarisation de Lineweaver-Burk, inhibitions (compétitive/non compétitive).</li>
+        </ul>
+      </li>
+      <li><strong>Eyring</strong> (hors programme strict mais culture exigée à l'oral d'agrégation) : \(k = (k_B T/h)\,\mathrm{e}^{-\Delta G^\ddagger/RT}\), lien \(E_a = \Delta H^\ddagger + RT\), signe de \(\Delta S^\ddagger\) (bimoléculaire ⇒ \(< 0\)).</li>
+      <li><strong>Outils transverses</strong> : intégration d'EDO du 1ᵉʳ ordre (séparation des variables), régression linéaire (Python : <code>numpy.polyfit</code>, <code>scipy.optimize.curve_fit</code>), propagation d'incertitudes sur \(E_a\) déterminée par Arrhenius.</li>
+    </ul>
+  </div>
+
+  <h3>8.2 Plan-type de leçon orale</h3>
+
+  <div class="summary-box r">
+    <h4>Plan-type pour la leçon orale n°20 (Cinétique chimique)</h4>
+    <p><em>Format agrégation interne : 2 parties (collège/lycée puis post-bac), illustration expérimentale dans chaque partie, 40 min d'exposé.</em></p>
+    <ul>
+      <li><strong>Introduction (3-4 min)</strong> : accroche concrète (cinétique d'élimination d'un médicament, conservation alimentaire). Problématique : <em>comment quantifier la vitesse d'une transformation chimique et prévoir son évolution temporelle ?</em> Distinction <em>expérience / modèle / théorie</em> annoncée d'emblée.</li>
+      <li><strong>Partie 1 — Niveau lycée (15-17 min)</strong>
+        <ul style="margin:.3rem 0 .3rem 1.1rem">
+          <li>I.1 Vitesse volumique de disparition / apparition (définition opérationnelle Tle spé). Discussion : \(v\) est-elle une grandeur expérimentale ou un modèle ?</li>
+          <li>I.2 Facteurs cinétiques : illustration <strong>expérimentale qualitative</strong> (effervescence \(\ce{H2O2}\) + \(\ce{MnO2}\) vs sans catalyseur, à plusieurs T).</li>
+          <li>I.3 Loi de vitesse d'ordre 1, démonstration de \([A](t) = [A]_0\,\mathrm{e}^{-kt}\), propriété \(t_{1/2} = \ln 2/k\). <strong>Expérience quantitative</strong> : suivi spectrophotométrique de la décoloration de \(\ce{KMnO4}\) par \(\ce{H2C2O4}\) à 540 nm, tracé \(\ln A(t)\), régression linéaire (Python/Regressi).</li>
+          <li>I.4 Articulation didactique : ce qui est dit au collège (vitesse lente/rapide), formalisé en 1ʳᵉ spé (facteurs), quantifié en Tle spé (loi exponentielle).</li>
+        </ul>
+      </li>
+      <li><strong>Partie 2 — Niveau post-bac CPGE (15-17 min)</strong>
+        <ul style="margin:.3rem 0 .3rem 1.1rem">
+          <li>II.1 Approfondissement <em>modèle</em> : loi de vitesse générale \(v = k\,[A]^p[B]^q\), méthodes de détermination des ordres (intégrale, différentielle, dégénérescence).</li>
+          <li>II.2 <em>Théorie</em> microscopique : loi d'Arrhenius \(k = A\,\mathrm{e}^{-E_a/RT}\), profil énergétique, lien \(\Delta_r H^\circ = E_a^{\to} - E_a^{\leftarrow}\). Ouverture Eyring \(k = (k_B T/h)\,\mathrm{e}^{-\Delta G^\ddagger/RT}\).</li>
+          <li>II.3 Étude mécanistique : exemple à 2 étapes, AEQS, étape cinétiquement déterminante. <strong>Expérience quantitative</strong> : détermination de \(E_a\) pour la saponification de l'acétate d'éthyle par suivi conductimétrique à 4 températures (régression \(\ln k\) vs \(1/T\), barre d'erreur sur \(E_a\)).</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (3-4 min)</strong> : récapitulatif <em>expérience / modèle empirique (ordre) / théorie microscopique (Arrhenius-Eyring)</em>. Ouverture : catalyse (leçon 21) — abaissement de \(E_a\), applications industrielles (Haber-Bosch) et biologiques (enzymes, Michaelis-Menten).</li>
+      <li><strong>Bibliographie minimale à citer</strong> : <em>Chimie générale</em> Atkins (vitesse, Arrhenius, Eyring) ; <em>Cinétique chimique</em> Avery ; BUP n°922 (mars 2010, suivi spectrophotométrique \(\ce{KMnO4}\)/\(\ce{H2C2O4}\)) ; rapport de jury 2025 (attentes sur expérience/modèle/théorie en chimie).</li>
+    </ul>
+  </div>
+
+  <h3>8.3 Difficultés classiques des élèves</h3>
 
   <div class="alert alert-gold r">
     <span class="ico">📋</span>
-    <div><strong>Difficultés classiques des élèves :</strong>
+    <div><strong>Conceptions erronées à anticiper et déconstruire :</strong>
       <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
-        <li>Confondre ordre et stœchiométrie (l'ordre est expérimental, pas dérivable de la réaction).</li>
-        <li>Confondre cinétique et thermodynamique (un catalyseur n'agit que sur la vitesse).</li>
-        <li>Vitesse signe : oublier que par convention \(v &gt; 0\) (signes pris en compte par les \(\nu_i\)).</li>
-        <li>Penser qu'un catalyseur déplace l'équilibre (faux : il accélère les deux sens).</li>
-        <li>Confondre demi-vie indépendante de \([A]_0\) (ordre 1) vs proportionnelle (ordre 0).</li>
+        <li>Confondre <strong>ordre et stœchiométrie</strong> (l'ordre est expérimental, pas dérivable de l'équation-bilan).</li>
+        <li>Confondre <strong>cinétique et thermodynamique</strong> (un catalyseur n'agit que sur la vitesse, pas sur \(K^\circ\)).</li>
+        <li><strong>Signe de la vitesse</strong> : oublier que par convention \(v > 0\) (signes pris en compte par les \(\nu_i\)).</li>
+        <li>Penser qu'un <strong>catalyseur déplace l'équilibre</strong> (faux : il accélère les deux sens dans le même rapport).</li>
+        <li>Confondre <strong>demi-vie indépendante de \([A]_0\)</strong> (ordre 1) vs proportionnelle (ordre 0) vs en \(1/[A]_0\) (ordre 2).</li>
+        <li>Croire qu'une réaction <strong>thermodynamiquement favorable est forcément rapide</strong> (contre-exemple : \(\ce{2 H2 + O2 -> 2 H2O}\) à T ambiante).</li>
+        <li>Identifier une <strong>enzyme à un catalyseur ordinaire</strong> sans mentionner sa sélectivité (substrat unique, courbe \(v([S])\) saturante — pas linéaire).</li>
+        <li>Penser que la <strong>loi d'Arrhenius est universelle</strong> : elle est empirique, peut être mise en défaut pour des réactions complexes (tunneling à basse T, réactions en chaîne).</li>
       </ul>
     </div>
   </div>
@@ -498,6 +570,135 @@
         <p>Vitesse de formation du produit :</p>
         \[ v = k_2\,[\ce{ES}] = \dfrac{k_2\,[E]_0\,[S]}{K_M + [S]} = \dfrac{V_{\max}\,[S]}{K_M + [S]} \]
         <p>avec \(V_{\max} = k_2\,[E]_0\). C'est l'équation de Michaelis-Menten.</p>
+
+        <figure class="diagram" style="margin:1.2rem 0">
+          <svg viewBox="0 0 900 420" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Courbe de Michaelis-Menten et linéarisation de Lineweaver-Burk">
+            <defs>
+              <marker id="mmarr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#1f2937"/>
+              </marker>
+            </defs>
+
+            <!-- ─── PANEL GAUCHE : v = f([S]) hyperbolique ─── -->
+            <g transform="translate(20,20)">
+              <rect x="0" y="0" width="420" height="380" rx="10" ry="10"
+                    fill="#faf5ff" stroke="#7c3aed" stroke-width="1.5"/>
+              <text x="210" y="25" text-anchor="middle"
+                    font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#7c3aed">
+                Courbe \( v = f([S]) \) — Michaelis-Menten
+              </text>
+
+              <!-- Axes -->
+              <line x1="60" y1="320" x2="390" y2="320" stroke="#1f2937" stroke-width="2" marker-end="url(#mmarr)"/>
+              <line x1="60" y1="320" x2="60" y2="60"   stroke="#1f2937" stroke-width="2" marker-end="url(#mmarr)"/>
+              <text x="390" y="345" font-family="DM Sans, sans-serif" font-size="13" fill="#1f2937">[S]</text>
+              <text x="45"  y="55"  text-anchor="end" font-family="DM Sans, sans-serif" font-size="13" fill="#1f2937">v</text>
+              <text x="55"  y="335" text-anchor="end" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">0</text>
+
+              <!-- Asymptote V_max -->
+              <line x1="60" y1="100" x2="390" y2="100"
+                    stroke="#b45309" stroke-width="1.5" stroke-dasharray="6 4"/>
+              <text x="385" y="93" text-anchor="end"
+                    font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#b45309">
+                V_max
+              </text>
+
+              <!-- Courbe MM : v = Vmax · x / (Km + x) avec Vmax=220 (descend de 320), Km mappé à x=80 (=> au repère, x=140 dans le SVG)
+                   Origine en (60, 320). V_max correspond à y=100, soit hauteur 220.
+                   À [S] = K_M (x_svg = 140), v = V_max/2 = 110 ⇒ y_svg = 320 - 110 = 210. -->
+              <path d="M 60 320
+                       Q 90 280 140 210
+                       T 250 145
+                       Q 320 120 390 108"
+                    fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+
+              <!-- Pointage K_M : v = V_max/2 -->
+              <line x1="140" y1="210" x2="140" y2="320"
+                    stroke="#7c3aed" stroke-width="1" stroke-dasharray="3 3"/>
+              <line x1="60"  y1="210" x2="140" y2="210"
+                    stroke="#7c3aed" stroke-width="1" stroke-dasharray="3 3"/>
+              <circle cx="140" cy="210" r="4" fill="#7c3aed"/>
+              <text x="145" y="205" font-family="DM Sans, sans-serif" font-size="11" fill="#7c3aed">
+                (K_M, V_max/2)
+              </text>
+              <text x="140" y="338" text-anchor="middle"
+                    font-family="DM Sans, sans-serif" font-size="12" font-weight="600" fill="#7c3aed">
+                K_M
+              </text>
+              <text x="55" y="214" text-anchor="end"
+                    font-family="DM Sans, sans-serif" font-size="11" fill="#7c3aed">
+                V_max/2
+              </text>
+
+              <!-- Annotations de régimes -->
+              <text x="105" y="295" font-family="DM Sans, sans-serif" font-size="10" fill="#6b7280" font-style="italic">
+                ordre 1
+              </text>
+              <text x="105" y="308" font-family="DM Sans, sans-serif" font-size="10" fill="#6b7280" font-style="italic">
+                en S
+              </text>
+              <text x="320" y="135" font-family="DM Sans, sans-serif" font-size="10" fill="#6b7280" font-style="italic">
+                ordre 0 (saturation)
+              </text>
+            </g>
+
+            <!-- ─── PANEL DROIT : Lineweaver-Burk ─── -->
+            <g transform="translate(460,20)">
+              <rect x="0" y="0" width="420" height="380" rx="10" ry="10"
+                    fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+              <text x="210" y="25" text-anchor="middle"
+                    font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#b45309">
+                Linéarisation Lineweaver-Burk
+              </text>
+
+              <!-- Axes — origine au centre-bas, mais axe x étendu côté négatif -->
+              <line x1="40" y1="280" x2="390" y2="280" stroke="#1f2937" stroke-width="2" marker-end="url(#mmarr)"/>
+              <line x1="120" y1="340" x2="120" y2="60"  stroke="#1f2937" stroke-width="2" marker-end="url(#mmarr)"/>
+              <text x="395" y="305" font-family="DM Sans, sans-serif" font-size="13" fill="#1f2937">1/[S]</text>
+              <text x="105" y="55" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13" fill="#1f2937">1/v</text>
+
+              <!-- Origine (0,0) -->
+              <text x="125" y="298" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">0</text>
+
+              <!-- Droite Lineweaver-Burk -->
+              <!-- Ordonnée à l'origine 1/V_max → point (x=120, y=180) ; intercept axe x à 1/[S] = -1/K_M (gauche) -->
+              <line x1="60" y1="240" x2="380" y2="80"
+                    stroke="#b45309" stroke-width="2.5"/>
+
+              <!-- Point ordonnée à l'origine -->
+              <circle cx="120" cy="180" r="4" fill="#b45309"/>
+              <line x1="120" y1="180" x2="120" y2="180" stroke="#b45309"/>
+              <text x="128" y="178" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#b45309">
+                1/V_max
+              </text>
+              <line x1="115" y1="180" x2="125" y2="180" stroke="#b45309" stroke-width="2.5"/>
+
+              <!-- Intersection axe x : 1/[S] = -1/K_M -->
+              <circle cx="80" cy="280" r="4" fill="#b45309"/>
+              <line x1="80" y1="275" x2="80" y2="285" stroke="#b45309" stroke-width="2.5"/>
+              <text x="80" y="305" text-anchor="middle"
+                    font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#b45309">
+                −1/K_M
+              </text>
+
+              <!-- Annotation pente -->
+              <text x="220" y="135" font-family="DM Sans, sans-serif" font-size="11" fill="#b45309" font-style="italic">
+                pente = K_M / V_max
+              </text>
+
+              <!-- Formule rappel -->
+              <rect x="40" y="335" width="350" height="35" rx="4" ry="4"
+                    fill="#fff" stroke="#b45309" stroke-width="1" opacity="0.85"/>
+              <text x="215" y="358" text-anchor="middle"
+                    font-family="JetBrains Mono, monospace" font-size="12" fill="#1f2937">
+                1/v = (K_M/V_max)·(1/[S]) + 1/V_max
+              </text>
+            </g>
+          </svg>
+          <figcaption style="text-align:center;font-size:13px;color:#6b7280;font-style:italic;margin-top:.3rem">
+            À gauche : hyperbole \(v = V_{\max}[S]/(K_M+[S])\), avec \(v \to V_{\max}\) à saturation et \(v = V_{\max}/2\) en \([S] = K_M\). À droite : linéarisation \(1/v\) vs \(1/[S]\) (droite d'ordonnée à l'origine \(1/V_{\max}\), pente \(K_M/V_{\max}\), abscisse à l'origine \(-1/K_M\)) — exploitable par régression linéaire pour extraire \(V_{\max}\) et \(K_M\).
+          </figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -661,6 +862,131 @@
   <div class="lecon-card">
     <h4>Montage 1 — Suivi spectrophotométrique de l'oxydation des ions iodures</h4>
     <p><strong>Objectif.</strong> Déterminer la loi de vitesse de la réaction \(\ce{H2O2 + 2 I- + 2 H+ -> I2 + 2 H2O}\) par méthode des vitesses initiales.</p>
+
+    <figure class="diagram" style="margin:1rem 0">
+      <svg viewBox="0 0 900 500" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma du montage de spectrophotométrie pour le suivi cinétique">
+        <defs>
+          <marker id="arr-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/>
+          </marker>
+          <marker id="arr-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#b45309"/>
+          </marker>
+          <linearGradient id="beam" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="#fde68a" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#fbbf24" stop-opacity="0.4"/>
+          </linearGradient>
+          <linearGradient id="sol" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#fef3c7"/>
+            <stop offset="100%" stop-color="#fbbf24"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Cadre général : "spectrophotomètre" -->
+        <rect x="120" y="80" width="660" height="280" rx="14" ry="14"
+              fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+        <text x="450" y="110" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="15" font-weight="600" fill="#7c3aed">
+          Spectrophotomètre UV-Vis (λ = 470 nm)
+        </text>
+
+        <!-- Source lumineuse -->
+        <rect x="155" y="195" width="80" height="60" rx="6" ry="6"
+              fill="#fed7aa" stroke="#b45309" stroke-width="2"/>
+        <circle cx="220" cy="225" r="10" fill="#fde047" stroke="#b45309" stroke-width="1.5"/>
+        <text x="195" y="285" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="12" fill="#1f2937">Source</text>
+        <text x="195" y="300" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">tungstène / D₂</text>
+
+        <!-- Monochromateur (réseau) -->
+        <rect x="265" y="185" width="55" height="80" rx="4" ry="4"
+              fill="#e0e7ff" stroke="#4338ca" stroke-width="2"/>
+        <line x1="275" y1="200" x2="275" y2="250" stroke="#4338ca" stroke-width="1"/>
+        <line x1="285" y1="200" x2="285" y2="250" stroke="#4338ca" stroke-width="1"/>
+        <line x1="295" y1="200" x2="295" y2="250" stroke="#4338ca" stroke-width="1"/>
+        <line x1="305" y1="200" x2="305" y2="250" stroke="#4338ca" stroke-width="1"/>
+        <text x="293" y="285" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="12" fill="#1f2937">Réseau</text>
+        <text x="293" y="300" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">λ sélectionnée</text>
+
+        <!-- Faisceau lumineux entrant -->
+        <rect x="235" y="220" width="30" height="10" fill="url(#beam)" opacity="0.85"/>
+        <rect x="320" y="220" width="80" height="10" fill="url(#beam)" opacity="0.85"/>
+
+        <!-- Cuve avec solution -->
+        <rect x="400" y="170" width="90" height="120" rx="3" ry="3"
+              fill="none" stroke="#1f2937" stroke-width="2.5"/>
+        <rect x="406" y="195" width="78" height="90"
+              fill="url(#sol)" stroke="none"/>
+        <!-- Reflets sur cuve -->
+        <line x1="408" y1="200" x2="408" y2="280" stroke="#fff" stroke-width="1.5" opacity="0.6"/>
+        <text x="445" y="240" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#7c3aed">
+          I₂ / I₃⁻
+        </text>
+        <text x="445" y="258" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="11" fill="#1f2937">
+          (jaune-brun)
+        </text>
+        <text x="445" y="310" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="12" fill="#1f2937">Cuve 1 cm</text>
+
+        <!-- Faisceau sortant -->
+        <rect x="490" y="220" width="80" height="10" fill="url(#beam)" opacity="0.5"/>
+
+        <!-- Détecteur (photodiode) -->
+        <rect x="570" y="190" width="70" height="70" rx="4" ry="4"
+              fill="#bbf7d0" stroke="#047857" stroke-width="2"/>
+        <circle cx="605" cy="225" r="14" fill="#fff" stroke="#047857" stroke-width="2"/>
+        <circle cx="605" cy="225" r="6" fill="#1f2937"/>
+        <text x="605" y="285" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="12" fill="#1f2937">Détecteur</text>
+        <text x="605" y="300" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280">photodiode</text>
+
+        <!-- Liaison vers ordinateur -->
+        <path d="M 640 225 L 700 225 L 700 145" stroke="#374151" stroke-width="2" fill="none"/>
+        <rect x="665" y="100" width="80" height="50" rx="3" ry="3"
+              fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+        <text x="705" y="125" text-anchor="middle"
+              font-family="JetBrains Mono, monospace" font-size="10" fill="#0369a1">A(t)</text>
+        <text x="705" y="140" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="11" fill="#1f2937">PC / Regressi</text>
+
+        <!-- Bain thermostaté (entoure la cuve) -->
+        <rect x="385" y="155" width="120" height="155" rx="6" ry="6"
+              fill="none" stroke="#4a9eed" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="445" y="148" text-anchor="middle"
+              font-family="DM Sans, sans-serif" font-size="11" fill="#4a9eed" font-weight="600">
+          Bain thermostaté T = cste
+        </text>
+
+        <!-- Légende cinétique (au-dessous du cadre) -->
+        <rect x="120" y="385" width="660" height="95" rx="10" ry="10"
+              fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+        <text x="135" y="408" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#b45309">
+          Réaction étudiée :
+        </text>
+        <text x="135" y="430" font-family="DM Sans, sans-serif" font-size="14" fill="#1f2937">
+          H₂O₂ + 2 I⁻ + 2 H⁺ → I₂ + 2 H₂O
+        </text>
+        <text x="135" y="455" font-family="DM Sans, sans-serif" font-size="12" fill="#374151">
+          Suivi : absorbance de I₂ (ou I₃⁻) croissante avec t — Beer-Lambert : A = ε ℓ [I₂]
+        </text>
+        <text x="135" y="473" font-family="DM Sans, sans-serif" font-size="11" fill="#6b7280" font-style="italic">
+          Exploitation : v₀ = (1/2) · d[I₂]/dt = pente initiale → méthode des vitesses initiales
+        </text>
+
+        <!-- Flèches de signalisation -->
+        <line x1="445" y1="155" x2="445" y2="135" stroke="#4a9eed" stroke-width="2" marker-end="url(#arr-c)"/>
+      </svg>
+      <figcaption style="text-align:center;font-size:13px;color:#6b7280;font-style:italic;margin-top:.3rem">
+        Schéma de principe : suivi spectrophotométrique de la formation de \(\ce{I2}\) (ou \(\ce{I3^-}\)) à \(\lambda = 470\,\mathrm{nm}\), cellule thermostatée, acquisition numérique de \(A(t)\).
+      </figcaption>
+    </figure>
+
     <p><strong>Matériel.</strong> Spectrophotomètre (\(\lambda = 350\,\mathrm{nm}\) ou 470 nm pour \(\ce{I2}\) ou \(\ce{I3^-}\)), cuves, solutions de \(\ce{H2O2}\), \(\ce{KI}\), \(\ce{H2SO4}\) dilué, chronomètre, bain thermostaté.</p>
     <p><strong>Protocole.</strong></p>
     <ol>
@@ -704,6 +1030,20 @@
     <div class="jury-item"><strong>Validité de l'AEQS.</strong> L'AEQS requiert que l'intermédiaire soit <em>très réactif</em> (consommé rapidement) et présent en <em>faible concentration</em>. Elle n'est pas valable au tout début (régime transitoire) ni si l'intermédiaire s'accumule. Toujours vérifier en oral.</div>
     <div class="jury-item"><strong>Catalyseur et équilibre.</strong> Un catalyseur ne déplace JAMAIS l'équilibre. Il accélère les deux sens dans le même rapport, l'équilibre est atteint plus vite mais à la même position. Cette confusion est récurrente.</div>
     <div class="jury-item"><strong>Linéarisation Lineweaver-Burk.</strong> La régression sur \(1/v\) vs \(1/[S]\) donne plus de poids aux faibles vitesses (forte amplification de l'erreur). Méthode pédagogique mais imparfaite — préférer la régression non linéaire directe sur Michaelis-Menten en pratique professionnelle.</div>
+  </div>
+
+  <div class="alert alert-red r" style="margin-top:1rem">
+    <span class="ico">⚠️</span>
+    <div><strong>\(\Delta_r G\) vs \(\Delta_r G^\circ\) — confusion explicitement pointée par le rapport de jury 2025.</strong> Le jury signale chaque année cette confusion, particulièrement présente dès que l'on relie cinétique et thermodynamique.
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li><strong>\(\Delta_r G^\circ(T)\)</strong> : enthalpie libre <em>standard</em> de réaction, fonction de la température <em>uniquement</em>. C'est la grandeur tabulée (ou calculable par \(\Delta_r H^\circ - T\Delta_r S^\circ\)). Liée à la constante d'équilibre par \(\Delta_r G^\circ = -RT\ln K^\circ\).</li>
+        <li><strong>\(\Delta_r G\)</strong> : enthalpie libre de réaction <em>dans les conditions réelles</em>, dépend de \(T\) <em>et</em> des activités instantanées. Reliée à \(\Delta_r G^\circ\) par \(\Delta_r G = \Delta_r G^\circ + RT\ln Q_r\), où \(Q_r\) est le quotient de réaction. Le critère d'évolution spontanée est sur \(\Delta_r G\) (signe négatif), <em>pas</em> sur \(\Delta_r G^\circ\).</li>
+        <li><strong>À l'équilibre</strong> : \(\Delta_r G = 0\) (mais \(\Delta_r G^\circ \neq 0\) en général !). C'est précisément la condition \(Q_r = K^\circ\) qui donne \(\Delta_r G^\circ = -RT\ln K^\circ\).</li>
+        <li><strong>Avec Eyring</strong> : la barrière cinétique fait intervenir \(\Delta G^\ddagger\) (entre réactifs et état de transition), <em>encore une autre grandeur</em>, à ne pas confondre avec \(\Delta_r G\) ou \(\Delta_r G^\circ\). Trois quantités distinctes, trois notations à maîtriser : \(\Delta_r G^\circ\) (thermo standard), \(\Delta_r G\) (thermo réelle), \(\Delta G^\ddagger\) (cinétique Eyring).</li>
+        <li><strong>Test rapide en oral</strong> : si un candidat écrit « la réaction est spontanée car \(\Delta_r G^\circ < 0\) », le jury reprend immédiatement. La phrase correcte est : « \(\Delta_r G^\circ < 0\) implique \(K^\circ > 1\), donc l'équilibre est déplacé en faveur des produits dans les conditions standards ; la spontanéité dans les conditions réelles dépend de \(Q_r\) ».</li>
+      </ul>
+      <span class="src-tag" style="margin-top:.4rem;display:inline-block">[Rapport jury AIPC 2025 — épreuve écrite de chimie, p. 14-18]</span>
+    </div>
   </div>
 </div>
 

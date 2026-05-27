@@ -188,6 +188,25 @@
     \[ \mathrm{div}\,\vec{B} \;=\; 0\,,\qquad \vec{\mathrm{rot}}\,\vec{B} \;=\; \mu_0\,\vec{j}. \]
   </div>
   <p>L'équation \(\mathrm{div}\,\vec{B} = 0\) traduit l'<strong>absence de monopôle magnétique</strong> : le flux de \(\vec{B}\) à travers toute surface fermée est nul. On en déduit l'existence d'un <strong>potentiel vecteur</strong> \(\vec{A}\) tel que \(\vec{B} = \vec{\mathrm{rot}}\,\vec{A}\), défini à un \(\vec{\mathrm{grad}}\,\chi\) près (liberté de jauge — jauge de Coulomb : \(\mathrm{div}\,\vec{A} = 0\)).</p>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Piège jury — \(\vec{B}\) vs \(\vec{H}\).</strong> Ne pas confondre <em>induction magnétique</em> \(\vec{B}\) (en T) et <em>excitation magnétique</em> \(\vec{H}\) (en A·m⁻¹). Dans le vide \(\vec{B} = \mu_0\vec{H}\), mais en présence d'un milieu aimanté \(\vec{B} = \mu_0(\vec{H} + \vec{M})\) où \(\vec{M}\) est l'aimantation. Le théorème d'Ampère « généralisé » porte sur \(\oint\vec{H}\cdot\vec{\mathrm{d}\ell} = I_{\text{libre}}\) (courants libres seulement). Confusion fréquente d'unités signalée par le jury. <span class="src-tag">[Rapport jury 2025]</span></div>
+  </div>
+
+  <h3>2.4 Force de Laplace et force de Lorentz</h3>
+  <div class="fbox r">
+    <span class="fl">Forces magnétiques</span>
+    <span class="fc">Force de Lorentz sur une charge ponctuelle \(q\) en mouvement à vitesse \(\vec{v}\) :</span>
+    <span class="fm">\[ \vec{F}_L \;=\; q\,(\vec{E} + \vec{v}\wedge\vec{B}) \]</span>
+    <hr>
+    <span class="fc">Force de Laplace sur un élément de circuit \(\vec{\mathrm{d}\ell}\) parcouru par \(I\) :</span>
+    <span class="fm">\[ \vec{\mathrm{d}F}_{\mathcal{L}} \;=\; I\,\vec{\mathrm{d}\ell}\wedge\vec{B} \]</span>
+    <hr>
+    <span class="fc">Mouvement d'une charge dans \(\vec{B}\) seul (sans \(\vec{E}\)) : cercle de rayon \(R = mv_\perp/(|q|B)\), pulsation cyclotron :</span>
+    <span class="fm">\[ \omega_c \;=\; \dfrac{|q|\,B}{m} \qquad \text{(rad·s}^{-1}\text{)} \]</span>
+  </div>
+  <p>La force magnétique <em>ne travaille pas</em> (\(\vec{F}\perp\vec{v}\)) : elle modifie la direction mais pas l'énergie cinétique. Conséquence : un électron dans un champ magnétique uniforme décrit un mouvement circulaire uniforme, à fréquence indépendante de la vitesse (à vitesses non relativistes).</p>
 </div>
 
 <!-- ═══════════════════ 03 INDUCTION ═══════════════════ -->
@@ -223,6 +242,11 @@
   <div class="alert alert-gold r">
     <span class="ico">📋</span>
     <div><strong>Neumann vs Lorentz.</strong> Deux origines distinctes donnent la même expression \(e = -\,\mathrm{d}\Phi/\mathrm{d}t\) : circuit fixe avec \(\vec{B}\) variable (Neumann, terme \(\partial_t\vec{B}\)) ou circuit mobile dans \(\vec{B}\) stationnaire (Lorentz, terme \(\vec{v}\wedge\vec{B}\)). Le jury attend la distinction explicite à l'oral.</div>
+  </div>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Piège jury — orientation et signe.</strong> Le signe de \(e = -\,\mathrm{d}\Phi/\mathrm{d}t\) n'a aucun sens sans <em>orientation explicite</em> du circuit. Convention : choisir \(\vec{\mathrm{d}\ell}\) (sens de circulation positif) puis \(\vec{\mathrm{d}S}\) par règle de la main droite (\(\vec{n}\) du côté où le pouce pointe quand les doigts suivent \(\vec{\mathrm{d}\ell}\)). <strong>Le maintenir tout au long du problème.</strong> Erreur récurrente : changer d'orientation entre le calcul de \(\Phi\) et le tracé de \(i(t)\). <span class="src-tag">[Rapport jury 2025]</span></div>
   </div>
 </div>
 
@@ -268,6 +292,16 @@
   <h3>4.4 Approximation des régimes quasi-stationnaires (ARQS)</h3>
   <p>L'ARQS est valable lorsque la taille caractéristique \(L\) du système est très inférieure à la longueur d'onde \(\lambda = c/f\). En ARQS <strong>magnétique</strong>, on néglige le courant de déplacement (\(\vec{\mathrm{rot}}\,\vec{B} = \mu_0\,\vec{j}\)) MAIS on conserve \(\vec{\mathrm{rot}}\,\vec{E} = -\partial_t\vec{B}\). C'est volontairement asymétrique — sinon il n'y aurait plus d'induction et plus de circuits RL ou de transformateurs.</p>
   <p class="pull-quote">« L'ARQS, c'est l'art de garder l'induction tout en oubliant la propagation. »</p>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Erreur classique signalée par le jury :</strong> écrire en régime variable \(\vec{\mathrm{rot}}\,\vec{B} = \mu_0\,\vec{j}\) <em>sans</em> mentionner l'ARQS. C'est faux en toute rigueur — le terme \(\mu_0\varepsilon_0\,\partial_t\vec{E}\) est essentiel : sans lui, pas d'ondes EM, et la conservation de la charge n'est plus respectée. À l'oral, toujours indiquer si l'on se place en ARQS et pourquoi (\(L \ll \lambda\), ou de manière équivalente \(f \ll c/L\)).</div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">💡</span>
+    <div><strong>Ordres de grandeur ARQS.</strong> Pour un circuit de \(L = 30\,\mathrm{cm}\), l'ARQS est valide tant que \(f \ll c/L = 1\,\mathrm{GHz}\). À 50 Hz (réseau), \(\lambda = 6000\,\mathrm{km}\) : ARQS très largement valable. À l'inverse, dans un guide d'onde GHz ou une antenne, l'ARQS est <em>fausse</em> et il faut traiter la propagation rigoureuse.</div>
+  </div>
 </div>
 
 <!-- ═══════════════════ 05 ONDES EM ═══════════════════ -->
@@ -298,6 +332,11 @@
 
   <h3>5.3 Polarisation</h3>
   <p>Selon la composition des deux composantes transversales de \(\vec{E}\), on distingue : polarisation <strong>rectiligne</strong> (\(\vec{E}\) garde une direction fixe), <strong>circulaire</strong> (composantes orthogonales de même amplitude en quadrature \(\pm \pi/2\)), <strong>elliptique</strong> (cas général). Vérification expérimentale par <em>loi de Malus</em> \(I = I_0\,\cos^{2}\theta\) après un polariseur idéal.</p>
+
+  <div class="alert alert-gold r">
+    <span class="ico">💡</span>
+    <div><strong>Vitesse de phase vs vitesse de groupe.</strong> Dans un milieu dispersif (\(k(\omega)\) non linéaire), il faut distinguer \(v_\varphi = \omega/k\) (vitesse de propagation d'une crête monochromatique) et \(v_g = \mathrm{d}\omega/\mathrm{d}k\) (vitesse de propagation de l'<em>enveloppe</em> d'un paquet d'ondes, qui transporte l'énergie et l'information). \(v_\varphi\) peut dépasser \(c\) sans contradiction relativiste — c'est \(v_g \leq c\) qui compte. Le jury attend cette formulation. <span class="src-tag">[Rapport jury 2025]</span></div>
+  </div>
 
   <h3>5.4 Propagation dans un milieu et guidage</h3>
   <div class="fbox r">
@@ -355,29 +394,118 @@
 <div class="sblock r" id="pedagogie">
   <div class="sblock-num">Section 07</div>
   <h2>7. Pédagogie et didactique</h2>
-  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques des élèves.</p>
+  <p class="intro">Articulation collège → lycée → CPGE des notions d'électromagnétisme, difficultés classiques des élèves et propositions d'activités. Le jury attend une lecture pédagogique <em>graduée</em> du concept de champ et de l'induction.</p>
 
-  <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>Au lycée — programme spécialité physique-chimie</div>
-    <div class="notion-body"><ul>
-      <li><strong>Champs</strong> électrique et magnétique : notion de champ, lignes de champ, superposition.</li>
-      <li><strong>Force de Lorentz</strong> : \(\vec{F} = q(\vec{E} + \vec{v}\wedge\vec{B})\) — application au spectrographe de masse.</li>
-      <li><strong>Induction</strong> : loi de Faraday, loi de Lenz — approche expérimentale indispensable.</li>
-      <li><strong>Ondes électromagnétiques</strong> : spectre EM, célérité \(c\), lumière visible.</li>
-    </ul></div>
+  <h3>7.1 Progression par niveau scolaire</h3>
+
+  <div class="ped-card r">
+    <div class="niveau">Cycle 4 — collège (5ᵉ, 4ᵉ, 3ᵉ)</div>
+    <h5>Aimants, boussole, sécurité électrique</h5>
+    <ul>
+      <li>Aimants permanents : pôles N/S, attraction/répulsion, action à distance.</li>
+      <li>Boussole et champ magnétique terrestre — repérage d'orientation.</li>
+      <li>Circuits électriques simples (générateur, dipôles, court-circuit, sécurité domestique).</li>
+      <li><strong>Pré-conception à anticiper :</strong> l'élève voit le champ comme « du magnétisme qui flotte » — on construit progressivement l'idée d'<em>action à distance médiée par un champ</em>.</li>
+    </ul>
   </div>
 
-  <div class="alert alert-gold r">
+  <div class="ped-card r">
+    <div class="niveau">Seconde GT</div>
+    <h5>Interactions électrique et gravitationnelle</h5>
+    <ul>
+      <li>Loi de Coulomb (qualitative) — analogie avec Newton (force en \(1/r^{2}\)).</li>
+      <li>Atome neutre, ion, électrisation par frottement — première rencontre des charges.</li>
+      <li>Notion de champ électrique <em>existant indépendamment</em> de la charge test (rupture épistémologique).</li>
+      <li><strong>Activité possible :</strong> électrisation d'une règle plastique → attraction de petits morceaux de papier ; introduire \(\vec{E}\) comme « ce qui agit ».</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Première spé physique-chimie</div>
+    <h5>Champs, dipôles, condensateur</h5>
+    <ul>
+      <li>Champ électrique et champ magnétique : lignes de champ, cartographie expérimentale (limaille de fer, sonde Hall).</li>
+      <li>Dipôle électrostatique, condensateur plan : \(C = \varepsilon_0 S/e\), énergie stockée \(W = \tfrac{1}{2}CU^{2}\).</li>
+      <li>Force de Lorentz introduite : \(\vec{F} = q(\vec{E} + \vec{v}\wedge\vec{B})\), application au spectromètre de masse.</li>
+      <li><strong>Lien programme :</strong> exploitation quantitative en cohérence avec les mathématiques (produit vectoriel introduit en spé maths).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Terminale spé physique-chimie</div>
+    <h5>Ondes électromagnétiques, induction, spectres</h5>
+    <ul>
+      <li>Spectre électromagnétique (radio → \(\gamma\)), célérité \(c\), relation \(c = \lambda\,f\).</li>
+      <li>Modèle ondulatoire de la lumière, dispersion par un prisme, indice de réfraction \(n = c/v\).</li>
+      <li>Induction <em>qualitative</em> : aimant en chute dans un tube cuivre, freinage par courants de Foucault.</li>
+      <li><strong>Difficulté typique :</strong> l'élève écrit \(v = c\,n\) au lieu de \(c/n\) — alerte jury 2025 explicite sur cette inversion.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE 1ʳᵉ année (MPSI / PCSI / PTSI / BCPST)</div>
+    <h5>Électrostatique, magnétostatique, induction, ARQS</h5>
+    <ul>
+      <li>Électrostatique complète : loi de Coulomb, théorème de Gauss, potentiel \(V\), équations de Poisson/Laplace.</li>
+      <li>Magnétostatique : Biot-Savart, théorème d'Ampère, potentiel vecteur \(\vec{A}\) (introduit, sans calculs lourds).</li>
+      <li>Induction de Faraday-Lenz, auto-induction \(L\), inductance mutuelle \(M\), bilan énergétique d'un circuit RL.</li>
+      <li>ARQS (introduite informellement) : on parle de circuits avec courants variables sans propagation.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE 2ᵉ année (MP / PC / PSI / PT / MPI)</div>
+    <h5>Maxwell, ondes EM, énergie, milieux</h5>
+    <ul>
+      <li>Les <strong>quatre équations de Maxwell</strong> sous forme locale et intégrale, justification du courant de déplacement.</li>
+      <li>OPPM dans le vide et les milieux LHI : structure du trièdre, dispersion, absorption (loi de Beer-Lambert).</li>
+      <li>Vecteur de Poynting \(\vec{\Pi}\), densité d'énergie \(u_{\text{em}}\), bilan local de l'énergie.</li>
+      <li>ARQS magnétique <em>asymétrique</em> rigoureusement justifiée (cf. piège jury §12).</li>
+      <li>Polarisation, fibre optique (ON, modes), rayonnement dipolaire (PC/PSI).</li>
+    </ul>
+  </div>
+
+  <h3>7.2 Difficultés classiques et conceptions erronées</h3>
+
+  <div class="alert alert-phys r">
     <span class="ico">📋</span>
-    <div><strong>Difficultés classiques des élèves :</strong>
-      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
-        <li>Confondre champ \(\vec{E}\) et force \(\vec{F} = q\vec{E}\) (le champ existe sans charge test).</li>
-        <li>Signe dans la loi de Faraday (convention d'orientation du circuit et du flux).</li>
-        <li>Loi de Lenz « s'opposer à la cause » — mal appliquée quand le flux diminue.</li>
-        <li>Notion de champ comme réalité physique, pas juste un outil mathématique.</li>
-        <li>Vitesse de la lumière dans un milieu : \(v = c/n\) (pas \(c\,n\)).</li>
+    <div><strong>Difficultés classiques des élèves et conceptions erronées récurrentes :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:6px">
+        <li><strong>Confondre champ \(\vec{E}\) et force \(\vec{F} = q\vec{E}\).</strong> Le champ existe <em>indépendamment</em> de la charge test ; insister sur la cartographie d'un champ avant d'y plonger une charge.</li>
+        <li><strong>Signe de la f.e.m. induite.</strong> L'élève (et même le candidat) oublie de fixer une orientation du circuit avant d'appliquer \(e = -\,\mathrm{d}\Phi/\mathrm{d}t\). <span class="src-tag">[Rapport jury 2025]</span></li>
+        <li><strong>Loi de Lenz mal appliquée.</strong> Quand le flux <em>diminue</em>, le courant induit cherche à le <em>maintenir</em> (et non à s'y opposer aveuglément). Reformuler : « le courant induit s'oppose à la <em>variation</em> du flux ».</li>
+        <li><strong>Confondre \(\vec{B}\) (induction magnétique, T) et \(\vec{H}\) (excitation magnétique, A·m⁻¹).</strong> Dans le vide \(\vec{B} = \mu_0\vec{H}\), mais en présence de matière aimantée la distinction est cruciale. <span class="src-tag">[Rapport jury 2025]</span></li>
+        <li><strong>Confondre flux \(\Phi_B\) et circulation \(\oint\vec{B}\cdot\vec{\mathrm{d}\ell}\).</strong> Le flux passe à travers une surface, la circulation longe un contour — deux objets géométriques différents.</li>
+        <li><strong>Oubli du courant de déplacement.</strong> En régime variable, écrire \(\vec{\mathrm{rot}}\,\vec{B} = \mu_0\vec{j}\) est <em>faux</em> — sauf à justifier explicitement l'ARQS.</li>
+        <li><strong>Vitesse de la lumière dans un milieu.</strong> \(v = c/n\) (pas \(c\,n\) : ce serait une vitesse supraluminique).</li>
+        <li><strong>Unités oubliées.</strong> Pulsation \(\omega\) en rad·s⁻¹, champ \(B\) en T, \(H\) en A·m⁻¹, \(E\) en V·m⁻¹. <span class="src-tag">[Rapport jury 2025]</span></li>
+        <li><strong>Pseudo-vecteur vs vecteur vrai.</strong> \(\vec{B}\) est un pseudo-vecteur : ses symétries sont <em>inversées</em> par rapport à \(\vec{E}\) (parallèle aux plans d'antisymétrie des courants, perpendiculaire aux plans de symétrie).</li>
       </ul>
     </div>
+  </div>
+
+  <h3>7.3 Activités expérimentales pour la classe</h3>
+
+  <div class="ped-card r">
+    <div class="niveau">Lycée — terminale spé</div>
+    <h5>Aimant en chute libre dans un tube de cuivre</h5>
+    <ul>
+      <li><strong>Matériel :</strong> tube cuivre vertical (50 cm), aimant néodyme cylindrique, tube PVC témoin, smartphone (vidéo + analyse Tracker).</li>
+      <li><strong>Observation :</strong> l'aimant met ~2 s à traverser le tube cuivre vs ~0,3 s pour le tube PVC.</li>
+      <li><strong>Interprétation :</strong> courants de Foucault induits dans le cuivre → force de Laplace de freinage (Lenz).</li>
+      <li><strong>Extension agrég :</strong> mesure de la vitesse limite, modélisation \(F_{\text{frein}} \propto v\), bilan énergétique (énergie cinétique → effet Joule dans le tube).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Lycée — première spé / terminale spé</div>
+    <h5>Mesure d'un champ magnétique terrestre</h5>
+    <ul>
+      <li><strong>Matériel :</strong> bobine de Helmholtz (rayon \(R\), \(N\) spires), boussole d'inclinaison, alimentation continue.</li>
+      <li><strong>Protocole :</strong> orienter l'axe de la bobine est-ouest, compenser la composante horizontale \(B_H\) du champ terrestre par le champ bobine ; à équilibre, \(B_H = \mu_0 N I/R\) (Helmholtz).</li>
+      <li><strong>Résultat attendu :</strong> \(B_H \approx 20\,\mathrm{\mu T}\) à Paris.</li>
+      <li><strong>Lien programme :</strong> illustre la superposition des champs et la mesure d'un champ <em>faible</em> par compensation.</li>
+    </ul>
   </div>
 </div>
 
@@ -385,34 +513,102 @@
 <div class="sblock r" id="demos">
   <div class="sblock-num">Section 08</div>
   <h2>8. Démonstrations clés (niveau agrégation)</h2>
-  <p class="intro">Les démonstrations attendues à l'écrit et systématiquement demandées à l'oral. Synthèse récapitulative.</p>
+  <p class="intro">Les démonstrations attendues à l'écrit et systématiquement demandées à l'oral. Synthèse récapitulative et expériences emblématiques.</p>
+
+  <h3>8.1 Démonstrations théoriques attendues</h3>
 
   <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>8.1 — Théorème de Gauss à partir de Coulomb</div>
+    <div class="notion-title"><span class="nt-bar"></span>Théorème de Gauss à partir de Coulomb</div>
     <div class="notion-body">Voir section 1.3. Argument clé : invariance topologique du flux d'un champ en \(1/r^{2}\), puis Ostrogradski pour passer à la forme locale.</div>
   </div>
 
   <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>8.2 — Équation d'onde dans le vide</div>
+    <div class="notion-title"><span class="nt-bar"></span>Équation d'onde dans le vide</div>
     <div class="notion-body">Voir section 5.1. Argument clé : rotationnel de Maxwell-Faraday, identité \(\vec{\mathrm{rot}}(\vec{\mathrm{rot}}\,\vec{E}) = \vec{\mathrm{grad}}(\mathrm{div}\,\vec{E}) - \vec\Delta\vec{E}\), avec \(\mathrm{div}\,\vec{E} = 0\) dans le vide.</div>
   </div>
 
   <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>8.3 — Conservation de la charge</div>
-    <div class="notion-body">Voir section 4.2. Argument clé : divergence de Maxwell-Ampère + identité \(\mathrm{div}(\vec{\mathrm{rot}}) = 0\). C'est la raison historique du courant de déplacement.</div>
+    <div class="notion-title"><span class="nt-bar"></span>Conservation de la charge</div>
+    <div class="notion-body">Voir section 4.2. Argument clé : divergence de Maxwell-Ampère + identité \(\mathrm{div}(\vec{\mathrm{rot}}) = 0\). C'est la raison historique du courant de déplacement introduit par Maxwell.</div>
   </div>
 
   <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>8.4 — Théorème de Poynting</div>
+    <div class="notion-title"><span class="nt-bar"></span>Théorème de Poynting</div>
     <div class="notion-body">Voir section 6. Argument clé : exprimer \(\vec{j}\cdot\vec{E}\) via Maxwell-Ampère, puis utiliser \(\mathrm{div}(\vec{E}\wedge\vec{B})\) et Maxwell-Faraday.</div>
   </div>
 
   <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>8.5 — Structure d'une OPPM</div>
+    <div class="notion-title"><span class="nt-bar"></span>Structure d'une OPPM</div>
     <div class="notion-body">
       <p>À partir de \(\vec{E}(\vec{r},t) = \vec{E}_0\cos(\omega t - \vec{k}\cdot\vec{r})\), Maxwell-Gauss sans charges donne \(\vec{k}\cdot\vec{E} = 0\), et Maxwell-Faraday relie \(\vec{B}\) à \(\vec{E}\). On obtient :</p>
       \[ \vec{B} \;=\; \dfrac{\vec{k}\wedge\vec{E}}{\omega}\,,\qquad \omega = c\,\|\vec{k}\|. \]
       <p>Trièdre \((\vec{k},\vec{E},\vec{B})\) direct, \(\|\vec{B}\| = \|\vec{E}\|/c\), onde transversale.</p>
+    </div>
+  </div>
+
+  <h3>8.2 Démonstration détaillée — Champ d'un solénoïde infini (Ampère)</h3>
+
+  <div class="demo r">
+    <div class="demo-head">Démonstration · Champ magnétique au cœur d'un solénoïde infini</div>
+    <h4>Établir \(\vec{B}_{\text{int}} = \mu_0 n I\,\vec{e}_z\) et \(\vec{B}_{\text{ext}} = \vec{0}\)</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Symétries et invariances</div>
+      <p>Le solénoïde possède une <em>invariance par translation</em> selon \(\vec{e}_z\) (axe), une <em>invariance par rotation</em> autour de l'axe. Tout plan contenant l'axe est plan d'<em>antisymétrie</em> pour la distribution de courants → \(\vec{B}\) est <em>parallèle</em> à ces plans, donc le long de \(\vec{e}_z\).</p>
+      <span class="eq">\( \vec{B}(M) = B(r)\,\vec{e}_z \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Comportement à l'infini</div>
+      <p>Loin du solénoïde (à l'extérieur, \(r \to \infty\)), le champ tend vers zéro. Comme \(B_{\text{ext}}(r) = B_{\text{ext}}\) est indépendant de \(r\) par invariance → \(B_{\text{ext}} = 0\) partout à l'extérieur.</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Contour d'Ampère rectangulaire</div>
+      <p>On choisit un contour rectangulaire \(\mathcal{C}\) de longueur \(L\) parallèle à l'axe, à cheval entre intérieur et extérieur du solénoïde. Sur les segments perpendiculaires à l'axe, \(\vec{B}\cdot\vec{\mathrm{d}\ell} = 0\) (orthogonalité). Sur le segment extérieur, \(\vec{B}_{\text{ext}} = \vec{0}\). Reste le segment intérieur :</p>
+      <span class="eq">\( \oint_{\mathcal{C}}\vec{B}\cdot\vec{\mathrm{d}\ell} = B_{\text{int}}\,L \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 4 — Courant enlacé et théorème d'Ampère</div>
+      <p>Le contour enlace \(n L\) spires, chacune portant un courant \(I\) : \(I_{\text{enl}} = n L I\). Le théorème d'Ampère donne :</p>
+      <span class="eq">\( B_{\text{int}}\,L = \mu_0\,n L I \;\Longrightarrow\; \boxed{\,B_{\text{int}} = \mu_0\,n I\,} \)</span>
+    </div>
+    <div class="ccl"><strong>Interprétation physique :</strong> le champ est <em>uniforme</em> à l'intérieur (indépendant de \(r\)) — c'est précisément ce qui rend le solénoïde si utile en laboratoire pour créer un champ contrôlé. Limite pratique : effets de bord aux extrémités (sur une longueur \(\sim R\), le rayon).</p></div>
+  </div>
+
+  <h3>8.3 Démonstration détaillée — Loi de Lenz par bilan énergétique</h3>
+
+  <div class="demo r">
+    <div class="demo-head">Démonstration · Loi de Lenz comme conséquence de la conservation de l'énergie</div>
+    <h4>Pourquoi le courant induit s'oppose-t-il toujours à la variation du flux ?</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Hypothèse contraire (raisonnement par l'absurde)</div>
+      <p>Supposons un instant que le courant induit aille dans le <em>même sens</em> que celui qui <em>augmenterait</em> le flux. Alors le champ propre du courant induit ajouterait au flux, ce qui augmenterait encore la f.e.m., donc le courant, donc le flux...</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Divergence énergétique</div>
+      <p>Ce mécanisme serait un emballement positif (rétroaction positive). On obtiendrait une <em>création spontanée d'énergie</em> à partir d'une perturbation infinitésimale du flux — violation flagrante du premier principe.</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Conclusion</div>
+      <p>Le courant induit doit donc <em>s'opposer</em> à la variation qui lui donne naissance. Mathématiquement, c'est le signe « − » dans \(e = -\,\mathrm{d}\Phi/\mathrm{d}t\). Énergétiquement, c'est la force de Laplace qui freine la cause mécanique du changement de flux (cas Lorentz).</p>
+      <span class="eq">\( P_{\text{Joule}} = R\,i^{2} > 0 \quad\text{toujours} \)</span>
+    </div>
+    <div class="ccl"><strong>Application directe :</strong> dans l'exercice « barre sur rails » (§9), la force de Laplace s'oppose au mouvement → l'énergie cinétique est <em>convertie</em> en énergie thermique par effet Joule. Pas de mouvement perpétuel possible.</p></div>
+  </div>
+
+  <h3>8.4 Expériences emblématiques pour l'oral</h3>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Expérience d'Œrsted (1820) — couplage électricité ↔ magnétisme</div>
+    <div class="notion-body">
+      <p>Faire passer un courant continu \(I \approx 1\,\mathrm{A}\) dans un fil rectiligne placé au-dessus d'une boussole. L'aiguille dévie perpendiculairement au fil. <strong>Sens de la déviation :</strong> règle de la main droite ou produit vectoriel \(\vec{B} \propto \vec{I}\wedge\vec{r}\).</p>
+      <p>Importance historique : première mise en évidence qu'un courant <em>électrique</em> crée un champ <em>magnétique</em>. Cette expérience a déclenché l'unification de l'électricité et du magnétisme (Ampère, puis Maxwell).</p>
+    </div>
+  </div>
+
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Expérience de Faraday (1831) — mise en évidence de l'induction</div>
+    <div class="notion-body">
+      <p>Approcher/éloigner rapidement un aimant droit du centre d'une bobine reliée à un galvanomètre sensible. <strong>Observations :</strong> déflexion non nulle <em>uniquement</em> lorsque l'aimant <em>bouge</em>, signe dépendant du sens de déplacement et de l'orientation de l'aimant.</p>
+      <p>Importance : démontre que la cause de l'induction est la <em>variation</em> du flux, pas le flux lui-même. Variantes : mouvement de la bobine (cas Lorentz), variation du courant dans un primaire couplé (Neumann pur).</p>
     </div>
   </div>
 </div>
@@ -497,13 +693,160 @@
       <p>Bilan : toute l'énergie cinétique part en Joule. La force de Laplace est la « courroie de transmission » mécanique → électrique → thermique.</p>
     </div>
   </details>
+
+  <div class="exo r">
+    <div class="exo-head">
+      <span class="exo-tag">Exercice 4</span>
+      <span class="exo-level">CPGE — PC / PSI</span>
+    </div>
+    <h4>Effet Hall — mesure d'un champ magnétique et signe des porteurs</h4>
+    <p class="enonce">Un barreau conducteur parallélépipédique (longueur \(L\), largeur \(a\), épaisseur \(b\)) est parcouru par un courant \(I\) selon \(\vec{e}_x\) et plongé dans un champ \(\vec{B} = B\,\vec{e}_z\). Les porteurs (charge \(q\), densité volumique \(n\)) circulent à vitesse moyenne \(\vec{v} = -v\,\vec{e}_x\) (pour \(q = -e < 0\), électrons). On note \(U_H\) la tension transverse mesurée entre les deux faces \(y = 0\) et \(y = a\).</p>
+    <ol class="enonce">
+      <li>Exprimer la force de Lorentz subie par un porteur en l'absence de champ électrique transverse. Décrire l'accumulation de charges.</li>
+      <li>À l'équilibre stationnaire transverse, écrire l'équilibre des forces et en déduire le champ électrique de Hall \(\vec{E}_H\).</li>
+      <li>Établir \(U_H = \dfrac{IB}{n\,q\,b}\). Justifier le rôle du signe de \(q\) sur la polarité de \(U_H\).</li>
+      <li>Application : sonde InSb de \(b = 100\,\mathrm{\mu m}\), \(n = 2{,}5\times 10^{22}\,\mathrm{m^{-3}}\), \(I = 50\,\mathrm{mA}\), \(B = 100\,\mathrm{mT}\). Calculer \(U_H\). Conclure sur la sensibilité de la sonde.</li>
+    </ol>
+    <details>
+      <summary>Voir le corrigé</summary>
+      <div class="corr">
+        <ol>
+          <li>\(\vec{F}_L = q\,\vec{v}\wedge\vec{B} = q(-v\,\vec{e}_x)\wedge(B\,\vec{e}_z) = q\,v\,B\,\vec{e}_y\). Les porteurs sont déviés selon \(\vec{e}_y\) — accumulation sur une face, déficit sur l'autre → apparition d'un champ \(\vec{E}_H = E_H\,\vec{e}_y\) qui s'oppose à la déviation (transitoire de durée \(\sim\) ps).</li>
+          <li>Équilibre stationnaire transverse : la force électrique compense la force magnétique. Sur un porteur :
+            <span class="eq">\( q\,\vec{E}_H + q\,\vec{v}\wedge\vec{B} = \vec{0} \;\Longrightarrow\; \vec{E}_H = -\vec{v}\wedge\vec{B} = v\,B\,\vec{e}_y \)</span>
+          </li>
+          <li>Densité de courant \(j = I/(a\,b) = n|q|v\) → \(v = I/(n|q|ab)\). Tension de Hall :
+            <span class="eq">\( U_H = \int_0^{a}\vec{E}_H\cdot\vec{\mathrm{d}y} = E_H\,a = v\,B\,a = \dfrac{I\,B}{n\,q\,b} \)</span>
+            Pour les électrons \(q = -e\), \(U_H < 0\) — une mesure directe du signe des porteurs (semi-conducteurs N vs P).</li>
+          <li>\(U_H = \dfrac{50\times 10^{-3}\times 0{,}1}{2{,}5\times 10^{22}\times 1{,}6\times 10^{-19}\times 10^{-4}} \approx 12{,}5\,\mathrm{mV}\). Très grande sensibilité grâce à la faible densité \(n\) des porteurs dans un semi-conducteur (\(\sim 10^{22}\) vs \(\sim 10^{28}\) pour le cuivre).</li>
+        </ol>
+        <div class="key"><strong>À retenir :</strong> l'effet Hall sert à <em>mesurer \(B\)</em> (sondes commerciales = teslamètres) et à <em>caractériser un semi-conducteur</em> (signe et densité des porteurs). Application directe au montage 1 (§11) sur la mesure de \(\mu_0\).</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="exo r">
+    <div class="exo-head">
+      <span class="exo-tag">Exercice 5</span>
+      <span class="exo-level">CPGE — MP / PC</span>
+    </div>
+    <h4>Disque de Faraday et alternateur élémentaire</h4>
+    <p class="enonce">Un disque conducteur de rayon \(R\) tourne à vitesse angulaire \(\Omega\) autour de son axe \(\vec{e}_z\) dans un champ \(\vec{B} = B_0\,\vec{e}_z\) uniforme. On relie le centre et la périphérie par un fil + résistance \(R_{\text{ext}}\).</p>
+    <ol class="enonce">
+      <li>Champ électromoteur \(\vec{E}_m = \vec{v}\wedge\vec{B}\) en un point à la distance \(r\) de l'axe.</li>
+      <li>F.e.m. de Lorentz entre le centre et la périphérie.</li>
+      <li>Courant \(i\) débité, puissance électrique \(\mathcal{P}_{\text{élec}}\).</li>
+      <li>Couple de freinage exercé par la force de Laplace sur le disque. Bilan de puissance.</li>
+    </ol>
+    <details>
+      <summary>Voir le corrigé</summary>
+      <div class="corr">
+        <ol>
+          <li>Vitesse d'un point à distance \(r\) : \(\vec{v} = r\Omega\,\vec{e}_\theta\). Champ électromoteur :
+            <span class="eq">\( \vec{E}_m = (r\Omega\,\vec{e}_\theta)\wedge(B_0\,\vec{e}_z) = r\Omega\,B_0\,\vec{e}_r \)</span>
+          </li>
+          <li>F.e.m. en intégrant \(\vec{E}_m\) du centre à la périphérie :
+            <span class="eq">\( e = \int_0^{R}r\Omega B_0\,\mathrm{d}r = \dfrac{1}{2}\,\Omega B_0\,R^{2} \)</span>
+          </li>
+          <li>\(i = e/R_{\text{ext}} = \Omega B_0 R^{2}/(2 R_{\text{ext}})\), puissance électrique \(\mathcal{P}_{\text{élec}} = e\,i = \dfrac{(\Omega B_0 R^{2})^{2}}{4\,R_{\text{ext}}}\).</li>
+          <li>Force de Laplace sur l'élément \(\mathrm{d}r\) à distance \(r\) : \(\mathrm{d}\vec{F} = i\,\mathrm{d}\vec{r}\wedge\vec{B}\) → \(\mathrm{d}F = i B_0\,\mathrm{d}r\), moment par rapport à l'axe \(\mathrm{d}\Gamma = r\,\mathrm{d}F\). Couple total :
+            <span class="eq">\( \Gamma = \int_0^{R}i B_0\,r\,\mathrm{d}r = \dfrac{1}{2}i B_0 R^{2} \)</span>
+            Puissance mécanique fournie \(\mathcal{P}_{\text{méca}} = \Gamma\,\Omega = \dfrac{1}{2}\Omega B_0 R^{2}\cdot i = e\,i = \mathcal{P}_{\text{élec}}\) ✓.
+          </li>
+        </ol>
+        <div class="key"><strong>À retenir :</strong> conversion mécanique → électrique <em>parfaite</em> en l'absence de pertes Joule dans le disque (idéalisation). Bilan rigoureux conforme à Lenz. Historiquement : premier <em>générateur à courant continu</em> (Faraday 1831).</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="exo r">
+    <div class="exo-head">
+      <span class="exo-tag">Exercice 6</span>
+      <span class="exo-level">CPGE — PC / PSI / MP</span>
+    </div>
+    <h4>Réflexion d'une OPPM sur un conducteur parfait — onde stationnaire</h4>
+    <p class="enonce">Une OPPM polarisée rectilignement, \(\vec{E}_i = E_0\cos(\omega t - k z)\,\vec{e}_x\), arrive en incidence normale sur un conducteur parfait occupant le demi-espace \(z > 0\). Conditions aux limites : champ électrique tangentiel nul à la surface.</p>
+    <ol class="enonce">
+      <li>Forme du champ réfléchi \(\vec{E}_r\) (sens de propagation, amplitude, déphasage).</li>
+      <li>Champ total \(\vec{E}\) en \(z < 0\). Mettre sous forme d'<em>onde stationnaire</em>.</li>
+      <li>Champ magnétique \(\vec{B}\) total. Vérifier que \(\vec{E}\) et \(\vec{B}\) sont en quadrature spatiale.</li>
+      <li>Vecteur de Poynting moyen. Conclure sur le bilan énergétique.</li>
+    </ol>
+    <details>
+      <summary>Voir le corrigé</summary>
+      <div class="corr">
+        <ol>
+          <li>Onde réfléchie selon \(-\vec{e}_z\), amplitude \(E_0\), déphasage \(\pi\) (changement de signe pour annuler \(\vec{E}\) en \(z = 0\)) :
+            <span class="eq">\( \vec{E}_r = -E_0\cos(\omega t + k z)\,\vec{e}_x \)</span>
+          </li>
+          <li>Somme :
+            <span class="eq">\( \vec{E} = E_0[\cos(\omega t - kz) - \cos(\omega t + kz)]\,\vec{e}_x = 2 E_0\sin(\omega t)\sin(k z)\,\vec{e}_x \)</span>
+            Onde stationnaire (séparation temps/espace). <strong>Nœuds</strong> de \(\vec{E}\) en \(k z = m\pi\) → \(z = -m\lambda/2\) (incluant \(z = 0\), surface). <strong>Ventres</strong> en \(z = -(2m+1)\lambda/4\).
+          </li>
+          <li>Par Maxwell-Faraday \(\partial_t\vec{B} = -\vec{\mathrm{rot}}\,\vec{E}\) :
+            <span class="eq">\( \vec{B} = \dfrac{2 E_0}{c}\cos(\omega t)\cos(k z)\,\vec{e}_y \)</span>
+            Nœuds de \(\vec{B}\) en \(z = -(2m+1)\lambda/4\) (= ventres de \(\vec{E}\)) → quadrature spatiale. Quadrature temporelle aussi (\(\sin\) vs \(\cos\)).</li>
+          <li>\(\vec{\Pi} = \vec{E}\wedge\vec{B}/\mu_0 \propto \sin(\omega t)\cos(\omega t) = \tfrac{1}{2}\sin(2\omega t)\) → \(\langle\vec{\Pi}\rangle = \vec{0}\). Pas de transfert net d'énergie : l'onde stationnaire <em>stocke</em> l'énergie qui oscille entre formes électrique et magnétique, sans propagation.</li>
+        </ol>
+        <div class="key"><strong>À retenir :</strong> nœud de \(\vec{E}\) sur conducteur parfait, ventre de \(\vec{B}\). Application : four micro-ondes (zones froides aux nœuds — d'où le plateau tournant). Principe identique pour les cavités résonantes (laser, klystron).</div>
+      </div>
+    </details>
+  </div>
 </div>
 
 <!-- ═══════════════════ 10 LECONS ORAL ═══════════════════ -->
 <div class="sblock r" id="lecons">
   <div class="sblock-num">Section 10</div>
   <h2>10. Développements pédagogiques pour l'oral</h2>
-  <p class="intro">Deux propositions de leçons calibrées agrégation interne, avec plan, accroche et liens vers le secondaire.</p>
+  <p class="intro">Propositions de leçons calibrées agrégation interne, avec plan, accroche et liens vers le secondaire. Chaque leçon orale doit (rapport jury 2025) articuler : <strong>Partie 1</strong> niveau collège/lycée + illustration expérimentale, <strong>Partie 2</strong> approfondissement CPGE + illustration expérimentale.</p>
+
+  <h3>10.1 Plans-types pour les sujets oraux du chapitre</h3>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Sujet oral n°5 : Propagation libre et guidée d'ondes EM</h4>
+    <ul>
+      <li><strong>Accroche (3 min) :</strong> communication mobile, fibre optique, four micro-ondes — toutes ces technologies reposent sur la propagation d'ondes EM. Comment Maxwell les a-t-il prédites ?</li>
+      <li><strong>I. Mise en équation (lycée, 12 min) :</strong> rappel qualitatif des équations de Maxwell, identification du couplage \(\vec{E} \leftrightarrow \vec{B}\), obtention de l'équation d'onde \(\vec{\Delta E} - c^{-2}\partial_{tt}\vec{E} = \vec{0}\). <em>Expérience d'illustration :</em> émetteur/récepteur Gunn bande X (\(\sim 10\,\mathrm{GHz}\)), mise en évidence de la propagation libre.</li>
+      <li><strong>II. Structure et propriétés CPGE (15 min) :</strong> OPPM dans le vide — trièdre \((\vec{k},\vec{E},\vec{B})\), relation de dispersion \(\omega = ck\), transversalité, polarisation. Vecteur de Poynting et bilan énergétique. <em>Expérience d'illustration :</em> loi de Malus avec grille polarisante en hyperfréquences.</li>
+      <li><strong>III. Propagation guidée (10 min) :</strong> fibre optique à saut d'indice, réflexion totale interne, ouverture numérique \(\mathrm{ON} = \sqrt{n_1^{2} - n_2^{2}}\). Application : télécom optiques. <em>Expérience :</em> guide de lumière laser dans un jet d'eau.</li>
+      <li><strong>Conclusion + ouverture (5 min) :</strong> ondes EM dans un plasma (ionosphère), guide d'onde rectangulaire, métamatériaux. Renvoyer au sujet oral n°18 (interaction lumière-matière).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Sujet oral n°18 : Interaction lumière-matière</h4>
+    <ul>
+      <li><strong>Accroche (3 min) :</strong> pourquoi le ciel est-il bleu ? Pourquoi un laser pénètre-t-il un verre mais pas un mur ? Quatre processus d'interaction à identifier.</li>
+      <li><strong>I. Modèle classique de l'électron élastiquement lié (lycée/CPGE1, 12 min) :</strong> \(m\ddot{\vec{x}} + m\gamma\dot{\vec{x}} + m\omega_0^{2}\vec{x} = -e\vec{E}(t)\). Lecture : oscillateur forcé. Régime de résonance → absorption ; basse fréquence → transparence avec indice \(n > 1\). <em>Expérience :</em> spectre d'absorption d'une solution colorée (spectrophotomètre, loi de Beer-Lambert).</li>
+      <li><strong>II. Diffusion Rayleigh et couleur du ciel (CPGE, 10 min) :</strong> rayonnement du dipôle oscillant, intensité diffusée \(\propto 1/\lambda^{4}\). Application qualitative : ciel bleu, coucher rouge. <em>Expérience :</em> diffusion sur solution de lait (laser rouge vs vert), mesure de l'atténuation.</li>
+      <li><strong>III. Aspects quantiques (CPGE2, 12 min) :</strong> effet photoélectrique (Einstein 1905) \(E_c = h\nu - W_s\), diffusion Compton \(\Delta\lambda = (h/m_ec)(1-\cos\theta)\). Discussion : seuil photoélectrique = preuve historique du photon. <em>Expérience :</em> cellule photoélectrique commerciale, tracé du potentiel d'arrêt.</li>
+      <li><strong>Conclusion (3 min) :</strong> hiérarchie absorption / diffusion / réémission ; transition vers spectroscopies (RMN, IR, UV-vis).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Leçon sur l'induction électromagnétique (sujets oraux associés)</h4>
+    <ul>
+      <li><strong>Accroche (3 min) :</strong> plaque à induction chauffe une casserole en fer mais pas en verre — pourquoi ? Démonstration en direct si possible.</li>
+      <li><strong>I. Mise en évidence et loi de Faraday (lycée, 12 min) :</strong> aimant + spire + galvanomètre, signe et amplitude de la déflexion. Énoncé \(e = -\,\mathrm{d}\Phi/\mathrm{d}t\), loi de Lenz comme conséquence énergétique. <em>Expérience :</em> chute d'un aimant dans une bobine, oscilloscope sur la bobine.</li>
+      <li><strong>II. Neumann vs Lorentz et auto-induction (CPGE, 15 min) :</strong> distinguer circuit fixe avec \(\partial_t\vec{B}\neq 0\) (Neumann) et circuit mobile dans \(\vec{B}\) stationnaire (Lorentz). Auto-induction \(L\), densité d'énergie \(u_m = B^{2}/(2\mu_0)\). Bilan d'un circuit RL en commutation. <em>Expérience :</em> mesure de \(L\) d'une bobine par méthode des deux temps.</li>
+      <li><strong>III. Applications industrielles (10 min) :</strong> transformateur (couplage \(M\), rapport de transformation), freinage par courants de Foucault, génératrice synchrone. <em>Expérience :</em> aimant en chute dans tube cuivre (vitesse limite mesurable par smartphone).</li>
+      <li><strong>Conclusion + ouverture (5 min) :</strong> moteur asynchrone (champ tournant), MHD, supraconducteurs (lévitation Meissner).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Leçon sur la force de Lorentz et applications</h4>
+    <ul>
+      <li><strong>Accroche (3 min) :</strong> tube cathodique d'ancien oscilloscope, déviation d'un faisceau d'électrons par un aimant — base historique de la mesure de \(e/m\) (Thomson 1897).</li>
+      <li><strong>I. Force de Lorentz et mouvement dans \(\vec{E}\) seul (lycée/CPGE1, 12 min) :</strong> \(\vec{F} = q(\vec{E} + \vec{v}\wedge\vec{B})\), accélérateur linéaire dans \(\vec{E}\) uniforme, déviation parabolique. <em>Expérience :</em> oscilloscope cathodique avec plaques de déviation.</li>
+      <li><strong>II. Mouvement dans \(\vec{B}\) seul (CPGE, 12 min) :</strong> mouvement circulaire de rayon \(R = mv/(qB)\), pulsation cyclotron \(\omega_c = qB/m\). Application : spectromètre de masse, cyclotron. <em>Expérience :</em> tube de Perrin / tube de mesure \(e/m\) (faisceau dans bobines Helmholtz).</li>
+      <li><strong>III. Champs croisés et applications (10 min) :</strong> effet Hall \(U_H = IB/(nqe)\) — mesure de \(\vec{B}\) et signe des porteurs. Filtre de Wien. <em>Expérience :</em> sonde à effet Hall calibrée vs solénoïde.</li>
+      <li><strong>Conclusion (3 min) :</strong> piégeage magnétique (tokamak ITER), aurores polaires, plasmas confinés.</li>
+    </ul>
+  </div>
+
+  <h3>10.2 Leçons détaillées</h3>
 
   <div class="lecon-card">
     <h4>Leçon 1 — Champ électrostatique : du frottement au condensateur</h4>
@@ -542,48 +885,78 @@
 <div class="sblock r" id="montages">
   <div class="sblock-num">Section 11</div>
   <h2>11. Montages expérimentaux</h2>
-  <p class="intro">Deux montages exploitables à l'oral d'agrégation : protocole, schéma, sources d'incertitude, exploitation.</p>
+  <p class="intro">Montages canoniques niveau CPGE/agrégation : protocole, schéma, sources d'incertitude, traitement informatisé. Attente jury 2025 : <em>expériences réalisées <strong>ET</strong> exploitées</em> (qualitatif + quantitatif), traitement numérique intégré (régression, FFT, modélisation).</p>
 
-  <div class="lecon-card">
-    <h4>Montage 1 — Mesure de \(\mu_0\) par solénoïde</h4>
-    <p><strong>Objectif.</strong> Vérifier \(B = \mu_0\,n\,I\) au centre d'un solénoïde et en déduire \(\mu_0\).</p>
-    <p><strong>Matériel.</strong> Solénoïde (\(L \approx 50\,\mathrm{cm}\), \(N \approx 500\) spires), générateur continu 0–5 A, ampèremètre, teslamètre à effet Hall, support gradué.</p>
-    <p><strong>Protocole.</strong></p>
-    <ol>
-      <li>Mesurer \(N\) et \(L\) → \(n = N/L\).</li>
-      <li>Insérer la sonde de Hall au centre du solénoïde, parallèle à l'axe.</li>
-      <li>Pour \(I\) variant de 0 à 5 A par pas de 0,5 A, mesurer \(B\). Trois répétitions.</li>
-      <li>Tracer \(B = f(I)\) avec barres d'erreur. Régression linéaire → pente \(\mu_0\,n\) → \(\mu_0\).</li>
-    </ol>
-    <pre class="ascii-schema">     ┌──────────────────────────────────────┐
-     │   solénoïde · N spires · longueur L   │
- ────┤  │  │  │  │  │  │  │  │  │  │  │  ├──── → I
-     │                  ●                    │
-     │                  ↑  sonde de Hall     │
-     └──────────────────────────────────────┘
-                        │
-                  ┌────────────┐
-                  │ teslamètre │
-                  └────────────┘</pre>
-    <p><strong>Sources d'incertitude.</strong> Calibration sonde (\(\pm 2\,\%\)), positionnement axial (\(\pm 2\,\mathrm{mm}\)), intensité (\(\pm 0{,}05\,\mathrm{A}\)), longueur effective (effets de bord).</p>
-    <p><strong>Exploitation.</strong> Propagation des incertitudes :</p>
-    \[ \dfrac{u(\mu_0)}{\mu_0} \;=\; \sqrt{\left(\dfrac{u(\text{pente})}{\text{pente}}\right)^{\!2} + \left(\dfrac{u(n)}{n}\right)^{\!2}}. \]
-    <p>Comparaison à \(\mu_0^{\text{théo}} = 4\pi\times 10^{-7}\,\mathrm{H\cdot m^{-1}}\), écart relatif typique 3–8 % à discuter.</p>
+  <div class="montage r">
+    <div class="montage-head">Montage canonique 1</div>
+    <h4>Caractérisation d'une bobine en alternatif — mesure de \(L\) et bilan \(L\)–\(R\)</h4>
+    <div class="mat">
+      <span class="mat-k">Matériel :</span>
+      <span class="mat-v">Bobine de \(N\) spires (\(\sim 1000\)), GBF + amplificateur, résistance de référence \(R_0\) connue (\(\pm 0{,}1\,\%\)), oscilloscope numérique avec module FFT, sonde différentielle.</span>
+      <span class="mat-k">Protocole :</span>
+      <span class="mat-v">Monter la bobine en série avec \(R_0\). Imposer une tension sinusoïdale \(u(t) = U_0\cos(\omega t)\), balayer \(f\) de 50 Hz à 50 kHz. Mesurer simultanément \(u_{R_0}(t) \propto i(t)\) et \(u_L(t)\), relever le déphasage \(\varphi\) et le rapport d'amplitudes.</span>
+      <span class="mat-k">Modèle :</span>
+      <span class="mat-v">Bobine = \(R_L\) en série avec \(L\). Impédance \(\underline{Z}_L = R_L + jL\omega\), donc \(\tan\varphi = L\omega/R_L\) et \(|\underline{Z}_L| = \sqrt{R_L^{2} + L^{2}\omega^{2}}\). Régression linéaire \(\tan\varphi = f(\omega)\) → pente = \(L/R_L\), ordonnée nulle.</span>
+      <span class="mat-k">Incertitudes :</span>
+      <span class="mat-v">u(\(\varphi\)) ≈ 1° (résolution curseur oscillo), u(\(\omega\)) ≈ 0,5 % (GBF calibré), u(\(R_0\)) négligeable. Propagation : u(\(L\))/\(L \approx 3\,\%\) typique.</span>
+      <span class="mat-k">Exploitation :</span>
+      <span class="mat-v">Python (numpy + scipy.optimize.curve_fit) ou Regressi : régression linéaire avec incertitudes croisées. Vérifier le comportement asymptotique à basse f (\(\underline{Z}_L \to R_L\)) et haute f (\(\underline{Z}_L \to jL\omega\)).</span>
+    </div>
   </div>
 
-  <div class="lecon-card">
-    <h4>Montage 2 — Polarisation d'une OEM hertzienne (bande X)</h4>
-    <p><strong>Objectif.</strong> Vérifier la transversalité d'une OEM (\(\sim 9{,}5\,\mathrm{GHz}\)) et la loi de Malus.</p>
-    <p><strong>Matériel.</strong> Émetteur Gunn, cornets émetteur/récepteur, détecteur à diode, multimètre, banc gradué, absorbants mousse hyperfréquence.</p>
-    <p><strong>Protocole.</strong></p>
-    <ol>
-      <li>Aligner émetteur et récepteur, polarisations parallèles. Mesurer \(S_0\).</li>
-      <li>Tourner le récepteur autour de l'axe de \(\theta = 0\) à \(180^\circ\) par pas de \(10^\circ\).</li>
-      <li>Tracer \(S(\theta)\), tester la loi de Malus \(S = S_0\,\cos^{2}\theta\).</li>
-      <li>Insérer une grille métallique (fils parallèles) comme polariseur — passage si la grille est \(\perp\) à \(\vec{E}\).</li>
-    </ol>
-    <p><strong>Sources d'incertitude.</strong> Bruit du détecteur (\(\pm 5\,\%\)), positionnement angulaire (\(\pm 2^\circ\)), parasites par réflexions.</p>
-    <p><strong>Exploitation.</strong> Régression non linéaire \(S = S_0\,\cos^{2}\theta\) ou linéarisation \(\sqrt{S/S_0} = |\cos\theta|\). Lien direct avec le programme d'optique (polarisation = transversalité). Preuve expérimentale accessible que l'OEM est transversale.</p>
+  <div class="montage r">
+    <div class="montage-head">Montage canonique 2</div>
+    <h4>Freinage par courants de Foucault — chute d'aimant dans tube cuivre</h4>
+    <div class="mat">
+      <span class="mat-k">Matériel :</span>
+      <span class="mat-v">Tube cuivre vertical (50 cm × diamètre intérieur 12 mm), aimant néodyme cylindrique (10 × 10 mm), tube PVC témoin, smartphone (caméra 240 fps), logiciel Tracker (analyse vidéo) ou capteurs photoélectriques en début/fin de tube.</span>
+      <span class="mat-k">Protocole :</span>
+      <span class="mat-v">Lâcher sans vitesse initiale l'aimant en haut du tube cuivre. Filmer la chute en 240 fps. Répéter 5 fois. Comparer au tube PVC. Mesurer la vitesse limite atteinte (régime stationnaire).</span>
+      <span class="mat-k">Modèle :</span>
+      <span class="mat-v">À la vitesse limite, force de Laplace = poids : \(\alpha\,v_{\text{lim}} = m g\), avec \(\alpha\) coefficient effectif (dépend de \(B\), géométrie). On extrait expérimentalement \(\alpha = m g / v_{\text{lim}}\).</span>
+      <span class="mat-k">Incertitudes :</span>
+      <span class="mat-v">u(\(v_{\text{lim}}\)) ≈ 5 % (résolution Tracker, parallaxe), u(\(g\)) négligeable, u(\(m\)) = 0,1 g. Vitesse limite typique \(v_{\text{lim}} \approx 30\,\mathrm{cm\cdot s^{-1}}\) (vs chute libre \(\sim 3\,\mathrm{m\cdot s^{-1}}\)).</span>
+      <span class="mat-k">Exploitation :</span>
+      <span class="mat-v">Régression de \(v(t)\) sur le modèle \(v(t) = v_{\text{lim}}(1 - e^{-t/\tau})\) avec \(\tau = m/\alpha\). Bilan énergétique : énergie potentielle convertie intégralement en effet Joule dans le tube (puissance volumique \(\sigma\vec{E}_m^{2}\)).</span>
+    </div>
+  </div>
+
+  <div class="montage r">
+    <div class="montage-head">Montage canonique 3</div>
+    <h4>Mesure de \(\mu_0\) par solénoïde et sonde Hall</h4>
+    <div class="mat">
+      <span class="mat-k">Objectif :</span>
+      <span class="mat-v">Vérifier la loi \(B = \mu_0 n I\) au centre d'un solénoïde long et en extraire \(\mu_0\) (comparaison à la valeur tabulée \(4\pi\times 10^{-7}\,\mathrm{H\cdot m^{-1}}\)).</span>
+      <span class="mat-k">Matériel :</span>
+      <span class="mat-v">Solénoïde (\(L_{\text{sol}} \approx 50\,\mathrm{cm}\), \(N \approx 500\) spires), alimentation stabilisée 0–5 A, ampèremètre numérique (résolution 0,01 A), teslamètre à sonde Hall, support gradué pour positionnement axial.</span>
+      <span class="mat-k">Protocole :</span>
+      <span class="mat-v">(1) Mesurer \(N\) et \(L_{\text{sol}}\) précisément → \(n = N/L_{\text{sol}}\). (2) Insérer la sonde Hall au centre du solénoïde, parallèle à l'axe. (3) Faire varier \(I\) de 0 à 5 A par pas de 0,5 A, mesurer \(B(I)\). Trois répétitions par point. (4) Avec le solénoïde hors tension, vérifier que le champ géomagnétique ambiant est négligeable / le soustraire.</span>
+      <span class="mat-k">Incertitudes :</span>
+      <span class="mat-v">Calibration sonde \(\pm 2\,\%\), positionnement axial \(\pm 2\,\mathrm{mm}\) (effets de bord à 5 % près du centre pour un rapport \(L_{\text{sol}}/D > 5\)), intensité \(\pm 0{,}05\,\mathrm{A}\), comptage \(N\) (négligeable si visuel). Propagation : \(u(\mu_0)/\mu_0 = \sqrt{(u_{\text{pente}}/\text{pente})^{2} + (u_n/n)^{2}} \approx 3\text{–}8\,\%\).</span>
+      <span class="mat-k">Exploitation :</span>
+      <span class="mat-v">Tracer \(B = f(I)\) sous Python (scipy.stats.linregress) ou Regressi avec barres d'erreur. Régression linéaire forcée par l'origine : pente = \(\mu_0 n\) → \(\mu_0 = \text{pente}/n\). Discuter l'écart à la valeur tabulée et identifier la source dominante d'incertitude. Schéma de principe ci-dessous.</span>
+    </div>
+    <figure class="diagram">
+      <img src="assets/mu0-solenoide-hall.png" alt="Schéma du montage : solénoïde relié à une alimentation (ampèremètre en série), sonde Hall au centre, teslamètre en dessous" loading="lazy" style="max-width:100%;border-radius:6px;border:1px solid var(--border);">
+      <figcaption>Montage de mesure de µ₀ — source : <a href="mu0-solenoide-hall.excalidraw" download>mu0-solenoide-hall.excalidraw</a> (ouvrir sur excalidraw.com pour éditer)</figcaption>
+    </figure>
+  </div>
+
+  <div class="montage r">
+    <div class="montage-head">Montage canonique 4</div>
+    <h4>Polarisation d'une OEM hertzienne (bande X, \(\sim 9{,}5\,\mathrm{GHz}\))</h4>
+    <div class="mat">
+      <span class="mat-k">Objectif :</span>
+      <span class="mat-v">Vérifier la transversalité d'une OEM et la loi de Malus \(S(\theta) = S_0\cos^{2}\theta\). Mettre en évidence le rôle d'une grille polarisante.</span>
+      <span class="mat-k">Matériel :</span>
+      <span class="mat-v">Émetteur Gunn, cornets émetteur/récepteur (diodes pyramidales), détecteur à diode, multimètre numérique, banc gradué avec rotateur, absorbants mousse hyperfréquence, grille métallique de fils parallèles.</span>
+      <span class="mat-k">Protocole :</span>
+      <span class="mat-v">(1) Aligner émetteur et récepteur, polarisations parallèles. Mesurer \(S_0\). (2) Tourner le récepteur de \(\theta = 0\) à \(180^\circ\) par pas de \(10^\circ\). (3) Tracer \(S(\theta)\), tester Malus. (4) Insérer la grille : passage si fils \(\perp\) à \(\vec{E}\), blocage si fils \(\parallel\) à \(\vec{E}\) (les électrons libres oscillent le long des fils et réfléchissent).</span>
+      <span class="mat-k">Incertitudes :</span>
+      <span class="mat-v">Bruit du détecteur \(\pm 5\,\%\), positionnement angulaire \(\pm 2^\circ\), parasites par réflexions multiples sur murs/table (utiliser absorbants).</span>
+      <span class="mat-k">Exploitation :</span>
+      <span class="mat-v">Régression non linéaire \(S = S_0\cos^{2}\theta\) (Python scipy) ou linéarisation \(\sqrt{S/S_0} = |\cos\theta|\). Le résidu vs prédiction donne une preuve quantitative de la transversalité de l'OEM. Lien direct avec le programme d'optique (polarisation = transversalité — vraie pour toute OEM, indépendamment de la fréquence).</span>
+    </div>
   </div>
 </div>
 
@@ -591,14 +964,21 @@
 <div class="sblock r" id="jury">
   <div class="sblock-num">Section 12</div>
   <h2>12. Pièges du jury — rapport 2025</h2>
-  <p class="intro">Cinq erreurs récurrentes signalées chaque année. À anticiper en oral.</p>
+  <p class="intro">Erreurs récurrentes signalées par le jury, et précisions à anticiper systématiquement à l'oral.</p>
 
   <div class="jury-list">
-    <div class="jury-item"><strong>Symétries vs antisymétries.</strong> Le champ \(\vec{E}\) est <em>parallèle</em> à un plan de symétrie des charges, <em>perpendiculaire</em> à un plan d'antisymétrie. Pour \(\vec{B}\) (champ axial, pseudo-vecteur), c'est <em>l'inverse</em>. Beaucoup inversent en magnétostatique.</div>
+    <div class="jury-item"><strong>Symétries vs antisymétries.</strong> Le champ \(\vec{E}\) est <em>parallèle</em> à un plan de symétrie des charges, <em>perpendiculaire</em> à un plan d'antisymétrie. Pour \(\vec{B}\) (champ axial, pseudo-vecteur), c'est <em>l'inverse</em>. Beaucoup inversent en magnétostatique. <span class="src-tag">[Rapport jury 2025]</span></div>
     <div class="jury-item"><strong>Théorème de Gauss mal exploité.</strong> Le théorème reste vrai pour toute surface fermée, mais n'est <em>exploitable</em> pour calculer \(\vec{E}\) que si la symétrie permet de sortir \(E\) de l'intégrale. Le jury sanctionne les surfaces inadaptées.</div>
-    <div class="jury-item"><strong>Fem induite et orientation.</strong> Le signe de \(e = -\,\mathrm{d}\Phi/\mathrm{d}t\) dépend de l'orientation choisie (règle de la main droite entre \(\vec{\mathrm{d}\ell}\) et \(\vec{\mathrm{d}S}\)). Fixer l'orientation au début et la garder partout.</div>
-    <div class="jury-item"><strong>ARQS asymétrique.</strong> En ARQS magnétique, on néglige \(\mu_0\varepsilon_0\,\partial_t\vec{E}\) dans Maxwell-Ampère MAIS on garde \(\vec{\mathrm{rot}}\,\vec{E} = -\partial_t\vec{B}\). Sinon plus d'induction, plus de circuits RL. Question quasi-systématique à l'oral.</div>
+    <div class="jury-item"><strong>Fem induite et orientation.</strong> Le signe de \(e = -\,\mathrm{d}\Phi/\mathrm{d}t\) dépend de l'orientation choisie (règle de la main droite entre \(\vec{\mathrm{d}\ell}\) et \(\vec{\mathrm{d}S}\)). <em>Fixer l'orientation du circuit en début de problème et la garder partout.</em> Sans orientation, le signe n'a pas de sens. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>ARQS asymétrique.</strong> En ARQS magnétique, on néglige \(\mu_0\varepsilon_0\,\partial_t\vec{E}\) dans Maxwell-Ampère MAIS on garde \(\vec{\mathrm{rot}}\,\vec{E} = -\partial_t\vec{B}\). Sinon plus d'induction, plus de circuits RL. Question quasi-systématique à l'oral. <span class="src-tag">[Rapport jury 2025]</span></div>
     <div class="jury-item"><strong>Vitesse de phase \(>c\).</strong> Dans un milieu dispersif, \(v_\varphi = \omega/k\) peut dépasser \(c\) sans violer la relativité : c'est la vitesse de groupe \(v_g = \mathrm{d}\omega/\mathrm{d}k\) qui transporte l'information et reste \(\leq c\). Savoir formuler proprement.</div>
+    <div class="jury-item"><strong>Distinction \(\vec{B}\) (induction) et \(\vec{H}\) (excitation).</strong> Dans le vide, \(\vec{B} = \mu_0\vec{H}\), donc on peut se permettre de tout écrire en \(\vec{B}\). Mais en présence d'un milieu aimanté (ferromagnétique), \(\vec{B} = \mu_0(\vec{H} + \vec{M})\) — distinction cruciale. Unités : \(\vec{B}\) en T, \(\vec{H}\) en A·m⁻¹. Ne jamais écrire « \(B\) en A·m⁻¹ ». <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Oublier le courant de déplacement.</strong> En régime non stationnaire, écrire \(\vec{\mathrm{rot}}\,\vec{B} = \mu_0\vec{j}\) (sans le terme \(\mu_0\varepsilon_0\,\partial_t\vec{E}\)) est <em>faux</em>, sauf à justifier explicitement l'ARQS magnétique. Sans ce terme, pas d'ondes EM — c'est l'argument historique de Maxwell (1865) et la base de Maxwell-Hertz.</div>
+    <div class="jury-item"><strong>Flux vs circulation.</strong> Le <em>flux</em> \(\Phi = \iint\vec{B}\cdot\vec{\mathrm{d}S}\) traverse une <em>surface</em>. La <em>circulation</em> \(\oint\vec{B}\cdot\vec{\mathrm{d}\ell}\) longe un <em>contour</em> (frontière de la surface). Le théorème de Stokes relie les deux. Ne pas confondre — c'est une erreur de vocabulaire/géométrie qui dénote un manque de maîtrise.</div>
+    <div class="jury-item"><strong>Unités du champ.</strong> Pulsation \(\omega\) en rad·s⁻¹ (oubli fréquent), champ \(B\) en T (= V·s·m⁻², ou kg·s⁻²·A⁻¹), \(E\) en V·m⁻¹, \(\vec{A}\) (potentiel vecteur) en T·m = V·s·m⁻¹. Toujours indiquer les unités dans les applications numériques. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Confondre \(\varepsilon_0\) et \(\varepsilon = \varepsilon_0\varepsilon_r\).</strong> \(\varepsilon_0\) est la permittivité du vide (constante universelle), \(\varepsilon_r\) la permittivité relative du milieu (sans dimension). De même \(\mu_0\) (vide) vs \(\mu = \mu_0\mu_r\) (milieu). Les relations type Coulomb dans un diélectrique deviennent \(F = (4\pi\varepsilon)^{-1}q_1q_2/r^{2}\), pas \(\varepsilon_0\).</div>
+    <div class="jury-item"><strong>Loi de Lenz mal formulée.</strong> Dire « le courant induit s'oppose à la cause » est trop flou. Formulation rigoureuse : <em>le courant induit s'oppose à la variation du flux qui lui donne naissance</em>. Si le flux <em>diminue</em>, le courant induit <em>maintient</em> ce flux (et non l'inverse). <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Réflexion totale ≠ réfraction limite.</strong> La réflexion totale interne apparaît pour \(\theta > \theta_{\text{lim}}\) lorsqu'on va d'un milieu plus dense vers un milieu moins dense (\(n_1 > n_2\)). L'angle limite \(\sin\theta_{\text{lim}} = n_2/n_1\) est l'angle de réfraction limite à 90° dans le second milieu. <span class="src-tag">[Rapport jury 2025]</span></div>
   </div>
 </div>
 

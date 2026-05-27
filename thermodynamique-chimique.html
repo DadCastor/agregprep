@@ -47,8 +47,10 @@
         <a href="#gibbs">03 · Enthalpie libre G & K°</a>
         <a href="#vanthoff">04 · Loi de van't Hoff</a>
         <a href="#evolution">05 · Quotient Q & évolution</a>
+        <a href="#solvants">05bis · Solvants & dissolution</a>
         <a href="#binaires">06 · Diagrammes binaires</a>
         <a href="#colligatives">07 · Propriétés colligatives</a>
+        <a href="#conversion">07bis · Conversion d'énergie</a>
         <a href="#pedagogie">08 · Pédagogie</a>
         <a href="#demos">09 · Démonstrations clés</a>
         <a href="#exercices">10 · Exercices résolus</a>
@@ -302,6 +304,93 @@
   </div>
 </div>
 
+<!-- ═══════════════════ 05bis SOLVANTS / DISSOLUTION ═══════════════════ -->
+<div class="sblock r" id="solvants">
+  <div class="sblock-num">Section 05bis</div>
+  <h2>5bis. Thermodynamique de la dissolution & solvants</h2>
+  <p class="intro">Sujet oral n°5 (Solvants). Grandeurs de mélange et de solvatation, règle « <em>similia similibus solvuntur</em> », interactions soluté-solvant.</p>
+
+  <h3>5bis.1 Grandeurs de mélange</h3>
+  <div class="fbox c">
+    <span class="fl">Grandeurs molaires de mélange d'un binaire idéal</span>
+    <span class="fc">Pour un mélange idéal de \(n_1\) moles de 1 et \(n_2\) moles de 2, à \(T, P\) constants, les grandeurs de mélange s'écrivent :</span>
+    <span class="fm">\[ \boxed{\;\Delta_{\text{mix}} G \;=\; n\,R\,T\,\bigl(x_1\ln x_1 + x_2\ln x_2\bigr)\;} \]</span>
+    <hr>
+    <span class="fc">Avec \(n = n_1 + n_2\) et \(x_i = n_i/n\). Comme \(\ln x_i < 0\) (fraction molaire \(< 1\)), on a toujours :</span>
+    <span class="fm">\[ \Delta_{\text{mix}} G < 0 \quad\text{(mélange idéal toujours spontané)} \]</span>
+    <hr>
+    <span class="fc">Entropie et enthalpie de mélange (idéal) :</span>
+    <span class="fm">\[ \Delta_{\text{mix}} S \;=\; -n\,R\,\bigl(x_1\ln x_1 + x_2\ln x_2\bigr) \;>\; 0 \qquad \Delta_{\text{mix}} H \;=\; 0 \]</span>
+    <span class="fc">Le mélange idéal est purement <strong>entropique</strong> : aucun effet thermique, désordre maximisé.</span>
+  </div>
+
+  <div class="demo-block">
+    <p><strong>Démonstration succincte.</strong> Le potentiel chimique d'un constituant en solution idéale s'écrit \(\mu_i = \mu_i^* + RT\ln x_i\). L'enthalpie libre de mélange est la différence entre l'enthalpie libre du mélange et celle des constituants purs séparés :</p>
+    \[ \Delta_{\text{mix}}G \;=\; \sum_i n_i\,\mu_i - \sum_i n_i\,\mu_i^* \;=\; \sum_i n_i\,RT\ln x_i \;=\; n\,RT\,\sum_i x_i \ln x_i. \]
+    <p>On en déduit \(\Delta_{\text{mix}}S = -(\partial \Delta_{\text{mix}}G/\partial T)_P = -nR\sum x_i\ln x_i > 0\) et \(\Delta_{\text{mix}}H = \Delta_{\text{mix}}G + T\Delta_{\text{mix}}S = 0\). Cohérent : aucune chaleur de mélange dans le modèle idéal.</p>
+  </div>
+
+  <h3>5bis.2 Solvatation : cycle thermodynamique</h3>
+  <div class="fbox c">
+    <span class="fl">Décomposition de l'enthalpie de dissolution</span>
+    <span class="fc">Pour un cristal ionique \(\ce{MX(s)}\) dissous dans l'eau :</span>
+    <span class="fm">\[ \Delta_{\text{sol}}H^\circ \;=\; \underbrace{\Delta_{\text{rét}}H^\circ}_{>\,0\ \text{(cohésion brisée)}} \;+\; \underbrace{\Delta_{\text{solv}}H^\circ}_{<\,0\ \text{(interaction ion-solvant)}} \]</span>
+    <hr>
+    <span class="fc">Énergie réticulaire \(\Delta_{\text{rét}}H^\circ\) : énergie nécessaire pour disperser le cristal en ions gazeux. Modèle de Born-Landé :</span>
+    <span class="fm">\[ \Delta_{\text{rét}}H^\circ \;\approx\; -\dfrac{N_A\,M\,z^+ z^-\,e^2}{4\pi\varepsilon_0\,r_0}\left(1 - \dfrac{1}{n}\right) \]</span>
+    <span class="fc">avec \(M\) constante de Madelung, \(r_0 = r^+ + r^-\), \(n\) exposant de Born (5–12).</span>
+    <hr>
+    <span class="fc">Énergie de solvatation d'un ion (modèle de Born électrostatique) :</span>
+    <span class="fm">\[ \Delta_{\text{solv}}G^\circ \;\approx\; -\dfrac{N_A\,z^2\,e^2}{8\pi\varepsilon_0\,r}\left(1 - \dfrac{1}{\varepsilon_r}\right) \]</span>
+    <span class="fc">Conséquence : la solvatation est d'autant plus exothermique que la permittivité relative \(\varepsilon_r\) du solvant est élevée (eau \(\varepsilon_r = 78\), méthanol \(33\), éther \(4{,}3\)).</span>
+  </div>
+
+  <h3>5bis.3 Classification des solvants</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Trois axes de caractérisation</div>
+    <div class="notion-body">
+      <ul>
+        <li><strong>Polarité (\(\varepsilon_r\), moment dipolaire \(\mu\)) :</strong> mesure la capacité à stabiliser les charges. Polaires : eau, méthanol, DMSO, acétonitrile. Apolaires : hexane, toluène, \(\ce{CCl4}\).</li>
+        <li><strong>Caractère protique / aprotique :</strong>
+          <ul>
+            <li><em>Protiques</em> (eau, alcools, \(\ce{NH3}\)) : donneurs de liaison H, solvatent fortement les anions.</li>
+            <li><em>Aprotiques polaires</em> (DMSO, DMF, acétone, acétonitrile) : pas de H mobile, solvatent surtout les cations. Favorisent les substitutions \(\ce{S_N2}\) sur anion nu très réactif.</li>
+            <li><em>Aprotiques apolaires</em> (hexane, toluène, \(\ce{CH2Cl2}\)) : solvatation faible, utilisés pour molécules neutres lipophiles.</li>
+          </ul>
+        </li>
+        <li><strong>Pouvoir donneur / accepteur (échelles de Gutmann)</strong> : DN (donor number) et AN (acceptor number) classent les solvants selon leur capacité à donner ou accepter un doublet libre.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fbox c">
+    <span class="fl">Règle empirique : <em>similia similibus solvuntur</em></span>
+    <span class="fc">« Le semblable dissout le semblable. » Un soluté polaire/ionique se dissout préférentiellement dans un solvant polaire ; un soluté apolaire dans un solvant apolaire.</span>
+    <hr>
+    <span class="fc"><strong>Justification thermodynamique.</strong> Pour dissoudre A dans B, il faut briser les interactions A–A et B–B, et former des interactions A–B. Le bilan enthalpique est favorable seulement si les nouvelles interactions A–B compensent : il faut que A et B soient de même nature (dispersion ↔ dispersion, dipôle ↔ dipôle, liaison H ↔ liaison H).</span>
+    <hr>
+    <span class="fc">Exemples : \(\ce{NaCl}\) très soluble dans l'eau (ion-dipôle), insoluble dans l'hexane. Le diiode \(\ce{I2}\) (apolaire) se dissout très bien dans le cyclohexane, peu dans l'eau.</span>
+  </div>
+
+  <h3>5bis.4 Solutions réelles : grandeurs d'excès</h3>
+  <div class="fbox c">
+    <span class="fl">Écart à l'idéalité</span>
+    <span class="fc">Pour une solution non idéale, on introduit le <strong>coefficient d'activité</strong> \(\gamma_i\) :</span>
+    <span class="fm">\[ \mu_i \;=\; \mu_i^* + RT\ln(\gamma_i\,x_i) \qquad a_i = \gamma_i\,x_i \]</span>
+    <hr>
+    <span class="fc">Grandeurs d'excès : \(G^E = G_{\text{réel}} - G_{\text{idéal}}\), avec :</span>
+    <span class="fm">\[ G^E \;=\; RT\sum_i n_i \ln\gamma_i \]</span>
+    <hr>
+    <span class="fc"><strong>Écart positif</strong> (\(\gamma_i > 1\), \(G^E > 0\)) : interactions A–B défavorables (azéotrope à minimum d'ébullition, ex. EtOH–\(\ce{H2O}\)).</span>
+    <span class="fc"><strong>Écart négatif</strong> (\(\gamma_i < 1\), \(G^E < 0\)) : interactions A–B favorables (azéotrope à maximum, ex. HCl–\(\ce{H2O}\), liaison H ou complexes).</span>
+  </div>
+
+  <div class="alert alert-chim r">
+    <span class="ico">🧪</span>
+    <div><strong>Expérience emblématique pour l'oral.</strong> La dissolution de \(\ce{NH4NO3}\) (endothermique, \(\Delta_{\text{sol}}H^\circ \approx +25\,\mathrm{kJ\cdot mol^{-1}}\)) refroidit nettement le bécher : les <em>poches de froid instantané</em> en pharmacie reposent sur ce principe. À l'inverse, \(\ce{CaCl2}\) (\(\Delta_{\text{sol}}H^\circ \approx -80\,\mathrm{kJ\cdot mol^{-1}}\)) est très exothermique : poches chauffantes. Dans les deux cas, \(\Delta_{\text{sol}}G < 0\) (sinon pas de dissolution spontanée) — l'entropie de mélange compense l'enthalpie défavorable de \(\ce{NH4NO3}\).</div>
+  </div>
+</div>
+
 <!-- ═══════════════════ 06 BINAIRES ═══════════════════ -->
 <div class="sblock r" id="binaires">
   <div class="sblock-num">Section 06</div>
@@ -348,6 +437,55 @@
       <p>avec \(z_B\) : composition globale, \(x_B\) : composition en B du liquide, \(y_B\) : composition en B de la vapeur.</p>
     </div>
   </div>
+
+  <figure class="diagram" style="margin:1.25rem 0">
+    <svg viewBox="0 0 900 500" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramme isobare T-x binaire avec azéotrope à minimum">
+      <defs>
+        <pattern id="hatchLV" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="8" stroke="#d0bfff" stroke-width="1.5" opacity="0.7"/>
+        </pattern>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M0,0 L10,5 L0,10 Z" fill="#444"/>
+        </marker>
+      </defs>
+      <!-- cadre axes -->
+      <line x1="100" y1="60" x2="100" y2="430" stroke="#444" stroke-width="2"/>
+      <line x1="100" y1="430" x2="820" y2="430" stroke="#444" stroke-width="2"/>
+      <!-- graduations x -->
+      <text x="100" y="455" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#444">0</text>
+      <text x="820" y="455" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#444">1</text>
+      <text x="460" y="478" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="15" fill="#222">x<tspan baseline-shift="sub" font-size="11">B</tspan> , y<tspan baseline-shift="sub" font-size="11">B</tspan>  (fraction molaire en B)</text>
+      <!-- label y -->
+      <text x="50" y="245" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="15" fill="#222" transform="rotate(-90 50 245)">Température T  (à P = cte)</text>
+      <text x="85" y="80" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#444">T°<tspan baseline-shift="sub" font-size="10">A</tspan></text>
+      <text x="85" y="200" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#444">T<tspan baseline-shift="sub" font-size="10">az</tspan></text>
+      <text x="85" y="410" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#444">T°<tspan baseline-shift="sub" font-size="10">B</tspan></text>
+      <line x1="95" y1="80" x2="105" y2="80" stroke="#444" stroke-width="1.5"/>
+      <line x1="95" y1="200" x2="105" y2="200" stroke="#444" stroke-width="1.5"/>
+      <line x1="95" y1="410" x2="105" y2="410" stroke="#444" stroke-width="1.5"/>
+      <!-- zone biphasée (entre courbes) -->
+      <path d="M 100 80 Q 200 180 380 195 Q 460 200 460 200 Q 540 200 620 220 Q 720 320 820 410 L 820 410 Q 720 360 620 280 Q 540 220 460 200 Q 380 195 280 230 Q 180 320 100 80 Z" fill="url(#hatchLV)" opacity="0.5"/>
+      <!-- courbe de bulle (liquidus) - en bas de la zone L+V (T plus basse) -->
+      <path d="M 100 80 Q 200 180 380 195 Q 460 200 540 200 Q 620 220 720 320 Q 770 380 820 410" fill="none" stroke="#7c3aed" stroke-width="3"/>
+      <!-- courbe de rosée (vaporus) - en haut de la zone L+V (T plus haute pour fraction donnée) -->
+      <path d="M 100 80 Q 200 130 280 165 Q 380 195 460 200 Q 540 215 620 280 Q 720 360 820 410" fill="none" stroke="#7c3aed" stroke-width="3" stroke-dasharray="6 4"/>
+      <!-- point azéotropique -->
+      <circle cx="460" cy="200" r="6" fill="#b91c1c" stroke="#fff" stroke-width="2"/>
+      <text x="470" y="180" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#b91c1c">Azéotrope (x = y)</text>
+      <line x1="460" y1="200" x2="460" y2="430" stroke="#b91c1c" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+      <text x="460" y="445" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#b91c1c">x<tspan baseline-shift="sub" font-size="9">az</tspan></text>
+      <!-- labels des domaines -->
+      <text x="260" y="100" font-family="DM Serif Display, serif" font-style="italic" font-size="20" fill="#2f9e44">Vapeur</text>
+      <text x="600" y="400" font-family="DM Serif Display, serif" font-style="italic" font-size="20" fill="#4a9eed">Liquide</text>
+      <text x="640" y="180" font-family="DM Serif Display, serif" font-style="italic" font-size="17" fill="#8b5cf6">L + V</text>
+      <!-- légende des courbes -->
+      <line x1="640" y1="55" x2="680" y2="55" stroke="#7c3aed" stroke-width="3"/>
+      <text x="688" y="59" font-family="DM Sans, sans-serif" font-size="12" fill="#222">courbe de bulle (liquidus)</text>
+      <line x1="640" y1="78" x2="680" y2="78" stroke="#7c3aed" stroke-width="3" stroke-dasharray="6 4"/>
+      <text x="688" y="82" font-family="DM Sans, sans-serif" font-size="12" fill="#222">courbe de rosée (vaporus)</text>
+    </svg>
+    <figcaption style="text-align:center;font-style:italic;color:#555;font-size:13px;margin-top:4px">Diagramme isobare T–x d'un mélange binaire A+B présentant un azéotrope à minimum d'ébullition (écarts positifs à Raoult). Au point azéotropique, les courbes de bulle et de rosée se touchent : x<sub>B</sub><sup>(ℓ)</sup> = y<sub>B</sub><sup>(v)</sup>.</figcaption>
+  </figure>
 
   <h3>6.4 Azéotropes</h3>
   <div class="fbox c">
@@ -399,32 +537,318 @@
   </div>
 </div>
 
+<!-- ═══════════════════ 07bis CONVERSION D'ENERGIE ═══════════════════ -->
+<div class="sblock r" id="conversion">
+  <div class="sblock-num">Section 07bis</div>
+  <h2>7bis. Conversion d'énergie chimique</h2>
+  <p class="intro">Sujet oral n°13 (Conversion d'énergie). Rendement thermodynamique des réactions, piles à combustible, couplage énergétique en biochimie.</p>
+
+  <h3>7bis.1 Rendement thermodynamique maximal</h3>
+  <div class="fbox c">
+    <span class="fl">Travail utile et rendement réversible</span>
+    <span class="fc">Pour une transformation à \(T, P\) constants, le travail <em>utile</em> maximal récupérable (autre que celui des forces de pression) vaut :</span>
+    <span class="fm">\[ \boxed{\;W_{\text{utile, max}} \;=\; -\Delta_r G \;=\; \mathcal{A}\,\mathrm{d}\xi\;} \]</span>
+    <hr>
+    <span class="fc">Le rendement thermodynamique <em>maximal</em> (cas réversible) d'une réaction chimique convertie en travail utile est donc :</span>
+    <span class="fm">\[ \eta_{\text{therm}} \;=\; \dfrac{|\Delta_r G|}{|\Delta_r H|} \;=\; 1 \;-\; \dfrac{T\,|\Delta_r S|}{|\Delta_r H|} \]</span>
+    <hr>
+    <span class="fc"><strong>Comparaison avec Carnot.</strong> Un moteur thermique fonctionnant entre \(T_c = 500\,\mathrm{K}\) et \(T_f = 300\,\mathrm{K}\) a \(\eta_{\text{Carnot}} = 1 - T_f/T_c = 0{,}40\). Une pile \(\ce{H2}/\ce{O2}\) à 25 °C a \(\eta_{\text{therm}} \approx 0{,}83\) (voir 7bis.2) : <strong>la conversion électrochimique directe dépasse Carnot</strong> car elle évite le passage par la chaleur.</span>
+  </div>
+
+  <h3>7bis.2 Pile à combustible \(\ce{H2}/\ce{O2}\)</h3>
+  <div class="fbox c">
+    <span class="fl">Bilan thermodynamique de la réaction \(\ce{H2 + 1/2 O2 -> H2O(l)}\)</span>
+    <span class="fc">Données à 298 K : \(\Delta_r H^\circ = -285{,}8\,\mathrm{kJ\cdot mol^{-1}}\) (PCI/PCS de l'hydrogène), \(\Delta_r S^\circ = -163\,\mathrm{J\cdot K^{-1}\cdot mol^{-1}}\).</span>
+    <span class="fm">\[ \Delta_r G^\circ \;=\; \Delta_r H^\circ - T\Delta_r S^\circ \;=\; -285{,}8 + 298\times 0{,}163 \;\approx\; -237{,}1\,\mathrm{kJ\cdot mol^{-1}} \]</span>
+    <hr>
+    <span class="fc">Tension réversible de la pile (relation \(\Delta_r G = -nFE\) avec \(n = 2\)) :</span>
+    <span class="fm">\[ E^\circ \;=\; -\dfrac{\Delta_r G^\circ}{nF} \;=\; \dfrac{237{,}1\times 10^3}{2\times 96485} \;\approx\; 1{,}23\,\mathrm{V} \]</span>
+    <hr>
+    <span class="fc">Rendement maximal théorique de la conversion :</span>
+    <span class="fm">\[ \eta_{\text{th}} \;=\; \dfrac{|\Delta_r G^\circ|}{|\Delta_r H^\circ|} \;=\; \dfrac{237{,}1}{285{,}8} \;\approx\; 83\,\% \]</span>
+    <span class="fc">En pratique, les surtensions cinétiques (électrode \(\ce{O2}\) lente) et la chute ohmique réduisent à \(\eta_{\text{pratique}} \approx 50\text{–}60\,\%\) pour une PEMFC commerciale. Reste très supérieur aux 30–35 % d'un moteur thermique à hydrogène.</span>
+  </div>
+
+  <h3>7bis.3 Couplage énergétique en biochimie</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>L'ATP, monnaie énergétique du vivant</div>
+    <div class="notion-body">
+      <p>L'hydrolyse de l'adénosine triphosphate (ATP) :</p>
+      \[ \ce{ATP + H2O -> ADP + P_i} \qquad \Delta_r G^{\circ\prime} \approx -30\,\mathrm{kJ\cdot mol^{-1}}\ (\text{pH 7, 37 °C}) \]
+      <p>Cette réaction très exergonique permet de <strong>coupler thermodynamiquement</strong> des réactions endergoniques (\(\Delta_r G > 0\)) en additionnant les enthalpies libres. Exemple — phosphorylation du glucose (étape 1 de la glycolyse) :</p>
+      \[ \ce{Glucose + P_i -> Glucose\text{-}6\text{-}P}\ :\ \Delta_r G^{\circ\prime} = +13{,}8\,\mathrm{kJ\cdot mol^{-1}}\ \text{(non spontanée)} \]
+      \[ \ce{ATP -> ADP + P_i}\ :\ \Delta_r G^{\circ\prime} = -30{,}5\,\mathrm{kJ\cdot mol^{-1}} \]
+      \[ \text{Bilan couplé :}\ \ce{Glucose + ATP -> Glucose\text{-}6\text{-}P + ADP}\ :\ \Delta_r G^{\circ\prime} = -16{,}7\,\mathrm{kJ\cdot mol^{-1}}\ \text{(spontanée)} \]
+      <p>Le couplage cinétique est assuré par l'<strong>hexokinase</strong> (enzyme). Sans enzyme, les deux réactions ne se rencontrent pas : la thermodynamique permet, la cinétique réalise.</p>
+    </div>
+  </div>
+
+  <h3>7bis.4 Exergie et qualité de l'énergie</h3>
+  <div class="fbox c">
+    <span class="fl">Notion d'exergie chimique</span>
+    <span class="fc">L'<strong>exergie</strong> d'une substance est le travail maximum récupérable en l'amenant à l'équilibre avec un environnement de référence \((T_0, P_0)\) :</span>
+    <span class="fm">\[ \text{Ex} \;=\; \bigl[H - H_0\bigr] - T_0\bigl[S - S_0\bigr] \]</span>
+    <hr>
+    <span class="fc">Pour une combustion (\(\Delta_r H^\circ\) connue) : l'exergie chimique du combustible est proche de \(|\Delta_r G^\circ|\), pas de \(|\Delta_r H^\circ|\).</span>
+    <hr>
+    <span class="fc"><strong>Conséquence pratique.</strong> Quand on brûle un combustible dans un moteur thermique, on convertit l'exergie chimique en chaleur (perte d'exergie : \(T_0 \Delta S_{\text{univ}} > 0\)), puis la chaleur en travail avec rendement \(\eta_{\text{Carnot}} < 1\). La conversion <em>directe</em> chimie → électricité (pile) ou chimie → travail mécanique (muscle, moteur à explosion idéal) est exergétiquement supérieure.</span>
+  </div>
+
+  <figure class="diagram" style="margin:1.25rem 0">
+    <svg viewBox="0 0 900 460" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Courbe de l'enthalpie libre G en fonction de l'avancement de réaction">
+      <defs>
+        <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M0,0 L10,5 L0,10 Z" fill="#444"/>
+        </marker>
+      </defs>
+      <!-- axes -->
+      <line x1="100" y1="60" x2="100" y2="400" stroke="#444" stroke-width="2" marker-start="url(#arr2)"/>
+      <line x1="100" y1="400" x2="820" y2="400" stroke="#444" stroke-width="2" marker-end="url(#arr2)"/>
+      <text x="50" y="230" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="16" fill="#222" transform="rotate(-90 50 230)">G  (enthalpie libre)</text>
+      <text x="460" y="440" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="16" fill="#222">ξ  (avancement de réaction)</text>
+      <text x="100" y="425" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#444">0</text>
+      <text x="820" y="425" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#444">ξ<tspan baseline-shift="sub" font-size="10">max</tspan></text>
+      <!-- courbe G(xi) avec minimum (parabole déformée) -->
+      <path d="M 120 90 Q 250 200 460 320 Q 620 360 720 280 Q 780 220 820 130" fill="none" stroke="#7c3aed" stroke-width="4"/>
+      <!-- point minimum (équilibre) -->
+      <circle cx="555" cy="343" r="7" fill="#b91c1c" stroke="#fff" stroke-width="2"/>
+      <line x1="555" y1="343" x2="555" y2="400" stroke="#b91c1c" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7"/>
+      <text x="555" y="425" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#b91c1c">ξ<tspan baseline-shift="sub" font-size="10">eq</tspan></text>
+      <text x="575" y="340" font-family="DM Sans, sans-serif" font-size="14" font-weight="600" fill="#b91c1c">équilibre : Δ<tspan font-style="italic">r</tspan>G = 0</text>
+      <!-- tangentes / annotations de pente -->
+      <line x1="280" y1="220" x2="380" y2="285" stroke="#2f9e44" stroke-width="2" stroke-dasharray="5 3"/>
+      <text x="220" y="195" font-family="DM Sans, sans-serif" font-size="13" fill="#2f9e44">Δ<tspan font-style="italic">r</tspan>G &lt; 0  (sens direct)</text>
+      <line x1="700" y1="290" x2="780" y2="220" stroke="#e67700" stroke-width="2" stroke-dasharray="5 3"/>
+      <text x="660" y="200" font-family="DM Sans, sans-serif" font-size="13" fill="#e67700">Δ<tspan font-style="italic">r</tspan>G &gt; 0  (sens inverse)</text>
+      <!-- labels extrémités -->
+      <text x="135" y="80" font-family="DM Sans, sans-serif" font-size="13" font-style="italic" fill="#4a9eed">réactifs purs</text>
+      <text x="780" y="120" text-anchor="end" font-family="DM Sans, sans-serif" font-size="13" font-style="italic" fill="#4a9eed">produits purs</text>
+      <!-- flèche d'évolution -->
+      <path d="M 340 360 Q 460 380 540 365" fill="none" stroke="#444" stroke-width="1.5" marker-end="url(#arr2)"/>
+      <text x="440" y="395" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#444" font-style="italic">dG ≤ 0  (2ᵉ principe)</text>
+    </svg>
+    <figcaption style="text-align:center;font-style:italic;color:#555;font-size:13px;margin-top:4px">Enthalpie libre G du système en fonction de l'avancement ξ à T et P fixées. L'équilibre correspond au minimum (Δ<sub>r</sub>G = 0, soit Q = K°). Tout écart à l'équilibre libère un travail utile maximal |Δ<sub>r</sub>G| par mole d'avancement (cas réversible).</figcaption>
+  </figure>
+
+  <div class="alert alert-gold r">
+    <span class="ico">💡</span>
+    <div><strong>Lecture jury.</strong> Bien insister sur le fait que \(W_{\text{utile, max}} = -\Delta_r G\) (et non \(-\Delta_r H\)) : c'est l'<em>enthalpie libre</em>, pas l'enthalpie, qui mesure la capacité à fournir un travail. La différence \(T\Delta_r S\) est nécessairement dissipée en chaleur — même dans le cas réversible idéal.</div>
+  </div>
+</div>
+
 <!-- ═══════════════════ 08 PEDAGOGIE ═══════════════════ -->
 <div class="sblock r" id="pedagogie">
   <div class="sblock-num">Section 08</div>
   <h2>8. Pédagogie et didactique</h2>
-  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+  <p class="intro">Progression notionnelle du collège à la CPGE, plans-types des sujets oraux n°9 et n°11, difficultés classiques.</p>
 
-  <div class="notion c">
-    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
-    <div class="notion-body"><ul>
-      <li><strong>1<sup>re</sup> spé</strong> : énergie de réaction, premier principe qualitatif, sens de transfert thermique.</li>
-      <li><strong>Terminale spé</strong> : enthalpie de réaction \(\Delta_r H\) explicitée, énergies de liaison, calculs de chaleur dégagée/absorbée. Évolution d'un système chimique, quotient de réaction \(Q_r\), constante d'équilibre \(K\). Sens d'évolution \(Q_r &lt; K\) vs \(Q_r &gt; K\). Principe de Le Châtelier qualitatif.</li>
-      <li><strong>Terminale STL</strong> : approfondissement en thermodynamique (Hess, mesures calorimétriques).</li>
-    </ul></div>
+  <h3>8.1 Progression notionnelle collège → CPGE</h3>
+
+  <div class="ped-card r">
+    <div class="niveau">Cycle 4 — collège (5ᵉ, 4ᵉ, 3ᵉ)</div>
+    <h5>Mélanges, dissolution, conservation de la masse</h5>
+    <ul>
+      <li>Distinguer corps pur et mélange. Mélanges homogènes vs hétérogènes (eau salée vs eau + huile).</li>
+      <li>Dissolution du sel, du sucre dans l'eau : <strong>conservation de la masse</strong> (la masse de sel ne disparaît pas, elle se redistribue).</li>
+      <li>Miscibilité : eau + alcool oui, eau + huile non. Premier contact intuitif avec « semblable dissout semblable ».</li>
+      <li>Transferts thermiques qualitatifs : combustion (libère de la chaleur), fusion (en absorbe).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Seconde GT</div>
+    <h5>Réactions chimiques, énergie de réaction (introduction)</h5>
+    <ul>
+      <li>Écriture d'une équation chimique équilibrée, notion de réactif/produit.</li>
+      <li>Première approche qualitative : réactions exothermiques (combustion, neutralisation acide-base) vs endothermiques (dissolution \(\ce{NH4NO3}\)).</li>
+      <li>Concentration en masse et en quantité de matière dans une solution.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Première spécialité physique-chimie</div>
+    <h5>Énergie libérée par une réaction, sens de transfert thermique</h5>
+    <ul>
+      <li>Énergie libérée par une combustion : \(E = m\,|\Delta_{\text{comb}}H|\). Pouvoir calorifique d'un combustible (kJ/g).</li>
+      <li>Premier principe qualitatif : la chaleur dégagée est égale à la variation d'énergie interne du système.</li>
+      <li>Mesure calorimétrique simple (calorimètre, cuvette) : \(Q = m c \Delta T\).</li>
+      <li><em>Hors programme mais récurrent</em> : effet thermique de la dissolution (poches de froid/chaud).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Terminale spécialité physique-chimie</div>
+    <h5>Enthalpie de réaction, équilibre, quotient Q, Le Châtelier qualitatif</h5>
+    <ul>
+      <li>Enthalpie standard de réaction \(\Delta_r H^\circ\) : calcul à partir des énergies de liaison ou des \(\Delta_f H^\circ\) tabulés (loi de Hess implicite).</li>
+      <li>Évolution d'un système chimique : <strong>quotient de réaction \(Q_r\)</strong> (limité aux solutions aqueuses), <strong>constante d'équilibre \(K\)</strong>.</li>
+      <li>Critère d'évolution : comparaison \(Q_r\) à \(K\). Sens direct si \(Q_r < K\), inverse si \(Q_r > K\).</li>
+      <li>Principe de Le Châtelier <em>qualitatif</em> : effets de \(T\), de la dilution, d'un ajout de réactif.</li>
+      <li><strong>Limitation programme</strong> : pas d'enthalpie libre, pas de \(\Delta_r G^\circ = -RT\ln K\). Le \(K\) est introduit comme une donnée.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE 1ʳᵉ année (PCSI, MPSI option PC)</div>
+    <h5>Premier et second principes appliqués à la réaction</h5>
+    <ul>
+      <li>Premier principe pour un système réactif : \(\Delta_r U^\circ\), \(\Delta_r H^\circ\), loi de Hess formalisée.</li>
+      <li>Loi de Kirchhoff : variation de \(\Delta_r H^\circ\) avec \(T\) via \(\Delta_r C_p^\circ\).</li>
+      <li>Entropie de réaction \(\Delta_r S^\circ\), 3ᵉ principe (Nernst), entropies absolues tabulées.</li>
+      <li>Bilan énergétique d'une combustion industrielle, calorimétrie de Berthelot.</li>
+      <li>Diagrammes binaires liquide-vapeur, courbes d'analyse thermique (introduction PC).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE 2ᵉ année (PC, PSI)</div>
+    <h5>Enthalpie libre, potentiel chimique, équilibre quantitatif</h5>
+    <ul>
+      <li><strong>Enthalpie libre de Gibbs</strong> \(G = H - TS\), critère d'évolution \(\mathrm{d}G \leq 0\) à \(T, P\) constants.</li>
+      <li><strong>Potentiel chimique</strong> \(\mu_i = \mu_i^\circ + RT\ln a_i\). Activités selon la nature des espèces.</li>
+      <li>Relation \(\Delta_r G^\circ = -RT\ln K^\circ\) démontrée. Affinité chimique \(\mathcal{A} = -\Delta_r G\).</li>
+      <li>Équation de van't Hoff (dérivation à partir de Gibbs-Helmholtz). Exploitation expérimentale par tracé \(\ln K^\circ = f(1/T)\).</li>
+      <li>Diagrammes binaires complets (azéotropes, eutectiques, miscibilité partielle), règle des moments.</li>
+      <li>Couplage thermodynamique-électrochimie : \(\Delta_r G^\circ = -nFE^\circ\) (pont avec le chapitre Électrochimie).</li>
+    </ul>
+  </div>
+
+  <h3>8.2 Plans-types pour les sujets oraux</h3>
+
+  <div class="summary-box r">
+    <h4>Sujet oral n°11 — Équilibre chimique (plan-type 40 min)</h4>
+    <ul>
+      <li><strong>Introduction (3–5 min) :</strong> motivation expérimentale — équilibre \(\ce{2 NO2 <=> N2O4}\) en seringue (changement de couleur à la compression). Problématique : peut-on prévoir <em>quantitativement</em> l'état final d'un système ?</li>
+      <li><strong>Partie 1 — Approche secondaire/lycée (15 min) :</strong>
+        <ul>
+          <li>Définition de l'équilibre dynamique (vitesses directe/inverse égales).</li>
+          <li>Quotient de réaction \(Q_r\), constante \(K\) (niveau terminale).</li>
+          <li>Critère qualitatif d'évolution : \(Q_r\) vs \(K\). Application : précipitation d'un sel peu soluble.</li>
+          <li><strong>Expérience qualitative</strong> : déplacement de l'équilibre \(\ce{Fe^{3+} + SCN- <=> [FeSCN]^{2+}}\) par ajout/retrait de réactif (suivi visuel rouge sang).</li>
+          <li>Principe de Le Châtelier qualitatif (effets de T, P, concentration).</li>
+        </ul>
+      </li>
+      <li><strong>Partie 2 — Approfondissement CPGE (15 min) :</strong>
+        <ul>
+          <li>Enthalpie libre \(G = H - TS\), critère \(\mathrm{d}G \leq 0\).</li>
+          <li>Démonstration de \(\Delta_r G^\circ = -RT\ln K^\circ\) (à partir de \(\Delta_r G = \Delta_r G^\circ + RT\ln Q = 0\) à l'équilibre).</li>
+          <li>Affinité chimique \(\mathcal{A} = RT\ln(K^\circ/Q)\). Critère quantitatif.</li>
+          <li>Équation de van't Hoff, exploitation par tracé linéaire.</li>
+          <li><strong>Expérience quantitative</strong> : détermination de \(\Delta_r H^\circ\) du complexe \(\ce{[FeSCN]^{2+}}\) par spectrophotométrie à 5 températures (cf. Montage 2).</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (3–5 min) :</strong> applications industrielles (Haber-Bosch : compromis thermo/cinétique), ouverture sur la cinétique (équilibre vs vitesse) et l'électrochimie (\(\Delta_r G = -nFE\)).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Sujet oral n°9 — Mélanges binaires (plan-type 40 min)</h4>
+    <ul>
+      <li><strong>Introduction (3–5 min) :</strong> distillation d'un mélange eau-éthanol au laboratoire. Pourquoi obtient-on un palier de température ? Comment fabrique-t-on de l'alcool à 95° industriellement ?</li>
+      <li><strong>Partie 1 — Niveau lycée/STL (15 min) :</strong>
+        <ul>
+          <li>Mise en évidence expérimentale : courbe \(T = f(t)\) d'une distillation simple (palier à \(T_{\text{eb}}\) du composé pur).</li>
+          <li>Notion de miscibilité, de température d'ébullition, de pression de vapeur saturante.</li>
+          <li>Techniques de séparation : distillation simple, fractionnée, hydrodistillation (programme STL).</li>
+          <li>Lecture qualitative d'un diagramme binaire isobare T-x : domaines liquide / liquide-vapeur / vapeur.</li>
+        </ul>
+      </li>
+      <li><strong>Partie 2 — Niveau CPGE (15 min) :</strong>
+        <ul>
+          <li><strong>Loi de Raoult</strong> démontrée à partir de l'égalité des potentiels chimiques \(\mu_A^{(\ell)} = \mu_A^{(\text{v})}\) en solution idéale.</li>
+          <li>Loi de Henry (limite solution diluée). Distinction Raoult/Henry.</li>
+          <li>Diagrammes T-x et y-x, courbes de bulle et de rosée, règle des moments.</li>
+          <li>Azéotropes (à minimum/maximum) : justification thermodynamique par les écarts à l'idéalité (\(G^E \neq 0\), \(\gamma_i \neq 1\)).</li>
+          <li><strong>Expérience quantitative</strong> : tracé expérimental d'un diagramme T-x eau-éthanol au réfractomètre + thermomètre numérique. Comparaison aux courbes tabulées.</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (3–5 min) :</strong> applications industrielles (raffinage pétrolier, distillation des spiritueux). Ouverture sur les diagrammes binaires solide-liquide (eutectiques) et les colonnes à plateaux (génie chimique).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Sujet oral n°5 — Solvants (plan-type 40 min)</h4>
+    <ul>
+      <li><strong>Introduction (3–5 min) :</strong> pourquoi peut-on dissoudre du sel dans l'eau mais pas dans l'huile ? Pourquoi le diiode colore-t-il le cyclohexane mais pas l'eau ? Visualisation d'un test de partage \(\ce{I2}\) eau/cyclohexane.</li>
+      <li><strong>Partie 1 — Niveau lycée (15 min) :</strong>
+        <ul>
+          <li>Dissolution d'un solide ionique (\(\ce{NaCl}\)) : étapes microscopiques de dispersion + solvatation. Conservation de la masse.</li>
+          <li>Notion de polarité moléculaire (moment dipolaire de l'eau, géométrie coudée).</li>
+          <li>Règle empirique <em>similia similibus</em> : solvant polaire ↔ soluté polaire ou ionique.</li>
+          <li><strong>Expérience qualitative</strong> : dissolution comparée \(\ce{KMnO4}\) (ionique) et \(\ce{I2}\) (covalent apolaire) dans eau et cyclohexane.</li>
+        </ul>
+      </li>
+      <li><strong>Partie 2 — Niveau CPGE (15 min) :</strong>
+        <ul>
+          <li>Cycle thermodynamique de la dissolution : \(\Delta_{\text{sol}}H^\circ = \Delta_{\text{rét}}H^\circ + \Delta_{\text{solv}}H^\circ\).</li>
+          <li>Modèle de Born pour l'enthalpie de solvatation d'un ion : \(\Delta_{\text{solv}}G \propto -z^2/r \cdot (1 - 1/\varepsilon_r)\). Rôle de la permittivité.</li>
+          <li>Classification protique/aprotique, polaire/apolaire. Solvants aprotiques polaires (DMSO, DMF) en chimie organique : effet sur \(\ce{S_N2}\).</li>
+          <li>Grandeurs de mélange : \(\Delta_{\text{mix}}G = nRT\sum x_i\ln x_i < 0\) (mélange idéal toujours spontané).</li>
+          <li><strong>Expérience quantitative</strong> : calorimétrie de dissolution de \(\ce{NH4NO3}\) (endothermique, \(\approx +25\,\mathrm{kJ\cdot mol^{-1}}\)) — confirme que \(\Delta_{\text{sol}}G < 0\) est entropiquement piloté.</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (3–5 min) :</strong> applications — extraction liquide-liquide (chimie séparative), pouvoir solvant des fluides supercritiques (\(\ce{CO2}\) pour la décaféination). Ouverture sur la chimie en milieu non aqueux et la chimie verte.</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Sujet oral n°13 — Conversion d'énergie (plan-type 40 min)</h4>
+    <ul>
+      <li><strong>Introduction (3–5 min) :</strong> de la pile Volta (1800) aux piles à combustible des navettes spatiales, problématique de la conversion énergie chimique → travail utile. Comparaison avec le moteur thermique (Carnot).</li>
+      <li><strong>Partie 1 — Niveau lycée (15 min) :</strong>
+        <ul>
+          <li>Énergie libérée par une combustion (1ʳᵉ spé) : pouvoir calorifique, application aux carburants.</li>
+          <li>Pile de Daniell : principe d'une pile (Tle spé), tension à vide. Énergie électrique récupérée.</li>
+          <li>Rendement d'un moteur thermique (notions Carnot, programme STL/CPGE-bac).</li>
+          <li><strong>Expérience qualitative</strong> : mesure de la f.e.m. d'une pile Daniell ou de la pile « citron ». Comparaison avec la valeur théorique.</li>
+        </ul>
+      </li>
+      <li><strong>Partie 2 — Niveau CPGE (15 min) :</strong>
+        <ul>
+          <li>Travail utile maximal : \(W_{\text{utile, max}} = -\Delta_r G\). Rendement thermo \(\eta = |\Delta_r G|/|\Delta_r H|\).</li>
+          <li>Pile \(\ce{H2}/\ce{O2}\) : calcul de \(E^\circ = 1{,}23\,\mathrm{V}\), rendement théorique 83 %, comparaison avec Carnot.</li>
+          <li>Couplage énergétique en biochimie : ATP (\(\Delta_r G^{\circ\prime} \approx -30\,\mathrm{kJ\cdot mol^{-1}}\)), phosphorylation du glucose.</li>
+          <li>Notion d'exergie chimique, dégradation par dissipation thermique.</li>
+          <li><strong>Expérience quantitative</strong> : tracé de la courbe \(U = f(I)\) d'une pile commerciale, détermination de la résistance interne et du rendement réel.</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (3–5 min) :</strong> enjeux énergétiques actuels — pile à combustible PEMFC, hydrogène vert, stockage électrochimique (Li-ion). Ouverture sur la thermodynamique des processus irréversibles.</li>
+    </ul>
+  </div>
+
+  <h3>8.3 Difficultés classiques d'élèves et erreurs récurrentes</h3>
+
+  <div class="alert alert-gold r">
+    <span class="ico">📋</span>
+    <div><strong>Conceptions erronées au lycée (Terminale spé) :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>Croire que « équilibre » signifie « réaction arrêtée » — confusion entre équilibre <em>dynamique</em> et stationnarité.</li>
+        <li>Penser que \(K\) dépend des concentrations initiales — \(K\) ne dépend que de \(T\).</li>
+        <li>Inclure les solides ou le solvant dans \(Q_r\) (oubli que leur activité vaut 1).</li>
+        <li>Confondre « réaction exothermique » et « réaction spontanée » — un mélange exothermique peut nécessiter de l'activation (briquet pour allumer le gaz).</li>
+        <li>Croire que Le Châtelier prédit la <em>nouvelle valeur</em> de \(K\) — il prédit seulement le <em>sens</em> du déplacement.</li>
+      </ul>
+    </div>
   </div>
 
   <div class="alert alert-gold r">
     <span class="ico">📋</span>
-    <div><strong>Difficultés classiques des élèves :</strong>
+    <div><strong>Erreurs récurrentes en CPGE :</strong>
       <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
-        <li>Confondre \(\Delta_r G\) (dépend de \(Q\), composition) et \(\Delta_r G^\circ\) (intrinsèque, état standard).</li>
-        <li>Oublier les unités d'activité (\(c/c^\circ\), \(P/P^\circ\)).</li>
-        <li>Inclure les solides ou solvants dans \(Q\) (activité = 1, n'apparaissent pas).</li>
-        <li>Confondre Le Châtelier qualitatif et le calcul quantitatif via \(Q\) et \(K^\circ\).</li>
-        <li>Mauvais sens du déplacement quand on chauffe (oublier le signe de \(\Delta_r H^\circ\)).</li>
+        <li>Confondre \(\Delta_r G\) (dépend de \(Q\), composition réelle) et \(\Delta_r G^\circ\) (intrinsèque, état standard, ne dépend que de \(T\)). <strong>Très signalé par le jury.</strong></li>
+        <li>Oublier les unités d'activité (\(c/c^\circ\), \(P/P^\circ\)) → \(K^\circ\) sans dimension.</li>
+        <li>Confondre Le Châtelier qualitatif et calcul quantitatif via \(\Delta_r G = \Delta_r G^\circ + RT\ln Q\).</li>
+        <li>Mauvais sens du déplacement par chauffage (oublier le signe de \(\Delta_r H^\circ\) dans van't Hoff).</li>
+        <li>Effet d'un gaz inerte : à \(P\) totale constante (dilution effective) vs à \(V\) constant (aucun effet sur \(P_i\)).</li>
+        <li>Diagrammes binaires : confondre \(x\) (composition liquide) et \(y\) (composition vapeur) dans la règle des moments.</li>
+        <li>Pile \(\ce{H2}/\ce{O2}\) : utiliser \(\Delta_r H^\circ\) au lieu de \(\Delta_r G^\circ\) pour calculer \(E^\circ\).</li>
       </ul>
     </div>
+  </div>
+
+  <div class="alert alert-chim r">
+    <span class="ico">🧪</span>
+    <div><strong>Astuce didactique.</strong> Pour faire comprendre la différence \(\Delta_r G\) vs \(\Delta_r G^\circ\), utiliser l'analogie du <em>potentiel gravitationnel</em> : \(\Delta_r G^\circ\) est l'altitude « tabulée » du sommet d'une montagne (caractérise la montagne), \(\Delta_r G\) est la différence d'altitude entre votre position actuelle et le fond de la vallée (caractérise votre état). À l'équilibre (au fond), \(\Delta_r G = 0\) ; mais \(\Delta_r G^\circ\) reste la hauteur de la montagne.</div>
   </div>
 </div>
 
@@ -496,6 +920,29 @@
         \[ \mu_A^{(\ell)} - \mu_A^{*(\ell)} \;=\; RT\ln x_A^{(\ell)} \;=\; \mu_A^{(\text{v})} - [\mu_A^{\circ(\text{v})} + RT\ln(P_A^\circ/P^\circ)] \;=\; RT\ln(P_A/P_A^\circ). \]
         <p>D'où :</p>
         \[ \boxed{\;P_A \;=\; x_A^{(\ell)}\,P_A^\circ\;} \quad\text{(loi de Raoult)} \]
+      </div>
+    </div>
+  </div>
+
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>9.6 — Équilibre \(\ce{2 NO2 <=> N2O4}\) : analyse complète</div>
+    <div class="notion-body">
+      <div class="demo-block">
+        <p>L'équilibre \(\ce{2 NO2(g) <=> N2O4(g)}\) est l'archétype expérimental de l'équilibre gazeux : \(\ce{NO2}\) est <em>brun-roux</em> (visible à l'œil nu), \(\ce{N2O4}\) est <em>incolore</em>. Tout déplacement de l'équilibre se traduit par un changement de couleur.</p>
+        <p><strong>Données à 298 K :</strong> \(\Delta_r H^\circ = -57{,}2\,\mathrm{kJ\cdot mol^{-1}}\) (exothermique), \(\Delta_r S^\circ = -176\,\mathrm{J\cdot K^{-1}\cdot mol^{-1}}\), \(K^\circ(298) \approx 8{,}8\).</p>
+        <p><strong>1. Quotient de réaction.</strong> Les deux espèces sont gazeuses, donc :</p>
+        \[ Q \;=\; \dfrac{P_{\ce{N2O4}}/P^\circ}{(P_{\ce{NO2}}/P^\circ)^2}. \]
+        <p><strong>2. Effet d'une compression isotherme.</strong> Doubler la pression totale (à \(T = \mathrm{cte}\)) double chaque pression partielle. Nouveau quotient :</p>
+        \[ Q' \;=\; \dfrac{2 P_{\ce{N2O4}}}{(2 P_{\ce{NO2}})^2}\,P^\circ \;=\; \dfrac{1}{2}\,Q. \]
+        <p>Donc \(Q' < Q = K^\circ\) : l'évolution se fait dans le sens direct (vers \(\ce{N2O4}\) incolore), conformément à Le Châtelier (compression → moins de moles gazeuses, \(\Delta n_{\text{gaz}} = -1\)). <strong>Visuellement</strong> : le gaz pâlit lors de la compression rapide d'une seringue.</p>
+        <p><strong>3. Effet d'un chauffage.</strong> Avec van't Hoff :</p>
+        \[ \dfrac{\mathrm{d}\ln K^\circ}{\mathrm{d}T} \;=\; \dfrac{\Delta_r H^\circ}{RT^2} \;<\; 0 \quad\text{(car \(\Delta_r H^\circ < 0\))}. \]
+        <p>Donc \(K^\circ\) <em>diminue</em> avec \(T\) : l'équilibre se déplace vers \(\ce{NO2}\) brun. <strong>Visuellement</strong> : plonger un tube scellé contenant le mélange dans l'eau chaude brunit nettement le gaz ; dans la glace il pâlit.</p>
+        <p><strong>4. Composition à l'équilibre.</strong> Pour \(n_0\) moles de \(\ce{N2O4}\) initialement, soit \(\alpha\) le coefficient de dissociation. À l'équilibre :</p>
+        \[ n_{\ce{N2O4}} = n_0(1-\alpha), \quad n_{\ce{NO2}} = 2 n_0 \alpha, \quad n_{\text{tot}} = n_0(1+\alpha). \]
+        <p>Soit \(P\) la pression totale et \(x_{\ce{NO2}} = 2\alpha/(1+\alpha)\), \(x_{\ce{N2O4}} = (1-\alpha)/(1+\alpha)\). Le quotient devient :</p>
+        \[ K^\circ \;=\; \dfrac{(1-\alpha)(1+\alpha)}{4\alpha^2}\,\dfrac{P^\circ}{P} \;=\; \dfrac{1-\alpha^2}{4\alpha^2}\,\dfrac{P^\circ}{P}. \]
+        <p>Cette équation se résout en \(\alpha(T, P)\) — vérification expérimentale directe par spectrophotométrie à 400 nm (absorption sélective de \(\ce{NO2}\)).</p>
       </div>
     </div>
   </div>
@@ -596,7 +1043,7 @@
 <div class="sblock r" id="lecons">
   <div class="sblock-num">Section 11</div>
   <h2>11. Développements pédagogiques pour l'oral</h2>
-  <p class="intro">Deux propositions de leçons calibrées agrégation interne.</p>
+  <p class="intro">Quatre propositions de leçons calibrées agrégation interne, couvrant les cinq sujets oraux du chapitre.</p>
 
   <div class="lecon-card">
     <h4>Leçon 1 — Équilibre chimique : du \(Q_r\) à la loi de Le Châtelier</h4>
@@ -632,13 +1079,49 @@
     <p><strong>Liens secondaire.</strong> Terminale spé : températures de changement d'état, miscibilité. Terminale STL : techniques de séparation (distillation, extraction, chromato).</p>
     <p><strong>Erreur fréquente d'élève.</strong> Penser que la « température d'ébullition d'un mélange » est unique. En réalité, elle dépend de la composition et varie le long de la distillation au fur et à mesure que les fractions évoluent.</p>
   </div>
+
+  <div class="lecon-card">
+    <h4>Leçon 3 — Solvants et dissolution : pourquoi le sel fond dans l'eau mais pas dans l'huile ?</h4>
+    <div class="lecon-meta">Niveau · Cycle 4 → CPGE 2<sup>e</sup> année · Sujet oral n°5</div>
+    <p><strong>Accroche.</strong> Une cuillère de sel disparaît visuellement dans un verre d'eau. Une goutte d'huile y reste compacte. Que se passe-t-il à l'échelle microscopique, et comment quantifier ces observations ?</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Mise en évidence expérimentale : test de partage \(\ce{KMnO4}\) vs \(\ce{I2}\) dans eau et cyclohexane. Coloration spécifique de chaque phase.</li>
+      <li>Notion de polarité moléculaire et règle empirique <em>similia similibus solvuntur</em>.</li>
+      <li>Cycle thermodynamique de Born-Haber : \(\Delta_{\text{sol}}H^\circ = \Delta_{\text{rét}}H^\circ + \Delta_{\text{solv}}H^\circ\).</li>
+      <li>Modèle de Born : énergie de solvatation d'un ion proportionnelle à \(-z^2/r\) et à \((1 - 1/\varepsilon_r)\). Rôle de la permittivité du solvant.</li>
+      <li>Grandeurs de mélange en solution idéale : \(\Delta_{\text{mix}}G = nRT\sum x_i\ln x_i < 0\). Mélange entropiquement piloté.</li>
+      <li>Classification opérationnelle : protique/aprotique, polaire/apolaire. Cas du DMSO/DMF en chimie organique.</li>
+      <li>Applications : chromatographie (phase mobile adaptée), extraction liquide-liquide, chimie verte (fluides supercritiques).</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> Cycle 4 : conservation de la masse en dissolution. Seconde : concentrations. Tle spé : polarité moléculaire (introduite en chimie organique).</p>
+    <p><strong>Démo phare.</strong> Calorimétrie de dissolution de \(\ce{NH4NO3}\) (endothermique) : malgré \(\Delta_{\text{sol}}H > 0\), la dissolution est spontanée — la preuve expérimentale que c'est bien \(\Delta G\) (et non \(\Delta H\)) qui gouverne la spontanéité.</p>
+  </div>
+
+  <div class="lecon-card">
+    <h4>Leçon 4 — Conversion d'énergie chimique : de la combustion à la pile à combustible</h4>
+    <div class="lecon-meta">Niveau · Terminale spé → CPGE 2<sup>e</sup> année · Sujet oral n°13</div>
+    <p><strong>Accroche.</strong> Pourquoi une pile \(\ce{H2/O2}\) délivre-t-elle un rendement supérieur à celui du meilleur moteur thermique brûlant le même hydrogène ? Réponse : elle évite le détour par la chaleur.</p>
+    <p><strong>Plan proposé.</strong></p>
+    <ol>
+      <li>Comparaison historique : pile Volta (1800) — Daniell — pile à combustible des navettes spatiales (Apollo, Shuttle).</li>
+      <li>Travail utile maximal d'une réaction : \(W_{\text{utile, max}} = -\Delta_r G\) (et non \(-\Delta_r H\)). Distinction enthalpie / enthalpie libre.</li>
+      <li>Rendement thermodynamique \(\eta = |\Delta_r G|/|\Delta_r H|\) — comparaison avec Carnot. La conversion électrochimique directe peut dépasser Carnot.</li>
+      <li>Application : pile \(\ce{H2/O2}\) — calcul de \(E^\circ = 1{,}23\,\mathrm{V}\) à partir de \(\Delta_r G^\circ = -nFE^\circ\), rendement théorique \(\approx 83\,\%\).</li>
+      <li>Couplage énergétique en biochimie : ATP/ADP (\(\Delta G^{\circ\prime} \approx -30\,\mathrm{kJ\cdot mol^{-1}}\)), phosphorylation du glucose. Couplage thermodynamique + cinétique (enzyme).</li>
+      <li>Notion d'exergie : qualité de l'énergie. Pourquoi le travail mécanique a une exergie de 100 %, mais pas la chaleur.</li>
+      <li>Enjeux contemporains : hydrogène vert, stockage Li-ion, transition énergétique.</li>
+    </ol>
+    <p><strong>Liens secondaire.</strong> 1<sup>re</sup> spé : énergie libérée par une combustion (pouvoir calorifique). Tle spé : piles (Daniell), notion de transformation chimique productrice d'énergie. STL : rendement des chaînes énergétiques.</p>
+    <p><strong>Démo phare.</strong> Tracé expérimental de la courbe \(U = f(I)\) d'une pile commerciale (alcaline 1,5 V) : détermination de la résistance interne et du rendement réel à débit variable. Mise en évidence de l'écart à \(E^\circ\) à fort courant (chute ohmique + polarisation).</p>
+  </div>
 </div>
 
 <!-- ═══════════════════ 12 MONTAGES ═══════════════════ -->
 <div class="sblock r" id="montages">
   <div class="sblock-num">Section 12</div>
   <h2>12. Montages expérimentaux</h2>
-  <p class="intro">Deux montages exploitables à l'oral d'agrégation.</p>
+  <p class="intro">Trois montages exploitables à l'oral d'agrégation (distillation, van't Hoff, pile).</p>
 
   <div class="lecon-card">
     <h4>Montage 1 — Distillation fractionnée d'un mélange eau-éthanol</h4>
@@ -671,20 +1154,40 @@
     <p><strong>Sources d'incertitude.</strong> Précision spectrophotomètre (\(\pm 0{,}01\) en A), température (\(\pm 0{,}1\,\mathrm{K}\)), pureté des solutions, équilibre atteint (vérifier stabilité).</p>
     <p><strong>Exploitation.</strong> Valeur tabulée : \(\Delta_r H^\circ \approx +5\,\mathrm{kJ\cdot mol^{-1}}\) (très faible). \(\Delta_r S^\circ\) positive (libération d'eau d'hydratation lors de la complexation). Discussion qualitative sur les sources d'incertitudes (effet ionique fort, activités vs concentrations).</p>
   </div>
+
+  <div class="lecon-card">
+    <h4>Montage 3 — Caractéristique \(U = f(I)\) d'une pile commerciale et rendement réel</h4>
+    <p><strong>Objectif.</strong> Tracer la caractéristique tension-intensité d'une pile, déterminer sa résistance interne, comparer le rendement réel au rendement thermodynamique maximal calculé pour la réaction d'oxydoréduction.</p>
+    <p><strong>Matériel.</strong> Pile alcaline neuve (1,5 V) ou pile Daniell montée au laboratoire, boîte de résistances variables (10 Ω à 10 kΩ), voltmètre numérique, ampèremètre numérique, fils.</p>
+    <p><strong>Protocole.</strong></p>
+    <ol>
+      <li>Monter le circuit : pile + résistance variable + ampèremètre en série, voltmètre aux bornes de la pile.</li>
+      <li>Mesurer la f.e.m. à vide \(E\) (résistance maximale, \(I \approx 0\)). Comparer à la valeur théorique \(E^\circ = -\Delta_r G^\circ/(nF)\).</li>
+      <li>Faire varier la résistance pour balayer 5 à 10 points de fonctionnement. Mesurer \((I, U)\) pour chacun.</li>
+      <li>Tracer \(U = f(I)\). Régression linéaire : \(U = E - r\,I\) → pente \(-r\) (résistance interne), ordonnée à l'origine \(E\).</li>
+      <li>Calculer la puissance électrique \(P_{\text{elec}} = U \cdot I\) pour chaque point. Tracer \(P_{\text{elec}}(I)\) — maximum à \(I = E/(2r)\).</li>
+      <li>Calculer le rendement réel \(\eta_{\text{réel}} = U \cdot I \cdot t / (n \cdot \Delta_r H^\circ)\) à débit moyen et comparer au rendement thermodynamique maximal \(\eta_{\text{th}} = |\Delta_r G^\circ|/|\Delta_r H^\circ|\).</li>
+    </ol>
+    <p><strong>Sources d'incertitude.</strong> Lecture multimètres (\(\pm 0{,}5\,\%\) calibre numérique), vieillissement de la pile en cours de manipulation (faire la séquence rapidement), température (la f.e.m. dépend de T via Nernst).</p>
+    <p><strong>Exploitation.</strong> Pour une pile alcaline neuve : \(E \approx 1{,}55\,\mathrm{V}\), \(r \approx 0{,}2\)–\(0{,}5\,\mathrm{\Omega}\). Mise en évidence des trois sources de perte : (i) écart \(E_{\text{mesurée}}\) vs \(E^\circ_{\text{tabulée}}\) (activités réelles vs standard), (ii) chute ohmique \(r I\) (résistance des électrolytes), (iii) surtensions cinétiques aux électrodes. Lien direct avec le sujet oral n°13 : conversion d'énergie chimique → électrique avec rendement <em>limité</em> par la cinétique.</p>
+  </div>
 </div>
 
 <!-- ═══════════════════ 13 JURY ═══════════════════ -->
 <div class="sblock r" id="jury">
   <div class="sblock-num">Section 13</div>
   <h2>13. Pièges du jury — rapport 2025</h2>
-  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+  <p class="intro">Huit erreurs récurrentes signalées chaque année, particulièrement épinglées dans le rapport 2025.</p>
 
   <div class="jury-list">
-    <div class="jury-item"><strong>Confusion \(\boldsymbol{\Delta_r G}\) vs \(\boldsymbol{\Delta_r G^\circ}\).</strong> \(\Delta_r G^\circ\) est une grandeur tabulée caractérisant la réaction dans l'état standard (toutes activités = 1). \(\Delta_r G\) caractérise l'état réel : \(\Delta_r G = \Delta_r G^\circ + RT\ln Q\). À l'équilibre, \(\Delta_r G = 0\) mais \(\Delta_r G^\circ \neq 0\) en général.</div>
+    <div class="jury-item"><strong>Confusion \(\boldsymbol{\Delta_r G}\) vs \(\boldsymbol{\Delta_r G^\circ}\).</strong> \(\Delta_r G^\circ\) est une grandeur tabulée caractérisant la réaction dans l'état standard (toutes activités = 1). \(\Delta_r G\) caractérise l'état réel : \(\Delta_r G = \Delta_r G^\circ + RT\ln Q\). À l'équilibre, \(\Delta_r G = 0\) mais \(\Delta_r G^\circ \neq 0\) en général. <span class="src-tag">[Rapport jury 2025 — confusion massive signalée]</span></div>
     <div class="jury-item"><strong>Activités et inclusion dans \(\boldsymbol{Q}\) / \(\boldsymbol{K^\circ}\).</strong> Les solides purs, le solvant en solution diluée, ont \(a = 1\) et n'apparaissent pas dans \(Q\). Erreur classique : inclure le solide \(\ce{CaCO3}\) ou l'eau dans le quotient.</div>
     <div class="jury-item"><strong>Le Châtelier qualitatif.</strong> Le principe de Le Châtelier permet de prédire qualitativement le sens du déplacement, mais l'amplitude requiert un calcul quantitatif via \(\Delta G\) et \(K^\circ\). À l'oral, mentionner cette limite.</div>
     <div class="jury-item"><strong>Effet du gaz inerte.</strong> À \(P\) totale constante (par exemple atmosphère ouverte), un gaz inerte dilue les gaz actifs et déplace l'équilibre vers le côté à plus de moles gazeuses. À \(V\) constant : aucun effet (les pressions partielles des gaz actifs ne changent pas). Cas confondus.</div>
     <div class="jury-item"><strong>Validité de van't Hoff.</strong> La forme intégrée suppose \(\Delta_r H^\circ\) constante sur l'intervalle de T. Pour des écarts modérés (50–100 K) c'est OK, mais pour des intervalles plus grands il faut intégrer en tenant compte de la loi de Kirchhoff (\(\Delta_r C_p^\circ\)).</div>
+    <div class="jury-item"><strong>Confusion des rendements \(\boldsymbol{\eta = |\Delta_r G|/|\Delta_r H|}\) vs Carnot.</strong> Pour une pile à combustible (\(\ce{H2}/\ce{O2}\)), le rendement thermo vaut \(\eta = 83\,\%\) à 25 °C : c'est <em>l'enthalpie libre</em> qui mesure le travail utile, pas l'enthalpie. À ne pas confondre avec \(\eta_{\text{Carnot}} = 1 - T_f/T_c\) (qui s'applique aux moteurs thermiques exclusivement). <span class="src-tag">[Rapport jury 2025 — sujet n°13]</span></div>
+    <div class="jury-item"><strong>Couplage thermo-électrochimie : \(\boldsymbol{\Delta_r G^\circ = -nFE^\circ}\).</strong> Oubli du coefficient stœchiométrique \(n\) (nombre d'électrons échangés <em>par équation</em> bilan). Pour \(\ce{2 H2 + O2 -> 2 H2O}\) écrite ainsi, \(n = 4\) ; si on l'écrit \(\ce{H2 + 1/2 O2 -> H2O}\), \(n = 2\). \(\Delta_r G^\circ\) doit suivre le même facteur que l'équation.</div>
+    <div class="jury-item"><strong>Règle des moments (diagrammes binaires).</strong> Confondre \(x\) (fraction molaire en phase liquide) et \(y\) (en phase vapeur). La règle s'écrit \(n_{\text{liq}}/n_{\text{vap}} = (z - y)/(x - z)\) avec \(z\) composition globale — bras de levier <em>opposés</em>. Tracer la « horizontale d'équilibre » sur le diagramme pour visualiser avant tout calcul.</div>
   </div>
 </div>
 
@@ -692,7 +1195,7 @@
 <div class="sblock r" id="quiz-section">
   <div class="sblock-num">Auto-évaluation</div>
   <h2>Quiz de révision</h2>
-  <p class="intro">Sept questions pour tester ta compréhension.</p>
+  <p class="intro">Dix questions pour tester ta compréhension — équilibres, binaires, solvants, conversion d'énergie.</p>
   <div class="quiz-wrap"><div class="quiz-card r">
   <div class="q-text">Pour une réaction avec \(\Delta_r G^\circ = -17{,}1\,\mathrm{kJ\cdot mol^{-1}}\) à 25 °C, la constante d'équilibre vaut :</div>
   <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Attention au signe : Ka = exp(−ΔG°/RT). Avec ΔG° < 0, le quotient devient positif → Ka > 1.')">\(K^\circ \approx 10^{-3}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. Ka = exp(−ΔG°/RT) = exp(17100/(8,314×298)) = exp(6,9) ≈ 1000. ΔG° < 0 → Ka > 1 → produits favorisés.')">\(K^\circ \approx 10^{3}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Ka = exp(−ΔG°/RT), pas −ΔG°/RT lui-même (qui vaut ln(Ka) ≈ 6,9).')">\(K^\circ = -\Delta G^\circ/(RT) = 6{,}9\)</button></div>
@@ -720,6 +1223,18 @@
 </div><div class="quiz-card r">
   <div class="q-text">Pour la synthèse de l'ammoniac, le procédé Haber-Bosch fonctionne à 400–500 °C alors que la thermodynamique favoriserait des températures plus basses. Pourquoi ?</div>
   <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non — au contraire, la thermodynamique favorise les basses T (réaction exothermique). C\'est la cinétique qui impose le chauffage.')">Parce que la thermodynamique impose une T élevée</button><button class="q-opt" onclick="quiz(this,true,'Correct. À température basse, la cinétique est trop lente (barrière d\'activation élevée). On chauffe pour accélérer la réaction, en sacrifiant le K° (qui diminue). On compense la perte thermo par la haute pression (Le Châtelier : ΔnG < 0 → P élevée favorise) et un catalyseur (Fe poreux). Compromis thermo-cinétique central en chimie industrielle.')">Compromis cinétique-thermodynamique : la cinétique impose le chauffage, la P compense</button><button class="q-opt" onclick="quiz(this,false,'Non. On n\'a pas le choix de T en chimie industrielle si on n\'a pas d\'autre option. Ici, la P compense la perte de K° avec T.')">Pour permettre la formation du catalyseur</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pour un mélange idéal binaire, l'enthalpie libre de mélange \(\Delta_{\text{mix}}G = nRT(x_1\ln x_1 + x_2\ln x_2)\) est :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. Pour 0 < x_i < 1, on a ln(x_i) < 0, donc x_i·ln(x_i) < 0, et la somme est négative. Conclusion : Δ_mix G < 0 toujours pour un mélange idéal — le mélange spontané est purement entropique (Δ_mix H = 0, Δ_mix S > 0).')">Toujours négative — mélange idéal toujours spontané</button><button class="q-opt" onclick="quiz(this,false,'Non. ln(x_i) est négatif pour x_i < 1, mais la somme x_1·ln(x_1) + x_2·ln(x_2) est aussi négative. Δ_mix G < 0 toujours.')">Toujours positive — il faut fournir du travail</button><button class="q-opt" onclick="quiz(this,false,'Non. Pour le mélange idéal le signe est défini : toujours négatif. C\'est seulement pour les mélanges réels avec G^E > 0 (écart positif à Raoult) qu\'on peut avoir démixtion partielle.')">Dépend des fractions molaires — peut être positive ou négative</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Pile à combustible \(\ce{H2/O2}\) à 25 °C : \(\Delta_r G^\circ = -237\,\mathrm{kJ\cdot mol^{-1}}\), \(\Delta_r H^\circ = -286\,\mathrm{kJ\cdot mol^{-1}}\). Le rendement thermodynamique <em>maximal</em> de conversion vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. Le rendement Carnot s\'applique aux moteurs thermiques. Pour une pile, c\'est η = |ΔG|/|ΔH| qui compte. Carnot ne s\'applique pas car la conversion électrochimique est directe (pas de passage par la chaleur).')">\(\eta = 1 - T_f/T_c \approx 0{,}40\) (Carnot)</button><button class="q-opt" onclick="quiz(this,true,'Correct. η = |Δ_r G°|/|Δ_r H°| = 237/286 ≈ 0,83 = 83 %. Bien supérieur à Carnot car la conversion électrochimique est directe (chimie → électricité), évitant le détour par la chaleur. En pratique, surtensions cinétiques ramènent à 50–60 % pour une PEMFC réelle.')">\(\eta = |\Delta_r G^\circ|/|\Delta_r H^\circ| \approx 0{,}83\)</button><button class="q-opt" onclick="quiz(this,false,'Non. C\'est l\'enthalpie libre |ΔG| qui mesure le travail utile maximal récupérable, pas l\'enthalpie. La différence TΔS est inévitablement dissipée en chaleur, même dans le cas réversible.')">\(\eta = |\Delta_r H^\circ|/|\Delta_r G^\circ| \approx 1{,}21\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Diagramme binaire isobare T-x d'un mélange A+B. Composition globale \(z_B = 0{,}5\), à la température T donnée on lit \(x_B = 0{,}2\) (liquide) et \(y_B = 0{,}8\) (vapeur). Le rapport \(n_{\text{liq}}/n_{\text{vap}}\) vaut :</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,true,'Correct. Règle des moments : n_liq/n_vap = (z_B − y_B)/(x_B − z_B) = (0,5 − 0,8)/(0,2 − 0,5) = (−0,3)/(−0,3) = 1. Le système est à 50/50 liquide-vapeur en quantité de matière. Astuce visuelle : les bras de levier sont de longueurs égales.')">1 (autant de liquide que de vapeur)</button><button class="q-opt" onclick="quiz(this,false,'Non. Confondre x (liquide) et y (vapeur) est l\'erreur classique. La règle s\'écrit n_liq/n_vap = (z − y)/(x − z), avec bras de levier opposés : ici les deux écarts valent ±0,3 donc le rapport vaut 1.')">0,4 (plus de vapeur que de liquide)</button><button class="q-opt" onclick="quiz(this,false,'Non. Toujours appliquer la règle des moments en notant bien la position du composant z entre x et y. Ici z = 0,5 est exactement au milieu de [0,2 ; 0,8] donc 50/50.')">2,5 (plus de liquide que de vapeur)</button></div>
   <div class="q-expl"></div>
 </div></div>
 </div>

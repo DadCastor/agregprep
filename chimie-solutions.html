@@ -122,6 +122,35 @@
       <p>Pour un acide polyacide \(\ce{H2A}\) (\(pK_{a_1}, pK_{a_2}\)) : trois domaines (\(\ce{H2A}, \ce{HA^-}, \ce{A^{2-}}\)). Exemple \(\ce{H2CO3}\) : \(pK_{a_1} = 6{,}3\) (\(\ce{H2CO3}/\ce{HCO3^-}\)), \(pK_{a_2} = 10{,}3\) (\(\ce{HCO3^-}/\ce{CO3^{2-}}\)).</p>
     </div>
   </div>
+
+  <h3>1.4 Diacides : prédominance successive ou simultanée ?</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Critère \(\Delta pK_a\) — point délicat signalé par le jury</div>
+    <div class="notion-body">
+      <p>Pour un diacide \(\ce{H2A}\) (\(pK_{a_1}, pK_{a_2}\)), deux régimes sont à distinguer rigoureusement :</p>
+      <ul>
+        <li><strong>\(\Delta pK_a = pK_{a_2} - pK_{a_1} \geq 4\)</strong> : les deux acidités sont <em>successives</em>. On peut traiter chaque équilibre séparément. Exemple : \(\ce{H3PO4}\) (2,1 / 7,2 / 12,4) — chaque saut de titrage est net.</li>
+        <li><strong>\(\Delta pK_a \lesssim 2\)</strong> : les deux acidités sont <em>simultanées</em>. Les trois espèces coexistent dans une zone étendue, le diagramme de prédominance ne peut plus être lu par seuils ; il faut un diagramme de <em>distribution</em> (fractions molaires \(\alpha_i(\mathrm{pH})\)). Exemple : \(\ce{H2SO3}\) (1,8 / 7,2), \(\ce{H2S}\) (7,0 / 13).</li>
+      </ul>
+      <p><strong>Acide carbonique en milieu réel.</strong> Le \(pK_{a_1}\) « apparent » de \(\ce{CO2,H2O / HCO3^-}\) dans le sang est de \(\sim 6{,}1\) (et non 6,35) parce qu'il intègre l'équilibre \(\ce{CO2(aq) + H2O <=> H2CO3}\) (très déplacé à gauche : seul 0,3 % du \(\ce{CO2}\) dissous est sous forme \(\ce{H2CO3}\)). Distinction <strong>expérience</strong> (constante apparente mesurée) / <strong>modèle</strong> (couple effectif \(\ce{CO2,H2O / HCO3^-}\)) / <strong>théorie</strong> (équilibre stœchiométrique \(\ce{H2CO3 / HCO3^-}\) sous-jacent).</p>
+    </div>
+  </div>
+
+  <h3>1.5 Mélanges de bases — point explicitement souligné par le jury 2025</h3>
+  <div class="fbox c">
+    <span class="fl">Méthode systématique pour un mélange de bases (faibles ou fortes)</span>
+    <span class="fc">Soit un mélange de deux bases \(\ce{B1}\) (\(pK_{a_1}\)) et \(\ce{B2}\) (\(pK_{a_2}\)) en concentrations \(C_1\) et \(C_2\).</span>
+    <hr>
+    <span class="fc"><strong>1. Identifier la base la plus forte</strong> (\(pK_a\) du couple acide conjugué le plus grand → base la plus forte). Elle impose le pH si sa concentration est suffisante.</span>
+    <hr>
+    <span class="fc"><strong>2. Réaction prépondérante (RP).</strong> Si \(\ce{B1}\) (plus forte) est en présence de l'acide conjugué de \(\ce{B2}\), elle peut le déprotonner. Calculer la constante \(K_{\text{RP}} = K_{a_2}/K_{a_1}\). Si \(K_{\text{RP}} \gg 1\) : réaction totale, on refait le bilan.</span>
+    <hr>
+    <span class="fc"><strong>3. Cas particulier — deux bases fortes</strong> (\(\ce{NaOH + KOH}\)) : additives, \(\mathrm{pH} = 14 + \log(C_1 + C_2)\).</span>
+    <hr>
+    <span class="fc"><strong>4. Cas — base forte + base faible</strong> (\(\ce{NaOH + NH3}\)) : la base forte impose, la base faible reste très peu protonnée (et même moins qu'en solution pure : effet d'ion commun).</span>
+    <hr>
+    <span class="fc"><strong>5. Cas — deux bases faibles de \(pK_a\) voisins</strong> : il faut écrire le système complet (conservation de matière + électroneutralité + équilibres). Pas d'approximation valide ; piège classique du jury.</span>
+  </div>
 </div>
 
 <!-- ═══════════════════ 02 CALCULS DE pH ═══════════════════ -->
@@ -166,6 +195,20 @@
         <li><strong>Hypothèses simplificatrices</strong> : choisir la(les) espèce(s) dominante(s).</li>
         <li><strong>Résoudre</strong> et <strong>vérifier les hypothèses</strong>.</li>
       </ol>
+    </div>
+  </div>
+
+  <h3>2.2 Distinguer expérience, modèle et théorie</h3>
+  <div class="notion c">
+    <div class="notion-title"><span class="nt-bar c"></span>Triade épistémologique attendue par le jury</div>
+    <div class="notion-body">
+      <p>Le rapport de jury 2025 insiste : à l'oral comme à l'écrit, le candidat doit explicitement <strong>distinguer ces trois niveaux</strong> dans ses raisonnements.</p>
+      <ul>
+        <li><strong>Expérience</strong> — <em>ce qui est mesuré</em>. Exemple : un pH-mètre indique 4,75 dans une solution de \(\ce{CH3COOH}\) à 0,1 mol/L. C'est une grandeur observée, entachée d'incertitude.</li>
+        <li><strong>Modèle</strong> — <em>les hypothèses qu'on fait pour décrire le réel</em>. Exemple : on suppose la solution idéale (activités = concentrations), on néglige l'autoprotolyse de l'eau, on néglige la variation de volume. Le modèle a un domaine de validité explicite (\(C \gtrsim 10^{-5}\,\mathrm{mol/L}\), force ionique modérée…).</li>
+        <li><strong>Théorie</strong> — <em>le cadre conceptuel sous-jacent</em>. Ici : équilibre thermodynamique, loi d'action de masse, dissociation de Brønsted, autoprotolyse de l'eau. La théorie est invariante ; ce sont les modèles dérivés qui dépendent du contexte.</li>
+      </ul>
+      <p>À l'oral, le candidat doit pouvoir dire : « <em>j'observe</em> ce pH, <em>je modélise</em> l'équilibre en supposant…, <em>la théorie</em> de Brønsted me dit que… ». Ce vocabulaire structuré est noté.</p>
     </div>
   </div>
 </div>
@@ -357,6 +400,20 @@
     \[ Q &lt; K_s :\ \text{tout dissout (pas de précipité)} \qquad Q = K_s :\ \text{équilibre (saturation)} \qquad Q &gt; K_s :\ \text{précipitation} \]
   </div>
 
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Piège jury 2025 — \(\Delta_r G\) vs \(\Delta_r G^\circ\) (confusion très fréquente).</strong>
+      <p style="margin:.4rem 0 .2rem">Le sens d'évolution d'une réaction est gouverné par \(\Delta_r G\) (enthalpie libre <em>de réaction</em>, à composition courante), pas par \(\Delta_r G^\circ\) (enthalpie libre <em>standard</em>).</p>
+      \[ \Delta_r G \;=\; \Delta_r G^\circ + RT\ln Q \qquad\text{où}\qquad \Delta_r G^\circ = -RT\ln K^\circ \]
+      <ul style="margin:.4rem 0 0 1rem">
+        <li>\(\Delta_r G^\circ\) ne dépend que de \(T\) (et des états standards) — c'est une fonction d'état tabulée.</li>
+        <li>\(\Delta_r G\) dépend de la composition réelle. C'est elle qui s'annule à l'équilibre (\(Q = K^\circ\)), pas \(\Delta_r G^\circ\).</li>
+        <li><strong>Conséquence pratique</strong> : une réaction de \(\Delta_r G^\circ &gt; 0\) (a priori « défavorisée ») peut être <em>réellement spontanée</em> si \(Q \ll K^\circ\). Exemple : la dissolution d'\(\ce{AgCl}\) (\(\Delta_r G^\circ \approx +56\,\mathrm{kJ/mol} &gt; 0\)) <em>commence</em> dès qu'on jette du \(\ce{AgCl}\) dans l'eau pure (\(Q = 0\)).</li>
+      </ul>
+      <p style="margin:.4rem 0 0">Verbatim type à l'oral : « \(\Delta_r G^\circ\) me donne la <em>constante</em> d'équilibre ; \(\Delta_r G\) me donne le <em>sens</em> d'évolution dans les conditions courantes. »</p>
+    </div>
+  </div>
+
   <h3>6.3 Effets perturbateurs</h3>
   <div class="notion c">
     <div class="notion-title"><span class="nt-bar c"></span>Modulation de la solubilité</div>
@@ -473,27 +530,104 @@
 <div class="sblock r" id="pedagogie">
   <div class="sblock-num">Section 09</div>
   <h2>9. Pédagogie et didactique</h2>
-  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+  <p class="intro">Progression curriculaire collège → CPGE, articulation entre notions et ruptures conceptuelles à anticiper. Les six fiches ci-dessous donnent à voir <em>ce qui est effectivement enseigné</em> à chaque niveau — référence implicite aux BO en vigueur.</p>
 
-  <div class="notion c">
-    <div class="notion-title"><span class="nt-bar c"></span>Au lycée — Terminale spécialité</div>
-    <div class="notion-body"><ul>
-      <li><strong>Cycle 4 / Seconde</strong> : notion de pH (échelle, papier indicateur), ions principaux, premières dissolutions.</li>
-      <li><strong>1<sup>re</sup> spé</strong> : pH, couples acide/base, constante d'acidité \(K_a\), réactions d'oxydoréduction (nombre d'oxydation, équilibrage).</li>
-      <li><strong>Terminale spé</strong> : titrages pH-métriques et colorimétriques (point d'équivalence), dosages redox simples (permanganate-fer). Notion qualitative de \(K_s\) (introduite récemment).</li>
-      <li><strong>Terminale STL</strong> : approfondissement (complexométrie EDTA, conductimétrie quantitative).</li>
-    </ul></div>
+  <div class="ped-card r">
+    <div class="niveau">Cycle 4 — collège (5ᵉ, 4ᵉ, 3ᵉ)</div>
+    <h5>Première approche des solutions aqueuses</h5>
+    <ul>
+      <li><strong>Dissolution</strong> : soluté / solvant / solution, notion de mélange homogène. Conservation de la masse.</li>
+      <li><strong>Échelle de pH</strong> qualitative (0 à 14) avec papier pH ou indicateur universel. Solutions acides / neutres / basiques.</li>
+      <li><strong>Identification d'ions</strong> par tests caractéristiques : \(\ce{Cl-}\) (précipité blanc avec \(\ce{AgNO3}\)), \(\ce{Fe^{2+}, Fe^{3+}, Cu^{2+}}\) (couleurs des hydroxydes), \(\ce{H+}\) (papier pH).</li>
+      <li><strong>Conductivité</strong> qualitative : « la solution conduit le courant car elle contient des ions ». Eau pure non conductrice.</li>
+      <li>Pas de \(K_a\), pas de constantes. Vocabulaire « ion », « atome », « molécule » à stabiliser.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Seconde GT</div>
+    <h5>Quantité de matière en solution, concentration</h5>
+    <ul>
+      <li><strong>Concentration en masse</strong> \(C_m = m_{\text{soluté}}/V_{\text{solution}}\) en g·L⁻¹, puis <strong>concentration molaire</strong> \(C = n/V\) en mol·L⁻¹.</li>
+      <li><strong>Dilution</strong> : conservation de la quantité de matière, \(C_1 V_1 = C_2 V_2\). Protocole expérimental avec fiole jaugée et pipette jaugée.</li>
+      <li><strong>Dosage par étalonnage</strong> (spectrophotométrie UV-Vis ou conductimétrie) — première démarche quantitative.</li>
+      <li>pH : reste qualitatif ; pas encore de définition logarithmique.</li>
+      <li>Outils expérimentaux : balance, verrerie jaugée, spectrophotomètre, conductimètre (lecture brute).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Première spécialité physique-chimie</div>
+    <h5>Acide-base et oxydoréduction (quantitatif)</h5>
+    <ul>
+      <li><strong>pH = −log[H₃O⁺]</strong> (à introduire avec précaution : c'est une définition opératoire, on ne discute pas encore les activités).</li>
+      <li><strong>Couples acide/base</strong> de Brønsted, écriture des demi-équations. Acide / base forts vs faibles (qualitatif).</li>
+      <li><strong>Couples oxydant/réducteur</strong>, nombre d'oxydation, équilibrage des demi-équations redox.</li>
+      <li><strong>Titrage par suivi colorimétrique ou pH-métrique</strong> : repérage de l'équivalence par changement de couleur ou point d'inflexion. \(C_a V_a = C_b V_{b,\text{éq}}\).</li>
+      <li>Outils : pH-mètre, agitateur magnétique, burette, indicateurs colorés (BBT, hélianthine, phénolphtaléine).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Terminale spécialité physique-chimie</div>
+    <h5>Équilibres chimiques, \(K_a\), titrages quantifiés</h5>
+    <ul>
+      <li><strong>Constante d'acidité</strong> \(K_a\), \(pK_a\). Diagramme de prédominance acide/base. Calcul de pH d'acide faible peu dissocié.</li>
+      <li><strong>Quotient de réaction</strong> \(Q_r\), constante d'équilibre \(K\), critère d'évolution spontanée (\(Q_r &lt; K\) ou \(&gt; K\)). C'est ici que se prépare la distinction \(\Delta_r G\) / \(\Delta_r G^\circ\) (sans la nommer).</li>
+      <li><strong>Titrage colorimétrique et pH-métrique</strong> exploités quantitativement : équivalence, choix de l'indicateur coloré dans la zone du saut.</li>
+      <li><strong>Solubilité</strong> et \(K_s\) introduits qualitativement (programme 2019).</li>
+      <li>Le formalisme \(K_a\) doit être <em>compris</em> et pas seulement appliqué — point de vigilance pédagogique récurrent.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE 1<sup>re</sup> année — MPSI / PCSI / PTSI / BCPST</div>
+    <h5>Calcul rigoureux des équilibres en solution</h5>
+    <ul>
+      <li><strong>Cinq cas-types de calcul de pH</strong> (acide fort, base forte, acide faible, base faible, amphotère) avec <em>conditions de validité explicites</em>.</li>
+      <li><strong>Méthode systématique</strong> : inventaire des espèces, équilibres, bilan de matière, électroneutralité, hypothèses, résolution, <em>vérification</em>. Le candidat doit savoir reconnaître la réaction prépondérante (RP).</li>
+      <li><strong>Titrages</strong> : pH-métrie, conductimétrie, indicateurs colorés. Allure \(\sigma(V)\) à justifier ion par ion (cf. §5.3).</li>
+      <li><strong>Solubilité</strong> et \(K_s\) quantitatifs : effet d'ion commun, effet du pH, effet de complexation.</li>
+      <li><strong>Complexes</strong> : constantes \(\beta\), compétition complexation/précipitation (PCSI).</li>
+      <li>Distinction stricte <strong>concentration vs activité</strong> introduite (mais on travaille en solution idéale).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE 2<sup>e</sup> année — MP / PC / PSI / PT</div>
+    <h5>Équilibres en solution dans le cadre thermodynamique</h5>
+    <ul>
+      <li><strong>\(\Delta_r G^\circ = -RT\ln K^\circ\)</strong> et \(\Delta_r G = \Delta_r G^\circ + RT\ln Q\). Lien explicite avec la thermo chimique (cf. <a href="thermodynamique-chimique.html">thermodynamique chimique</a>).</li>
+      <li><strong>Diagrammes de prédominance et de distribution</strong> exploités finement (diacides à \(\Delta pK_a\) faible).</li>
+      <li><strong>Diagrammes E-pH (Pourbaix)</strong> intégrant acidobasicité, complexation et redox (cf. <a href="electrochimie.html">électrochimie</a>).</li>
+      <li><strong>Effet de la température</strong> via van't Hoff : \(\mathrm{d}\ln K^\circ / \mathrm{d}T = \Delta_r H^\circ / RT^2\).</li>
+      <li><strong>Approche numérique</strong> : résolution Python du système exact (espèces, équilibres, conservation), tracé de courbes \(\mathrm{pH}(V)\) et \(\sigma(V)\). Attendu sur les montages.</li>
+    </ul>
+  </div>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Pièges jury 2025 spécifiques à la chimie des solutions :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li><strong>Acidité des diacides bâclée.</strong> Beaucoup de candidats traitent un diacide sans vérifier \(\Delta pK_a\) — formule de l'amphotère appliquée hors domaine de validité. <span class="src-tag">[Rapport jury 2025]</span></li>
+        <li><strong>Mélanges de bases mal posés.</strong> Identifier la base la plus forte, écrire la <em>réaction prépondérante</em>, calculer sa constante. Ne pas additionner naïvement les pH. <span class="src-tag">[Rapport jury 2025]</span></li>
+        <li><strong>\(\Delta_r G\) vs \(\Delta_r G^\circ\) confondus.</strong> Erreur la plus fréquente à l'oral selon le jury. Voir alerte dédiée §6. <span class="src-tag">[Rapport jury 2025]</span></li>
+        <li><strong>Expérience / modèle / théorie non distingués.</strong> Le candidat dit « le pH vaut 4,75 » sans préciser si c'est une mesure, un calcul ou une prédiction théorique. À structurer systématiquement.</li>
+        <li><strong>Réponses pédagogiques non reliées au programme scolaire.</strong> Le jury attend des réponses concises et argumentées, <em>positionnant explicitement la notion dans la progression</em> (« en première spé, on introduit \(K_a\) ; en terminale, on l'utilise ; en CPGE, on l'exploite avec \(\Delta_r G^\circ\) »).</li>
+      </ul>
+    </div>
   </div>
 
   <div class="alert alert-gold r">
     <span class="ico">📋</span>
     <div><strong>Difficultés classiques des élèves :</strong>
       <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
-        <li>Confondre acide <em>fort</em> (entièrement dissocié) et acide <em>concentré</em> (grande quantité).</li>
+        <li>Confondre acide <em>fort</em> (entièrement dissocié) et acide <em>concentré</em> (grande quantité). Un acide faible peut être très concentré (vinaigre 1 mol/L).</li>
         <li>Croire qu'à l'équivalence pH = 7 toujours (faux pour acide faible / base forte ou inverse).</li>
-        <li>Oublier que \(K_s, \beta, K_a\) sont des constantes <em>sans unité</em> (activités, division par \(c^\circ\)).</li>
+        <li>Oublier que \(K_s, \beta, K_a\) sont des constantes <em>sans dimension</em> (activités, division par \(c^\circ\)).</li>
         <li>Inclure les solides dans \(K_s\) (activité = 1, n'apparaissent pas).</li>
         <li>Oublier d'équilibrer les charges ET les atomes dans une demi-équation redox.</li>
+        <li><strong>Stratégie pédagogique :</strong> systématiquement faire vérifier les hypothèses <em>après</em> le calcul (autoprotolyse négligée, \(\alpha &lt; 5\%\)…) — ancre une démarche critique transposable à toute la physique-chimie.</li>
       </ul>
     </div>
   </div>
@@ -663,7 +797,29 @@
 <div class="sblock r" id="lecons-montages">
   <div class="sblock-num">Section 12</div>
   <h2>12. Leçons pour l'oral & montages expérimentaux</h2>
-  <p class="intro">Deux propositions de leçons + deux montages.</p>
+  <p class="intro">Deux plans-types de leçons orales (format jury : exposé 50 min + entretien 30 min), deux leçons illustrées, deux montages. Les plans-types respectent la structure attendue : concept scientifique + développement pédagogique niveau lycée, approfondissement post-bac, illustration expérimentale dans chaque partie.</p>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Leçon orale n°6 : Titrages</h4>
+    <ul>
+      <li><strong>Introduction (5 min)</strong> — accroche historique (Gay-Lussac, dosage de la soude au début du XIX<sup>e</sup>), problématique : <em>« comment mesurer une concentration inconnue avec une précision contrôlée ? »</em>. Annonce du plan : principe stœchiométrique → mise en œuvre lycée → généralisation CPGE.</li>
+      <li><strong>I. Notion d'équivalence et stœchiométrie (12 min, niveau lycée)</strong> — définition de l'équivalence (\(n_{\text{titrant}} = n_{\text{analyte}}\) aux coefficients stœchiométriques près). Illustration expérimentale : titrage colorimétrique du vinaigre par \(\ce{NaOH}\) avec phénolphtaléine (réalisation devant le jury). Calcul de \(C_a\), discussion du choix de l'indicateur.</li>
+      <li><strong>II. Méthodes de détection de l'équivalence (15 min, lycée → CPGE)</strong> — pH-métrie (point d'inflexion, \(\mathrm{d}\mathrm{pH}/\mathrm{d}V\) maximum), conductimétrie (rupture de pente), potentiométrie redox, spectrophotométrie. Comparaison croisée des incertitudes. Démo : tracé d'un titrage conductimétrique acide fort / base forte avec interprétation ion par ion (\(\ce{H3O+ \to Na+}\) → \(\sigma\) diminue).</li>
+      <li><strong>III. Approfondissement CPGE — titrages d'acides faibles et polyacides (15 min)</strong> — pH à la demi-équivalence (\(\mathrm{pH} = pK_a\) — méthode rapide de détermination du \(pK_a\)). Titrage d'un diacide : critère \(\Delta pK_a \geq 4\) pour avoir deux sauts visibles. Titrage de \(\ce{H3PO4}\) : pourquoi seulement deux sauts (3<sup>e</sup> \(pK_a\) trop proche de \(pK_e\)). Traitement informatisé : régression, dérivée numérique, détermination simultanée \(C_a\) et \(pK_a\) (Python / Regressi).</li>
+      <li><strong>Conclusion + ouverture (5 min)</strong> — titrages complexométriques (EDTA, dureté de l'eau), titrages redox (permanganimétrie, iodométrie). Limites : titrages en milieu non aqueux, micro-titrages, capteurs modernes. Articulation avec la chimie analytique professionnelle (industrie pharmaceutique, contrôle qualité agroalimentaire).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Leçon orale n°17 : Acidité en solution aqueuse</h4>
+    <ul>
+      <li><strong>Introduction (5 min)</strong> — du papier pH du jardinier à la régulation du pH sanguin : ubiquité du concept d'acidité. Problématique : <em>« qu'est-ce qu'une espèce acide, et comment quantifier sa force ? »</em>. Évolution historique : Arrhenius (1884) → Brønsted-Lowry (1923) → Lewis (1923).</li>
+      <li><strong>I. Définition opératoire et grandeurs accessibles à l'expérience (12 min, niveau lycée)</strong> — couples acide/base de Brønsted, échelle de pH (mesure au pH-mètre vs papier pH). <strong>Distinction expérience / modèle / théorie</strong> : le pH-mètre mesure une <em>activité</em>, on la modélise comme une concentration en solution diluée idéale, la théorie sous-jacente est l'équilibre de Brønsted. Illustration expérimentale : mesure du pH de solutions de \(\ce{HCl}\) et \(\ce{CH3COOH}\) à même concentration, écart de pH → introduction qualitative de la force.</li>
+      <li><strong>II. Constante d'acidité \(K_a\) et conséquences (15 min, première spé → terminale spé → CPGE 1ʳᵉ année)</strong> — définition de \(K_a\), \(pK_a\), classement, diagramme de prédominance. Démonstration du pH d'un acide faible peu dissocié. Calcul guidé sur \(\ce{CH3COOH}\) 0,1 mol/L. Vérification expérimentale au pH-mètre — confrontation au modèle.</li>
+      <li><strong>III. Approfondissement CPGE — diacides, mélanges et thermodynamique (15 min)</strong> — diagramme de prédominance des polyacides, critère \(\Delta pK_a\). Mélanges d'acides ou de bases : recherche systématique de la <em>réaction prépondérante</em>. Lien thermodynamique : \(\Delta_r G^\circ = -RT\ln K^\circ\), \(\Delta_r G = \Delta_r G^\circ + RT\ln Q\) — la distinction est essentielle. Effet de la température sur \(K_a\) (van't Hoff). Illustration : mesure de \(K_a\) à deux températures pour remonter à \(\Delta_r H^\circ\).</li>
+      <li><strong>Conclusion + ouverture (5 min)</strong> — l'acidité de Lewis (complexes, catalyse acide en organique), acidité en milieu non aqueux (échelle de Hammett \(H_0\)), superacides. Lien biologique : régulation du pH sanguin par les tampons \(\ce{H2CO3/HCO3^-}\) (rythme respiratoire) et \(\ce{HPO4^{2-}/H2PO4^-}\) (rein). Pertinence professionnelle (cours de Terminale spé, articulation SVT).</li>
+    </ul>
+  </div>
 
   <div class="lecon-card">
     <h4>Leçon — Solutions tampons et homéostasie du sang</h4>
@@ -719,14 +875,19 @@
 <div class="sblock r" id="jury">
   <div class="sblock-num">Section 13</div>
   <h2>13. Pièges du jury — rapport 2025</h2>
-  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+  <p class="intro">Erreurs récurrentes signalées dans le rapport de jury 2025, hiérarchisées par fréquence à l'écrit et à l'oral.</p>
 
   <div class="jury-list">
-    <div class="jury-item"><strong>Acide fort vs concentré.</strong> Acide fort = entièrement dissocié (\(\ce{HCl}, \ce{HNO3}, \ce{H2SO4}\) 1<sup>re</sup> acidité, \(\ce{HClO4}\)). Acide concentré = quantité élevée. Un acide faible peut être très concentré (vinaigre 6 %). Confusion fréquente à l'oral.</div>
-    <div class="jury-item"><strong>pH à l'équivalence \(\neq 7\).</strong> pH = 7 seulement pour acide fort / base forte. Acide faible / base forte → pH_éq &gt; 7. Base faible / acide fort → pH_éq &lt; 7. Toujours analyser l'espèce présente à l'équivalence.</div>
-    <div class="jury-item"><strong>Activités et constantes.</strong> Les solides ont \(a = 1\) (n'apparaissent pas dans \(K_s\)). Le solvant a \(a = 1\) en solution diluée (n'apparaît pas dans \(K_a, \beta\)). Les concentrations sont divisées par \(c^\circ = 1\,\mathrm{mol/L}\) (constantes sans unité).</div>
+    <div class="jury-item"><strong>\(\Delta_r G\) vs \(\Delta_r G^\circ\) — confusion la plus fréquente.</strong> \(\Delta_r G^\circ\) (standard) fixe \(K^\circ\) via \(\Delta_r G^\circ = -RT\ln K^\circ\). \(\Delta_r G\) (réelle) gouverne le sens d'évolution via \(\Delta_r G = \Delta_r G^\circ + RT\ln Q\). C'est \(\Delta_r G\) qui s'annule à l'équilibre, jamais \(\Delta_r G^\circ\). Voir alerte rouge §6.2. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Acidité des diacides bâclée.</strong> Le candidat applique l'amphotère \(\mathrm{pH} = \tfrac{1}{2}(pK_{a_1} + pK_{a_2})\) sans vérifier \(\Delta pK_a \geq 4\). Pour \(\Delta pK_a \lesssim 2\) (cas \(\ce{H2S}\), \(\ce{H2SO3}\)), il faut un système exact ou un diagramme de distribution. Voir §1.4. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Mélanges de bases mal analysés.</strong> Identifier la base la plus forte, écrire la <em>réaction prépondérante</em> (RP) avec sa constante \(K_{\text{RP}} = K_{a_2}/K_{a_1}\), refaire le bilan. Ne pas additionner les pH. Cas \(\ce{NaOH + NH3}\) : la base forte impose, la faible reste peu protonnée par effet d'ion commun \(\ce{OH-}\). Voir §1.5. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Distinction expérience / modèle / théorie absente.</strong> Le jury attend une structure de raisonnement explicite : <em>j'observe → je modélise (avec hypothèses) → j'invoque la théorie</em>. Voir §2.2. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Réponses pédagogiques détachées du programme.</strong> Le jury attend des réponses <em>concises, argumentées et reliées au programme scolaire</em> (collège → CPGE). Positionner explicitement chaque notion dans la progression curriculaire (cf. les six \(.\)ped-card de la section 9). <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Acide fort vs concentré.</strong> Acide fort = entièrement dissocié (\(\ce{HCl}, \ce{HNO3}, \ce{H2SO4}\) 1<sup>re</sup> acidité, \(\ce{HClO4}\)). Acide concentré = quantité élevée. Un acide faible peut être très concentré (vinaigre ~1 mol/L). Confusion fréquente à l'oral.</div>
+    <div class="jury-item"><strong>pH à l'équivalence \(\neq 7\).</strong> pH = 7 seulement pour acide fort / base forte. Acide faible / base forte → \(\mathrm{pH}_{\text{éq}} &gt; 7\). Base faible / acide fort → \(\mathrm{pH}_{\text{éq}} &lt; 7\). Toujours analyser l'espèce présente à l'équivalence.</div>
+    <div class="jury-item"><strong>Activités et constantes sans dimension.</strong> Les solides ont \(a = 1\) (n'apparaissent pas dans \(K_s\)). Le solvant a \(a = 1\) en solution diluée (n'apparaît pas dans \(K_a, \beta\)). Les concentrations sont divisées par \(c^\circ = 1\,\mathrm{mol/L}\) — constantes thermodynamiques sans dimension.</div>
     <div class="jury-item"><strong>Équilibrage des demi-équations redox.</strong> Méthode systématique : (1) équilibrer atomes principaux ; (2) équilibrer O avec \(\ce{H2O}\) ; (3) équilibrer H avec \(\ce{H+}\) ; (4) équilibrer charges avec \(\ce{e-}\). En milieu basique, additionner \(\ce{OH-}\) pour neutraliser les \(\ce{H+}\). Étape souvent bâclée.</div>
-    <div class="jury-item"><strong>Dilution lors d'un titrage.</strong> Au cours du titrage, le volume total augmente. Pour des calculs précis, ne pas négliger la dilution (sauf si \(V_b \ll V_a\)). Important surtout aux titrages dilués ou pour la détermination de \(K_a\) à la demi-équivalence (où l'erreur de dilution affecte le rapport \([\ce{AH}]/[\ce{A^-}]\)).</div>
+    <div class="jury-item"><strong>Dilution lors d'un titrage.</strong> Au cours du titrage, le volume total augmente. Pour des calculs précis, ne pas négliger la dilution (sauf si \(V_b \ll V_a\)). Important surtout en titrages dilués ou pour la détermination de \(K_a\) à la demi-équivalence.</div>
   </div>
 </div>
 

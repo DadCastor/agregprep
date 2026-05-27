@@ -32,10 +32,10 @@
 </nav>
 <div class="wrap">
   <div class="chap-hero r">
-    <div class="chap-eyebrow">Physique · Chapitres 15–21</div>
+    <div class="chap-eyebrow">Physique · Sujets oraux 2, 6, 7, 15, 17, 21 · Six leçons d'oral</div>
     <h1>Optique, Ondes <em>& Signal</em></h1>
-    <p class="lead">Sujets oraux n°2 (Acoustique), n°6 (Interférences), n°7 (Diffraction), n°15 (Signal analogique/numérique), n°17 (Temps–fréquence), n°21 (Ondes stationnaires). Six sujets d'oral — un des chapitres les plus exposés.</p>
-    <div class="chap-badges"><span class="badge bp">Sujets oraux 2, 6, 7, 15, 17, 21</span> <span class="badge bg">Fréquent à l'écrit</span> <span class="badge br">6 sujets oraux</span></div>
+    <p class="lead">Acoustique, interférences, diffraction, ondes stationnaires, signal analogique/numérique, analyse temps-fréquence. Six sujets d'oral — l'un des chapitres les plus exposés au concours. Le jury 2025 attend une distinction rigoureuse entre <em>réflexion totale</em> et <em>réfraction limite</em>, entre <em>cohérence temporelle</em> et <em>spatiale</em>, et la mention systématique des unités (pulsation en <strong>rad·s⁻¹</strong>).</p>
+    <div class="chap-badges"><span class="badge bp">Sujets oraux 2, 6, 7, 15, 17, 21</span> <span class="badge bg">Fréquent à l'écrit</span> <span class="badge br">Jury 2025 : exigeant</span> <span class="badge bv">Fondation</span></div>
   </div>
 
   <div class="page-grid">
@@ -48,13 +48,14 @@
         <a href="#ondes-meca">04 · Ondes mécaniques</a>
         <a href="#stationnaires">05 · Ondes stationnaires</a>
         <a href="#acoustique">06 · Acoustique</a>
-        <a href="#signal">07 · Signal & Fourier</a>
-        <a href="#pedagogie">08 · Pédagogie</a>
-        <a href="#demos">09 · Démonstrations clés</a>
-        <a href="#exercices">10 · Exercices résolus</a>
-        <a href="#lecons">11 · Leçons pour l'oral</a>
-        <a href="#montages">12 · Montages</a>
-        <a href="#jury">13 · Pièges du jury</a>
+        <a href="#polarisation">07 · Polarisation</a>
+        <a href="#signal">08 · Signal & Fourier</a>
+        <a href="#pedagogie">09 · Pédagogie</a>
+        <a href="#demos">10 · Démonstrations clés</a>
+        <a href="#exercices">11 · Exercices résolus</a>
+        <a href="#lecons">12 · Leçons pour l'oral</a>
+        <a href="#montages">13 · Montages</a>
+        <a href="#jury">14 · Pièges du jury</a>
         <a href="#quiz-section">Quiz</a>
         <a href="#ressources-section">Ressources</a>
       </nav>
@@ -96,6 +97,18 @@
     <span class="fm">\[ \sin\theta_{\text{lim}} \;=\; \dfrac{n_2}{n_1} \]</span>
   </div>
 
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Piège jury 2025 — réflexion totale ≠ réfraction limite.</strong> Deux phénomènes inverses, fréquemment confondus à l'oral :
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li><strong>Réflexion totale</strong> : passage du milieu <em>le plus dense</em> vers le moins dense (\(n_1 &gt; n_2\)). Pour \(\theta_1 &gt; \theta_{\text{lim}} = \arcsin(n_2/n_1)\), il n'y a <em>plus de rayon réfracté</em>, toute la lumière est réfléchie. Base de la fibre optique.</li>
+        <li><strong>Réfraction limite (ou angle de réfraction limite)</strong> : passage du milieu <em>le moins dense</em> vers le plus dense (\(n_1 &lt; n_2\)). Quand \(\theta_1 \to 90°\) (rasance), le rayon réfracté reste dans le milieu 2 avec un angle limite \(\theta_2^{\text{lim}} = \arcsin(n_1/n_2)\). Tout le demi-espace incident se projette dans un cône d'angle \(\theta_2^{\text{lim}}\) (« fenêtre de Snell » sous l'eau).</li>
+        <li>Astuce mnémotechnique : « réflexion <em>totale</em> = on remonte vers le moins dense, on rebondit ». « Réfraction <em>limite</em> = on plonge vers le plus dense, on est borné ».</li>
+      </ul>
+      <span class="src-tag">[Rapport jury 2025 — confusion explicitement signalée]</span>
+    </div>
+  </div>
+
   <h3>1.2 Lentille mince — relation de conjugaison</h3>
   <div class="fbox r">
     <span class="fl">Lentille mince, convention algébrique (sens lumière → axe \(+\))</span>
@@ -108,6 +121,49 @@
     <span class="fc">Grandissement transversal :</span>
     <span class="fm">\[ \gamma \;=\; \dfrac{\overline{A'B'}}{\overline{AB}} \;=\; \dfrac{v}{u} \]</span>
     <span class="fc">\(\gamma &lt; 0\) : image renversée ; \(|\gamma| &gt; 1\) : image agrandie.</span>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">💡</span>
+    <div><strong>Convention algébrique — toujours l'annoncer à l'oral.</strong> La relation de conjugaison s'écrit différemment selon la convention :
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li><strong>Descartes (origine au sommet \(O\) de la lentille)</strong> : \(\dfrac{1}{\overline{OA'}} - \dfrac{1}{\overline{OA}} = \dfrac{1}{f'}\). Les grandeurs sont <em>algébriques</em>, mesurées de \(O\) dans le sens de propagation. Un objet réel à gauche a \(\overline{OA} &lt; 0\). C'est la convention dominante au lycée et en CPGE.</li>
+        <li><strong>Newton (origines aux foyers \(F\) et \(F'\))</strong> : \(\overline{FA}\cdot\overline{F'A'} = -f'^{\,2}\). Plus compacte pour les calculs de grandissement (\(\gamma = -f'/\overline{FA} = -\overline{F'A'}/f'\)).</li>
+        <li>Sans énoncer la convention <em>explicitement</em> avant tout calcul, le jury sanctionne — les signes sont la première source d'erreur en optique géométrique.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="demo r">
+    <div class="demo-head">Démonstration · Conjugaison d'une lentille mince (Descartes)</div>
+    <h4>Établir \(\dfrac{1}{\overline{OA'}} - \dfrac{1}{\overline{OA}} = \dfrac{1}{f'}\) par tracé géométrique</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Tracé des trois rayons usuels</div>
+      <p>Soit un objet \(AB\) perpendiculaire à l'axe optique, \(A\) sur l'axe à gauche de la lentille mince convergente de centre \(O\), foyers \(F\) (objet) et \(F'\) (image). Les trois rayons remarquables construisent \(B'\) image de \(B\) :</p>
+      <ul style="margin:.4rem 0 0 1rem">
+        <li>Rayon parallèle à l'axe → passe par \(F'\) après la lentille.</li>
+        <li>Rayon passant par \(O\) → non dévié.</li>
+        <li>Rayon passant par \(F\) → ressort parallèle à l'axe.</li>
+      </ul>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Théorème de Thalès (triangles \(OAB\) et \(OA'B'\))</div>
+      <p>Le rayon non dévié par \(O\) fournit deux triangles semblables :</p>
+      <span class="eq">\( \dfrac{\overline{A'B'}}{\overline{AB}} = \dfrac{\overline{OA'}}{\overline{OA}} \equiv \gamma \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Thalès dans les triangles de foyers (\(F'A'B'\) et \(F'O\)-rayon-parallèle)</div>
+      <p>Le rayon parallèle à l'axe passe par \(F'\) en sortant ; en \(O\) sa hauteur est \(\overline{AB}\). Deux triangles semblables :</p>
+      <span class="eq">\( \dfrac{\overline{A'B'}}{\overline{AB}} = \dfrac{\overline{F'A'}}{\overline{OF'}} = \dfrac{\overline{OA'} - f'}{f'} \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 4 — Égalisation et inversion</div>
+      <p>Identification des deux expressions de \(\gamma\) :</p>
+      <span class="eq">\( \dfrac{\overline{OA'}}{\overline{OA}} = \dfrac{\overline{OA'} - f'}{f'} \)</span>
+      <p>En divisant chaque membre par \(\overline{OA'}\) :</p>
+      <span class="eq">\( \dfrac{1}{\overline{OA}} = \dfrac{1}{f'} - \dfrac{1}{\overline{OA'}} \;\Longleftrightarrow\; \boxed{\;\dfrac{1}{\overline{OA'}} - \dfrac{1}{\overline{OA}} = \dfrac{1}{f'}\;} \)</span>
+    </div>
+    <div class="ccl"><strong>Sens physique :</strong> la lentille convergente « concentre » la divergence (\(1/\overline{OA} &lt; 0\) pour objet réel) d'autant plus que sa vergence \(V = 1/f'\) est grande. Une lentille divergente a \(f' &lt; 0\), donc \(V &lt; 0\) — elle accroît la divergence apparente.</div>
   </div>
 
   <h3>1.3 Prisme et déviation</h3>
@@ -157,6 +213,32 @@
     <span class="fm">\[ I(x) \;=\; 2\,I_0\left[1 + \cos\!\left(\dfrac{2\pi a\,x}{\lambda D}\right)\right] \;=\; 4 I_0 \cos^{2}\!\left(\dfrac{\pi a\,x}{\lambda D}\right) \]</span>
   </div>
 
+  <div class="demo r">
+    <div class="demo-head">Démonstration · Différence de marche \(\delta = ax/D\)</div>
+    <h4>Calculer \(\delta\) aux petits angles dans le dispositif des fentes d'Young</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Géométrie du dispositif</div>
+      <p>Deux fentes \(S_1\), \(S_2\) séparées de \(a\), symétriques par rapport à l'axe optique. Écran à distance \(D \gg a\). Point d'observation \(M\) d'abscisse \(x\) sur l'écran. On note \(r_1 = S_1 M\) et \(r_2 = S_2 M\).</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Expressions exactes</div>
+      <span class="eq">\( r_1^2 = D^2 + (x - a/2)^2 \,,\qquad r_2^2 = D^2 + (x + a/2)^2 \)</span>
+      <p>Soustraction :</p>
+      <span class="eq">\( r_2^2 - r_1^2 = (r_2 - r_1)(r_2 + r_1) = 2\,a\,x \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Approximation \(r_1 + r_2 \approx 2D\) (paraxiale)</div>
+      <p>Pour \(x \ll D\) et \(a \ll D\), \(r_1 \approx r_2 \approx D\). D'où :</p>
+      <span class="eq">\( \delta \;=\; r_2 - r_1 \;\approx\; \dfrac{2\,a\,x}{2\,D} \;=\; \dfrac{a\,x}{D} \)</span>
+    </div>
+    <div class="ccl"><strong>Conditions de validité :</strong> dispositif paraxial et observation à grande distance. Hors de cette zone (Fresnel), il faut conserver les termes d'ordre supérieur. L'interfrange \(i = \lambda D/a\) en découle directement (deux franges brillantes consécutives ↔ \(\Delta\delta = \lambda\)).</div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">💡</span>
+    <div><strong>Condition de Fraunhofer</strong> (diffraction à l'infini) : l'observation à l'infini est physiquement réalisée soit en plaçant un écran à grande distance (\(D \gg a^2/\lambda\)), soit en projetant via une lentille convergente sur son plan focal image. Tant qu'on est en zone de Fraunhofer, la figure de diffraction est la <em>transformée de Fourier</em> de la fonction de transmission de l'objet diffractant — résultat central, à savoir énoncer et exploiter à l'oral.</div>
+  </div>
+
   <h3>2.3 Visibilité et cohérence</h3>
   <div class="fbox r">
     <span class="fl">Contraste et longueur de cohérence</span>
@@ -167,6 +249,18 @@
     <span class="fc">Longueur de cohérence temporelle (source de largeur spectrale \(\Delta\nu\)) :</span>
     <span class="fm">\[ L_c \;\approx\; \dfrac{c}{\Delta\nu} \;=\; \dfrac{\lambda^{2}}{\Delta\lambda} \]</span>
     <span class="fc">Laser He-Ne : \(L_c \sim 20\,\mathrm{cm}\). Lampe spectrale \(\sim\) mm. Lumière blanche \(\sim\) µm.</span>
+  </div>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Cohérence temporelle vs cohérence spatiale — distinction explicitement demandée par le jury.</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li><strong>Cohérence temporelle</strong> : capacité d'une <em>même</em> onde à interférer avec elle-même décalée dans le temps. Limitée par la largeur spectrale \(\Delta\nu\) de la source. Longueur de cohérence \(L_c \approx c/\Delta\nu\) ; temps de cohérence \(\tau_c = 1/\Delta\nu\). Conditionne le contraste en fonction de la <em>différence de marche</em> \(\delta\). Pertinent pour Michelson, interféromètres à division d'amplitude.</li>
+        <li><strong>Cohérence spatiale</strong> : capacité de <em>deux points distincts</em> d'une même source étendue à émettre en phase relative stable. Limitée par la taille angulaire \(\alpha\) de la source vue depuis le dispositif. Rayon de cohérence transversale \(r_c \approx \lambda/\alpha\). Conditionne le contraste en fonction de la <em>séparation des sources secondaires</em>. Pertinent pour Young, dispositifs à division du front d'onde.</li>
+        <li>Exemple Young : on place une fente source devant la lampe pour <em>limiter \(\alpha\)</em> et garantir la cohérence spatiale ; on utilise une lampe quasi-monochromatique pour garantir la cohérence temporelle.</li>
+      </ul>
+      <span class="src-tag">[Rapport jury 2025 — confusion fréquente]</span>
+    </div>
   </div>
 
   <h3>2.4 Interféromètre de Michelson</h3>
@@ -196,6 +290,28 @@
     <span class="fm">\[ \sin\theta_1 \;=\; \dfrac{\lambda}{a} \qquad\text{largeur angulaire totale}\;\; 2\theta_1 \approx \dfrac{2\lambda}{a} \]</span>
   </div>
 
+  <div class="demo r">
+    <div class="demo-head">Démonstration · Diffraction de Fraunhofer par une fente — formule en sinc²</div>
+    <h4>Intégrale de Huygens-Fresnel sur la fente</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Principe de Huygens-Fresnel</div>
+      <p>Chaque point \(P\) de la fente, repéré par \(y \in [-a/2, +a/2]\), émet une ondelette secondaire sphérique. L'amplitude reçue en \(M\) à l'infini dans la direction \(\theta\) est la superposition (en phase) de toutes ces contributions :</p>
+      <span class="eq">\( s(\theta) \;=\; s_0 \displaystyle\int_{-a/2}^{+a/2} \mathrm{e}^{-\mathrm{i}\,k\,y\,\sin\theta}\,\mathrm{d}y \)</span>
+      <p>où \(k\,y\,\sin\theta\) est la différence de phase d'un point \(y\) par rapport au centre, pour une observation à l'angle \(\theta\) (front d'onde sortant incliné).</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Intégration</div>
+      <span class="eq">\( s(\theta) \;=\; s_0\,\dfrac{\mathrm{e}^{-\mathrm{i}\,k\,a\,\sin\theta/2} - \mathrm{e}^{+\mathrm{i}\,k\,a\,\sin\theta/2}}{-\mathrm{i}\,k\,\sin\theta} \;=\; s_0\,a\,\dfrac{\sin(u)}{u}\,, \quad u = \dfrac{k\,a\,\sin\theta}{2} = \dfrac{\pi\,a\,\sin\theta}{\lambda} \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Intensité et zéros</div>
+      <p>Intensité \(I(\theta) = |s(\theta)|^2 \propto \mathrm{sinc}^2(u)\). Zéros pour \(u = m\pi\) avec \(m \in \mathbb{Z}^*\), soit :</p>
+      <span class="eq">\( \boxed{\;\sin\theta_m \;=\; m\,\dfrac{\lambda}{a}\;} \)</span>
+      <p>Largeur angulaire totale du lobe central : \(2\lambda/a\) (deux premiers zéros symétriques).</p>
+    </div>
+    <div class="ccl"><strong>Lecture fondamentale :</strong> la figure de Fraunhofer est la <em>transformée de Fourier spatiale</em> de la fonction de transmission (porte de largeur \(a\)) → TF d'une porte = sinc. Plus la fente est étroite (\(a\) petit), plus la tache centrale est large (\(\propto 1/a\)) — illustration directe du principe d'indétermination spatial.</div>
+  </div>
+
   <h3>3.2 Réseau de diffraction</h3>
   <div class="fbox r">
     <span class="fl">Réseau à \(N\) fentes, pas \(d\)</span>
@@ -220,6 +336,15 @@
       <li><strong>Télescope Hubble</strong> (\(D = 2{,}4\,\mathrm{m}\)) : \(\theta_{\min} \approx 0{,}05\,\mu\mathrm{rad}\), 10 mille fois mieux que l'œil.</li>
       <li><strong>Microscope optique</strong> : résolution latérale \(\sim \lambda/2 \approx 250\,\mathrm{nm}\) → motive l'utilisation d'UV ou de microscopie électronique pour aller au-delà.</li>
     </ul></div>
+  </div>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Interférences ET diffraction — toujours énoncer le produit.</strong> Dans l'expérience de Young, chaque fente <em>individuelle</em> diffracte : l'intensité observée est le <em>produit</em> de l'enveloppe de diffraction (sinc² d'argument \(\pi a_{\text{fente}}\sin\theta/\lambda\)) par les franges d'interférence (cos² d'argument \(\pi a_{\text{écart}} \sin\theta/\lambda\)) :
+      <span class="fm" style="display:block;text-align:center;margin-top:.4rem">\[ I(\theta) \;=\; 4\,I_0\,\mathrm{sinc}^2\!\left(\dfrac{\pi\,b\,\sin\theta}{\lambda}\right)\,\cos^2\!\left(\dfrac{\pi\,a\,\sin\theta}{\lambda}\right) \]</span>
+      avec \(b\) largeur des fentes et \(a\) écartement entre les fentes. Le nombre de franges visibles est \(\sim 2 a/b\) (rapport entre l'enveloppe et l'interfrange angulaire). À mentionner systématiquement à l'oral — le jury sanctionne l'omission.
+      <span class="src-tag">[Rapport jury 2025 — pièges récurrents]</span>
+    </div>
   </div>
 </div>
 
@@ -254,6 +379,19 @@
     <span class="fc">\(v_\varphi\) : vitesse des fronts de phase. \(v_g\) : vitesse de transport de l'énergie et de l'information.</span>
   </div>
 
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Unités des grandeurs ondulatoires — toujours préciser :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li>\([\omega] = \mathrm{rad\cdot s^{-1}}\) — pas seulement \(\mathrm{s^{-1}}\) (sinon on confond avec une fréquence). <span class="src-tag">[Rapport jury 2025, p. 12]</span></li>
+        <li>\([f] = \mathrm{Hz} = \mathrm{s^{-1}}\) — c'est une fréquence (cycles par seconde).</li>
+        <li>\([k] = \mathrm{rad\cdot m^{-1}}\) — vecteur d'onde.</li>
+        <li>\([\lambda] = \mathrm{m}\) — longueur d'onde.</li>
+        <li>Relations : \(\omega = 2\pi f\), \(k = 2\pi/\lambda\), \(\lambda = v_\varphi/f\). Le \(2\pi\) est <em>sans dimension</em> formellement, mais l'unité rad sert à <em>rappeler la nature angulaire</em>.</li>
+      </ul>
+    </div>
+  </div>
+
   <h3>4.3 Célérité des ondes mécaniques</h3>
   <table class="compact">
     <thead><tr><th>Système</th><th>Célérité \(c\)</th><th>Type d'onde</th></tr></thead>
@@ -264,6 +402,27 @@
       <tr><td>Onde élastique solide (compression, module \(E\), \(\rho\))</td><td>\(c = \sqrt{E/\rho}\)</td><td>Longitudinale</td></tr>
     </tbody>
   </table>
+
+  <div class="demo r">
+    <div class="demo-head">Démonstration · Équation d'onde sur une corde vibrante</div>
+    <h4>Établir \(\partial_t^2 y = c^2\,\partial_x^2 y\) avec \(c = \sqrt{T/\mu}\)</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Élément de corde et bilan</div>
+      <p>Corde tendue selon \((Ox)\) à la tension \(T\), masse linéique \(\mu\). Petit élément \([x, x+\mathrm{d}x]\) de masse \(\mathrm{d}m = \mu\,\mathrm{d}x\), déplacement transverse \(y(x,t)\). On suppose les pentes faibles : \(\partial_x y \ll 1\).</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Forces aux extrémités</div>
+      <p>La tension est tangente à la corde aux deux extrémités, de module \(T\) constant (approximation petits déplacements). Composante verticale en \(x + \mathrm{d}x\) : \(T\,\sin\alpha(x+\mathrm{d}x) \approx T\,\partial_x y(x+\mathrm{d}x, t)\) (vers le haut). En \(x\) : \(-T\,\partial_x y(x, t)\) (vers le bas).</p>
+      <span class="eq">\( F_y \;=\; T\,\big[\partial_x y(x+\mathrm{d}x,t) - \partial_x y(x,t)\big] \;=\; T\,\partial_x^2 y\,\mathrm{d}x \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — PFD vertical</div>
+      <span class="eq">\( \mathrm{d}m\,\partial_t^2 y \;=\; F_y \;\Longleftrightarrow\; \mu\,\mathrm{d}x\,\partial_t^2 y \;=\; T\,\partial_x^2 y\,\mathrm{d}x \)</span>
+      <p>Simplification par \(\mathrm{d}x\) :</p>
+      <span class="eq">\( \boxed{\;\partial_t^2 y \;=\; \dfrac{T}{\mu}\,\partial_x^2 y \;=\; c^2\,\partial_x^2 y\;,\quad c = \sqrt{\dfrac{T}{\mu}}\;} \)</span>
+    </div>
+    <div class="ccl"><strong>Analyse dimensionnelle :</strong> \([T] = \mathrm{N} = \mathrm{kg\cdot m\cdot s^{-2}}\), \([\mu] = \mathrm{kg\cdot m^{-1}}\), donc \([T/\mu] = \mathrm{m^2\cdot s^{-2}}\) → \(c\) en \(\mathrm{m\cdot s^{-1}}\). AN guitare (corde Mi grave, \(T \approx 70\,\mathrm{N}\), \(\mu \approx 6{,}5\,\mathrm{g\cdot m^{-1}}\)) : \(c \approx 104\,\mathrm{m\cdot s^{-1}}\), fondamental sur \(L = 0{,}65\,\mathrm{m}\) → \(f_1 \approx 80\,\mathrm{Hz}\) (Mi₂, 82 Hz tabulé) ✓.</div>
+  </div>
 </div>
 
 <!-- ═══════════════════ 05 ONDES STATIONNAIRES ═══════════════════ -->
@@ -305,6 +464,18 @@
     <hr>
     <span class="fc">Tube ouvert-ouvert (ventres aux deux extrémités) :</span>
     <span class="fm">\[ f_n \;=\; \dfrac{n\,c}{2L} \qquad\text{(comme la corde fixée-fixée)} \]</span>
+  </div>
+
+  <div class="alert alert-red r">
+    <span class="ico">⚠️</span>
+    <div><strong>Acoustique — nœud de pression ≠ nœud de déplacement.</strong> Dans un tube sonore, les ondes de déplacement \(\xi(x,t)\) et de surpression \(p(x,t)\) sont en quadrature spatiale (\(p \propto -\partial_x \xi\)). Conséquence cruciale pour identifier les conditions aux limites :
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li><strong>Extrémité fermée (paroi rigide)</strong> : nœud de déplacement (\(\xi = 0\)) <em>donc</em> ventre de pression (\(|p|\) max). Le micro mesure la pression → max au fond du tube.</li>
+        <li><strong>Extrémité ouverte (à l'air libre)</strong> : ventre de déplacement (\(\xi\) libre, oscillation maximale) <em>donc</em> nœud de pression (\(p = p_{\text{atm}}\), surpression nulle).</li>
+        <li>Quand on parle de « nœud » dans un tube, <em>toujours préciser</em> de quoi — c'est explicitement signalé par le jury.</li>
+      </ul>
+      <span class="src-tag">[Rapport jury 2025 — acoustique]</span>
+    </div>
   </div>
 
   <pre class="ascii-schema">  Corde fixée-fixée — modes propres :
@@ -361,10 +532,75 @@
   </div>
 </div>
 
-<!-- ═══════════════════ 07 SIGNAL & FOURIER ═══════════════════ -->
-<div class="sblock r" id="signal">
+<!-- ═══════════════════ 07 POLARISATION ═══════════════════ -->
+<div class="sblock r" id="polarisation">
   <div class="sblock-num">Section 07</div>
-  <h2>7. Signal et analyse de Fourier</h2>
+  <h2>7. Polarisation de la lumière</h2>
+  <p class="intro">Propriété vectorielle des OEM transverses : l'orientation du champ électrique \(\vec{E}\) dans le plan perpendiculaire à \(\vec{k}\) caractérise l'état de polarisation. Notion <em>spécifique aux ondes vectorielles</em> — absente du son (longitudinal).</p>
+
+  <h3>7.1 États de polarisation d'une onde plane</h3>
+  <div class="fbox r">
+    <span class="fl">Trois grandes classes</span>
+    <span class="fc"><strong>Polarisation rectiligne (linéaire) :</strong> \(\vec{E}(\vec{r}, t)\) garde une direction constante.</span>
+    <span class="fm">\[ \vec{E} = E_0\,\vec{e}_x\,\cos(\omega t - k z) \]</span>
+    <hr>
+    <span class="fc"><strong>Polarisation circulaire :</strong> superposition de deux polarisations rectilignes orthogonales, en quadrature, d'amplitudes égales.</span>
+    <span class="fm">\[ \vec{E} = E_0\big[\vec{e}_x\cos(\omega t - kz) + \vec{e}_y\,\varepsilon\,\sin(\omega t - k z)\big] \]</span>
+    <span class="fc">avec \(\varepsilon = \pm 1\) (gauche/droite). Le bout de \(\vec{E}\) décrit un cercle.</span>
+    <hr>
+    <span class="fc"><strong>Polarisation elliptique :</strong> cas général (amplitudes différentes ou déphasage \(\neq \pm\pi/2\)). Cercle dégénère en ellipse.</span>
+  </div>
+
+  <h3>7.2 Loi de Malus — polariseur idéal</h3>
+  <div class="fbox r">
+    <span class="fl">Filtrage d'une polarisation rectiligne par un polariseur</span>
+    <span class="fc">Onde polarisée rectilignement selon \(\vec{u}\), polariseur d'axe \(\vec{u}'\) formant un angle \(\theta\) avec \(\vec{u}\). Intensité transmise :</span>
+    <span class="fm">\[ \boxed{\;I = I_0\,\cos^2\theta\;}\quad\text{(loi de Malus)} \]</span>
+    <hr>
+    <span class="fc">Cas particuliers :</span>
+    <span class="fc">— \(\theta = 0\) (axes alignés) : \(I = I_0\) (transmission totale).</span>
+    <span class="fc">— \(\theta = \pi/2\) (axes croisés) : \(I = 0\) (extinction).</span>
+    <hr>
+    <span class="fc">Une onde non polarisée (lumière naturelle) traversant un polariseur idéal : \(I = I_0/2\) (moyenne de \(\cos^2\theta\) sur toutes les directions).</span>
+  </div>
+
+  <h3>7.3 Production de lumière polarisée</h3>
+  <div class="notion r">
+    <div class="notion-title"><span class="nt-bar"></span>Méthodes de polarisation</div>
+    <div class="notion-body"><ul>
+      <li><strong>Polariseur dichroïque</strong> (Polaroïd) : absorbe sélectivement une composante. Bon marché, transmission limitée (\(\sim 40\,\%\)) sur lumière naturelle.</li>
+      <li><strong>Réflexion à l'angle de Brewster</strong> \(\tan\theta_B = n_2/n_1\) : le faisceau réfléchi est totalement polarisé perpendiculairement au plan d'incidence. Application : lunettes Polaroïd anti-reflet (absorbent l'horizontale).</li>
+      <li><strong>Biréfringence</strong> (cristaux : calcite, quartz) : deux indices distincts pour deux polarisations orthogonales. À la base des lames \(\lambda/4\) et \(\lambda/2\).</li>
+      <li><strong>Diffusion Rayleigh</strong> par l'atmosphère : la lumière diffusée à 90° du Soleil est polarisée — d'où le ciel polarisé exploité par les abeilles pour s'orienter.</li>
+    </ul></div>
+  </div>
+
+  <h3>7.4 Lames à retard \(\lambda/4\) et \(\lambda/2\)</h3>
+  <div class="fbox r">
+    <span class="fl">Effet d'une lame biréfringente d'épaisseur \(e\)</span>
+    <span class="fc">Cristal d'indices ordinaire \(n_o\) et extraordinaire \(n_e\) (axes neutres perpendiculaires). Une onde polarisée rectilignement à 45° des axes neutres se décompose en deux ondes qui subissent un déphasage à la traversée :</span>
+    <span class="fm">\[ \Delta\varphi \;=\; \dfrac{2\pi}{\lambda}\,(n_e - n_o)\,e \]</span>
+    <hr>
+    <span class="fc"><strong>Lame \(\lambda/2\)</strong> (demi-onde, \(\Delta\varphi = \pi\)) : rotation de la direction de polarisation rectiligne de \(2\theta\) (\(\theta\) = angle entre polarisation et axe rapide).</span>
+    <span class="fc"><strong>Lame \(\lambda/4\)</strong> (quart d'onde, \(\Delta\varphi = \pi/2\)) : transforme polarisation rectiligne (à 45°) en polarisation circulaire et inversement.</span>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">💡</span>
+    <div><strong>Détecter une polarisation à l'oral.</strong> Toujours partir d'un faisceau passant par un polariseur (analyseur) que l'on fait tourner :
+      <ul style="margin:.4rem 0 0 1rem">
+        <li>Intensité \(\propto \cos^2\theta\) avec extinction nette : <em>polarisation rectiligne</em>.</li>
+        <li>Intensité constante en tournant : <em>polarisation circulaire ou lumière non polarisée</em> — distinguer en insérant une lame \(\lambda/4\) avant l'analyseur (la circulaire se transforme en rectiligne avec extinction, la non polarisée reste constante).</li>
+        <li>Intensité modulée sans extinction : <em>polarisation elliptique</em>.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ 08 SIGNAL & FOURIER ═══════════════════ -->
+<div class="sblock r" id="signal">
+  <div class="sblock-num">Section 08</div>
+  <h2>8. Signal et analyse de Fourier</h2>
   <p class="intro">Sujets oraux n°15 (Signal analogique et numérique) et n°17 (Analyse temps-fréquence). Décomposition spectrale, échantillonnage, filtrage.</p>
 
   <h3>7.1 Série de Fourier (signal périodique)</h3>
@@ -394,185 +630,531 @@
   <p>Un filtre linéaire de fonction de transfert \(H(f)\) transforme le spectre du signal d'entrée : \(Y(f) = H(f)\cdot X(f)\). Filtres passe-bas (\(|H|\) décroissant), passe-haut, passe-bande, coupe-bande.</p>
 </div>
 
-<!-- ═══════════════════ 08 PEDAGOGIE ═══════════════════ -->
+<!-- ═══════════════════ 09 PEDAGOGIE ═══════════════════ -->
 <div class="sblock r" id="pedagogie">
-  <div class="sblock-num">Section 08</div>
-  <h2>8. Pédagogie et didactique</h2>
-  <p class="intro">Liens avec les programmes du secondaire et difficultés classiques.</p>
+  <div class="sblock-num">Section 09</div>
+  <h2>9. Pédagogie et didactique pour l'oral</h2>
+  <p class="intro">Progression collège → CPGE des notions d'optique et d'ondes. Le jury 2025 attend une articulation explicite entre les deux niveaux (partie 1 secondaire / partie 2 post-bac) avec illustration expérimentale dans chaque partie.</p>
 
-  <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>Au lycée — Terminale spécialité</div>
-    <div class="notion-body"><ul>
-      <li><strong>Optique géométrique</strong> : réflexion, réfraction, lentilles convergentes/divergentes.</li>
-      <li><strong>Ondes mécaniques</strong> : célérité, longueur d'onde, fréquence, relation \(\lambda = c/f\).</li>
-      <li><strong>Interférences à deux ondes</strong> : fentes d'Young, interfrange.</li>
-      <li><strong>Diffraction</strong> : fente simple, écart angulaire \(\theta = \lambda/a\).</li>
-      <li><strong>Effet Doppler</strong> : appliqué qualitativement à la lumière (redshift) et au son.</li>
-      <li><strong>Signal et chaîne d'acquisition</strong> : numérisation, échantillonnage, quantification.</li>
-    </ul></div>
+  <div class="ped-card r">
+    <div class="niveau">Cycle 4 — collège (5ᵉ, 4ᵉ, 3ᵉ)</div>
+    <h5>Lumière, son, vision et audition</h5>
+    <ul>
+      <li>Sources lumineuses primaires (Soleil, lampe) vs diffusantes (objets éclairés). Propagation rectiligne dans un milieu homogène.</li>
+      <li>Vitesse de la lumière dans le vide : \(c \approx 3\times 10^{8}\,\mathrm{m\cdot s^{-1}}\). Année-lumière comme unité de distance.</li>
+      <li>Notion de spectre : décomposition par un prisme, couleurs de l'arc-en-ciel.</li>
+      <li>Son : vibration d'un milieu matériel, ne se propage pas dans le vide (expérience de la cloche à vide). Vitesse \(\approx 340\,\mathrm{m\cdot s^{-1}}\) dans l'air.</li>
+      <li>Fréquence audible 20 Hz – 20 kHz. Notions d'aigu/grave, fort/faible.</li>
+    </ul>
   </div>
 
-  <div class="alert alert-gold r">
+  <div class="ped-card r">
+    <div class="niveau">Seconde GT</div>
+    <h5>Optique géométrique élémentaire et propagation</h5>
+    <ul>
+      <li>Lois de Snell-Descartes : réflexion (\(\theta_i = \theta_r\)), réfraction qualitative.</li>
+      <li>Lentille mince convergente : foyers, image d'un objet à l'infini, formation des images sur la rétine.</li>
+      <li>L'œil comme système optique (modèle simplifié), comparaison avec l'appareil photo.</li>
+      <li>Signal : émission, propagation, réception. Premiers exemples (téléphone, radio).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Première spécialité physique-chimie</div>
+    <h5>Lunettes astronomiques, sons et ondes mécaniques</h5>
+    <ul>
+      <li>Réfraction quantitative : \(n_1\sin i_1 = n_2\sin i_2\). Réflexion totale, fibre optique, principe.</li>
+      <li>Lunette astronomique afocale : association de deux lentilles, grossissement \(G = f_1'/f_2'\).</li>
+      <li>Ondes mécaniques progressives périodiques : période \(T\), fréquence \(f\), longueur d'onde \(\lambda\). Relation \(\lambda = c\,T = c/f\).</li>
+      <li>Intensité sonore, niveau en décibels, échelle logarithmique.</li>
+      <li>Effet Doppler qualitatif (klaxon, radar routier).</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">Terminale spécialité physique-chimie</div>
+    <h5>Interférences, diffraction, signal numérique</h5>
+    <ul>
+      <li>Diffraction d'une onde par une fente : écart angulaire \(\theta = \lambda/a\). Caractère ondulatoire.</li>
+      <li>Interférences à deux ondes (fentes d'Young) : interfrange \(i = \lambda D/a\). Mesure de \(\lambda\).</li>
+      <li>Cohérence : pourquoi deux lampes distinctes ne produisent jamais d'interférences observables.</li>
+      <li>Effet Doppler quantitatif : \(f' - f = \pm v\,f/c\), application au redshift cosmologique.</li>
+      <li>Chaîne d'acquisition : échantillonnage, quantification, condition de Shannon (qualitative : « il faut au moins deux points par période »).</li>
+      <li>Lunette afocale, microscope optique : limite de résolution évoquée.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE — 1ʳᵉ année (MPSI, PCSI, PTSI, BCPST, MP2I)</div>
+    <h5>Formalisme de l'onde plane et interférences à deux ondes</h5>
+    <ul>
+      <li>Équation d'onde de d'Alembert ; OPPM \(\psi = A\cos(\omega t - kx + \varphi)\) ; relation de dispersion \(\omega(k)\).</li>
+      <li>Vitesse de phase, vitesse de groupe (introduites qualitativement).</li>
+      <li>Interférences à deux ondes : formule de Fresnel \(I = I_1 + I_2 + 2\sqrt{I_1 I_2}\cos(2\pi\delta/\lambda)\). Cohérence temporelle, longueur de cohérence.</li>
+      <li>Diffraction par une fente (Fraunhofer), figure en sinc². Critère de Rayleigh appliqué à un instrument.</li>
+      <li>Ondes stationnaires sur une corde fixée-fixée ; modes propres, harmoniques.</li>
+      <li>Acoustique : équation d'onde de la surpression, niveau en dB.</li>
+      <li>Analyse de Fourier (séries) : décomposition d'un signal périodique.</li>
+    </ul>
+  </div>
+
+  <div class="ped-card r">
+    <div class="niveau">CPGE — 2ᵉ année (MP, PC, PSI, PT, MPI, TSI, BCPST2)</div>
+    <h5>Optique ondulatoire approfondie, signal et Fourier</h5>
+    <ul>
+      <li>Cohérence spatiale, source étendue, théorème de Van Cittert-Zernike (qualitatif).</li>
+      <li>Réseau de diffraction : pouvoir de résolution \(R = pN\), spectroscopie.</li>
+      <li>Interféromètre de Michelson : lame d'air (anneaux), coin d'air (franges), localisation des franges, spectroscopie par TF.</li>
+      <li>Diffraction de Fraunhofer comme TF spatiale de la pupille diffractante. Théorème de Babinet.</li>
+      <li>Transformée de Fourier intégrale ; théorème de Parseval. Échantillonnage et théorème de Shannon démontré rigoureusement (peigne de Dirac).</li>
+      <li>Effet Doppler relativiste (PC, MP) : décalage transversal, redshift cosmologique.</li>
+      <li>Polarisation rectiligne/circulaire/elliptique, loi de Malus, lames \(\lambda/4\) et \(\lambda/2\) (selon filières).</li>
+    </ul>
+  </div>
+
+  <div class="alert alert-phys r">
     <span class="ico">📋</span>
-    <div><strong>Difficultés classiques des élèves :</strong>
-      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
-        <li>Confondre nœud et ventre (les nœuds <em>vibrent</em> zéro, contre-intuitivement).</li>
-        <li>Penser qu'interférences et diffraction sont des phénomènes distincts (en réalité, toutes les interférences se font sur des sources elles-mêmes diffractées).</li>
-        <li>Confondre vitesse de phase et vitesse de groupe en milieu dispersif.</li>
-        <li>Signes dans la relation de conjugaison en optique géométrique.</li>
-        <li>Aliasing en numérique : penser que \(f_{\text{éch}} &gt; f_{\max}\) suffit (faux : il faut \(\geq 2f_{\max}\)).</li>
+    <div><strong>Difficultés classiques des élèves — à anticiper à l'oral :</strong>
+      <ul style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:5px">
+        <li><strong>Confusion nœud/ventre.</strong> Contre-intuitif : un nœud est l'endroit où la corde <em>ne vibre pas</em>. Levée par une animation lente (logiciel Latis ou Geogebra) où l'on superpose les deux ondes contre-propageantes.</li>
+        <li><strong>Interférences et diffraction perçus comme phénomènes distincts.</strong> Insister : <em>toute</em> interférence à deux ondes implique la diffraction des sources secondaires. L'enveloppe sinc² module les franges Young.</li>
+        <li><strong>Vitesse de phase vs vitesse de groupe.</strong> En milieu dispersif, \(v_\varphi\) peut dépasser \(c\) (verre dans l'UV) sans contradiction relativiste — c'est \(v_g\) qui transporte l'énergie et reste \(\leq c\).</li>
+        <li><strong>Signes en optique géométrique.</strong> Le piège n°1 : oublier d'annoncer la convention algébrique. Toujours dessiner le sens \(+\) sur le schéma avant tout calcul.</li>
+        <li><strong>Critère de Shannon — inégalité stricte vs large.</strong> La condition est \(f_{\text{éch}} \geq 2 f_{\max}\) (large), mais à l'égalité on est à la limite théorique non réalisable physiquement → en pratique \(f_{\text{éch}} \gtrsim 2{,}2\,f_{\max}\) à \(4 f_{\max}\).</li>
+        <li><strong>« Le son se propage plus vite dans l'air chaud parce qu'il y a plus d'énergie. »</strong> Erreur classique : c'est la baisse de masse volumique à pression constante (\(c = \sqrt{\gamma P/\rho}\)) qui fait croître \(c\) avec \(T\), pas une « énergie supplémentaire » qui pousserait le son.</li>
+        <li><strong>Diffraction = « la lumière contourne les obstacles ».</strong> Reformuler : c'est l'étalement angulaire d'un faisceau passant par une ouverture, conséquence de la nature ondulatoire — pas un détour le long de l'obstacle.</li>
+        <li><strong>Cohérence ≠ monochromatisme.</strong> Une source quasi-monochromatique (lampe spectrale) est temporellement cohérente sur \(\sim\) mm ; une source incohérente même monochromatique (deux lasers indépendants) ne produit jamais de franges stables.</li>
       </ul>
     </div>
   </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Leçon orale n°6 « Interférences à deux ondes »</h4>
+    <ul>
+      <li><strong>Introduction (3-5 min) :</strong> question du modèle de la lumière (corpuscule de Newton vs onde de Huygens). Annonce de la démarche : produire un dispositif où la <em>seule</em> interprétation est ondulatoire.</li>
+      <li><strong>I. Au niveau lycée (Terminale spé) — 10-12 min :</strong>
+        <ul>
+          <li>Expérience des fentes d'Young avec laser. Observation à l'écran.</li>
+          <li>Mesure de l'interfrange \(i\) avec un mètre, calcul de \(\lambda\) avec \(\lambda = a\,i/D\) (cas paraxial).</li>
+          <li>Discussion du résultat : ordre de grandeur \(\sim\) 600 nm cohérent avec la couleur rouge.</li>
+        </ul>
+      </li>
+      <li><strong>II. Approfondissement CPGE — 15-18 min :</strong>
+        <ul>
+          <li>Calcul de \(\delta = ax/D\) en géométrie paraxiale (démonstration).</li>
+          <li>Formule de Fresnel \(I = I_1 + I_2 + 2\sqrt{I_1 I_2}\cos\varphi\), visibilité.</li>
+          <li>Discussion des cohérences temporelle et spatiale ; effet d'une source étendue (réduction du contraste).</li>
+          <li>Couplage interférences × diffraction : enveloppe sinc² × franges cos².</li>
+          <li>Expérience CPGE : Michelson en lame d'air, défilement d'anneaux pour mesure précise de \(\lambda\) ou de \(\Delta\lambda\) (doublet sodium).</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (3-5 min) :</strong> applications modernes — détection d'ondes gravitationnelles (LIGO, Michelson de 4 km), spectroscopie par TF, holographie.</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Leçon orale n°7 « Diffraction »</h4>
+    <ul>
+      <li><strong>Introduction (3-5 min) :</strong> observation qualitative — pointeur laser à travers une fente fine vs grande ouverture. Faire varier \(a\) en direct.</li>
+      <li><strong>I. Lycée (Terminale spé) — 10-12 min :</strong>
+        <ul>
+          <li>Loi qualitative : « plus l'ouverture est petite, plus la figure est large ».</li>
+          <li>Relation \(\theta \approx \lambda/a\) pour la demi-largeur du lobe central.</li>
+          <li>Mesure de l'épaisseur d'un cheveu (\(\sim 50\,\mu\mathrm{m}\)) par diffraction laser.</li>
+        </ul>
+      </li>
+      <li><strong>II. CPGE — 15-18 min :</strong>
+        <ul>
+          <li>Principe de Huygens-Fresnel ; formule intégrale.</li>
+          <li>Diffraction à l'infini (Fraunhofer) : transformée de Fourier de la pupille.</li>
+          <li>Calcul de \(I(\theta) \propto \mathrm{sinc}^2\) pour une fente, zéros à \(\sin\theta = m\lambda/a\).</li>
+          <li>Cas circulaire : critère de Rayleigh \(\theta_{\min} = 1{,}22\,\lambda/D\) ; application au télescope, à l'œil, au microscope.</li>
+          <li>Réseau : pouvoir de résolution \(R = pN\), spectroscopie à haute résolution.</li>
+          <li>Expérience CPGE : mesure du pas d'un réseau ou du diamètre d'un fil par diffraction laser et caméra (régression non linéaire sur sinc²).</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (3-5 min) :</strong> diffraction des rayons X (Bragg → cristallographie), microscope électronique (\(\lambda \sim\) pm), résolution sub-longueur d'onde (STED, super-résolution Nobel 2014).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Leçon orale n°2 « Acoustique »</h4>
+    <ul>
+      <li><strong>Introduction (3-5 min) :</strong> diversité des phénomènes (musique, parole, échographie médicale, sonar). Annonce : nature ondulatoire commune.</li>
+      <li><strong>I. Lycée (Première / Terminale spé) — 10-12 min :</strong>
+        <ul>
+          <li>Onde sonore = onde de surpression dans un fluide. Caractère longitudinal.</li>
+          <li>Célérité \(c \approx 340\,\mathrm{m\cdot s^{-1}}\) dans l'air. Mesure par écho ou tube de Kundt.</li>
+          <li>Intensité, niveau en dB. Échelle logarithmique.</li>
+          <li>Effet Doppler (klaxon en mouvement, démonstration audio enregistrée).</li>
+        </ul>
+      </li>
+      <li><strong>II. CPGE — 15-18 min :</strong>
+        <ul>
+          <li>Équation d'onde de la surpression. Célérité \(c = \sqrt{\gamma P/\rho}\) dans un gaz parfait, démonstration.</li>
+          <li>Impédance acoustique \(Z = \rho c\) ; coefficients de réflexion/transmission à une interface (lien avec l'échographie : gel pour adapter \(Z\)).</li>
+          <li>Ondes stationnaires dans un tube : conditions aux limites, modes propres, distinction nœuds de pression / nœuds de déplacement.</li>
+          <li>Effet Doppler quantitatif, application au radar Doppler médical (vélocimétrie sanguine).</li>
+          <li>Expérience CPGE : mesure de \(c\) par tube de Kundt avec traitement informatisé (FFT du signal capté par micro le long du tube).</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (3-5 min) :</strong> ultrasons médicaux (échographie 2D/3D, élastographie), acoustique des salles (réverbération, Sabine), acoustique sous-marine (sonar, communication cétacés).</li>
+    </ul>
+  </div>
+
+  <div class="summary-box r">
+    <h4>Plan-type — Leçon orale n°21 « Ondes stationnaires »</h4>
+    <ul>
+      <li><strong>Introduction (3-5 min) :</strong> note de musique = fréquence sélectionnée par l'instrument. Pourquoi la corde de guitare ne joue-t-elle pas n'importe quelle fréquence ?</li>
+      <li><strong>I. Lycée (Terminale spé) — 10-12 min :</strong>
+        <ul>
+          <li>Expérience de Melde : corde tendue + vibreur. Observation des fuseaux pour des fréquences sélectionnées.</li>
+          <li>Notion de nœud (point fixe) et de ventre (amplitude max).</li>
+          <li>Fréquences propres : \(f_n = n\,c/(2L)\) (corde fixée-fixée).</li>
+        </ul>
+      </li>
+      <li><strong>II. CPGE — 15-18 min :</strong>
+        <ul>
+          <li>Démonstration : superposition de deux OPPM contre-propageantes \(\to\) découplage spatio-temporel \(\psi = 2A\cos(kx)\cos(\omega t)\).</li>
+          <li>Quantification par les conditions aux limites ; spectre discret des modes.</li>
+          <li>Cas du tube sonore : nœuds de pression vs déplacement ; tube fermé-ouvert (harmoniques impairs) vs ouvert-ouvert.</li>
+          <li>Généralisation : modes de cavités EM (laser, four micro-ondes), modes propres d'une membrane (timbale, instruments à percussion).</li>
+          <li>Expérience CPGE : tube de Kundt avec traitement spectral, ou résonance d'une cavité EM (mode TE/TM).</li>
+        </ul>
+      </li>
+      <li><strong>Conclusion + ouverture (3-5 min) :</strong> ouverture quantique — l'équation de Schrödinger pour un puits infini admet exactement les mêmes modes \(\sin(n\pi x/L)\). La quantification de l'énergie atomique provient d'une logique d'ondes stationnaires.</li>
+    </ul>
+  </div>
 </div>
 
-<!-- ═══════════════════ 09 DEMOS ═══════════════════ -->
+<!-- ═══════════════════ 10 DEMOS ═══════════════════ -->
 <div class="sblock r" id="demos">
-  <div class="sblock-num">Section 09</div>
-  <h2>9. Démonstrations clés (niveau agrégation)</h2>
+  <div class="sblock-num">Section 10</div>
+  <h2>10. Démonstrations clés (niveau agrégation)</h2>
   <p class="intro">Démonstrations attendues à l'écrit et systématiquement demandées à l'oral.</p>
 
-  <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>9.1 — Snell-Descartes par le principe de Fermat</div>
-    <div class="notion-body">
-      <div class="demo-block">
-        <p>Le rayon lumineux entre deux points \(A\) (milieu 1) et \(B\) (milieu 2) emprunte le chemin de durée extrémale. Soit \(I\) le point d'entrée dans le milieu 2, sur l'axe \(x\). Temps de parcours :</p>
-        \[ \tau(x) \;=\; \dfrac{\sqrt{x^{2} + h_1^{2}}}{c/n_1} + \dfrac{\sqrt{(d-x)^{2} + h_2^{2}}}{c/n_2}. \]
-        <p>Dérivation par rapport à \(x\) et annulation :</p>
-        \[ \dfrac{n_1\,x}{c\sqrt{x^{2}+h_1^{2}}} \;=\; \dfrac{n_2\,(d-x)}{c\sqrt{(d-x)^{2}+h_2^{2}}}. \]
-        <p>En reconnaissant \(\sin\theta_1\) et \(\sin\theta_2\) :</p>
-        \[ \boxed{\;n_1\,\sin\theta_1 \;=\; n_2\,\sin\theta_2\;} \]
-      </div>
+  <div class="demo r">
+    <div class="demo-head">Démonstration 9.1 · Snell-Descartes par le principe de Fermat</div>
+    <h4>Retrouver la loi de la réfraction comme extremum du temps de parcours</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Énoncé du principe</div>
+      <p>Principe de Fermat : entre deux points \(A\) et \(B\), le rayon lumineux emprunte le chemin pour lequel le temps de parcours est <em>stationnaire</em> (extremum ou point selle). Soit \(A\) dans le milieu 1 (indice \(n_1\)) à la hauteur \(h_1\) au-dessus du dioptre, \(B\) dans le milieu 2 (indice \(n_2\)) à la profondeur \(h_2\), séparés horizontalement de \(d\). Le rayon traverse le dioptre au point \(I\) d'abscisse \(x\).</p>
     </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Temps de parcours</div>
+      <p>Vitesse dans le milieu \(i\) : \(v_i = c/n_i\). Temps total :</p>
+      <span class="eq">\( \tau(x) \;=\; \dfrac{n_1}{c}\,\sqrt{x^{2} + h_1^{2}} + \dfrac{n_2}{c}\,\sqrt{(d-x)^{2} + h_2^{2}} \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Stationnarité \(\mathrm{d}\tau/\mathrm{d}x = 0\)</div>
+      <span class="eq">\( \dfrac{n_1\,x}{c\,\sqrt{x^{2}+h_1^{2}}} \;=\; \dfrac{n_2\,(d-x)}{c\,\sqrt{(d-x)^{2}+h_2^{2}}} \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 4 — Identification trigonométrique</div>
+      <p>\(\sin\theta_1 = x/\sqrt{x^{2}+h_1^{2}}\) (angle entre rayon incident et normale au dioptre) et \(\sin\theta_2 = (d-x)/\sqrt{(d-x)^{2}+h_2^{2}}\). D'où :</p>
+      <span class="eq">\( \boxed{\;n_1\,\sin\theta_1 \;=\; n_2\,\sin\theta_2\;} \)</span>
+    </div>
+    <div class="ccl"><strong>Portée :</strong> le principe de Fermat est le pendant optique du principe de moindre action. Il généralise Snell-Descartes : pour un indice continu \(n(\vec{r})\) (mirages, fibres à gradient d'indice, fibres optiques), il fournit l'équation eikonale et la courbure des rayons.</div>
   </div>
 
-  <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>9.2 — Formule fondamentale des interférences à deux ondes</div>
-    <div class="notion-body">
-      <div class="demo-block">
-        <p>Deux ondes monochromatiques cohérentes en \(M\) : \(s_1 = a_1\cos(\omega t)\) et \(s_2 = a_2\cos(\omega t - \varphi)\) avec \(\varphi = 2\pi\delta/\lambda\) le déphasage. Superposition :</p>
-        \[ s = s_1 + s_2 = a_1\cos(\omega t) + a_2\cos(\omega t - \varphi). \]
-        <p>L'intensité (moyenne temporelle de \(s^{2}\) sur une période) :</p>
-        \[ I \;=\; \langle s^{2}\rangle \;=\; \dfrac{a_1^{2}}{2} + \dfrac{a_2^{2}}{2} + a_1 a_2\,\langle\cos(\omega t)\cos(\omega t - \varphi)\rangle. \]
-        <p>Avec \(\langle\cos(\omega t)\cos(\omega t - \varphi)\rangle = \tfrac{1}{2}\cos\varphi\) :</p>
-        \[ I = I_1 + I_2 + 2\sqrt{I_1 I_2}\,\cos\varphi \;=\; I_1 + I_2 + 2\sqrt{I_1 I_2}\,\cos\!\left(\dfrac{2\pi\delta}{\lambda}\right). \]
-      </div>
+  <div class="demo r">
+    <div class="demo-head">Démonstration 9.2 · Formule fondamentale des interférences à deux ondes</div>
+    <h4>Établir \(I = I_1 + I_2 + 2\sqrt{I_1 I_2}\cos(2\pi\delta/\lambda)\)</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Superposition scalaire</div>
+      <p>Deux ondes monochromatiques cohérentes en un point \(M\) (même fréquence, polarisations identiques) :</p>
+      <span class="eq">\( s_1(t) = a_1\,\cos(\omega t)\,,\quad s_2(t) = a_2\,\cos(\omega t - \varphi)\,,\quad \varphi = \dfrac{2\pi\,\delta}{\lambda} \)</span>
+      <p>Champ total : \(s(t) = s_1 + s_2\).</p>
     </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Intensité comme moyenne temporelle</div>
+      <p>Le détecteur (œil, photodiode, CCD) intègre sur un temps \(\tau \gg 1/\omega\). L'intensité est \(I = \langle s^2\rangle\) :</p>
+      <span class="eq">\( s^2 = s_1^2 + s_2^2 + 2\,s_1\,s_2 \)</span>
+      <span class="eq">\( \langle s_1^2\rangle = \tfrac{a_1^2}{2} = I_1\,,\qquad \langle s_2^2\rangle = \tfrac{a_2^2}{2} = I_2 \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Terme croisé d'interférence</div>
+      <p>Produit-somme : \(\cos(\omega t)\cos(\omega t - \varphi) = \tfrac{1}{2}\big[\cos\varphi + \cos(2\omega t - \varphi)\big]\). Le second terme a une moyenne temporelle nulle, donc :</p>
+      <span class="eq">\( 2\,\langle s_1\,s_2\rangle = a_1\,a_2\,\cos\varphi = 2\,\sqrt{I_1\,I_2}\,\cos\varphi \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 4 — Formule de Fresnel</div>
+      <span class="eq">\( \boxed{\;I(\delta) \;=\; I_1 + I_2 + 2\sqrt{I_1\,I_2}\,\cos\!\left(\dfrac{2\pi\,\delta}{\lambda}\right)\;} \)</span>
+    </div>
+    <div class="ccl"><strong>Remarques :</strong> (i) Si les ondes étaient incohérentes (déphasage \(\varphi\) aléatoire), \(\langle\cos\varphi\rangle = 0\) et \(I = I_1 + I_2\) (somme des intensités, pas d'interférence). (ii) Le contraste maximal (\(V = 1\)) est obtenu pour \(I_1 = I_2\). (iii) En polarisation perpendiculaire, le terme croisé est nul (théorème de Fresnel-Arago).</div>
   </div>
 
-  <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>9.3 — Fréquences propres d'une corde fixée-fixée</div>
-    <div class="notion-body">
-      <div class="demo-block">
-        <p>L'équation d'onde \(\partial_t^{2}\psi = c^{2}\partial_x^{2}\psi\) admet par séparation des variables \(\psi(x,t) = X(x)T(t)\) les solutions sinusoïdales \(\cos(kx + \varphi_x)\cos(\omega t + \varphi_t)\) avec \(\omega = ck\).</p>
-        <p>Conditions aux limites \(\psi(0,t) = \psi(L,t) = 0\) :</p>
-        \[ \sin(kL) \;=\; 0 \quad\Longrightarrow\quad k_n L \;=\; n\pi \quad\Longrightarrow\quad k_n = \dfrac{n\pi}{L},\ \lambda_n = \dfrac{2L}{n}. \]
-        <p>Fréquences propres :</p>
-        \[ \boxed{\;f_n \;=\; \dfrac{\omega_n}{2\pi} \;=\; \dfrac{c\,k_n}{2\pi} \;=\; \dfrac{n\,c}{2L}\;} \qquad n = 1,2,3,\ldots \]
-        <p>L'instrument à corde produit le fondamental + ses harmoniques (entiers de \(f_1\)) → timbre caractéristique.</p>
-      </div>
+  <div class="demo r">
+    <div class="demo-head">Démonstration 9.3 · Fréquences propres d'une corde fixée-fixée</div>
+    <h4>Quantification des modes par les conditions aux limites</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Séparation des variables</div>
+      <p>On cherche les solutions de l'équation d'onde \(\partial_t^2\psi = c^2\,\partial_x^2\psi\) sous la forme \(\psi(x,t) = X(x)\,T(t)\). En substituant :</p>
+      <span class="eq">\( \dfrac{T''(t)}{T(t)} = c^2\,\dfrac{X''(x)}{X(x)} \;\equiv\; -\omega^2 \quad(\text{constante de séparation}) \)</span>
+      <p>D'où \(T(t) = \cos(\omega t + \varphi_t)\) et \(X''(x) + k^2\,X(x) = 0\) avec \(\omega = c\,k\) → \(X(x) = A\sin(kx) + B\cos(kx)\).</p>
     </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Condition aux limites en \(x = 0\)</div>
+      <p>\(\psi(0, t) = 0\) impose \(X(0) = 0\), donc \(B = 0\). Reste \(X(x) = A\sin(kx)\).</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Condition aux limites en \(x = L\)</div>
+      <p>\(\psi(L, t) = 0\) impose \(\sin(kL) = 0\) (solution non triviale \(A \neq 0\)), soit :</p>
+      <span class="eq">\( k_n\,L = n\,\pi \;\Longrightarrow\; k_n = \dfrac{n\,\pi}{L}\,,\quad \lambda_n = \dfrac{2L}{n}\,,\quad n = 1, 2, 3,\ldots \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 4 — Fréquences propres</div>
+      <span class="eq">\( \omega_n = c\,k_n = \dfrac{n\,\pi\,c}{L} \;\Longrightarrow\; \boxed{\;f_n = \dfrac{\omega_n}{2\pi} = \dfrac{n\,c}{2L}\;} \)</span>
+      <p>Le fondamental \(f_1 = c/(2L)\) ; les harmoniques sont des multiples entiers de \(f_1\) → c'est ce qui définit un son <em>harmonique</em> au sens musical.</p>
+    </div>
+    <div class="ccl"><strong>Lien aux instruments :</strong> la corde excitée par pincement, frottement ou frappe vibre simultanément sur plusieurs modes avec des amplitudes qui dépendent de l'excitation. Le <em>timbre</em> est défini par le spectre relatif des harmoniques. La corde isolée rayonne très peu — c'est la table d'harmonie (couplage à un grand volume d'air) qui transmet l'énergie au milieu sonore.</div>
   </div>
 
-  <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>9.4 — Critère de Rayleigh à partir du sinc</div>
-    <div class="notion-body">
-      <div class="demo-block">
-        <p>Pour deux sources ponctuelles séparées d'un angle \(\Delta\theta\), leurs figures de diffraction sont des taches d'Airy (cas circulaire) ou de sinc² (cas rectangulaire). Critère de Rayleigh : on considère que les deux taches sont à peine séparables quand le maximum de l'une coïncide avec le premier zéro de l'autre.</p>
-        <p>Pour une ouverture circulaire de diamètre \(D\), le premier zéro de la fonction d'Airy se situe à \(\sin\theta_1 = 1{,}22\,\lambda/D\). D'où :</p>
-        \[ \boxed{\;\theta_{\min} \;\approx\; 1{,}22\,\dfrac{\lambda}{D}\;} \]
-        <p>Pour une fente (cas 1D), on aurait \(\theta_{\min} = \lambda/a\). Le facteur 1,22 provient du premier zéro de la fonction de Bessel \(J_1\) (\(2{,}44\pi\approx 7{,}66 \to 1{,}22\)).</p>
-      </div>
+  <div class="demo r">
+    <div class="demo-head">Démonstration 9.4 · Critère de Rayleigh</div>
+    <h4>Limite de résolution d'un instrument à pupille circulaire</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Position du problème</div>
+      <p>Deux sources ponctuelles incohérentes (deux étoiles, deux points lumineux) à grande distance séparées d'un angle \(\Delta\theta\). Chaque source produit sa propre figure de diffraction au foyer image de l'instrument (lunette, microscope) : une tache d'Airy centrée sur le point image, dont le profil vient de la diffraction par la pupille circulaire de diamètre \(D\).</p>
     </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Tache d'Airy</div>
+      <p>La TF spatiale d'un disque de diamètre \(D\) (fonction de Bessel \(J_1\)) donne une intensité :</p>
+      <span class="eq">\( I(\theta) \;\propto\; \left[\dfrac{2\,J_1(u)}{u}\right]^2\,,\quad u = \dfrac{\pi\,D\,\sin\theta}{\lambda} \)</span>
+      <p>Premier zéro à \(u_1 \approx 3{,}832\) (premier zéro de \(J_1\)), soit :</p>
+      <span class="eq">\( \sin\theta_1 \;=\; \dfrac{u_1\,\lambda}{\pi\,D} \;\approx\; 1{,}22\,\dfrac{\lambda}{D} \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Critère de Rayleigh</div>
+      <p>Définition : deux sources sont à la limite de la résolution quand le <em>maximum</em> de la tache d'Airy de l'une coïncide avec le <em>premier zéro</em> de l'autre. À cet écart angulaire :</p>
+      <span class="eq">\( \boxed{\;\theta_{\min} \;\approx\; 1{,}22\,\dfrac{\lambda}{D}\;} \)</span>
+      <p>Le profil d'intensité combiné présente alors un creux de \(\sim 26\,\%\) entre les deux pics — détectable à l'œil ou par traitement d'image.</p>
+    </div>
+    <div class="ccl"><strong>Comparaison fente / disque :</strong> pour une fente 1D, la diffraction donne sinc² avec premier zéro à \(\sin\theta = \lambda/a\). Le facteur 1,22 spécifique au cas circulaire vient du premier zéro de \(J_1\) (et non de \(\sin\)). À l'oral, ne pas oublier de citer ce facteur lorsqu'on parle d'instruments à pupille circulaire — œil, télescope, microscope. <strong>Limite physique :</strong> en microscopie classique, \(\theta_{\min} \cdot d \sim \lambda/2\) ; le passage en UV ou en microscopie électronique (\(\lambda\) sub-nm) ou les techniques de super-résolution (STED, PALM/STORM, Nobel 2014) permettent de descendre sous cette limite.</div>
   </div>
 
-  <div class="notion r">
-    <div class="notion-title"><span class="nt-bar"></span>9.5 — Théorème d'échantillonnage (Shannon)</div>
-    <div class="notion-body">
-      <div class="demo-block">
-        <p>Un signal \(x(t)\) à spectre borné \(|X(f)| = 0\) pour \(|f| &gt; f_{\max}\), échantillonné aux instants \(t_n = n/f_{\text{éch}}\), donne un spectre périodisé :</p>
-        \[ X_{\text{éch}}(f) \;=\; f_{\text{éch}} \sum_{k}X(f - k f_{\text{éch}}). \]
-        <p>Si \(f_{\text{éch}} &gt; 2 f_{\max}\), les répliques ne se recouvrent pas et on peut récupérer \(X(f)\) par filtrage passe-bas idéal de coupure \(f_{\text{éch}}/2\). Si \(f_{\text{éch}} &lt; 2 f_{\max}\), les répliques se recouvrent : <em>aliasing</em>, perte d'information irréversible.</p>
-        <p>D'où la condition de Nyquist-Shannon :</p>
-        \[ \boxed{\;f_{\text{éch}} \;\geq\; 2\,f_{\max}\;} \]
-      </div>
+  <div class="demo r">
+    <div class="demo-head">Démonstration 9.5 · Théorème d'échantillonnage (Shannon)</div>
+    <h4>Établir \(f_{\text{éch}} \geq 2\,f_{\max}\) par périodisation spectrale</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Modélisation de l'échantillonnage</div>
+      <p>Soit \(x(t)\) un signal à spectre borné : \(X(f) = 0\) pour \(|f| &gt; f_{\max}\). L'échantillonnage à la cadence \(T_e = 1/f_{\text{éch}}\) revient à multiplier \(x\) par un peigne de Dirac \(\Sha_{T_e}(t) = \sum_n \delta(t - n T_e)\) :</p>
+      <span class="eq">\( x_e(t) \;=\; x(t)\,\Sha_{T_e}(t) \;=\; \sum_n x(n T_e)\,\delta(t - n T_e) \)</span>
     </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Transformée de Fourier (propriété peigne)</div>
+      <p>La TF d'un peigne de Dirac de période \(T_e\) est un peigne de Dirac de période \(f_{\text{éch}} = 1/T_e\) en fréquence. Par théorème de convolution :</p>
+      <span class="eq">\( X_e(f) \;=\; X(f) * \Sha_{f_{\text{éch}}}(f) \;=\; f_{\text{éch}}\,\sum_k X(f - k\,f_{\text{éch}}) \)</span>
+      <p>Le spectre du signal échantillonné est <em>périodisé</em> à la période \(f_{\text{éch}}\).</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Condition de non-recouvrement</div>
+      <p>Pour que les répliques \(X(f - k f_{\text{éch}})\) ne se chevauchent pas, il faut que la largeur \(2 f_{\max}\) du spectre original soit plus petite que la période \(f_{\text{éch}}\) :</p>
+      <span class="eq">\( \boxed{\;f_{\text{éch}} \;\geq\; 2\,f_{\max}\;} \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 4 — Reconstruction</div>
+      <p>Si la condition est respectée, on récupère \(X(f)\) (donc \(x(t)\)) par filtrage passe-bas idéal de fréquence de coupure \(f_{\text{éch}}/2\) (formule d'interpolation sinc de Shannon). Si elle est violée, les répliques se replient sur la bande utile : c'est <em>l'aliasing</em>, perte d'information irréversible.</p>
+    </div>
+    <div class="ccl"><strong>Applications :</strong> CD audio à 44,1 kHz pour \(f_{\max} = 22\,\mathrm{kHz}\) (seuil d'audibilité humaine) ; téléphonie à 8 kHz pour \(f_{\max} = 4\,\mathrm{kHz}\) (bande passante de la voix). En pratique, on prend toujours \(f_{\text{éch}} \gtrsim 2{,}2\,f_{\max}\) à \(4\,f_{\max}\) car le filtre passe-bas idéal n'existe pas physiquement (transition non infiniment raide) — on doit laisser une bande de garde.</div>
+  </div>
+
+  <div class="demo r">
+    <div class="demo-head">Démonstration 9.6 · Effet Doppler non relativiste (source en mouvement)</div>
+    <h4>Décalage de fréquence par décompte des fronts d'onde</h4>
+    <div class="step">
+      <div class="step-label">Étape 1 — Cadre</div>
+      <p>Source ponctuelle émettant à la fréquence \(f_0\) (période \(T_0 = 1/f_0\)), se déplaçant à la vitesse \(v_{\text{src}}\) le long de la ligne source-observateur, dans un milieu au repos où l'onde se propage à la célérité \(c\). Observateur fixe.</p>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 2 — Distance entre deux fronts d'onde successifs</div>
+      <p>À l'instant \(t = 0\), la source émet un front. Pendant la durée \(T_0\), le front se propage de \(c\,T_0\) vers l'observateur. La source elle-même avance de \(v_{\text{src}}\,T_0\) et émet un nouveau front à la position avancée. La distance spatiale entre les deux fronts (la longueur d'onde perçue dans le milieu) est :</p>
+      <span class="eq">\( \lambda' \;=\; c\,T_0 - v_{\text{src}}\,T_0 \;=\; (c - v_{\text{src}})\,T_0 \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 3 — Fréquence reçue par l'observateur fixe</div>
+      <p>L'observateur immobile « voit » défiler ces fronts à la célérité \(c\). Fréquence perçue :</p>
+      <span class="eq">\( f' \;=\; \dfrac{c}{\lambda'} \;=\; \dfrac{c}{(c - v_{\text{src}})\,T_0} \;=\; \dfrac{f_0\,c}{c - v_{\text{src}}} \)</span>
+    </div>
+    <div class="step">
+      <div class="step-label">Étape 4 — Petit paramètre \(v_{\text{src}}/c\)</div>
+      <p>Pour \(v_{\text{src}} \ll c\) :</p>
+      <span class="eq">\( f' \;\approx\; f_0\left(1 + \dfrac{v_{\text{src}}}{c}\right) \;\Longrightarrow\; \dfrac{\Delta f}{f_0} \;\approx\; \dfrac{v_{\text{src}}}{c} \)</span>
+      <p>Approche \(\to\) \(\Delta f &gt; 0\) (son aigu), éloignement \(\to\) \(\Delta f &lt; 0\) (son grave).</p>
+    </div>
+    <div class="ccl"><strong>Convention à expliciter à l'oral :</strong> les manuels diffèrent sur le sens algébrique de \(v_{\text{src}}\) et \(v_{\text{obs}}\) — toujours dessiner un schéma orienté avant tout calcul. <strong>Cas relativiste :</strong> en optique, il faut tenir compte de la dilatation des durées ; on obtient \(f' = f_0\sqrt{(c-v)/(c+v)}\) (Doppler longitudinal relativiste), valable même quand le milieu n'existe pas (lumière dans le vide). C'est la base du redshift cosmologique.</div>
   </div>
 </div>
 
-<!-- ═══════════════════ 10 EXOS ═══════════════════ -->
+<!-- ═══════════════════ 11 EXOS ═══════════════════ -->
 <div class="sblock r" id="exercices">
-  <div class="sblock-num">Section 10</div>
-  <h2>10. Exercices résolus — type concours</h2>
-  <p class="intro">Trois exercices calibrés agrégation interne. Tente avant d'ouvrir le corrigé.</p>
+  <div class="sblock-num">Section 11</div>
+  <h2>11. Exercices résolus — type concours</h2>
+  <p class="intro">Cinq exercices calibrés agrégation interne — écrit et oral. Tente avant d'ouvrir le corrigé.</p>
 
-  <details class="exo-block">
-    <summary>Exercice 1 — Interféromètre de Michelson en lame d'air (★ classique)</summary>
-    <div class="exo-body">
-      <div class="exo-head">Énoncé</div>
-      <p>Un interféromètre de Michelson est réglé en lame d'air. On observe sur écran des anneaux concentriques avec un laser He-Ne (\(\lambda = 632{,}8\,\mathrm{nm}\)). On déplace le miroir mobile de \(\Delta x = 100\,\mu\mathrm{m}\) et l'on compte \(N\) anneaux qui défilent en un point fixe de l'écran.</p>
-      <ol>
-        <li>Exprimer la différence de marche \(\delta\) en fonction de l'épaisseur de la lame d'air.</li>
-        <li>Combien d'anneaux défilent ?</li>
-        <li>Quelle est la précision sur la mesure de \(\lambda\) si l'on compte les anneaux à \(\pm 1\) près ?</li>
-      </ol>
-      <div class="exo-head">Corrigé</div>
-      <p><strong>1.</strong> Avec une épaisseur d'air \(e\), \(\delta = 2 e\) (aller-retour). Quand on déplace le miroir de \(\Delta x\), l'épaisseur change de \(\Delta x\) et la différence de marche varie de \(\Delta\delta = 2\Delta x\).</p>
-      <p><strong>2.</strong> Un anneau défile chaque fois que \(\delta\) varie de \(\lambda\) :</p>
-      \[ N \;=\; \dfrac{\Delta\delta}{\lambda} \;=\; \dfrac{2\,\Delta x}{\lambda} \;=\; \dfrac{2\times 100\times 10^{-6}}{632{,}8\times 10^{-9}} \;\approx\; 316. \]
-      <p><strong>3.</strong> \(\lambda = 2\Delta x / N\), donc</p>
-      \[ \dfrac{u(\lambda)}{\lambda} \;=\; \dfrac{u(\Delta x)}{\Delta x} \oplus \dfrac{u(N)}{N} \approx \dfrac{1}{316} \approx 3\times 10^{-3}. \]
-      <p>Soit \(u(\lambda) \approx 2\,\mathrm{nm}\). Pour gagner en précision, augmenter \(\Delta x\) (on multiplie \(N\) sans augmenter l'erreur de comptage).</p>
+  <div class="exo r">
+    <div class="exo-head">
+      <span class="exo-tag">Exercice 1 — Michelson lame d'air</span>
+      <span class="exo-level">CPGE — 2ᵉ année / agrég</span>
     </div>
-  </details>
+    <h4>Mesure de la longueur d'onde d'un laser He-Ne par défilement d'anneaux</h4>
+    <p class="enonce">Un interféromètre de Michelson est réglé en lame d'air. On observe sur un écran des anneaux concentriques avec un laser He-Ne (\(\lambda \approx 632{,}8\,\mathrm{nm}\)). On déplace le miroir mobile de \(\Delta x = 100\,\mu\mathrm{m}\) et l'on compte \(N\) anneaux qui défilent en un point fixe de l'écran. <em>Référentiel : laboratoire ; sources cohérentes par division d'amplitude.</em><br>
+      <strong>1.</strong> Exprimer la différence de marche \(\delta\) au centre de la figure en fonction de l'épaisseur de la lame d'air \(e\).<br>
+      <strong>2.</strong> Combien d'anneaux défilent au centre quand on déplace le miroir mobile de \(\Delta x\) ?<br>
+      <strong>3.</strong> Quelle est l'incertitude relative sur la mesure de \(\lambda\) si l'on compte les anneaux à \(\pm 1\) près ?</p>
+    <details>
+      <summary>Corrigé détaillé</summary>
+      <div class="corr">
+        <ol>
+          <li><strong>Différence de marche.</strong> Pour un rayon incident normal au miroir mobile, l'onde traverse l'épaisseur d'air \(e\) à l'aller et au retour :
+          <span class="eq">\( \delta = 2\,e \)</span>
+          Pour un rayon incident sous un angle \(\theta\), \(\delta = 2 e \cos\theta\) ; au <em>centre</em> (\(\theta = 0\)), \(\delta = 2 e\). Quand on déplace le miroir de \(\Delta x\), l'épaisseur varie de \(\Delta e = \Delta x\), donc \(\Delta\delta = 2\,\Delta x\).</li>
+          <li><strong>Comptage des anneaux.</strong> Un anneau « défile » chaque fois que \(\delta\) varie de \(\lambda\) (passage d'une frange brillante à la suivante au point d'observation) :
+          <span class="eq">\( N \;=\; \dfrac{\Delta\delta}{\lambda} \;=\; \dfrac{2\,\Delta x}{\lambda} \;=\; \dfrac{2\times 100\times 10^{-6}}{632{,}8\times 10^{-9}} \;\approx\; 316 \)</span>
+          </li>
+          <li><strong>Incertitude.</strong> On exprime \(\lambda = 2\,\Delta x / N\). Propagation logarithmique (incertitudes indépendantes) :
+          <span class="eq">\( \dfrac{u(\lambda)}{\lambda} \;=\; \sqrt{\left(\dfrac{u(\Delta x)}{\Delta x}\right)^2 + \left(\dfrac{u(N)}{N}\right)^2} \)</span>
+          Avec \(u(N) = 1\) (comptage à l'unité) et \(u(\Delta x)\) négligeable devant \(u(N)/N\) si l'on dispose d'une vis micrométrique :
+          <span class="eq">\( \dfrac{u(\lambda)}{\lambda} \;\approx\; \dfrac{1}{N} \;\approx\; 3\times 10^{-3} \;\Longrightarrow\; u(\lambda) \approx 2\,\mathrm{nm} \)</span>
+          </li>
+        </ol>
+        <div class="key"><strong>À retenir :</strong> pour gagner en précision, augmenter \(\Delta x\) (donc \(N\)) sans augmenter l'erreur de comptage. Avec \(\Delta x = 1\,\mathrm{mm}\), \(N \approx 3160\) et \(u(\lambda)/\lambda \approx 3\times 10^{-4}\) — précision typique d'un TP d'agrégation. Le Michelson est l'instrument <em>princeps</em> de la spectroscopie haute résolution.</div>
+      </div>
+    </details>
+  </div>
 
-  <details class="exo-block">
-    <summary>Exercice 2 — Réseau et résolution du doublet jaune du sodium (★★)</summary>
-    <div class="exo-body">
-      <div class="exo-head">Énoncé</div>
-      <p>Le doublet du sodium est constitué de deux raies à \(\lambda_1 = 589{,}00\,\mathrm{nm}\) et \(\lambda_2 = 589{,}59\,\mathrm{nm}\). On souhaite les séparer à l'ordre \(p = 2\) avec un réseau de 500 traits/mm.</p>
-      <ol>
-        <li>Quel nombre minimum de traits \(N\) doit éclairer le faisceau ?</li>
-        <li>Quelle largeur minimale d'éclairement du réseau cela représente-t-il ?</li>
-        <li>Quel est l'écart angulaire entre les deux raies à l'ordre 2 (pour une incidence normale) ?</li>
-      </ol>
-      <div class="exo-head">Corrigé</div>
-      <p><strong>1.</strong> Pouvoir de résolution \(R = pN \geq \lambda/\Delta\lambda\) :</p>
-      \[ N \;\geq\; \dfrac{\lambda}{p\,\Delta\lambda} \;=\; \dfrac{589}{2\times 0{,}59} \;\approx\; 499. \]
-      <p>Soit 500 traits minimum.</p>
-      <p><strong>2.</strong> Pas du réseau \(d = 1/(500\times 10^{3}) = 2\,\mu\mathrm{m}\). Largeur éclairée :</p>
-      \[ \ell_{\min} \;=\; N\cdot d \;=\; 500 \times 2\times 10^{-6} \;=\; 1{,}0\,\mathrm{mm}. \]
-      <p><strong>3.</strong> Formule du réseau \(d\sin\theta_p = p\lambda\). Incidence normale (\(\theta_0 = 0\)) : \(\sin\theta_2 = 2\lambda/d\). Pour \(\lambda_1\) : \(\sin\theta_2^{(1)} = 0{,}589\) → \(\theta_2^{(1)} = 36{,}10^\circ\). Différentiation à \(p, d\) fixés : \(d\cos\theta_2\,\mathrm{d}\theta = p\,\mathrm{d}\lambda\), d'où</p>
-      \[ \Delta\theta \;=\; \dfrac{p\,\Delta\lambda}{d\,\cos\theta_2} \;=\; \dfrac{2\times 0{,}59\times 10^{-9}}{2\times 10^{-6}\times \cos 36{,}10^\circ} \;\approx\; 7{,}3\times 10^{-4}\,\mathrm{rad} \approx 2{,}5\,'. \]
+  <div class="exo r">
+    <div class="exo-head">
+      <span class="exo-tag">Exercice 2 — Doublet du sodium</span>
+      <span class="exo-level">CPGE — 2ᵉ année / agrég</span>
     </div>
-  </details>
+    <h4>Résolution du doublet jaune par un réseau de diffraction</h4>
+    <p class="enonce">Le doublet du sodium est constitué de deux raies très proches : \(\lambda_1 = 589{,}00\,\mathrm{nm}\) et \(\lambda_2 = 589{,}59\,\mathrm{nm}\) (\(\Delta\lambda = 0{,}59\,\mathrm{nm}\)). On souhaite les séparer à l'ordre \(p = 2\) avec un réseau de 500 traits/mm en incidence normale.<br>
+      <strong>1.</strong> Quel nombre minimum de traits \(N\) doit éclairer le faisceau ?<br>
+      <strong>2.</strong> Quelle largeur minimale d'éclairement du réseau cela représente-t-il ?<br>
+      <strong>3.</strong> Quel est l'écart angulaire entre les deux raies à l'ordre 2 ?</p>
+    <details>
+      <summary>Corrigé détaillé</summary>
+      <div class="corr">
+        <ol>
+          <li><strong>Pouvoir de résolution.</strong> Critère de Rayleigh pour un réseau : \(R = \lambda/\Delta\lambda = p N\). On exige \(R \geq 589/0{,}59 \approx 998\), soit :
+          <span class="eq">\( N \;\geq\; \dfrac{\lambda}{p\,\Delta\lambda} \;=\; \dfrac{589{,}3}{2\times 0{,}59} \;\approx\; 499 \;\Longrightarrow\; N_{\min} = 500 \)</span>
+          </li>
+          <li><strong>Largeur éclairée.</strong> Pas du réseau \(d = 1/(500\,\mathrm{tr/mm}) = 2{,}00\,\mu\mathrm{m}\). Largeur minimale :
+          <span class="eq">\( \ell_{\min} \;=\; N_{\min}\cdot d \;=\; 500 \times 2\times 10^{-6} \;=\; 1{,}0\,\mathrm{mm} \)</span>
+          </li>
+          <li><strong>Écart angulaire à l'ordre 2.</strong> Formule du réseau en incidence normale : \(d\sin\theta_p = p\,\lambda\). Pour \(\lambda_1\) : \(\sin\theta_2^{(1)} = 2\times 589/2000 = 0{,}589\), soit \(\theta_2^{(1)} \approx 36{,}10°\). Différentiation à \(p\) et \(d\) fixés :
+          <span class="eq">\( d\cos\theta_2\,\mathrm{d}\theta = p\,\mathrm{d}\lambda \;\Longrightarrow\; \Delta\theta = \dfrac{p\,\Delta\lambda}{d\,\cos\theta_2} \)</span>
+          <span class="eq">\( \Delta\theta \;=\; \dfrac{2\times 0{,}59\times 10^{-9}}{2\times 10^{-6}\times \cos 36{,}10°} \;\approx\; 7{,}3\times 10^{-4}\,\mathrm{rad} \;\approx\; 2{,}5\,' \)</span>
+          </li>
+        </ol>
+        <div class="key"><strong>Sens physique :</strong> 2,5 minutes d'arc, c'est très peu — il faut un goniomètre précis pour résoudre visuellement. <em>L'astuce du réseau</em> est d'utiliser un ordre élevé (\(p\) grand) : le pouvoir de résolution \(R = pN\) croît linéairement avec \(p\), tandis que la dispersion angulaire \(\mathrm{d}\theta/\mathrm{d}\lambda \propto p/\cos\theta\) croît aussi. Mais l'intensité de l'ordre \(p\) chute typiquement comme \(1/p^2\) → compromis à trouver expérimentalement.</div>
+      </div>
+    </details>
+  </div>
 
-  <details class="exo-block">
-    <summary>Exercice 3 — Effet Doppler médical (★★ vélocimétrie sanguine)</summary>
-    <div class="exo-body">
-      <div class="exo-head">Énoncé</div>
-      <p>Un appareil d'échographie Doppler émet une onde ultrasonore à \(f_0 = 5\,\mathrm{MHz}\). L'onde se réfléchit sur des globules rouges en mouvement à la vitesse \(v\) selon la direction du faisceau (vers la sonde). Célérité du son dans les tissus : \(c = 1540\,\mathrm{m\cdot s^{-1}}\). On mesure un décalage de fréquence \(\Delta f = 1{,}3\,\mathrm{kHz}\).</p>
-      <ol>
-        <li>Expliquer pourquoi il y a un double effet Doppler.</li>
-        <li>Exprimer \(\Delta f\) en fonction de \(v\), \(c\) et \(f_0\) (avec \(v \ll c\)).</li>
-        <li>Calculer la vitesse du sang.</li>
-      </ol>
-      <div class="exo-head">Corrigé</div>
-      <p><strong>1.</strong> Premier effet : les globules « voient » une fréquence \(f_1 = f_0(1 + v/c)\) (Doppler en réception). Deuxième effet : ils ré-émettent à cette même fréquence \(f_1\), et la sonde la reçoit avec un nouveau décalage \(f_2 = f_1(1 + v/c)\) (Doppler en émission). Au total :</p>
-      \[ f_2 \;=\; f_0\,\dfrac{1 + v/c}{1 - v/c} \;\approx\; f_0\,(1 + 2v/c) \quad\text{si}\quad v\ll c. \]
-      <p><strong>2.</strong> Décalage :</p>
-      \[ \Delta f \;=\; f_2 - f_0 \;\approx\; \dfrac{2\,v\,f_0}{c}. \]
-      <p><strong>3.</strong> Vitesse :</p>
-      \[ v \;=\; \dfrac{c\,\Delta f}{2 f_0} \;=\; \dfrac{1540\times 1300}{2\times 5\times 10^{6}} \;\approx\; 0{,}20\,\mathrm{m\cdot s^{-1}} \;=\; 20\,\mathrm{cm\cdot s^{-1}}. \]
-      <p>Cohérent avec une vitesse dans une artère majeure.</p>
+  <div class="exo r">
+    <div class="exo-head">
+      <span class="exo-tag">Exercice 3 — Doppler médical</span>
+      <span class="exo-level">CPGE — 1ʳᵉ année</span>
     </div>
-  </details>
+    <h4>Vélocimétrie Doppler du flux sanguin</h4>
+    <p class="enonce">Un appareil d'échographie Doppler émet une onde ultrasonore à \(f_0 = 5\,\mathrm{MHz}\). L'onde se réfléchit sur les globules rouges en mouvement à la vitesse \(v\) le long de la direction du faisceau (vers la sonde). Célérité du son dans les tissus : \(c = 1540\,\mathrm{m\cdot s^{-1}}\). On mesure un décalage \(\Delta f = 1{,}3\,\mathrm{kHz}\).<br>
+      <strong>1.</strong> Pourquoi un <em>double</em> effet Doppler ?<br>
+      <strong>2.</strong> Établir \(\Delta f \approx 2\,v\,f_0/c\) pour \(v \ll c\).<br>
+      <strong>3.</strong> Calculer la vitesse du sang. Commenter.</p>
+    <details>
+      <summary>Corrigé détaillé</summary>
+      <div class="corr">
+        <ol>
+          <li><strong>Double Doppler.</strong>
+            <ul>
+              <li>Émission → globule (en mouvement) : le globule perçoit \(f_1 = f_0\,(1 + v/c)\) (Doppler à l'observation).</li>
+              <li>Globule (devenu émetteur passif après réflexion) → sonde (fixe) : la sonde reçoit \(f_2 = f_1\,c/(c - v) = f_1\,(1 + v/c) + \mathcal{O}(v^2/c^2)\) (Doppler à la source).</li>
+            </ul>
+            Total : \(f_2 = f_0\,(1 + v/c)^2/(1 - v/c \cdot \ldots) \approx f_0\,(1 + 2v/c)\).</li>
+          <li><strong>Décalage au 1er ordre.</strong>
+          <span class="eq">\( \Delta f \;=\; f_2 - f_0 \;\approx\; \dfrac{2\,v\,f_0}{c} \)</span>
+          </li>
+          <li><strong>Application numérique.</strong>
+          <span class="eq">\( v \;=\; \dfrac{c\,\Delta f}{2\,f_0} \;=\; \dfrac{1540\times 1{,}3\times 10^3}{2\times 5\times 10^6} \;\approx\; 0{,}20\,\mathrm{m\cdot s^{-1}} \;=\; 20\,\mathrm{cm\cdot s^{-1}} \)</span>
+          </li>
+        </ol>
+        <div class="key"><strong>Sens physique :</strong> vitesse cohérente avec un flux dans une artère majeure (carotide : 30–100 cm·s⁻¹ en systole). En pratique le faisceau US fait un angle \(\alpha\) avec l'écoulement : seule la composante \(v\cos\alpha\) est mesurée, et l'opérateur doit corriger l'angle (incertitude principale du Doppler médical).</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="exo r">
+    <div class="exo-head">
+      <span class="exo-tag">Exercice 4 — Diffraction d'un cheveu</span>
+      <span class="exo-level">Terminale spé / CPGE 1ʳᵉ année</span>
+    </div>
+    <h4>Mesure de l'épaisseur d'un cheveu par diffraction laser</h4>
+    <p class="enonce">On illumine un cheveu vertical par un pointeur laser rouge de longueur d'onde \(\lambda = 633\,\mathrm{nm}\). À \(D = 1{,}50\,\mathrm{m}\) sur un écran, on mesure la distance entre les <em>deux premiers minima</em> d'intensité de part et d'autre du maximum central : \(2\ell = 3{,}8\,\mathrm{cm}\). On modélise le cheveu par un fil opaque de diamètre \(a\) (théorème de Babinet : la figure de diffraction d'un fil est identique à celle d'une fente de même largeur, hors maximum central).<br>
+      <strong>1.</strong> Justifier qualitativement que \(a \ll D\) garantit le régime de Fraunhofer.<br>
+      <strong>2.</strong> Exprimer \(a\) en fonction de \(\lambda\), \(D\) et \(\ell\).<br>
+      <strong>3.</strong> Calculer le diamètre du cheveu.<br>
+      <strong>4.</strong> Quelle est l'incertitude type sur \(a\) si \(u(\ell) = 1\,\mathrm{mm}\) ?</p>
+    <details>
+      <summary>Corrigé détaillé</summary>
+      <div class="corr">
+        <ol>
+          <li><strong>Régime de Fraunhofer.</strong> La condition est \(D \gg a^2/\lambda\). Avec \(a \sim 100\,\mu\mathrm{m}\) et \(\lambda \sim 600\,\mathrm{nm}\) : \(a^2/\lambda \approx 10^{-8}/(6\times 10^{-7}) \approx 1{,}7\,\mathrm{cm}\). \(D = 1{,}5\,\mathrm{m}\) est très supérieur ✓.</li>
+          <li><strong>Position des minima.</strong> Pour une fente de largeur \(a\), zéros de l'intensité \(\sin\theta_m = m\lambda/a\), \(m \in \mathbb{Z}^*\). Aux petits angles, \(\sin\theta_m \approx \tan\theta_m = \ell_m/D\). Premier minimum (\(m = \pm 1\)) :
+          <span class="eq">\( \dfrac{\ell}{D} \;=\; \dfrac{\lambda}{a} \;\Longrightarrow\; \boxed{\;a \;=\; \dfrac{\lambda\,D}{\ell}\;} \)</span>
+          </li>
+          <li><strong>Application numérique.</strong> \(\ell = 1{,}9\,\mathrm{cm}\) (demi-distance entre minima symétriques) :
+          <span class="eq">\( a \;=\; \dfrac{633\times 10^{-9}\times 1{,}50}{1{,}9\times 10^{-2}} \;\approx\; 5{,}0\times 10^{-5}\,\mathrm{m} \;=\; 50\,\mu\mathrm{m} \)</span>
+          Cohérent avec un cheveu humain typique (40–100 µm selon l'origine).</li>
+          <li><strong>Incertitude.</strong> \(a = \lambda D/\ell\), donc \(u(a)/a = u(\ell)/\ell = 0{,}1/1{,}9 \approx 5\%\), soit \(u(a) \approx 3\,\mu\mathrm{m}\).</li>
+        </ol>
+        <div class="key"><strong>Méthode robuste à exploiter à l'oral :</strong> mesurer la distance entre <em>plusieurs</em> minima (jusqu'à \(m = \pm 5\) par exemple) puis tracer \(\ell_m = (m\lambda/a)\,D\) en fonction de \(m\). La <em>pente</em> de la régression linéaire donne \(\lambda D/a\) avec une incertitude bien moindre que sur une seule paire de minima. Manipulation typique de TP d'agrégation : <em>traitement informatisé exigé</em> (jury 2025).</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="exo r">
+    <div class="exo-head">
+      <span class="exo-tag">Exercice 5 — Tube de Kundt</span>
+      <span class="exo-level">CPGE — 1ʳᵉ année</span>
+    </div>
+    <h4>Célérité du son et températures par résonance dans un tube fermé-ouvert</h4>
+    <p class="enonce">Un tube cylindrique vertical de longueur \(L = 60{,}0\,\mathrm{cm}\), fermé à sa base et ouvert à son sommet, est rempli d'air à la température \(T\). On excite à l'ouverture par un haut-parleur balayant en fréquence, et l'on note les résonances. On observe le mode fondamental à \(f_1 = 142\,\mathrm{Hz}\) et le premier harmonique impair à \(f_2 = 425\,\mathrm{Hz}\).<br>
+      <strong>1.</strong> Justifier que les fréquences propres sont \(f_n = (2n-1)\,c/(4L)\). Préciser la nature des conditions aux limites (pression / déplacement).<br>
+      <strong>2.</strong> En déduire la célérité \(c\) du son dans l'air à la température \(T\). Discuter la cohérence des deux mesures.<br>
+      <strong>3.</strong> En supposant un gaz parfait diatomique (\(\gamma = 7/5\), \(M = 29\,\mathrm{g\cdot mol^{-1}}\)), en déduire la température \(T\) de l'air dans le tube.</p>
+    <details>
+      <summary>Corrigé détaillé</summary>
+      <div class="corr">
+        <ol>
+          <li><strong>Conditions aux limites.</strong>
+            <ul>
+              <li>Base fermée (paroi rigide) : déplacement nul, <em>nœud de déplacement</em> ; donc <em>ventre de pression</em>.</li>
+              <li>Sommet ouvert (atmosphère) : surpression nulle (\(p = p_{\text{atm}}\)), <em>nœud de pression</em> ; donc <em>ventre de déplacement</em>.</li>
+            </ul>
+          Pour l'onde de pression : nœud en \(x = L\), ventre en \(x = 0\) → \(p(x,t) = P_0\cos(kx)\cos(\omega t)\) avec \(\cos(kL) = 0\), soit \(kL = (2n-1)\pi/2\). D'où \(\lambda_n = 4L/(2n-1)\) et :
+          <span class="eq">\( \boxed{\;f_n = \dfrac{(2n-1)\,c}{4L}\;,\quad n = 1, 2, 3,\ldots\;} \)</span>
+          Seules les harmoniques impaires existent → signature du tube fermé-ouvert (timbre clarinette).</li>
+          <li><strong>Célérité.</strong> Mesure 1 (\(n=1\), \(f_1\)) :
+          <span class="eq">\( c_1 = 4 L\,f_1 = 4\times 0{,}60\times 142 \approx 341\,\mathrm{m\cdot s^{-1}} \)</span>
+          Mesure 2 (\(n=2\), \(f_2 = 3 c/(4L)\), 1er harmonique impair) :
+          <span class="eq">\( c_2 = \dfrac{4 L\,f_2}{3} = \dfrac{4\times 0{,}60\times 425}{3} \approx 340\,\mathrm{m\cdot s^{-1}} \)</span>
+          Les deux mesures concordent à \(\sim 0{,}3\%\) ✓. Valeur retenue : \(c \approx 340\,\mathrm{m\cdot s^{-1}}\).</li>
+          <li><strong>Température.</strong> \(c = \sqrt{\gamma R T/M}\) :
+          <span class="eq">\( T = \dfrac{M\,c^2}{\gamma\,R} = \dfrac{29\times 10^{-3}\times 340^2}{1{,}4\times 8{,}314} \approx 288\,\mathrm{K} \approx 15\,°\mathrm{C} \)</span>
+          Cohérent avec une salle de TP non climatisée.</li>
+        </ol>
+        <div class="key"><strong>À retenir pour le montage :</strong> on peut mesurer \(c\) à mieux que 1 % en multipliant les harmoniques et en faisant une régression linéaire de \(f_n\) en fonction de \((2n-1)\) — la pente vaut \(c/(4L)\). Correction d'extrémité (\(\Delta L \approx 0{,}3 R\) avec \(R\) rayon du tube) à introduire pour une mesure plus fine.</div>
+      </div>
+    </details>
+  </div>
 </div>
 
-<!-- ═══════════════════ 11 LECONS ═══════════════════ -->
+<!-- ═══════════════════ 12 LECONS ═══════════════════ -->
 <div class="sblock r" id="lecons">
-  <div class="sblock-num">Section 11</div>
-  <h2>11. Développements pédagogiques pour l'oral</h2>
+  <div class="sblock-num">Section 12</div>
+  <h2>12. Développements pédagogiques pour l'oral</h2>
   <p class="intro">Deux propositions de leçons calibrées agrégation interne.</p>
 
   <div class="lecon-card">
@@ -608,57 +1190,140 @@
   </div>
 </div>
 
-<!-- ═══════════════════ 12 MONTAGES ═══════════════════ -->
+<!-- ═══════════════════ 13 MONTAGES ═══════════════════ -->
 <div class="sblock r" id="montages">
-  <div class="sblock-num">Section 12</div>
-  <h2>12. Montages expérimentaux</h2>
-  <p class="intro">Deux montages exploitables à l'oral d'agrégation.</p>
+  <div class="sblock-num">Section 13</div>
+  <h2>13. Montages expérimentaux pour l'oral</h2>
+  <p class="intro">Cinq montages canoniques niveau CPGE/agrégation, avec sources d'incertitudes discutées et traitement informatisé exigé par le jury 2025 (régression, FFT, modélisation).</p>
 
-  <div class="lecon-card">
-    <h4>Montage 1 — Mesure de \(\lambda\) d'un laser par fentes d'Young</h4>
-    <p><strong>Objectif.</strong> Déterminer la longueur d'onde d'un laser à partir de l'interfrange observée sur un écran.</p>
-    <p><strong>Matériel.</strong> Laser He-Ne ou diode (\(\lambda \sim 633\,\mathrm{nm}\) ou \(650\,\mathrm{nm}\)), fentes d'Young (\(a \sim 100\)–\(500\,\mu\mathrm{m}\)), écran ou capteur CCD, mètre, support gradué.</p>
-    <p><strong>Protocole.</strong></p>
-    <ol>
-      <li>Mesurer l'écartement \(a\) des fentes (notice ou microscope).</li>
-      <li>Aligner laser → fentes → écran, distance \(D\) (50 cm à 2 m).</li>
-      <li>Mesurer l'interfrange \(i\) : compter \(N\) interfranges sur une largeur \(\ell\) → \(i = \ell/N\). Précision améliorée en prenant \(N\) grand.</li>
-      <li>Calculer \(\lambda = a\,i/D\). Répéter pour plusieurs \(D\), tracer \(i = f(D)\), pente \(\lambda/a\).</li>
-    </ol>
-    <p><strong>Sources d'incertitude.</strong> Écartement \(a\) (\(\pm 5\,\mu\mathrm{m}\)), distance \(D\) (\(\pm 5\,\mathrm{mm}\)), interfrange \(i\) (\(\pm 0{,}5\,\mathrm{mm}\) sur la mesure cumulée).</p>
-    <p><strong>Exploitation.</strong> Propagation des incertitudes :</p>
-    \[ \dfrac{u(\lambda)}{\lambda} \;=\; \sqrt{\left(\dfrac{u(a)}{a}\right)^{2} + \left(\dfrac{u(i)}{i}\right)^{2} + \left(\dfrac{u(D)}{D}\right)^{2}}. \]
-    <p>Comparaison à la valeur notice du laser, écart relatif typique 1–3 %.</p>
+  <div class="montage r">
+    <div class="montage-head">Montage 1</div>
+    <h4>Mesure de \(\lambda\) d'un laser par fentes d'Young</h4>
+    <div class="mat">
+      <span class="mat-k">Objectif :</span>
+      <span class="mat-v">Déterminer la longueur d'onde d'un laser à partir de l'interfrange — illustration directe de la nature ondulatoire de la lumière.</span>
+      <span class="mat-k">Matériel :</span>
+      <span class="mat-v">Laser He-Ne (\(\lambda \approx 633\,\mathrm{nm}\)) ou diode (650 nm), bifentes d'Young (\(a \sim 100\)–\(500\,\mu\mathrm{m}\), écartement gravé), écran gradué ou caméra USB (Caliens), banc d'optique, double-décimètre.</span>
+      <span class="mat-k">Protocole :</span>
+      <span class="mat-v">(i) Mesurer \(a\) par microscope si possible ou utiliser la valeur gravée. (ii) Aligner laser → fentes → écran, distance \(D\) entre 50 cm et 2 m. (iii) Acquisition par caméra Caliens : extraire le profil \(I(x)\). (iv) Repérer \(N\) interfranges consécutives sur une largeur \(\ell\) (au moins 5 pour réduire l'incertitude) → \(i = \ell/N\). (v) Calculer \(\lambda = a\,i/D\). (vi) Répéter pour 5 valeurs de \(D\) et tracer \(i\) en fonction de \(D\).</span>
+      <span class="mat-k">Traitement informatisé :</span>
+      <span class="mat-v">Régression linéaire \(i = (\lambda/a)\,D\) sous Python/Regressi/SciDavis. Affichage de la pente et de son incertitude. Comparaison à la valeur notice (633 nm) par un test de \(\chi^2\) ou par l'écart normalisé.</span>
+      <span class="mat-k">Incertitudes :</span>
+      <span class="mat-v">\(u(a) \approx 5\,\mu\mathrm{m}\) (notice), \(u(D) \approx 2\,\mathrm{mm}\), \(u(i) \approx 0{,}1\,\mathrm{mm}\) si \(N\) grand. Propagation :
+      \(\dfrac{u(\lambda)}{\lambda} = \sqrt{(u(a)/a)^2 + (u(i)/i)^2 + (u(D)/D)^2}\). Typiquement 1–3 %.</span>
+      <span class="mat-k">Exploitation :</span>
+      <span class="mat-v">Écart relatif final \(|\lambda_{\text{exp}} - \lambda_{\text{notice}}|/\lambda_{\text{notice}}\) avec discussion. Bonus : varier la largeur des fentes pour visualiser l'enveloppe sinc² (couplage interférences × diffraction — point à valoriser à l'oral).</span>
+    </div>
   </div>
 
-  <div class="lecon-card">
-    <h4>Montage 2 — Célérité du son par tube de Kundt</h4>
-    <p><strong>Objectif.</strong> Mesurer \(c_{\text{air}}\) en mettant en évidence les ondes stationnaires dans un tube fermé.</p>
-    <p><strong>Matériel.</strong> Tube transparent (\(L \sim 1\,\mathrm{m}\)), haut-parleur à une extrémité, GBF + amplificateur, microphone monté sur chariot pour explorer le tube, oscilloscope ou logiciel.</p>
-    <p><strong>Protocole.</strong></p>
-    <ol>
-      <li>Émettre un signal sinusoïdal de fréquence \(f\) (typiquement 1–5 kHz) avec le HP à une extrémité, l'autre fermée.</li>
-      <li>Ajuster \(f\) pour observer une résonance — amplitude maximale au micro.</li>
-      <li>Déplacer le microphone le long du tube : repérer les positions des nœuds successifs (minima d'amplitude).</li>
-      <li>Distance entre deux nœuds consécutifs : \(\lambda/2\). En déduire \(\lambda\), puis \(c = \lambda f\).</li>
-    </ol>
-    <p><strong>Sources d'incertitude.</strong> Position des nœuds (\(\pm 2\,\mathrm{mm}\)), fréquence GBF (\(\pm 1\,\mathrm{Hz}\)), effets de bord (correction d'extrémité).</p>
-    <p><strong>Exploitation.</strong> Refaire pour plusieurs \(f\), tracer \(\lambda = f(1/f)\) (devrait être linéaire de pente \(c\)). Comparer à \(c_{\text{théo}} = \sqrt{\gamma RT/M}\) en mesurant aussi \(T\) ambiante. Écart relatif typique 2–5 %.</p>
+  <div class="montage r">
+    <div class="montage-head">Montage 2</div>
+    <h4>Célérité du son par tube de Kundt</h4>
+    <div class="mat">
+      <span class="mat-k">Objectif :</span>
+      <span class="mat-v">Mesurer \(c_{\text{air}}\) par résonance d'un tube fermé-ouvert ; remonter à la température par \(c = \sqrt{\gamma R T/M}\).</span>
+      <span class="mat-k">Matériel :</span>
+      <span class="mat-v">Tube transparent (\(L \sim 60\,\mathrm{cm}\)) fermé à une extrémité, haut-parleur à l'ouverture, GBF + amplificateur audio, microphone à condensateur sur chariot, oscilloscope ou carte d'acquisition USB, thermomètre.</span>
+      <span class="mat-k">Protocole :</span>
+      <span class="mat-v">(i) Balayer la fréquence du GBF entre 100 Hz et 3 kHz, repérer les pics de résonance (amplitude max au micro). (ii) Identifier les harmoniques impaires (\(f_1, 3f_1, 5f_1, \ldots\)). (iii) Pour chaque résonance, déplacer le micro le long du tube pour repérer les positions des nœuds de pression (minima d'amplitude). (iv) Distance entre deux nœuds successifs : \(\lambda/2\). (v) Mesurer \(T\) ambiante.</span>
+      <span class="mat-k">Traitement informatisé :</span>
+      <span class="mat-v">Tracer \(f_n\) en fonction de \((2n - 1)\) — pente théorique \(c/(4L)\), origine nulle. Régression linéaire pondérée. Comparer à \(c_{\text{théo}} = \sqrt{\gamma R T/M}\) en utilisant \(T\) mesurée. Optionnel : FFT du signal capté pour identifier directement les harmoniques.</span>
+      <span class="mat-k">Incertitudes :</span>
+      <span class="mat-v">\(u(f) \approx 1\,\mathrm{Hz}\) (GBF), \(u(L) \approx 2\,\mathrm{mm}\), \(u(T) \approx 1\,\mathrm{K}\). Correction d'extrémité : \(L_{\text{eff}} = L + 0{,}6\,R\) pour un tube ouvert (Levine-Schwinger). Écart relatif typique sur \(c\) : 0,5–1 %.</span>
+      <span class="mat-k">Exploitation :</span>
+      <span class="mat-v">Présenter \(c\) et \(T\) déduite avec leurs barres d'erreur. Discuter la <em>distinction nœud de pression / nœud de déplacement</em> à l'oral (point jury 2025). Ouverture : mesurer \(c\) à plusieurs températures (sèche-cheveux pour chauffer) pour vérifier \(c \propto \sqrt{T}\).</span>
+    </div>
+  </div>
+
+  <div class="montage r">
+    <div class="montage-head">Montage 3</div>
+    <h4>Spectroscopie par interféromètre de Michelson — doublet du sodium</h4>
+    <div class="mat">
+      <span class="mat-k">Objectif :</span>
+      <span class="mat-v">Mesurer l'écart spectral \(\Delta\lambda\) du doublet jaune du sodium par anticoïncidence des contrastes (méthode des anneaux).</span>
+      <span class="mat-k">Matériel :</span>
+      <span class="mat-v">Interféromètre de Michelson (modèle Sopra ou équivalent), lampe à vapeur de sodium, lentille de projection \(f' = 1\,\mathrm{m}\), écran, vis micrométrique sur le chariot mobile.</span>
+      <span class="mat-k">Protocole :</span>
+      <span class="mat-v">(i) Régler le Michelson en lame d'air parallèle (anneaux concentriques). (ii) Avec la lampe Na : observer l'alternance de zones de contraste maximal (les deux longueurs d'onde donnent des anneaux superposés) et de zones de contraste nul (anneaux \(\lambda_1\) intercalés entre \(\lambda_2\)). (iii) Mesurer la distance \(\Delta x\) entre deux anticoïncidences successives sur la vis micrométrique.</span>
+      <span class="mat-k">Traitement informatisé :</span>
+      <span class="mat-v">Visualiser le contraste \(V(\delta)\) en fonction de la différence de marche par caméra + LabView/Python — la fonction est un \(|\cos|\) de période \(\delta_p\). Régression sinusoïdale pour extraire \(\Delta\lambda\) avec son incertitude.</span>
+      <span class="mat-k">Incertitudes :</span>
+      <span class="mat-v">\(u(\Delta x) \approx 5\,\mu\mathrm{m}\) (vis), définition d'une anticoïncidence \(\pm 1\) frange. Précision finale sur \(\Delta\lambda\) : typiquement \(\pm 0{,}05\,\mathrm{nm}\) sur 0,59 nm — bon ordre de grandeur.</span>
+      <span class="mat-k">Exploitation :</span>
+      <span class="mat-v">Relation \(\Delta\lambda = \lambda^2/(2\,\Delta x)\) pour la première anticoïncidence (différence de marche \(\delta_p = \lambda^2/\Delta\lambda\), épaisseur d'air \(e = \delta/2\)). Comparaison à la valeur tabulée 0,597 nm.</span>
+    </div>
+  </div>
+
+  <div class="montage r">
+    <div class="montage-head">Montage 4</div>
+    <h4>Effet Doppler acoustique avec une source mobile</h4>
+    <div class="mat">
+      <span class="mat-k">Objectif :</span>
+      <span class="mat-v">Vérifier \(\Delta f/f_0 = v/c\) en faisant tourner un buzzer au bout d'une corde.</span>
+      <span class="mat-k">Matériel :</span>
+      <span class="mat-v">Buzzer alimenté par pile, corde de 1 m, micro à condensateur fixe (à 2-3 m du rotor), carte d'acquisition (Sysam, ou simple smartphone + logiciel Phyphox), tachymètre optique pour mesurer la fréquence de rotation.</span>
+      <span class="mat-k">Protocole :</span>
+      <span class="mat-v">(i) Mesurer la fréquence d'émission \(f_0\) du buzzer immobile (FFT du signal). (ii) Faire tourner le buzzer à la fréquence \(\Omega\) (tachymètre) ; calcul de \(v = \Omega R\). (iii) Acquérir le signal au micro fixe — la fréquence mesurée oscille entre \(f_{\max}\) (buzzer approchant) et \(f_{\min}\) (s'éloignant).</span>
+      <span class="mat-k">Traitement informatisé :</span>
+      <span class="mat-v">Calculer le <em>spectrogramme</em> (FFT glissante) du signal capté → la trace doit oscilller sinusoïdalement entre \(f_{\max} = f_0\,c/(c-v)\) et \(f_{\min} = f_0\,c/(c+v)\). Modélisation théorique par \(f(t) = f_0\,c/(c - v\cos(\Omega t))\). Régression non linéaire pour extraire \(v\) et \(f_0\).</span>
+      <span class="mat-k">Incertitudes :</span>
+      <span class="mat-v">\(u(R) \approx 1\,\mathrm{cm}\), \(u(\Omega) \approx 0{,}05\,\mathrm{Hz}\), résolution spectrale liée à la fenêtre FFT (\(\sim 10\,\mathrm{Hz}\)). Vérifier que \(v/c \sim 1\%\) reste détectable.</span>
+      <span class="mat-k">Exploitation :</span>
+      <span class="mat-v">Spectrogramme commenté à l'oral, illustration visuelle directe du Doppler. Ouverture : vélocimétrie Doppler médicale (réflexion sur globules en mouvement, double Doppler).</span>
+    </div>
+  </div>
+
+  <div class="montage r">
+    <div class="montage-head">Montage 5</div>
+    <h4>Diffraction et spectroscopie par réseau — étalonnage d'une lampe inconnue</h4>
+    <div class="mat">
+      <span class="mat-k">Objectif :</span>
+      <span class="mat-v">Identifier une lampe spectrale (Hg, Na, He, Cd…) par mesure des longueurs d'onde de ses raies via un réseau et un goniomètre.</span>
+      <span class="mat-k">Matériel :</span>
+      <span class="mat-v">Goniomètre étalonné, réseau de 600 traits/mm, lampe inconnue + lampe étalon (Hg pour calibration), filaments fins / fentes du collimateur.</span>
+      <span class="mat-k">Protocole :</span>
+      <span class="mat-v">(i) Régler la lunette à l'infini (réticule net sur une étoile artificielle), puis le collimateur (rayons parallèles, fente nette). (ii) Mettre le réseau perpendiculaire au faisceau (minimum de déviation à l'ordre 0). (iii) Lampe Hg : repérer les angles \(\theta_p\) des raies connues (violet 404,7 nm, vert 546,1 nm, jaune 577 et 579 nm) à plusieurs ordres → vérifier \(d \sin\theta_p = p\lambda\), extraire \(d\). (iv) Lampe inconnue : mesurer \(\theta_p\) des raies à plusieurs ordres, en déduire \(\lambda\), comparer aux tables.</span>
+      <span class="mat-k">Traitement informatisé :</span>
+      <span class="mat-v">Régression linéaire \(\sin\theta_p\) en fonction de \(p\) → pente \(\lambda/d\), avec \(d\) déjà calibré sur Hg. Précision typique sur \(\lambda\) : \(\pm 0{,}5\,\mathrm{nm}\) (mieux qu'un spectroscope à prisme).</span>
+      <span class="mat-k">Incertitudes :</span>
+      <span class="mat-v">Lecture du vernier : \(u(\theta) \approx 1\,'\) = 0,017° = \(3\times 10^{-4}\,\mathrm{rad}\). \(u(\lambda) = d\,\cos\theta\,u(\theta)/p\) → typiquement 0,5 nm à l'ordre 2.</span>
+      <span class="mat-k">Exploitation :</span>
+      <span class="mat-v">Identification de la lampe par comparaison aux tables (raies de référence du NIST). Discussion du pouvoir de résolution effectif (lié à \(N_{\text{éclairé}}\)).</span>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════════════ 13 JURY ═══════════════════ -->
+<!-- ═══════════════════ 14 JURY ═══════════════════ -->
 <div class="sblock r" id="jury">
-  <div class="sblock-num">Section 13</div>
-  <h2>13. Pièges du jury — rapport 2025</h2>
-  <p class="intro">Cinq erreurs récurrentes signalées chaque année.</p>
+  <div class="sblock-num">Section 14</div>
+  <h2>14. Pièges du jury — rapport 2025</h2>
+  <p class="intro">Top 10 des erreurs récurrentes signalées par le jury sur ce chapitre. Toutes traçables au rapport 2025 sauf mention contraire.</p>
 
   <div class="jury-list">
-    <div class="jury-item"><strong>Cohérence des sources.</strong> Deux sources <em>indépendantes</em> (deux lampes, deux lasers distincts) ne sont JAMAIS cohérentes — pas d'interférences observables. L'astuce des fentes d'Young : <em>une seule</em> source, divisée en deux. Confusion fréquente à l'oral.</div>
-    <div class="jury-item"><strong>Vitesse de phase \(v_\varphi\) vs vitesse de groupe \(v_g\).</strong> En milieu non dispersif, \(v_\varphi = v_g = c\). En milieu dispersif, \(v_\varphi\) peut dépasser \(c\) sans contradiction avec la relativité — c'est \(v_g\) (transport de l'énergie/information) qui reste \(\leq c\).</div>
-    <div class="jury-item"><strong>Interférences ET diffraction.</strong> Tout schéma d'interférences (Young) comprend aussi la diffraction par chaque fente individuelle. Le profil d'intensité réel est le produit : enveloppe de diffraction × franges d'interférence. À mentionner systématiquement à l'oral.</div>
-    <div class="jury-item"><strong>Critère de Nyquist strict.</strong> La condition est \(f_{\text{éch}} \geq 2\,f_{\max}\) (avec égalité, on est juste à la limite, en pratique on prend \(f_{\text{éch}} = 2{,}2\,f_{\max}\) à \(4\,f_{\max}\)). L'égalité stricte ne garantit pas la reconstruction sans filtre passe-bas idéal — qui n'existe pas physiquement.</div>
-    <div class="jury-item"><strong>Effet Doppler — convention de signe.</strong> Bien préciser le sens choisi des vitesses. La formule \(f' = f\,(c\pm v_{\text{obs}})/(c\mp v_{\text{src}})\) varie selon les conventions des manuels — toujours redémontrer rapidement pour éviter ambiguïté.</div>
+    <div class="jury-item"><strong>Réflexion totale ≠ réfraction limite.</strong> Confusion explicitement pointée. Réflexion totale = passage milieu dense → moins dense, plus de rayon réfracté au-delà de \(\theta_{\text{lim}}\). Réfraction limite = passage moins dense → plus dense, l'angle réfracté reste borné par \(\arcsin(n_1/n_2)\). <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Cohérence temporelle vs cohérence spatiale.</strong> Deux notions distinctes — temporelle limitée par \(\Delta\nu\) (longueur de cohérence), spatiale limitée par la taille angulaire de la source. À distinguer dans toute discussion d'interférences. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Cohérence des sources.</strong> Deux sources <em>indépendantes</em> (deux lampes, deux lasers distincts) ne sont JAMAIS cohérentes en moyenne temporelle longue — pas d'interférences observables. L'astuce des fentes d'Young : <em>une seule</em> source, divisée en deux (division du front d'onde). <span class="src-tag">[Récurrent]</span></div>
+    <div class="jury-item"><strong>Vitesse de phase \(v_\varphi\) vs vitesse de groupe \(v_g\).</strong> En milieu non dispersif, \(v_\varphi = v_g = c\). En milieu dispersif, \(v_\varphi\) peut dépasser \(c\) (verre dans l'UV) sans contradiction relativiste — c'est \(v_g\) (transport de l'énergie/information) qui reste \(\leq c\). <span class="src-tag">[Récurrent]</span></div>
+    <div class="jury-item"><strong>Interférences ET diffraction.</strong> Tout schéma d'interférences à deux ondes (Young) comprend aussi la diffraction par chaque fente individuelle. Le profil d'intensité réel est le <em>produit</em> : enveloppe de diffraction sinc² × franges d'interférence cos². À mentionner systématiquement. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Condition de Fraunhofer mal justifiée.</strong> La diffraction à l'infini suppose \(D \gg a^2/\lambda\), ou usage d'une lentille de projection. Sans cette précision, l'application du résultat sinc² n'est pas légitime. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Acoustique — nœud de pression ≠ nœud de déplacement.</strong> En quadrature spatiale. Dans un tube fermé, l'extrémité fermée est nœud de déplacement ET ventre de pression ; l'ouverte est ventre de déplacement ET nœud de pression. Toujours préciser de quoi on parle. <span class="src-tag">[Rapport jury 2025]</span></div>
+    <div class="jury-item"><strong>Convention algébrique en optique géométrique.</strong> Toujours annoncer Descartes ou Newton, dessiner le sens \(+\) avant tout calcul. Première source d'erreur sur les signes (objet réel/virtuel, image renversée/droite). <span class="src-tag">[Récurrent]</span></div>
+    <div class="jury-item"><strong>Pulsation oubliée en rad·s⁻¹.</strong> Confusion fréquente avec une fréquence en Hz. Toujours noter \([\omega] = \mathrm{rad\cdot s^{-1}}\) sur la copie ou au tableau. <span class="src-tag">[Rapport jury 2025, p. 12]</span></div>
+    <div class="jury-item"><strong>Critère de Nyquist strict.</strong> La condition est \(f_{\text{éch}} \geq 2\,f_{\max}\). À l'égalité, on est juste à la limite théorique non réalisable (filtre passe-bas idéal inexistant). En pratique \(f_{\text{éch}} \in [2{,}2\,;\,4]\,f_{\max}\). <span class="src-tag">[Récurrent]</span></div>
+    <div class="jury-item"><strong>Effet Doppler — convention de signe.</strong> Préciser le sens choisi des vitesses. La formule \(f' = f\,(c \pm v_{\text{obs}})/(c \mp v_{\text{src}})\) varie selon les conventions — toujours redémontrer rapidement par décompte des fronts d'onde pour lever l'ambiguïté. <span class="src-tag">[Récurrent]</span></div>
+    <div class="jury-item"><strong>Sens physique des résultats numériques.</strong> Tout AN doit être commenté : ordre de grandeur, comportement limite, cohérence avec un cas connu. Le résultat brut « 316 anneaux » ne suffit pas — il faut commenter la précision atteinte et son origine. <span class="src-tag">[Rapport jury 2025]</span></div>
+  </div>
+
+  <div class="alert alert-gold r">
+    <span class="ico">💡</span>
+    <div><strong>Démarche transversale attendue (rapport jury 2025).</strong> Pour chaque manipulation ou exposé d'optique-ondes, le jury exige :
+      <ol style="margin:.5rem 0 0 1rem;display:flex;flex-direction:column;gap:4px">
+        <li><strong>Distinguer expérience, modèle, théorie.</strong> Ne pas confondre la donnée brute (mesure d'un interfrange), le modèle ondulatoire (sinc² de Fraunhofer) et la théorie sous-jacente (équations de Maxwell, principe de Huygens-Fresnel).</li>
+        <li><strong>Discuter les incertitudes systématiques ET aléatoires.</strong> Notamment en montage : calibrage, correction d'extrémité, indice de l'air.</li>
+        <li><strong>Intégrer un traitement informatisé.</strong> Régression linéaire/non-linéaire, FFT, modélisation Python/Regressi. La calculatrice ne suffit pas pour l'oral d'agrégation interne 2027.</li>
+        <li><strong>Articuler secondaire et CPGE.</strong> Partie 1 niveau Terminale spé avec illustration ; partie 2 niveau post-bac avec démonstration et approfondissement. Chaque partie doit comporter une expérience.</li>
+      </ol>
+    </div>
   </div>
 </div>
 
@@ -694,6 +1359,14 @@
 </div><div class="quiz-card r">
   <div class="q-text">Tube fermé-ouvert de \(L = 30\,\mathrm{cm}\) (clarinette idéalisée). \(c = 340\,\mathrm{m/s}\). Fréquence fondamentale ?</div>
   <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. C\'est la formule du tube ouvert-ouvert ou de la corde fixée-fixée.')">\(f_1 = c/(2L) \approx 567\,\mathrm{Hz}\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. Tube fermé-ouvert : f_n = (2n−1)c/(4L). Fondamental : f₁ = c/(4L) = 340/(4×0,3) ≈ 283 Hz. Note proche de Ré3 (Ré4 en notation savante). À noter : seulement les harmoniques impaires (1, 3, 5...) — d\'où le timbre particulier de la clarinette.')">\(f_1 = c/(4L) \approx 283\,\mathrm{Hz}\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Le facteur 1/L sans diviseur correct donnerait des fréquences trop élevées.')">\(f_1 = c/L \approx 1133\,\mathrm{Hz}\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Un plongeur regarde vers la surface depuis le fond d'une piscine (\(n_{\text{eau}} = 1{,}33\)). Au-delà de quel angle (par rapport à la verticale) la surface lui paraît-elle un miroir parfait ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non, ce serait l\'angle pour la réfraction limite (vue extérieure → eau).')">\(\theta = \arcsin(1/1{,}33) \approx 48{,}8°\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. C\'est la réflexion totale : passage eau (dense) → air (moins dense). θ_lim = arcsin(n_air/n_eau) = arcsin(1/1,33) ≈ 48,8°. Au-delà, le plongeur ne voit plus à l\'extérieur — la surface est totalement réfléchissante. La « fenêtre de Snell » sous l\'eau (vue dans l\'autre sens) a la même demi-ouverture angulaire mais c\'est de la réfraction limite, pas de la réflexion totale.')">\(\theta_{\text{lim}} = \arcsin(n_{\text{air}}/n_{\text{eau}}) \approx 48{,}8°\)</button><button class="q-opt" onclick="quiz(this,false,'Non, l\'angle de Brewster relève d\'une polarisation totale par réflexion, pas d\'une réflexion totale.')">\(\theta_B = \arctan(n_{\text{air}}/n_{\text{eau}}) \approx 37°\)</button></div>
+  <div class="q-expl"></div>
+</div><div class="quiz-card r">
+  <div class="q-text">Lumière naturelle d'intensité \(I_0\) traversant deux polariseurs croisés (axes à 90°). Intensité transmise ?</div>
+  <div class="q-opts"><button class="q-opt" onclick="quiz(this,false,'Non. La lumière naturelle perd la moitié de son intensité au premier polariseur, mais la suite n\'est pas nulle d\'emblée.')">\(I_0/2\)</button><button class="q-opt" onclick="quiz(this,true,'Correct. (i) Premier polariseur : lumière naturelle → polarisation rectiligne, intensité I_0/2. (ii) Second polariseur (axes croisés à 90°) : loi de Malus avec θ = 90°, cos²(90°) = 0. Intensité transmise : 0. C\'est le principe des écrans LCD : pixel éteint = polariseurs croisés.')">\(0\)</button><button class="q-opt" onclick="quiz(this,false,'Non. Si les axes étaient parallèles on aurait I_0/2 ; pour des axes à 45° on aurait I_0/4.')">\(I_0/4\)</button></div>
   <div class="q-expl"></div>
 </div></div>
 </div>
